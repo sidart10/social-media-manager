@@ -1,0 +1,18 @@
+# Generate Talking Head Video Workflow
+name: generate-talking-head
+description: "Create avatar video with HeyGen - your face and voice on camera"
+author: "BMad AI Video Agent"
+
+# Variables
+config_source: "{agent-folder}/ai-video-agent-sidecar/config.yaml"
+platform_specs: "{agent-folder}/ai-video-agent-sidecar/platform-specs.yaml"
+output_folder: "{agent-folder}/ai-video-agent-sidecar/outputs"
+date: system-generated
+
+# This is an action workflow (no template file)
+template: false
+instructions: "{installed_path}/talking-head-instructions.md"
+
+# Output
+default_output_file: "{output_folder}/talking-head_{date}.mp4"
+metadata_file: "{output_folder}/talking-head_{date}.json"

@@ -1,0 +1,156 @@
+# TEST WORKFLOW: LinkedIn Carousel Generation
+# Purpose: Validate JSON-first approach with minimal 3-slide carousel
+# Status: READY FOR TESTING
+
+name: test-linkedin-carousel
+description: "Generate 3-slide LinkedIn carousel using JSON template and MCP servers"
+test_mode: true
+
+# Load configuration
+config_source: "{agent-folder}/ai-image-generator-sidecar/config.yaml"
+template_source: "{agent-folder}/ai-image-generator-sidecar/templates/TEST-linkedin-carousel-ai-agents.json"
+capabilities_doc: "{agent-folder}/ai-image-generator-sidecar/MCP_CAPABILITIES.md"
+
+# Output configuration
+output_folder: "{agent-folder}/ai-image-generator-sidecar/outputs/test-carousel"
+naming_pattern: "linkedin_carousel_ai_agents_slide_{number}.png"
+
+# Workflow steps
+instructions:
+  - step: 0
+    goal: "Load and validate template"
+    actions:
+      - action: "Load COMPLETE JSON template from {template_source}"
+      - action: "Parse and validate JSON structure"
+      - action: "Extract key metadata: slide count (3), platform (LinkedIn), dimensions (1080x1080)"
+      - action: "Show user template summary"
+      - ask: "Template loaded. Ready to proceed with generation? [y/n]"
+
+  - step: 1
+    goal: "Prepare prompts for each slide"
+    actions:
+      - action: "For each slide in template.slides array:"
+      - action: "  1. Extract slide_number"
+      - action: "  2. Extract scene_description from prompt_details"
+      - action: "  3. Extract typography specs"
+      - action: "  4. Extract composition rules"
+      - action: "  5. Extract color_palette"
+      - action: "  6. Combine into comprehensive prompt"
+      - action: "Show user all 3 prepared prompts for review"
+      - ask: "Review prompts. Continue to generation? [y/n]"
+
+  - step: 2
+    goal: "Select provider and verify availability"
+    actions:
+      - action: "Load MCP capabilities from {capabilities_doc}"
+      - action: "Check template.provider_routing.recommended_provider (should be 'openai')"
+      - action: "Verify MCP server 'gpt-image-1' is available"
+      - check if="MCP server available">
+        <action>Proceed to generation</action>
+      </check>
+      - check if="MCP server unavailable">
+        <action>Show error: 'OpenAI gpt-image-1 MCP server not found. Please install per MCP_SETUP.md'</action>
+        <action>Offer fallback to nanobanana if available</action>
+        <ask>Try fallback provider or abort? [fallback/abort]</ask>
+      </check>
+
+  - step: 3
+    goal: "Generate Slide 1 (Title Slide)"
+    actions:
+      - action: "Construct full prompt for Slide 1:"
+      - action: "  PRIMARY: scene_description from template"
+      - action: "  APPEND: Typography specs"
+      - action: "  APPEND: Composition rules"
+      - action: "  APPEND: Color palette"
+      - action: "  APPEND: Quality standards"
+      - action: "  APPEND: Negative prompt array (join with commas)"
+      - action: "Call MCP tool: mcp__gpt-image-1__generate_image"
+      - action: "  Parameters:"
+      - action: "    - prompt: [constructed prompt]"
+      - action: "    - size: 1024x1024 (closest to 1080x1080)"
+      - action: "    - quality: high"
+      - action: "    - format: png"
+      - action: "Wait for generation (may take 15-30 seconds)"
+      - action: "Save result to: {output_folder}/linkedin_carousel_ai_agents_slide_1.png"
+      - action: "Create metadata JSON: {output_folder}/linkedin_carousel_ai_agents_slide_1_metadata.json"
+      - action: "Show user generated image"
+      - ask: "Slide 1 generated. Quality acceptable? [y/n/regenerate]"
+
+  - step: 4
+    goal: "Generate Slide 2 (Diagram)"
+    actions:
+      - action: "Construct full prompt for Slide 2 (diagram specs)"
+      - action: "Call MCP tool: mcp__gpt-image-1__generate_image"
+      - action: "Save result to: {output_folder}/linkedin_carousel_ai_agents_slide_2.png"
+      - action: "Create metadata JSON"
+      - action: "Show user generated image"
+      - ask: "Slide 2 generated. Quality acceptable? [y/n/regenerate]"
+
+  - step: 5
+    goal: "Generate Slide 3 (Process Flow)"
+    actions:
+      - action: "Construct full prompt for Slide 3 (flowchart specs)"
+      - action: "Call MCP tool: mcp__gpt-image-1__generate_image"
+      - action: "Save result to: {output_folder}/linkedin_carousel_ai_agents_slide_3.png"
+      - action: "Create metadata JSON"
+      - action: "Show user generated image"
+      - ask: "Slide 3 generated. Quality acceptable? [y/n/regenerate]"
+
+  - step: 6
+    goal: "Review complete carousel"
+    actions:
+      - action: "Display all 3 slides in sequence"
+      - action: "Check consistency:"
+      - action: "  - Color palette matches across slides"
+      - action: "  - Typography consistent"
+      - action: "  - Branding coherent"
+      - action: "  - Dimensions correct (1080x1080 each)"
+      - action: "Generate carousel summary report"
+    template-output: carousel_complete
+
+  - step: 7
+    goal: "Document test results"
+    actions:
+      - action: "Create test report: {output_folder}/TEST_REPORT.md"
+      - action: "Document:"
+      - action: "  ✅ What worked well"
+      - action: "  ❌ What failed or needs improvement"
+      - action: "  📝 JSON template quality"
+      - action: "  🎨 Visual output quality"
+      - action: "  ⚡ Provider performance"
+      - action: "  🔧 Needed refinements"
+      - action: "Show report to user"
+    template-output: test_report
+
+# Test success criteria
+validation:
+  required_outputs:
+    - "3 PNG files (slides 1-3)"
+    - "3 metadata JSON files"
+    - "TEST_REPORT.md"
+  quality_checks:
+    - "Text is legible (minimum 16px readable)"
+    - "Colors match template palette"
+    - "Dimensions are 1024x1024 or higher"
+    - "No artifacts or compression issues"
+  workflow_checks:
+    - "Template loaded successfully"
+    - "MCP server responded"
+    - "All 3 images generated"
+    - "Files saved correctly"
+
+# Notes for manual execution
+execution_notes: |
+  This is a TEST workflow - execute manually to validate:
+
+  1. JSON template structure is complete
+  2. Prompt construction works correctly
+  3. MCP server integration functions
+  4. Output quality meets standards
+  5. Workflow is user-friendly
+
+  After successful test:
+  - Refine JSON template based on results
+  - Update prompt construction logic
+  - Build full production workflows
+  - Add quality critique system

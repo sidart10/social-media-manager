@@ -1,0 +1,211 @@
+# Platform Specifications for Social Media Image Generation
+# Optimized dimensions and requirements for each platform
+
+platforms:
+  instagram:
+    display_name: "Instagram"
+    presets:
+      square:
+        aspect_ratio: "1:1"
+        recommended_size: "1080x1080"
+        min_size: "600x600"
+        description: "Standard square post"
+
+      portrait:
+        aspect_ratio: "4:5"
+        recommended_size: "1080x1350"
+        min_size: "600x750"
+        description: "Portrait/vertical post"
+
+      landscape:
+        aspect_ratio: "1.91:1"
+        recommended_size: "1080x566"
+        min_size: "600x315"
+        description: "Landscape/horizontal post"
+
+      carousel:
+        aspect_ratio: "1:1"
+        recommended_size: "1080x1080"
+        min_size: "600x600"
+        max_items: 10
+        description: "Multi-image carousel (2-10 images)"
+
+      story:
+        aspect_ratio: "9:16"
+        recommended_size: "1080x1920"
+        min_size: "600x1067"
+        description: "Story format"
+
+      reel_cover:
+        aspect_ratio: "9:16"
+        recommended_size: "1080x1920"
+        description: "Reel cover image"
+
+    caption:
+      max_length: 2200
+      hashtag_limit: 30
+
+    best_practices:
+      - "Use square (1:1) for maximum visibility in feed"
+      - "Carousels have 1.4x higher reach than single images"
+      - "First image in carousel is crucial for stopping scroll"
+      - "Keep important content in center (profile pics can cover corners)"
+
+  twitter:
+    display_name: "X (Twitter)"
+    presets:
+      standard:
+        aspect_ratio: "16:9"
+        recommended_size: "1200x675"
+        min_size: "600x335"
+        description: "Standard tweet image"
+
+      large:
+        aspect_ratio: "2:1"
+        recommended_size: "1200x600"
+        min_size: "600x300"
+        description: "Large summary card"
+
+      header:
+        aspect_ratio: "3:1"
+        recommended_size: "1500x500"
+        min_size: "1500x500"
+        description: "Profile header image"
+
+      thread:
+        aspect_ratio: "16:9"
+        recommended_size: "1200x675"
+        max_items: 4
+        description: "Multi-image thread (up to 4 images)"
+
+    caption:
+      max_length: 280
+      media_reduces_count: false
+
+    best_practices:
+      - "16:9 images display largest in timeline"
+      - "Use 2-4 images for higher engagement"
+      - "High contrast and bold text perform well"
+      - "First image determines preview in timeline"
+
+  linkedin:
+    display_name: "LinkedIn"
+    presets:
+      standard:
+        aspect_ratio: "1.91:1"
+        recommended_size: "1200x628"
+        min_size: "552x289"
+        description: "Standard post image"
+
+      square:
+        aspect_ratio: "1:1"
+        recommended_size: "1200x1200"
+        min_size: "552x552"
+        description: "Square post image"
+
+      carousel:
+        aspect_ratio: "1:1"
+        recommended_size: "1080x1080"
+        max_items: 10
+        description: "Document/carousel post"
+
+      banner:
+        aspect_ratio: "4:1"
+        recommended_size: "1584x396"
+        min_size: "1584x396"
+        description: "Profile banner image"
+
+      company_logo:
+        aspect_ratio: "1:1"
+        recommended_size: "300x300"
+        min_size: "300x300"
+        description: "Company page logo"
+
+    caption:
+      max_length: 3000
+      ideal_length: 150
+
+    best_practices:
+      - "Professional, high-quality imagery performs best"
+      - "Text overlays should be clear and business-appropriate"
+      - "Carousels generate 2x engagement vs single images"
+      - "Use 1200x628 for link previews"
+
+  facebook:
+    display_name: "Facebook"
+    presets:
+      standard:
+        aspect_ratio: "1.91:1"
+        recommended_size: "1200x630"
+        min_size: "600x315"
+        description: "Standard post image"
+
+      square:
+        aspect_ratio: "1:1"
+        recommended_size: "1080x1080"
+        description: "Square post"
+
+      story:
+        aspect_ratio: "9:16"
+        recommended_size: "1080x1920"
+        description: "Story format"
+
+      cover:
+        aspect_ratio: "2.7:1"
+        recommended_size: "820x312"
+        min_size: "820x312"
+        description: "Profile cover photo"
+
+    caption:
+      max_length: 63206
+      ideal_length: 80
+
+    best_practices:
+      - "Square and vertical images take up more feed space"
+      - "Keep text overlays minimal (less than 20% of image)"
+      - "High-quality, authentic imagery performs best"
+
+# General recommendations across all platforms
+general_best_practices:
+  - "Always export at highest quality supported"
+  - "Use consistent branding across platforms"
+  - "Test images on mobile first (80% of social media is mobile)"
+  - "Include alt text for accessibility"
+  - "Avoid heavy text in images (platform algorithms penalize)"
+  - "Use high contrast for readability"
+  - "Keep focal point in center for all platforms"
+
+# File format recommendations
+file_formats:
+  preferred: "PNG"
+  alternatives:
+    - format: "JPEG"
+      use_case: "Photos, complex images with many colors"
+      quality: 85-95
+    - format: "WebP"
+      use_case: "Modern browsers, smaller file sizes"
+      quality: 80-90
+
+  avoid:
+    - "GIF for static images (use PNG instead)"
+    - "BMP (not supported on most platforms)"
+
+# Accessibility guidelines
+accessibility:
+  alt_text:
+    required: true
+    max_length: 125
+    tips:
+      - "Describe the image concisely"
+      - "Include important text from the image"
+      - "Don't start with 'Image of' or 'Picture of'"
+      - "Be specific about colors, emotions, actions"
+
+  contrast:
+    minimum_ratio: 4.5
+    preferred_ratio: 7
+
+  text_overlays:
+    min_font_size: "24px"
+    readable_fonts: true
+    background_contrast: true

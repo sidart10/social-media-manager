@@ -1,0 +1,106 @@
+{
+  "prompt_metadata": {
+    "content_type": "linkedin_carousel_tech",
+    "test_case": true,
+    "creative_goal": "Educate LinkedIn audience on AI Agent Architecture with sophisticated dark tech diagrams",
+    "target_audience": "Software engineers, AI practitioners, tech leaders",
+    "key_message": "Modern AI agents use modular architecture with tools, memory, and planning",
+    "design_system": "high_contrast_monochrome_tech"
+  },
+
+  "platform_specs": {
+    "platform": "linkedin",
+    "preset": "carousel",
+    "aspect_ratio": "16:9",
+    "aspect_ratio_options": ["1:1", "16:9", "9:16", "4:5", "2:3"],
+    "dimensions_by_ratio": {
+      "1:1": "1080x1080",
+      "16:9": "1920x1080",
+      "9:16": "1080x1920",
+      "4:5": "1080x1350",
+      "2:3": "1080x1620"
+    },
+    "count": 3,
+    "file_format": "PNG",
+    "note": "Currently set to 16:9 landscape format"
+  },
+
+  "design_system": {
+    "colors": {
+      "background_primary": "#0B0B0B",
+      "text_primary": "#FFFFFF",
+      "text_secondary": "#D4D4D4",
+      "accent_subtle": "#3D3D3D",
+      "border_color": "rgba(255, 255, 255, 0.1)",
+      "card_background": "#181818"
+    },
+    "typography": {
+      "primary_font": "Inter, sans-serif",
+      "monospace_font": "Roboto Mono, monospace",
+      "main_heading": "56pt, weight 300",
+      "subheading": "28-32pt, weight 300",
+      "body_text": "22-24pt, weight 300",
+      "footer": "14pt, weight 300",
+      "letter_spacing": "-0.02em for headings"
+    }
+  },
+
+  "slides": [
+    {
+      "slide_number": 1,
+      "slide_type": "title_slide",
+      "theme_color": "#4ADE80",
+      "prompt": "Professional tech carousel slide, 1920x1080px 16:9 format, sophisticated dark monochrome aesthetic. Deep black background (#0B0B0B). Centered layout with generous vertical spacing. Center of canvas: Large hero title 'AI Agent Architecture' in Inter font 72pt weight 300, white (#FFFFFF), letter-spacing -0.02em, perfectly centered. Directly below (32px gap): Subtitle 'The Modern Framework' in Inter 28pt weight 300, light gray (#D4D4D4), centered. Background has subtle minimal geometric pattern of interconnected nodes/dots in very dark gray (rgba(255,255,255,0.03)), creating neural network visual metaphor without being distracting. Bottom left corner (96px from edges): Small text 'Slide 1 of 3' in Inter 14pt weight 300, dark gray (#3D3D3D). Apply subtle noise texture overlay at 0.03 opacity across entire canvas. Minimalist, high-contrast, professional tech aesthetic with maximum breathing room (60% negative space).",
+      "negative_prompt": "cluttered, busy, colorful, gradients, low contrast, small fonts, stock photos, realistic images, 3D renders, drop shadows, glows, multiple colors, decorative elements, light backgrounds, white backgrounds, bright colors, cartoons, illustrations, amateur, messy, complex patterns"
+    },
+
+    {
+      "slide_number": 2,
+      "slide_type": "diagram",
+      "theme_color": "#4ADE80",
+      "prompt": "Professional tech carousel slide, 1920x1080px 16:9 format, sophisticated dark monochrome aesthetic. Deep black background (#0B0B0B). Top left: Title 'Core Components' in Inter 42pt weight 300, white (#FFFFFF), 96px from left, 72px from top. Center area: Hub-and-spoke architecture diagram. Center node: Large rounded rectangle (280x140px, border-radius 8px) with vibrant green border (2px solid #4ADE80), dark fill (#181818), text 'LLM Brain' in Inter 24pt weight 300 white, centered. Four satellite nodes connected via 1.5px stroke lines (#D4D4D4) with small arrowheads: Top node 'Planning Layer' (220x100px, same style but white border rgba(255,255,255,0.2)), Right node 'Memory Store', Bottom node 'Execution Layer', Left node 'Tools & APIs'. All satellites use dark background (#181818), 1px white border rgba(255,255,255,0.1), Inter 20pt weight 300 white text. Bidirectional arrows showing data flow. Spacing 80px between nodes. Bottom left: 'Slide 2 of 3' in Inter 14pt weight 300, dark gray (#3D3D3D). Subtle noise texture 0.03 opacity. Clean, minimal, technical diagram with generous white space (35%).",
+      "negative_prompt": "cluttered, busy, colorful, multiple accent colors, gradients, low contrast, stock photos, 3D objects, drop shadows, glows, decorative elements, light backgrounds, cartoons, amateur, messy, thick borders, rounded corners everywhere"
+    },
+
+    {
+      "slide_number": 3,
+      "slide_type": "process_flow",
+      "theme_color": "#C084FC",
+      "prompt": "Professional tech carousel slide, 1920x1080px 16:9 format, sophisticated dark monochrome aesthetic. Deep black background (#0B0B0B). Top left: Title 'Agent Workflow' in Inter 42pt weight 300, white (#FFFFFF), 96px from left, 72px from top. Center-left area: Vertical flowchart showing 5-step process. Five step cards stacked vertically (each 480px wide × 100px tall), dark background (#181818), 1px border rgba(255,255,255,0.1), border-radius 4px, 32px vertical gap between. Each card has: Left side numbered badge (56px circle, purple accent #C084FC, white text Inter 24pt weight 500), Right side step text in Inter 22pt weight 300 white: Card 1 'Receive Task', Card 2 'Plan Approach', Card 3 'Execute Tools', Card 4 'Update Memory', Card 5 'Deliver Result'. Thin connector lines (1px #3D3D3D) with small downward arrows between cards. Bottom: Small CTA text 'Follow for more AI insights' in Inter 16pt weight 300, light gray (#D4D4D4), bottom-right corner 96px from edges. Bottom left: 'Slide 3 of 3' in Inter 14pt weight 300, dark gray (#3D3D3D). Subtle noise texture 0.03 opacity. Clean vertical flow, minimal, professional tech design.",
+      "negative_prompt": "cluttered, busy, colorful backgrounds, multiple accent colors, gradients, low contrast, stock photos, 3D renders, drop shadows, glows, decorative elements, light backgrounds, cartoons, amateur, messy"
+    }
+  ],
+
+  "global_style_rules": {
+    "aesthetic": "Minimalist high-contrast monochrome tech aesthetic",
+    "grid_system": "12-column with precise alignment",
+    "spacing": "Generous negative space, minimum 35-60%",
+    "contrast": "Maximum contrast - deep black background, white text",
+    "accent_usage": "Single accent color per slide",
+    "texture": "Subtle noise 0.03 opacity for tactile feel"
+  },
+
+  "global_negative_prompt": [
+    "cluttered, overcrowded, busy layout, cramped spacing",
+    "colorful backgrounds, gradients, patterns beyond subtle noise",
+    "low contrast, washed out colors, faded",
+    "stock photos, realistic images, photographic elements, people",
+    "cheesy graphics, clip-art, decorative icons",
+    "3D rendered objects, depth effects, skeuomorphism",
+    "drop shadows, glows, blur effects, inner shadows",
+    "multiple accent colors, rainbow colors, neon, saturated",
+    "decorative elements without function, ornamental",
+    "heavy borders, thick strokes, double borders",
+    "light backgrounds, white backgrounds, bright colors",
+    "cartoons, illustrations, hand-drawn, sketchy",
+    "amateur, unprofessional, messy, unaligned",
+    "overly rounded, soft design everywhere",
+    "small fonts, poor hierarchy, inconsistent typography"
+  ],
+
+  "provider_routing": {
+    "recommended_provider": "openai",
+    "reasoning": "Technical diagrams with precise typography and geometric elements - OpenAI gpt-image-1 excels at structured layouts",
+    "fallback": "nanobanana"
+  }
+}

@@ -1,0 +1,243 @@
+# Generate Single Image Workflow
+# Purpose: Create one optimized image for social media
+# Status: PRODUCTION READY - MCP Integration Complete
+
+name: generate-single
+description: "Generate a single high-quality image optimized for specified platform using MCP-powered AI generation"
+author: "AI Image Generator Agent"
+version: "1.0.0"
+
+# Configuration
+config_source: "{agent-folder}/ai-image-generator-sidecar/config.yaml"
+capabilities_doc: "{agent-folder}/ai-image-generator-sidecar/MCP_CAPABILITIES.md"
+template_folder: "{agent-folder}/ai-image-generator-sidecar/templates"
+output_folder: "{agent-folder}/ai-image-generator-sidecar/outputs"
+
+# This is an action workflow
+template: false
+
+# Instructions
+instructions:
+  - step: 1
+    goal: "Gather image requirements"
+
+    <ask>What should the image show? (Describe your vision)</ask>
+    <action>Store as {{prompt_description}}</action>
+
+    <ask>Which platform is this for?
+    1. LinkedIn (professional, 16:9 or 1:1)
+    2. Instagram (square 1:1 or portrait 4:5)
+    3. Twitter/X (landscape 16:9)
+    4. Custom
+    </ask>
+    <action>Store as {{platform}}</action>
+
+    <ask>Image style?
+    1. Dark monochrome tech aesthetic (professional/LinkedIn)
+    2. Photorealistic (fashion, portraits, products)
+    3. Vibrant social (Instagram-style)
+    4. Custom (describe)
+    </ask>
+    <action>Store as {{style_choice}}</action>
+
+    <check if="style_choice == custom">
+      <ask>Describe your desired style:</ask>
+      <action>Store as {{custom_style}}</action>
+    </check>
+
+  - step: 2
+    goal: "Select aspect ratio and size"
+
+    <action>Based on platform, suggest aspect ratio:</action>
+    <check if="platform == LinkedIn">
+      <action>Recommend: 16:9 (landscape) or 1:1 (square)</action>
+    </check>
+    <check if="platform == Instagram">
+      <action>Recommend: 1:1 (square) or 4:5 (portrait)</action>
+    </check>
+    <check if="platform == Twitter">
+      <action>Recommend: 16:9 (landscape)</action>
+    </check>
+
+    <ask>Aspect ratio? [1:1 / 16:9 / 9:16 / 4:5 / custom]</ask>
+    <action>Store as {{aspect_ratio}}</action>
+
+    <action>Map to supported size:</action>
+    <action>- If "1:1" → 1024x1024</action>
+    <action>- If "16:9" → 1536x1024</action>
+    <action>- If "9:16" → 1024x1536</action>
+    <action>- If "4:5" → 1024x1536</action>
+    <action>Store as {{size}}</action>
+
+  - step: 3
+    goal: "Construct comprehensive prompt"
+
+    <action>Load best practices framework:</action>
+    <action>Read: {agent-folder}/ai-image-generator-sidecar/best-practices-framework.md</action>
+
+    <check if="style_choice == dark monochrome tech">
+      <action>Apply dark design system:</action>
+      <action>- Background: Deep black (#0B0B0B)</action>
+      <action>- Text: White (#FFFFFF) and light gray (#D4D4D4)</action>
+      <action>- Typography: Inter font, weight 300</action>
+      <action>- Layout: 12-column grid, generous spacing</action>
+      <action>- Texture: Subtle noise overlay 0.03 opacity</action>
+    </check>
+
+    <check if="style_choice == photorealistic">
+      <action>Apply Emily's framework:</action>
+      <action>- Camera specs (lens, aperture, ISO)</action>
+      <action>- Lighting details</action>
+      <action>- Subject definition</action>
+      <action>- Composition rules</action>
+    </check>
+
+    <check if="style_choice == vibrant social">
+      <action>Apply Instagram aesthetic:</action>
+      <action>- Bright, saturated colors</action>
+      <action>- Eye-catching composition</action>
+      <action>- Engaging elements</action>
+    </check>
+
+    <action>Construct full prompt from:</action>
+    <action>- User description: {{prompt_description}}</action>
+    <action>- Style specifications</action>
+    <action>- Technical details (size, format)</action>
+    <action>- Quality standards</action>
+
+    <action>Add comprehensive negative prompts (minimum 10 items)</action>
+
+    <action>Store as {{full_prompt}}</action>
+
+    <action>Show prompt to user for review</action>
+    <ask>Prompt looks good? [y/edit]</ask>
+
+    <check if="edit">
+      <ask>What should I change?</ask>
+      <action>Update prompt based on feedback</action>
+    </check>
+
+  - step: 4
+    goal: "Confirm and prepare for generation"
+
+    <action>Create descriptive filename from topic/description</action>
+    <action>Store as {{filename}}</action>
+
+    <action>Display generation summary:</action>
+    <action>
+    Ready to generate:
+
+    Description: {{prompt_description}}
+    Platform: {{platform}}
+    Size: {{size}} ({{aspect_ratio}})
+    Style: {{style_choice}}
+    Provider: OpenAI gpt-image-1
+    Est. Time: 3 seconds
+    Output: outputs/single-images/{{filename}}.png
+    </action>
+
+    <ask>Generate now? [y/n]</ask>
+
+  - step: 5
+    goal: "Generate image via MCP"
+
+    <action>Create output folder:</action>
+    <action>Bash: mkdir -p "{{output_folder}}/single-images"</action>
+
+    <action>Show: "Generating... (est. 3 seconds)"</action>
+
+    <action>Record start_time</action>
+
+    <action>Generate using MCP:</action>
+    <action>
+    result = mcp__gpt-image-1__create_image({
+      prompt: full_prompt,
+      size: size,
+      quality: "high",
+      output_format: "png"
+    })
+    </action>
+
+    <action>Record end_time</action>
+
+    <action>Extract mcp_file_path from result</action>
+
+    <action>Copy to agent outputs:</action>
+    <action>Bash: cp "{{mcp_file_path}}" "{{output_folder}}/single-images/{{filename}}.png"</action>
+
+    <action>Get file info: ls -lh</action>
+
+  - step: 6
+    goal: "Create metadata and present result"
+
+    <action>Create metadata JSON:</action>
+    <action>
+    Write: {{output_folder}}/single-images/{{filename}}_metadata.json
+    (Same structure as carousel metadata)
+    </action>
+
+    <action>Display result:</action>
+    <action>
+    ✅ Image generated successfully!
+
+    File: {{filename}}.png ({{file_size}}MB)
+    Location: {{output_folder}}/single-images/
+    Time: {{generation_time}} seconds
+    Provider: OpenAI gpt-image-1
+    </action>
+
+    <template-output>generation_complete</template-output>
+
+  - step: 7
+    goal: "Quality review and next actions"
+
+    <ask>Would you like to:
+    1. Review quality (7-pillar scoring)
+    2. Generate caption and alt-text
+    3. Regenerate with changes
+    4. Generate another image
+    5. Done
+    </ask>
+
+    <check if="option 1">
+      <action>Run 7-pillar quality evaluation</action>
+      <action>Update metadata with scores</action>
+      <check if="score < 7">
+        <action>Recommend improvements</action>
+        <ask>Regenerate? [y/n]</ask>
+      </check>
+    </check>
+
+    <check if="option 2">
+      <action>Analyze image content</action>
+      <action>Generate platform-appropriate caption</action>
+      <action>Generate alt-text for accessibility</action>
+      <action>Suggest 3-5 hashtags</action>
+      <action>Save to {{filename}}_caption.md</action>
+    </check>
+
+    <check if="option 3">
+      <ask>What changes?</ask>
+      <goto step="3">Update prompt and regenerate</goto>
+    </check>
+
+    <check if="option 4">
+      <goto step="1">Start new image</goto>
+    </check>
+
+# Validation
+validation:
+  required_outputs:
+    - "Image PNG file"
+    - "Metadata JSON file"
+
+  quality_checks:
+    - "File saved successfully"
+    - "Metadata complete"
+    - "Correct size and format"
+
+# Notes
+notes: |
+  Simplified version of carousel workflow for single image generation.
+  Uses same MCP tools and quality standards.
+  Faster interaction (fewer prompts) for quick generation.

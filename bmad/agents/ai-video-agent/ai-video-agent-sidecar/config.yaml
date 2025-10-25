@@ -1,0 +1,82 @@
+# AI Video Agent Configuration
+# Store your API keys and preferences here
+# IMPORTANT: This file should be added to .gitignore
+
+# API Keys (REQUIRED - Loaded from project .env)
+api_keys:
+  heygen_api_key: '${HEYGEN_API_KEY}'
+  gemini_api_key: '${GEMINI_API_KEY}'
+  openai_api_key: '${OPENAI_API_KEY}'
+
+# Provider Settings
+providers:
+  default_talking_head: heygen
+  default_scene_generation: veo
+
+  heygen:
+    enabled: true
+    default_avatar_id: null  # Set after setup-avatars
+    default_voice_id: null   # Set after setup-avatars
+    caption_enabled: true    # Always ON by default (80% muted viewing)
+    webhook_enabled: false   # Enable for production
+
+  veo:
+    enabled: true
+    model: 'veo-3.1-generate-preview'  # Options: veo-3.1-generate-preview, veo-3.1-fast-generate-preview
+    default_resolution: '720p'
+    default_duration_sec: '8'
+    default_aspect_ratio: '16:9'
+
+  sora:
+    enabled: false  # Feature-flagged, enable when API access available
+    model: 'sora-2'
+
+# Platform Defaults
+platform:
+  default: instagram  # Default platform for quick commands
+
+# Generation Settings
+generation:
+  default_captions: true
+  default_hook_duration_sec: 1.5  # Recommended hook length
+  auto_cost_estimate: true
+  max_cost_per_video_usd: 5.0  # Safety limit
+  queue_poll_interval_sec: 5
+  max_queue_wait_minutes: 10
+
+# Output Settings
+output:
+  folder: './outputs'
+  naming_pattern: '{platform}_{provider}_{timestamp}'  # e.g., reels_heygen_20251025_143022
+  organize_by_date: true
+  include_metadata: true  # Save JSON metadata with each video
+  preserve_watermarks: true  # Never strip C2PA/watermarks
+
+# Consent & Safety
+consent:
+  require_avatar_consent: true
+  consent_artifacts_folder: './consent'
+  block_unconsented_avatars: true
+
+# Cost Tracking
+cost_tracking:
+  enabled: true
+  log_file: './cost-log.json'
+  alert_threshold_usd: 10.0  # Alert if daily cost exceeds
+
+# MCP Server Configuration
+mcp_servers:
+  heygen:
+    server_name: 'heygen'
+    tool_prefix: 'mcp__heygen__'
+
+  veo:
+    server_name: 'veo'
+    tool_prefix: 'mcp__veo__'
+
+# Advanced Settings
+advanced:
+  retry_attempts: 3
+  timeout_seconds: 600  # 10 minutes for video generation
+  cache_avatar_list: true
+  log_generations: true

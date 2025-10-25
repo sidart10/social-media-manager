@@ -1,0 +1,109 @@
+# Platform Video Specifications
+# Algorithm preferences and technical requirements for each platform
+
+instagram:
+  reels:
+    aspect_ratio: '9:16'
+    recommended_duration_sec: [15, 30, 60, 90]
+    max_duration_sec: 90
+    min_duration_sec: 3
+    resolution: '1080x1920'
+    fps: 30
+    captions_required: true
+    hook_critical_seconds: 1.5
+    algorithm_notes: |
+      - Hook in first 1.5s is critical for retention
+      - Captions increase watch time by 40%
+      - 9:16 gets more reach than 4:5
+      - Original audio boosts algorithm
+
+  feed:
+    aspect_ratio: '4:5'
+    recommended_duration_sec: [60, 120]
+    max_duration_sec: 3600
+    resolution: '1080x1350'
+    fps: 30
+    captions_recommended: true
+
+youtube:
+  shorts:
+    aspect_ratio: '9:16'
+    recommended_duration_sec: [15, 30, 45]
+    max_duration_sec: 60
+    min_duration_sec: 1
+    resolution: '1080x1920'
+    fps: 30
+    captions_required: true
+    hook_critical_seconds: 3
+    algorithm_notes: |
+      - First 3 seconds determine if YouTube promotes
+      - Retention rate is key metric
+      - Captions boost accessibility score
+      - Vertical only (no letterboxing)
+
+  standard:
+    aspect_ratio: '16:9'
+    recommended_duration_sec: [480, 600, 900]  # 8-15 minutes
+    resolution: '1920x1080'
+    fps: [30, 60]
+    captions_recommended: true
+    chapters_recommended: true
+    hook_critical_seconds: 8
+    algorithm_notes: |
+      - First 8-10 seconds = AVD (average view duration) critical
+      - 8+ minute videos get more ad revenue
+      - Chapters improve retention
+      - 1080p60 preferred by algorithm
+
+tiktok:
+  standard:
+    aspect_ratio: '9:16'
+    recommended_duration_sec: [7, 15, 21, 30, 60]
+    max_duration_sec: 600  # 10 minutes
+    min_duration_sec: 3
+    resolution: '1080x1920'
+    fps: 30
+    captions_required: true
+    hook_critical_seconds: 1
+    algorithm_notes: |
+      - Hook in first 1 second or scroll
+      - Sound/music critical for For You Page
+      - Captions increase completion rate
+      - 7-15s = highest engagement
+      - Trending audio boosts reach
+
+linkedin:
+  feed:
+    aspect_ratio: '16:9'
+    recommended_duration_sec: [30, 60, 90]
+    max_duration_sec: 600
+    resolution: '1920x1080'
+    fps: 30
+    captions_required: true
+    algorithm_notes: |
+      - Professional tone critical
+      - Captions mandatory (85% watch muted at work)
+      - Thought leadership performs best
+      - 30-90s sweet spot for engagement
+
+twitter_x:
+  feed:
+    aspect_ratio: '16:9'
+    recommended_duration_sec: [15, 30, 45]
+    max_duration_sec: 140
+    resolution: '1280x720'
+    fps: 30
+    captions_recommended: true
+    algorithm_notes: |
+      - Keep it punchy and fast
+      - Auto-play in feed (muted first)
+      - Native video outperforms links
+      - Controversy/hot takes perform
+
+# Default specs when platform not specified
+default:
+  aspect_ratio: '16:9'
+  duration_sec: 30
+  resolution: '1920x1080'
+  fps: 30
+  captions_enabled: true

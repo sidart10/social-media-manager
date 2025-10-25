@@ -1,0 +1,352 @@
+# Generate Carousel Workflow
+# Purpose: Create 2-10 image carousel sets for social media
+# Status: PRODUCTION READY - MCP Integration Complete
+
+name: generate-carousel
+description: "Generate professional carousel image sets optimized for social media platforms using MCP-powered AI generation"
+author: "AI Image Generator Agent"
+version: "1.0.0"
+
+# Configuration
+config_source: "{agent-folder}/ai-image-generator-sidecar/config.yaml"
+capabilities_doc: "{agent-folder}/ai-image-generator-sidecar/MCP_CAPABILITIES.md"
+template_folder: "{agent-folder}/ai-image-generator-sidecar/templates"
+output_folder: "{agent-folder}/ai-image-generator-sidecar/outputs"
+
+# This is an action workflow (no template document)
+template: false
+
+# Instructions
+instructions:
+  - step: 1
+    goal: "Gather carousel requirements from user"
+
+    <ask>What's your carousel topic or theme?</ask>
+
+    <action>Store user response as {{topic}}</action>
+
+    <ask>How many slides do you need? (2-10 recommended for carousels)</ask>
+
+    <action>Store as {{slide_count}} and validate it's between 2-10</action>
+
+    <check if="slide_count < 2 or slide_count > 10">
+      <action>Warn user: "Carousels work best with 2-10 slides. Instagram allows max 10."</action>
+      <ask>Proceed anyway or adjust? [proceed/adjust]</ask>
+    </check>
+
+    <ask>Which platform is this for?
+    1. LinkedIn (professional, tech-focused)
+    2. Instagram (engaging, visual)
+    3. Twitter/X (bold, concise)
+    4. Custom
+    </ask>
+
+    <action>Store as {{platform}}</action>
+
+    <ask>Do you have an existing template to use, or should I create one?
+    1. Use existing template
+    2. Create new template from scratch
+    </ask>
+
+    <action>Store response as {{template_choice}}</action>
+
+  - step: 2
+    goal: "Load or create template"
+
+    <check if="template_choice == use existing">
+      <action>List available templates from {{template_folder}}:</action>
+      <action>- TEST-linkedin-carousel-ai-agents.json (AI/tech diagrams, dark design)</action>
+      <action>- linkedin-carousel-ai-browsers.json (Product showcases)</action>
+      <ask>Which template? Or provide filename:</ask>
+      <action>Read template file using Read tool</action>
+      <action>Store as {{template}}</action>
+    </check>
+
+    <check if="template_choice == create new">
+      <action>Create template based on user requirements</action>
+      <action>Apply design system (dark monochrome tech for LinkedIn, lighter for Instagram)</action>
+      <action>Structure {{slide_count}} slides with proper prompts</action>
+      <action>Include negative prompts</action>
+      <action>Set aspect ratio based on platform</action>
+      <action>Store as {{template}}</action>
+      <ask>Save this template for reuse? [y/n]</ask>
+      <check if="user says yes">
+        <ask>Template filename?</ask>
+        <action>Write template to templates/ folder</action>
+      </check>
+    </check>
+
+    <action>Parse template JSON and extract:</action>
+    <action>- aspect_ratio from platform_specs</action>
+    <action>- slide count from slides array</action>
+    <action>- design_system details</action>
+    <action>- provider_routing recommendation</action>
+
+  - step: 3
+    goal: "Validate specifications and confirm with user"
+
+    <action>Map aspect_ratio to supported OpenAI size:</action>
+    <action>- If "1:1" → 1024x1024</action>
+    <action>- If "16:9" → 1536x1024 (actually 3:2, closest match)</action>
+    <action>- If "9:16" → 1024x1536 (actually 2:3, closest match)</action>
+    <action>- If "4:5" → 1024x1536</action>
+    <action>- If "2:3" → 1024x1536</action>
+    <action>Store as {{validated_size}}</action>
+
+    <action>Display generation summary:</action>
+    <action>
+    Ready to generate carousel:
+
+    Topic: {{topic}}
+    Slides: {{slide_count}}
+    Platform: {{platform}}
+    Size: {{validated_size}} ({{aspect_ratio}})
+    Design: {{design_system.aesthetic}}
+    Provider: {{provider_routing.recommended_provider}}
+    Est. Time: {{slide_count × 3}} seconds (~{{slide_count × 3 / 60}} minutes)
+
+    Output: outputs/{{topic_slug}}/
+    </action>
+
+    <ask>Proceed with generation? [y/n]</ask>
+
+    <check if="user says no">
+      <ask>What would you like to adjust?</ask>
+      <goto step="1">Return to requirements</goto>
+    </check>
+
+  - step: 4
+    goal: "Prepare output folder and load API config"
+
+    <action>Create topic slug from {{topic}}: lowercase, replace spaces with hyphens</action>
+    <action>Store as {{topic_slug}}</action>
+
+    <action>Create output folder using Bash tool:</action>
+    <action>Bash: mkdir -p "{{output_folder}}/{{topic_slug}}"</action>
+
+    <action>Load config.yaml to verify API keys exist</action>
+    <action>Read: {{config_source}}</action>
+
+    <action>Note: MCP tools will use API keys from ~/.claude.json automatically</action>
+
+  - step: 5
+    goal: "Generate each slide via MCP"
+
+    <action>Initialize: current_slide = 0</action>
+
+    <for-each>slide in template.slides</for-each>
+
+    <action>Increment: current_slide += 1</action>
+
+    <action>Show progress: "Generating Slide {{current_slide}} of {{slide_count}}..."</action>
+
+    <action>Extract from slide:</action>
+    <action>- prompt_text = slide.prompt</action>
+    <action>- negative_text = slide.negative_prompt OR template.global_negative_prompt</action>
+    <action>- theme_color = slide.theme_color (if exists)</action>
+
+    <action>Construct full_prompt:</action>
+    <action>If negative_text exists: full_prompt = prompt_text + " Negative: " + join(negative_text, ", ")</action>
+    <action>Else: full_prompt = prompt_text</action>
+
+    <action>Record start_time</action>
+
+    <action>Generate image using MCP tool:</action>
+    <action>
+    result = mcp__gpt-image-1__create_image({
+      prompt: full_prompt,
+      size: validated_size,
+      quality: "high",
+      output_format: "png"
+    })
+    </action>
+
+    <action>Record end_time and calculate generation_time_seconds</action>
+
+    <action>Extract mcp_file_path from result.file_paths[0]</action>
+
+    <action>Copy from MCP location to agent outputs:</action>
+    <action>Bash: cp "{{mcp_file_path}}" "{{output_folder}}/{{topic_slug}}/slide{{current_slide}}.png"</action>
+
+    <action>Get file size using Bash: ls -lh</action>
+
+    <action>Create metadata JSON using Write tool:</action>
+    <action>
+    Write: {{output_folder}}/{{topic_slug}}/slide{{current_slide}}_metadata.json
+    Content: {
+      "slide_number": current_slide,
+      "template_used": template_filename,
+      "topic": topic,
+      "prompt_full": full_prompt,
+      "provider": "openai",
+      "model": "gpt-image-1",
+      "tool_used": "mcp__gpt-image-1__create_image",
+      "size": validated_size,
+      "aspect_ratio_requested": aspect_ratio,
+      "aspect_ratio_actual": "3:2" or "1:1" or "2:3",
+      "quality": "high",
+      "output_format": "png",
+      "timestamp": ISO-8601 timestamp,
+      "generation_time_seconds": generation_time_seconds,
+      "file_path_mcp": mcp_file_path,
+      "file_path_agent": relative path to slide,
+      "file_size_bytes": file_size,
+      "file_size_mb": file_size in MB,
+      "theme_color": theme_color,
+      "design_system": design_system name,
+      "quality_score": {
+        "clarity": 0,
+        "technical_quality": 0,
+        "composition": 0,
+        "color_accuracy": 0,
+        "typography": 0,
+        "professionalism": 0,
+        "prompt_accuracy": 0,
+        "overall": 0,
+        "reviewed": false,
+        "notes": ""
+      }
+    }
+    </action>
+
+    <action>Show completion: "✅ Slide {{current_slide}} complete! ({{file_size_mb}}MB)"</action>
+
+    <template-output>slide_{{current_slide}}_complete</template-output>
+
+  - step: 6
+    goal: "Create carousel summary document"
+
+    <action>Calculate total_file_size and total_generation_time</action>
+
+    <action>Create CAROUSEL_SUMMARY.md using Write tool:</action>
+    <action>
+    Content:
+    # {{topic}} - Carousel Summary
+
+    Generated: {{timestamp}}
+    Topic: {{topic}}
+    Slides: {{slide_count}}
+    Platform: {{platform}}
+    Design: {{design_system.aesthetic}}
+
+    ## Files Generated
+    {{list all slide files with sizes}}
+
+    Total Size: {{total_file_size}}MB
+    Generation Time: {{total_generation_time}} seconds
+
+    ## Specifications
+    - Size: {{validated_size}}
+    - Aspect Ratio: {{aspect_ratio}}
+    - Quality: High
+    - Provider: {{provider}}
+    - Format: PNG
+
+    ## Next Steps
+    1. Review slides visually
+    2. Run quality critique
+    3. Post to {{platform}}
+
+    Location: {{output_folder}}/{{topic_slug}}/
+    </action>
+
+    <action>Write summary to: {{output_folder}}/{{topic_slug}}/CAROUSEL_SUMMARY.md</action>
+
+  - step: 7
+    goal: "Present results and offer next actions"
+
+    <action>Display completion message:</action>
+    <action>
+    🎉 Carousel Generation Complete!
+
+    Generated {{slide_count}} slides in {{total_generation_time}} seconds.
+
+    Files:
+    {{list each slide with filename and size}}
+
+    Location: {{output_folder}}/{{topic_slug}}/
+
+    Total Size: {{total_file_size}}MB
+    </action>
+
+    <action>List generated files using Bash: ls -lh {{output_folder}}/{{topic_slug}}/</action>
+
+    <ask>What would you like to do next?
+    1. Review slides and run quality critique
+    2. Regenerate specific slides
+    3. Generate captions for posting
+    4. Create another carousel
+    5. Exit
+    </ask>
+
+    <check if="option 1 selected">
+      <action>For each slide, offer to display and score</action>
+      <ask>Score this slide using 7-pillar quality framework? [y/n]</ask>
+      <check if="yes">
+        <action>Prompt user to review slide visually</action>
+        <ask>Clarity (1-10): Message understood in <3 seconds?</ask>
+        <ask>Technical Quality (1-10): Sharp, no artifacts?</ask>
+        <ask>Composition (1-10): Good balance, hierarchy?</ask>
+        <ask>Color Accuracy (1-10): Matches template palette?</ask>
+        <ask>Typography (1-10): Legible, proper hierarchy?</ask>
+        <ask>Professionalism (1-10): Enterprise-grade?</ask>
+        <ask>Prompt Accuracy (1-10): All elements present?</ask>
+        <action>Calculate overall score (average)</action>
+        <action>Update metadata JSON with scores</action>
+        <check if="overall < 7">
+          <action>Recommend refinements based on low scores</action>
+          <ask>Regenerate this slide with improvements? [y/n]</ask>
+        </check>
+      </check>
+    </check>
+
+    <check if="option 2 selected">
+      <ask>Which slide number to regenerate?</ask>
+      <ask>What should I change in the prompt?</ask>
+      <action>Load slide metadata</action>
+      <action>Update prompt with changes</action>
+      <goto step="5">Regenerate specific slide</goto>
+    </check>
+
+    <check if="option 3 selected">
+      <action>For each slide, generate platform-appropriate caption</action>
+      <action>Generate accessibility alt-text</action>
+      <action>Suggest hashtags based on topic</action>
+      <action>Save to CAPTIONS.md in carousel folder</action>
+    </check>
+
+    <check if="option 4 selected">
+      <goto step="1">Start new carousel</goto>
+    </check>
+
+# Validation checklist
+validation:
+  required_outputs:
+    - "{{slide_count}} PNG files"
+    - "{{slide_count}} metadata JSON files"
+    - "CAROUSEL_SUMMARY.md"
+
+  quality_checks:
+    - "All files saved successfully"
+    - "File sizes reasonable (1-2MB each)"
+    - "Metadata complete for each slide"
+    - "Topic folder organized"
+
+  workflow_checks:
+    - "Template loaded/created"
+    - "MCP tool responded"
+    - "All slides generated"
+    - "No errors in metadata"
+    - "Summary document created"
+
+# Notes
+notes: |
+  This workflow uses MCP tools for 30x faster generation (3 sec vs 90 sec per image).
+
+  MCP saves to default locations:
+  - OpenAI: ~/Pictures/gpt-image-1/gpt-images/
+  - Nanobanana: ~/nanobanana-images/
+
+  Workflow copies files to agent outputs/ folder for organization.
+
+  Metadata JSON enables reproducibility and quality tracking.
