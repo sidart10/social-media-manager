@@ -1,0 +1,13 @@
+# Generate YouTube Shorts Video Workflow
+name: generate-youtube-short
+description: "Quick YouTube Shorts optimized video (9:16, hook @ 3s, <60s)"
+author: "BMad AI Video Agent"
+
+config_source: "{agent-folder}/ai-video-agent-sidecar/config.yaml"
+platform_specs: "{agent-folder}/ai-video-agent-sidecar/platform-specs.yaml"
+output_folder: "{agent-folder}/ai-video-agent-sidecar/outputs"
+date: system-generated
+
+template: false
+instructions: "{installed_path}/youtube-short-instructions.md"
+default_output_file: "{output_folder}/youtube-short_{date}.mp4"

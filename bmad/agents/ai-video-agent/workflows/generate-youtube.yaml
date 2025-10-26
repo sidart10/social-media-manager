@@ -1,0 +1,13 @@
+# Generate YouTube Standard Video Workflow
+name: generate-youtube
+description: "YouTube standard video (16:9, longer form, chapters)"
+author: "BMad AI Video Agent"
+
+config_source: "{agent-folder}/ai-video-agent-sidecar/config.yaml"
+platform_specs: "{agent-folder}/ai-video-agent-sidecar/platform-specs.yaml"
+output_folder: "{agent-folder}/ai-video-agent-sidecar/outputs"
+date: system-generated
+
+template: false
+instructions: "{installed_path}/youtube-instructions.md"
+default_output_file: "{output_folder}/youtube_{date}.mp4"

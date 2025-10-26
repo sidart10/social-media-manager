@@ -1,0 +1,588 @@
+# Generate Batch Variants Workflow
+# Purpose: Create multiple variants of the same concept for A/B testing and creative exploration
+# Status: PRODUCTION READY - Diversity-driven variant generation
+
+name: generate-batch
+description: "Generate 2-10 variants of the same concept with diversity controls for A/B testing and creative exploration"
+author: "AI Image Generator Agent"
+version: "1.0.0"
+
+# Configuration
+config_source: "{agent-folder}/ai-image-generator-sidecar/config.yaml"
+capabilities_doc: "{agent-folder}/ai-image-generator-sidecar/MCP_CAPABILITIES.md"
+template_folder: "{agent-folder}/ai-image-generator-sidecar/templates"
+output_folder: "{agent-folder}/ai-image-generator-sidecar/outputs"
+
+# This is an action workflow
+template: false
+
+# Diversity strategies
+diversity_strategies:
+  low: "Minor variations - same concept, slightly different execution (composition, colors, details)"
+  medium: "Moderate variations - same theme, different approaches or styles"
+  high: "High variations - same core message, diverse visual interpretations"
+
+# Instructions
+instructions:
+  - step: 1
+    goal: "Understand what user wants variants of"
+
+    <action>Welcome: "Let's create multiple variants of your concept for A/B testing or creative exploration."</action>
+
+    <ask>What's the core concept or prompt?
+
+    Example: "Professional AI agent architecture diagram"
+    Example: "Product announcement for new AI features"
+    Example: "Motivational quote about innovation"
+    </ask>
+
+    <action>Store as {{base_prompt}}</action>
+
+    <ask>How many variants do you want? (2-10 recommended)</ask>
+
+    <action>Store as {{variant_count}}</action>
+
+    <check if="variant_count > 10">
+      <action>Warn: "10+ variants may be overwhelming. Recommend 3-5 for effective A/B testing."</action>
+      <ask>Proceed with {{variant_count}} or adjust? [proceed/adjust]</ask>
+    </check>
+
+  - step: 2
+    goal: "Configure diversity and platform"
+
+    <ask>How different should the variants be?
+    1. Subtle (same concept, minor variations in composition/colors)
+    2. Moderate (same theme, different visual approaches)
+    3. High (same message, diverse creative interpretations)
+    </ask>
+
+    <action>Store as {{diversity_level}}</action>
+
+    <action>Map to diversity parameter:</action>
+    <action>- Subtle → diversity = 0.3</action>
+    <action>- Moderate → diversity = 0.6</action>
+    <action>- High → diversity = 0.9</action>
+
+    <ask>What platform are these for?
+    1. LinkedIn (16:9 landscape, professional)
+    2. Instagram (1:1 square, engaging)
+    3. Twitter/X (16:9 landscape, bold)
+    4. Custom
+    </ask>
+
+    <action>Store as {{platform}}</action>
+
+    <action>Set aspect ratio based on platform:</action>
+    <action>- LinkedIn → "16:9" → 1536x1024</action>
+    <action>- Instagram → "1:1" → 1024x1024</action>
+    <action>- Twitter → "16:9" → 1536x1024</action>
+    <action>Store as {{aspect_ratio}} and {{size}}</action>
+
+  - step: 3
+    goal: "Determine variation strategy"
+
+    <action>Based on diversity level, explain how variants will differ:</action>
+
+    <check if="diversity_level == subtle">
+      <action>Explain: "Variants will have same design but vary in:"</action>
+      <action>- Color accent choices (different accent colors)</action>
+      <action>- Composition tweaks (element placement)</action>
+      <action>- Typography weights or sizes</action>
+      <action>- Background patterns or textures</action>
+    </check>
+
+    <check if="diversity_level == moderate">
+      <action>Explain: "Variants will explore different approaches:"</action>
+      <action>- Different visual metaphors for same concept</action>
+      <action>- Different layout styles (centered, asymmetric, grid)</action>
+      <action>- Different color schemes</action>
+      <action>- Different typography treatments</action>
+    </check>
+
+    <check if="diversity_level == high">
+      <action>Explain: "Variants will be creatively diverse:"</action>
+      <action>- Different artistic styles (minimal, detailed, abstract)</action>
+      <action>- Different design languages (modern, retro, futuristic)</action>
+      <action>- Different visual frameworks (diagram, illustration, photo)</action>
+      <action>- Exploring creative range while keeping core message</action>
+    </check>
+
+    <ask>Apply variations to:
+    1. Design style (colors, layout, typography)
+    2. Visual metaphor (different ways to show same concept)
+    3. Artistic approach (minimal vs detailed, abstract vs literal)
+    4. All of the above
+    </ask>
+
+    <action>Store as {{variation_focus}}</action>
+
+  - step: 4
+    goal: "Construct variant prompts"
+
+    <action>Create base template structure with platform specs</action>
+
+    <action>For each variant (1 to {{variant_count}}):</action>
+
+    <action>Apply diversity strategy to create unique prompt:</action>
+
+    <check if="variation_focus == design style">
+      <action>Variant {{N}} prompt = {{base_prompt}} + different color scheme/layout</action>
+      <action>Example variations:</action>
+      <action>- Variant 1: Blue accent, centered layout</action>
+      <action>- Variant 2: Green accent, asymmetric layout</action>
+      <action>- Variant 3: Purple accent, grid-based layout</action>
+    </check>
+
+    <check if="variation_focus == visual metaphor">
+      <action>Variant {{N}} prompt = {{base_prompt}} + different visual metaphor</action>
+      <action>Example: AI architecture shown as:</action>
+      <action>- Variant 1: Hub-and-spoke diagram</action>
+      <action>- Variant 2: Layered stack visualization</action>
+      <action>- Variant 3: Network graph</action>
+    </check>
+
+    <check if="variation_focus == artistic approach">
+      <action>Variant {{N}} prompt = {{base_prompt}} + different style</action>
+      <action>Example variations:</action>
+      <action>- Variant 1: Minimalist line art</action>
+      <action>- Variant 2: Detailed technical diagram</action>
+      <action>- Variant 3: Abstract geometric</action>
+    </check>
+
+    <check if="variation_focus == all">
+      <action>Combine multiple variation dimensions</action>
+      <action>Each variant differs in: style + metaphor + approach</action>
+    </check>
+
+    <action>Store all variant prompts in array</action>
+
+  - step: 5
+    goal: "Confirm batch generation"
+
+    <action>Display batch generation plan:</action>
+    <action>
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    Batch Variant Generation Plan
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    Base Concept: {{base_prompt}}
+    Variants: {{variant_count}}
+    Diversity: {{diversity_level}} ({{diversity_parameter}})
+    Platform: {{platform}}
+    Size: {{size}} ({{aspect_ratio}})
+
+    Variation Strategy:
+    {{Explain how variants will differ}}
+
+    Preview of variants:
+    {{Show first 3 variant descriptions}}
+
+    Provider: OpenAI gpt-image-1
+    Est. Time: {{variant_count × 3}} seconds (~{{variant_count × 3 / 60}} min)
+
+    Output: outputs/batch-{{topic_slug}}/
+
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    </action>
+
+    <ask>Generate {{variant_count}} variants? [y/n]</ask>
+
+  - step: 6
+    goal: "Prepare output structure"
+
+    <action>Create topic slug from base prompt</action>
+    <action>Store as {{topic_slug}}</action>
+
+    <action>Create output folder:</action>
+    <action>Bash: mkdir -p "{{output_folder}}/batch-{{topic_slug}}"</action>
+
+    <action>Initialize:</action>
+    <action>- current_variant = 0</action>
+    <action>- successful_generations = 0</action>
+    <action>- start_time = now</action>
+
+  - step: 7
+    goal: "Generate all variants via MCP"
+
+    <for-each>variant_prompt in variant_prompts_array</for-each>
+
+    <action>current_variant += 1</action>
+
+    <action>Show progress:</action>
+    <action>"🎨 Generating Variant {{current_variant}} of {{variant_count}}... (est. 3 seconds)"</action>
+    <action>"Approach: {{variant_description}}"</action>
+
+    <action>Record variant_start_time</action>
+
+    <critical>Generate via MCP:</critical>
+    <action>
+    result = mcp__gpt-image-1__create_image({
+      prompt: {{variant_prompt}},
+      size: {{size}},
+      quality: "high",
+      output_format: "png",
+      n: 1
+    })
+    </action>
+
+    <action>Record variant_end_time</action>
+
+    <action>Extract MCP output path from result</action>
+
+    <action>Copy to agent outputs:</action>
+    <action>Bash: cp "{{mcp_output_path}}" "{{output_folder}}/batch-{{topic_slug}}/variant{{current_variant}}.png"</action>
+
+    <action>Get file size</action>
+
+    <action>Create metadata JSON:</action>
+    <action>
+    Write: {{output_folder}}/batch-{{topic_slug}}/variant{{current_variant}}_metadata.json
+
+    Content:
+    {
+      "variant_number": {{current_variant}},
+      "total_variants": {{variant_count}},
+      "base_concept": "{{base_prompt}}",
+      "variant_prompt": "{{variant_prompt}}",
+      "variation_focus": "{{variation_focus}}",
+      "diversity_level": "{{diversity_level}}",
+      "diversity_parameter": {{diversity_parameter}},
+      "provider": "openai",
+      "model": "gpt-image-1",
+      "tool": "mcp__gpt-image-1__create_image",
+      "size": "{{size}}",
+      "aspect_ratio": "{{aspect_ratio}}",
+      "quality": "high",
+      "output_format": "png",
+      "timestamp": "{{ISO-8601}}",
+      "generation_time_seconds": {{variant_time}},
+      "file_path_mcp": "{{mcp_output_path}}",
+      "file_path_agent": "batch-{{topic_slug}}/variant{{current_variant}}.png",
+      "file_size": "{{file_size}}",
+      "platform": "{{platform}}",
+      "user_rating": 0,
+      "notes": ""
+    }
+    </action>
+
+    <action>successful_generations += 1</action>
+
+    <action>Show: "✅ Variant {{current_variant}} complete! ({{file_size}})"</action>
+
+    <template-output>variant_{{current_variant}}_complete</template-output>
+
+  - step: 8
+    goal: "Present all variants for comparison"
+
+    <action>Calculate total_time and total_size</action>
+
+    <action>Show completion:</action>
+    <action>
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    🎉 Batch Generation Complete!
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    Generated {{successful_generations}} variants in {{total_time}} seconds
+
+    Files:
+    {{List all variants with sizes}}
+
+    Total Size: {{total_size}}MB
+    Location: {{output_folder}}/batch-{{topic_slug}}/
+
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    </action>
+
+    <action>List all variant files:</action>
+    <action>Bash: ls -lh "{{output_folder}}/batch-{{topic_slug}}/"</action>
+
+  - step: 9
+    goal: "Help user choose best variants"
+
+    <ask>Would you like to:
+    1. Review and rate each variant (1-10 scoring)
+    2. Pick your favorite(s) and delete others
+    3. Regenerate specific variants
+    4. Use all variants (keep everything)
+    5. Done
+    </ask>
+
+    <action>Store as {{next_action}}</action>
+
+    <check if="option 1">
+      <action>For each variant:</action>
+      <ask>Rate variant{{N}}.png (1-10): How well does this execute the concept?</ask>
+      <action>Store rating in metadata JSON</action>
+      <action>Update metadata file with user rating</action>
+
+      <action>After all ratings:</action>
+      <action>Show ranked list (highest to lowest)</action>
+      <action>Recommend: "Variants {{list top 3}} scored highest. Use these?"</action>
+    </check>
+
+    <check if="option 2">
+      <ask>Which variant numbers do you want to KEEP? (e.g., "1,3,5" or "2")</ask>
+      <action>Store as {{keep_variants}}</action>
+
+      <action>For variants NOT in keep list:</action>
+      <action>Bash: rm "{{output_folder}}/batch-{{topic_slug}}/variant{{N}}.png"</action>
+      <action>Bash: rm "{{output_folder}}/batch-{{topic_slug}}/variant{{N}}_metadata.json"</action>
+
+      <action>Rename kept variants to sequential:</action>
+      <action>variant1.png, variant2.png, etc.</action>
+
+      <action>Show: "✅ Cleaned up! Kept {{count}} best variants."</action>
+    </check>
+
+    <check if="option 3">
+      <ask>Which variant numbers to regenerate? (e.g., "2,5")</ask>
+      <action>Store as {{regenerate_list}}</action>
+
+      <ask>Same prompt or different approach?
+      1. Same prompt (try different seed/variation)
+      2. Adjust prompt (describe changes)
+      </ask>
+
+      <check if="adjust prompt">
+        <ask>What changes for these variants?</ask>
+        <action>Update prompt</action>
+      </check>
+
+      <action>Regenerate selected variants via MCP</action>
+      <action>Save as variant{{N}}_v2.png</action>
+      <action>Update metadata</action>
+    </check>
+
+    <check if="option 4">
+      <action>Keep all variants as-is</action>
+    </check>
+
+  - step: 10
+    goal: "Create batch summary and recommendations"
+
+    <action>Analyze all variants (if rated, use ratings; else analyze prompts)</action>
+
+    <action>Create BATCH_SUMMARY.md:</action>
+    <action>
+    Write: {{output_folder}}/batch-{{topic_slug}}/BATCH_SUMMARY.md
+
+    Content:
+    # Batch Variants - {{base_prompt}}
+
+    **Generated:** {{timestamp}}
+    **Base Concept:** {{base_prompt}}
+    **Variants:** {{variant_count}}
+    **Diversity:** {{diversity_level}} ({{diversity_parameter}})
+    **Platform:** {{platform}}
+
+    ## 📊 Generation Stats
+
+    - **Total Time:** {{total_time}} seconds
+    - **Average per variant:** {{avg_time}}s
+    - **Total File Size:** {{total_size}}MB
+    - **Provider:** OpenAI gpt-image-1 via MCP
+
+    ## 🎨 Variants Generated
+
+    {{For each variant:}}
+    ### Variant {{N}} {{if rated: - Rating: {{rating}}/10}}
+
+    **File:** variant{{N}}.png ({{size}})
+    **Approach:** {{variation_description}}
+    {{if user_rating:}}
+    **User Rating:** {{rating}}/10
+    {{if notes:}}
+    **Notes:** {{notes}}
+
+    ---
+
+    ## 🎯 Recommendations
+
+    {{If ratings exist:}}
+    **Top Performers:**
+    {{List top 3 by rating}}
+
+    **Use for:**
+    - Primary post: Variant {{highest_rated}}
+    - A/B test: Variants {{top_2_or_3}}
+    - Archive rest or repurpose
+
+    {{Else:}}
+    **Next Steps:**
+    - Review all variants visually
+    - Rate each 1-10
+    - Pick top 2-3 for use
+    - Consider A/B testing top performers
+
+    ## 💡 A/B Testing Tips
+
+    **For Effective Testing:**
+    - Post top 2-3 variants at different times
+    - Track engagement (likes, comments, shares, clicks)
+    - Same caption/hashtags for fair comparison
+    - Note which performs best
+    - Use winning style for future content
+
+    **Performance Metrics:**
+    - LinkedIn: Track impressions, engagement rate, profile visits
+    - Instagram: Likes, saves, shares, comments
+    - Twitter: Impressions, engagements, retweets
+
+    ## 📁 Files
+
+    Location: {{output_folder}}/batch-{{topic_slug}}/
+
+    {{List all files}}
+
+    ## 🔄 Next Steps
+
+    1. Review all variants
+    2. Rate or pick favorites
+    3. Test top performers
+    4. Learn what resonates
+    5. Refine future generations
+
+    ---
+
+    *Generated with AI Image Generator Agent*
+    </action>
+
+    <template-output>batch_summary_created</template-output>
+
+  - step: 11
+    goal: "Final presentation and usage guidance"
+
+    <action>Show final message:</action>
+    <action>
+    🎉 Batch Variants Ready!
+
+    Generated {{variant_count}} creative variants of your concept.
+
+    📁 Location: {{output_folder}}/batch-{{topic_slug}}/
+
+    📊 Files:
+    {{List all variants}}
+    - BATCH_SUMMARY.md
+
+    💡 Suggested Next Steps:
+    1. Open folder and review all variants
+    2. Pick your favorites (top 2-3)
+    3. A/B test them to see what performs best
+    4. Use learnings for future content
+
+    {{If rated:}}
+    🏆 Top Rated: Variant {{highest}} ({{rating}}/10)
+    {{End if}}
+
+    Want to generate more variants, refine, or done?
+    </action>
+
+    <ask>Next action?
+    1. Generate more variants (different diversity)
+    2. Refine a specific variant
+    3. Generate variants of different concept
+    4. Done
+    </ask>
+
+    <check if="option 1">
+      <ask>New diversity level? [subtle/moderate/high]</ask>
+      <ask>How many additional variants?</ask>
+      <goto step="2">Generate more with new settings</goto>
+    </check>
+
+    <check if="option 2">
+      <ask>Which variant to refine?</ask>
+      <ask>What changes?</ask>
+      <action>Update prompt and regenerate</action>
+      <action>Save as variant{{N}}_refined.png</action>
+    </check>
+
+    <check if="option 3">
+      <goto step="1">Start new batch</goto>
+    </check>
+
+    <check if="option 4">
+      <action>Workflow complete</action>
+    </check>
+
+# Validation
+validation:
+  required_outputs:
+    - "N variant PNG files"
+    - "N variant metadata JSON files"
+    - "BATCH_SUMMARY.md"
+
+  quality_checks:
+    - "All variants generated successfully"
+    - "Variants show appropriate diversity"
+    - "Consistent quality across variants"
+    - "Metadata complete for each"
+
+  batch_specific:
+    - "Variants are related (same core concept)"
+    - "Variants are distinct (clear differences)"
+    - "Diversity level applied correctly"
+
+# Use Cases
+use_cases: |
+  **A/B Testing:**
+  - Generate 3 variants with moderate diversity
+  - Post each at different times
+  - Track which performs best
+  - Use winning style for future posts
+
+  **Creative Exploration:**
+  - Generate 5-7 variants with high diversity
+  - Explore different visual approaches
+  - Pick unexpected winner
+  - Expand creative range
+
+  **Client Options:**
+  - Generate 3-5 variants with subtle diversity
+  - Present options to client/team
+  - Get feedback
+  - Refine chosen direction
+
+  **Style Testing:**
+  - Test different color schemes
+  - Test different layouts
+  - Test different metaphors
+  - Find what resonates
+
+  **Quick Picks:**
+  - Generate 3 variants
+  - Pick favorite immediately
+  - No overthinking
+  - Move fast
+
+# Notes
+execution_notes: |
+  Batch generation is DIFFERENT from carousel:
+
+  Carousel:
+  - Different content per slide (slide 1, 2, 3...)
+  - Tells a story or explains concepts
+  - Sequential/connected
+  - All slides used together
+
+  Batch:
+  - SAME concept, different executions
+  - For A/B testing and exploration
+  - Independent/standalone
+  - Pick best 1-3 to actually use
+
+  Diversity parameter controls how different variants are:
+  - Low (0.3): Subtle tweaks (colors, composition)
+  - Medium (0.6): Different approaches (style, metaphor)
+  - High (0.9): Creative exploration (diverse interpretations)
+
+  Perfect for:
+  - Finding what resonates before committing
+  - Testing hypotheses (does blue or green perform better?)
+  - Creative exploration (what visual works best?)
+  - Client presentations (show options)
+
+  Use MCP for speed:
+  - 5 variants = 15 seconds (vs 7.5 minutes direct API!)
+  - Fast iteration
+  - Low cost of exploration

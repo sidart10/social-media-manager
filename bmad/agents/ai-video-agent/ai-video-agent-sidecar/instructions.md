@@ -97,28 +97,116 @@ Status: pending → processing → completed | failed
 Output: video URL when completed
 ```
 
-### Veo MCP Server Tools
+### Veo 3 MCP Server Tools
 
-#### Generate Scene
+#### Generate Video from Text
 ```
-Tool: mcp__veo__video_story_generate
+Tool: mcp__veo__generate_video
 Required params:
   - prompt: detailed scene description
-  - aspectRatio: '16:9' | '9:16'
-  - durationSec: '4' | '6' | '8'
 Optional:
-  - model: 'veo-3.1-generate-preview' (quality) | 'veo-3.1-fast-generate-preview' (speed)
-  - resolution: '720p' | '1080p' (1080p only for 8s)
+  - model: 'veo-3.0-generate-preview' (highest quality, default) | 'veo-3.0-fast-generate-preview' (faster) | 'veo-2.0-generate-001' (previous gen)
+  - aspect_ratio: '16:9' (landscape) | '9:16' (vertical)
+  - negative_prompt: what to avoid in generation
+  - output_dir: custom save location (defaults to config)
 
-Returns: job_id
+Returns: video file path and metadata
+Note: This is a blocking call that polls until complete
 ```
 
-#### Check Generation Status
+#### Generate Video from Image
 ```
-Tool: mcp__veo__video_story_status
-Input: job_id from generate
-Blocking: Polls automatically until complete (5min max)
-Returns: {status, video_url, result}
+Tool: mcp__veo__generate_video_from_image
+Required params:
+  - prompt: motion/animation description
+  - image_path: path to starting image
+Optional:
+  - model: same options as generate_video
+  - aspect_ratio: '16:9' | '9:16'
+  - negative_prompt: what to avoid
+
+Returns: video file path
+Use: Animate static images with motion prompts
+```
+
+#### List Generated Videos
+```
+Tool: mcp__veo__list_generated_videos
+Optional:
+  - output_dir: directory to list from
+
+Returns: list of all generated video files
+```
+
+#### Get Video Info
+```
+Tool: mcp__veo__get_video_info
+Required:
+  - video_path: path to video file
+
+Returns: metadata about the video
+```
+
+### Sora 2 MCP Server Tools
+
+#### Create Video
+```
+Tool: mcp__sora2__create_video
+Required params:
+  - prompt: detailed video description
+Optional:
+  - model: 'sora-2' (default) | 'sora-2-pro' (higher quality)
+  - size: '1280x720' (landscape) | '720x1280' (vertical portrait) | '1792x1024' (widescreen) | '1024x1792' (tall vertical)
+  - seconds: '4' | '8' | '12' (duration)
+
+Returns: video_id for status checking
+Note: Sora 2 includes watermark and C2PA provenance - preserve it!
+```
+
+#### Get Video Status
+```
+Tool: mcp__sora2__get_video_status
+Required:
+  - video_id: from create_video
+
+Returns: {status, video_url, progress}
+Poll until status == 'completed'
+```
+
+#### List Videos
+```
+Tool: mcp__sora2__list_videos
+Optional:
+  - limit: max results
+  - after: pagination cursor
+
+Returns: list of generated videos with metadata
+```
+
+#### Merge Videos
+```
+Tool: mcp__sora2__merge_videos
+Required:
+  - video_urls: array of video file paths or URLs
+Optional:
+  - output_path: custom output filename
+
+Returns: merged video file path
+Use: Stitch multiple clips together with fade transitions
+```
+
+#### Create Fade Animation
+```
+Tool: mcp__sora2__create_fade_animation
+Required:
+  - image_path: path to image file
+Optional:
+  - duration: animation length in seconds
+  - output_path: custom filename
+  - fade_type: 'in' | 'out' | 'in-out'
+
+Returns: video file path
+Use: Turn images into video with fade effects
 ```
 
 ---
@@ -134,20 +222,28 @@ Returns: {status, video_url, result}
 - Cons: Requires consent, ~$0.30/min
 
 **User wants b-roll / generated scenes / concepts?**
-→ Route to **Veo**
-- Use: Background footage, conceptual visuals, stock-style content
-- Pros: Creative freedom, no consent needed
-- Cons: 8s max length, may need multiple clips stitched
+→ Route to **Veo 3** (Google Gemini)
+- Use: Background footage, conceptual visuals, stock-style content, animate images
+- Pros: Creative freedom, no consent needed, can animate existing images
+- Cons: No duration limit in API, generates complete videos
+- Model options: veo-3.0-generate-preview (quality) or veo-3.0-fast-generate-preview (speed)
 
 **User wants image sequence with motion?**
 → Route to **Image Stitching**
 - Use: Slideshow, before/after, tutorial steps
 - Workflow: Load images, add transitions, export video
 
+**User wants high-quality cinematic / longer videos?**
+→ Route to **Sora 2** (OpenAI)
+- Use: Cinematic quality, longer duration (up to 12s), premium results
+- Pros: Superior quality, more creative control, longer clips
+- Cons: Higher cost, includes watermark/C2PA (must preserve)
+- Models: sora-2 (standard) or sora-2-pro (premium)
+
 **User wants mixed media?**
 → Route to **Hybrid Workflow**
-- Talking head (HeyGen) + B-roll (Veo) + Images
-- Requires stitching/editing pipeline
+- Talking head (HeyGen) + B-roll (Veo3/Sora2) + Images
+- Use Sora 2 merge_videos for stitching with fade transitions
 
 ---
 

@@ -1,0 +1,13 @@
+# Generate TikTok Video Workflow
+name: generate-tiktok
+description: "TikTok optimized video (9:16, hook @ 1s CRITICAL, trending-aware)"
+author: "BMad AI Video Agent"
+
+config_source: "{agent-folder}/ai-video-agent-sidecar/config.yaml"
+platform_specs: "{agent-folder}/ai-video-agent-sidecar/platform-specs.yaml"
+output_folder: "{agent-folder}/ai-video-agent-sidecar/outputs"
+date: system-generated
+
+template: false
+instructions: "{installed_path}/tiktok-instructions.md"
+default_output_file: "{output_folder}/tiktok_{date}.mp4"

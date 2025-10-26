@@ -1,0 +1,17 @@
+# Generate Instagram Reels Video Workflow
+name: generate-reels
+description: "Quick Instagram Reels optimized video (9:16, captions ON, hook @ 1.5s)"
+author: "BMad AI Video Agent"
+
+# Variables
+config_source: "{agent-folder}/ai-video-agent-sidecar/config.yaml"
+platform_specs: "{agent-folder}/ai-video-agent-sidecar/platform-specs.yaml"
+output_folder: "{agent-folder}/ai-video-agent-sidecar/outputs"
+date: system-generated
+
+# This is an action workflow
+template: false
+instructions: "{installed_path}/reels-instructions.md"
+
+# Output
+default_output_file: "{output_folder}/reels_{date}.mp4"

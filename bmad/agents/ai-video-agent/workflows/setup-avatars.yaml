@@ -1,0 +1,10 @@
+# Setup HeyGen Avatars with Consent Workflow
+name: setup-avatars
+description: "Configure HeyGen avatars and verify consent for each"
+author: "BMad AI Video Agent"
+
+config_source: "{agent-folder}/ai-video-agent-sidecar/config.yaml"
+consent_folder: "{agent-folder}/ai-video-agent-sidecar/consent"
+
+template: false
+instructions: "{installed_path}/setup-avatars-instructions.md"

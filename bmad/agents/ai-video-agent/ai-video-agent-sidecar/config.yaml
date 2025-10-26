@@ -22,14 +22,15 @@ providers:
 
   veo:
     enabled: true
-    model: 'veo-3.1-generate-preview'  # Options: veo-3.1-generate-preview, veo-3.1-fast-generate-preview
-    default_resolution: '720p'
-    default_duration_sec: '8'
-    default_aspect_ratio: '16:9'
+    model: 'veo-3.1-fast-generate-preview'  # Options: veo-3.1-generate-preview, veo-3.1-fast-generate-preview, veo-2.0-generate-001
+    default_aspect_ratio: '16:9'  # Options: 16:9, 9:16
+    output_dir: './outputs/veo3'
 
-  sora:
-    enabled: false  # Feature-flagged, enable when API access available
-    model: 'sora-2'
+  sora2:
+    enabled: true  # Now available with public MCP server
+    model: 'sora-2'  # Options: sora-2, sora-2-pro
+    default_size: '1280x720'  # Options: 1280x720, 720x1280, 1792x1024, 1024x1792
+    default_seconds: '4'  # Options: 4, 8, 12
 
 # Platform Defaults
 platform:
@@ -69,10 +70,32 @@ mcp_servers:
   heygen:
     server_name: 'heygen'
     tool_prefix: 'mcp__heygen__'
+    tools:
+      - get_avatar_groups
+      - get_avatars_in_avatar_group
+      - get_voices
+      - generate_avatar_video
+      - get_avatar_video_status
 
   veo:
-    server_name: 'veo'
+    server_name: 'veo3'
     tool_prefix: 'mcp__veo__'
+    tools:
+      - generate_video
+      - generate_video_from_image
+      - list_generated_videos
+      - get_video_info
+
+  sora2:
+    server_name: 'sora2'
+    tool_prefix: 'mcp__sora2__'
+    tools:
+      - create_video
+      - get_video_status
+      - list_videos
+      - delete_video
+      - merge_videos
+      - create_fade_animation
 
 # Advanced Settings
 advanced:

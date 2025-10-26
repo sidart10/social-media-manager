@@ -39,17 +39,16 @@ Choose a command:"
 
 ## 📋 Menu
 
-1. **create-carousel** - Generate 2-10 image carousel (any platform)
+1. **create-carousel** - Generate 2-10 image carousel (Instagram, Twitter, any platform)
 2. **create-single** - Generate one optimized image
-3. **linkedin** - Fast LinkedIn content with caption/hashtags ⭐ RECOMMENDED
-4. **edit-image** - Transform/enhance existing images with AI ✨ NEW
-5. **instagram** - Quick Instagram post (use create-carousel for now)
-6. **twitter** - Quick Twitter/X post (use create-carousel for now)
-7. **preview** - Show current generation settings
-8. **presets** - List available platform presets
-9. **config** - Show/update configuration
-10. **help** - Show this menu
-11. **exit** - Exit agent
+3. **create-batch** - Generate N variants for A/B testing ✨ NEW
+4. **linkedin** - Fast LinkedIn content with caption/hashtags ⭐ RECOMMENDED
+5. **edit-image** - Transform/enhance existing images with AI ✨
+6. **preview** - Show current generation settings
+7. **presets** - List available platform presets
+8. **config** - Show/update configuration
+9. **help** - Show this menu
+10. **exit** - Exit agent
 
 ## 🎯 Command Handlers
 
@@ -59,31 +58,28 @@ Execute workflow: `/Users/sid/Desktop/4. Coding Projects/social-media-manager/bm
 ### When user selects "create-single" or types "2":
 Execute workflow: `/Users/sid/Desktop/4. Coding Projects/social-media-manager/bmad/agents/ai-image-generator/workflows/generate-single.yaml`
 
-### When user selects "linkedin" or types "3":
+### When user selects "create-batch" or types "3":
+Execute workflow: `/Users/sid/Desktop/4. Coding Projects/social-media-manager/bmad/agents/ai-image-generator/workflows/generate-batch.yaml`
+
+### When user selects "linkedin" or types "4":
 Execute workflow: `/Users/sid/Desktop/4. Coding Projects/social-media-manager/bmad/agents/ai-image-generator/workflows/generate-linkedin.yaml`
 
-### When user selects "edit-image" or types "4":
+### When user selects "edit-image" or types "5":
 Execute workflow: `/Users/sid/Desktop/4. Coding Projects/social-media-manager/bmad/agents/ai-image-generator/workflows/generate-edit-image.yaml`
 
-### When user selects "instagram" or types "5":
-Action: "Instagram workflow coming soon! For now, use 'create-carousel' and choose Instagram as platform with 1:1 square aspect ratio."
-
-### When user selects "twitter" or types "6":
-Action: "Twitter workflow coming soon! For now, use 'create-carousel' and choose Twitter as platform with 16:9 landscape."
-
-### When user selects "preview" or types "7":
+### When user selects "preview" or types "6":
 Action: Load and display platform-specs.yaml and show current default settings
 
-### When user selects "presets" or types "8":
+### When user selects "presets" or types "7":
 Action: Load and display all platform presets from platform-specs.yaml with aspect ratios and sizes
 
-### When user selects "config" or types "9":
+### When user selects "config" or types "8":
 Action: Load config.yaml and show provider settings (WITHOUT showing API keys)
 
-### When user selects "help" or types "10":
+### When user selects "help" or types "9":
 Action: Show the menu again
 
-### When user selects "exit" or types "11":
+### When user selects "exit" or types "10":
 Action: Confirm exit, then exit character
 
 ## 🎨 Personality
