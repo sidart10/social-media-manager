@@ -1,0 +1,300 @@
+name: linkedin-post-pdf
+description: Post LinkedIn carousel from PDF/PowerPoint document
+
+instructions: |
+  # LinkedIn PDF Document Carousel Workflow
+
+  Upload PDF, PowerPoint, or Word document as swipeable carousel on LinkedIn.
+  LinkedIn automatically converts multi-page documents into carousel format!
+
+  ## Steps
+
+  ### 1. Gather Post Text
+
+  Ask the user for the caption:
+  - "What would you like to say about your document?"
+  - "This appears above the carousel"
+  - "Tip: Tease the content to encourage engagement"
+
+  **Store as**: `post_text`
+
+  ### 2. Gather Document Path
+
+  Ask for the document file path:
+  - "Provide the path to your document"
+  - "Supported: PDF, PPT, PPTX, DOC, DOCX"
+  - "Max size: 100MB"
+  - "Max pages: 300"
+
+  **Important**: Must be ABSOLUTE path!
+
+  **Example:**
+  ```
+  /Users/sid/Desktop/presentation.pdf
+  /Users/sid/Documents/slides.pptx
+  ```
+
+  **Store as**: `document_path`
+
+  ### 3. Ask for Document Title
+
+  - "What title should appear on the document?"
+  - "This shows in the carousel viewer"
+
+  **Example:** "Social Media Automation Guide", "Q4 Results Presentation"
+
+  **Store as**: `document_title`
+
+  ### 4. Validate Document
+
+  ```javascript
+  import { existsSync } from 'fs';
+  import { stat } from 'fs/promises';
+  import { extname } from 'path';
+
+  const errors = [];
+  const warnings = [];
+
+  // Check text
+  if (post_text && post_text.length > 3000) {
+    errors.push('Text exceeds 3,000 character limit');
+  }
+
+  // Check document exists
+  if (!existsSync(document_path)) {
+    errors.push(`Document not found: ${document_path}`);
+  } else {
+    // Check format
+    const ext = extname(document_path).toLowerCase();
+    const validFormats = ['.pdf', '.ppt', '.pptx', '.doc', '.docx'];
+    if (!validFormats.includes(ext)) {
+      errors.push(`Unsupported format: ${ext} (use PDF, PPT, PPTX, DOC, or DOCX)`);
+    }
+
+    // Check size
+    const stats = await stat(document_path);
+    const sizeMB = stats.size / (1024 * 1024);
+
+    if (sizeMB > 100) {
+      errors.push(`Document exceeds 100MB limit (${sizeMB.toFixed(1)}MB)`);
+    } else if (sizeMB > 50) {
+      warnings.push(`Document is ${sizeMB.toFixed(1)}MB - may take longer to upload`);
+    }
+
+    console.log(`Document size: ${sizeMB.toFixed(1)}MB`);
+  }
+
+  // Check title
+  if (!document_title || document_title.trim().length === 0) {
+    warnings.push('Document title is recommended for better presentation');
+  }
+
+  if (errors.length > 0) {
+    console.log('✗ Validation errors:');
+    errors.forEach(error => console.log(`  - ${error}`));
+    return;
+  }
+
+  if (warnings.length > 0) {
+    console.log('⚠️  Warnings:');
+    warnings.forEach(warning => console.log(`  - ${warning}`));
+  }
+  ```
+
+  ### 5. Show Preview
+
+  ```
+  Preview:
+  ─────────────────────────────────────────
+  Platform: LinkedIn PDF Carousel
+  Text: [post_text]
+  Document: [filename] (X.X MB)
+  Title: [document_title]
+  Format: PDF/PPT carousel (swipeable)
+  ─────────────────────────────────────────
+  ```
+
+  Ask for confirmation: "Upload this document carousel to LinkedIn? [yes/no]"
+
+  ### 6. Upload Document and Post
+
+  ```javascript
+  import { LinkedInClient } from './bmad/modules/linkedin-api-client/index.js';
+
+  const client = new LinkedInClient();
+
+  console.log('Uploading document to LinkedIn...');
+  console.log('Large files may take 30-60 seconds...');
+
+  const result = await client.postDocument(
+    post_text,
+    document_path,
+    document_title || 'Document'
+  );
+
+  if (result.success) {
+    console.log('✅ Posted PDF carousel to LinkedIn successfully!');
+    console.log();
+    console.log('Details:');
+    console.log(`  Post ID: ${result.id}`);
+    console.log(`  Post URN: ${result.urn}`);
+    console.log(`  Document: Uploaded as carousel`);
+    console.log(`  Title: ${document_title}`);
+    console.log();
+    console.log('View your carousel on LinkedIn!');
+    console.log('(Document appears as swipeable slides)');
+
+    // Show rate limits
+    const stats = client.getRateLimitStats();
+    console.log();
+    console.log('Rate Limits:');
+    console.log(`  Today: ${stats.counts.daily}/${stats.limits.DAILY} posts`);
+    console.log(`  Remaining: ${stats.remaining.daily} posts`);
+  } else {
+    console.log('✗ Failed to post document carousel');
+    console.log(`  Error: ${result.error}`);
+
+    if (result.error.includes('Document upload failed')) {
+      console.log();
+      console.log('Solution: Check document file');
+      console.log('  - Verify path is correct and absolute');
+      console.log('  - Check file size (max 100MB)');
+      console.log('  - Ensure format is PDF, PPT, PPTX, DOC, or DOCX');
+      console.log('  - Check file permissions');
+    }
+  }
+  ```
+
+  ## Example Usage
+
+  ```
+  User: "I want to post my presentation as a LinkedIn carousel"
+
+  Agent: "What would you like to say about your document?"
+
+  User: "Excited to share our complete guide to AI automation! 🚀
+
+  This 15-slide presentation covers:
+  → Building AI agents
+  → API integrations
+  → Multi-platform posting
+  → Real-world examples
+
+  Swipe through to learn how we built this system!
+
+  #AI #automation #guide #socialmedia"
+
+  Agent: "Provide the path to your document"
+
+  User: "/Users/sid/Desktop/ai-automation-guide.pdf"
+
+  Agent: "What title should appear on the document?"
+
+  User: "AI Automation Guide - Complete Walkthrough"
+
+  Agent:
+  Preview:
+  ─────────────────────────────────────────
+  Platform: LinkedIn PDF Carousel
+  Text: Excited to share our complete guide...
+  Document: ai-automation-guide.pdf (5.2 MB)
+  Title: AI Automation Guide - Complete Walkthrough
+  Format: PDF carousel (swipeable)
+  ─────────────────────────────────────────
+
+  Upload this document carousel to LinkedIn? [yes/no]
+
+  User: "yes"
+
+  Agent: "Uploading document to LinkedIn..."
+
+  ✅ Posted PDF carousel to LinkedIn successfully!
+
+  Details:
+    Post ID: 7123456789012345678
+    Post URN: urn:li:share:7123456789012345678
+    Document: Uploaded as carousel
+    Title: AI Automation Guide - Complete Walkthrough
+
+  View your carousel on LinkedIn!
+  (Document appears as swipeable slides)
+  ```
+
+  ## PDF Carousel Best Practices
+
+  1. **First Slide Matters**: Grab attention with cover design
+  2. **Consistent Design**: Use templates for professional look
+  3. **Clear Text**: Ensure readable on mobile (large fonts)
+  4. **10-15 Slides Optimal**: Enough content, not too long
+  5. **Call to Action**: End with CTA or contact info
+  6. **Tease in Caption**: "Swipe to learn..." creates engagement
+
+  ## Creating PDFs for LinkedIn
+
+  **Tools:**
+  - Canva (easy carousel templates)
+  - PowerPoint → Export as PDF
+  - Google Slides → Download as PDF
+  - Adobe Illustrator
+  - Figma → Export
+
+  **Design Tips:**
+  - Use 1080x1080 (square) or 1080x1350 (portrait)
+  - High contrast colors
+  - Large, bold fonts
+  - Minimal text per slide
+  - Professional branding
+
+  ## Supported Formats
+
+  | Format | Extension | Best For |
+  |--------|-----------|----------|
+  | **PDF** | .pdf | Final presentations, guides |
+  | **PowerPoint** | .ppt, .pptx | Editable presentations |
+  | **Word** | .doc, .docx | Text-heavy documents |
+
+  ## Limits
+
+  - **Max size:** 100MB
+  - **Max pages:** 300 pages
+  - **Processing:** LinkedIn converts automatically
+
+  ## Processing Time
+
+  - Small PDF (<10MB): ~5-10 seconds
+  - Medium PDF (10-50MB): ~15-30 seconds
+  - Large PDF (50-100MB): ~30-60 seconds
+
+  ## Common Issues
+
+  ### "Document not found"
+  - Use absolute path
+  - Check for typos
+  - Ensure file exists
+
+  ### "Document upload failed"
+  - File may exceed 100MB
+  - Format may not be supported
+  - Check file isn't corrupted
+  - Ensure file is readable
+
+  ### "Document exceeds limit"
+  - Compress PDF (reduce image quality)
+  - Remove unnecessary pages
+  - Split into multiple documents
+
+  ## Pro Tip
+
+  **Repurpose Content:**
+  - Create PDF once
+  - Upload multiple times to LinkedIn
+  - Document URN can be reused (per LinkedIn docs)
+  - Great for evergreen content!
+
+  ## Notes
+
+  - LinkedIn displays documents as carousel
+  - Users swipe through pages
+  - Professional presentation format
+  - Perfect for educational/business content
+  - Much better than uploading as images

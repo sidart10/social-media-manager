@@ -83,20 +83,31 @@ agent:
         Use TwitterClient.getMyProfile()
       description: Verify Twitter API connection and credentials
 
-    # Future platform integrations
-    - trigger: post-linkedin
-      action: |
-        Display message: "LinkedIn integration coming soon!"
-        LinkedIn API requires app approval and company page access
-        Will support text posts, image posts, and article sharing
-      description: Post to LinkedIn (coming soon)
+    # LinkedIn posting commands
+    - trigger: linkedin-text
+      workflow: "{agent-folder}/workflows/linkedin-post-text.yaml"
+      description: Post text-only update to LinkedIn personal account (3k chars)
 
-    - trigger: post-youtube
-      action: |
-        Display message: "YouTube integration available via youtube-uploader-mcp"
-        Use mcp__youtube-uploader-mcp__ tools for video uploads
-        Requires OAuth authentication flow
-      description: Upload video to YouTube (via MCP server)
+    - trigger: linkedin-image
+      workflow: "{agent-folder}/workflows/linkedin-post-image.yaml"
+      description: Post to LinkedIn with single image
+
+    - trigger: linkedin-carousel
+      workflow: "{agent-folder}/workflows/linkedin-post-multiimage.yaml"
+      description: Post LinkedIn carousel with 2-20 images (grid layout)
+
+    - trigger: linkedin-pdf
+      workflow: "{agent-folder}/workflows/linkedin-post-pdf.yaml"
+      description: Post LinkedIn carousel from PDF/PowerPoint (swipeable presentation)
+
+    # YouTube posting commands
+    - trigger: youtube-video
+      workflow: "{agent-folder}/workflows/youtube-upload-video.yaml"
+      description: Upload regular video to YouTube (any aspect ratio, any duration)
+
+    - trigger: youtube-short
+      workflow: "{agent-folder}/workflows/youtube-upload-short.yaml"
+      description: Upload YouTube Short (9:16 vertical, auto-detected if ≤3min)
 
   workflow_patterns:
     twitter_post_pattern: |
@@ -122,3 +133,21 @@ agent:
       Warn user if approaching daily/hourly limits
       Monthly limit is hard (1500 posts/month for free tier)
       Daily and hourly are recommendations (50/day, 10/hour)
+
+    linkedin_post_pattern: |
+      1. Import LinkedInClient from {project-root}/bmad/modules/linkedin-api-client
+      2. Ensure authenticated (OAuth token valid)
+      3. Gather user input (text, media paths, document path)
+      4. Validate inputs (text length, image count, file sizes)
+      5. Call appropriate method (postText, postWithImage, postMultiImage, postDocument)
+      6. Handle response (success/error)
+      7. Display result with post URN or error message
+
+    youtube_upload_pattern: |
+      1. Use mcp__youtube-uploader-mcp__upload_video tool
+      2. Gather video path, title, description, category, tags
+      3. Validate file exists and size
+      4. Upload with channel_id: UCeNChkI6YhgS4zFrjOICcLw
+      5. Video uploads as Private (unverified app restriction)
+      6. User manually changes to Public in YouTube Studio
+      7. For Shorts: Same process, YouTube auto-detects (9:16, ≤3min)

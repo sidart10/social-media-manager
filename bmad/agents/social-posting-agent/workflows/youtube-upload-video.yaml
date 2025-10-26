@@ -1,0 +1,302 @@
+name: youtube-upload-video
+description: Upload regular video to YouTube
+
+instructions: |
+  # YouTube Video Upload Workflow
+
+  Upload a video to your YouTube channel.
+
+  ## Steps
+
+  ### 1. Gather Video Path
+
+  Ask for the video file path:
+  - "Provide the path to your video file"
+  - "Supported: MP4, MOV, AVI, and other formats"
+  - "Max size: 256GB (but be mindful of upload time)"
+
+  **Important**: Must be ABSOLUTE path!
+
+  **Example:**
+  ```
+  /Users/sid/Desktop/my-video.mp4
+  /Users/sid/Downloads/tutorial.mov
+  ```
+
+  **Store as**: `video_path`
+
+  ### 2. Gather Video Title
+
+  Ask for the title:
+  - "What's the video title?"
+  - "Max 100 characters recommended"
+
+  **Store as**: `video_title`
+
+  ### 3. Gather Video Description
+
+  Ask for the description:
+  - "Provide a description for your video (optional)"
+  - "Can include links, timestamps, hashtags"
+
+  **Store as**: `video_description` (optional)
+
+  ### 4. Ask for Category
+
+  Show common categories:
+  ```
+  Select a category:
+  1. People & Blogs (22)
+  2. Education (27)
+  3. Science & Technology (28)
+  4. Entertainment (24)
+  5. Howto & Style (26)
+  6. Music (10)
+  7. Gaming (20)
+  8. Other (specify number)
+  ```
+
+  **Store as**: `category_id` (default: "22")
+
+  ### 5. Ask for Tags
+
+  - "Add tags/keywords (optional, comma-separated)"
+  - "Example: tutorial,howto,guide"
+
+  **Store as**: `tags` (optional)
+
+  ### 6. Ask for Privacy Setting
+
+  ```
+  Select privacy:
+  1. Public (visible to everyone)
+  2. Unlisted (anyone with link)
+  3. Private (only you)
+
+  Note: Unverified apps upload as Private by default.
+  You can change to Public in YouTube Studio after upload.
+  ```
+
+  **Store as**: `privacy` (default: "unlisted")
+
+  ### 7. Validate Video
+
+  ```javascript
+  import { existsSync } from 'fs';
+  import { stat } from 'fs/promises';
+
+  const errors = [];
+  const warnings = [];
+
+  // Check video exists
+  if (!existsSync(video_path)) {
+    errors.push(`Video not found: ${video_path}`);
+  } else {
+    const stats = await stat(video_path);
+    const sizeMB = stats.size / (1024 * 1024);
+    const sizeGB = sizeMB / 1024;
+
+    console.log(`Video size: ${sizeMB < 1024 ? sizeMB.toFixed(1) + 'MB' : sizeGB.toFixed(2) + 'GB'}`);
+
+    if (stats.size > 256 * 1024 * 1024 * 1024) {
+      errors.push('Video exceeds 256GB limit');
+    }
+
+    if (sizeMB > 1000) {
+      warnings.push(`Large file (${sizeGB.toFixed(2)}GB) - may take several minutes to upload`);
+    }
+  }
+
+  // Check title
+  if (!video_title || video_title.trim().length === 0) {
+    errors.push('Title is required');
+  } else if (video_title.length > 100) {
+    warnings.push('Title over 100 characters - keep it concise');
+  }
+
+  if (errors.length > 0) {
+    console.log('✗ Validation errors:');
+    errors.forEach(error => console.log(`  - ${error}`));
+    return;
+  }
+
+  if (warnings.length > 0) {
+    console.log('⚠️  Warnings:');
+    warnings.forEach(warning => console.log(`  - ${warning}`));
+  }
+  ```
+
+  ### 8. Show Preview
+
+  ```
+  Preview:
+  ─────────────────────────────────────────
+  Platform: YouTube
+  Video: [filename] (X MB/GB)
+  Title: [video_title]
+  Description: [video_description]
+  Category: [category_name]
+  Tags: [tags]
+  Privacy: [privacy] (may be Private for unverified apps)
+  ─────────────────────────────────────────
+
+  Note: If privacy shows "Private", you can change to Public
+  in YouTube Studio after upload.
+  ```
+
+  Ask for confirmation: "Upload this video to YouTube? [yes/no]"
+
+  ### 9. Upload Video
+
+  ```javascript
+  console.log('Uploading video to YouTube...');
+  console.log('This may take a while for large files...');
+
+  const result = await mcp__youtube-uploader-mcp__upload_video({
+    file_path: video_path,
+    title: video_title,
+    description: video_description || '',
+    category_id: category_id || '22',
+    tags: tags || '',
+    privacy: privacy || 'unlisted',
+    made_for_kids: false,
+    channel_id: 'UCeNChkI6YhgS4zFrjOICcLw'
+  });
+
+  if (result && result.id) {
+    console.log('✅ Video uploaded to YouTube successfully!');
+    console.log();
+    console.log('Details:');
+    console.log(`  Video ID: ${result.id}`);
+    console.log(`  Title: ${result.title}`);
+    console.log(`  Privacy: ${result.privacy_status}`);
+    console.log();
+    console.log('Watch URL:');
+    console.log(`  https://www.youtube.com/watch?v=${result.id}`);
+    console.log();
+    console.log('Edit in YouTube Studio:');
+    console.log(`  https://studio.youtube.com/video/${result.id}/edit`);
+
+    if (result.privacy_status === 'private') {
+      console.log();
+      console.log('⚠️  Video uploaded as PRIVATE (unverified app restriction)');
+      console.log('To make it public:');
+      console.log('  1. Go to YouTube Studio link above');
+      console.log('  2. Click "Visibility"');
+      console.log('  3. Select "Public" or "Unlisted"');
+      console.log('  4. Save');
+    }
+  } else {
+    console.log('✗ Failed to upload video');
+    console.log(`  Error: ${result?.error || 'Unknown error'}`);
+  }
+  ```
+
+  ## Example Usage
+
+  ```
+  User: "I want to upload a video to YouTube"
+
+  Agent: "Provide the path to your video file"
+
+  User: "/Users/sid/Desktop/tutorial-video.mp4"
+
+  Agent: "What's the video title?"
+
+  User: "How to Build AI Automation Agents"
+
+  Agent: "Provide a description for your video (optional)"
+
+  User: "Complete tutorial on building AI agents that post to social media. Learn Twitter, LinkedIn, and YouTube integrations. #AI #automation #tutorial"
+
+  Agent: "Select a category:"
+  [shows list]
+
+  User: "27" (Education)
+
+  Agent: "Add tags/keywords (optional, comma-separated)"
+
+  User: "AI,automation,tutorial,agents,socialmedia"
+
+  Agent: "Select privacy: 1) Public 2) Unlisted 3) Private"
+
+  User: "2" (Unlisted)
+
+  Agent:
+  Preview:
+  ─────────────────────────────────────────
+  Platform: YouTube
+  Video: tutorial-video.mp4 (45.2 MB)
+  Title: How to Build AI Automation Agents
+  Description: Complete tutorial on building AI agents...
+  Category: Education
+  Tags: AI,automation,tutorial,agents,socialmedia
+  Privacy: unlisted (may be Private for unverified apps)
+  ─────────────────────────────────────────
+
+  Upload this video to YouTube? [yes/no]
+
+  User: "yes"
+
+  Agent: "Uploading video to YouTube..."
+
+  ✅ Video uploaded to YouTube successfully!
+
+  Details:
+    Video ID: abc123xyz
+    Title: How to Build AI Automation Agents
+    Privacy: private
+
+  Watch URL:
+    https://www.youtube.com/watch?v=abc123xyz
+
+  ⚠️  Video uploaded as PRIVATE (unverified app restriction)
+  To make it public:
+    1. Go to Studio link above
+    2. Change visibility to Public
+    3. Save
+  ```
+
+  ## Tips
+
+  1. **Title**: Clear, descriptive, includes keywords
+  2. **Description**: First 2-3 lines show in search (make them count!)
+  3. **Tags**: 5-10 relevant keywords
+  4. **Thumbnail**: Upload custom after via Studio for better CTR
+  5. **Privacy**: Start with Unlisted to test, then Public
+
+  ## Processing Time
+
+  Upload times depend on file size and internet speed:
+  - Small (< 100MB): 1-2 minutes
+  - Medium (100MB - 1GB): 5-15 minutes
+  - Large (1GB - 10GB): 30-60 minutes
+  - Very large (> 10GB): Hours
+
+  ## After Upload
+
+  **YouTube processes your video:**
+  - SD quality: Available immediately
+  - HD quality: 10-30 minutes
+  - 4K quality: 1-4 hours
+
+  **Manual steps (for unverified apps):**
+  1. Open YouTube Studio
+  2. Find your video
+  3. Change privacy to Public
+  4. Add custom thumbnail (optional)
+
+  ## Quota Information
+
+  **YouTube API Quotas:**
+  - Upload cost: 1,600 units
+  - Daily quota: 10,000 units
+  - **Max uploads per day:** ~6 videos
+
+  ## Notes
+
+  - Uploads to: Sid Dani channel (@siddani09)
+  - Channel ID: UCeNChkI6YhgS4zFrjOICcLw
+  - Unverified apps → Private by default
+  - Resumable upload handled automatically
+  - Supports all video formats YouTube accepts
