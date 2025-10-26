@@ -8,6 +8,7 @@
 ## 🚨 Problem Identified
 
 **Symptoms:**
+
 - MCP servers configured in `~/.claude/.mcp.json`
 - Servers installed via npm/uvx
 - Claude Code restarted
@@ -23,11 +24,12 @@ Missing `-y` flag in npx command causes MCP server to fail initialization.
 ### Fix #1: Add `-y` Flag to OpenAI MCP Server
 
 **WRONG Configuration:**
+
 ```json
 {
   "gpt-image-1": {
     "command": "npx",
-    "args": ["@cloudwerxlab/gpt-image-1-mcp"],  // MISSING -y flag
+    "args": ["@cloudwerxlab/gpt-image-1-mcp"], // MISSING -y flag
     "env": {
       "OPENAI_API_KEY": "sk-..."
     }
@@ -36,11 +38,12 @@ Missing `-y` flag in npx command causes MCP server to fail initialization.
 ```
 
 **CORRECT Configuration:**
+
 ```json
 {
   "gpt-image-1": {
     "command": "npx",
-    "args": ["-y", "@cloudwerxlab/gpt-image-1-mcp"],  // Added -y flag
+    "args": ["-y", "@cloudwerxlab/gpt-image-1-mcp"], // Added -y flag
     "env": {
       "OPENAI_API_KEY": "sk-..."
     }
@@ -49,6 +52,7 @@ Missing `-y` flag in npx command causes MCP server to fail initialization.
 ```
 
 **What `-y` does:**
+
 - Auto-accepts npx prompts during initialization
 - Prevents hanging/waiting for user input
 - Required for MCP server to start properly
@@ -87,11 +91,13 @@ Missing `-y` flag in npx command causes MCP server to fail initialization.
 ## 🧪 Testing After Fix
 
 ### Step 1: Restart Claude Code
+
 Close and reopen Claude Code completely.
 
 ### Step 2: Verify MCP Tools Loaded
 
 **Method 1: Try using a tool**
+
 ```
 mcp__gpt-image-1__generate_image with test prompt
 ```
@@ -102,6 +108,7 @@ Look for tools starting with `mcp__gpt-image-1__` or `mcp__nanobanana__`
 ### Step 3: Test Image Generation
 
 **Simple Test:**
+
 ```
 Generate a simple test image to verify MCP connection works.
 ```
@@ -113,6 +120,7 @@ Generate a simple test image to verify MCP connection works.
 ### If Still Not Working:
 
 **Check 1: Verify Servers Start**
+
 ```bash
 # Test OpenAI MCP manually
 OPENAI_API_KEY="sk-..." npx -y @cloudwerxlab/gpt-image-1-mcp
@@ -124,6 +132,7 @@ GEMINI_API_KEY="AIza..." uvx nanobanana-mcp-server@latest
 If these hang or error, the MCP server itself has issues.
 
 **Check 2: Verify API Keys**
+
 ```bash
 # Test OpenAI API directly
 curl https://api.openai.com/v1/models \
@@ -133,6 +142,7 @@ curl https://api.openai.com/v1/models \
 ```
 
 **Check 3: Check Claude Code Logs**
+
 ```bash
 # Check for MCP initialization errors
 tail -f ~/.claude/debug/*.log
@@ -141,6 +151,7 @@ tail -f ~/.claude/debug/*.log
 **Check 4: MCP Server Output Directory**
 
 For gpt-image-1, check if it's trying to create output directory:
+
 ```bash
 ls -la ~/Pictures/gpt-image-1/
 ```
@@ -177,11 +188,13 @@ Default output might fail if directory doesn't exist or lacks permissions.
 **When MCP servers load correctly, these tools should be available:**
 
 ### OpenAI gpt-image-1:
+
 - `mcp__gpt-image-1__generate_image`
 - `mcp__gpt-image-1__edit_image` (possibly)
 - `mcp__gpt-image-1__create_variation` (possibly)
 
 ### Nanobanana:
+
 - `mcp__nanobanana__generate_image`
 - `mcp__nanobanana__edit_image` (possibly)
 - `mcp__nanobanana__blend_images` (possibly)
@@ -197,6 +210,7 @@ If @cloudwerxlab server still doesn't work:
 ### Option 1: Try Different Implementation
 
 **PierrunoYT/gpt-image-1-mcp-server:**
+
 ```bash
 git clone https://github.com/PierrunoYT/gpt-image-1-mcp-server.git
 cd gpt-image-1-mcp-server
@@ -205,6 +219,7 @@ node build/index.js
 ```
 
 **Configuration:**
+
 ```json
 {
   "gpt-image-1": {
@@ -231,11 +246,13 @@ npm start
 ## 📚 Official Documentation Links
 
 **OpenAI gpt-image-1:**
+
 - GitHub: https://github.com/CLOUDWERX-DEV/gpt-image-1-mcp
 - NPM: https://www.npmjs.com/package/@cloudwerxlab/gpt-image-1-mcp
 - Alternative: https://github.com/PierrunoYT/gpt-image-1-mcp-server
 
 **Nanobanana:**
+
 - GitHub: https://github.com/zhongweili/nanobanana-mcp-server
 - PyPI: https://pypi.org/project/nanobanana-mcp-server/
 
@@ -247,16 +264,19 @@ npm start
 Add `-y` flag to OpenAI MCP server args in `.mcp.json`
 
 **Before:**
+
 ```json
 "args": ["@cloudwerxlab/gpt-image-1-mcp"]
 ```
 
 **After:**
+
 ```json
 "args": ["-y", "@cloudwerxlab/gpt-image-1-mcp"]
 ```
 
 **Then:**
+
 1. Save .mcp.json
 2. Restart Claude Code
 3. Test MCP tools

@@ -48,28 +48,16 @@ agent:
 
     # Primary generation commands
     - trigger: create-carousel
-      workflow: '{agent-folder}/workflows/generate-carousel.yaml'
+      workflow: "{agent-folder}/workflows/generate-carousel.yaml"
       description: Generate 2-10 image set for carousel posts
 
     - trigger: create-single
-      workflow: '{agent-folder}/workflows/generate-single.yaml'
+      workflow: "{agent-folder}/workflows/generate-single.yaml"
       description: Generate one optimized image
 
-    - trigger: create-batch
-      workflow: '{agent-folder}/workflows/generate-batch.yaml'
-      description: Generate multiple variants of same concept
-
     # Platform-specific quick commands
-    - trigger: instagram
-      workflow: '{agent-folder}/workflows/generate-instagram.yaml'
-      description: Quick Instagram-optimized generation
-
-    - trigger: twitter
-      workflow: '{agent-folder}/workflows/generate-twitter.yaml'
-      description: Quick X/Twitter-optimized generation
-
     - trigger: linkedin
-      workflow: '{agent-folder}/workflows/generate-linkedin.yaml'
+      workflow: "{agent-folder}/workflows/generate-linkedin.yaml"
       description: Quick LinkedIn-optimized generation
 
     # Utility commands

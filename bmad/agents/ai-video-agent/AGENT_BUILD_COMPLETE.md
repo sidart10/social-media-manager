@@ -15,6 +15,7 @@ Your AI Video Agent has been successfully created! This agent orchestrates video
 ## ✅ What Was Built
 
 ### 1. Agent Core
+
 - **Location**: `bmad/agents/ai-video-agent/`
 - **File**: `ai-video-agent.agent.yaml`
 - **Identity**:
@@ -23,11 +24,13 @@ Your AI Video Agent has been successfully created! This agent orchestrates video
   - Icon: 📹
 
 ### 2. Persona & Identity
+
 **Role**: Video Content Engineer & Algorithm Expert who orchestrates AI-powered video generation
 
 **Communication Style**: Data-driven platform expert who speaks in metrics AND possibilities
 
 **Core Principles**:
+
 - Platform-first thinking
 - Smart tool routing (HeyGen/Veo)
 - Time dynamics mastery (hooks, retention)
@@ -38,9 +41,11 @@ Your AI Video Agent has been successfully created! This agent orchestrates video
 - Performance optimization
 
 ### 3. Sidecar Resources
+
 **Location**: `ai-video-agent-sidecar/`
 
 **Files Created**:
+
 - ✅ `config.yaml` - API keys, provider settings, cost limits
 - ✅ `instructions.md` - Critical operating directives and MCP tool patterns
 - ✅ `platform-specs.yaml` - Complete specs for all platforms
@@ -48,13 +53,16 @@ Your AI Video Agent has been successfully created! This agent orchestrates video
 - ✅ `consent/` - Directory for avatar consent artifacts
 
 ### 4. Workflows
+
 **Location**: `workflows/`
 
 **Primary Workflows**:
+
 - ✅ `generate-talking-head.yaml` + instructions - HeyGen avatar videos
 - ✅ `generate-scene.yaml` + instructions - Veo text-to-video
 
 **Workflow Features**:
+
 - Platform detection and optimization
 - Cost estimation and approval
 - Consent verification
@@ -63,12 +71,15 @@ Your AI Video Agent has been successfully created! This agent orchestrates video
 - Error handling
 
 ### 5. MCP Integration
+
 **Servers Installed**:
+
 - ✅ HeyGen MCP Server (official) - Connected
 - ✅ Veo MCP Server (custom) - Connected
 - ✅ Existing image servers - Available
 
 **API Keys Configured**:
+
 - ✅ HEYGEN_API_KEY
 - ✅ GEMINI_API_KEY
 - ✅ OPENAI_API_KEY
@@ -78,18 +89,21 @@ Your AI Video Agent has been successfully created! This agent orchestrates video
 ## 🎯 Agent Capabilities
 
 ### Primary Commands
+
 1. `*create-talking-head` - HeyGen avatar videos
 2. `*create-scene` - Veo generated scenes
 3. `*create-montage` - Image stitching (workflow placeholder)
 4. `*create-hybrid` - Mixed media (workflow placeholder)
 
 ### Platform Quick Commands
+
 1. `*reels` - Instagram Reels optimized
 2. `*youtube-short` - YouTube Shorts optimized
 3. `*youtube` - YouTube standard
 4. `*tiktok` - TikTok optimized
 
 ### Management Commands
+
 1. `*test-hooks` - A/B testing (workflow placeholder)
 2. `*queue-status` - Show rendering jobs
 3. `*setup-avatars` - Consent configuration (workflow placeholder)
@@ -106,6 +120,7 @@ Your AI Video Agent has been successfully created! This agent orchestrates video
 The agent is ready but needs to be compiled from YAML to MD (XML) format for Claude to use.
 
 **Option 1: If you have BMAD build tools**:
+
 ```bash
 # Run the BMAD installer/compiler
 # It will convert .agent.yaml → .md
@@ -117,22 +132,26 @@ The agent YAML is ready and can be used by tools that support the BMAD agent for
 ### First Steps
 
 1. **Test MCP Servers**:
+
 ```bash
 claude mcp list
 # Should show: heygen ✓ Connected, veo ✓ Connected
 ```
 
 2. **Activate Agent**:
+
 ```
 Call: ai-video-agent
 ```
 
 3. **Setup Avatars** (first time):
+
 ```
 Command: *setup-avatars
 ```
 
 4. **Generate First Video**:
+
 ```
 Command: *reels
 # Follow the prompts
@@ -145,24 +164,28 @@ Command: *reels
 The agent knows exactly what each platform needs:
 
 ### Instagram Reels
+
 - 9:16 vertical
 - Hook @ 1.5 seconds
 - Captions mandatory
 - 30-60s sweet spot
 
 ### YouTube Shorts
+
 - 9:16 vertical
 - Hook @ 3 seconds
 - <60 seconds
 - Retention critical
 
 ### TikTok
+
 - 9:16 vertical
 - Hook @ 1 second (fastest)
 - 7-15s = peak engagement
 - Sound/music critical
 
 ### YouTube Standard
+
 - 16:9 landscape
 - Hook @ 8 seconds
 - 8+ minutes ideal
@@ -173,16 +196,19 @@ The agent knows exactly what each platform needs:
 ## 🛡️ Safety Features
 
 ### Consent Verification
+
 - **BLOCKS** un-consented HeyGen avatars
 - Requires explicit consent setup
 - Consent artifacts stored in `/consent/`
 
 ### Cost Controls
+
 - **Auto-estimates** before every generation
 - **Safety limit**: $5.00 per video (configurable)
 - **Approval required** for costs > $1.00
 
 ### Watermark Preservation
+
 - **NEVER strips** C2PA metadata
 - Preserves provenance watermarks
 - Legal compliance enforced
@@ -249,6 +275,7 @@ Agent: "✓ Job queued. Rendering... [progress updates]"
 ## 🔄 Workflow Status
 
 ### Fully Implemented ✅
+
 - Talking head generation (HeyGen)
 - Scene generation (Veo)
 - Platform optimization
@@ -257,7 +284,9 @@ Agent: "✓ Job queued. Rendering... [progress updates]"
 - Metadata logging
 
 ### Workflow Placeholders 🔜
+
 These commands exist but workflows need to be built:
+
 - `*create-montage` - Image stitching
 - `*create-hybrid` - Mixed media
 - `*test-hooks` - A/B testing
@@ -284,18 +313,21 @@ Before production use:
 ## 📈 Next Steps
 
 ### Immediate
+
 1. Activate and test the agent
 2. Generate your first talking head video
 3. Generate a Veo scene
 4. Verify outputs and metadata
 
 ### Short Term
+
 1. Build remaining workflow placeholders
 2. Create consent setup UI
 3. Test all platform quick commands
 4. Refine cost estimations with real data
 
 ### Long Term
+
 1. Add Sora 2 integration (when API available)
 2. Implement webhook async delivery
 3. Build hybrid multi-source workflows
@@ -333,6 +365,7 @@ What makes this agent special:
 ## 🏆 Success Metrics
 
 Your agent is ready when:
+
 - ✅ MCP servers connected
 - ✅ API keys configured
 - ✅ Agent YAML compiled to MD

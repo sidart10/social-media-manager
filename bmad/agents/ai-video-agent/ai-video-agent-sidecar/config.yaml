@@ -4,72 +4,142 @@
 
 # API Keys (REQUIRED - Loaded from project .env)
 api_keys:
-  heygen_api_key: '${HEYGEN_API_KEY}'
-  gemini_api_key: '${GEMINI_API_KEY}'
-  openai_api_key: '${OPENAI_API_KEY}'
+  heygen_api_key: "${HEYGEN_API_KEY}"
+  gemini_api_key: "${GEMINI_API_KEY}"
+  openai_api_key: "${OPENAI_API_KEY}"
 
 # Provider Settings
 providers:
   default_talking_head: heygen
-  default_scene_generation: veo
+  default_scene_generation: veo # Fast b-roll
+  default_cinematic: sora2 # High-quality cinematic
 
   heygen:
     enabled: true
-    default_avatar_id: null  # Set after setup-avatars
-    default_voice_id: null   # Set after setup-avatars
-    caption_enabled: true    # Always ON by default (80% muted viewing)
-    webhook_enabled: false   # Enable for production
+    default_avatar_id: "0f69c804db9341f2bc56d66f766ec389" # Sid Dani avatar
+    default_voice_id: "70569ea23d624fc69f15288f1f7f5866" # Sid Dani cloned voice
+    caption_enabled: true # Always ON by default (80% muted viewing)
+    webhook_enabled: false # Enable for production
 
   veo:
     enabled: true
-    model: 'veo-3.1-fast-generate-preview'  # Options: veo-3.1-generate-preview, veo-3.1-fast-generate-preview, veo-2.0-generate-001
-    default_aspect_ratio: '16:9'  # Options: 16:9, 9:16
-    output_dir: './outputs/veo3'
+    model: "veo-3.0-generate-preview" # Options: veo-3.0-generate-preview (quality), veo-3.0-fast-generate-preview (speed)
+    default_aspect_ratio: "16:9" # Options: 16:9 (1080p HD), 9:16 (720p)
+    output_dir: "./outputs/veo3"
+    capabilities:
+      vertical_9_16: true # Supports 720p vertical
+      horizontal_16_9: true # Supports 1080p HD horizontal
+      image_to_video: true # Can animate images
+    use_cases:
+      - "Fast b-roll generation"
+      - "Background scenes"
+      - "Conceptual visuals"
+      - "High-volume content"
+      - "Image animation"
 
   sora2:
-    enabled: true  # Now available with public MCP server
-    model: 'sora-2'  # Options: sora-2, sora-2-pro
-    default_size: '1280x720'  # Options: 1280x720, 720x1280, 1792x1024, 1024x1792
-    default_seconds: '4'  # Options: 4, 8, 12
+    enabled: true
+    model: "sora-2" # Options: sora-2 (balanced), sora-2-pro (premium quality)
+    default_size: "1280x720" # Options: 1280x720, 720x1280 (vertical), 1792x1024, 1024x1792 (tall vertical)
+    default_seconds: "8" # Options: 4, 8, 12
+    capabilities:
+      vertical_sizes: ["720x1280", "1024x1792"]
+      horizontal_sizes: ["1280x720", "1792x1024"]
+      duration_options: [4, 8, 12]
+      watermark: true # C2PA watermark present (must preserve)
+      merge_videos: true # Can stitch multiple clips
+      fade_animations: true # Can create fade effects
+    use_cases:
+      - "Premium cinematic content"
+      - "Hero shots"
+      - "High-end social media"
+      - "Quality-focused projects"
+      - "Video merging/stitching"
 
 # Platform Defaults
 platform:
-  default: instagram  # Default platform for quick commands
+  default: instagram # Default platform for quick commands
 
 # Generation Settings
 generation:
   default_captions: true
-  default_hook_duration_sec: 1.5  # Recommended hook length
+  default_hook_duration_sec: 1.5 # Recommended hook length
   auto_cost_estimate: true
-  max_cost_per_video_usd: 5.0  # Safety limit
+  max_cost_per_video_usd: 5.0 # Safety limit
   queue_poll_interval_sec: 5
   max_queue_wait_minutes: 10
 
+  # Smart Provider Routing
+  routing:
+    vertical_9_16:
+      fast: "veo" # Veo 3 at 720p for speed
+      cinematic: "sora2" # Sora 2 at 720x1280 or 1024x1792 for quality
+      default: "veo" # Default to fast unless user requests cinematic
+
+    horizontal_16_9:
+      fast: "veo" # Veo 3 at 1080p HD for speed
+      cinematic: "sora2" # Sora 2 at 1280x720 or 1792x1024 for quality
+      default: "veo" # Default to fast unless user requests cinematic
+
+    use_sora_when:
+      - 'User explicitly requests "cinematic" or "high-quality"'
+      - 'User requests "premium" content'
+      - "User wants longer duration (8s or 12s)"
+      - "User needs video merging/stitching"
+
+    use_veo_when:
+      - "User needs fast turnaround"
+      - "User requests b-roll or background footage"
+      - "User wants to animate an image"
+      - "Cost-conscious project"
+      - "High-volume content generation"
+
+  # Enhanced Prompting System
+  prompting:
+    enabled: true
+    templates_file: "./video-prompting-templates.yaml"
+    use_virtual_film_producer: true # Apply Virtual Film Producer methodology
+
+    structure:
+      text_to_video: "[Scene Description] | [Camera Movement] | [Lighting] | [Color & Tone] | [Technical Format]"
+      image_to_video: "[Primary Motion] | [Cinematic Enhancement] | [Technical Format]"
+
+    auto_enhance: true # Automatically enhance user prompts with cinematic terminology
+    include_negative_prompts: false # Veo/Sora don't explicitly support negative prompts yet
+
+    components:
+      camera_movement: true # Add cinematography terms
+      lighting: true # Add lighting setup details
+      color_grading: true # Add color palette specifications
+      technical_specs: true # Add lens, aspect ratio, resolution
+
+    quality_mode: "professional" # Options: basic, professional, cinematic
+
 # Output Settings
 output:
-  folder: './outputs'
-  naming_pattern: '{platform}_{provider}_{timestamp}'  # e.g., reels_heygen_20251025_143022
+  folder: "./outputs"
+  naming_pattern: "{platform}_{provider}_{timestamp}" # e.g., reels_heygen_20251025_143022
   organize_by_date: true
-  include_metadata: true  # Save JSON metadata with each video
-  preserve_watermarks: true  # Never strip C2PA/watermarks
+  include_metadata: true # Save JSON metadata with each video
+  preserve_watermarks: true # Never strip C2PA/watermarks
 
 # Consent & Safety
 consent:
   require_avatar_consent: true
-  consent_artifacts_folder: './consent'
+  consent_artifacts_folder: "./consent"
   block_unconsented_avatars: true
 
 # Cost Tracking
 cost_tracking:
   enabled: true
-  log_file: './cost-log.json'
-  alert_threshold_usd: 10.0  # Alert if daily cost exceeds
+  log_file: "./cost-log.json"
+  alert_threshold_usd: 10.0 # Alert if daily cost exceeds
 
 # MCP Server Configuration
 mcp_servers:
   heygen:
-    server_name: 'heygen'
-    tool_prefix: 'mcp__heygen__'
+    server_name: "heygen"
+    tool_prefix: "mcp__heygen__"
     tools:
       - get_avatar_groups
       - get_avatars_in_avatar_group
@@ -78,8 +148,8 @@ mcp_servers:
       - get_avatar_video_status
 
   veo:
-    server_name: 'veo3'
-    tool_prefix: 'mcp__veo__'
+    server_name: "veo3"
+    tool_prefix: "mcp__veo3__"
     tools:
       - generate_video
       - generate_video_from_image
@@ -87,8 +157,8 @@ mcp_servers:
       - get_video_info
 
   sora2:
-    server_name: 'sora2'
-    tool_prefix: 'mcp__sora2__'
+    server_name: "sora2"
+    tool_prefix: "mcp__sora2__"
     tools:
       - create_video
       - get_video_status
@@ -100,6 +170,6 @@ mcp_servers:
 # Advanced Settings
 advanced:
   retry_attempts: 3
-  timeout_seconds: 600  # 10 minutes for video generation
+  timeout_seconds: 600 # 10 minutes for video generation
   cache_avatar_list: true
   log_generations: true

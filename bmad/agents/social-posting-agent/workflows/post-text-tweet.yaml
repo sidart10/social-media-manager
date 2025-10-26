@@ -1,0 +1,184 @@
+name: post-text-tweet
+description: Post text-only tweet to Twitter (supports up to 25k characters for Premium accounts)
+
+instructions: |
+  # Post Text Tweet Workflow
+
+  This workflow posts a text-only tweet to Twitter using the Twitter API Premium Client.
+
+  ## Steps
+
+  ### 1. Gather Tweet Text
+
+  Ask the user for the tweet text:
+  - "What would you like to tweet?"
+  - Show character limit: "You can use up to 25,000 characters (Premium) or 280 characters (Free)"
+
+  **Store as**: `tweet_text`
+
+  ### 2. Validate Text Length
+
+  Check the length:
+  ```javascript
+  const length = tweet_text.length;
+  console.log(`Tweet length: ${length} characters`);
+
+  if (length > 25000) {
+    console.log(`⚠️ Text is too long (${length} chars)`);
+    console.log(`Maximum: 25,000 characters for Premium`);
+    console.log(`Suggestion: Shorten text or use /thread command to split into multiple tweets`);
+    // Ask user if they want to:
+    // 1. Shorten the text
+    // 2. Create a thread instead
+    // 3. Cancel
+  }
+  ```
+
+  ### 3. Show Preview
+
+  Display preview to user:
+  ```
+  Preview:
+  ─────────────────────────────────────────
+  [tweet_text]
+  ─────────────────────────────────────────
+  Length: X characters
+  Account: @username
+  ```
+
+  Ask for confirmation:
+  - "Post this tweet? [yes/no]"
+  - If no, ask if they want to edit or cancel
+
+  ### 4. Check Rate Limits (Optional but Recommended)
+
+  ```javascript
+  import { TwitterClient } from './bmad/modules/twitter-api-client/index.js';
+
+  const client = new TwitterClient();
+  const stats = client.getRateLimitStats();
+
+  console.log('Rate Limit Status:');
+  console.log(`  Monthly: ${stats.counts.monthly}/${stats.limits.MONTHLY} used`);
+  console.log(`  Daily: ${stats.counts.daily}/${stats.limits.DAILY_RECOMMENDED} used`);
+  console.log(`  Hourly: ${stats.counts.hourly}/${stats.limits.HOURLY_RECOMMENDED} used`);
+
+  // Warn if approaching limits
+  if (stats.remaining.hourly <= 2) {
+    console.log(`⚠️ Only ${stats.remaining.hourly} posts remaining this hour`);
+  }
+  ```
+
+  ### 5. Post Tweet
+
+  ```javascript
+  import { TwitterClient } from './bmad/modules/twitter-api-client/index.js';
+
+  const client = new TwitterClient();
+
+  console.log('Posting tweet...');
+
+  const result = await client.createTweet({
+    text: tweet_text
+  });
+
+  if (result.success) {
+    console.log('✓ Tweet posted successfully!');
+    console.log();
+    console.log('Details:');
+    console.log(`  Tweet ID: ${result.id}`);
+    console.log(`  URL: ${result.url}`);
+    console.log(`  Length: ${result.text.length} characters`);
+    console.log();
+    console.log(`View your tweet: ${result.url}`);
+
+    // Update rate limits display
+    const newStats = client.getRateLimitStats();
+    console.log();
+    console.log('Updated Rate Limits:');
+    console.log(`  Monthly: ${newStats.remaining.monthly} remaining`);
+    console.log(`  Daily: ${newStats.remaining.daily} remaining`);
+    console.log(`  Hourly: ${newStats.remaining.hourly} remaining`);
+  } else {
+    console.log('✗ Failed to post tweet');
+    console.log(`  Error: ${result.error}`);
+
+    // Provide helpful guidance based on error
+    if (result.error.includes('credentials')) {
+      console.log();
+      console.log('Solution: Check your .env file has these variables:');
+      console.log('  - TWITTER_API_KEY');
+      console.log('  - TWITTER_API_SECRET');
+      console.log('  - TWITTER_ACCESS_TOKEN');
+      console.log('  - TWITTER_ACCESS_TOKEN_SECRET');
+    } else if (result.rateLimitExceeded) {
+      console.log();
+      console.log('Solution: Rate limit exceeded. Wait for reset or upgrade account.');
+      const stats = client.getRateLimitStats();
+      console.log(`  Monthly: ${stats.remaining.monthly} posts remaining`);
+    } else if (result.error.includes('Validation failed')) {
+      console.log();
+      console.log('Solution: Check text length and try again.');
+      console.log('  Use /thread command for longer content');
+    }
+  }
+  ```
+
+  ## Example Usage
+
+  ```
+  User: "I want to post a tweet"
+
+  Agent: "What would you like to tweet? (Max 25,000 characters for Premium)"
+
+  User: "Just launched our new Twitter API integration! 🚀
+         Full support for Premium features including long-form posts,
+         media uploads, and threads."
+
+  Agent:
+  Preview:
+  ─────────────────────────────────────────
+  Just launched our new Twitter API integration! 🚀
+  Full support for Premium features including long-form posts,
+  media uploads, and threads.
+  ─────────────────────────────────────────
+  Length: 142 characters
+
+  Post this tweet? [yes/no]
+
+  User: "yes"
+
+  Agent: "Posting tweet..."
+
+  ✓ Tweet posted successfully!
+
+  Details:
+    Tweet ID: 1234567890
+    URL: https://twitter.com/user/status/1234567890
+    Length: 142 characters
+
+  View your tweet: https://twitter.com/user/status/1234567890
+
+  Updated Rate Limits:
+    Monthly: 1499 remaining
+    Daily: 49 remaining
+    Hourly: 9 remaining
+  ```
+
+  ## Error Handling
+
+  Always check `result.success` before displaying success message.
+
+  Common errors:
+  - **Validation failed**: Text too long, check length
+  - **Missing credentials**: .env file incomplete
+  - **Rate limit exceeded**: Wait for reset
+  - **Network error**: Retry after delay
+
+  ## Notes
+
+  - Text-only tweets are fastest to post
+  - No media processing required
+  - Instant posting (< 1 second)
+  - Rate limits are shared across all tweet types
+  - Use /thread command for content > 25k characters

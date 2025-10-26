@@ -3,11 +3,11 @@
 
 instagram:
   reels:
-    aspect_ratio: '9:16'
+    aspect_ratio: "9:16"
     recommended_duration_sec: [15, 30, 60, 90]
     max_duration_sec: 90
     min_duration_sec: 3
-    resolution: '1080x1920'
+    resolution: "1080x1920"
     fps: 30
     captions_required: true
     hook_critical_seconds: 1.5
@@ -18,20 +18,20 @@ instagram:
       - Original audio boosts algorithm
 
   feed:
-    aspect_ratio: '4:5'
+    aspect_ratio: "4:5"
     recommended_duration_sec: [60, 120]
     max_duration_sec: 3600
-    resolution: '1080x1350'
+    resolution: "1080x1350"
     fps: 30
     captions_recommended: true
 
 youtube:
   shorts:
-    aspect_ratio: '9:16'
+    aspect_ratio: "9:16"
     recommended_duration_sec: [15, 30, 45]
     max_duration_sec: 60
     min_duration_sec: 1
-    resolution: '1080x1920'
+    resolution: "1080x1920"
     fps: 30
     captions_required: true
     hook_critical_seconds: 3
@@ -42,9 +42,9 @@ youtube:
       - Vertical only (no letterboxing)
 
   standard:
-    aspect_ratio: '16:9'
-    recommended_duration_sec: [480, 600, 900]  # 8-15 minutes
-    resolution: '1920x1080'
+    aspect_ratio: "16:9"
+    recommended_duration_sec: [480, 600, 900] # 8-15 minutes
+    resolution: "1920x1080"
     fps: [30, 60]
     captions_recommended: true
     chapters_recommended: true
@@ -57,11 +57,11 @@ youtube:
 
 tiktok:
   standard:
-    aspect_ratio: '9:16'
+    aspect_ratio: "9:16"
     recommended_duration_sec: [7, 15, 21, 30, 60]
-    max_duration_sec: 600  # 10 minutes
+    max_duration_sec: 600 # 10 minutes
     min_duration_sec: 3
-    resolution: '1080x1920'
+    resolution: "1080x1920"
     fps: 30
     captions_required: true
     hook_critical_seconds: 1
@@ -74,10 +74,10 @@ tiktok:
 
 linkedin:
   feed:
-    aspect_ratio: '16:9'
+    aspect_ratio: "16:9"
     recommended_duration_sec: [30, 60, 90]
     max_duration_sec: 600
-    resolution: '1920x1080'
+    resolution: "1920x1080"
     fps: 30
     captions_required: true
     algorithm_notes: |
@@ -88,10 +88,10 @@ linkedin:
 
 twitter_x:
   feed:
-    aspect_ratio: '16:9'
+    aspect_ratio: "16:9"
     recommended_duration_sec: [15, 30, 45]
     max_duration_sec: 140
-    resolution: '1280x720'
+    resolution: "1280x720"
     fps: 30
     captions_recommended: true
     algorithm_notes: |
@@ -102,8 +102,8 @@ twitter_x:
 
 # Default specs when platform not specified
 default:
-  aspect_ratio: '16:9'
+  aspect_ratio: "16:9"
   duration_sec: 30
-  resolution: '1920x1080'
+  resolution: "1920x1080"
   fps: 30
   captions_enabled: true

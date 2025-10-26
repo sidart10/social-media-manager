@@ -89,12 +89,10 @@ try {
   const agentData = yaml.load(fileContent);
   const workflowsDir = path.join(agentDir, 'workflows');
 
-  const workflowItems = agentData.agent.menu.filter(item => item.workflow);
+  const workflowItems = agentData.agent.menu.filter((item) => item.workflow);
 
   for (const item of workflowItems) {
-    const workflowPath = item.workflow
-      .replace('{agent-folder}', agentDir)
-      .replace(agentDir + '/', '');
+    const workflowPath = item.workflow.replace('{agent-folder}', agentDir).replace(agentDir + '/', '');
     const fullPath = path.join(agentDir, workflowPath);
     const exists = fs.existsSync(fullPath);
     logTest(`Workflow: ${item.trigger}`, exists, exists ? '' : `Missing: ${workflowPath}`);
@@ -136,21 +134,17 @@ try {
   const fileContent = fs.readFileSync(agentPath, 'utf8');
   const agentData = yaml.load(fileContent);
 
-  const triggers = agentData.agent.menu.map(item => item.trigger);
+  const triggers = agentData.agent.menu.map((item) => item.trigger);
   const uniqueTriggers = new Set(triggers);
   logTest('No duplicate triggers', triggers.length === uniqueTriggers.size);
 
-  const allKebabCase = triggers.every(t => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(t));
+  const allKebabCase = triggers.every((t) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(t));
   logTest('All triggers are kebab-case', allKebabCase);
 
-  const allHaveTargets = agentData.agent.menu.every(item =>
-    item.workflow || item.action || item.exec || item.tmpl || item.data
-  );
+  const allHaveTargets = agentData.agent.menu.every((item) => item.workflow || item.action || item.exec || item.tmpl || item.data);
   logTest('All menu items have command targets', allHaveTargets);
 
-  const allHaveDescriptions = agentData.agent.menu.every(item =>
-    item.description && item.description.trim().length > 0
-  );
+  const allHaveDescriptions = agentData.agent.menu.every((item) => item.description && item.description.trim().length > 0);
   logTest('All menu items have descriptions', allHaveDescriptions);
 
   log(`  → Total menu items: ${agentData.agent.menu.length}`, 'cyan');
@@ -170,9 +164,7 @@ try {
     logTest('critical_actions is array', Array.isArray(agentData.agent.critical_actions));
     logTest('Has at least one action', agentData.agent.critical_actions.length > 0);
 
-    const allNonEmpty = agentData.agent.critical_actions.every(action =>
-      typeof action === 'string' && action.trim().length > 0
-    );
+    const allNonEmpty = agentData.agent.critical_actions.every((action) => typeof action === 'string' && action.trim().length > 0);
     logTest('All actions are non-empty strings', allNonEmpty);
 
     log(`  → Total critical actions: ${agentData.agent.critical_actions.length}`, 'cyan');

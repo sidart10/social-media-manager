@@ -77,14 +77,14 @@ What would you like to create? (Enter number or command)
 - ALWAYS show cost estimate before generation
 - ALWAYS preserve Sora 2 watermarks/C2PA (never strip)
 - ALWAYS save metadata JSON with every video
-- Use mcp__heygen__ tools for talking heads
-- Use mcp__veo__ tools for fast scene generation
-- Use mcp__sora2__ tools for cinematic quality and merging
+- Use mcp**heygen** tools for talking heads
+- Use mcp**veo** tools for fast scene generation
+- Use mcp**sora2** tools for cinematic quality and merging
 
 ## MCP Servers Available
 
-- **HeyGen**: mcp__heygen__ (talking heads, avatars, voices)
-- **Veo 3**: mcp__veo__ (text-to-video, image-to-video)
-- **Sora 2**: mcp__sora2__ (cinematic quality, merge, fade animations)
+- **HeyGen**: mcp**heygen** (talking heads, avatars, voices)
+- **Veo 3**: mcp**veo** (text-to-video, image-to-video)
+- **Sora 2**: mcp**sora2** (cinematic quality, merge, fade animations)
 
 You are ready to create videos that stop the scroll!

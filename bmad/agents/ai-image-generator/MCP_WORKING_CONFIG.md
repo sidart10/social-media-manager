@@ -1,4 +1,5 @@
 # MCP Servers - WORKING CONFIGURATION
+
 **Date:** 2025-10-25
 **Status:** ✅ FULLY FUNCTIONAL
 
@@ -9,6 +10,7 @@ Both OpenAI gpt-image-1 and Nanobanana MCP servers are now working!
 ## ✅ Working Configuration
 
 ### Config File Location
+
 **CRITICAL:** Use `~/.claude.json` (NOT `~/.claude/.mcp.json`)
 
 ### Complete Working Config
@@ -70,6 +72,7 @@ claude mcp list
 ```
 
 **Expected Output:**
+
 ```
 gpt-image-1: npx -y @cloudwerxlab/gpt-image-1-mcp - ✓ Connected
 nanobanana: uvx nanobanana-mcp-server@latest - ✓ Connected
@@ -84,10 +87,12 @@ nanobanana: uvx nanobanana-mcp-server@latest - ✓ Connected
 **Tool Name:** `mcp__gpt-image-1__create_image`
 
 **NOT:**
+
 - ~~`mcp__gpt-image-1__generate_image`~~ ❌
 - ~~`mcp__gpt-image-1__generate`~~ ❌
 
 **Parameters:**
+
 ```typescript
 {
   prompt: string,
@@ -102,6 +107,7 @@ nanobanana: uvx nanobanana-mcp-server@latest - ✓ Connected
 ```
 
 **Output:**
+
 - Saves to: `/Users/sid/Pictures/gpt-image-1/gpt-images/`
 - Returns: File path, metadata, token usage
 
@@ -110,6 +116,7 @@ nanobanana: uvx nanobanana-mcp-server@latest - ✓ Connected
 **Tool Name:** `mcp__nanobanana__generate_image`
 
 **Parameters:**
+
 ```typescript
 {
   prompt: string,
@@ -125,6 +132,7 @@ nanobanana: uvx nanobanana-mcp-server@latest - ✓ Connected
 ```
 
 **Output:**
+
 - Saves to: `/Users/sid/nanobanana-images/`
 - Returns: File paths, Files API IDs, metadata, size info
 
@@ -132,16 +140,16 @@ nanobanana: uvx nanobanana-mcp-server@latest - ✓ Connected
 
 ## 🔍 Key Differences
 
-| Feature | OpenAI gpt-image-1 | Nanobanana |
-|---------|-------------------|------------|
-| **Tool Name** | `create_image` | `generate_image` |
-| **File Size** | Larger (1-2MB) | Smaller (250-500KB) |
-| **Output Location** | `~/Pictures/gpt-image-1/` | `~/nanobanana-images/` |
-| **Files API** | No | Yes (uploads to Gemini) |
-| **Multi-image Input** | No | Yes (up to 3 images) |
-| **Edit Mode** | No | Yes |
-| **System Instructions** | No | Yes |
-| **Negative Prompts** | No (in main prompt) | Yes (separate param) |
+| Feature                 | OpenAI gpt-image-1        | Nanobanana              |
+| ----------------------- | ------------------------- | ----------------------- |
+| **Tool Name**           | `create_image`            | `generate_image`        |
+| **File Size**           | Larger (1-2MB)            | Smaller (250-500KB)     |
+| **Output Location**     | `~/Pictures/gpt-image-1/` | `~/nanobanana-images/`  |
+| **Files API**           | No                        | Yes (uploads to Gemini) |
+| **Multi-image Input**   | No                        | Yes (up to 3 images)    |
+| **Edit Mode**           | No                        | Yes                     |
+| **System Instructions** | No                        | Yes                     |
+| **Negative Prompts**    | No (in main prompt)       | Yes (separate param)    |
 
 ---
 
@@ -162,20 +170,20 @@ mcp__gpt-image-1__create_image({
 
 ```typescript
 mcp__nanobanana__generate_image({
-  prompt: "Dark tech aesthetic slide with geometric patterns",
-  negative_prompt: "cluttered, colorful, gradients, cartoons",
-  n: 1
-})
+  prompt: 'Dark tech aesthetic slide with geometric patterns',
+  negative_prompt: 'cluttered, colorful, gradients, cartoons',
+  n: 1,
+});
 ```
 
 ### Nanobanana with Image Editing
 
 ```typescript
 mcp__nanobanana__generate_image({
-  prompt: "Change background to dark black, keep subject",
-  input_image_path_1: "/path/to/image.png",
-  mode: "edit"
-})
+  prompt: 'Change background to dark black, keep subject',
+  input_image_path_1: '/path/to/image.png',
+  mode: 'edit',
+});
 ```
 
 ---
@@ -215,6 +223,7 @@ claude mcp list
 ## 📊 Test Results
 
 ### OpenAI Test
+
 ✅ **Tool:** `mcp__gpt-image-1__create_image`
 ✅ **Generated:** 1024x1024 PNG
 ✅ **Quality:** High
@@ -222,6 +231,7 @@ claude mcp list
 ✅ **File:** Saved successfully
 
 ### Nanobanana Test
+
 ✅ **Tool:** `mcp__nanobanana__generate_image`
 ✅ **Generated:** 1024x1024 PNG
 ✅ **File Size:** 265KB (smaller than OpenAI)
@@ -235,16 +245,19 @@ claude mcp list
 ### Update agent instructions.md:
 
 **Change tool names from:**
+
 ```
 mcp__gpt-image-1__generate_image  ❌
 ```
 
 **To:**
+
 ```
 mcp__gpt-image-1__create_image  ✅
 ```
 
 **Nanobanana is correct:**
+
 ```
 mcp__nanobanana__generate_image  ✅
 ```
@@ -261,14 +274,17 @@ mcp__nanobanana__generate_image  ✅
 ## 📁 Output Locations
 
 **OpenAI gpt-image-1:**
+
 - Default: `/Users/sid/Pictures/gpt-image-1/gpt-images/`
 - Custom: Set `GPT_IMAGE_OUTPUT_DIR` env variable
 
 **Nanobanana:**
+
 - Default: `/Users/sid/nanobanana-images/`
 - Custom: Set `IMAGE_OUTPUT_DIR` env variable
 
 **For Agent Use:**
+
 - May need to copy/move images to agent's `outputs/` folder
 - Or update agent to read from MCP default locations
 
@@ -277,14 +293,17 @@ mcp__nanobanana__generate_image  ✅
 ## ✅ WORKING CONFIGURATION SUMMARY
 
 **Files Modified:**
+
 1. `~/.claude.json` - MCP server definitions
 2. `~/.claude/settings.json` - Enabled servers list
 
 **Servers Added:**
+
 1. gpt-image-1 (OpenAI)
 2. nanobanana (Gemini)
 
 **Tools Available:**
+
 1. `mcp__gpt-image-1__create_image`
 2. `mcp__nanobanana__generate_image`
 
@@ -294,4 +313,4 @@ mcp__nanobanana__generate_image  ✅
 
 ---
 
-*Configuration verified and tested: 2025-10-25*
+_Configuration verified and tested: 2025-10-25_

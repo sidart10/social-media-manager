@@ -1,4 +1,5 @@
 # Best Practices Framework - AI Image Generation
+
 **Based on Emily's Quality Prompts + Professional Content Standards**
 
 This framework ensures consistent, high-quality output across all image generation use cases: photorealistic, professional content, and image editing.
@@ -8,30 +9,35 @@ This framework ensures consistent, high-quality output across all image generati
 ## 📐 Core Principles (Universal)
 
 ### 1. **JSON-First Approach**
+
 - ✅ ALL prompts must be structured as comprehensive JSON
 - ✅ Minimum 10 major sections per prompt
 - ✅ No ambiguity - every detail explicitly specified
 - ✅ Template-driven workflow (load → populate → generate)
 
 ### 2. **Negative Prompts Are Mandatory**
+
 - ✅ Minimum 10 negative prompt items
 - ✅ Cover common AI failures (artifacts, anatomical errors, quality issues)
 - ✅ Platform-specific exclusions
 - ✅ Style-specific exclusions
 
 ### 3. **Technical Precision**
+
 - ✅ Exact dimensions specified (e.g., 1080x1080px, not "square")
 - ✅ Color values as hex codes (e.g., #1A73E8, not "blue")
 - ✅ Typography with exact specs (font, size, weight, spacing)
 - ✅ Quality parameters explicit (resolution, DPI, color space)
 
 ### 4. **Iterative Refinement**
+
 - ✅ Generate → Critique → Refine workflow
 - ✅ Use 7-pillar quality benchmark system
 - ✅ Document issues and corrections
 - ✅ Save successful prompts as templates
 
 ### 5. **Provider Intelligence**
+
 - ✅ Select provider based on use case (see MCP_CAPABILITIES.md)
 - ✅ OpenAI for photorealism and complex compositions
 - ✅ Gemini for editing and iterative refinement
@@ -46,6 +52,7 @@ This framework ensures consistent, high-quality output across all image generati
 ### A1. **Scene Construction**
 
 **Environment Setup:**
+
 ```json
 "scene": {
   "environment": "Specific location with sensory details - not just 'outdoors' but 'Snow-covered glacial clearing framed by tall pines; crisp winter air; readable footprints leading to subject.'",
@@ -54,6 +61,7 @@ This framework ensures consistent, high-quality output across all image generati
 ```
 
 **Key Principles:**
+
 - Use sensory language (crisp, tactile, luminous)
 - Specify lighting conditions precisely
 - Include environmental context (background, foreground)
@@ -62,6 +70,7 @@ This framework ensures consistent, high-quality output across all image generati
 ### A2. **Subject Definition**
 
 **Comprehensive Subject Spec:**
+
 ```json
 "subject": {
   "identity": "adult East Asian female idol (editorial look)",
@@ -81,6 +90,7 @@ This framework ensures consistent, high-quality output across all image generati
 ```
 
 **Key Principles:**
+
 - Exact ethnicity/age/gender if relevant
 - Body type with reference terms (ectomorphic, athletic, etc.)
 - Grooming level (natural, polished, editorial)
@@ -90,6 +100,7 @@ This framework ensures consistent, high-quality output across all image generati
 ### A3. **Styling & Wardrobe**
 
 **Detailed Styling Spec:**
+
 ```json
 "styling": {
   "concept": "Avant-garde winter couture with restrained ornament.",
@@ -105,6 +116,7 @@ This framework ensures consistent, high-quality output across all image generati
 ```
 
 **Key Principles:**
+
 - Material specificity (matte vs glossy, leather vs fabric)
 - Texture descriptions (cracked, voluminous, tactile)
 - Color relationships (complementary, split, analogous)
@@ -114,6 +126,7 @@ This framework ensures consistent, high-quality output across all image generati
 ### A4. **Camera & Technical Settings**
 
 **Professional Camera Spec (Emily's Standard):**
+
 ```json
 "camera": {
   "system": "Canon EOS R5 (full-frame, 45MP) – 14-bit RAW",
@@ -135,6 +148,7 @@ This framework ensures consistent, high-quality output across all image generati
 ```
 
 **Key Principles:**
+
 - Full-frame equivalents (85mm for portraits, 35mm for environmental)
 - Aperture for depth control (f/1.2-f/5.6 range)
 - ISO appropriate to lighting (100 bright, 400-800 indoor, 1600+ low light)
@@ -144,6 +158,7 @@ This framework ensures consistent, high-quality output across all image generati
 ### A5. **Composition & Framing**
 
 **Composition Spec:**
+
 ```json
 "composition": {
   "orientation": "vertical 9:16",
@@ -154,6 +169,7 @@ This framework ensures consistent, high-quality output across all image generati
 ```
 
 **Key Principles:**
+
 - Rule of thirds (subject placement)
 - Horizon line position (low for sky, high for ground)
 - Negative space (breathing room, visual rest)
@@ -163,6 +179,7 @@ This framework ensures consistent, high-quality output across all image generati
 ### A6. **Post-Processing**
 
 **Post-Processing Spec:**
+
 ```json
 "post_processing": {
   "raw_dev": "Neutral profile; highlight recovery; contrast via custom tone curve (avoid clarity overshoot).",
@@ -173,6 +190,7 @@ This framework ensures consistent, high-quality output across all image generati
 ```
 
 **Key Principles:**
+
 - Highlight/shadow recovery (not blown or crushed)
 - Selective adjustments (not global slider pushing)
 - Skin texture preservation (no wax/smoothing)
@@ -181,6 +199,7 @@ This framework ensures consistent, high-quality output across all image generati
 ### A7. **Negative Prompts (Photorealistic)**
 
 **Emily's Standard Negatives:**
+
 ```json
 "negative_prompt": [
   "wrong ethnicity, non–East Asian face drift",
@@ -208,6 +227,7 @@ This framework ensures consistent, high-quality output across all image generati
 ### B1. **Content Structure**
 
 **Professional Content Spec:**
+
 ```json
 "content_structure": {
   "title": "Main headline (5-10 words max)",
@@ -226,6 +246,7 @@ This framework ensures consistent, high-quality output across all image generati
 ```
 
 **Key Principles:**
+
 - Text brevity (max 30 words per slide)
 - Clear hierarchy (H1 > H2 > Body)
 - Visual-first (diagrams > text walls)
@@ -234,6 +255,7 @@ This framework ensures consistent, high-quality output across all image generati
 ### B2. **Typography Standards**
 
 **Professional Typography Spec:**
+
 ```json
 "typography": {
   "heading_font": "Inter Bold | Helvetica Neue Bold | Roboto Bold",
@@ -248,6 +270,7 @@ This framework ensures consistent, high-quality output across all image generati
 ```
 
 **Key Principles:**
+
 - Sans-serif for digital (Inter, Roboto, Open Sans)
 - Size hierarchy minimum 8px difference between levels
 - Line height for readability (1.5 for body)
@@ -256,6 +279,7 @@ This framework ensures consistent, high-quality output across all image generati
 ### B3. **Color Theory for Branding**
 
 **Professional Color Palette:**
+
 ```json
 "color_palette": {
   "primary": "#1A73E8",
@@ -270,6 +294,7 @@ This framework ensures consistent, high-quality output across all image generati
 ```
 
 **Key Principles:**
+
 - 60-30-10 color distribution (dominant, secondary, accent)
 - Platform alignment (LinkedIn blue, Twitter blue, etc.)
 - Accessibility (text colors pass WCAG on backgrounds)
@@ -278,6 +303,7 @@ This framework ensures consistent, high-quality output across all image generati
 ### B4. **Diagram Design Principles**
 
 **Diagram Spec:**
+
 ```json
 "diagram_specs": {
   "diagram_type": "flowchart | architecture | mindmap | timeline | comparison",
@@ -296,6 +322,7 @@ This framework ensures consistent, high-quality output across all image generati
 ```
 
 **Key Principles:**
+
 - Simple > Complex (max 5-7 nodes per diagram)
 - Semantic color coding (consistent meanings)
 - Clear connectors (direction, flow)
@@ -304,6 +331,7 @@ This framework ensures consistent, high-quality output across all image generati
 ### B5. **Composition for Professional Content**
 
 **Professional Composition:**
+
 ```json
 "composition": {
   "orientation": "square (1:1) | portrait (4:5)",
@@ -317,6 +345,7 @@ This framework ensures consistent, high-quality output across all image generati
 ```
 
 **Key Principles:**
+
 - Grid system (12-column for flexibility)
 - Generous margins (80px minimum)
 - White space ratio (40%+ empty space)
@@ -325,6 +354,7 @@ This framework ensures consistent, high-quality output across all image generati
 ### B6. **Readability Standards**
 
 **Readability Checklist:**
+
 ```json
 "readability_standards": {
   "contrast_ratio": "WCAG AAA (7:1 minimum)",
@@ -337,6 +367,7 @@ This framework ensures consistent, high-quality output across all image generati
 ```
 
 **Key Principles:**
+
 - 3-second rule (main point understood quickly)
 - Mobile-first (most viewers on phone)
 - High contrast (dark text on light, or vice versa)
@@ -345,6 +376,7 @@ This framework ensures consistent, high-quality output across all image generati
 ### B7. **Negative Prompts (Professional Content)**
 
 **Professional Content Negatives:**
+
 ```json
 "negative_prompt": [
   "cluttered, overcrowded, too much text, cramped layout",
@@ -373,6 +405,7 @@ This framework ensures consistent, high-quality output across all image generati
 ### C1. **Input Image Preparation**
 
 **Pre-Editing Checklist:**
+
 ```json
 "input_preparation": {
   "file_format": "PNG or JPEG, under 4MB for OpenAI, under 20MB for Gemini",
@@ -385,6 +418,7 @@ This framework ensures consistent, high-quality output across all image generati
 ```
 
 **Key Principles:**
+
 - Clean input (garbage in = garbage out)
 - Adequate resolution (upscale if needed first)
 - Subject clarity (editing requires clear boundaries)
@@ -392,6 +426,7 @@ This framework ensures consistent, high-quality output across all image generati
 ### C2. **Editing Prompt Structure**
 
 **Image Editing Spec:**
+
 ```json
 "image_editing": {
   "edit_type": "inpainting | outpainting | style_transfer | enhancement",
@@ -404,6 +439,7 @@ This framework ensures consistent, high-quality output across all image generati
 ```
 
 **Key Principles:**
+
 - Clear target (what to change)
 - Clear preservation (what to keep)
 - Blending emphasis (seamless, natural)
@@ -412,6 +448,7 @@ This framework ensures consistent, high-quality output across all image generati
 ### C3. **Provider Selection for Editing**
 
 **Editing Provider Logic:**
+
 ```
 IF edit is MINOR (blur background, remove small object, color correction):
   → Use Gemini Nanobanana (pixel-perfect editing)
@@ -426,6 +463,7 @@ IF iterative refinement needed:
 ### C4. **Quality Preservation**
 
 **Editing Quality Checklist:**
+
 ```json
 "quality_preservation": {
   "resolution_match": "Output resolution = input resolution (or higher)",
@@ -438,6 +476,7 @@ IF iterative refinement needed:
 ```
 
 **Key Principles:**
+
 - Resolution maintained or improved
 - No quality loss from compression
 - Texture and detail preserved
@@ -446,6 +485,7 @@ IF iterative refinement needed:
 ### C5. **Iterative Editing Workflow**
 
 **Multi-Turn Editing (Gemini Specialty):**
+
 ```
 Step 1: Upload original image
 Step 2: Make first edit (e.g., "Blur background")
@@ -456,6 +496,7 @@ Step 6: Final review
 ```
 
 **Key Principles:**
+
 - One change at a time (easier to control)
 - Review between edits (catch issues early)
 - Build complexity gradually (don't overcomplicate prompt)
@@ -463,6 +504,7 @@ Step 6: Final review
 ### C6. **Negative Prompts (Editing)**
 
 **Editing-Specific Negatives:**
+
 ```json
 "negative_prompt": [
   "degraded quality, lower resolution than original",
@@ -485,46 +527,54 @@ Step 6: Final review
 **Rate EVERY generated image on these 7 pillars (1-10 scale):**
 
 ### 1. **Clarity** (1-10)
+
 - Message/subject understood in <3 seconds
 - No ambiguity
 - Clear focal point
 
 ### 2. **Technical Quality** (1-10)
+
 - Resolution appropriate
 - No artifacts, banding, compression issues
 - Sharp where intended, properly blurred where intended
 
 ### 3. **Composition** (1-10)
+
 - Rule of thirds respected (or intentionally broken)
 - Visual balance
 - Effective use of negative space
 - Clean hierarchy
 
 ### 4. **Color Accuracy** (1-10)
+
 - Matches specified palette
 - WCAG contrast standards met
 - Harmonious color relationships
 - No unexpected color casts
 
 ### 5. **Typography/Text** (1-10)
+
 - Legible at intended viewing size
 - Proper hierarchy
 - No spelling errors
 - Appropriate font choices
 
 ### 6. **Professionalism** (1-10)
+
 - Enterprise-grade appearance
 - No amateur elements (clip-art, Comic Sans, etc.)
 - Consistent style
 - Platform-appropriate
 
 ### 7. **Accuracy to Prompt** (1-10)
+
 - All specified elements present
 - Details match instructions
 - Style matches description
 - No hallucinated elements
 
 **Overall Score:** Average of 7 pillars
+
 - **9-10:** Exceptional, publish immediately
 - **7-8:** Good, minor tweaks may improve
 - **5-6:** Acceptable, needs refinement
@@ -583,4 +633,4 @@ Step 6: Final review
 
 **This framework ensures Emily's quality standards are maintained across ALL use cases - photorealistic, professional content, and image editing.** 🎯
 
-*Last updated: 2025-10-25*
+_Last updated: 2025-10-25_

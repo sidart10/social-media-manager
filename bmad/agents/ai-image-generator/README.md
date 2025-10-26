@@ -28,11 +28,13 @@ The AI Image Generator Agent is a professional visual content producer that crea
 See detailed setup: [`ai-image-generator-sidecar/MCP_SETUP.md`](./ai-image-generator-sidecar/MCP_SETUP.md)
 
 **Nanobanana (Gemini):**
+
 ```bash
 uvx nanobanana-mcp-server@latest
 ```
 
 **GPT-Image-1 (OpenAI):**
+
 ```bash
 npx @cloudwerxlab/gpt-image-1-mcp
 ```
@@ -91,21 +93,25 @@ ai-image-generator/
 ## Commands
 
 ### Primary Generation
+
 - `*create-carousel` - Generate 2-10 image carousel set
 - `*create-single` - Generate one optimized image
 - `*create-batch` - Generate multiple variants of same concept
 
 ### Platform Quick Commands
+
 - `*instagram` - Quick Instagram-optimized generation
 - `*twitter` - Quick X/Twitter-optimized generation
 - `*linkedin` - Quick LinkedIn-optimized generation
 
 ### Utilities
+
 - `*preview` - Preview settings before generation
 - `*presets` - List available platform presets
 - `*config` - Show/update configuration
 
 ### Meta
+
 - `*help` - Show command list
 - `*exit` - Exit agent
 
@@ -114,15 +120,18 @@ ai-image-generator/
 ## Platform Specifications
 
 ### Instagram
+
 - **Square (1:1):** 1080x1080px - Standard feed post
 - **Portrait (4:5):** 1080x1350px - Vertical post
 - **Carousel:** 1080x1080px - Up to 10 images
 
 ### X/Twitter
+
 - **Standard (16:9):** 1200x675px - Timeline image
 - **Large (2:1):** 1200x600px - Summary card
 
 ### LinkedIn
+
 - **Standard (1.91:1):** 1200x628px - Feed post
 - **Square (1:1):** 1200x1200px - Alternative format
 
@@ -133,12 +142,14 @@ Full specifications: `ai-image-generator-sidecar/platform-specs.yaml`
 ## Provider Routing
 
 **OpenAI gpt-image-1:**
+
 - High detail and photorealism
 - Complex compositions
 - Professional imagery
 - Resolutions: 1024x1024, 1024x1536, 1536x1024
 
 **Gemini Nanobanana:**
+
 - Fast iteration
 - Stylized content
 - Batch generation
@@ -151,11 +162,13 @@ The agent automatically selects the best provider based on your requirements.
 ## Output
 
 Generated images are saved to:
+
 ```
 ai-image-generator-sidecar/outputs/YYYY-MM-DD/
 ```
 
 Each generation includes:
+
 - ✅ Image files (PNG/JPEG/WebP)
 - ✅ Metadata JSON (prompt, specs, provider)
 - ✅ Suggested caption (platform-aware)
@@ -166,9 +179,11 @@ Each generation includes:
 ## Configuration
 
 ### API Keys
+
 Store in `ai-image-generator-sidecar/config.yaml` (gitignored)
 
 ### Platform Defaults
+
 ```yaml
 platform:
   default: instagram
@@ -180,9 +195,10 @@ generation:
 ```
 
 ### Provider Preferences
+
 ```yaml
 providers:
-  default: openai  # or nanobanana
+  default: openai # or nanobanana
   openai:
     enabled: true
   nanobanana:
@@ -202,19 +218,23 @@ providers:
 ## Troubleshooting
 
 ### "MCP server not found"
+
 - Install MCP servers: See `MCP_SETUP.md`
 - Restart Claude Code after installation
 
 ### "Authentication failed"
+
 - Check API keys in `config.yaml`
 - Verify keys are valid at provider dashboards
 
 ### "Generation failed"
+
 - Check internet connection
 - Verify API quota/rate limits
 - Try alternative provider
 
 ### "Agent not found"
+
 - Run BMAD installer to compile agent
 - Check agent is in `bmad/agents/` directory
 
@@ -256,6 +276,7 @@ providers:
 ## Support
 
 Issues or questions:
+
 1. Check `MCP_SETUP.md` for installation help
 2. Review `config.yaml` for configuration options
 3. Check `platform-specs.yaml` for platform requirements
@@ -265,4 +286,4 @@ Issues or questions:
 
 **Ready to generate stunning social media images!** 🚀
 
-*Built with BMAD Core - Expert Agent Architecture*
+_Built with BMAD Core - Expert Agent Architecture_

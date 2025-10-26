@@ -1,0 +1,80 @@
+# Social Posting Agent Configuration
+# API credentials and platform settings
+
+# Twitter API Configuration
+twitter:
+  # All credentials loaded from .env file (project root)
+  credentials_location: "{project-root}/.env"
+  required_env_vars:
+    - TWITTER_API_KEY
+    - TWITTER_API_SECRET
+    - TWITTER_ACCESS_TOKEN
+    - TWITTER_ACCESS_TOKEN_SECRET
+
+  # Rate limits (Twitter Free Tier)
+  rate_limits:
+    monthly_hard: 1500 # Hard API limit
+    daily_recommended: 50 # Recommended to avoid flags
+    hourly_recommended: 10 # Recommended pacing
+
+  # Media specifications
+  media:
+    images:
+      max_count: 4
+      formats: [".jpg", ".jpeg", ".png", ".gif", ".webp"]
+      max_size_mb: 5
+      max_size_gif_mb: 15
+    videos:
+      max_count: 1 # Cannot mix with images
+      formats: [".mp4", ".mov"]
+      max_size_mb: 512
+      encoding: "H.264"
+      fps: "30-60"
+
+  # Text specifications
+  text:
+    max_length_premium: 25000
+    max_length_free: 280
+
+# Module paths
+modules:
+  twitter_client: "{project-root}/bmad/modules/twitter-api-client"
+
+# Output settings
+output:
+  rate_limit_state: "{project-root}/bmad/modules/twitter-api-client/.rate-limit-state.json"
+  log_posts: true # Track posted tweets
+  log_location: "{agent-folder}/social-posting-agent-sidecar/post-history.json"
+
+# Future platform configurations
+linkedin:
+  status: "planned"
+  notes: "Requires LinkedIn app approval and company page access"
+
+youtube:
+  status: "available_via_mcp"
+  mcp_server: "youtube-uploader-mcp"
+  notes: "Use mcp__youtube-uploader-mcp__ tools for OAuth and upload"
+
+instagram:
+  status: "planned"
+  notes: "Requires Facebook app approval and Instagram Business account"
+
+# Agent behavior
+agent:
+  default_warnings:
+    rate_limit_warning_threshold: 0.9 # Warn at 90% of limit
+    confirm_before_bulk_post: true # Ask before posting 5+ tweets
+    validate_before_post: true # Always validate inputs
+
+  error_handling:
+    retry_on_network_error: true
+    max_retries: 3
+    retry_delay_seconds: 5
+    graceful_degradation: true # Continue thread even if one tweet fails
+
+  user_experience:
+    show_rate_limits: true # Display limits after posting
+    show_tweet_urls: true # Display URLs of posted tweets
+    show_character_count: true # Show character count
+    show_cost_estimate: false # Twitter API is free (for now)

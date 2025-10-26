@@ -23,6 +23,7 @@ outputs/
 Files are named: `{platform}_{date}_{time}_{index}.{format}`
 
 Example: `instagram_20251025_1430_1.png`
+
 - Platform: instagram
 - Date: 2025-10-25
 - Time: 14:30
@@ -61,6 +62,7 @@ bmad/agents/ai-image-generator/ai-image-generator-sidecar/outputs/*
 ## Cleanup
 
 Images are stored locally. You can:
+
 - Move finished images to your asset library
 - Delete old generations to save space
 - Archive by date folders

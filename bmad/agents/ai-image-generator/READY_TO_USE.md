@@ -11,29 +11,34 @@ Your AI Image Generator Agent is complete and ready for action!
 ## ✅ **What's Complete**
 
 ### Agent Core
+
 - ✅ **Agent YAML:** Schema-validated, 50 tests passed
 - ✅ **Persona:** Professional Visual Content Producer & Platform Strategist
 - ✅ **Menu:** 10 commands ready
 - ✅ **Critical Actions:** All files loaded on activation
 
 ### MCP Integration
+
 - ✅ **OpenAI gpt-image-1:** Working via `mcp__gpt-image-1__create_image`
 - ✅ **Gemini Nanobanana:** Working via `mcp__nanobanana__generate_image`
 - ✅ **Speed:** 2-3 seconds per image (30x faster!)
 - ✅ **Both tested:** Generated test images successfully
 
 ### Workflows (3/3 Complete)
+
 - ✅ **generate-carousel.yaml:** General carousel builder (any platform)
 - ✅ **generate-single.yaml:** Single image generation
 - ✅ **generate-linkedin.yaml:** LinkedIn fast-track with captions/hashtags
 
 ### Templates
+
 - ✅ **TEST-linkedin-carousel-ai-agents.json:** AI/tech diagrams
 - ✅ **linkedin-carousel-ai-browsers.json:** Product showcases
 - ✅ **Dark monochrome tech design system:** Fully defined
 - ✅ **Aspect ratio flexibility:** 1:1, 16:9, 9:16, 4:5, 2:3
 
 ### Documentation (15+ files)
+
 - ✅ **MCP_WORKING_CONFIG.md:** Complete setup guide
 - ✅ **MCP_QUICK_REFERENCE.md:** Tool usage examples
 - ✅ **best-practices-framework.md:** Emily's quality standards
@@ -43,6 +48,7 @@ Your AI Image Generator Agent is complete and ready for action!
 - ✅ **README.md:** Complete agent documentation
 
 ### Quality Framework
+
 - ✅ **Emily's JSON-first approach:** Comprehensive prompts
 - ✅ **7-pillar quality system:** Clarity, tech quality, composition, colors, typography, professionalism, accuracy
 - ✅ **Negative prompts:** Comprehensive exclusions
@@ -72,6 +78,7 @@ Your AI Image Generator Agent is complete and ready for action!
 ### Step 3: Generate Content
 
 **For LinkedIn (Fastest):**
+
 ```
 *linkedin
 
@@ -87,6 +94,7 @@ Your AI Image Generator Agent is complete and ready for action!
 ```
 
 **For Instagram/Twitter:**
+
 ```
 *create-carousel
 
@@ -95,6 +103,7 @@ Your AI Image Generator Agent is complete and ready for action!
 ```
 
 **For Quick Single Image:**
+
 ```
 *create-single
 
@@ -109,11 +118,13 @@ Your AI Image Generator Agent is complete and ready for action!
 ### Every Generation Includes:
 
 **Images:**
+
 - High-quality PNGs (1-2MB for OpenAI, 250-500KB for Gemini)
 - Proper sizing (1024x1024, 1024x1536, or 1536x1024)
 - Platform-optimized
 
 **Metadata (JSON):**
+
 - Complete prompt used
 - All generation parameters
 - Provider & model info
@@ -123,6 +134,7 @@ Your AI Image Generator Agent is complete and ready for action!
 - Design system details
 
 **LinkedIn Package ALSO Includes:**
+
 - Professional caption (copy-paste ready)
 - 3-5 relevant hashtags
 - Accessibility alt-text
@@ -136,16 +148,19 @@ Your AI Image Generator Agent is complete and ready for action!
 ## ⚡ **Performance**
 
 **Generation Speed (MCP):**
+
 - Single image: ~3 seconds
 - 3-slide carousel: ~10 seconds
 - 7-slide carousel: ~25 seconds
 
 **vs Direct API:**
+
 - Single image: ~90 seconds
 - 3-slide carousel: ~4 minutes
 - **30x speed improvement!**
 
 **Quality:**
+
 - Enterprise-grade
 - Professional aesthetics
 - Platform-optimized
@@ -156,6 +171,7 @@ Your AI Image Generator Agent is complete and ready for action!
 ## 🎨 **Available Designs**
 
 ### 1. Dark Monochrome Tech (Default for LinkedIn)
+
 - Black background (#0B0B0B)
 - White text (#FFFFFF)
 - Single accent colors
@@ -164,6 +180,7 @@ Your AI Image Generator Agent is complete and ready for action!
 - Professional/technical vibe
 
 ### 2. Photorealistic (Emily's Framework)
+
 - Cinema-grade specifications
 - Camera settings (lens, aperture, ISO)
 - Lighting details
@@ -172,6 +189,7 @@ Your AI Image Generator Agent is complete and ready for action!
 - Post-processing guidance
 
 ### 3. Vibrant Social (Instagram-style)
+
 - Bright, saturated colors
 - Eye-catching composition
 - Engaging elements
@@ -182,23 +200,27 @@ Your AI Image Generator Agent is complete and ready for action!
 ## 📊 **Supported Platforms**
 
 **LinkedIn:**
+
 - ✅ Carousels (16:9 landscape)
 - ✅ Single posts (16:9 or 1:1)
 - ✅ Tech diagrams
 - ✅ Auto-caption/hashtags
 
 **Instagram:**
+
 - ✅ Square posts (1:1)
 - ✅ Portrait posts (4:5)
 - ✅ Carousels (up to 10 images)
 - ⚠️ Stories (9:16 - approximated as 2:3)
 
 **Twitter/X:**
+
 - ✅ Standard posts (16:9)
 - ✅ Thread images
 - ⚠️ Headers (custom sizing)
 
 **Custom:**
+
 - ✅ Any supported size
 - ✅ Custom aspect ratios
 - ✅ Flexible templates
@@ -208,16 +230,19 @@ Your AI Image Generator Agent is complete and ready for action!
 ## 🔧 **Configuration**
 
 **API Keys:** Configured in `~/.claude.json`
+
 - OpenAI: ✅ Set
 - Gemini: ✅ Set
 - 🚨 Regenerate keys (exposed in chat!)
 
 **Output Location:**
+
 ```
 bmad/agents/ai-image-generator/ai-image-generator-sidecar/outputs/
 ```
 
 **MCP Locations:**
+
 - OpenAI: `~/Pictures/gpt-image-1/gpt-images/`
 - Nanobanana: `~/nanobanana-images/`
 
@@ -277,24 +302,29 @@ Post it!
 ## 📚 **Documentation Index**
 
 **Getting Started:**
+
 - THIS FILE → Quick overview
 - README.md → Complete documentation
 - MCP_WORKING_CONFIG.md → MCP setup (already done!)
 
 **Using the Agent:**
+
 - MCP_QUICK_REFERENCE.md → Tool usage examples
 - WORKFLOWS_COMPLETE.md → Workflow details
 - Templates folder → Example JSON templates
 
 **Quality & Best Practices:**
+
 - best-practices-framework.md → Emily's standards
 - MCP_CAPABILITIES.md → Provider features
 
 **Troubleshooting:**
+
 - MCP_TROUBLESHOOTING.md → Fix MCP issues
 - IMPLEMENTATION_LEARNINGS.md → Lessons learned
 
 **Development:**
+
 - IMPLEMENTATION_ROADMAP.md → Future enhancements
 - AGENT_FIXES_APPLIED.md → What was fixed
 
@@ -336,6 +366,7 @@ Before first use:
 ## 🚀 **YOU'RE READY, sid!**
 
 **Your AI Image Generator Agent is:**
+
 - ✅ Built
 - ✅ Validated
 - ✅ MCP-powered
@@ -346,6 +377,7 @@ Before first use:
 **Just compile and activate!**
 
 **This agent will:**
+
 - Generate LinkedIn carousels in 10-20 seconds
 - Create Instagram posts instantly
 - Apply professional design systems
@@ -356,4 +388,4 @@ Before first use:
 
 **Time to compile and test this beast!** 🎨🚀
 
-*Built with BMAD Core + MCP + Emily's Framework*
+_Built with BMAD Core + MCP + Emily's Framework_

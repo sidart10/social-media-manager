@@ -20,13 +20,13 @@ try {
   } else {
     console.log('❌ Agent validation FAILED!\n');
     console.log('Errors found:');
-    result.error.issues.forEach((issue, idx) => {
+    for (const [idx, issue] of result.error.issues.entries()) {
       console.log(`\n${idx + 1}. ${issue.message}`);
       console.log(`   Path: ${issue.path.join('.')}`);
       console.log(`   Code: ${issue.code}`);
       if (issue.expected) console.log(`   Expected: ${issue.expected}`);
       if (issue.received) console.log(`   Received: ${issue.received}`);
-    });
+    }
   }
 } catch (error) {
   console.error('Error running validation:', error.message);

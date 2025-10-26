@@ -36,30 +36,30 @@ Your AI Image Generator agent is **91% complete** and ready for production with 
 
 ### 2. Agent File Structure ✅ (9/9)
 
-| Component | Status | Notes |
-|-----------|--------|-------|
-| metadata.id | ✅ | `bmad/agents/ai-image-generator/ai-image-generator.md` |
-| metadata.name | ✅ | `AI Image Agent` |
-| metadata.title | ✅ | `Visual Content Producer & Platform Strategist` |
-| metadata.icon | ✅ | 🎨 |
-| persona.role | ✅ | 128 characters (descriptive) |
-| persona.identity | ✅ | 456 characters (comprehensive) |
-| persona.communication_style | ✅ | 224 characters |
-| persona.principles | ✅ | 7 principles defined |
-| menu | ✅ | 11 items |
+| Component                   | Status | Notes                                                  |
+| --------------------------- | ------ | ------------------------------------------------------ |
+| metadata.id                 | ✅     | `bmad/agents/ai-image-generator/ai-image-generator.md` |
+| metadata.name               | ✅     | `AI Image Agent`                                       |
+| metadata.title              | ✅     | `Visual Content Producer & Platform Strategist`        |
+| metadata.icon               | ✅     | 🎨                                                     |
+| persona.role                | ✅     | 128 characters (descriptive)                           |
+| persona.identity            | ✅     | 456 characters (comprehensive)                         |
+| persona.communication_style | ✅     | 224 characters                                         |
+| persona.principles          | ✅     | 7 principles defined                                   |
+| menu                        | ✅     | 11 items                                               |
 
 ---
 
 ### 3. Workflow Files ⚠️ (3/6)
 
-| Menu Trigger | Workflow File | Status | Notes |
-|--------------|---------------|--------|-------|
-| create-carousel | `generate-carousel.yaml` | ✅ EXISTS | 12KB |
-| create-single | `generate-single.yaml` | ✅ EXISTS | 7.3KB |
-| **create-batch** | **generate-batch.yaml** | ❌ **MISSING** | **Not implemented** |
-| **instagram** | **generate-instagram.yaml** | ❌ **MISSING** | **Not implemented** |
-| **twitter** | **generate-twitter.yaml** | ❌ **MISSING** | **Not implemented** |
-| linkedin | `generate-linkedin.yaml` | ✅ EXISTS | 20KB |
+| Menu Trigger     | Workflow File               | Status         | Notes               |
+| ---------------- | --------------------------- | -------------- | ------------------- |
+| create-carousel  | `generate-carousel.yaml`    | ✅ EXISTS      | 12KB                |
+| create-single    | `generate-single.yaml`      | ✅ EXISTS      | 7.3KB               |
+| **create-batch** | **generate-batch.yaml**     | ❌ **MISSING** | **Not implemented** |
+| **instagram**    | **generate-instagram.yaml** | ❌ **MISSING** | **Not implemented** |
+| **twitter**      | **generate-twitter.yaml**   | ❌ **MISSING** | **Not implemented** |
+| linkedin         | `generate-linkedin.yaml`    | ✅ EXISTS      | 20KB                |
 
 #### Additional Workflows Found (Not in Agent Menu)
 
@@ -72,14 +72,14 @@ Your AI Image Generator agent is **91% complete** and ready for production with 
 
 ### 4. Sidecar Resource Files ✅ (6/6)
 
-| File | Status | Size | Purpose |
-|------|--------|------|---------|
-| instructions.md | ✅ | 16KB | Tool usage patterns |
-| MCP_CAPABILITIES.md | ✅ | 9.2KB | API constraints |
-| best-practices-framework.md | ✅ | 19KB | Quality standards |
-| config.yaml | ✅ | 1.9KB | Configuration |
-| platform-specs.yaml | ✅ | 5.7KB | Platform requirements |
-| outputs/ | ✅ | DIR | Output directory |
+| File                        | Status | Size  | Purpose               |
+| --------------------------- | ------ | ----- | --------------------- |
+| instructions.md             | ✅     | 16KB  | Tool usage patterns   |
+| MCP_CAPABILITIES.md         | ✅     | 9.2KB | API constraints       |
+| best-practices-framework.md | ✅     | 19KB  | Quality standards     |
+| config.yaml                 | ✅     | 1.9KB | Configuration         |
+| platform-specs.yaml         | ✅     | 5.7KB | Platform requirements |
+| outputs/                    | ✅     | DIR   | Output directory      |
 
 **All critical resources referenced in critical_actions are present.**
 
@@ -97,19 +97,19 @@ Your AI Image Generator agent is **91% complete** and ready for production with 
 
 #### Menu Breakdown
 
-| Trigger | Type | Command Target | Status |
-|---------|------|----------------|--------|
-| help | action | Display commands | ✅ |
-| create-carousel | workflow | generate-carousel.yaml | ✅ |
-| create-single | workflow | generate-single.yaml | ✅ |
-| create-batch | workflow | generate-batch.yaml | ⚠️ Workflow missing |
-| instagram | workflow | generate-instagram.yaml | ⚠️ Workflow missing |
-| twitter | workflow | generate-twitter.yaml | ⚠️ Workflow missing |
-| linkedin | workflow | generate-linkedin.yaml | ✅ |
-| preview | action | Show settings | ✅ |
-| presets | action | Load platform specs | ✅ |
-| config | action | Load config | ✅ |
-| exit | action | Exit confirmation | ✅ |
+| Trigger         | Type     | Command Target          | Status              |
+| --------------- | -------- | ----------------------- | ------------------- |
+| help            | action   | Display commands        | ✅                  |
+| create-carousel | workflow | generate-carousel.yaml  | ✅                  |
+| create-single   | workflow | generate-single.yaml    | ✅                  |
+| create-batch    | workflow | generate-batch.yaml     | ⚠️ Workflow missing |
+| instagram       | workflow | generate-instagram.yaml | ⚠️ Workflow missing |
+| twitter         | workflow | generate-twitter.yaml   | ⚠️ Workflow missing |
+| linkedin        | workflow | generate-linkedin.yaml  | ✅                  |
+| preview         | action   | Show settings           | ✅                  |
+| presets         | action   | Load platform specs     | ✅                  |
+| config          | action   | Load config             | ✅                  |
+| exit            | action   | Exit confirmation       | ✅                  |
 
 ---
 
@@ -175,6 +175,7 @@ Your AI Image Generator agent is **91% complete** and ready for production with 
 ### Option 1: Remove Missing Menu Items (Fastest)
 
 Remove these 3 menu items from agent.yaml until workflows are ready:
+
 - `create-batch`
 - `instagram`
 - `twitter`
@@ -205,16 +206,16 @@ node test/comprehensive-agent-test.js
 
 ### Test Coverage
 
-| Category | Tests Run | Passed | Failed |
-|----------|-----------|--------|--------|
-| Schema | 1 | 1 | 0 |
-| Structure | 9 | 9 | 0 |
-| Workflows | 6 | 3 | 3 |
-| Sidecar | 6 | 6 | 0 |
-| Menu | 4 | 4 | 0 |
-| Critical Actions | 4 | 4 | 0 |
-| Persona | 4 | 4 | 0 |
-| **TOTAL** | **34** | **31** | **3** |
+| Category         | Tests Run | Passed | Failed |
+| ---------------- | --------- | ------ | ------ |
+| Schema           | 1         | 1      | 0      |
+| Structure        | 9         | 9      | 0      |
+| Workflows        | 6         | 3      | 3      |
+| Sidecar          | 6         | 6      | 0      |
+| Menu             | 4         | 4      | 0      |
+| Critical Actions | 4         | 4      | 0      |
+| Persona          | 4         | 4      | 0      |
+| **TOTAL**        | **34**    | **31** | **3**  |
 
 **Pass Rate**: 91.2%
 
@@ -241,12 +242,14 @@ node test/comprehensive-agent-test.js
 **Status**: 🟢 **PRODUCTION READY** with reduced feature set
 
 The agent can be deployed NOW with 8 working features:
+
 - ✅ create-carousel
 - ✅ create-single
 - ✅ linkedin
 - ✅ help, preview, presets, config, exit
 
 The 3 missing workflows (batch, instagram, twitter) can be:
+
 1. Removed from menu temporarily
 2. Built and added later
 3. Marked as "coming soon"

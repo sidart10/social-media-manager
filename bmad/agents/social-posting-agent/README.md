@@ -1,0 +1,313 @@
+# Social Posting Agent
+
+Multi-platform social media automation expert with Twitter Premium integration.
+
+## Overview
+
+The Social Posting Agent orchestrates cross-platform content posting through API integrations. Currently features full Twitter Premium support with plans for LinkedIn, YouTube, and Instagram.
+
+## Features
+
+### Twitter Integration (Production Ready)
+
+- **Text Posts**: Up to 25,000 characters for Premium accounts
+- **Image Posts**: 1-4 images per tweet with alt text support
+- **Video Posts**: Up to 512MB per video (MP4/MOV)
+- **Threads**: Auto-linked multi-tweet conversations
+- **Rate Limiting**: Automatic tracking and warnings
+- **Error Handling**: Graceful failures with actionable messages
+
+### Coming Soon
+
+- **LinkedIn**: Text posts, image posts, article sharing
+- **YouTube**: Video uploads via MCP server
+- **Instagram**: Image posts, reels, carousel posts
+
+## Quick Start
+
+### Prerequisites
+
+1. Twitter API credentials in `.env` file:
+
+```bash
+TWITTER_API_KEY=your_api_key
+TWITTER_API_SECRET=your_api_secret
+TWITTER_ACCESS_TOKEN=your_access_token
+TWITTER_ACCESS_TOKEN_SECRET=your_access_token_secret
+```
+
+2. Twitter API Client module installed at:
+
+```
+bmad/modules/twitter-api-client/
+```
+
+### Available Commands
+
+| Command               | Description                            |
+| --------------------- | -------------------------------------- |
+| `/tweet`              | Post text-only tweet (up to 25k chars) |
+| `/tweet-image`        | Post tweet with 1-4 images             |
+| `/tweet-video`        | Post tweet with video (up to 512MB)    |
+| `/thread`             | Create multi-tweet thread              |
+| `/check-limits`       | Show rate limit status                 |
+| `/verify-credentials` | Test API connection                    |
+| `/help`               | Show all commands                      |
+
+## Usage Examples
+
+### Post a Tweet
+
+```
+User: /tweet
+
+Agent: "What would you like to tweet?"
+
+User: "Just launched our new feature! 🚀"
+
+Agent: ✓ Tweet posted successfully!
+       URL: https://twitter.com/user/status/1234567890
+```
+
+### Post with Image
+
+```
+User: /tweet-image
+
+Agent: "What would you like to say with your image?"
+
+User: "Check out our new design!"
+
+Agent: "Provide the path to your image"
+
+User: "/Users/sid/Desktop/screenshot.png"
+
+Agent: ✓ Tweet with image posted successfully!
+       URL: https://twitter.com/user/status/1234567891
+```
+
+### Create Thread
+
+```
+User: /thread
+
+Agent: "How many tweets will be in your thread?"
+
+User: "3"
+
+Agent: [Guides through creating 3 connected tweets]
+
+Agent: ✅ Thread posted successfully!
+       View thread: https://twitter.com/user/status/1234567892
+```
+
+## Module Integration
+
+### Twitter API Client
+
+Location: `bmad/modules/twitter-api-client/`
+
+The agent uses the Twitter API Premium Client module which provides:
+
+- OAuth 1.0a authentication
+- Automatic media upload (chunked for large files)
+- Input validation
+- Rate limit tracking
+- Structured error responses
+
+### Architecture
+
+```
+social-posting-agent/
+├── social-posting-agent.agent.yaml      # Agent configuration
+├── workflows/                            # Command workflows
+│   ├── post-text-tweet.yaml
+│   ├── post-tweet-with-image.yaml
+│   ├── post-tweet-with-video.yaml
+│   └── create-thread.yaml
+└── social-posting-agent-sidecar/        # Agent resources
+    ├── instructions.md                   # API usage patterns
+    └── config.yaml                       # Settings and limits
+```
+
+## Rate Limits
+
+### Twitter Free Tier
+
+- **Monthly**: 1,500 posts (hard limit)
+- **Daily**: 50 posts (recommended)
+- **Hourly**: 10 posts (recommended)
+
+The agent automatically tracks usage and warns before limits.
+
+## Media Specifications
+
+### Images
+
+- **Formats**: JPG, PNG, GIF, WEBP
+- **Max Size**: 5MB (15MB for GIFs)
+- **Max Count**: 4 per tweet
+
+### Videos
+
+- **Formats**: MP4, MOV
+- **Max Size**: 512MB
+- **Max Count**: 1 per tweet (cannot mix with images)
+- **Processing**: Automatic chunked upload
+
+## Error Handling
+
+All operations return structured responses:
+
+```javascript
+{
+  success: true/false,
+  url: "https://twitter.com/...",  // On success
+  error: "error message",          // On failure
+  id: "tweet_id"
+}
+```
+
+Common errors are handled with helpful guidance:
+
+- Missing credentials → Check .env file
+- Rate limit exceeded → Wait or upgrade
+- File not found → Verify absolute path
+- Validation failed → Check text/media specs
+
+## Workflows
+
+### 1. Post Text Tweet
+
+**Trigger**: `/tweet`
+
+**Steps**:
+
+1. Gather tweet text
+2. Validate length
+3. Show preview
+4. Check rate limits
+5. Post tweet
+6. Display result with URL
+
+### 2. Post Tweet with Image
+
+**Trigger**: `/tweet-image`
+
+**Steps**:
+
+1. Gather tweet text
+2. Gather image path(s)
+3. Optional: Alt text
+4. Validate images
+5. Show preview
+6. Upload and post
+7. Display result
+
+### 3. Post Tweet with Video
+
+**Trigger**: `/tweet-video`
+
+**Steps**:
+
+1. Gather tweet text
+2. Gather video path
+3. Optional: Alt text
+4. Validate video
+5. Show preview
+6. Upload (chunked) and post
+7. Display result
+
+### 4. Create Thread
+
+**Trigger**: `/thread`
+
+**Steps**:
+
+1. Ask number of tweets
+2. Gather each tweet's content
+3. Optional: Media for each
+4. Show thread preview
+5. Post thread with auto-linking
+6. Display results
+
+## Development
+
+### Testing
+
+Test the Twitter API Client:
+
+```bash
+cd bmad/modules/twitter-api-client
+
+# Run validator tests
+node __tests__/validator.test.js
+
+# Run integration tests
+node __tests__/integration.test.js
+
+# Test demos
+node test-demo.js
+node test-image.js
+node test-video.js
+node test-thread.js
+```
+
+### Adding New Platforms
+
+To add a new platform:
+
+1. Create module in `bmad/modules/[platform]-client/`
+2. Add workflows in `workflows/`
+3. Update `social-posting-agent.agent.yaml`
+4. Update `instructions.md`
+5. Add credentials to `.env`
+
+## Troubleshooting
+
+### Import Errors
+
+Use absolute path to module:
+
+```javascript
+import { TwitterClient } from './bmad/modules/twitter-api-client/index.js';
+```
+
+### Media Path Issues
+
+Always use absolute paths:
+
+```javascript
+// ✓ Correct
+media: [{ path: '/Users/username/Desktop/image.jpg' }];
+
+// ✗ Wrong
+media: [{ path: './image.jpg' }];
+```
+
+### Rate Limit Reset
+
+Delete state file to reset tracking:
+
+```bash
+rm bmad/modules/twitter-api-client/.rate-limit-state.json
+```
+
+## Support
+
+- **Module Docs**: `bmad/modules/twitter-api-client/README.md`
+- **PRP Document**: `PRPs/twitter-api-premium-integration.md`
+- **Instructions**: `social-posting-agent-sidecar/instructions.md`
+- **Test Results**: All 6+ live tweets validated
+
+## Credits
+
+Built with:
+
+- `twitter-api-v2` library (OAuth, media upload, API wrapper)
+- BMAD Agent Framework
+- Twitter API v2 + v1.1 (media)
+
+## License
+
+MIT

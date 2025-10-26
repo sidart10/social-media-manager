@@ -6,7 +6,7 @@
 <action>Call MCP tool: mcp__heygen__get_avatar_groups</action>
 <action>Display all avatar groups with preview images</action>
 
-<action>For each group, call mcp__heygen__get_avatars_in_avatar_group</action>
+<action>For each group, call mcp**heygen**get_avatars_in_avatar_group</action>
 <action>Display avatar details with IDs</action>
 </step>
 

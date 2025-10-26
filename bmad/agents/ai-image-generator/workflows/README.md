@@ -20,6 +20,7 @@ Each workflow is a YAML file that defines the steps for a specific image generat
 ## How Workflows Work
 
 Each workflow:
+
 1. Loads platform specifications
 2. Validates user input (prompt, count, style)
 3. Calls appropriate MCP tool (gpt-image-1 or nanobanana)
@@ -31,6 +32,7 @@ Each workflow:
 ## Next Steps
 
 To implement these workflows:
+
 1. Install MCP servers (see `../ai-image-generator-sidecar/MCP_SETUP.md`)
 2. Configure API keys in `../ai-image-generator-sidecar/config.yaml`
 3. Implement workflow YAML files using BMAD workflow syntax

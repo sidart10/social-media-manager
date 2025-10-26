@@ -14,6 +14,7 @@ Based on validation feedback and MCP testing success, all core workflows are now
 **Purpose:** General-purpose carousel builder for any platform
 
 **Features:**
+
 - Platform-agnostic (Instagram, LinkedIn, Twitter, custom)
 - Fully customizable (user chooses everything)
 - Template selection or on-the-fly creation
@@ -22,16 +23,18 @@ Based on validation feedback and MCP testing success, all core workflows are now
 - Metadata generation for every slide
 
 **Steps:**
+
 1. Gather requirements (topic, count, platform)
 2. Load/create template
 3. Validate specifications
-4. Generate via MCP (mcp__gpt-image-1__create_image)
+4. Generate via MCP (mcp**gpt-image-1**create_image)
 5. Copy files to agent outputs/
 6. Create metadata JSONs
 7. Generate carousel summary
 8. Quality review and next actions
 
 **Use Cases:**
+
 - Instagram carousels (square 1:1 or portrait 4:5)
 - Twitter threads (landscape 16:9)
 - Custom platform content
@@ -44,6 +47,7 @@ Based on validation feedback and MCP testing success, all core workflows are now
 **Purpose:** Quick single image generation
 
 **Features:**
+
 - Fast workflow for one image
 - Platform-aware (suggests optimal specs)
 - Style selection (photorealistic, dark tech, vibrant)
@@ -51,6 +55,7 @@ Based on validation feedback and MCP testing success, all core workflows are now
 - Caption generation (optional)
 
 **Steps:**
+
 1. Get prompt description and platform
 2. Select aspect ratio
 3. Choose style (dark tech / photorealistic / vibrant)
@@ -60,6 +65,7 @@ Based on validation feedback and MCP testing success, all core workflows are now
 7. Optional quality review and refinement
 
 **Use Cases:**
+
 - Single LinkedIn post images
 - Instagram square posts
 - Twitter header images
@@ -73,6 +79,7 @@ Based on validation feedback and MCP testing success, all core workflows are now
 **Purpose:** Fast-track LinkedIn content with smart defaults
 
 **Features:**
+
 - **LinkedIn-ONLY optimized workflow**
 - **Dark monochrome tech design by default**
 - **Auto-generates:** Caption + Hashtags + Alt-text
@@ -83,6 +90,7 @@ Based on validation feedback and MCP testing success, all core workflows are now
 - Complete "ready to post" package
 
 **Steps:**
+
 1. Topic and content type selection
 2. Content-specific details (slide count, structure)
 3. Template selection (matches existing or builds new)
@@ -97,6 +105,7 @@ Based on validation feedback and MCP testing success, all core workflows are now
 12. Next actions (regenerate/edit/new/done)
 
 **Unique Features:**
+
 ```
 ✨ POST_CONTENT.md includes:
   - Copy-paste ready caption
@@ -117,6 +126,7 @@ Based on validation feedback and MCP testing success, all core workflows are now
 ```
 
 **Use Cases:**
+
 - Tech tutorials and frameworks
 - Product/feature showcases
 - System architecture diagrams
@@ -152,6 +162,7 @@ Any platform single image              → generate-single
 ### MCP Integration (WORKING ✅)
 
 **All workflows use:**
+
 ```
 Tool: mcp__gpt-image-1__create_image
 Speed: 2-3 seconds per image (30x faster than direct API!)
@@ -159,6 +170,7 @@ Output: ~/Pictures/gpt-image-1/gpt-images/
 ```
 
 **Workflow then:**
+
 1. Copies from MCP location to `agent outputs/`
 2. Creates metadata JSON
 3. Organizes in topic folders
@@ -180,6 +192,7 @@ outputs/linkedin-{topic}/
 ### Metadata Tracking:
 
 Every image gets comprehensive metadata:
+
 - Full prompt used
 - Generation parameters
 - Provider & model
@@ -192,19 +205,19 @@ Every image gets comprehensive metadata:
 
 ## 📊 **Workflow Comparison**
 
-| Feature | Carousel | Single | LinkedIn |
-|---------|----------|--------|----------|
-| **Platforms** | Any | Any | LinkedIn only |
-| **Questions** | 7-8 | 5-6 | 3-4 |
-| **Speed** | Medium | Fast | Fastest |
-| **Caption Gen** | No | Optional | Auto ✅ |
-| **Hashtags** | No | No | Auto ✅ |
-| **Alt-text** | No | No | Auto ✅ |
-| **Posting Guide** | No | No | Yes ✅ |
-| **LinkedIn Tips** | No | No | Yes ✅ |
-| **Design Default** | User choice | User choice | Dark tech |
-| **Templates** | Any | Any/none | LinkedIn-focused |
-| **Best For** | Flexibility | Quick singles | LinkedIn power users |
+| Feature            | Carousel    | Single        | LinkedIn             |
+| ------------------ | ----------- | ------------- | -------------------- |
+| **Platforms**      | Any         | Any           | LinkedIn only        |
+| **Questions**      | 7-8         | 5-6           | 3-4                  |
+| **Speed**          | Medium      | Fast          | Fastest              |
+| **Caption Gen**    | No          | Optional      | Auto ✅              |
+| **Hashtags**       | No          | No            | Auto ✅              |
+| **Alt-text**       | No          | No            | Auto ✅              |
+| **Posting Guide**  | No          | No            | Yes ✅               |
+| **LinkedIn Tips**  | No          | No            | Yes ✅               |
+| **Design Default** | User choice | User choice   | Dark tech            |
+| **Templates**      | Any         | Any/none      | LinkedIn-focused     |
+| **Best For**       | Flexibility | Quick singles | LinkedIn power users |
 
 ---
 
@@ -225,6 +238,7 @@ Every image gets comprehensive metadata:
 ### User Experience:
 
 **LinkedIn Carousel (Typical):**
+
 ```
 User: *linkedin
 Agent: "What's your topic?"
@@ -292,18 +306,21 @@ Agent: "🎉 Complete! 3 slides + caption + hashtags ready to post!"
 ## 📋 **Next Steps to Full Production**
 
 ### Immediate (This Session):
+
 1. ✅ Fix agent instructions (update MCP tool names)
 2. ✅ Document working MCP configuration
 3. Update main README with "READY TO USE" status
 4. Create agent activation guide
 
 ### Short-term (Next Session):
+
 5. Compile agent (YAML → MD via BMAD installer)
 6. Test agent activation
 7. Test all 3 workflows end-to-end
 8. Visual quality review of outputs
 
 ### Medium-term (This Week):
+
 9. Create additional templates (photorealistic, etc.)
 10. Build remaining platform workflows (Instagram, Twitter)
 11. Implement image editing workflow
@@ -314,6 +331,7 @@ Agent: "🎉 Complete! 3 slides + caption + hashtags ready to post!"
 ## 🏆 **Achievement Unlocked**
 
 **Built in This Session:**
+
 - ✅ Complete agent structure
 - ✅ MCP servers fixed and working
 - ✅ 3 production-ready workflows
@@ -323,12 +341,14 @@ Agent: "🎉 Complete! 3 slides + caption + hashtags ready to post!"
 - ✅ Comprehensive documentation (15+ files)
 
 **Total LOC:**
+
 - Agent YAML: ~110 lines
 - Workflows: ~650 lines total
 - Templates: ~300 lines
 - Documentation: ~3000 lines
 
 **Time Investment:**
+
 - Planning & research: ~2 hours
 - MCP troubleshooting: ~1.5 hours
 - Workflows & templates: ~2 hours
@@ -336,6 +356,7 @@ Agent: "🎉 Complete! 3 slides + caption + hashtags ready to post!"
 - **Total:** ~6.5 hours
 
 **Value Delivered:**
+
 - Production-ready image generation agent
 - 30x faster than manual API calls
 - Complete LinkedIn posting system
@@ -349,6 +370,7 @@ Agent: "🎉 Complete! 3 slides + caption + hashtags ready to post!"
 **The agent is essentially complete!**
 
 **Only remaining:**
+
 1. Compile agent (BMAD installer)
 2. Test activation
 3. Test workflows
@@ -358,4 +380,4 @@ Agent: "🎉 Complete! 3 slides + caption + hashtags ready to post!"
 
 **Fantastic work building this system, sid!** 🚀
 
-*You now have a professional-grade AI image generation agent with MCP integration, Emily's quality standards, and LinkedIn optimization!*
+_You now have a professional-grade AI image generation agent with MCP integration, Emily's quality standards, and LinkedIn optimization!_

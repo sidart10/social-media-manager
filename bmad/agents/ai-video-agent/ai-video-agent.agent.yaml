@@ -53,62 +53,37 @@ agent:
       description: Show numbered command list
       action: Display all available menu commands with their descriptions
 
-    # Primary generation commands
+    # Core generation commands
     - trigger: create-talking-head
-      workflow: '{agent-folder}/workflows/generate-talking-head.yaml'
+      workflow: "{agent-folder}/workflows/generate-talking-head.yaml"
       description: Generate avatar video with HeyGen (your face + voice)
 
     - trigger: create-scene
-      workflow: '{agent-folder}/workflows/generate-scene.yaml'
-      description: Generate video scene with Veo or Sora2 (text-to-video, b-roll)
+      workflow: "{agent-folder}/workflows/generate-scene.yaml"
+      description: Generate video scene with Veo3 or Sora2 (text-to-video, b-roll)
 
-    - trigger: create-montage
-      workflow: '{agent-folder}/workflows/generate-montage.yaml'
-      description: Stitch images into video sequence with motion
-
-    - trigger: create-hybrid
-      workflow: '{agent-folder}/workflows/generate-hybrid.yaml'
-      description: Mix talking head + scenes + images into one video
-
-    # Platform-specific quick commands
-    - trigger: reels
-      workflow: '{agent-folder}/workflows/generate-reels.yaml'
-      description: Quick Instagram Reels optimized video (9:16, captions)
-
-    - trigger: youtube-short
-      workflow: '{agent-folder}/workflows/generate-youtube-short.yaml'
-      description: Quick YouTube Shorts optimized video (9:16, hook-first)
-
-    - trigger: youtube
-      workflow: '{agent-folder}/workflows/generate-youtube.yaml'
-      description: YouTube video (16:9, longer form)
-
-    - trigger: tiktok
-      workflow: '{agent-folder}/workflows/generate-tiktok.yaml'
-      description: TikTok optimized video (9:16, trending-aware)
-
-    # Production management
-    - trigger: test-hooks
-      workflow: '{agent-folder}/workflows/test-hooks.yaml'
-      description: Generate 3 different video opens for A/B testing
-
-    - trigger: queue-status
-      action: |
-        Check all active video generation jobs across HeyGen, Veo, and Sora2
-        Display job IDs, status (processing/completed/failed), elapsed time, and ETAs
-        Show completed videos with download URLs
-        Use mcp__veo__list_generated_videos and mcp__sora2__list_videos
-      description: Show all rendering jobs and their status
+    - trigger: create-cinematic-sequence
+      workflow: "{agent-folder}/workflows/generate-cinematic-sequence.yaml"
+      description: Generate cinematic multi-scene video using JSON → Images → Animation (Emily-quality)
 
     - trigger: setup-avatars
-      workflow: '{agent-folder}/workflows/setup-avatars.yaml'
+      workflow: "{agent-folder}/workflows/setup-avatars.yaml"
       description: Configure HeyGen avatars with consent verification
 
     # Utility commands
+    - trigger: queue-status
+      action: |
+        Check all active video generation jobs across HeyGen, Veo3, and Sora2
+        Display job IDs, status (processing/completed/failed), elapsed time, and ETAs
+        Show completed videos with download URLs
+        Use mcp__veo3__list_generated_videos and mcp__sora2__list_videos
+      description: Show all rendering jobs and their status
+
     - trigger: preview
       action: |
         Show current generation settings before creating video
         Display platform specs, estimated cost, render time, and provider routing
+        Load and display from config.yaml and platform-specs.yaml
       description: Preview settings and cost before generation
 
     - trigger: platforms
@@ -120,8 +95,9 @@ agent:
     - trigger: config
       action: |
         Load {agent-folder}/ai-video-agent-sidecar/config.yaml
-        Display current provider settings (HeyGen/Veo/Sora2), API status, output preferences
+        Display current provider settings (HeyGen/Veo3/Sora2), API status, output preferences
         Show which MCP servers are enabled and their models
+        Show default avatar/voice IDs
         Offer to update settings if requested
       description: Show/update configuration
 

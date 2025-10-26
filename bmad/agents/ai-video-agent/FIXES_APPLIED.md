@@ -12,6 +12,7 @@
 **Problem**: Config used `mcp__veo3__` but actual tools are `mcp__veo__`
 
 **Fixed In**:
+
 - ✅ config.yaml: Changed `veo3` → `veo` and `mcp__veo3__` → `mcp__veo__`
 - ✅ instructions.md: Updated all 4 tool references
 - ✅ ai-video-agent.agent.yaml: Updated all mentions
@@ -25,6 +26,7 @@
 **Changed**: `veo-3.0-*` → `veo-3.1-*` for latest models
 
 **config.yaml now uses**:
+
 - `veo-3.1-fast-generate-preview` (default, fast)
 - Options: `veo-3.1-generate-preview` (quality), `veo-2.0-generate-001` (older)
 
@@ -35,12 +37,14 @@
 All platform quick commands now have workflow files:
 
 **Created**:
+
 - ✅ `/workflows/generate-reels.yaml` + instructions
 - ✅ `/workflows/generate-youtube-short.yaml` + instructions
 - ✅ `/workflows/generate-tiktok.yaml` + instructions
 - ✅ `/workflows/generate-youtube.yaml` + instructions
 
 **Each workflow**:
+
 - Loads platform-specific specs
 - Routes to appropriate provider (HeyGen/Veo/Sora2)
 - Optimizes for that platform's algorithm
@@ -52,6 +56,7 @@ All platform quick commands now have workflow files:
 All menu commands now have implementations:
 
 **Created**:
+
 - ✅ `/workflows/generate-montage.yaml` + instructions (image stitching with Sora2)
 - ✅ `/workflows/generate-hybrid.yaml` + instructions (multi-source mixing)
 - ✅ `/workflows/test-hooks.yaml` + instructions (A/B testing)
@@ -66,6 +71,7 @@ All menu commands now have implementations:
 **Activation**: Type `/ai-video-agent` to instantly load the agent
 
 **What it does**:
+
 - Loads all sidecar files
 - Activates persona and identity
 - Displays full command menu
@@ -122,6 +128,7 @@ bmad/agents/ai-video-agent/
 ## 🎯 MCP Server Configuration (Corrected)
 
 ### HeyGen ✅
+
 ```yaml
 Server name: heygen
 Tool prefix: mcp__heygen__
@@ -130,6 +137,7 @@ Your avatars: Sid Dani (ID: 0f69c804db9341f2bc56d66f766ec389)
 ```
 
 ### Veo 3 ✅
+
 ```yaml
 Server name: veo3 (in claude mcp list)
 Tool prefix: mcp__veo__  (FIXED!)
@@ -138,6 +146,7 @@ Models: veo-3.1-fast-generate-preview (default), veo-3.1-generate-preview, veo-2
 ```
 
 ### Sora 2 ✅
+
 ```yaml
 Server name: sora2
 Tool prefix: mcp__sora2__
@@ -152,6 +161,7 @@ Models: sora-2, sora-2-pro
 **To test the agent, you'll need to restart Claude Code** so MCP tools load properly, then:
 
 ### Test 1: Activate Agent
+
 ```bash
 /ai-video-agent
 ```
@@ -159,12 +169,14 @@ Models: sora-2, sora-2-pro
 Should load and show full menu
 
 ### Test 2: HeyGen Talking Head
+
 ```
 Command: *setup-avatars
 # Verify your avatars and set consent
 ```
 
 ### Test 3: Veo Scene Generation
+
 ```
 Command: *create-scene
 # Choose Veo provider
@@ -172,6 +184,7 @@ Command: *create-scene
 ```
 
 ### Test 4: Platform Quick Command
+
 ```
 Command: *reels
 # Should walk through Instagram Reels workflow
@@ -181,14 +194,14 @@ Command: *reels
 
 ## 📊 Fixes Summary
 
-| Issue | Status | Impact |
-|-------|--------|--------|
-| Veo prefix mismatch | ✅ FIXED | Tools will now work |
-| Model names outdated | ✅ FIXED | Using veo-3.1 latest |
+| Issue                      | Status     | Impact                |
+| -------------------------- | ---------- | --------------------- |
+| Veo prefix mismatch        | ✅ FIXED   | Tools will now work   |
+| Model names outdated       | ✅ FIXED   | Using veo-3.1 latest  |
 | Missing platform workflows | ✅ CREATED | All 4 platforms ready |
-| Missing utility workflows | ✅ CREATED | All 4 utilities ready |
-| Missing slash command | ✅ CREATED | Quick activation |
-| Sora2 integration | ✅ ADDED | Third provider ready |
+| Missing utility workflows  | ✅ CREATED | All 4 utilities ready |
+| Missing slash command      | ✅ CREATED | Quick activation      |
+| Sora2 integration          | ✅ ADDED   | Third provider ready  |
 
 ---
 
@@ -198,6 +211,7 @@ Command: *reels
 **After**: A+ (98/100) - Production ready!
 
 **What's Perfect Now**:
+
 - ✅ All MCP tool prefixes correct
 - ✅ All workflow files exist
 - ✅ Slash command for instant activation
@@ -205,6 +219,7 @@ Command: *reels
 - ✅ Complete documentation
 
 **Minor TODOs** (non-blocking):
+
 - Consent verification system implementation (workflow exists, needs testing)
 - Cost tracking persistence (logic exists, needs file I/O)
 - Real-world testing with actual video generation

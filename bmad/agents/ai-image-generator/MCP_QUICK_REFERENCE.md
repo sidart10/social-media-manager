@@ -1,4 +1,5 @@
 # MCP Image Generation - Quick Reference
+
 **Status:** ✅ WORKING (Verified 2025-10-25)
 
 Use this guide for all image generation with MCP servers.
@@ -8,11 +9,13 @@ Use this guide for all image generation with MCP servers.
 ## 🎯 **Correct Tool Names** (VERIFIED)
 
 ### OpenAI gpt-image-1
+
 ```
 Tool: mcp__gpt-image-1__create_image
 ```
 
 ### Gemini Nanobanana
+
 ```
 Tool: mcp__nanobanana__generate_image
 ```
@@ -65,29 +68,29 @@ mcp__gpt-image-1__create_image({
 
 ```typescript
 mcp__nanobanana__generate_image({
-  prompt: "Your prompt here",
-  n: 1
-})
+  prompt: 'Your prompt here',
+  n: 1,
+});
 ```
 
 ### With Negative Prompts
 
 ```typescript
 mcp__nanobanana__generate_image({
-  prompt: "Dark tech slide with minimal design",
-  negative_prompt: "cluttered, colorful, gradients, cartoons, 3D renders",
-  n: 1
-})
+  prompt: 'Dark tech slide with minimal design',
+  negative_prompt: 'cluttered, colorful, gradients, cartoons, 3D renders',
+  n: 1,
+});
 ```
 
 ### Image Editing
 
 ```typescript
 mcp__nanobanana__generate_image({
-  prompt: "Change background to dark black, keep subject sharp",
-  input_image_path_1: "/path/to/original.png",
-  mode: "edit"
-})
+  prompt: 'Change background to dark black, keep subject sharp',
+  input_image_path_1: '/path/to/original.png',
+  mode: 'edit',
+});
 ```
 
 ### Output
@@ -105,17 +108,20 @@ mcp__nanobanana__generate_image({
 ## 🔄 **Workflow for Agent**
 
 ### Step 1: Load Template
+
 ```
 Read: {agent-folder}/templates/your-template.json
 ```
 
 ### Step 2: Validate & Map Size
+
 ```
 aspect_ratio = template.platform_specs.aspect_ratio
 size = map_to_supported_size(aspect_ratio)
 ```
 
 ### Step 3: Generate with MCP
+
 ```
 result = mcp__gpt-image-1__create_image({
   prompt: constructed_prompt,
@@ -126,11 +132,13 @@ result = mcp__gpt-image-1__create_image({
 ```
 
 ### Step 4: Copy to Agent Outputs
+
 ```
 Bash: cp {result.file_paths[0]} {agent_output_folder}/{slide_name}.png
 ```
 
 ### Step 5: Create Metadata
+
 ```
 Write: {agent_output_folder}/{slide_name}_metadata.json
 Content: {
@@ -147,12 +155,12 @@ Content: {
 
 ## ⚡ **Performance Comparison**
 
-| Metric | OpenAI (MCP) | OpenAI (curl) | Nanobanana (MCP) |
-|--------|--------------|---------------|------------------|
-| **Speed** | 2-3 seconds | 60-90 seconds | 2-3 seconds |
-| **Quality** | High | High | High |
-| **File Size** | 1-2MB | 1-2MB | 250-500KB |
-| **Ease of Use** | ✅ Easy | ❌ Complex | ✅ Easy |
+| Metric          | OpenAI (MCP) | OpenAI (curl) | Nanobanana (MCP) |
+| --------------- | ------------ | ------------- | ---------------- |
+| **Speed**       | 2-3 seconds  | 60-90 seconds | 2-3 seconds      |
+| **Quality**     | High         | High          | High             |
+| **File Size**   | 1-2MB        | 1-2MB         | 250-500KB        |
+| **Ease of Use** | ✅ Easy      | ❌ Complex    | ✅ Easy          |
 
 **MCP is MUCH faster!** (30x speed improvement)
 
@@ -201,20 +209,24 @@ for (slide in template.slides) {
 ## 🚨 **Important Notes**
 
 ### File Locations
+
 - MCP saves to its own folders (not agent outputs/)
 - Agent must COPY files to proper location
 - Or update agent to reference MCP locations directly
 
 ### API Keys
+
 - Stored in `~/.claude.json` under `env` for each server
 - Loaded automatically by MCP
 - No need to pass in tool calls
 
 ### Negative Prompts
+
 - OpenAI: Include in main prompt string
 - Nanobanana: Use separate `negative_prompt` parameter (better!)
 
 ### Image Editing
+
 - OpenAI: No direct editing support via MCP
 - Nanobanana: Full editing with `input_image_path` + `mode: "edit"`
 
@@ -223,16 +235,19 @@ for (slide in template.slides) {
 ## 🔧 **Troubleshooting**
 
 ### "Tool not found"
+
 - Restart Claude Code
 - Run `claude mcp list` to verify connection
 - Check ~/.claude.json has correct config
 
 ### "Authentication error"
+
 - Verify API keys in ~/.claude.json
 - Test keys with direct API call
 - Regenerate if exposed
 
 ### "File not saved"
+
 - Check output folder permissions
 - Verify ~/Pictures/gpt-image-1/ exists
 - Check ~/nanobanana-images/ exists

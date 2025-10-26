@@ -1,0 +1,375 @@
+name: create-thread
+description: Create Twitter thread with multiple connected tweets
+
+instructions: |
+  # Create Twitter Thread Workflow
+
+  This workflow creates a Twitter thread where each tweet automatically replies to the previous one.
+
+  ## Steps
+
+  ### 1. Explain Thread Feature
+
+  Tell the user:
+  ```
+  Twitter Threads allow you to post multiple connected tweets.
+  Each tweet automatically replies to the previous one, creating a conversation.
+
+  Perfect for:
+  - Long-form content (split across multiple tweets)
+  - Step-by-step guides
+  - Storytelling
+  - Announcements with details
+
+  Features:
+  - Automatic reply linking
+  - Each tweet can have media (images or video)
+  - Character limit applies per tweet (25k for Premium, 280 for Free)
+  - Thread appears as connected conversation
+  ```
+
+  ### 2. Gather Number of Tweets
+
+  Ask: "How many tweets will be in your thread? (2-20 recommended)"
+
+  **Store as**: `tweet_count`
+
+  **Validate**:
+  ```javascript
+  if (tweet_count < 2) {
+    console.log('⚠️ Threads need at least 2 tweets. Use /tweet for single posts.');
+    return;
+  }
+  if (tweet_count > 20) {
+    console.log('⚠️ Threads with 20+ tweets can be overwhelming. Consider 5-10 tweets.');
+    console.log('Continue anyway? [yes/no]');
+    // Wait for confirmation
+  }
+  ```
+
+  ### 3. Gather Tweet Contents
+
+  For each tweet (1 to tweet_count):
+  ```
+  Tweet X/Y:
+  ─────────────────────────────────────────
+  Text: [prompt for text]
+  Add media? [yes/no]
+    If yes:
+      Media type: [image/video]
+      Path: [prompt for path]
+      Alt text: [optional, prompt if user wants]
+  ─────────────────────────────────────────
+  ```
+
+  **Store as**: `tweets` array
+  ```javascript
+  tweets = [
+    {
+      text: "Tweet 1 text...",
+      media: [{path: "/path/to/image.jpg", altText: "..."}] // optional
+    },
+    {
+      text: "Tweet 2 text...",
+      media: [] // no media
+    },
+    // ...
+  ]
+  ```
+
+  ### 4. Show Thread Preview
+
+  ```
+  Thread Preview:
+  ═══════════════════════════════════════════════════════
+
+  Tweet 1/X:
+  [text]
+  Media: [Yes/No]
+  ───────────────────────────────────────────────────────
+
+  Tweet 2/X:
+  [text]
+  Media: [Yes/No]
+  ───────────────────────────────────────────────────────
+
+  ... (show all tweets)
+
+  ═══════════════════════════════════════════════════════
+  Total tweets: X
+  Estimated posting time: ~X seconds
+
+  Post this thread? [yes/no]
+  ```
+
+  ### 5. Post Thread
+
+  ```javascript
+  import { TwitterClient } from './bmad/modules/twitter-api-client/index.js';
+
+  const client = new TwitterClient();
+
+  console.log(`Posting thread with ${tweets.length} tweets...`);
+  console.log();
+
+  const results = await client.createThread(tweets);
+
+  // Display results
+  let successCount = 0;
+  let failedIndex = -1;
+
+  results.forEach((result, index) => {
+    if (result.success) {
+      successCount++;
+      console.log(`✓ Tweet ${index + 1}/${tweets.length} posted`);
+      console.log(`  URL: ${result.url}`);
+    } else {
+      failedIndex = index;
+      console.log(`✗ Tweet ${index + 1}/${tweets.length} failed`);
+      console.log(`  Error: ${result.error}`);
+    }
+  });
+
+  console.log();
+
+  if (successCount === tweets.length) {
+    console.log('✅ Thread posted successfully!');
+    console.log();
+    console.log('Thread Details:');
+    console.log(`  Total tweets: ${tweets.length}`);
+    console.log(`  First tweet: ${results[0].url}`);
+    console.log();
+    console.log('Note: Thread appears as conversation');
+    console.log(`View thread: ${results[0].url}`);
+
+    // Update rate limits
+    const stats = client.getRateLimitStats();
+    console.log();
+    console.log('Updated Rate Limits:');
+    console.log(`  Monthly: ${stats.remaining.monthly} remaining`);
+    console.log(`  Daily: ${stats.remaining.daily} remaining`);
+    console.log(`  Hourly: ${stats.remaining.hourly} remaining`);
+  } else {
+    console.log('⚠️ Thread partially posted');
+    console.log();
+    console.log(`Successfully posted: ${successCount}/${tweets.length} tweets`);
+    if (failedIndex >= 0) {
+      console.log(`Failed at tweet ${failedIndex + 1}`);
+      console.log('Remaining tweets were not posted');
+    }
+    console.log();
+    if (successCount > 0) {
+      console.log(`View partial thread: ${results[0].url}`);
+    }
+  }
+  ```
+
+  ## Example Usage
+
+  ```
+  User: "I want to create a thread"
+
+  Agent: "How many tweets will be in your thread? (2-20 recommended)"
+
+  User: "3"
+
+  Agent:
+  Tweet 1/3:
+  ─────────────────────────────────────────
+  Text:
+
+  User: "1/3 - Just launched our Twitter API Premium integration!
+         This is a game-changer for social media automation."
+
+  Agent: "Add media? [yes/no]"
+
+  User: "no"
+
+  Agent:
+  Tweet 2/3:
+  ─────────────────────────────────────────
+  Text:
+
+  User: "2/3 - Features include:
+         • Long-form posts (25k chars)
+         • Image uploads (1-4 per tweet)
+         • Video uploads (up to 512MB)
+         • Automatic threading"
+
+  Agent: "Add media? [yes/no]"
+
+  User: "no"
+
+  Agent:
+  Tweet 3/3:
+  ─────────────────────────────────────────
+  Text:
+
+  User: "3/3 - Built with twitter-api-v2 library for rock-solid
+         OAuth handling and rate limiting. Production ready!"
+
+  Agent: "Add media? [yes/no]"
+
+  User: "no"
+
+  Agent:
+  Thread Preview:
+  ═══════════════════════════════════════════════════════
+
+  Tweet 1/3:
+  1/3 - Just launched our Twitter API Premium integration!
+  This is a game-changer for social media automation.
+  Media: No
+  ───────────────────────────────────────────────────────
+
+  Tweet 2/3:
+  2/3 - Features include:
+  • Long-form posts (25k chars)
+  • Image uploads (1-4 per tweet)
+  • Video uploads (up to 512MB)
+  • Automatic threading
+  Media: No
+  ───────────────────────────────────────────────────────
+
+  Tweet 3/3:
+  3/3 - Built with twitter-api-v2 library for rock-solid
+  OAuth handling and rate limiting. Production ready!
+  Media: No
+  ───────────────────────────────────────────────────────
+
+  ═══════════════════════════════════════════════════════
+  Total tweets: 3
+  Estimated posting time: ~3 seconds
+
+  Post this thread? [yes/no]
+
+  User: "yes"
+
+  Agent: "Posting thread with 3 tweets..."
+
+  ✓ Tweet 1/3 posted
+    URL: https://twitter.com/user/status/1234567890
+  ✓ Tweet 2/3 posted
+    URL: https://twitter.com/user/status/1234567891
+  ✓ Tweet 3/3 posted
+    URL: https://twitter.com/user/status/1234567892
+
+  ✅ Thread posted successfully!
+
+  Thread Details:
+    Total tweets: 3
+    First tweet: https://twitter.com/user/status/1234567890
+
+  Note: Thread appears as conversation
+  View thread: https://twitter.com/user/status/1234567890
+  ```
+
+  ## Thread Best Practices
+
+  ### Structure
+
+  1. **Number Your Tweets**: "1/5", "2/5", etc.
+     - Helps readers follow along
+     - Shows thread length upfront
+
+  2. **Hook in First Tweet**: Grab attention immediately
+     - First tweet is shown in timeline
+     - Must make people want to "Show this thread"
+
+  3. **Conclusion in Last Tweet**: Clear ending
+     - Call to action
+     - Summary
+     - Link to more info
+
+  ### Content
+
+  1. **Keep It Focused**: One topic per thread
+  2. **Use Visuals**: Add images/videos for engagement
+  3. **Break Up Text**: Short paragraphs, bullet points
+  4. **Add Value**: Each tweet should contribute
+
+  ### Technical
+
+  1. **Test First**: Start with 2-3 tweet threads
+  2. **Watch Limits**: Each tweet counts toward rate limits
+  3. **Check Order**: Preview before posting
+  4. **Handle Errors**: If thread fails, first tweets already posted
+
+  ## Thread Features
+
+  ### Automatic Reply Linking
+
+  The client automatically:
+  1. Posts first tweet normally
+  2. Posts second tweet as reply to first
+  3. Posts third tweet as reply to second
+  4. And so on...
+
+  You don't need to manage reply IDs or threading - it's automatic!
+
+  ### Media Support
+
+  Each tweet in the thread can have:
+  - No media (text only)
+  - 1-4 images
+  - 1 video
+
+  Media rules apply per tweet:
+  - Cannot mix images and videos in same tweet
+  - Each image max 5MB
+  - Each video max 512MB
+
+  ### Error Handling
+
+  If a tweet fails:
+  - Previous tweets are already posted
+  - Thread stops at the failed tweet
+  - Remaining tweets are not posted
+  - You get URLs for successful tweets
+
+  ## Common Issues
+
+  ### "Thread partially posted"
+  - One tweet failed, rest not posted
+  - Check error message for failed tweet
+  - Previous tweets are still live
+  - Can continue thread manually if needed
+
+  ### "Rate limit exceeded"
+  - Posting multiple tweets quickly
+  - Check hourly limit (10 recommended)
+  - Space out thread posting
+
+  ### "Validation failed"
+  - One tweet has invalid text/media
+  - Check each tweet's content
+  - Fix and try again
+
+  ## Tips for Long Threads
+
+  ### For 10+ Tweet Threads
+
+  1. **Plan Content**: Write all tweets first
+  2. **Save Draft**: Keep copy before posting
+  3. **Post Off-Peak**: Avoid busy times
+  4. **Monitor Closely**: Watch for errors
+  5. **Have Backup**: In case of failure
+
+  ### Rate Limit Awareness
+
+  Posting a 10-tweet thread:
+  - Uses 10 posts from monthly limit
+  - Uses 10 posts from daily limit
+  - Might hit hourly limit (10 recommended)
+
+  Check limits before big threads!
+
+  ## Notes
+
+  - Threads are powerful for storytelling
+  - First tweet is most important (appears in timeline)
+  - Use threads for content too long for single tweet
+  - Threads count as multiple posts for rate limits
+  - Can edit thread tweets individually after posting (Twitter feature)
+  - Thread appears as conversation on your profile
+  - Each tweet is also visible individually

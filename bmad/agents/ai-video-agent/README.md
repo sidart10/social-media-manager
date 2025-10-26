@@ -18,6 +18,7 @@ The AI Video Agent is your production coordinator for creating videos optimized 
 ### Platform Intelligence
 
 Built-in optimization for:
+
 - Instagram Reels (9:16, <90s, captions, 1.5s hook)
 - YouTube Shorts (9:16, <60s, 3s hook)
 - TikTok (9:16, 1s hook critical)
@@ -29,15 +30,19 @@ Built-in optimization for:
 ## Quick Start
 
 ### 1. Activate the Agent
+
 ```
 Call: ai-video-agent
 ```
 
 ### 2. Setup Avatars (First Time)
+
 ```
 Command: *setup-avatars
 ```
+
 This will:
+
 - List your HeyGen avatars
 - Verify consent for each
 - Configure defaults
@@ -45,16 +50,19 @@ This will:
 ### 3. Generate Your First Video
 
 **Talking Head for Instagram Reels:**
+
 ```
 Command: *reels
 ```
 
 **B-Roll Scene:**
+
 ```
 Command: *create-scene
 ```
 
 **See All Commands:**
+
 ```
 Command: *help
 ```
@@ -64,18 +72,21 @@ Command: *help
 ## Core Commands
 
 ### Primary Generation
+
 - `*create-talking-head` - Generate avatar video with HeyGen
 - `*create-scene` - Generate video scene with Veo (text-to-video)
 - `*create-montage` - Stitch images into video sequence
 - `*create-hybrid` - Mix talking head + scenes + images
 
 ### Platform Quick Commands
+
 - `*reels` - Instagram Reels optimized (9:16, captions, hook@1.5s)
 - `*youtube-short` - YouTube Shorts optimized (9:16, hook@3s)
 - `*youtube` - YouTube standard (16:9, longer form)
 - `*tiktok` - TikTok optimized (9:16, hook@1s)
 
 ### Production Management
+
 - `*test-hooks` - A/B test 3 different video opens
 - `*queue-status` - Show all rendering jobs
 - `*setup-avatars` - Configure avatars with consent
@@ -91,18 +102,21 @@ Command: *help
 The agent automatically routes to the best tool:
 
 **Want your face on camera?** → **HeyGen**
+
 - Authentic avatar with your likeness
 - Voice cloning
 - Natural speech pacing
 - ~$0.30 per minute
 
 **Want generated b-roll/scenes?** → **Veo**
+
 - Text-to-video generation
 - Up to 8 seconds per clip
 - 720p/1080p options
 - ~$0.30-1.00 per clip
 
 **Want image sequences?** → **Montage Workflow**
+
 - Stitch images with transitions
 - Add motion and effects
 - Export as video
@@ -112,18 +126,21 @@ The agent automatically routes to the best tool:
 The agent knows what performs on each platform:
 
 **Instagram Reels:**
+
 - 9:16 vertical
 - Hook in first 1.5 seconds
 - Captions ON (80% watch muted)
 - 30-60s sweet spot
 
 **YouTube Shorts:**
+
 - 9:16 vertical
 - Hook in first 3 seconds
 - <60 seconds
 - Retention is everything
 
 **TikTok:**
+
 - 9:16 vertical
 - Hook in first 1 second (fastest)
 - 7-15s = highest engagement
@@ -136,17 +153,20 @@ The agent knows what performs on each platform:
 This agent uses three MCP servers:
 
 ### 1. HeyGen MCP Server ✓
+
 - **Status**: Installed and connected
 - **Purpose**: Talking head avatar videos
 - **Tools**: list_avatars, list_voices, create_avatar_video, check_video_status
 
 ### 2. Veo MCP Server (Custom) ✓
+
 - **Status**: Installed and connected
 - **Purpose**: Text-to-video scene generation
 - **Tools**: video_story_generate, video_story_status
 - **Location**: `/veo-mcp-server/`
 
 ### 3. Existing Image Servers ✓
+
 - gpt-image-1 (OpenAI)
 - nanobanana (Gemini)
 
@@ -178,6 +198,7 @@ bmad/agents/ai-video-agent/
 ## Configuration
 
 ### API Keys (`config.yaml`)
+
 ```yaml
 api_keys:
   heygen_api_key: '${HEYGEN_API_KEY}'
@@ -188,25 +209,27 @@ api_keys:
 Keys loaded from project `.env` file.
 
 ### Provider Settings
+
 ```yaml
 providers:
   default_talking_head: heygen
   default_scene_generation: veo
 
   heygen:
-    caption_enabled: true  # Always ON by default
+    caption_enabled: true # Always ON by default
 
   veo:
-    model: 'veo-3.1-generate-preview'  # or veo-3.1-fast-generate-preview
+    model: 'veo-3.1-generate-preview' # or veo-3.1-fast-generate-preview
     default_resolution: '720p'
     default_duration_sec: '8'
 ```
 
 ### Cost Controls
+
 ```yaml
 generation:
   auto_cost_estimate: true
-  max_cost_per_video_usd: 5.0  # Safety limit
+  max_cost_per_video_usd: 5.0 # Safety limit
 ```
 
 ---
@@ -214,16 +237,19 @@ generation:
 ## Safety & Ethics
 
 ### Consent Verification
+
 - **ALWAYS** verify avatar consent before HeyGen generation
 - Un-consented avatars are BLOCKED
 - Run `*setup-avatars` to configure consent
 
 ### Watermark Preservation
+
 - **NEVER** strip C2PA metadata or watermarks
 - Sora 2 videos include provenance - must be preserved
 - Legal compliance non-negotiable
 
 ### Cost Guards
+
 - Estimates shown before every generation
 - Safety limit: $5.00 per video (configurable)
 - User approval required for costs > $1.00
@@ -254,11 +280,13 @@ generation:
 Every video generates two files:
 
 ### 1. Video File
+
 ```
 reels_heygen_20251025_143022.mp4
 ```
 
 ### 2. Metadata JSON
+
 ```json
 {
   "prompt": "Original script",
@@ -283,17 +311,22 @@ reels_heygen_20251025_143022.mp4
 ## Troubleshooting
 
 ### "Un-consented avatar" Error
+
 **Fix**: Run `*setup-avatars` to verify consent
 
 ### Video Generation Timeout
+
 **Cause**: Complex videos can take 5-10 minutes
 **Fix**: Check `*queue-status` - job may still be processing
 
 ### Cost Exceeded Limit
+
 **Fix**: Adjust `max_cost_per_video_usd` in `config.yaml`
 
 ### MCP Server Not Connected
+
 **Check**: `claude mcp list` should show:
+
 - ✓ heygen
 - ✓ veo
 
@@ -304,13 +337,14 @@ reels_heygen_20251025_143022.mp4
 **Voice**: Data-driven platform expert who collaboratively solves creative problems with smart technical routing
 
 **Example**:
-*"Reels video - nice! That's 9:16 vertical for max retention. I'm thinking your face via HeyGen for authenticity, maybe layer some Veo b-roll behind you? Either way, captions ON since 80% watch muted. Hook needs to hit in 1.5 seconds. What's the core message we're delivering?"*
+_"Reels video - nice! That's 9:16 vertical for max retention. I'm thinking your face via HeyGen for authenticity, maybe layer some Veo b-roll behind you? Either way, captions ON since 80% watch muted. Hook needs to hit in 1.5 seconds. What's the core message we're delivering?"_
 
 ---
 
 ## Roadmap
 
 **Current Features:**
+
 - ✅ HeyGen talking head generation
 - ✅ Veo scene generation
 - ✅ Platform-specific optimization
@@ -319,6 +353,7 @@ reels_heygen_20251025_143022.mp4
 - ✅ Queue management
 
 **Coming Soon:**
+
 - 🔜 Image-to-video montage stitching
 - 🔜 Hybrid multi-source videos
 - 🔜 A/B hook testing
@@ -330,6 +365,7 @@ reels_heygen_20251025_143022.mp4
 ## Credits
 
 Built with:
+
 - **HeyGen API** - Talking head avatars
 - **Google Gemini Veo 3.1** - Text-to-video generation
 - **Claude Agent SDK** - MCP orchestration

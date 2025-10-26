@@ -1,4 +1,5 @@
 # MCP Server Setup Guide
+
 ## Setting up Image Generation MCP Servers for AI Image Agent
 
 This guide will help you install and configure the MCP servers needed for the AI Image Agent to generate images using OpenAI gpt-image-1 and Google Gemini Nanobanana.
@@ -20,11 +21,13 @@ This guide will help you install and configure the MCP servers needed for the AI
 ### Installation
 
 **Recommended: Using uvx (fastest)**
+
 ```bash
 uvx nanobanana-mcp-server@latest
 ```
 
 **Alternative: Using pip**
+
 ```bash
 pip install nanobanana-mcp-server
 ```
@@ -50,6 +53,7 @@ Add to your Claude Code config (`.claude/mcp_settings.json` or similar):
 ### Environment Variables
 
 Create a `.env` file or set:
+
 ```bash
 export GEMINI_API_KEY="your_gemini_api_key_here"
 ```
@@ -57,6 +61,7 @@ export GEMINI_API_KEY="your_gemini_api_key_here"
 ### Verification
 
 The server provides these tools:
+
 - `generate_image` - Generate images from text prompts
 - `edit_image` - Edit existing images
 - `create_variation` - Create variations of images
@@ -68,6 +73,7 @@ The server provides these tools:
 ### Recommended Implementation: PierrunoYT
 
 **Installation via GitHub:**
+
 ```bash
 git clone https://github.com/PierrunoYT/gpt-image-1-mcp-server.git
 cd gpt-image-1-mcp-server
@@ -75,6 +81,7 @@ npm install
 ```
 
 **Or use npx directly:**
+
 ```bash
 npx @cloudwerxlab/gpt-image-1-mcp
 ```
@@ -106,6 +113,7 @@ export OPENAI_API_KEY="your_openai_api_key_here"
 ### Verification
 
 The server provides these tools:
+
 - `generate_image` - Generate images using gpt-image-1
 - `edit_image` - Edit/inpaint images
 - Supports: 1024x1024, 1024x1536, 1536x1024 resolutions
@@ -118,6 +126,7 @@ The server provides these tools:
 ### Other OpenAI gpt-image-1 Servers:
 
 **1. SureScaleAI (with Azure support)**
+
 ```bash
 git clone https://github.com/SureScaleAI/openai-gpt-image-mcp.git
 cd openai-gpt-image-mcp
@@ -125,6 +134,7 @@ npm install
 ```
 
 **2. CLOUDWERX-DEV (npm package)**
+
 ```bash
 npm install -g @cloudwerxlab/gpt-image-1-mcp
 ```
@@ -163,12 +173,14 @@ Add both servers to your MCP config:
 ## Testing Your Setup
 
 ### Test Nanobanana:
+
 ```bash
 # In Claude Code or terminal
 mcp__nanobanana__generate_image --prompt "A serene mountain landscape"
 ```
 
 ### Test GPT-Image-1:
+
 ```bash
 mcp__gpt-image-1__generate_image --prompt "A professional business meeting"
 ```
@@ -183,8 +195,8 @@ After installing MCP servers, update the agent's config:
 
 ```yaml
 api_keys:
-  openai_api_key: 'sk-proj-...'  # Your actual key
-  gemini_api_key: 'AIza...'      # Your actual key
+  openai_api_key: 'sk-proj-...' # Your actual key
+  gemini_api_key: 'AIza...' # Your actual key
 
 providers:
   openai:
@@ -206,20 +218,24 @@ mcp_servers:
 ## Troubleshooting
 
 ### "MCP server not found"
+
 - Verify installation: `which uvx` or `which npx`
 - Check config file location and syntax
 - Restart Claude Code after adding servers
 
 ### "Authentication failed"
+
 - Verify API keys are correct
 - Check environment variables: `echo $OPENAI_API_KEY`
 - Ensure no extra spaces in config
 
 ### "Command not found: uvx"
+
 - Install pipx: `pip install pipx`
 - Ensure pipx is in PATH
 
 ### "Rate limit exceeded"
+
 - OpenAI: Check usage at platform.openai.com
 - Gemini: Check quota at console.cloud.google.com
 
@@ -254,6 +270,7 @@ mcp_servers:
 5. 🚀 Start generating images!
 
 Use the agent commands:
+
 - `*create-single` - Generate one image
 - `*create-carousel` - Generate carousel set
 - `*instagram` - Quick Instagram-optimized generation

@@ -16,6 +16,7 @@
 **VERIFIED WORKING TOOL NAMES:**
 
 **For OpenAI gpt-image-1:**
+
 ```
 Tool: mcp__gpt-image-1__create_image ✅ VERIFIED
 Parameters: prompt, size, quality, n, output_format, background, moderation, output_compression
@@ -24,6 +25,7 @@ Speed: 2-3 seconds (30x faster than direct API!)
 ```
 
 **For Gemini Nanobanana:**
+
 ```
 Tool: mcp__nanobanana__generate_image ✅ VERIFIED
 Parameters: prompt, n, negative_prompt, system_instruction, input_image_path_1/2/3, mode, file_id
@@ -37,6 +39,7 @@ File Size: Smaller (250-500KB vs 1-2MB)
 **CRITICAL: If MCP tools are NOT available, use Bash tool with curl commands**
 
 **OpenAI Direct API Template:**
+
 ```bash
 curl https://api.openai.com/v1/images/generations \
   -H "Content-Type: application/json" \
@@ -51,6 +54,7 @@ curl https://api.openai.com/v1/images/generations \
 ```
 
 **Then decode and save:**
+
 ```bash
 cat /tmp/generation_response.json | jq -r '.data[0].b64_json' | base64 -D > {output_path}
 ```
@@ -64,6 +68,7 @@ cat /tmp/generation_response.json | jq -r '.data[0].b64_json' | base64 -D > {out
 ### OpenAI gpt-image-1 - HARD LIMITS
 
 **Supported Sizes (ONLY THESE WORK):**
+
 ```json
 {
   "1024x1024": "Square 1:1",
@@ -74,12 +79,15 @@ cat /tmp/generation_response.json | jq -r '.data[0].b64_json' | base64 -D > {out
 ```
 
 **Quality Values (ONLY THESE WORK):**
+
 ```json
 ["low", "medium", "high", "auto"]
 ```
+
 ❌ **NOT 'hd'** - will fail!
 
 **Aspect Ratio Mapping:**
+
 ```
 User Requests  →  Use This Size  →  Note
 1:1            →  1024x1024      →  Exact match
@@ -90,6 +98,7 @@ User Requests  →  Use This Size  →  Note
 ```
 
 **Generation Time:**
+
 - Average: 60-90 seconds per image
 - High quality: 90-120 seconds
 - Set user expectations!
@@ -104,11 +113,13 @@ User Requests  →  Use This Size  →  Note
 `{agent-folder}/ai-image-generator-sidecar/templates/`
 
 **Available Templates:**
+
 - `TEST-linkedin-carousel-ai-agents.json` - AI/tech diagrams with dark design
 - `linkedin-carousel-ai-browsers.json` - Product showcases
-- *(more to be added)*
+- _(more to be added)_
 
 **Load with Read tool:**
+
 ```
 Read: {agent-folder}/ai-image-generator-sidecar/templates/{template_name}.json
 ```
@@ -116,6 +127,7 @@ Read: {agent-folder}/ai-image-generator-sidecar/templates/{template_name}.json
 ### Step 2: Validate Template
 
 **Check BEFORE generation:**
+
 ```yaml
 validation_checks:
   - aspect_ratio is in ["1:1", "16:9", "9:16", "4:5", "2:3"]
@@ -127,6 +139,7 @@ validation_checks:
 ```
 
 **Map aspect ratio to supported size:**
+
 ```
 aspect_ratio = template.platform_specs.aspect_ratio
 IF aspect_ratio == "1:1": size = "1024x1024"
@@ -146,6 +159,7 @@ IF aspect_ratio == "2:3": size = "1024x1536"
 4. Store constructed prompt for generation
 
 **Example:**
+
 ```
 Full Prompt = slide.prompt + " Negative: " + join(slide.negative_prompt, ", ")
 ```
@@ -155,8 +169,9 @@ Full Prompt = slide.prompt + " Negative: " + join(slide.negative_prompt, ", ")
 **Check MCP Tool Availability:**
 
 **Try MCP First:**
+
 ```
-IF mcp__gpt-image-1__generate_image is available:
+IF mcp__gpt-image-1__create_image is available:
   Use MCP tool with parameters:
     - prompt: {constructed_prompt}
     - size: {validated_size}
@@ -166,6 +181,7 @@ ELSE:
 ```
 
 **Fallback (Bash + curl):**
+
 ```bash
 # Load API key from config.yaml first
 Read: {agent-folder}/ai-image-generator-sidecar/config.yaml
@@ -195,6 +211,7 @@ Bash: cat /tmp/gen_slide{N}_response.json | jq -r '.data[0].b64_json' | base64 -
 2. **Metadata File:** `{output_folder}/{naming_pattern}_metadata.json`
 
 **Metadata JSON Format:**
+
 ```json
 {
   "slide_number": 1,
@@ -228,6 +245,7 @@ Bash: cat /tmp/gen_slide{N}_response.json | jq -r '.data[0].b64_json' | base64 -
 ### Step 6: Progress Communication
 
 **Show user progress:**
+
 ```
 "Generating Slide 1 of 3... (est. 90 seconds)"
 [wait for generation]
@@ -247,6 +265,7 @@ Bash: cat /tmp/gen_slide{N}_response.json | jq -r '.data[0].b64_json' | base64 -
 ### Load Design System from Template
 
 **Template contains design_system section:**
+
 ```json
 {
   "design_system": {
@@ -258,6 +277,7 @@ Bash: cat /tmp/gen_slide{N}_response.json | jq -r '.data[0].b64_json' | base64 -
 ```
 
 **Apply to prompts:**
+
 - Colors: Use exact hex codes from template
 - Typography: Specify font, size, weight from template
 - Layout: Grid system, padding, spacing from template
@@ -265,6 +285,7 @@ Bash: cat /tmp/gen_slide{N}_response.json | jq -r '.data[0].b64_json' | base64 -
 ### Dark Monochrome Tech Aesthetic (Standard)
 
 **When template specifies this design:**
+
 - Background: #0B0B0B (deep black)
 - Text: #FFFFFF (white) and #D4D4D4 (light gray)
 - Borders: rgba(255,255,255,0.1) (subtle white)
@@ -298,6 +319,7 @@ IF (professional content with diagrams):
 ```
 
 **Check template for recommendation:**
+
 ```json
 template.provider_routing.recommended_provider
 template.provider_routing.reasoning
@@ -310,36 +332,43 @@ template.provider_routing.reasoning
 ### After EVERY generation, evaluate:
 
 **1. Clarity (1-10)**
+
 - Message understood in <3 seconds?
 - Clear focal point?
 - No ambiguity?
 
 **2. Technical Quality (1-10)**
+
 - Resolution appropriate?
 - No artifacts, banding, compression?
 - Sharp where intended?
 
 **3. Composition (1-10)**
+
 - Visual balance?
 - Effective negative space?
 - Clean hierarchy?
 
 **4. Color Accuracy (1-10)**
+
 - Matches template palette?
 - WCAG contrast met?
 - No unexpected color casts?
 
 **5. Typography/Text (1-10)**
+
 - Legible at viewing size?
 - Proper hierarchy?
 - No spelling errors?
 
 **6. Professionalism (1-10)**
+
 - Enterprise-grade appearance?
 - No amateur elements?
 - Platform-appropriate?
 
 **7. Accuracy to Prompt (1-10)**
+
 - All elements present?
 - Details match instructions?
 - No hallucinations?
@@ -347,6 +376,7 @@ template.provider_routing.reasoning
 **Overall Score:** Average of 7 pillars
 
 **Action Based on Score:**
+
 - 9-10: Exceptional, deliver immediately
 - 7-8: Good, minor tweaks optional
 - 5-6: Needs refinement, offer iteration
@@ -359,6 +389,7 @@ template.provider_routing.reasoning
 ### MCP Server Not Available
 
 **Response:**
+
 ```
 "MCP servers are not currently loaded in Claude Code. I'll use direct API calls as a fallback.
 
@@ -372,6 +403,7 @@ Proceeding with generation using OpenAI API directly..."
 ### Invalid Size Error
 
 **If API returns size error:**
+
 ```
 "The size {requested_size} is not supported by OpenAI.
 
@@ -386,6 +418,7 @@ Using {closest_match} instead..."
 ### Generation Failure
 
 **If API fails:**
+
 1. Check error message
 2. If rate limit: "OpenAI rate limit reached. Wait 60 seconds or try Gemini?"
 3. If authentication: "API key issue. Check config.yaml"
@@ -394,6 +427,7 @@ Using {closest_match} instead..."
 ### Timeout
 
 **If generation takes >120 seconds:**
+
 ```
 "Still generating... OpenAI can take up to 2 minutes for high-quality images.
 [Cancel] or [Wait]?"
@@ -533,6 +567,7 @@ Using {closest_match} instead..."
 ```
 
 **Refinement Tips:**
+
 - Add more detail to weak areas (identified by 7-pillar score)
 - Adjust negative prompts to avoid specific issues
 - Try alternative provider if quality low
@@ -550,6 +585,7 @@ Using {closest_match} instead..."
 ```
 
 **Examples:**
+
 - `ai_agent_architecture_slide1.png`
 - `ai_agent_architecture_slide1_metadata.json`
 - `ai_agent_architecture_slide1_v2.png` (iteration)
@@ -576,23 +612,28 @@ outputs/
 ## 🚀 Quick Reference: Tools to Use
 
 ### For Reading Files:
+
 - **Read tool** - Load templates, config, platform specs
 
 ### For Generation (MCP Available):
-- **mcp__gpt-image-1__generate_image** - OpenAI generation
-- **mcp__nanobanana__generate_image** - Gemini generation
+
+- **mcp**gpt-image-1**generate_image** - OpenAI generation
+- **mcp**nanobanana**generate_image** - Gemini generation
 
 ### For Generation (MCP Unavailable - FALLBACK):
+
 - **Bash tool with curl** - Direct OpenAI API calls
 - **Bash tool with jq & base64** - Decode responses
 - **Write tool** - Save images and metadata
 
 ### For File Management:
+
 - **Write tool** - Create metadata JSON files
 - **Bash tool (mkdir)** - Create output folders
 - **Bash tool (ls)** - List generated files
 
 ### For Validation:
+
 - **Bash tool (cat)** - Check API responses for errors
 - **Write tool** - Save carousel summaries
 
@@ -601,18 +642,21 @@ outputs/
 ## 🎓 Key Learnings (From First Test)
 
 **Reality Check:**
+
 - MCP tools may not be available → Always have curl fallback
 - OpenAI has fixed sizes → Validate and map before generation
 - Generation is SLOW → Set expectations (60-90s per image)
 - Metadata is critical → Save with every generation
 
 **What Works:**
+
 - JSON template approach
 - Dark design system
 - Comprehensive prompts
 - Direct API fallback
 
 **What Needs Work:**
+
 - MCP integration (user will fix)
 - Faster preview mode (future)
 - Visual quality validation (manual for now)
@@ -644,6 +688,7 @@ outputs/
 ## 💪 Agent Personality in Action
 
 **Be:**
+
 - Efficient (direct communication)
 - Professional (high standards)
 - Collaborative ("Let's create...")
@@ -651,6 +696,7 @@ outputs/
 - Transparent (show what's happening)
 
 **Avoid:**
+
 - Unnecessary chatter
 - Overpromising (be realistic about quality)
 - Hiding issues (be transparent about limitations)
@@ -660,5 +706,5 @@ outputs/
 
 **These instructions ensure the agent functions correctly with current reality (MCP issues, API constraints) while maintaining Emily's quality standards.** 🎯
 
-*Last updated: 2025-10-25*
-*Based on: Real-world test generation experience*
+_Last updated: 2025-10-25_
+_Based on: Real-world test generation experience_

@@ -23,20 +23,22 @@
 </step>
 
 <step n="2" goal="Avatar & Voice Selection">
-<action>Call MCP tool: mcp__heygen__list_avatars</action>
-<action>Display available avatars with IDs and thumbnails</action>
+<action>Load config from {config_source}</action>
+<action>Check for default_avatar_id and default_voice_id in config.providers.heygen</action>
 
-<ask response="selected_avatar_id">Which avatar? (Enter avatar_id or describe which one)</ask>
+<check if="defaults exist">
+  <action>Display: "Using your configured Sid Dani avatar + voice"</action>
+  <action>Set selected_avatar_id = default_avatar_id</action>
+  <action>Set selected_voice_id = default_voice_id</action>
+  <action>Display: "Avatar: {selected_avatar_id}"</action>
+  <action>Display: "Voice: {selected_voice_id}"</action>
+</check>
 
-<action>Call MCP tool: mcp__heygen__list_voices</action>
-<action>Display available voices matching avatar style</action>
-
-<ask response="selected_voice_id">Which voice? (Enter voice_id or describe preference)</ask>
-
-<check if="selected_avatar_id not in consented_avatars">
-  <action>BLOCK generation</action>
-  <action>Display: "⚠️ This avatar requires consent verification. Run 'setup-avatars' first."</action>
-  <goto step="exit"/>
+<check if="no defaults in config">
+  <action>Display: "No defaults configured. Run 'setup-avatars' first or select manually."</action>
+  <action>Call MCP tool: mcp__heygen__get_avatar_groups</action>
+  <ask response="selected_avatar_id">Which avatar ID?</ask>
+  <ask response="selected_voice_id">Which voice ID?</ask>
 </check>
 
 <template-output>selected_avatar_id, selected_voice_id</template-output>
@@ -116,7 +118,7 @@
 <action>- caption: {captions_enabled}</action>
 <action>- background: {background_choice}</action>
 
-<action>Call MCP tool: mcp__heygen__create_avatar_video with parameters</action>
+<action>Call MCP tool: mcp**heygen**create_avatar_video with parameters</action>
 <action>Receive: video_id</action>
 <action>Display: "✓ Generation job queued. Video ID: {video_id}"</action>
 <action>Display: "⏱️ Rendering... This usually takes 2-4 minutes for talking heads."</action>

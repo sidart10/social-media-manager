@@ -25,6 +25,7 @@ Before running this test:
 Open: `ai-image-generator-sidecar/templates/TEST-linkedin-carousel-ai-agents.json`
 
 **Check:**
+
 - ✅ 3 slides defined (title, diagram, process flow)
 - ✅ Each slide has `prompt_details` with scene_description
 - ✅ Typography specs included
@@ -37,6 +38,7 @@ Open: `ai-image-generator-sidecar/templates/TEST-linkedin-carousel-ai-agents.jso
 For each slide, construct the full prompt by combining:
 
 **Slide 1 Prompt Construction:**
+
 ```
 BASE: [scene_description from slide 1]
 
@@ -57,6 +59,7 @@ Negative: [join all negative_prompt array items with commas]
 ```
 
 **Example Full Prompt for Slide 1:**
+
 ```
 Professional LinkedIn carousel title slide with clean modern design. White background with subtle geometric pattern of interconnected nodes in light blue (#E8F4F8). Centered text hierarchy with large bold title 'AI Agent Architecture' in dark charcoal (#202124) and smaller subtitle 'The Modern Framework' in medium gray (#5F6368).
 
@@ -74,13 +77,16 @@ Negative: cluttered, overcrowded, too much text, cramped layout, low contrast, i
 ### Step 3: Test MCP Server Connection
 
 **Option A: Test via Claude Code (if agent active)**
+
 ```
 /ai-image-agent
 *config
 ```
+
 Check that MCP servers are listed and available.
 
 **Option B: Test via Command Line**
+
 ```bash
 # Test OpenAI
 curl https://api.openai.com/v1/images/generations \
@@ -101,6 +107,7 @@ uvx nanobanana-mcp-server@latest --help
 ### Step 4: Generate Slide 1
 
 **Using MCP Tool:**
+
 ```
 Call: mcp__gpt-image-1__generate_image
 Parameters:
@@ -111,10 +118,12 @@ Parameters:
 ```
 
 **Save Result:**
+
 - Image → `outputs/test-carousel/linkedin_carousel_ai_agents_slide_1.png`
 - Metadata → `outputs/test-carousel/linkedin_carousel_ai_agents_slide_1_metadata.json`
 
 **Metadata JSON Format:**
+
 ```json
 {
   "slide_number": 1,
@@ -135,6 +144,7 @@ Parameters:
 ### Step 5: Review Slide 1 Quality
 
 **Check Against Template:**
+
 - ✅ Title text "AI Agent Architecture" is present and legible
 - ✅ Subtitle "The Modern Framework" is present
 - ✅ Background pattern matches description (connected dots, light blue)
@@ -144,6 +154,7 @@ Parameters:
 - ✅ Text is readable (WCAG AAA contrast)
 
 **Document Issues:**
+
 - ❌ Text too small? (note in test report)
 - ❌ Colors off? (document actual vs expected)
 - ❌ Layout crowded? (note spacing issues)
@@ -152,10 +163,12 @@ Parameters:
 ### Step 6: Generate Slides 2 & 3
 
 Repeat Step 4-5 for:
+
 - **Slide 2:** Diagram (Core Components)
 - **Slide 3:** Process Flow (Agent Workflow)
 
 **Special attention for Slide 2 (Diagram):**
+
 - ✅ Hub-and-spoke architecture visible
 - ✅ 5 components present (LLM Brain, Tools, Memory, Planning, Execution)
 - ✅ Connectors (arrows) between nodes
@@ -163,6 +176,7 @@ Repeat Step 4-5 for:
 - ✅ Labels legible inside boxes
 
 **Special attention for Slide 3 (Process Flow):**
+
 - ✅ 5 steps in vertical sequence
 - ✅ Numbered circles (1-5) visible
 - ✅ Arrows between steps
@@ -174,8 +188,10 @@ Repeat Step 4-5 for:
 Create: `outputs/test-carousel/TEST_REPORT.md`
 
 **Template:**
+
 ```markdown
 # LinkedIn Carousel Test Report
+
 **Test Date:** [date]
 **Test Case:** AI Agent Architecture (3 slides)
 **Provider:** OpenAI gpt-image-1
@@ -195,10 +211,12 @@ Create: `outputs/test-carousel/TEST_REPORT.md`
 ## 📝 JSON Template Quality
 
 **Strengths:**
+
 - [e.g., "Comprehensive prompt_details"]
 - [e.g., "Clear negative prompts"]
 
 **Weaknesses:**
+
 - [e.g., "Typography specs need more detail"]
 - [e.g., "Composition rules could be more specific"]
 
@@ -213,6 +231,7 @@ Create: `outputs/test-carousel/TEST_REPORT.md`
 ## ⚡ Provider Performance
 
 **Response Time:**
+
 - Slide 1: [X seconds]
 - Slide 2: [X seconds]
 - Slide 3: [X seconds]
@@ -224,14 +243,17 @@ Create: `outputs/test-carousel/TEST_REPORT.md`
 ## 🔧 Needed Refinements
 
 ### Template Updates:
+
 1. [specific change needed]
 2. [specific change needed]
 
 ### Prompt Construction:
+
 1. [specific change needed]
 2. [specific change needed]
 
 ### Workflow Improvements:
+
 1. [specific change needed]
 2. [specific change needed]
 
@@ -255,12 +277,14 @@ Create: `outputs/test-carousel/TEST_REPORT.md`
 ## 🎯 Expected Outcomes
 
 **If Test Succeeds:**
+
 - ✅ You'll have 3 professional LinkedIn carousel slides
 - ✅ JSON template approach validated
 - ✅ MCP integration confirmed working
 - ✅ Ready to build full workflows
 
 **If Test Fails:**
+
 - ❌ Document failure points
 - ❌ Refine JSON template
 - ❌ Adjust prompt construction
@@ -271,23 +295,27 @@ Create: `outputs/test-carousel/TEST_REPORT.md`
 ## 🔍 Troubleshooting
 
 ### "MCP server not found"
+
 - Check `MCP_SETUP.md` for installation
 - Verify API keys in `config.yaml`
 - Restart Claude Code
 
 ### "Generated image low quality"
+
 - Check prompt construction (all sections included?)
 - Verify negative prompts are being used
 - Try increasing quality parameter
 - Consider alternative provider
 
 ### "Text not matching template"
+
 - AI may not render exact fonts/sizes
 - Focus on legibility and relative hierarchy
 - Accept some variation (AI interpretation)
 - Refine prompt for emphasis on text
 
 ### "Colors off"
+
 - Specify hex codes explicitly
 - Use color theory terms (complementary, etc.)
 - Reference color palette multiple times in prompt
@@ -298,12 +326,14 @@ Create: `outputs/test-carousel/TEST_REPORT.md`
 ## 📚 Resources
 
 **During Test:**
+
 - Template: `templates/TEST-linkedin-carousel-ai-agents.json`
 - Workflow: `workflows/TEST-linkedin-carousel.yaml`
 - Capabilities: `MCP_CAPABILITIES.md`
 - Config: `config.yaml`
 
 **After Test:**
+
 - Save results to: `outputs/test-carousel/`
 - Create report: `outputs/test-carousel/TEST_REPORT.md`
 - Share learnings with team

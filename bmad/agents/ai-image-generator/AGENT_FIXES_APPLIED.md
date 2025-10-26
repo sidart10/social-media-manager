@@ -1,4 +1,5 @@
 # AI Image Generator Agent - Fixes Applied
+
 **Date:** 2025-10-25
 **Status:** Agent updated with working tool patterns
 
@@ -11,6 +12,7 @@ Based on real-world testing, the agent has been updated to handle current realit
 ### 1. **instructions.md** (COMPLETE REWRITE)
 
 **What Changed:**
+
 - ✅ Added **MCP vs Bash fallback strategy** (primary concern)
 - ✅ Documented **exact tool usage patterns** (Read, Write, Bash)
 - ✅ Added **verified API constraints** (sizes, quality values, timings)
@@ -22,6 +24,7 @@ Based on real-world testing, the agent has been updated to handle current realit
 - ✅ Added **progress communication patterns**
 
 **Key Sections:**
+
 ```
 ## CRITICAL: Tool Usage & Fallback Strategy
 - Primary: Try MCP tools first
@@ -51,6 +54,7 @@ Based on real-world testing, the agent has been updated to handle current realit
 ### 2. **ai-image-generator.agent.yaml** (CRITICAL ACTIONS UPDATED)
 
 **What Changed:**
+
 - ✅ Added **11 critical action items** (was 5)
 - ✅ Emphasized **tool usage patterns** from instructions.md
 - ✅ Added **size constraint warnings** (ONLY 3 sizes supported)
@@ -61,6 +65,7 @@ Based on real-world testing, the agent has been updated to handle current realit
 - ✅ Referenced **best-practices-framework.md** and **MCP_CAPABILITIES.md**
 
 **New Critical Actions:**
+
 ```yaml
 critical_actions:
   - Load instructions.md - THIS CONTAINS CRITICAL TOOL USAGE PATTERNS
@@ -81,6 +86,7 @@ critical_actions:
 ### 3. **MCP_CAPABILITIES.md** (CONSTRAINTS ADDED)
 
 **What Changed:**
+
 - ✅ Added **"VERIFIED 2025-10-25"** section
 - ✅ Added **critical constraints warning box**
 - ✅ Updated **Technical Specifications** table with verified values
@@ -88,8 +94,10 @@ critical_actions:
 - ✅ Highlighted **what doesn't work** (arbitrary sizes, 'hd' quality)
 
 **Key Addition:**
+
 ```markdown
 ⚠️ CRITICAL CONSTRAINTS:
+
 - ❌ Cannot generate arbitrary sizes (e.g., 1920x1080, 1792x1024)
 - ❌ No true 16:9 support (use 1536x1024 as closest 3:2)
 - ❌ No true 9:16 support (use 1024x1536 as closest 2:3)
@@ -101,12 +109,14 @@ critical_actions:
 ### 4. **Templates** (ASPECT RATIO FLEXIBILITY)
 
 **What Changed:**
+
 - ✅ Added **aspect_ratio_options** array
 - ✅ Added **dimensions_by_ratio** mapping
 - ✅ Made **aspect_ratio configurable** (just change one value)
 - ✅ Added **note** explaining current setting
 
 **New Template Structure:**
+
 ```json
 {
   "platform_specs": {
@@ -128,6 +138,7 @@ critical_actions:
 ### 5. **New Documentation Created**
 
 **IMPLEMENTATION_LEARNINGS.md:**
+
 - Complete analysis of all 12 issues encountered
 - Solutions and workarounds for each
 - Priority action items
@@ -136,6 +147,7 @@ critical_actions:
 - Future enhancements
 
 **CAROUSEL_SUMMARY.md:**
+
 - Generated carousel documentation
 - Design system applied
 - Generation stats
@@ -181,18 +193,21 @@ critical_actions:
 ### Tool Usage (From instructions.md):
 
 **For Reading:**
+
 ```
 Use: Read tool
 Files: templates/*.json, config.yaml, platform-specs.yaml, etc.
 ```
 
 **For Generation (MCP Available):**
+
 ```
 Use: mcp__gpt-image-1__generate_image (if available)
 Parameters: prompt, size, quality
 ```
 
 **For Generation (MCP Unavailable - FALLBACK):**
+
 ```
 Step 1: Read config.yaml to get API key
 Step 2: Use Bash tool with curl command:
@@ -207,6 +222,7 @@ Step 3: Use Bash tool to decode:
 ```
 
 **For Saving Metadata:**
+
 ```
 Use: Write tool
 Create: {output_folder}/{filename}_metadata.json
@@ -214,6 +230,7 @@ Content: JSON with all generation parameters
 ```
 
 **For Creating Folders:**
+
 ```
 Use: Bash tool
 Command: mkdir -p {output_folder}
@@ -257,6 +274,7 @@ Command: mkdir -p {output_folder}
 **User:** "Create LinkedIn carousel about AI agents"
 
 **Agent Response:**
+
 ```
 Let me load the template and generate your carousel.
 
@@ -312,6 +330,7 @@ Would you like me to create the LinkedIn caption?
 ## 🔐 Security Updates
 
 **API Key Handling:**
+
 - Keys stored in config.yaml (gitignored)
 - Agent loads keys using Read tool
 - Never displays or logs keys
@@ -319,6 +338,7 @@ Would you like me to create the LinkedIn caption?
 - Reminds user to regenerate if exposed
 
 **File created:** `.gitignore` with:
+
 ```
 ai-image-generator-sidecar/config.yaml
 ai-image-generator-sidecar/outputs/*
@@ -330,24 +350,28 @@ ai-image-generator-sidecar/outputs/*
 ## 📊 What's Working Now
 
 ✅ **Agent knows which tools to use:**
+
 - Read for templates
 - Bash for API calls (fallback)
 - Write for metadata
 - Bash for file management
 
 ✅ **Agent knows API constraints:**
+
 - 3 supported sizes only
 - 4 quality values only
 - 60-90 second generation time
 - Must validate before calling
 
 ✅ **Agent follows Emily's framework:**
+
 - JSON-first approach
 - Comprehensive prompts
 - Negative prompts mandatory
 - 7-pillar quality scoring
 
 ✅ **Agent saves metadata:**
+
 - Every image gets metadata JSON
 - Tracks all parameters
 - Enables reproducibility
@@ -361,6 +385,7 @@ ai-image-generator-sidecar/outputs/*
 **Issue:** MCP tools not loading in Claude Code
 
 **Debugging Steps:**
+
 1. Check Claude Code logs for MCP errors
 2. Verify MCP server processes are running
 3. Test tool availability: Try calling `mcp__gpt-image-1__generate_image`
@@ -368,6 +393,7 @@ ai-image-generator-sidecar/outputs/*
 5. Verify environment variables passed correctly
 
 **When Fixed:**
+
 - Agent will automatically use MCP tools
 - No code changes needed (already has MCP-first strategy)
 - Fallback will no longer be used
@@ -379,11 +405,13 @@ ai-image-generator-sidecar/outputs/*
 ### To Test:
 
 1. **Compile Agent:**
+
    ```bash
    # Run BMAD installer to compile .agent.yaml → .md
    ```
 
 2. **Activate Agent:**
+
    ```bash
    /ai-image-agent
    ```
@@ -395,6 +423,7 @@ ai-image-generator-sidecar/outputs/*
    - Follow JSON-first workflow
 
 4. **Test Generation:**
+
    ```
    *create-carousel
    [Agent will load template, validate, generate using Bash fallback]
@@ -434,6 +463,7 @@ ai-image-generator-sidecar/outputs/*
 ## 📚 Documentation Complete
 
 **Created/Updated:**
+
 1. ✅ instructions.md - Complete operational guide
 2. ✅ ai-image-generator.agent.yaml - Updated critical actions
 3. ✅ MCP_CAPABILITIES.md - Verified constraints
@@ -444,6 +474,7 @@ ai-image-generator-sidecar/outputs/*
 8. ✅ TEST_EXECUTION_GUIDE.md - Testing instructions
 
 **Result:**
+
 - Agent has complete, accurate instructions
 - All issues documented with solutions
 - Tools specified explicitly
@@ -467,22 +498,26 @@ ai-image-generator-sidecar/outputs/*
 ## 🔄 Next Development Phases
 
 ### Phase 1: MCP Integration (sid fixes)
+
 - Debug and fix MCP tool loading
 - Document working tool names
 - Test with agent
 
 ### Phase 2: Visual Validation
+
 - Review generated carousel slides
 - Score with 7-pillar system
 - Refine templates based on results
 
 ### Phase 3: Additional Templates
+
 - Photorealistic portrait template (Emily-style)
 - Product shot template
 - Infographic template
 - Tutorial guide template
 
 ### Phase 4: Advanced Features
+
 - Image editing workflow
 - Gemini Nanobanana integration
 - Caption generation
@@ -493,4 +528,4 @@ ai-image-generator-sidecar/outputs/*
 
 **Agent is now properly configured and ready to use, sid!** 🚀
 
-*All tools specified, all constraints documented, all workflows tested.*
+_All tools specified, all constraints documented, all workflows tested._
