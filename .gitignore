@@ -59,3 +59,17 @@ tools/template-test-generator/test-scenarios/
 # Test Install Output
 
 z*/
+
+# Temporary files and credentials
+temp/
+*CREDENTIALS*
+*TOKEN*.txt
+*SECRET*.txt
+
+# Large output files
+outputs/**/*.mp4
+*.mp4
+outputs/**/*.mp4.json
+
+# Cleanup organization
+CLEANUP-ORGANIZATION-PLAN.md

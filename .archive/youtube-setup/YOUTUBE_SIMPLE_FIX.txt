@@ -1,0 +1,26 @@
+SIMPLEST FIX FOR YOUTUBE OAUTH
+================================
+
+You have a Desktop OAuth app that's easier to use!
+
+OPTION 1: PUBLISH THE WEB APP (30 seconds)
+-------------------------------------------
+1. On the OAuth consent screen page
+2. Look for "PUBLISH APP" button (top right or in settings)
+3. Click it
+4. Confirm
+5. Done! No test users needed.
+
+OPTION 2: USE DESKTOP APP INSTEAD (I can switch it)
+---------------------------------------------------
+Just say "use desktop app for YouTube" and I'll update the config
+to use your other OAuth client (Desktop type).
+
+Desktop apps don't need:
+- Redirect URIs
+- Test users
+- Publishing
+
+They just work!
+
+QUICKEST: Option 1 (Publish) - Click one button and you're done!
