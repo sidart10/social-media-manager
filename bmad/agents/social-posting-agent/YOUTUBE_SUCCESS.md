@@ -11,6 +11,7 @@
 **YouTube MCP Server:** ✓ Connected and Authenticated
 
 **Your YouTube Channel Connected:**
+
 - Channel: Sid Dani
 - URL: youtube.com/@siddani09
 - Access: Full upload permissions
@@ -25,6 +26,7 @@
 **What it does:** Uploads video to your YouTube channel
 
 **Parameters:**
+
 ```javascript
 {
   file_path: "/path/to/video.mp4",           // Required
@@ -39,6 +41,7 @@
 ```
 
 **For Shorts:**
+
 - Just use the same tool!
 - Ensure video is 9:16 aspect ratio
 - Ensure duration ≤3 minutes
@@ -56,9 +59,10 @@
 **What it does:** Refreshes expired access token
 
 **Parameters:**
+
 ```javascript
 {
-  channel_id: "UCeNChkI6YhgS4zFrjOICcLw"
+  channel_id: 'UCeNChkI6YhgS4zFrjOICcLw';
 }
 ```
 
@@ -71,16 +75,18 @@
 ### Regular Video Example
 
 ```javascript
-mcp__youtube-uploader-mcp__upload_video({
-  file_path: "/Users/sid/Desktop/my-video.mp4",
-  title: "My First YouTube Video via API",
-  description: "Uploaded using the Social Media Posting Agent!",
-  category_id: "28",  // Science & Technology
-  tags: "automation,api,youtube",
-  privacy: "public",
-  made_for_kids: false,
-  channel_id: "UCeNChkI6YhgS4zFrjOICcLw"
-})
+mcp__youtube -
+  uploader -
+  mcp__upload_video({
+    file_path: '/Users/sid/Desktop/my-video.mp4',
+    title: 'My First YouTube Video via API',
+    description: 'Uploaded using the Social Media Posting Agent!',
+    category_id: '28', // Science & Technology
+    tags: 'automation,api,youtube',
+    privacy: 'public',
+    made_for_kids: false,
+    channel_id: 'UCeNChkI6YhgS4zFrjOICcLw',
+  });
 ```
 
 **Result:** Video uploaded to your channel!
@@ -90,16 +96,18 @@ mcp__youtube-uploader-mcp__upload_video({
 ### YouTube Shorts Example
 
 ```javascript
-mcp__youtube-uploader-mcp__upload_video({
-  file_path: "/Users/sid/Desktop/my-short.mp4",  // Must be 9:16, ≤3min
-  title: "My First YouTube Short #shorts",
-  description: "Quick vertical content! #shorts",
-  category_id: "22",
-  tags: "shorts,vertical,quick",
-  privacy: "public",
-  made_for_kids: false,
-  channel_id: "UCeNChkI6YhgS4zFrjOICcLw"
-})
+mcp__youtube -
+  uploader -
+  mcp__upload_video({
+    file_path: '/Users/sid/Desktop/my-short.mp4', // Must be 9:16, ≤3min
+    title: 'My First YouTube Short #shorts',
+    description: 'Quick vertical content! #shorts',
+    category_id: '22',
+    tags: 'shorts,vertical,quick',
+    privacy: 'public',
+    made_for_kids: false,
+    channel_id: 'UCeNChkI6YhgS4zFrjOICcLw',
+  });
 ```
 
 **Result:** Video appears in Shorts feed!
@@ -109,6 +117,7 @@ mcp__youtube-uploader-mcp__upload_video({
 ## 🎯 YouTube Shorts Automatic Detection
 
 **YouTube automatically classifies as Short if:**
+
 1. ✅ Aspect ratio is 9:16 (vertical) or 1:1 (square)
 2. ✅ Duration is ≤180 seconds (3 minutes)
 3. ✅ Video is taller than wide
@@ -120,6 +129,7 @@ mcp__youtube-uploader-mcp__upload_video({
 ## 📊 Category IDs Reference
 
 Common categories:
+
 - **1:** Film & Animation
 - **10:** Music
 - **17:** Sports
@@ -135,11 +145,13 @@ Common categories:
 ## ⚡ Rate Limits & Quotas
 
 **YouTube Data API v3 Quotas:**
+
 - Default: 10,000 units/day
 - Video upload cost: 1,600 units
 - **You can upload ~6 videos/day** on free tier
 
 **Cost breakdown:**
+
 - videos.insert: 1,600 units
 - videos.list: 1 unit
 - channels.list: 1 unit
@@ -149,6 +161,7 @@ Common categories:
 ## 🎬 Ready to Upload!
 
 You can now upload to YouTube:
+
 - ✅ Regular videos (any length, any aspect ratio)
 - ✅ YouTube Shorts (9:16, ≤3 minutes) - auto-detected
 - ✅ Set privacy (public/private/unlisted)
@@ -162,6 +175,7 @@ You can now upload to YouTube:
 ## 📁 Token Storage
 
 **Tokens saved to:**
+
 - `/Users/sid/.youtube_uploader_channels_cache`
 - Auto-refresh when expired
 - Permanent until you revoke access

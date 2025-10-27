@@ -1,0 +1,8 @@
+# Convert JSON Prompt to Text
+name: convert-json-to-text
+description: "Convert structured JSON prompt into natural language text for AI generators"
+author: "BMAD JSON Prompt Generator Module"
+
+# This is an action workflow
+template: false
+instructions: "{installed_path}/convert-json-to-text-instructions.md"

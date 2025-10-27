@@ -1,0 +1,74 @@
+# JSON Prompt Generator Module
+# BMAD Shared Module for Emily-quality structured prompts
+# Version: 1.0
+# Created: 2025-10-25
+
+module:
+  metadata:
+    id: bmad/modules/json-prompt-generator
+    name: JSON Prompt Generator
+    title: Emily-Quality Structured Prompt Engine
+    version: 1.0
+    type: shared_utility
+    icon: 📝
+
+  description: |
+    Generates structured JSON prompts following Emily's quality standards for image and video generation.
+    Provides comprehensive templates with technical precision, negative prompts, and 7-pillar quality benchmarking.
+
+  capabilities:
+    - Generate JSON prompts for photorealistic images
+    - Generate JSON prompts for single video scenes
+    - Generate JSON prompts for multi-scene video sequences (flexible 3-20+ scenes)
+    - Convert JSON prompts to natural language text
+    - Maintain visual consistency across sequences
+    - Apply Emily's 7-pillar quality framework
+
+  used_by:
+    - bmad/agents/ai-image-generator
+    - bmad/agents/ai-video-agent
+    - Future agents (audio, 3D, interactive)
+
+  templates:
+    video_scene:
+      path: templates/video-scene.json
+      description: Single video shot/scene with complete technical specifications
+      use_for: Individual scenes, key frames, single shots
+
+    video_sequence:
+      path: templates/video-sequence.json
+      description: Multi-scene video with flexible scene count (3-20+) and global consistency
+      use_for: Story arcs, evolution videos, tutorials, timelines
+      features:
+        - Flexible scene count (dynamic array)
+        - Global consistency settings (lens, grain, color evolution)
+        - Scene inheritance (each scene uses global + scene-specific)
+        - Transition specifications
+
+    image_photorealistic:
+      path: templates/image-photorealistic.json
+      description: Emily's format for fashion, portraits, product photography
+      use_for: High-quality photorealistic images
+
+  core_workflows:
+    - workflows/convert-json-to-text.yaml
+    - workflows/generate-video-sequence-prompt.yaml
+
+  quality_standards:
+    framework: Emily's 7-Pillar Benchmark
+    minimum_score: 7
+    pillars:
+      - Clarity (message clear in <3s)
+      - Technical Quality (no artifacts)
+      - Composition (rule of thirds, balance)
+      - Color Accuracy (matches palette)
+      - Typography/Text (legible, hierarchical)
+      - Professionalism (enterprise-grade)
+      - Accuracy to Prompt (all elements present)
+
+  principles:
+    - JSON-first (never generate without structured prompt)
+    - Technical precision (exact values, not approximations)
+    - Negative prompts mandatory (minimum 10 items)
+    - Consistency over novelty (sequences must be coherent)
+    - Flexibility by design (templates adapt to 3 OR 20 scenes)

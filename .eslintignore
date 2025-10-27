@@ -1,0 +1,5 @@
+# Twitter API Client Module (ESM)
+bmad/modules/twitter-api-client/**/*.js
+
+# LinkedIn API Client Module (ESM)
+bmad/modules/linkedin-api-client/**/*.js

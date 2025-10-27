@@ -10,6 +10,7 @@
 This agent handles multi-platform social media posting through API integrations:
 
 **Working Platforms:**
+
 - 🐦 **Twitter/X** - Premium support (custom module)
 - 💼 **LinkedIn** - Personal account (custom module)
 - 📺 **YouTube** - Video uploads (MCP server)
@@ -23,16 +24,19 @@ This agent handles multi-platform social media posting through API integrations:
 ## 📁 Module Locations
 
 ### Twitter API Client (Custom Module)
+
 ```
 {project-root}/bmad/modules/twitter-api-client/
 ```
 
 ### LinkedIn API Client (Custom Module)
+
 ```
 {project-root}/bmad/modules/linkedin-api-client/
 ```
 
 ### YouTube Uploader (MCP Server)
+
 ```
 youtube-uploader-mcp (MCP tool prefix: mcp__youtube-uploader-mcp__)
 ```
@@ -54,7 +58,7 @@ const twitter = new TwitterClient();
 
 ```javascript
 const result = await twitter.createTweet({
-  text: 'Your tweet text (up to 25,000 chars for Premium)'
+  text: 'Your tweet text (up to 25,000 chars for Premium)',
 });
 
 if (result.success) {
@@ -72,12 +76,13 @@ const result = await twitter.createTweet({
   text: 'Check out these images!',
   media: [
     { path: '/absolute/path/to/image1.jpg', altText: 'Description 1' },
-    { path: '/absolute/path/to/image2.jpg', altText: 'Description 2' }
-  ]
+    { path: '/absolute/path/to/image2.jpg', altText: 'Description 2' },
+  ],
 });
 ```
 
 **Constraints:**
+
 - 1-4 images per tweet
 - Formats: JPG, PNG, GIF, WEBP
 - Max size: 5MB (15MB for GIFs)
@@ -88,11 +93,12 @@ const result = await twitter.createTweet({
 ```javascript
 const result = await twitter.createTweet({
   text: 'Watch this!',
-  media: [{ path: '/absolute/path/to/video.mp4' }]
+  media: [{ path: '/absolute/path/to/video.mp4' }],
 });
 ```
 
 **Constraints:**
+
 - 1 video per tweet (cannot mix with images)
 - Formats: MP4, MOV
 - Max size: 512MB
@@ -104,7 +110,7 @@ const result = await twitter.createTweet({
 const thread = await twitter.createThread([
   { text: '1/3 - First tweet' },
   { text: '2/3 - Second tweet', media: [{ path: '/path/img.jpg' }] },
-  { text: '3/3 - Final tweet' }
+  { text: '3/3 - Final tweet' },
 ]);
 
 // Each result: { success, id, url, text } or { success: false, error }
@@ -120,6 +126,7 @@ console.log(`Remaining: ${stats.remaining.monthly}`);
 ```
 
 **Limits:**
+
 - Monthly: 1,500 posts (hard)
 - Daily: 50 recommended
 - Hourly: 10 recommended
@@ -131,7 +138,7 @@ console.log(`Remaining: ${stats.remaining.monthly}`);
 ### Import and Initialize
 
 ```javascript
-import { LinkedInClient} from './bmad/modules/linkedin-api-client/index.js';
+import { LinkedInClient } from './bmad/modules/linkedin-api-client/index.js';
 
 const linkedin = new LinkedInClient();
 ```
@@ -157,6 +164,7 @@ if (auth.success) {
 ```
 
 **Token Details:**
+
 - Saved to: `linkedin-api-client/linkedin-token.json`
 - Valid until: Dec 25, 2025 (60 days)
 - Person URN: urn:li:person:H40RDQ7TNL
@@ -165,9 +173,7 @@ if (auth.success) {
 ### 1. Post Text
 
 ```javascript
-const result = await linkedin.postText(
-  'Your LinkedIn update (up to 3,000 chars)'
-);
+const result = await linkedin.postText('Your LinkedIn update (up to 3,000 chars)');
 
 if (result.success) {
   console.log(`✅ Posted: ${result.urn}`);
@@ -176,6 +182,7 @@ if (result.success) {
 ```
 
 **Best Practices:**
+
 - First 140 chars = Hook (mobile visible)
 - Optimal: 150-300 words (800-1,600 chars)
 - Use line breaks for readability
@@ -184,14 +191,11 @@ if (result.success) {
 ### 2. Post with Single Image
 
 ```javascript
-const result = await linkedin.postWithImage(
-  'Caption for your image',
-  '/absolute/path/to/image.jpg',
-  'Alt text for accessibility'
-);
+const result = await linkedin.postWithImage('Caption for your image', '/absolute/path/to/image.jpg', 'Alt text for accessibility');
 ```
 
 **Constraints:**
+
 - 1 image
 - Formats: JPG, PNG, GIF
 - Max: 36M pixels
@@ -203,11 +207,12 @@ const result = await linkedin.postWithImage(
 const result = await linkedin.postMultiImage(
   'Check out these photos!',
   ['/path/img1.jpg', '/path/img2.jpg', '/path/img3.jpg'],
-  ['Alt text 1', 'Alt text 2', 'Alt text 3']  // Optional
+  ['Alt text 1', 'Alt text 2', 'Alt text 3'], // Optional
 );
 ```
 
 **Constraints:**
+
 - Minimum: 2 images
 - Maximum: 20 images
 - Displays as grid/swipeable gallery
@@ -216,14 +221,11 @@ const result = await linkedin.postMultiImage(
 ### 4. Post PDF Carousel
 
 ```javascript
-const result = await linkedin.postDocument(
-  'Check out this presentation!',
-  '/absolute/path/to/slides.pdf',
-  'Presentation Title'
-);
+const result = await linkedin.postDocument('Check out this presentation!', '/absolute/path/to/slides.pdf', 'Presentation Title');
 ```
 
 **Constraints:**
+
 - Formats: PDF, PPT, PPTX, DOC, DOCX
 - Max size: 100MB
 - Max pages: 300
@@ -232,14 +234,11 @@ const result = await linkedin.postDocument(
 ### 5. Post Video
 
 ```javascript
-const result = await linkedin.postVideo(
-  'Watch this video!',
-  '/absolute/path/to/video.mp4',
-  'Video Title'
-);
+const result = await linkedin.postVideo('Watch this video!', '/absolute/path/to/video.mp4', 'Video Title');
 ```
 
 **Constraints:**
+
 - Format: MP4
 - Size: 75KB - 500MB
 - LinkedIn processes video
@@ -254,6 +253,7 @@ console.log(`Remaining: ${stats.remaining.daily}`);
 ```
 
 **Limits:**
+
 - Daily: 150 posts (hard)
 - Hourly: 25 recommended
 
@@ -270,16 +270,19 @@ console.log(`Remaining: ${stats.remaining.daily}`);
 ### 1. Upload Regular Video
 
 ```javascript
-const result = await mcp__youtube-uploader-mcp__upload_video({
-  file_path: '/absolute/path/to/video.mp4',
-  title: 'Video Title (max 100 chars)',
-  description: 'Video description with links, timestamps, #hashtags',
-  category_id: '28',  // Science & Technology
-  tags: 'tag1,tag2,tag3',  // Comma-separated
-  privacy: 'unlisted',  // public|unlisted|private
-  made_for_kids: false,
-  channel_id: 'UCeNChkI6YhgS4zFrjOICcLw'
-});
+const result =
+  (await mcp__youtube) -
+  uploader -
+  mcp__upload_video({
+    file_path: '/absolute/path/to/video.mp4',
+    title: 'Video Title (max 100 chars)',
+    description: 'Video description with links, timestamps, #hashtags',
+    category_id: '28', // Science & Technology
+    tags: 'tag1,tag2,tag3', // Comma-separated
+    privacy: 'unlisted', // public|unlisted|private
+    made_for_kids: false,
+    channel_id: 'UCeNChkI6YhgS4zFrjOICcLw',
+  });
 
 if (result && result.id) {
   console.log(`✅ Uploaded: https://www.youtube.com/watch?v=${result.id}`);
@@ -292,6 +295,7 @@ if (result && result.id) {
 ```
 
 **Categories:**
+
 - 22: People & Blogs
 - 27: Education
 - 28: Science & Technology
@@ -301,16 +305,19 @@ if (result && result.id) {
 
 ```javascript
 // Use SAME upload_video tool!
-const result = await mcp__youtube-uploader-mcp__upload_video({
-  file_path: '/path/to/vertical-video.mp4',  // Must be 9:16, ≤3min
-  title: 'My Short #shorts',
-  description: 'Quick vertical content #shorts',
-  category_id: '22',
-  tags: 'shorts,vertical,mobile',
-  privacy: 'unlisted',
-  made_for_kids: false,
-  channel_id: 'UCeNChkI6YhgS4zFrjOICcLw'
-});
+const result =
+  (await mcp__youtube) -
+  uploader -
+  mcp__upload_video({
+    file_path: '/path/to/vertical-video.mp4', // Must be 9:16, ≤3min
+    title: 'My Short #shorts',
+    description: 'Quick vertical content #shorts',
+    category_id: '22',
+    tags: 'shorts,vertical,mobile',
+    privacy: 'unlisted',
+    made_for_kids: false,
+    channel_id: 'UCeNChkI6YhgS4zFrjOICcLw',
+  });
 
 // YouTube auto-detects as Short if:
 // - Aspect ratio is 9:16 or 1:1
@@ -318,6 +325,7 @@ const result = await mcp__youtube-uploader-mcp__upload_video({
 ```
 
 **Shorts Requirements:**
+
 - Aspect ratio: 9:16 (vertical) or 1:1 (square)
 - Duration: ≤180 seconds (3 minutes)
 - Add #shorts to title/description
@@ -326,20 +334,23 @@ const result = await mcp__youtube-uploader-mcp__upload_video({
 ### 3. List Channels
 
 ```javascript
-const channels = await mcp__youtube-uploader-mcp__channels();
+const channels = (await mcp__youtube) - uploader - mcp__channels();
 // Returns: { "UCeNChkI6YhgS4zFrjOICcLw": {...} }
 ```
 
 ### 4. Refresh Token
 
 ```javascript
-await mcp__youtube-uploader-mcp__refreshtoken({
-  channel_id: 'UCeNChkI6YhgS4zFrjOICcLw'
-});
+(await mcp__youtube) -
+  uploader -
+  mcp__refreshtoken({
+    channel_id: 'UCeNChkI6YhgS4zFrjOICcLw',
+  });
 // Usually auto-refreshes, rarely needed manually
 ```
 
 **YouTube Constraints:**
+
 - Max size: 256GB (but quota limits uploads)
 - Quota: 10,000 units/day
 - Upload cost: 1,600 units
@@ -350,16 +361,16 @@ await mcp__youtube-uploader-mcp__refreshtoken({
 
 ## 📊 Platform Comparison
 
-| Feature | Twitter | LinkedIn | YouTube |
-|---------|---------|----------|---------|
-| **Text Limit** | 25,000 | 3,000 | Title/Desc |
-| **Images** | 1-4 | 1-20 | Thumbnail |
-| **Carousels** | No | Yes (2 types!) | No |
-| **PDF Support** | No | Yes | No |
-| **Videos** | 512MB | 500MB | 256GB |
-| **Shorts** | No | No | Auto-detect |
-| **Threads** | Yes | No | No |
-| **Rate Limit** | 1,500/month | 150/day | 6/day |
+| Feature         | Twitter     | LinkedIn       | YouTube     |
+| --------------- | ----------- | -------------- | ----------- |
+| **Text Limit**  | 25,000      | 3,000          | Title/Desc  |
+| **Images**      | 1-4         | 1-20           | Thumbnail   |
+| **Carousels**   | No          | Yes (2 types!) | No          |
+| **PDF Support** | No          | Yes            | No          |
+| **Videos**      | 512MB       | 500MB          | 256GB       |
+| **Shorts**      | No          | No             | Auto-detect |
+| **Threads**     | Yes         | No             | No          |
+| **Rate Limit**  | 1,500/month | 150/day        | 6/day       |
 
 ---
 
@@ -368,12 +379,14 @@ await mcp__youtube-uploader-mcp__refreshtoken({
 ### For Twitter Workflows
 
 **Available:**
+
 - `post-text-tweet.yaml` - Text only
 - `post-tweet-with-image.yaml` - With images
 - `post-tweet-with-video.yaml` - With video
 - `create-thread.yaml` - Multi-tweet
 
 **Pattern:**
+
 1. Gather inputs (text, media paths)
 2. Validate (validator.js handles this)
 3. Show preview
@@ -384,12 +397,14 @@ await mcp__youtube-uploader-mcp__refreshtoken({
 ### For LinkedIn Workflows
 
 **Available:**
+
 - `linkedin-post-text.yaml` - Text only
 - `linkedin-post-image.yaml` - Single image
 - `linkedin-post-multiimage.yaml` - 2-20 image carousel
 - `linkedin-post-pdf.yaml` - PDF carousel
 
 **Pattern:**
+
 1. Gather inputs (text, media/document paths)
 2. Validate (validator.js handles this)
 3. Show preview
@@ -400,10 +415,12 @@ await mcp__youtube-uploader-mcp__refreshtoken({
 ### For YouTube Workflows
 
 **Available:**
+
 - `youtube-upload-video.yaml` - Regular video
 - `youtube-upload-short.yaml` - Shorts (9:16, ≤3min)
 
 **Pattern:**
+
 1. Gather inputs (video path, title, description, category, tags)
 2. Validate file exists
 3. Show preview
@@ -416,11 +433,13 @@ await mcp__youtube-uploader-mcp__refreshtoken({
 ## 🔐 Authentication Status
 
 ### Twitter
+
 - ✅ OAuth 1.0a configured
 - ✅ Credentials in .env
 - ✅ Working (8+ posts)
 
 ### LinkedIn
+
 - ✅ OAuth 2.0 completed
 - ✅ Token saved (expires Dec 25, 2025)
 - ✅ Person URN: urn:li:person:H40RDQ7TNL
@@ -428,6 +447,7 @@ await mcp__youtube-uploader-mcp__refreshtoken({
 - ✅ Working (5 posts)
 
 ### YouTube
+
 - ✅ OAuth 2.0 completed
 - ✅ Channel: @siddani09 (UCeNChkI6YhgS4zFrjOICcLw)
 - ✅ Tokens auto-refresh
@@ -439,6 +459,7 @@ await mcp__youtube-uploader-mcp__refreshtoken({
 ## 🚨 Critical Constraints
 
 ### Twitter
+
 - **Text:** 25,000 chars (Premium), 280 (Free)
 - **Images:** 1-4 per tweet, max 5MB each
 - **Video:** 1 per tweet, max 512MB
@@ -446,6 +467,7 @@ await mcp__youtube-uploader-mcp__refreshtoken({
 - **Rate:** 1,500/month, 50/day, 10/hour recommended
 
 ### LinkedIn
+
 - **Text:** 3,000 chars max, 140 char hook
 - **Single Image:** 1 image, 36M pixels
 - **Multi-Image:** 2-20 images, grid carousel
@@ -454,6 +476,7 @@ await mcp__youtube-uploader-mcp__refreshtoken({
 - **Rate:** 150/day, 25/hour recommended
 
 ### YouTube
+
 - **Video:** 256GB max, any format
 - **Shorts:** 9:16 aspect ratio, ≤180 seconds
 - **Quota:** 10,000 units/day, 1,600 per upload (~6/day)
@@ -466,32 +489,30 @@ await mcp__youtube-uploader-mcp__refreshtoken({
 ### Twitter Examples
 
 **Text with Premium length:**
+
 ```javascript
 const longText = 'A'.repeat(5000); // 5,000 char post
 await twitter.createTweet({ text: longText });
 ```
 
 **Multiple images:**
+
 ```javascript
 await twitter.createTweet({
   text: 'Gallery post!',
-  media: [
-    { path: '/img1.jpg' },
-    { path: '/img2.jpg' },
-    { path: '/img3.jpg' },
-    { path: '/img4.jpg' }
-  ]
+  media: [{ path: '/img1.jpg' }, { path: '/img2.jpg' }, { path: '/img3.jpg' }, { path: '/img4.jpg' }],
 });
 ```
 
 **Thread with media:**
+
 ```javascript
 await twitter.createThread([
   { text: '1/5 - Intro', media: [{ path: '/intro.jpg' }] },
   { text: '2/5 - Point 1' },
   { text: '3/5 - Point 2' },
   { text: '4/5 - Point 3', media: [{ path: '/diagram.jpg' }] },
-  { text: '5/5 - Conclusion' }
+  { text: '5/5 - Conclusion' },
 ]);
 ```
 
@@ -500,32 +521,27 @@ await twitter.createThread([
 ### LinkedIn Examples
 
 **Text post with formatting:**
+
 ```javascript
 await linkedin.postText(
-  'Hook in first line\n\n' +
-  'Key point 1\n\n' +
-  'Key point 2\n\n' +
-  'Call to action\n\n' +
-  '#hashtag1 #hashtag2 #hashtag3'
+  'Hook in first line\n\n' + 'Key point 1\n\n' + 'Key point 2\n\n' + 'Call to action\n\n' + '#hashtag1 #hashtag2 #hashtag3',
 );
 ```
 
 **Image carousel (5 photos):**
+
 ```javascript
 await linkedin.postMultiImage(
   'Swipe through these 5 moments!',
   ['/img1.jpg', '/img2.jpg', '/img3.jpg', '/img4.jpg', '/img5.jpg'],
-  ['Alt 1', 'Alt 2', 'Alt 3', 'Alt 4', 'Alt 5']
+  ['Alt 1', 'Alt 2', 'Alt 3', 'Alt 4', 'Alt 5'],
 );
 ```
 
 **PDF presentation:**
+
 ```javascript
-await linkedin.postDocument(
-  'Our complete automation guide! Swipe to learn.',
-  '/path/to/presentation.pdf',
-  'Social Media Automation Guide'
-);
+await linkedin.postDocument('Our complete automation guide! Swipe to learn.', '/path/to/presentation.pdf', 'Social Media Automation Guide');
 ```
 
 ---
@@ -533,31 +549,37 @@ await linkedin.postDocument(
 ### YouTube Examples
 
 **Regular video:**
+
 ```javascript
-await mcp__youtube-uploader-mcp__upload_video({
-  file_path: '/path/to/video.mp4',
-  title: 'Complete Tutorial: Building AI Agents',
-  description: 'Learn how to build AI agents step by step. #tutorial #AI',
-  category_id: '27',  // Education
-  tags: 'AI,tutorial,automation,agents',
-  privacy: 'unlisted',
-  made_for_kids: false,
-  channel_id: 'UCeNChkI6YhgS4zFrjOICcLw'
-});
+(await mcp__youtube) -
+  uploader -
+  mcp__upload_video({
+    file_path: '/path/to/video.mp4',
+    title: 'Complete Tutorial: Building AI Agents',
+    description: 'Learn how to build AI agents step by step. #tutorial #AI',
+    category_id: '27', // Education
+    tags: 'AI,tutorial,automation,agents',
+    privacy: 'unlisted',
+    made_for_kids: false,
+    channel_id: 'UCeNChkI6YhgS4zFrjOICcLw',
+  });
 ```
 
 **YouTube Short:**
+
 ```javascript
-await mcp__youtube-uploader-mcp__upload_video({
-  file_path: '/path/to/vertical.mp4',  // Must be 9:16, ≤3min
-  title: 'Quick Tip: API Automation #shorts',
-  description: 'Learn automation in 60 seconds! #shorts',
-  category_id: '22',
-  tags: 'shorts,vertical,tips,quick',
-  privacy: 'unlisted',
-  made_for_kids: false,
-  channel_id: 'UCeNChkI6YhgS4zFrjOICcLw'
-});
+(await mcp__youtube) -
+  uploader -
+  mcp__upload_video({
+    file_path: '/path/to/vertical.mp4', // Must be 9:16, ≤3min
+    title: 'Quick Tip: API Automation #shorts',
+    description: 'Learn automation in 60 seconds! #shorts',
+    category_id: '22',
+    tags: 'shorts,vertical,tips,quick',
+    privacy: 'unlisted',
+    made_for_kids: false,
+    channel_id: 'UCeNChkI6YhgS4zFrjOICcLw',
+  });
 // YouTube auto-detects as Short based on aspect ratio and duration
 ```
 
@@ -613,30 +635,35 @@ await mcp__youtube-uploader-mcp__upload_video({
 ### Common Errors Across Platforms
 
 **1. Not Authenticated**
+
 ```
 Error: "Not authenticated. Call authenticate() first."
 Solution: Complete OAuth flow for the platform
 ```
 
 **2. Validation Failed**
+
 ```
 Error: "Validation failed: Text exceeds limit"
 Solution: Check platform limits and adjust content
 ```
 
 **3. File Not Found**
+
 ```
 Error: "Cannot access file: /path/to/file.jpg"
 Solution: Verify absolute path is correct
 ```
 
 **4. Rate Limit Exceeded**
+
 ```
 Error: "Daily limit reached (150 posts/day)"
 Solution: Wait for daily reset
 ```
 
 **5. Upload Failed**
+
 ```
 Error: "Media upload failed: ..."
 Solution: Check file format, size, permissions
@@ -649,6 +676,7 @@ Solution: Check file format, size, permissions
 ### Before Every Post
 
 **Twitter:**
+
 - [ ] Text ≤25,000 chars (Premium) or ≤280 (Free)
 - [ ] Images: 1-4, formats valid, ≤5MB each
 - [ ] OR Video: 1 only, formats valid, ≤512MB
@@ -656,6 +684,7 @@ Solution: Check file format, size, permissions
 - [ ] Files exist and readable
 
 **LinkedIn:**
+
 - [ ] Text ≤3,000 chars
 - [ ] Images: 1 for single, 2-20 for carousel
 - [ ] OR Document: PDF/PPT/DOC, ≤100MB, ≤300 pages
@@ -663,6 +692,7 @@ Solution: Check file format, size, permissions
 - [ ] Files exist
 
 **YouTube:**
+
 - [ ] Video file exists
 - [ ] Title not empty
 - [ ] For Shorts: 9:16 aspect ratio, ≤180 sec
@@ -673,6 +703,7 @@ Solution: Check file format, size, permissions
 ## 🎨 Platform-Specific Best Practices
 
 ### Twitter
+
 - **Engagement:** First 2 lines matter most
 - **Hashtags:** 1-2 max (not spammy)
 - **Media:** Always improves engagement
@@ -680,6 +711,7 @@ Solution: Check file format, size, permissions
 - **Timing:** Check when your audience is active
 
 ### LinkedIn
+
 - **Hook:** First 140 chars visible on mobile
 - **Length:** 150-300 words optimal
 - **Hashtags:** 3-5 relevant professional tags
@@ -688,6 +720,7 @@ Solution: Check file format, size, permissions
 - **Timing:** Business hours, weekdays
 
 ### YouTube
+
 - **Title:** Include keywords for SEO
 - **Description:** First 2-3 lines show in search
 - **Tags:** 5-10 relevant keywords
@@ -699,6 +732,7 @@ Solution: Check file format, size, permissions
 ## 🔒 Security & Credentials
 
 ### Twitter
+
 ```env
 TWITTER_API_KEY=***
 TWITTER_API_SECRET=***
@@ -707,6 +741,7 @@ TWITTER_ACCESS_TOKEN_SECRET=***
 ```
 
 ### LinkedIn
+
 ```env
 LINKEDIN_CLIENT_ID=***
 LINKEDIN_CLIENT_SECRET=***
@@ -716,10 +751,12 @@ LINKEDIN_REDIRECT_URI=http://localhost:3000/callback
 **Token:** Saved in `linkedin-api-client/linkedin-token.json` (auto-loads)
 
 ### YouTube
+
 **OAuth File:** `~/.config/youtube-uploader-mcp/client_secret_*.json`
 **Tokens:** Auto-managed by MCP server
 
 ### NEVER
+
 - ❌ Log credentials
 - ❌ Display tokens in responses
 - ❌ Commit .env to git
@@ -730,7 +767,9 @@ LINKEDIN_REDIRECT_URI=http://localhost:3000/callback
 ## 📈 Rate Limit Tracking
 
 ### Twitter
+
 **File:** `twitter-api-client/.rate-limit-state.json`
+
 ```json
 {
   "monthlyCount": 8,
@@ -741,7 +780,9 @@ LINKEDIN_REDIRECT_URI=http://localhost:3000/callback
 ```
 
 ### LinkedIn
+
 **File:** `linkedin-api-client/.rate-limit-state.json`
+
 ```json
 {
   "dailyCount": 5,
@@ -751,6 +792,7 @@ LINKEDIN_REDIRECT_URI=http://localhost:3000/callback
 ```
 
 ### YouTube
+
 **Managed by:** Google (quota system)
 **Check at:** https://console.cloud.google.com/apis/quotas
 
@@ -790,7 +832,9 @@ LINKEDIN_REDIRECT_URI=http://localhost:3000/callback
 ## 🎯 When to Use Which Platform
 
 ### Twitter - Speed & Reach
+
 **Use for:**
+
 - Breaking news / trending topics
 - Quick updates / thoughts
 - Real-time engagement
@@ -798,7 +842,9 @@ LINKEDIN_REDIRECT_URI=http://localhost:3000/callback
 - Link sharing with commentary
 
 ### LinkedIn - Professional Content
+
 **Use for:**
+
 - Career updates / achievements
 - Business insights / analysis
 - Professional learning / tips
@@ -807,7 +853,9 @@ LINKEDIN_REDIRECT_URI=http://localhost:3000/callback
 - **Carousels** for multi-page content
 
 ### YouTube - Video Content
+
 **Use for:**
+
 - Tutorials / how-tos
 - Long-form explanations
 - Product demos
@@ -832,10 +880,10 @@ import { TwitterClient } from './bmad/modules/twitter-api-client/index.js';
 
 ```javascript
 // ✗ Wrong - relative paths
-media: [{ path: './image.jpg' }]
+media: [{ path: './image.jpg' }];
 
 // ✓ Correct - absolute paths
-media: [{ path: '/Users/sid/Desktop/image.jpg' }]
+media: [{ path: '/Users/sid/Desktop/image.jpg' }];
 ```
 
 ### LinkedIn Token Expired
@@ -860,19 +908,23 @@ Future: Get app verified (4-6 weeks)
 ## 📚 Additional Resources
 
 **Module READMEs:**
+
 - `bmad/modules/twitter-api-client/README.md`
 - `bmad/modules/linkedin-api-client/` (create README)
 
 **PRPs (Implementation Plans):**
+
 - `PRPs/twitter-api-premium-integration.md`
 - `PRPs/linkedin-api-complete-integration.md`
 
 **Platform Research:**
+
 - `LINKEDIN_API_COMPLETE_RESEARCH.md`
 - `TWITTER_API_IMPLEMENTATION_PLAN.md`
 - `YOUTUBE_SHORTS_GUIDE.md`
 
 **Test Results:**
+
 - `LINKEDIN_QA_REPORT.md` (A+ grade)
 - `YOUTUBE_UPLOAD_SUCCESS.md`
 - `SESSION_SUMMARY.md`

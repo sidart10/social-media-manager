@@ -1,0 +1,148 @@
+{
+  "video_scene": {
+    "_template_info": {
+      "template_name": "Video Scene JSON Template",
+      "version": "1.0",
+      "use_for": "Single video shot/scene with Emily-quality specifications",
+      "author": "BMAD JSON Prompt Generator",
+      "date": "2025-10-25"
+    },
+
+    "scene_metadata": {
+      "scene_id": "CHANGE_ME_scene_001",
+      "scene_name": "CHANGE_ME Stone Age Chiseling",
+      "scene_number": 1,
+      "duration_target_sec": 3,
+      "output_format": "image_keyframe"
+    },
+
+    "scene_description": {
+      "environment": "CHANGE_ME Dark cave interior with fire flickering on rough stone walls, primitive tools scattered on ground",
+      "time_period": "CHANGE_ME Stone Age, ~10,000 BCE",
+      "weather_atmosphere": "CHANGE_ME Smoky from fire, humid cave air, musty ancient smell",
+      "sensory_details": "CHANGE_ME Rhythmic chiseling sound, fire crackling, stone dust in air"
+    },
+
+    "subject_and_action": {
+      "subject_type": "CHANGE_ME human_hands",
+      "identity": "CHANGE_ME Ancient human adult male, weathered appearance",
+      "body_visible": "CHANGE_ME Hands and forearms only, torso in shadow",
+      "skin_tone": "CHANGE_ME Tanned, weathered, dirt-covered",
+      "action": "CHANGE_ME Chiseling stone into tool shape with primitive hammer",
+      "action_specifics": "CHANGE_ME Mid-strike moment, stone chips flying, focused intensity, visible effort",
+      "pose_details": "CHANGE_ME Right hand gripping stone hammer raised, left hand stabilizing stone on ground",
+      "focal_point": "CHANGE_ME Hands and tools in sharp focus, background soft"
+    },
+
+    "cinematography": {
+      "shot_type": "CHANGE_ME Extreme Close-Up (ECU)",
+      "shot_description": "CHANGE_ME Tight framing on hands and immediate tool area",
+      "camera_movement": "CHANGE_ME Static with subtle handheld shake for organic realism",
+      "lens": {
+        "type": "CHANGE_ME 50mm Prime",
+        "focal_length_mm": 50,
+        "aperture_f": 2.8,
+        "focus_distance_ft": 2,
+        "depth_of_field": "CHANGE_ME Shallow - hands sharp, background soft bokeh"
+      },
+      "camera_angle": "CHANGE_ME Slightly high angle, looking down at hands and stone",
+      "frame_rate_fps": 24,
+      "shutter_speed": "1/48s for natural motion blur at 24fps",
+      "iso": 1600
+    },
+
+    "lighting_design": {
+      "lighting_style": "CHANGE_ME Chiaroscuro (dramatic single-source contrast)",
+      "key_light": {
+        "source": "CHANGE_ME Fire (practical light, warm orange)",
+        "color_temp_k": 2700,
+        "position": "CHANGE_ME Camera-right, 45-degree angle",
+        "quality": "CHANGE_ME Hard light with visible flicker",
+        "intensity": "CHANGE_ME Medium-high for drama"
+      },
+      "fill_light": "CHANGE_ME None (deep shadows intentional)",
+      "rim_light": "CHANGE_ME None",
+      "practical_lights": ["Fire as only light source"],
+      "ambient_light": "CHANGE_ME Minimal cave darkness",
+      "contrast_ratio": "8:1 (dramatic high contrast)",
+      "mood": "CHANGE_ME Primal, ancient, dramatic, mysterious"
+    },
+
+    "color_and_grade": {
+      "color_palette": {
+        "hex_codes": ["#4A3728", "#1A1410", "#D97D3E", "#8B4513", "#2F1F15"],
+        "color_names": ["deep brown", "black shadow", "fire orange", "saddle brown", "dark umber"],
+        "palette_type": "analogous_warm"
+      },
+      "color_grading": {
+        "grade_style": "CHANGE_ME Desaturated earthy tones with selective warm fire accents",
+        "lut_reference": "Kodak 5219 film emulation",
+        "contrast": "High (crushed blacks below RGB 10, protected highlights)",
+        "saturation": "Low overall (-30%), boosted +20% on fire/orange tones only",
+        "color_temperature": "Warm (shifted +200K toward orange)"
+      },
+      "film_emulation": {
+        "film_stock": "35mm Kodak Vision3 500T",
+        "grain_intensity": "Heavy (visible grain structure)",
+        "grain_size": "Medium organic grain",
+        "halation": "Subtle around fire highlights"
+      }
+    },
+
+    "composition_and_framing": {
+      "aspect_ratio": "CHANGE_ME 16:9",
+      "resolution": "1920x1080",
+      "framing_guide": {
+        "rule_of_thirds": "CHANGE_ME Hands on right intersection point",
+        "negative_space": "CHANGE_ME Camera-left for breathing room, dark cave background",
+        "headroom": "CHANGE_ME Minimal (tight close-up)",
+        "lead_room": "CHANGE_ME Pointing toward chiseling action"
+      },
+      "depth_planes": {
+        "foreground": "CHANGE_ME Stone chips flying (subtle motion blur)",
+        "midground": "CHANGE_ME Hands and stone tool (sharp focus)",
+        "background": "CHANGE_ME Cave wall texture (soft, out of focus)"
+      },
+      "visual_balance": "CHANGE_ME Asymmetric (hands right, negative space left)"
+    },
+
+    "vfx_and_motion": {
+      "particle_effects": "CHANGE_ME Stone chips/dust catching firelight as they fly",
+      "volumetric_effects": "CHANGE_ME Thin smoke from fire creating visible light rays",
+      "motion_elements": ["Fire flicker", "Subtle hand movement", "Stone chips"],
+      "speed_timing": "CHANGE_ME Slow, deliberate, timeless feel",
+      "time_manipulation": "None (real-time)"
+    },
+
+    "transition_specifications": {
+      "transition_in": "CHANGE_ME Fade from black (1 second)",
+      "transition_out": "CHANGE_ME Morph dissolve to next scene (1.5 seconds)",
+      "transition_style": "CHANGE_ME Match-cut on hands position to next era",
+      "transition_notes": "CHANGE_ME Hands should maintain similar framing for smooth morph"
+    },
+
+    "technical_output": {
+      "primary_output": "Static key frame image (PNG, 1920x1080)",
+      "secondary_output": "3-4 second video clip with fade animation",
+      "codec": "H.264 high bitrate for quality",
+      "color_space": "Rec.709 for web",
+      "bitrate_mbps": 10,
+      "intended_platform": "YouTube, LinkedIn, professional"
+    },
+
+    "negative_prompt": [
+      "CHANGE_ME modern elements, electric lights, contemporary tools, technology, smartphones",
+      "CHANGE_ME clean hands, manicured nails, soft skin, no weathering",
+      "CHANGE_ME bright even lighting, studio setup, soft boxes, ring lights",
+      "cartoon, anime, illustration, CGI/3D render look, unrealistic",
+      "low quality, blurry, pixelated, compression artifacts, banding",
+      "deformed anatomy, extra fingers, missing fingers, wrong hand structure",
+      "plastic skin, waxy smoothing, over-processed, artificial",
+      "wrong time period, anachronisms, future elements in ancient scene",
+      "text overlays, watermarks, logos, UI elements, subtitles",
+      "oversaturated colors, neon, vibrant unnatural colors, color banding",
+      "fish-eye distortion, lens aberration, chromatic aberration",
+      "duplicate hands, floating objects, physics violations, impossible anatomy"
+    ]
+  }
+}

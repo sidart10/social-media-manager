@@ -1,0 +1,41 @@
+name: competitive-analysis
+description: 'Multi-profile comparison with gap analysis and strategic recommendations'
+author: 'Jarvis'
+
+# Variables
+config_source: '{agent-folder}/config.yaml'
+sessions_folder: '{config_source}:sessions_folder'
+date: system-generated
+installed_path: '{agent-folder}/workflows/competitive-analysis'
+
+# MCP Tools (Inherits from analyze-profile)
+mcp_tools_required:
+  - apify_mcp: [call-actor, get-actor-output]  # For multiple profiles
+  - youtube_mcp_server: [get_channel_details, get_channel_videos]
+  - linkedin_mcp: [fetch_and_save_linkedin_posts, get_top_posts]
+
+# Custom Modules
+custom_modules:
+  - twitter_api_client: 'For your Twitter profile'
+
+# Inputs
+inputs:
+  - your_profiles: 'Array of YOUR profile URLs (1-3)'
+  - competitor_profiles: 'Array of competitor URLs (max 5)'
+  - comparison_metrics: 'engagement|frequency|topics|formats|all (default: all)'
+  - generate_action_plan: 'boolean, create 7-day content plan (default: true)'
+
+# Outputs
+outputs:
+  - comparison_matrix: 'Side-by-side metrics table'
+  - gap_analysis: 'Topic, format, hook, timing gaps'
+  - differentiation_strategy: '3 strategic recommendations'
+  - seven_day_plan: 'Specific content ideas mapped to gaps'
+  - cost_summary: 'Total API cost for all profile analyses'
+
+# Action workflow
+template: false
+instructions: '{installed_path}/instructions.md'
+
+# Output files
+default_output_file: '{sessions_folder}/competitive-analysis-{date}.md'

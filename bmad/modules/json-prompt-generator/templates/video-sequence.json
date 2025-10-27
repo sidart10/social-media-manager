@@ -1,0 +1,248 @@
+{
+  "video_sequence": {
+    "_template_info": {
+      "template_name": "Video Sequence JSON Template (Flexible)",
+      "version": "1.0",
+      "use_for": "Multi-scene video with consistent style, flexible scene count (3-20+)",
+      "author": "BMAD JSON Prompt Generator",
+      "date": "2025-10-25",
+      "notes": "This template supports ANY number of scenes - just add/remove from scenes array"
+    },
+
+    "sequence_metadata": {
+      "title": "CHANGE_ME Evolution of Human Tools",
+      "scene_count": "DYNAMIC - set by user (3, 5, 10, 20, etc.)",
+      "total_duration_target_sec": "CALCULATED - scene_count × 3-4 seconds per scene",
+      "creation_date": "2025-10-25",
+      "intended_platform": "CHANGE_ME YouTube, LinkedIn, professional",
+      "video_type": "CHANGE_ME Educational documentary, brand story, product evolution"
+    },
+
+    "global_consistency": {
+      "_purpose": "These settings apply to ALL scenes to maintain visual coherence",
+
+      "visual_style_mandate": {
+        "overall_aesthetic": "CHANGE_ME Cinematic photorealism with film grain texture",
+        "realism_level": "Photorealistic (not illustrated, not CGI)",
+        "film_reference": "CHANGE_ME OpenAI Super Bowl commercial style",
+        "mood_arc": "CHANGE_ME Starts dramatic/ancient, evolves to bright/futuristic"
+      },
+
+      "camera_consistency": {
+        "lens_family": "CHANGE_ME Prime lenses only (35mm or 50mm throughout)",
+        "shot_type_consistency": "CHANGE_ME All extreme close-ups on hands/tools",
+        "camera_movement_style": "CHANGE_ME Slow, deliberate, minimal movement (static or gentle dolly)",
+        "framing_philosophy": "CHANGE_ME Consistent framing (hands centered, similar composition)",
+        "depth_of_field": "CHANGE_ME Shallow throughout (subject sharp, background soft)"
+      },
+
+      "color_evolution": {
+        "_purpose": "Color palette gradually shifts across scenes to show progression",
+        "evolution_type": "gradual_shift",
+        "start_palette": {
+          "hex_codes": ["#4A3728", "#1A1410", "#D97D3E"],
+          "description": "Warm earthy browns, deep blacks, fire orange"
+        },
+        "mid_palette": {
+          "hex_codes": ["#6B5345", "#3498DB", "#ECF0F1"],
+          "description": "Transitional browns, emerging blues, lighter tones"
+        },
+        "end_palette": {
+          "hex_codes": ["#00D4FF", "#FF6B35", "#2C3E50"],
+          "description": "Cool cyan, vibrant orange, tech dark grey"
+        },
+        "shift_strategy": "CHANGE_ME Each scene shifts palette 20-30% toward end_palette",
+        "consistency_rule": "Maintain tonal coherence, no jarring jumps"
+      },
+
+      "lighting_progression": {
+        "_purpose": "Lighting evolves to match time period",
+        "arc": "CHANGE_ME Dark/Warm → Bright/Neutral → Cool/Futuristic",
+        "style_consistency": "CHANGE_ME Dramatic contrast maintained (always chiaroscuro or high contrast)",
+        "progression_steps": [
+          "Scene 1-2: Fire/candle (warm 2700K)",
+          "Scene 3-4: Natural sunlight (5500K)",
+          "Scene 5+: Artificial/screen light (6500K+)"
+        ]
+      },
+
+      "grain_and_texture": {
+        "film_grain": "CHANGE_ME Heavy 35mm Kodak grain (consistent across all scenes)",
+        "grain_purpose": "Create tactile, cinematic feel throughout",
+        "texture_treatment": "CHANGE_ME Photorealistic, preserve detail, no smoothing",
+        "consistency_note": "Same grain intensity/style in every scene"
+      },
+
+      "aspect_ratio_and_format": {
+        "aspect_ratio": "CHANGE_ME 16:9",
+        "resolution": "1920x1080",
+        "output_codec": "H.264",
+        "color_space": "Rec.709"
+      }
+    },
+
+    "scenes": [
+      {
+        "_note": "This is Scene 1 - POPULATE ALL FIELDS",
+        "scene_number": 1,
+        "inherits_from_global": "Yes - uses global lens, grain, style",
+
+        "scene_name": "CHANGE_ME Stone Age - Fire and Stone",
+        "environment": "CHANGE_ME Dark cave interior, fire casting dancing shadows on rough walls",
+        "subject_action": "CHANGE_ME Ancient hands chiseling stone with primitive hammer",
+
+        "color_palette_this_scene": {
+          "hex_codes": ["#4A3728", "#1A1410", "#D97D3E"],
+          "position_in_evolution": "START - warm earthy tones"
+        },
+
+        "lighting_this_scene": {
+          "source": "Single fire (2700K warm orange)",
+          "style": "Hard chiaroscuro, deep shadows",
+          "position": "Camera-right, side-lit"
+        },
+
+        "camera_specifics": {
+          "inherits_lens": "50mm Prime from global",
+          "aperture_f": 2.8,
+          "iso": 1600,
+          "focus_point": "Hands and stone tool"
+        },
+
+        "scene_specific_negatives": [
+          "modern tools, metal objects, contemporary elements",
+          "clean hands, soft skin",
+          "electric lights, bright studio lighting"
+        ]
+      },
+
+      {
+        "_note": "This is Scene 2 - ADD MORE SCENES AS NEEDED",
+        "scene_number": 2,
+        "inherits_from_global": "Yes",
+
+        "scene_name": "CHANGE_ME Medieval - Workshop Craft",
+        "environment": "CHANGE_ME Wooden workshop, morning sunlight through window, workbench with metal tools",
+        "subject_action": "CHANGE_ME Craftsman hands using chisel on wood",
+
+        "color_palette_this_scene": {
+          "hex_codes": ["#6B5345", "#D4A574", "#8B7355"],
+          "position_in_evolution": "MIDDLE - transitioning to lighter browns, hints of blue"
+        },
+
+        "lighting_this_scene": {
+          "source": "Natural window light (5000K)",
+          "style": "Soft diffused with gentle shadows",
+          "position": "Window camera-left, creating gentle rim"
+        },
+
+        "camera_specifics": {
+          "inherits_lens": "50mm Prime from global",
+          "aperture_f": 2.8,
+          "iso": 400,
+          "focus_point": "Hands and chisel"
+        },
+
+        "scene_specific_negatives": [
+          "electric tools, power equipment",
+          "modern materials, plastic",
+          "harsh lighting, studio setup"
+        ]
+      },
+
+      {
+        "_note": "Scene 3 - Modern Era",
+        "scene_number": 3,
+        "inherits_from_global": "Yes",
+
+        "scene_name": "CHANGE_ME Modern - Digital Tools",
+        "environment": "CHANGE_ME Clean minimalist desk, computer screen glow, modern office aesthetic",
+        "subject_action": "CHANGE_ME Hands typing code on keyboard, blue screen illumination",
+
+        "color_palette_this_scene": {
+          "hex_codes": ["#2C3E50", "#3498DB", "#ECF0F1"],
+          "position_in_evolution": "END - cool blues, bright tones, tech aesthetic"
+        },
+
+        "lighting_this_scene": {
+          "source": "Computer screen glow (6500K cool blue)",
+          "style": "Low-key with screen as key light",
+          "position": "Screen front-facing, creates face/hand illumination"
+        },
+
+        "camera_specifics": {
+          "inherits_lens": "50mm Prime from global",
+          "aperture_f": 2.8,
+          "iso": 800,
+          "focus_point": "Hands on keyboard"
+        },
+
+        "scene_specific_negatives": [
+          "cluttered desk, messy cables",
+          "harsh overhead lights",
+          "old computers, outdated tech"
+        ]
+      }
+
+      {
+        "_instructions": "ADD MORE SCENES HERE - Template supports 3 to 20+ scenes",
+        "_example": "For 10-scene video, copy the structure above and modify scene_number, scene_name, environment, colors, lighting",
+        "_flexibility": "Each scene inherits global settings (lens, grain, style) but specifies its own environment, colors, lighting",
+        "_consistency": "Color evolution from start_palette → end_palette happens gradually across all scenes"
+      }
+    ],
+
+    "transitions": {
+      "default_transition_type": "CHANGE_ME fade (1 second between scenes)",
+      "transition_style": "CHANGE_ME Seamless morph/dissolve, match-cut on hands where possible",
+      "merge_strategy": "Use mcp__sora2__merge_videos with auto-fade transitions",
+      "timing_notes": "Each transition adds 1 second to total duration"
+    },
+
+    "audio_concept": {
+      "_note": "Audio is conceptual - most video generators don't support audio yet",
+      "sound_design_concept": "CHANGE_ME Diegetic sounds from each era (chiseling, hammering, typing, digital)",
+      "music_concept": "CHANGE_ME Minimal ambient score, building from primitive to electronic",
+      "mix_philosophy": "Natural sound dominant, music subtle"
+    },
+
+    "negative_prompts_global": {
+      "_purpose": "These apply to ALL scenes in the sequence",
+      "negatives": [
+        "inconsistent style across scenes, jarring visual differences",
+        "low quality, blurry, pixelated, compression artifacts",
+        "cartoon, anime, illustration, CGI render, non-photorealistic",
+        "text overlays, watermarks, logos, UI elements, subtitles",
+        "deformed anatomy, extra fingers, missing limbs, incorrect human proportions",
+        "plastic skin, waxy smoothing, over-processed, artificial appearance",
+        "color banding, harsh color transitions, oversaturation",
+        "lens flares (unless specified), fish-eye distortion, chromatic aberration",
+        "duplicate subjects, cloning artifacts, stitching errors",
+        "physics violations, floating objects, impossible scenarios",
+        "poor transitions, hard cuts that break flow",
+        "multiple aspect ratios, resolution inconsistency"
+      ]
+    },
+
+    "generation_workflow": {
+      "_instructions": "How to use this template",
+      "step_1": "Populate sequence_metadata (title, platform, scene_count)",
+      "step_2": "Set global_consistency (lens, color evolution, lighting arc, grain)",
+      "step_3": "For each scene: Copy scene structure and populate scene-specific details",
+      "step_4": "Ensure color_palette_this_scene follows evolution from start→end",
+      "step_5": "Convert each scene JSON → text prompt using conversion workflow",
+      "step_6": "Generate images for each scene (nanobanana or gpt-image-1)",
+      "step_7": "Animate each image with mcp__sora2__create_fade_animation (3-4s each)",
+      "step_8": "Merge all clips with mcp__sora2__merge_videos",
+      "step_9": "Deliver final video with metadata"
+    },
+
+    "example_use_cases": [
+      "Product evolution (3-5 scenes): V1 prototype → V2 → V3 → Current",
+      "Brand story (5-10 scenes): Founding → Growth → Milestones → Today",
+      "Tutorial sequence (10-20 scenes): Step 1 → Step 2 → ... → Complete",
+      "Historical timeline (5-15 scenes): Ancient → Medieval → Modern → Future",
+      "Process visualization (3-8 scenes): Raw material → Processing → Final product"
+    ]
+  }
+}

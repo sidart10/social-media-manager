@@ -1,0 +1,42 @@
+name: write-scripts
+description: 'Write video scripts (YouTube, Reels, TikTok) in user authentic voice with timing and visual direction'
+author: 'Jarvis'
+
+# Variables
+config_source: '{agent-folder}/config.yaml'
+output_folder: '{config_source}:output_folder'
+platform_specs: '{config_source}:platforms'
+voice_profile_location: '{agent-folder}/memories.md'
+date: system-generated
+installed_path: '{agent-folder}/workflows/write-scripts'
+
+# MCP Tools
+mcp_tools_required:
+  - script_generation_mcp: [script_generate, add_note]
+  - youtube_transcript: [get_transcript]  # For inspiration from similar videos
+
+# Inputs
+inputs:
+  - idea_card_id: 'Reference to Idea Card (required)'
+  - target_platform: 'youtube|reels|tiktok (required)'
+  - duration: 'Target duration in seconds: 30|60|90|180|300|600'
+  - tone_override: 'direct|playful|formal|casual (default: use voice profile)'
+  - pacing_preference: 'fast|moderate|relaxed (default: moderate)'
+  - include_visual_direction: 'boolean, add B-roll and visual cues (default: true)'
+  - generate_variants: 'boolean, create alternative hooks (default: true)'
+
+# Outputs
+outputs:
+  - video_script: 'Full script with timing markers'
+  - visual_direction: 'B-roll suggestions, on-screen text, graphics'
+  - hook_variants: '3 alternative opening hooks'
+  - production_notes: 'Thumbnail ideas, music suggestions, posting tips'
+  - handoff_package: 'JSON for AI Video Agent OR Social Posting Agent'
+
+# Action workflow
+template: false
+instructions: '{installed_path}/instructions.md'
+
+# Output files
+default_output_file: '{output_folder}/{platform}-script-{duration}s-{date}.md'
+handoff_file: '{output_folder}/{platform}-script-handoff-{date}.json'
