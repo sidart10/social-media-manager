@@ -36,12 +36,16 @@ agent:
   critical_actions:
     - Load COMPLETE file {agent-folder}/social-posting-agent-sidecar/instructions.md for all API integration patterns
     - Load COMPLETE file {agent-folder}/social-posting-agent-sidecar/config.yaml for credentials and settings
-    - CRITICAL MODULE - Twitter API Client at {project-root}/bmad/modules/twitter-api-client
-    - CRITICAL CREDENTIALS - All API keys stored in {project-root}/.env file
-    - CRITICAL RATE LIMITS - Twitter: 1500/month, 50/day recommended, 10/hour recommended
-    - CRITICAL VALIDATION - Always validate text length, media format, and file size before posting
-    - CRITICAL MEDIA - Twitter supports 1-4 images OR 1 video (not mixed), max 5MB per image, 512MB per video
-    - CRITICAL THREADS - Use createThread() for multi-tweet threads with automatic reply linking
+    - CRITICAL MODULES - Twitter at {project-root}/bmad/modules/twitter-api-client, LinkedIn at {project-root}/bmad/modules/linkedin-api-client
+    - CRITICAL MCP - YouTube uploader at youtube-uploader-mcp with channel UCeNChkI6YhgS4zFrjOICcLw
+    - CRITICAL CREDENTIALS - All API keys in {project-root}/.env, LinkedIn token in linkedin-api-client/linkedin-token.json, YouTube tokens auto-managed
+    - CRITICAL RATE LIMITS - Twitter 1500/month, LinkedIn 150/day, YouTube 6 videos/day (10000 units, 1600 per upload)
+    - CRITICAL VALIDATION - Always validate text length, media format, file size before posting to any platform
+    - CRITICAL TWITTER - Supports 1-4 images OR 1 video, max 5MB/image, 512MB/video, 25000 chars Premium
+    - CRITICAL LINKEDIN - Supports single image, 2-20 multi-image carousel, PDF carousel, video, 3000 chars text
+    - CRITICAL YOUTUBE - Regular videos any size, Shorts auto-detected if 9:16 and ≤3min, uploads as Private (manual publish)
+    - CRITICAL LINKEDIN AUTH - OAuth 2.0 token valid until Dec 25 2025, person URN urn:li:person:H40RDQ7TNL
+    - CRITICAL YOUTUBE AUTH - Channel @siddani09 authenticated, tokens auto-refresh
     - CRITICAL ERRORS - Return structured responses with success/error, never throw unhandled exceptions
     - CRITICAL SECURITY - Never log or display API credentials, tokens, or secrets
 
