@@ -37,6 +37,7 @@
       <action>Set voice_aware_mode = false</action>
       <action>Continue</action>
     </check>
+
   </check>
 
   <check if="voice profile EXISTS">
@@ -54,25 +55,19 @@
     <action>Set voice_aware_mode = true</action>
 
     <action>Display: "✓ Voice profile loaded (Confidence: {voice_confidence}/10)"</action>
+
   </check>
 
-  <template-output>voice_loaded</template-output>
+<template-output>voice_loaded</template-output>
 </step>
 
 <step n="1" goal="Load Idea Card">
   <action>Load idea_card data from {idea_card_id} OR {idea_card_file}</action>
 
-  <action>Extract from Idea Card:
-    - title
-    - hook_line
-    - outline (beats array)
-    - cta
-    - evidence_items (array)
-    - style (tutorial|opinion|story|etc)
-    - recommended_platforms
-  </action>
+<action>Extract from Idea Card: - title - hook_line - outline (beats array) - cta - evidence_items (array) - style (tutorial|opinion|story|etc) - recommended_platforms
+</action>
 
-  <action>Validate target_platform is in recommended_platforms</action>
+<action>Validate target_platform is in recommended_platforms</action>
 
   <check if="target_platform NOT recommended">
     <ask>⚠️  Idea Card recommends {recommended_platforms}, but you selected {target_platform}.
@@ -84,120 +79,98 @@
 
     Select: [1/2/3]
     </ask>
+
   </check>
 
-  <template-output>idea_card_loaded</template-output>
+<template-output>idea_card_loaded</template-output>
 </step>
 
-<step n="2" goal="Generate base content with AI">
-  <action>Prepare inputs for content generation</action>
+<step n="2" goal="Generate content using autogen-script-generator Skill">
+  <action>Display: "Generating {target_platform} post with multi-agent collaboration..."</action>
 
-  <action>Build generation prompt:
+  <action>**Prepare inputs for autogen-script-generator Skill:**
     - Topic: {idea_card.title}
-    - Keywords: {idea_card.hashtags} + key terms from outline
-    - Style: {idea_card.style}
-    - Tone: {tone_override} OR {voice_profile.tone_description}
     - Platform: {target_platform}
-    - Context: {idea_card.why_now}
-    - Outline: {idea_card.outline}
+    - Format: {format_preference} (for Twitter: thread|longform|auto)
+    - Tone: {tone_override} OR {voice_profile.tone_description}
+    - Research file: {research_brief_path} (if idea_card has research reference)
+    - Voice file: {voice_profile_location}
   </action>
 
-  <action>**Generation Prompt for AI:**
+  <action>**Invoke autogen-script-generator Skill:**
 
-    Generate a {target_platform} post based on this Idea Card:
+    Generate a {target_platform} post about "{idea_card.title}":
 
-    **Topic:** {idea_card.title}
-    **Style:** {idea_card.style}
-    **Tone:** {tone}
+    - Topic: {idea_card.title}
+    - Platform: {target_platform}
+    - Style: {idea_card.style}
+    - Hook: {idea_card.hook_line}
+    - Key points: {idea_card.outline}
+    - CTA: {idea_card.cta}
+    - Research: {research_brief_path}
+    - Voice profile: {voice_profile_location}
 
-    **Hook to use:** {idea_card.hook_line}
+    The Skill will use multi-agent collaboration:
+    - Research_Agent: Loads research data and evidence
+    - Post_Title_Agent: Creates compelling hook
+    - Post_Content_Agent: Writes main content with evidence
+    - Post_CTA_Agent: Creates engagement-focused CTA
+    - Reviewer_Agent: Validates facts and quality
 
-    **Main points to cover:**
-    {idea_card.outline as list}
-
-    **Call-to-action:** {idea_card.cta}
-
-    **Platform:** {target_platform}
-    **Guidelines:**
-    - {platform_specific_guidelines from config.yaml}
-
-    Generate engaging content that covers all points naturally.
-    Keep it conversational and authentic.
+    All agents apply voice profile for authentic voice matching.
   </action>
 
-  <action>Call AI API (OpenAI GPT-4 or Anthropic Claude):
-    - Use OPENAI_API_KEY from environment
-    - Model: gpt-4o or gpt-4-turbo
-    - Temperature: 0.7 (creative but controlled)
-    - Max tokens: 1000 for posts
+  <action>Display: "✓ Multi-agent system generated content with:"
+    - Research evidence integrated ✓
+    - Voice profile applied ✓
+    - Platform guidelines followed ✓
+    - Fact-checked for accuracy ✓
   </action>
 
-  <action>Receive generated content</action>
+  <action>Receive generated content from Skill</action>
 
-  <action>Display: "✓ Base content generated with AI"</action>
+  <note>The autogen-script-generator Skill already handles:
+    - Voice adaptation (vocabulary, sentence structure, tone, emoji)
+    - Evidence injection from research briefs
+    - Platform-specific formatting
+    - Multi-agent review and validation
 
-  <check if="inject_evidence == true">
-    <action>For each main point in generated content:</action>
-    <action>Find matching evidence from idea_card.evidence_items</action>
-    <action>Inject quote or stat with attribution:
-      - "As [Source] reported, [stat/quote]"
-      - "According to research from [Source], X% of [group]..."
-    </action>
-    <action>Keep citations natural, not forced</action>
-  </check>
+    No need for separate voice adaptation step!
+  </note>
 
-  <template-output>base_content_generated</template-output>
+<template-output>content_generated_with_skill</template-output>
 </step>
 
-<step n="3" goal="Apply voice adaptation (if voice profile loaded)">
-  <check if="voice_aware_mode == true">
-    <action>Display: "Adapting content to match your authentic voice..."</action>
+<step n="3" goal="Review and refine generated content">
+  <action>Display generated content to user</action>
 
-    <action>**Vocabulary Matching:**
-      - Review generated content vocabulary
-      - Replace formal words with user's preferred terms
-        Example: "utilize" → "use" (if user prefers simple)
-      - Match technical density to {vocab_level}
-      - Inject signature phrases where natural (don't force)
-    </action>
+  <action>Review content quality:
+    - Hook is compelling ✓
+    - Main points covered ✓
+    - Evidence naturally integrated ✓
+    - Voice matches user style ✓
+    - Platform guidelines followed ✓
+  </action>
 
-    <action>**Sentence Structure Matching:**
-      - Analyze generated sentence lengths
-      - Adjust to match {sentence_pattern}:
-        • If user writes staccato: Break long sentences
-        • If user writes varied: Mix short + long
-        • If user writes flowing: Combine short sentences
-      - Match rhythm/pacing
-    </action>
+  <ask>Content generated! Would you like to:
+    1. Use it as-is (recommended - multi-agent reviewed)
+    2. Make manual adjustments
+    3. Regenerate with different parameters
 
-    <action>**Tone Adjustment:**
-      - Check generated tone against {tone_score}
-      - If too formal for user: Add casual elements
-      - If too casual for user: Add professional markers
-      - Apply humor style (if user uses humor)
-      - Inject enthusiasm markers (if user is enthusiastic)
-    </action>
+    Select: [1/2/3]
+  </ask>
 
-    <action>**Emoji Application:**
-      - Match {emoji_usage_pattern}:
-        • Never: Remove all emojis
-        • Rare: Keep 0-1 emoji
-        • Moderate: Use 1-2 emojis
-        • Heavy: Use 2-3+ emojis
-      - Place according to {emoji_placement}
-      - Use emoji types user favors
-    </action>
-
-    <action>Result: Content that sounds like {user_name} wrote it</action>
-
-    <action>Display: "✓ Voice-adapted to match your style"</action>
+  <check if="option 2 selected">
+    <ask>What would you like to adjust?</ask>
+    <action>Apply user's requested changes</action>
   </check>
 
-  <check if="voice_aware_mode == false">
-    <action>Display: "ℹ️  Using neutral voice (run /learn-voice for personalization)"</action>
+  <check if="option 3 selected">
+    <action>Ask for new parameters</action>
+    <action>Re-invoke autogen-script-generator Skill</action>
   </check>
 
-  <template-output>voice_adapted</template-output>
+<template-output>content_finalized</template-output>
 </step>
 
 <step n="4" goal="Format for target platform (Adaptive Guidelines)">
@@ -254,6 +227,7 @@
     </action>
 
     <template-output>linkedin_post_formatted</template-output>
+
   </check>
 
   <!-- TWITTER POST (Adaptive: Long-form vs Thread) -->
@@ -308,7 +282,8 @@
       <action>**Format for readability:**
         - Double line breaks between main sections
         - Use bullets (•) or numbers if listing
-        - Bold key points if platform supports (usually doesn't show on Twitter)
+        - NO MARKDOWN FORMATTING (Twitter doesn't support **bold** or _italic_)
+        - For emphasis: Use ALL CAPS for section headers or just plain text
         - Keep paragraphs short (2-4 sentences max)
       </action>
 
@@ -365,6 +340,8 @@
             ✓ "Tool 1: Zapier\n\nAutomatically connects your apps. Set up a workflow once, it runs forever.\n\nSaved me ~5 hours last week on data entry alone."
 
           • Use line breaks for emphasis and readability
+          • NO MARKDOWN (no **bold** or _italic_ - Twitter doesn't support it)
+          • For emphasis: Use ALL CAPS for headers or plain text
           • Inject evidence where relevant (quotes, stats)
           • Apply voice profile (vocabulary, sentence rhythm, tone)
           • Each tweet should stand alone (some people won't read full thread)
@@ -447,6 +424,7 @@
     </check>
 
     <template-output>twitter_post_formatted</template-output>
+
   </check>
 
   <!-- INSTAGRAM CAPTION -->
@@ -538,9 +516,10 @@
     </action>
 
     <template-output>instagram_caption_formatted</template-output>
+
   </check>
 
-  <template-output>platform_content_formatted</template-output>
+<template-output>platform_content_formatted</template-output>
 </step>
 
 <step n="5" goal="Generate hook variants (optional)">
@@ -554,7 +533,7 @@
 <step n="6" goal="Generate metadata and handoff package">
   <action>Create Handoff Package for Social Posting Agent</action>
 
-  <action>JSON structure:
+<action>JSON structure:
 
     {
       "content_type": "{platform}_post",
@@ -589,16 +568,16 @@
 
   </action>
 
-  <action>Save handoff package to: {handoff_file}</action>
+<action>Save handoff package to: {handoff_file}</action>
 
-  <template-output>handoff_package_created</template-output>
+<template-output>handoff_package_created</template-output>
 </step>
 
 <step n="7" goal="Save and present final output">
   <action>Save formatted post to: {default_output_file}</action>
   <action>Save handoff JSON to: {handoff_file}</action>
 
-  <action>Display to user:
+<action>Display to user:
 
     ✅ {platform} Post Ready!
 
@@ -628,9 +607,10 @@
     - Or adjust and regenerate
 
     **Posting Tip:** {posting_tip}
+
   </action>
 
-  <template-output>workflow_complete</template-output>
+<template-output>workflow_complete</template-output>
 </step>
 
 </workflow>

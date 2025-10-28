@@ -30,8 +30,9 @@
 
 **Text Overlays:**
 {#text_overlays}
+
 - [{timestamp}] {overlay_text}
-{/text_overlays}
+  {/text_overlays}
 
 **Complexity:** {complexity_rating}
 **Estimated Production Time:** {production_time}
@@ -48,4 +49,4 @@
 
 **Posting Tip:** {posting_tip}
 
-*Ready for AI Video Agent or manual production*
+_Ready for AI Video Agent or manual production_

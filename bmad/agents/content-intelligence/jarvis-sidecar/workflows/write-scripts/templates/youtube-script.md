@@ -33,13 +33,15 @@
 
 **B-roll Needed:**
 {#broll_clips}
+
 - {clip_description}
-{/broll_clips}
+  {/broll_clips}
 
 **Graphics/Text Overlays:**
 {#graphics}
+
 - {timestamp}: {graphic_description}
-{/graphics}
+  {/graphics}
 
 **Music/Audio:**
 {music_suggestion}
@@ -59,4 +61,4 @@
 
 **Posting Tip:** {posting_tip}
 
-*Ready for AI Video Agent or manual production*
+_Ready for AI Video Agent or manual production_

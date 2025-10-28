@@ -1,0 +1,13 @@
+{
+  "name": "youtube-thumbnails",
+  "total_pages": 1,
+  "base_url": "https://support.google.com/youtube/topic/9257891",
+  "llms_txt_detected": false,
+  "llms_txt_variant": null,
+  "pages": [
+    {
+      "title": "Live stream on YouTube",
+      "url": "https://support.google.com/youtube/topic/9257891"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "youtube-thumbnails",
+  "description": "YouTube thumbnail best practices, size requirements, design tips, and optimization strategies for video thumbnails. Use when creating YouTube thumbnails or optimizing video visibility.",
+  "base_url": "https://support.google.com/youtube/topic/9257891",
+  "selectors": {
+    "main_content": "article",
+    "title": "h1",
+    "code_blocks": "pre code"
+  },
+  "url_patterns": {
+    "include": [],
+    "exclude": []
+  },
+  "categories": {},
+  "rate_limit": 1,
+  "max_pages": 50
+}

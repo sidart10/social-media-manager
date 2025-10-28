@@ -1,17 +1,26 @@
 # Generate Carousel Workflow
 # Purpose: Create 2-10 image carousel sets for social media
-# Status: PRODUCTION READY - MCP Integration Complete
+# Status: PRODUCTION READY v2.0 - Skills Integration Complete
 
 name: generate-carousel
-description: "Generate professional carousel image sets optimized for social media platforms using MCP-powered AI generation"
+description: "Generate professional carousel image sets using create-image skill with Emily's JSON methodology, intelligent tool selection, and 7-pillar quality framework"
 author: "AI Image Generator Agent"
-version: "1.0.0"
+version: "2.0.0"
 
-# Configuration
-config_source: "{agent-folder}/ai-image-generator-sidecar/config.yaml"
-capabilities_doc: "{agent-folder}/ai-image-generator-sidecar/MCP_CAPABILITIES.md"
-template_folder: "{agent-folder}/ai-image-generator-sidecar/templates"
-output_folder: "{agent-folder}/ai-image-generator-sidecar/outputs"
+# Standard BMAD v6 Config Block
+config_source: "{project-root}/bmad/agents/ai-image-generator/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Module-Specific Paths
+sidecar_config: "{config_source}:sidecar_config"
+capabilities_doc: "{config_source}:capabilities_doc"
+best_practices_doc: "{config_source}:best_practices_doc"
+template_folder: "{config_source}:templates_folder"
+outputs_folder: "{config_source}:outputs_folder"
+skills_folder: "{config_source}:skills_folder"
 
 # This is an action workflow (no template document)
 template: false
@@ -34,14 +43,45 @@ instructions:
       <ask>Proceed anyway or adjust? [proceed/adjust]</ask>
     </check>
 
-    <ask>Which platform is this for?
-    1. LinkedIn (professional, tech-focused)
-    2. Instagram (engaging, visual)
-    3. Twitter/X (bold, concise)
-    4. Custom
+    <ask>Which design style?
+    1. LinkedIn - Dark professional tech (monochrome, Inter font, data-driven) ⭐
+    2. YouTube - Eye-catching thumbnails (bold text, vibrant, high CTR) 🎬
+    3. Instagram - Vibrant engaging (coming soon)
+    4. Twitter - Bold concise (coming soon)
+    5. Custom - Define your own
     </ask>
 
-    <action>Store as {{platform}}</action>
+    <action>Store as {{design_choice}}</action>
+
+    <action>Map design to platform:</action>
+    <check if="design_choice == 1">
+      <action>platform = "LinkedIn"</action>
+      <action>design_system = "linkedin-design"</action>
+      <action>Note: linkedin-design skill will auto-load with dark tech aesthetic, captions, best practices</action>
+    </check>
+    <check if="design_choice == 2">
+      <action>platform = "YouTube"</action>
+      <action>design_system = "youtube-thumbnail-design"</action>
+      <action>Note: youtube-thumbnail-design skill will auto-load with thumbnail best practices</action>
+      <action>Note: For YouTube, carousel = multiple thumbnail variations for A/B testing</action>
+    </check>
+    <check if="design_choice == 3">
+      <action>platform = "Instagram"</action>
+      <action>design_system = "vibrant-social"</action>
+      <action>Note: Using generic Instagram specs (instagram-design skill coming soon)</action>
+    </check>
+    <check if="design_choice == 4">
+      <action>platform = "Twitter"</action>
+      <action>design_system = "bold-concise"</action>
+      <action>Note: Using generic Twitter specs (twitter-design skill coming soon)</action>
+    </check>
+    <check if="design_choice == 5">
+      <action>platform = "Custom"</action>
+      <action>design_system = "custom"</action>
+    </check>
+
+    <action>Store platform as {{platform}}</action>
+    <action>Store design_system as {{design_system}}</action>
 
     <ask>Do you have an existing template to use, or should I create one?
     1. Use existing template
@@ -122,12 +162,15 @@ instructions:
     <action>Store as {{topic_slug}}</action>
 
     <action>Create output folder using Bash tool:</action>
-    <action>Bash: mkdir -p "{{output_folder}}/{{topic_slug}}"</action>
+    <action>Bash: mkdir -p "{{outputs_folder}}/{{topic_slug}}"</action>
 
     <action>Load config.yaml to verify API keys exist</action>
     <action>Read: {{config_source}}</action>
 
     <action>Note: MCP tools will use API keys from ~/.claude.json automatically</action>
+
+# Skills context: create-image skill auto-loads for carousel generation
+# Provides: Emily's JSON methodology, platform-appropriate design systems, tool selection
 
   - step: 5
     goal: "Generate each slide via MCP"
@@ -138,49 +181,81 @@ instructions:
 
     <action>Increment: current_slide += 1</action>
 
-    <action>Show progress: "Generating Slide {{current_slide}} of {{slide_count}}..."</action>
+    <action>Show progress: "🎨 Generating Slide {{current_slide}} of {{slide_count}}..."</action>
 
-    <action>Extract from slide:</action>
+    <action>Extract slide data from template:</action>
     <action>- prompt_text = slide.prompt</action>
     <action>- negative_text = slide.negative_prompt OR template.global_negative_prompt</action>
     <action>- theme_color = slide.theme_color (if exists)</action>
 
-    <action>Construct full_prompt:</action>
-    <action>If negative_text exists: full_prompt = prompt_text + " Negative: " + join(negative_text, ", ")</action>
+    <action>Construct complete prompt for this slide:</action>
+    <action>If negative_text exists: full_prompt = prompt_text + " Avoid: " + join(negative_text, ", ")</action>
     <action>Else: full_prompt = prompt_text</action>
+    <action>Store as {{full_prompt}}</action>
+
+    <action>Select MCP tool based on platform:</action>
+    <check if="platform == LinkedIn OR platform == Twitter">
+      <action>Use: gpt-image-1 (professional quality + text rendering)</action>
+      <action>Store as {{selected_tool}}</action>
+    </check>
+    <check if="platform == Instagram">
+      <action>Use: nanobanana (speed + cost for volume)</action>
+      <action>Store as {{selected_tool}}</action>
+    </check>
+    <action>Default: gpt-image-1</action>
 
     <action>Record start_time</action>
 
-    <action>Generate image using MCP tool:</action>
-    <action>
-    result = mcp__gpt-image-1__create_image({
-      prompt: full_prompt,
-      size: validated_size,
-      quality: "high",
-      output_format: "png"
-    })
-    </action>
+    <critical>Generate image via MCP:</critical>
+    <check if="selected_tool == gpt-image-1">
+      <action>
+      Tool: mcp__gpt-image-1__create_image
+      Parameters:
+        prompt: {{full_prompt}}
+        size: {{validated_size}}
+        quality: "high"
+        output_format: "png"
+        n: 1
+
+      Store result as {{mcp_result}}
+      </action>
+    </check>
+    <check if="selected_tool == nanobanana">
+      <action>
+      Tool: mcp__nanobanana__generate_image
+      Parameters:
+        prompt: {{full_prompt}}
+        mode: "generate"
+        negative_prompt: {{negative_text}}
+        n: 1
+
+      Store result as {{mcp_result}}
+      </action>
+    </check>
 
     <action>Record end_time and calculate generation_time_seconds</action>
 
-    <action>Extract mcp_file_path from result.file_paths[0]</action>
+    <action>Extract file_path from mcp_result</action>
+    <action>Store as {{mcp_file_path}}</action>
 
     <action>Copy from MCP location to agent outputs:</action>
-    <action>Bash: cp "{{mcp_file_path}}" "{{output_folder}}/{{topic_slug}}/slide{{current_slide}}.png"</action>
+    <action>Bash: cp "{{mcp_file_path}}" "{{outputs_folder}}/{{topic_slug}}/slide{{current_slide}}.png"</action>
 
-    <action>Get file size using Bash: ls -lh</action>
+    <action>Get file size using Bash:</action>
+    <action>Bash: ls -lh "{{outputs_folder}}/{{topic_slug}}/slide{{current_slide}}.png" | awk '{print $5}'</action>
+    <action>Store as {{file_size}}</action>
 
     <action>Create metadata JSON using Write tool:</action>
     <action>
-    Write: {{output_folder}}/{{topic_slug}}/slide{{current_slide}}_metadata.json
+    Write: {{outputs_folder}}/{{topic_slug}}/slide{{current_slide}}_metadata.json
     Content: {
       "slide_number": current_slide,
       "template_used": template_filename,
       "topic": topic,
       "prompt_full": full_prompt,
-      "provider": "openai",
-      "model": "gpt-image-1",
-      "tool_used": "mcp__gpt-image-1__create_image",
+      "provider": selected_tool,
+      "skill_used": "create-image",
+      "methodology": "Emily's JSON framework",
       "size": validated_size,
       "aspect_ratio_requested": aspect_ratio,
       "aspect_ratio_actual": "3:2" or "1:1" or "2:3",
@@ -190,10 +265,10 @@ instructions:
       "generation_time_seconds": generation_time_seconds,
       "file_path_mcp": mcp_file_path,
       "file_path_agent": relative path to slide,
-      "file_size_bytes": file_size,
-      "file_size_mb": file_size in MB,
+      "file_size": file_size,
       "theme_color": theme_color,
       "design_system": design_system name,
+      "platform": platform,
       "quality_score": {
         "clarity": 0,
         "technical_quality": 0,
@@ -204,12 +279,12 @@ instructions:
         "prompt_accuracy": 0,
         "overall": 0,
         "reviewed": false,
-        "notes": ""
+        "notes": "Use 7-pillar evaluation from create-image skill"
       }
     }
     </action>
 
-    <action>Show completion: "✅ Slide {{current_slide}} complete! ({{file_size_mb}}MB)"</action>
+    <action>Show completion: "✅ Slide {{current_slide}} complete! ({{file_size}})"</action>
 
     <template-output>slide_{{current_slide}}_complete</template-output>
 
@@ -247,10 +322,10 @@ instructions:
     2. Run quality critique
     3. Post to {{platform}}
 
-    Location: {{output_folder}}/{{topic_slug}}/
+    Location: {{outputs_folder}}/{{topic_slug}}/
     </action>
 
-    <action>Write summary to: {{output_folder}}/{{topic_slug}}/CAROUSEL_SUMMARY.md</action>
+    <action>Write summary to: {{outputs_folder}}/{{topic_slug}}/CAROUSEL_SUMMARY.md</action>
 
   - step: 7
     goal: "Present results and offer next actions"
@@ -264,12 +339,13 @@ instructions:
     Files:
     {{list each slide with filename and size}}
 
-    Location: {{output_folder}}/{{topic_slug}}/
+    Location: {{outputs_folder}}/{{topic_slug}}/
 
     Total Size: {{total_file_size}}MB
     </action>
 
-    <action>List generated files using Bash: ls -lh {{output_folder}}/{{topic_slug}}/</action>
+    <action>List generated files using Bash:</action>
+    <action>Bash: ls -lh "{{outputs_folder}}/{{topic_slug}}/"</action>
 
     <ask>What would you like to do next?
     1. Review slides and run quality critique

@@ -1,42 +1,42 @@
 name: learn-voice
-description: 'Analyze user content to build personalized voice profile for authentic content generation'
-author: 'Jarvis'
+description: "Analyze user content to build personalized voice profile for authentic content generation"
+author: "Jarvis"
 
 # Variables
-config_source: '{agent-folder}/config.yaml'
-output_folder: '{config_source}:output_folder'
+config_source: "{agent-folder}/config.yaml"
+output_folder: "{config_source}:output_folder"
 date: system-generated
-installed_path: '{agent-folder}/workflows/learn-voice'
+installed_path: "{agent-folder}/workflows/learn-voice"
 
-# MCP Tools (Cost-optimized for user's own content)
+# MCP Tools
+# Note: All scraping via Apify (broken MCPs removed: linkedin-mcp, youtube_mcp_server, youtube_transcript)
+# Note: mcp_twitter used as primary for Twitter (free), Apify as fallback
 mcp_tools_required:
-  - youtube_mcp_server: [get_channel_videos]
-  - youtube_transcript: [get_transcript]
-  - linkedin_mcp: [fetch_and_save_linkedin_posts, get_saved_posts]
-  - apify_mcp: [call-actor, get-actor-output]  # Fallback only
+  - mcp_twitter: [get_last_tweet_from_user] # Primary for Twitter (free)
+  - apify: [call-actor, get-actor-output] # For LinkedIn, YouTube, and Twitter fallback
 
 # Custom Modules (FREE for user's own account)
 custom_modules:
-  - twitter_api_client: 'Fetch YOUR tweets (preferred - free)'
+  - twitter_api_client: "Fetch YOUR tweets (preferred - free)"
 
 # Inputs
 inputs:
-  - user_twitter_handle: 'Your Twitter @handle (optional)'
-  - user_linkedin_url: 'Your LinkedIn profile URL (optional)'
-  - user_youtube_channel: 'Your YouTube channel URL (optional)'
-  - min_posts_required: 'Minimum posts for accurate profile (default: 20)'
-  - include_video_voice: 'boolean, analyze spoken voice from videos (default: true if YouTube provided)'
+  - user_twitter_handle: "Your Twitter @handle (optional)"
+  - user_linkedin_url: "Your LinkedIn profile URL (optional)"
+  - user_youtube_channel: "Your YouTube channel URL (optional)"
+  - min_posts_required: "Minimum posts for accurate profile (default: 20)"
+  - include_video_voice: "boolean, analyze spoken voice from videos (default: true if YouTube provided)"
 
 # Outputs
 outputs:
-  - voice_profile: 'Comprehensive writing style analysis'
-  - signature_elements: 'Commonly used phrases and patterns'
-  - platform_variations: 'How voice changes per platform'
-  - confidence_score: 'Profile accuracy rating (based on sample size)'
+  - voice_profile: "Comprehensive writing style analysis"
+  - signature_elements: "Commonly used phrases and patterns"
+  - platform_variations: "How voice changes per platform"
+  - confidence_score: "Profile accuracy rating (based on sample size)"
 
 # Action workflow
 template: false
-instructions: '{installed_path}/instructions.md'
+instructions: "{installed_path}/instructions.md"
 
 # Voice profile saves to memories.md (not separate file)
-voice_profile_location: '{agent-folder}/memories.md'
+voice_profile_location: "{agent-folder}/memories.md"

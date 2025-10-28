@@ -1,18 +1,27 @@
 # Generate LinkedIn Content Workflow
 # Purpose: Fast-track LinkedIn content with professional dark tech aesthetic
-# Status: PRODUCTION READY v1.0
+# Status: ⚠️ DEPRECATED - Use generate-carousel.yaml or generate-single.yaml with "LinkedIn design" choice instead
+# Reason: LinkedIn is now a DESIGN SKILL (linkedin-design), not a separate workflow
+# New approach: Workflows = actions (carousel/single), Skills = designs (LinkedIn/Instagram/etc)
 
-name: generate-linkedin
-description: "Quick LinkedIn carousel/image generation with dark design, MCP-powered, includes captions and hashtags"
+name: generate-linkedin-DEPRECATED
+description: "DEPRECATED: Use generate-carousel or generate-single with LinkedIn design choice. This workflow kept for reference only."
 author: "AI Image Generator Agent"
-version: "1.0.0"
+version: "2.0.0-deprecated"
 
-# Configuration paths
-config_source: "{agent-folder}/ai-image-generator-sidecar/config.yaml"
-template_folder: "{agent-folder}/ai-image-generator-sidecar/templates"
-output_folder: "{agent-folder}/ai-image-generator-sidecar/outputs"
-platform_specs: "{agent-folder}/ai-image-generator-sidecar/platform-specs.yaml"
-best_practices: "{agent-folder}/ai-image-generator-sidecar/best-practices-framework.md"
+# Standard BMAD v6 Config Block
+config_source: "{project-root}/bmad/agents/ai-image-generator/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Module-Specific Paths
+sidecar_config: "{config_source}:sidecar_config"
+best_practices_doc: "{config_source}:best_practices_doc"
+template_folder: "{config_source}:templates_folder"
+outputs_folder: "{config_source}:outputs_folder"
+skills_folder: "{config_source}:skills_folder"
 
 # Workflow type
 template: false
@@ -181,7 +190,7 @@ instructions:
     Estimated Time: {{(slide_count OR 1) × 3}} seconds
 
     Output Location:
-    {{output_folder}}/linkedin-{{topic_slug}}/
+    {{outputs_folder}}/linkedin-{{topic_slug}}/
 
     ✨ Includes:
     • High-quality PNG images
@@ -207,7 +216,7 @@ instructions:
     <action>Store as {{topic_slug}}</action>
 
     <action>Create output directory:</action>
-    <action>Bash: mkdir -p "{{output_folder}}/linkedin-{{topic_slug}}"</action>
+    <action>Bash: mkdir -p "{{outputs_folder}}/linkedin-{{topic_slug}}"</action>
 
     <action>Validate MCP tool availability (should be working from setup)</action>
 
@@ -216,29 +225,39 @@ instructions:
     <action>- current_slide = 0</action>
     <action>- start_time = now</action>
 
+# Skills context: create-image skill auto-loads for LinkedIn image generation
+# Provides: JSON methodology, LinkedIn dark tech design system, tool selection logic
+
   - step: 6
-    goal: "Generate images via MCP"
+    goal: "Generate each slide via MCP"
 
     <for-each>slide in template.slides (or single image)</for-each>
 
     <action>current_slide += 1</action>
 
     <action>Show progress:</action>
-    <action>"🎨 Generating Slide {{current_slide}} of {{total_slides}}... (est. 3 seconds)"</action>
+    <action>"🎨 Generating Slide {{current_slide}} of {{total_slides}}..."</action>
 
-    <action>Extract from slide object:</action>
+    <action>Extract slide data from template:</action>
     <action>- prompt_text = slide.prompt</action>
     <action>- negative_prompts = slide.negative_prompt OR template.global_negative_prompt</action>
     <action>- accent_color = slide.theme_color (if exists)</action>
 
-    <action>Construct complete prompt:</action>
-    <action>full_prompt = prompt_text (negatives are already in prompt for OpenAI)</action>
+    <action>Build complete prompt with LinkedIn specifications:</action>
+    <action>Include: Dark background (#0B0B0B), white/gray text, Inter font, 12-column grid</action>
+    <action>Include: Slide-specific content from {{prompt_text}}</action>
+    <action>Include: Negative prompts (10+ items)</action>
+    <action>Store as {{full_prompt}}</action>
+
+    <action>Tool selection for LinkedIn:</action>
+    <action>LinkedIn platform + text overlays → Use gpt-image-1 (best for professional + text)</action>
+    <action>Store as {{selected_tool}}</action>
 
     <action>Record slide_start_time</action>
 
-    <critical>Call MCP tool for image generation:</critical>
+    <critical>Generate image via MCP:</critical>
     <action>
-    Use tool: mcp__gpt-image-1__create_image
+    Tool: mcp__gpt-image-1__create_image
     Parameters:
       prompt: {{full_prompt}}
       size: "1536x1024"
@@ -256,7 +275,7 @@ instructions:
     <action>Store as {{mcp_output_path}}</action>
 
     <action>Define agent output path:</action>
-    <action>agent_output_path = "{{output_folder}}/linkedin-{{topic_slug}}/slide{{current_slide}}.png"</action>
+    <action>agent_output_path = "{{outputs_folder}}/linkedin-{{topic_slug}}/slide{{current_slide}}.png"</action>
 
     <action>Copy image from MCP location to agent location:</action>
     <action>Bash: cp "{{mcp_output_path}}" "{{agent_output_path}}"</action>
@@ -267,7 +286,7 @@ instructions:
 
     <action>Create metadata JSON file using Write tool:</action>
     <action>
-    File: {{output_folder}}/linkedin-{{topic_slug}}/slide{{current_slide}}_metadata.json
+    File: {{outputs_folder}}/linkedin-{{topic_slug}}/slide{{current_slide}}_metadata.json
 
     Content:
     {
@@ -276,9 +295,11 @@ instructions:
       "topic": "{{topic}}",
       "template_used": "{{template_name OR 'generated_on_the_fly'}}",
       "prompt_full": "{{full_prompt}}",
-      "provider": "openai",
+      "provider": "gpt-image-1",
       "model": "gpt-image-1",
       "tool": "mcp__gpt-image-1__create_image",
+      "skill_used": "create-image",
+      "methodology": "Emily's JSON framework",
       "size": "1536x1024",
       "aspect_ratio_requested": "16:9",
       "aspect_ratio_actual": "3:2",
@@ -302,7 +323,7 @@ instructions:
         "prompt_accuracy": 0,
         "overall": 0,
         "reviewed": false,
-        "notes": "Review manually after generation"
+        "notes": "Use 7-pillar evaluation for scoring"
       }
     }
     </action>
@@ -356,7 +377,7 @@ instructions:
 
     <action>Create POST_CONTENT.md file:</action>
     <action>
-    Write: {{output_folder}}/linkedin-{{topic_slug}}/POST_CONTENT.md
+    Write: {{outputs_folder}}/linkedin-{{topic_slug}}/POST_CONTENT.md
 
     Content:
     # LinkedIn Post Content - {{topic}}
@@ -430,7 +451,7 @@ instructions:
 
     <action>Create CAROUSEL_SUMMARY.md:</action>
     <action>
-    Write: {{output_folder}}/linkedin-{{topic_slug}}/CAROUSEL_SUMMARY.md
+    Write: {{outputs_folder}}/linkedin-{{topic_slug}}/CAROUSEL_SUMMARY.md
 
     Content:
     # {{topic}} - LinkedIn Content Summary
@@ -494,7 +515,7 @@ instructions:
 
     See POST_CONTENT.md for caption and posting instructions.
 
-    Location: {{output_folder}}/linkedin-{{topic_slug}}/
+    Location: {{outputs_folder}}/linkedin-{{topic_slug}}/
     </action>
 
     <template-output>summary_created</template-output>
@@ -518,7 +539,7 @@ instructions:
     {{List each file with size}}
 
     📍 Location:
-    {{output_folder}}/linkedin-{{topic_slug}}/
+    {{outputs_folder}}/linkedin-{{topic_slug}}/
 
     📝 Ready to Post:
     ✅ Images generated
@@ -532,7 +553,7 @@ instructions:
     </action>
 
     <action>List files using Bash:</action>
-    <action>Bash: ls -lh "{{output_folder}}/linkedin-{{topic_slug}}/"</action>
+    <action>Bash: ls -lh "{{outputs_folder}}/linkedin-{{topic_slug}}/"</action>
 
   - step: 10
     goal: "Next actions"

@@ -73,3 +73,30 @@ outputs/**/*.mp4.json
 
 # Cleanup organization
 CLEANUP-ORGANIZATION-PLAN.md
+
+# Outputs - videos and images
+*.mp4
+*.mov
+*.avi
+*.webm
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+bmad/agents/*/outputs/videos/*
+bmad/agents/*/outputs/frames/*
+output/videos/*
+output/frames/*
+bmad/agents/ai-video-agent/ai-video-agent-sidecar/outputs/veotools/videos/*
+bmad/agents/ai-image-generator/ai-image-generator-sidecar/outputs/*
+
+# But keep .gitkeep and metadata
+!*.json
+!**/.gitkeep
+!**/README.md
+
+
+# Claude settings with API keys
+.claude/settings.local.json
+

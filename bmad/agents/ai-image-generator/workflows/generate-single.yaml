@@ -1,17 +1,26 @@
 # Generate Single Image Workflow
 # Purpose: Create one optimized image for social media
-# Status: PRODUCTION READY - MCP Integration Complete
+# Status: PRODUCTION READY v2.0 - Skills Integration Complete
 
 name: generate-single
-description: "Generate a single high-quality image optimized for specified platform using MCP-powered AI generation"
+description: "Generate a single high-quality image using create-image skill with Emily's JSON methodology, intelligent tool selection, and 7-pillar quality framework"
 author: "AI Image Generator Agent"
-version: "1.0.0"
+version: "2.0.0"
 
-# Configuration
-config_source: "{agent-folder}/ai-image-generator-sidecar/config.yaml"
-capabilities_doc: "{agent-folder}/ai-image-generator-sidecar/MCP_CAPABILITIES.md"
-template_folder: "{agent-folder}/ai-image-generator-sidecar/templates"
-output_folder: "{agent-folder}/ai-image-generator-sidecar/outputs"
+# Standard BMAD v6 Config Block
+config_source: "{project-root}/bmad/agents/ai-image-generator/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Module-Specific Paths (from module config)
+sidecar_config: "{config_source}:sidecar_config"
+capabilities_doc: "{config_source}:capabilities_doc"
+best_practices_doc: "{config_source}:best_practices_doc"
+template_folder: "{config_source}:templates_folder"
+outputs_folder: "{config_source}:outputs_folder"
+skills_folder: "{config_source}:skills_folder"
 
 # This is an action workflow
 template: false
@@ -24,26 +33,71 @@ instructions:
     <ask>What should the image show? (Describe your vision)</ask>
     <action>Store as {{prompt_description}}</action>
 
-    <ask>Which platform is this for?
-    1. LinkedIn (professional, 16:9 or 1:1)
-    2. Instagram (square 1:1 or portrait 4:5)
-    3. Twitter/X (landscape 16:9)
-    4. Custom
+    <ask>Which design style?
+    1. LinkedIn - Dark professional tech (monochrome, Inter font, B2B) ⭐
+    2. YouTube - Eye-catching thumbnail (bold text, vibrant colors, high CTR) 🎬
+    3. Photorealistic - Fashion, portraits, products (high-end photography)
+    4. Instagram - Vibrant engaging (coming soon - using generic)
+    5. Twitter - Bold concise (coming soon - using generic)
+    6. Custom - Define your own
     </ask>
-    <action>Store as {{platform}}</action>
 
-    <ask>Image style?
-    1. Dark monochrome tech aesthetic (professional/LinkedIn)
-    2. Photorealistic (fashion, portraits, products)
-    3. Vibrant social (Instagram-style)
-    4. Custom (describe)
-    </ask>
-    <action>Store as {{style_choice}}</action>
+    <action>Store as {{design_choice}}</action>
 
-    <check if="style_choice == custom">
+    <action>Map design to platform and style:</action>
+    <check if="design_choice == 1">
+      <action>platform = "LinkedIn"</action>
+      <action>style_choice = "dark monochrome tech"</action>
+      <action>design_system = "linkedin-design"</action>
+      <action>Note: linkedin-design skill will auto-load</action>
+    </check>
+    <check if="design_choice == 2">
+      <action>platform = "YouTube"</action>
+      <action>style_choice = "youtube thumbnail"</action>
+      <action>design_system = "youtube-thumbnail-design"</action>
+      <action>Note: youtube-thumbnail-design skill will auto-load</action>
+
+      <ask>Include your image in thumbnail? [y/n]
+      (Faces perform 40% better! But not required if topic doesn't need it)</ask>
+      <action>Store as {{include_user_image}}</action>
+
+      <check if="include_user_image == y">
+        <ask>Provide path to your image (headshot/photo with expression):</ask>
+        <action>Store as {{user_image_path}}</action>
+        <action>Verify file exists: Bash test -f "{{user_image_path}}"</action>
+        <ask>What emotion should you have? (surprised/excited/curious/serious/concerned)</ask>
+        <action>Store as {{face_emotion}}</action>
+        <action>Mode: B (with user image composition)</action>
+      </check>
+      <check if="include_user_image == n">
+        <action>Mode: A (create from scratch, no face)</action>
+      </check>
+    </check>
+    <check if="design_choice == 3">
+      <action>platform = "Any"</action>
+      <action>style_choice = "photorealistic"</action>
+      <action>design_system = "photorealistic"</action>
+    </check>
+    <check if="design_choice == 4">
+      <action>platform = "Instagram"</action>
+      <action>style_choice = "vibrant social"</action>
+      <action>design_system = "vibrant-social"</action>
+    </check>
+    <check if="design_choice == 5">
+      <action>platform = "Twitter"</action>
+      <action>style_choice = "bold concise"</action>
+      <action>design_system = "bold-concise"</action>
+    </check>
+    <check if="design_choice == 6">
+      <action>platform = "Custom"</action>
+      <action>style_choice = "custom"</action>
       <ask>Describe your desired style:</ask>
       <action>Store as {{custom_style}}</action>
     </check>
+
+    <action>Store platform as {{platform}}</action>
+    <action>Store style_choice as {{style_choice}}</action>
+    <action>Store design_system as {{design_system}}</action>
 
   - step: 2
     goal: "Select aspect ratio and size"
@@ -52,6 +106,13 @@ instructions:
     <check if="platform == LinkedIn">
       <action>Recommend: 16:9 (landscape) or 1:1 (square)</action>
     </check>
+    <check if="platform == YouTube">
+      <action>Recommend: 16:9 (landscape) - YouTube standard 1280×720</action>
+      <action>Auto-select: 16:9 for YouTube thumbnail</action>
+      <action>aspect_ratio = "16:9"</action>
+      <action>size = "1536x1024" (closest to YouTube 16:9)</action>
+      <action>Skip aspect ratio question for YouTube (auto-determined)</action>
+    </check>
     <check if="platform == Instagram">
       <action>Recommend: 1:1 (square) or 4:5 (portrait)</action>
     </check>
@@ -59,62 +120,132 @@ instructions:
       <action>Recommend: 16:9 (landscape)</action>
     </check>
 
-    <ask>Aspect ratio? [1:1 / 16:9 / 9:16 / 4:5 / custom]</ask>
-    <action>Store as {{aspect_ratio}}</action>
+    <check if="platform != YouTube">
+      <ask>Aspect ratio? [1:1 / 16:9 / 9:16 / 4:5 / custom]</ask>
+      <action>Store as {{aspect_ratio}}</action>
 
-    <action>Map to supported size:</action>
-    <action>- If "1:1" → 1024x1024</action>
-    <action>- If "16:9" → 1536x1024</action>
-    <action>- If "9:16" → 1024x1536</action>
-    <action>- If "4:5" → 1024x1536</action>
-    <action>Store as {{size}}</action>
+      <action>Map to supported size:</action>
+      <action>- If "1:1" → 1024x1024</action>
+      <action>- If "16:9" → 1536x1024</action>
+      <action>- If "9:16" → 1024x1536</action>
+      <action>- If "4:5" → 1024x1536</action>
+      <action>Store as {{size}}</action>
+    </check>
+
+# Skills context: Claude Code will auto-load create-image skill when generating images
+# Skill provides: Emily's JSON methodology, tool selection logic, quality framework, platform knowledge
 
   - step: 3
-    goal: "Construct comprehensive prompt"
+    goal: "Construct comprehensive JSON prompt (Emily's methodology)"
 
-    <action>Load best practices framework:</action>
-    <action>Read: {agent-folder}/ai-image-generator-sidecar/best-practices-framework.md</action>
+    <action>Load JSON template: Read bmad/modules/json-prompt-generator/templates/video-scene.json</action>
+    <action>Adapt for static image (remove motion/transition/audio sections)</action>
 
+    <action>Populate scene_description section:</action>
     <check if="style_choice == dark monochrome tech">
-      <action>Apply dark design system:</action>
-      <action>- Background: Deep black (#0B0B0B)</action>
-      <action>- Text: White (#FFFFFF) and light gray (#D4D4D4)</action>
-      <action>- Typography: Inter font, weight 300</action>
-      <action>- Layout: 12-column grid, generous spacing</action>
-      <action>- Texture: Subtle noise overlay 0.03 opacity</action>
+      <action>environment: "Dark minimalist background (#0B0B0B), professional tech aesthetic"</action>
+      <action>mood: "Professional, clean, enterprise-grade"</action>
     </check>
-
     <check if="style_choice == photorealistic">
-      <action>Apply Emily's framework:</action>
-      <action>- Camera specs (lens, aperture, ISO)</action>
-      <action>- Lighting details</action>
-      <action>- Subject definition</action>
-      <action>- Composition rules</action>
+      <action>environment: Based on {{prompt_description}} (beach, studio, urban, etc.)</action>
+      <action>mood: "Photorealistic, natural, lifelike quality"</action>
     </check>
-
     <check if="style_choice == vibrant social">
-      <action>Apply Instagram aesthetic:</action>
-      <action>- Bright, saturated colors</action>
-      <action>- Eye-catching composition</action>
-      <action>- Engaging elements</action>
+      <action>environment: "Bright colorful background, engaging aesthetic"</action>
+      <action>mood: "Vibrant, energetic, Instagram-worthy"</action>
     </check>
 
-    <action>Construct full prompt from:</action>
-    <action>- User description: {{prompt_description}}</action>
-    <action>- Style specifications</action>
-    <action>- Technical details (size, format)</action>
-    <action>- Quality standards</action>
+    <action>Populate subject_and_content section:</action>
+    <action>main_subject: {{prompt_description}}</action>
+    <action>focal_point: Primary visual element or message</action>
 
-    <action>Add comprehensive negative prompts (minimum 10 items)</action>
+    <action>Populate composition_and_framing section:</action>
+    <action>aspect_ratio: {{aspect_ratio}}</action>
+    <action>resolution: {{size}}</action>
+    <action>layout_system: "12-column grid" for LinkedIn, "Rule of thirds" for Instagram</action>
+    <action>negative_space: "35-60%" (professional standard)</action>
 
-    <action>Store as {{full_prompt}}</action>
+    <action>Populate lighting_design section:</action>
+    <check if="style_choice == dark monochrome tech">
+      <action>lighting_style: "High-key for clarity"</action>
+      <action>contrast_ratio: "7:1" (WCAG AAA compliance)</action>
+    </check>
+    <check if="style_choice == photorealistic">
+      <action>lighting_style: "Natural" or "Studio" based on context</action>
+      <action>key_light: {source: based on scene, position, quality}</action>
+    </check>
 
-    <action>Show prompt to user for review</action>
-    <ask>Prompt looks good? [y/edit]</ask>
+    <action>Populate color_and_grade section with hex codes:</action>
+    <check if="style_choice == dark monochrome tech">
+      <action>hex_codes: ["#0B0B0B", "#FFFFFF", "#D4D4D4", "#4ADE80"]</action>
+      <action>palette_type: "monochrome with green accent"</action>
+    </check>
+    <check if="style_choice == photorealistic">
+      <action>hex_codes: Natural colors based on scene</action>
+      <action>grading: "Natural, warm, professional skin tones"</action>
+    </check>
+
+    <action>Populate typography section (if text in image):</action>
+    <action>font_family: "Inter" for LinkedIn, "Montserrat" for Instagram</action>
+    <action>type_scale: {hero: "72pt", heading: "56pt", body: "22pt"}</action>
+    <action>weights: {primary: 300, emphasis: 500}</action>
+
+    <action>Populate camera_simulation (if photorealistic):</action>
+    <check if="style_choice == photorealistic">
+      <action>lens: {type: "85mm f/1.2L", aperture_f: 2.8}</action>
+      <action>settings: {iso: 400, shutter_speed: "1/200s"}</action>
+    </check>
+
+    <action>Populate negative_prompt with minimum 10 items:</action>
+    <check if="style_choice == dark monochrome tech">
+      <action>Load professional content negatives from library</action>
+      <action>Items: "cluttered, busy, low contrast, small fonts, stock photos, gradients, drop shadows, light backgrounds, cartoons, amateur, decorative elements, multiple accent colors"</action>
+    </check>
+    <check if="style_choice == photorealistic">
+      <action>Load photorealistic negatives from library</action>
+      <action>Items: "deformed anatomy, plastic skin, low quality, blurry, overexposed, cartoon, CGI, text overlays, chromatic aberration, physics violations, extra fingers, distorted face"</action>
+    </check>
+
+    <action>Store populated JSON as {{image_json_prompt}}</action>
+
+    <action>Determine optimal MCP tool for this use case:</action>
+    <check if="platform == LinkedIn OR platform == Twitter">
+      <action>Select: gpt-image-1</action>
+      <action>Reason: Professional quality + superior text rendering</action>
+      <action>Store as {{mcp_tool_selected}}</action>
+    </check>
+    <check if="platform == YouTube">
+      <action>Select: nanobanana</action>
+      <action>Reason: Speed + cost ($0.039) + supports Mode B (user image composition)</action>
+      <action>Store as {{mcp_tool_selected}}</action>
+    </check>
+    <check if="platform == Instagram">
+      <action>Select: nanobanana</action>
+      <action>Reason: Speed + cost-effective for social media volume</action>
+      <action>Store as {{mcp_tool_selected}}</action>
+    </check>
+    <check if="style_choice == photorealistic AND platform != Instagram AND platform != YouTube">
+      <action>Select: gpt-image-1</action>
+      <action>Reason: Best photorealism (9.5/10 quality)</action>
+      <action>Store as {{mcp_tool_selected}}</action>
+    </check>
+    <action>Default if no match: gpt-image-1 (quality-first default)</action>
+
+    <action>Display approach to user:</action>
+    <action>
+    Using Emily's JSON methodology:
+    - Template: video-scene.json (adapted for static image)
+    - Sections: 10+ comprehensive sections populated
+    - Negative prompts: {{negative_prompt count}} items
+    - Selected tool: {{mcp_tool_selected}}
+    - Quality framework: 7-pillar evaluation will follow
+    </action>
+
+    <ask>Proceed with generation? [y/edit]</ask>
 
     <check if="edit">
-      <ask>What should I change?</ask>
-      <action>Update prompt based on feedback</action>
+      <ask>What JSON section should I adjust?</ask>
+      <action>Update specified JSON sections</action>
     </check>
 
   - step: 4
@@ -125,100 +256,234 @@ instructions:
 
     <action>Display generation summary:</action>
     <action>
-    Ready to generate:
+    Ready to generate using Emily's methodology:
 
     Description: {{prompt_description}}
     Platform: {{platform}}
     Size: {{size}} ({{aspect_ratio}})
     Style: {{style_choice}}
-    Provider: OpenAI gpt-image-1
-    Est. Time: 3 seconds
-    Output: outputs/single-images/{{filename}}.png
+    Provider: {{mcp_tool_selected}}
+    Quality System: 7-pillar evaluation
+    Output: {{outputs_folder}}/single-images/{{filename}}.png
     </action>
 
     <ask>Generate now? [y/n]</ask>
 
+# Skills context: create-image skill guides JSON-to-text conversion and tool usage
+
   - step: 5
-    goal: "Generate image via MCP"
+    goal: "Generate image via MCP tool"
 
     <action>Create output folder:</action>
-    <action>Bash: mkdir -p "{{output_folder}}/single-images"</action>
+    <action>Bash: mkdir -p "{{outputs_folder}}/single-images"</action>
 
-    <action>Show: "Generating... (est. 3 seconds)"</action>
+    <action>Show: "Generating with {{mcp_tool_selected}}..."</action>
 
     <action>Record start_time</action>
 
-    <action>Generate using MCP:</action>
-    <action>
-    result = mcp__gpt-image-1__create_image({
-      prompt: full_prompt,
-      size: size,
-      quality: "high",
-      output_format: "png"
-    })
-    </action>
+    <action>Convert JSON to text prompt using conversion rules:</action>
+    <action>Apply 5-component pipe-separated structure from json-prompt-generator/sidecar/conversion-rules.md</action>
+    <action>Component 1: Scene description (environment + subject)</action>
+    <action>Component 2: Camera technical (shot type, lens, settings)</action>
+    <action>Component 3: Lighting (style, source, position)</action>
+    <action>Component 4: Color and grade (palette, contrast, grain)</action>
+    <action>Component 5: Output format (lens, aspect ratio, resolution)</action>
+    <action>Store as {{converted_text_prompt}}</action>
+
+    <action>Generate using selected MCP tool:</action>
+    <check if="mcp_tool_selected == gpt-image-1">
+      <action>
+      Tool: mcp__gpt-image-1__create_image
+      Parameters:
+        prompt: {{converted_text_prompt}}
+        size: {{size}}
+        quality: "high"
+        output_format: "png"
+        n: 1
+
+      Store result as {{generation_result}}
+      </action>
+    </check>
+    <check if="mcp_tool_selected == nanobanana">
+      <action>
+      Tool: mcp__nanobanana__generate_image
+      Parameters:
+        prompt: {{converted_text_prompt}}
+        mode: "generate"
+        negative_prompt: {{negative_prompts_joined}}
+        n: 1
+        input_image_path_1: {{user_image_path}} (if YouTube Mode B, otherwise omit)
+
+      Store result as {{generation_result}}
+      </action>
+      <action>Note: If platform=YouTube AND include_user_image=y, input_image_path_1 will composite user's image into thumbnail</action>
+    </check>
 
     <action>Record end_time</action>
+    <action>Calculate: generation_time = end_time - start_time</action>
 
-    <action>Extract mcp_file_path from result</action>
+    <action>Extract file_path from generation_result</action>
+    <action>Store as {{mcp_file_path}}</action>
 
     <action>Copy to agent outputs:</action>
-    <action>Bash: cp "{{mcp_file_path}}" "{{output_folder}}/single-images/{{filename}}.png"</action>
+    <action>Bash: cp "{{mcp_file_path}}" "{{outputs_folder}}/single-images/{{filename}}.png"</action>
 
-    <action>Get file info: ls -lh</action>
+    <action>Get file info:</action>
+    <action>Bash: ls -lh "{{outputs_folder}}/single-images/{{filename}}.png" | awk '{print $5}'</action>
+    <action>Store as {{file_size}}</action>
+
+# Skills context: create-image skill provides 7-pillar quality framework knowledge
 
   - step: 6
-    goal: "Create metadata and present result"
+    goal: "Run 7-pillar quality evaluation (Emily's framework)"
 
-    <action>Create metadata JSON:</action>
+    <action>Display generated image location for review:</action>
+    <action>File: {{outputs_folder}}/single-images/{{filename}}.png</action>
+
+    <ask>Run 7-pillar quality evaluation? [y/skip]</ask>
+
+    <check if="yes">
+      <ask>Score the image on Emily's 7 pillars (1-10 each):
+
+      1. Clarity: Message understood in <3 seconds?
+      2. Technical Quality: Sharp, no artifacts?
+      3. Composition: Good balance, professional layout?
+      4. Color Accuracy: Matches hex codes specified?
+      5. Typography: Text legible, hierarchical? (or N/A if no text)
+      6. Professionalism: Enterprise-grade appearance?
+      7. Prompt Accuracy: All specified elements present?
+      </ask>
+
+      <action>Calculate overall_score = average of 7 pillars</action>
+
+      <action>Display: "Overall Score: {{overall_score}}/10"</action>
+
+      <check if="overall_score >= 9">
+        <action>Show: "🎉 EXCEPTIONAL quality! Emily-standard achieved!"</action>
+        <action>Recommend: Save JSON prompt as template for reuse</action>
+      </check>
+
+      <check if="overall_score >= 7 AND overall_score < 9">
+        <action>Show: "✅ GOOD quality - acceptable for publication"</action>
+      </check>
+
+      <check if="overall_score < 7">
+        <action>Show: "⚠️ Below quality threshold (7.0)"</action>
+        <action>Identify weak pillars (score < 7)</action>
+        <action>Suggest improvements to JSON prompt based on weak areas</action>
+        <ask>Regenerate with improvements? [y/n]</ask>
+        <check if="yes">
+          <ask>What specific changes to make?</ask>
+          <action>Update JSON sections</action>
+          <goto step="5">Regenerate with improved JSON</goto>
+        </check>
+      </check>
+    </check>
+
+  - step: 7
+    goal: "Create metadata and present final result"
+
+    <action>Create comprehensive metadata JSON:</action>
     <action>
-    Write: {{output_folder}}/single-images/{{filename}}_metadata.json
-    (Same structure as carousel metadata)
+    Write: {{outputs_folder}}/single-images/{{filename}}_metadata.json
+    Content: {
+      "filename": "{{filename}}.png",
+      "platform": "{{platform}}",
+      "style": "{{style_choice}}",
+      "size": "{{size}}",
+      "aspect_ratio": "{{aspect_ratio}}",
+      "mcp_tool_used": "{{mcp_tool_selected}}",
+      "generation_time_seconds": {{generation_time}},
+      "file_size": "{{file_size}}",
+      "json_prompt_used": {{image_json_prompt}},
+      "quality_scores": {
+        "clarity": {{clarity_score}},
+        "technical_quality": {{tech_score}},
+        "composition": {{comp_score}},
+        "color_accuracy": {{color_score}},
+        "typography": {{typo_score}},
+        "professionalism": {{prof_score}},
+        "prompt_accuracy": {{accuracy_score}},
+        "overall": {{overall_score}}
+      },
+      "timestamp": "{{ISO-8601 timestamp}}",
+      "methodology": "Emily's JSON framework via create-image skill"
+    }
     </action>
 
-    <action>Display result:</action>
+    <action>Display final result:</action>
     <action>
-    ✅ Image generated successfully!
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    ✅ Image Generation Complete!
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-    File: {{filename}}.png ({{file_size}}MB)
-    Location: {{output_folder}}/single-images/
+    File: {{filename}}.png ({{file_size}})
+    Location: {{outputs_folder}}/single-images/
     Time: {{generation_time}} seconds
-    Provider: OpenAI gpt-image-1
+    Provider: {{mcp_tool_selected}}
+    Quality: {{overall_score}}/10
+
+    Methodology: Emily's JSON framework
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     </action>
 
     <template-output>generation_complete</template-output>
 
-  - step: 7
-    goal: "Quality review and next actions"
+  - step: 8
+    goal: "Next actions"
 
     <ask>Would you like to:
-    1. Review quality (7-pillar scoring)
-    2. Generate caption and alt-text
+    1. Generate caption and alt-text
+    2. Edit/refine this image (use edit-image skill)
     3. Regenerate with changes
     4. Generate another image
     5. Done
     </ask>
 
     <check if="option 1">
-      <action>Run 7-pillar quality evaluation</action>
-      <action>Update metadata with scores</action>
-      <check if="score < 7">
-        <action>Recommend improvements</action>
-        <ask>Regenerate? [y/n]</ask>
-      </check>
+      <action>Analyze image content using vision</action>
+      <action>Generate platform-appropriate caption</action>
+      <action>Generate alt-text for accessibility (125 chars max)</action>
+      <action>Suggest 3-5 hashtags based on platform</action>
+      <action>Save to {{outputs_folder}}/single-images/{{filename}}_caption.md</action>
     </check>
 
+# Skills context: edit-image skill will auto-load for editing operations
+
     <check if="option 2">
-      <action>Analyze image content</action>
-      <action>Generate platform-appropriate caption</action>
-      <action>Generate alt-text for accessibility</action>
-      <action>Suggest 3-5 hashtags</action>
-      <action>Save to {{filename}}_caption.md</action>
+      <ask>What would you like to edit?
+      - Blur background
+      - Color correction
+      - Remove object
+      - Add element
+      - Enhance sharpness
+      - Other (describe)
+      </ask>
+
+      <action>Store edit instructions as {{edit_instructions}}</action>
+
+      <action>Execute edit using nanobanana (best-in-class for pixel-perfect editing):</action>
+      <action>
+      Tool: mcp__nanobanana__generate_image
+      Parameters:
+        prompt: {{edit_instructions}}
+        mode: "edit"
+        input_image_path_1: "{{outputs_folder}}/single-images/{{filename}}.png"
+        n: 1
+
+      Store result as {{edit_result}}
+      </action>
+
+      <action>Copy edited image to outputs:</action>
+      <action>Bash: cp "{{edit_result.file_path}}" "{{outputs_folder}}/single-images/{{filename}}_v2.png"</action>
+
+      <action>Show: "✅ Image edited successfully! Saved as {{filename}}_v2.png"</action>
     </check>
 
     <check if="option 3">
-      <ask>What changes?</ask>
-      <goto step="3">Update prompt and regenerate</goto>
+      <ask>What changes to make?</ask>
+      <action>Update JSON prompt sections</action>
+      <goto step="5">Regenerate with updated JSON</goto>
     </check>
 
     <check if="option 4">

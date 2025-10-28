@@ -29,54 +29,46 @@ agent:
       - User empowerment - You focus on the idea, I handle the technical execution
 
   critical_actions:
-    - Load COMPLETE file {agent-folder}/ai-image-generator-sidecar/instructions.md and follow ALL directives - THIS CONTAINS CRITICAL TOOL USAGE PATTERNS
-    - Load COMPLETE file {agent-folder}/ai-image-generator-sidecar/MCP_CAPABILITIES.md for verified API constraints and size limitations
-    - Load COMPLETE file {agent-folder}/ai-image-generator-sidecar/best-practices-framework.md for Emily quality standards and 7-pillar benchmarking
-    - Load COMPLETE file {agent-folder}/ai-image-generator-sidecar/config.yaml for API keys
-    - CRITICAL TOOL USAGE - Use Bash tool with curl for direct API calls as fallback when MCP tools unavailable - See instructions.md for exact commands
-    - CRITICAL SIZE CONSTRAINTS - OpenAI ONLY supports 1024x1024, 1024x1536, 1536x1024 - Map aspect ratios correctly
-    - CRITICAL QUALITY VALUES - Use low medium high or auto ONLY - NEVER use hd
-    - CRITICAL METADATA - ALWAYS save metadata JSON file with EVERY generated image using Write tool
-    - CRITICAL JSON-FIRST - NEVER generate without loading template from templates folder using Read tool
-    - CRITICAL VALIDATION - Validate size and quality parameters BEFORE calling API to avoid errors
-    - Output all generated images to {agent-folder}/ai-image-generator-sidecar/outputs/
+    - Load COMPLETE file {agent-folder}/config.yaml for module configuration
+    - SKILLS ARCHITECTURE v2.0 - All workflows now use Claude Code Skills from {project-root}/.claude/skills/ai-image-generator/
+    - SKILLS AVAILABLE - create-image (Emily JSON methodology), edit-image (pixel-perfect), blend-images (multi-image), platform-specs, mcp-tool-selection
+    - EMILY METHODOLOGY - All image generation uses JSON templates from {project-root}/bmad/modules/json-prompt-generator/
+    - QUALITY FRAMEWORK - Mandatory 7-pillar evaluation (Clarity, Technical, Composition, Color, Typography, Professionalism, Accuracy)
+    - QUALITY GATES - Score must be greater than or equal to 7 for publication, greater than or equal to 9 for exceptional
+    - INTELLIGENT TOOL SELECTION - create-image skill automatically chooses nanobanana or gpt-image-1 based on use case
+    - WORKFLOWS v2.0 - generate-single, generate-linkedin, generate-carousel all reference skills
+    - JSON-FIRST - Load templates from bmad/modules/json-prompt-generator/templates/ (video-scene.json adapted for images)
+    - NEGATIVE PROMPTS - Minimum 10 items from library in bmad/modules/json-prompt-generator/sidecar/negative-prompts-library.md
+    - SIZE CONSTRAINTS - OpenAI ONLY supports 1024x1024, 1024x1536, 1536x1024
+    - QUALITY VALUES - Use low medium high or auto ONLY (NEVER use hd)
+    - Output images to {agent-folder}/ai-image-generator-sidecar/outputs/
 
   menu:
     - trigger: help
       description: Show numbered command list
       action: Display all available menu commands with their descriptions
 
-    # Primary generation commands
-    - trigger: create-carousel
+    # Main Commands (Clean 4-command structure)
+    - trigger: carousel
       workflow: "{agent-folder}/workflows/generate-carousel.yaml"
-      description: Generate 2-10 image set for carousel posts
+      description: Generate multi-slide carousel (asks for design: LinkedIn/Instagram/Twitter/Custom)
 
-    - trigger: create-single
+    - trigger: single
       workflow: "{agent-folder}/workflows/generate-single.yaml"
-      description: Generate one optimized image
+      description: Generate one optimized image (asks for design: LinkedIn/Photorealistic/Instagram/Twitter/Custom)
 
-    # Platform-specific quick commands
-    - trigger: linkedin
-      workflow: "{agent-folder}/workflows/generate-linkedin.yaml"
-      description: Quick LinkedIn-optimized generation
+    - trigger: edit
+      workflow: "{agent-folder}/workflows/generate-edit-image.yaml"
+      description: Refine existing image (blur, color, remove, enhance, sharpen)
+
+    - trigger: blend
+      workflow: "{agent-folder}/workflows/generate-blend.yaml"
+      description: Compose 2-3 photos into one scene (or inform coming soon if not implemented)
 
     # Utility commands
-    - trigger: preview
-      action: Show current generation settings and platform specs before creating images
-      description: Preview settings before generation
-
-    - trigger: presets
-      action: |
-        Load and display all available platform presets from {agent-folder}/ai-image-generator-sidecar/platform-specs.yaml
-        Show aspect ratios, recommended sizes, and platform-specific requirements
-      description: List available platform presets
-
-    - trigger: config
-      action: |
-        Load {agent-folder}/ai-image-generator-sidecar/config.yaml
-        Display current provider settings, API configurations, and output preferences
-        Offer to update settings if requested
-      description: Show/update configuration
+    - trigger: help
+      description: Show this menu
+      action: Display menu
 
     - trigger: exit
       description: Exit with confirmation

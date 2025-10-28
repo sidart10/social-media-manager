@@ -9,6 +9,7 @@
 ### What I Changed in write-posts and write-scripts:
 
 **Line 128-133 (write-posts):**
+
 ```xml
 <action>Call AI API (OpenAI GPT-4 or Anthropic Claude):
   - Use OPENAI_API_KEY from environment
@@ -47,6 +48,7 @@
 ### Correct Approach Using social-media-mcp:
 
 **write-posts workflow Step 2:**
+
 ```xml
 <step n="2" goal="Generate base content using social-media-mcp">
   <action>Prepare instruction for social-media-mcp</action>
@@ -89,6 +91,7 @@
 ```
 
 **This would ACTUALLY work because:**
+
 - ✅ Calls real MCP tool
 - ✅ social-media-mcp is configured
 - ✅ create_post actually exists
@@ -102,6 +105,7 @@
 ### 1. Test social-media-mcp create_post
 
 **Test:**
+
 ```
 Tool: create_post
 Params: {
@@ -114,6 +118,7 @@ Expected: AI-generated LinkedIn post
 ```
 
 **Evaluate:**
+
 - Does it work?
 - What quality?
 - Can we layer voice-adaptation on it?
@@ -124,6 +129,7 @@ Expected: AI-generated LinkedIn post
 ### 2. Understand Multi-Agent Approach from Code You Shared
 
 **From the script-generation code:**
+
 - Research Agent → gathers facts
 - Title Agent → creates title
 - Hook Agent → creates hook (8 words for reels, 150 words for videos)
@@ -136,6 +142,7 @@ Expected: AI-generated LinkedIn post
 **Question:** Should we implement this multi-agent orchestration?
 
 **How:** Would need to build this into workflows
+
 - Either as series of Claude API calls
 - Or as series of prompts in sequence
 - Each step refines the previous
@@ -147,6 +154,7 @@ Expected: AI-generated LinkedIn post
 **You said:** "youtube mcp server which gets youtube scripts"
 
 **I need to find out:**
+
 - What tools does it expose?
 - Does it have script generation?
 - Does it have content tools?
@@ -160,6 +168,7 @@ Expected: AI-generated LinkedIn post
 
 1. **Restart Claude Code** - Load all MCPs
 2. **Test social-media-mcp create_post:**
+
    ```
    Try it with a simple instruction
    See what it generates
@@ -167,6 +176,7 @@ Expected: AI-generated LinkedIn post
    ```
 
 3. **Check youtube-uploader-mcp tools:**
+
    ```
    What tools does it actually provide?
    Does it help with script generation?
@@ -179,6 +189,7 @@ Expected: AI-generated LinkedIn post
 **Phase 2: Informed Workflow Updates (What I'll do after your tests)**
 
 Based on what you discover:
+
 - If social-media-mcp create_post is good → integrate it
 - If youtube-uploader has script tools → use those
 - If neither → implement multi-agent approach from code you shared
@@ -189,6 +200,7 @@ Based on what you discover:
 ## 💡 My Commitment
 
 **I will:**
+
 - ✅ Stop claiming things are "complete" until tested
 - ✅ Listen to your discoveries
 - ✅ Implement based on ACTUAL capabilities
@@ -196,6 +208,7 @@ Based on what you discover:
 - ✅ Be honest about what's ready vs what's not
 
 **I won't:**
+
 - ❌ Rush to "fix" things without understanding
 - ❌ Make assumptions about what works
 - ❌ Claim completion without validation
@@ -203,6 +216,7 @@ Based on what you discover:
 ---
 
 **What would you like to test first?**
+
 - social-media-mcp create_post?
 - youtube-uploader-mcp capabilities?
 - Something else?

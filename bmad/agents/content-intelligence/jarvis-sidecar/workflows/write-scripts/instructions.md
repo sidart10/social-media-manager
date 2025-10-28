@@ -9,16 +9,16 @@
   <!-- Check exists, load if found, offer to run learn-voice if not -->
   <!-- Extract voice characteristics for script adaptation -->
 
-  <template-output>voice_loaded</template-output>
+<template-output>voice_loaded</template-output>
 </step>
 
 <step n="1" goal="Load Idea Card and platform specs">
   <action>Load idea_card from {idea_card_id}</action>
   <action>Load platform specs for {target_platform}</action>
 
-  <action>Validate duration parameter:</action>
-  <check if="duration not in platform_specs.{target_platform}.script_lengths">
-    <ask>⚠️  {duration}s isn't standard for {target_platform}.
+<action>Validate duration parameter:</action>
+<check if="duration not in platform_specs.{target_platform}.script_lengths">
+<ask>⚠️ {duration}s isn't standard for {target_platform}.
 
     Standard lengths: {platform_specs.script_lengths}
 
@@ -29,9 +29,10 @@
 
     Select: [1/2/3]
     </ask>
+
   </check>
 
-  <action>**Load duration-specific GUIDELINES (not rigid rules):**
+<action>**Load duration-specific GUIDELINES (not rigid rules):**
 
     For {target_platform} @ {duration}s:
 
@@ -53,94 +54,112 @@
 
     Note: First 3 seconds are CRITICAL (retention hook)
     {/reels OR tiktok}
+
   </action>
 
-  <template-output>specs_loaded</template-output>
+<template-output>specs_loaded</template-output>
 </step>
 
-<step n="2" goal="Generate base script with AI">
-  <action>Prepare script generation context</action>
+<step n="2" goal="Generate script using autogen-script-generator Skill">
+  <action>Display: "Generating {duration}s {target_platform} script with multi-agent collaboration..."</action>
 
-  <action>Build generation prompt for AI:</action>
+  <action>**Prepare inputs for autogen-script-generator Skill:**
+    - Topic: {idea_card.title}
+    - Platform: {target_platform}
+    - Duration: {duration}
+    - Tone: {tone_override} OR {voice_profile.tone_description}
+    - Research file: {research_brief_path} (if available)
+    - Voice file: {voice_profile_location}
+  </action>
 
-  <action>**Script Generation Prompt:**
+  <action>**Invoke autogen-script-generator Skill:**
 
-    Generate a {duration}-second {target_platform} video script:
+    Generate a {duration}-second {target_platform} video script about "{idea_card.title}":
 
-    **Topic:** {idea_card.title}
-    **Style:** {idea_card.style}
-    **Tone:** {tone_override OR voice_profile.tone}
-
-    **Hook to use:** {idea_card.hook_line}
-
-    **Main points to cover:**
-    {idea_card.outline as numbered list}
-
-    **Call-to-action:** {idea_card.cta}
-
-    **Platform requirements:**
+    - Topic: {idea_card.title}
     - Platform: {target_platform}
     - Duration: {duration} seconds
-    - {platform_specific_requirements from config.yaml}
+    - Style: {idea_card.style}
+    - Hook: {idea_card.hook_line}
+    - Key points: {idea_card.outline}
+    - CTA: {idea_card.cta}
+    - Research: {research_brief_path}
+    - Voice profile: {voice_profile_location}
 
-    Generate a complete video script with:
-    - Engaging hook (first 3-5 seconds)
-    - Clear structure following the outline
-    - Smooth transitions between points
-    - Strong call-to-action
-    - Conversational, natural delivery
+    The Skill will determine script type and use appropriate agent team:
 
-    Include timing suggestions and visual direction cues.
+    For Reels/TikTok (≤90s):
+    - Research_Agent: Loads research
+    - Intro_Hook_Agent_Reel: Creates 8-word hook
+    - Content_Agent_Reel: Fast-paced content
+    - Tone_Agent_Reel: Engaging delivery
+    - Reviewer_Agent: Fact-checks
+
+    For YouTube (>90s):
+    - Research_Agent: Loads research
+    - Title_Agent: Creates title
+    - Intro_Hook_Agent: 150-word hook
+    - Content_Agent: Comprehensive content
+    - Tone_Agent: MKBHD conversational style
+    - Outro_Agent: Engagement CTA
+    - Reviewer_Agent: Validates accuracy
+
+    All agents apply voice profile for authentic delivery.
   </action>
 
-  <action>Call AI API (OpenAI GPT-4):
-    - Use OPENAI_API_KEY from environment
-    - Model: gpt-4o or gpt-4-turbo
-    - Temperature: 0.7
-    - Max tokens: 2000 for scripts (longer than posts)
+  <action>Display: "✓ Multi-agent system generated script with:"
+    - Platform-appropriate structure ✓
+    - Research evidence integrated ✓
+    - Voice profile applied ✓
+    - Natural conversational flow ✓
+    - Fact-checked for accuracy ✓
   </action>
 
-  <action>Receive generated script</action>
+  <action>Receive generated script from Skill</action>
 
-  <action>Display: "✓ Base script generated with AI"</action>
+  <note>The autogen-script-generator Skill already handles:
+    - Voice adaptation (vocabulary, speaking rhythm, tone)
+    - Evidence injection from research briefs
+    - Platform-specific script structure
+    - Multi-agent review and validation
+    - Natural spoken delivery patterns
 
-  <check if="inject_evidence == true">
-    <action>Enhance with evidence from idea_card:</action>
-    <action>For each main point in script, find matching evidence</action>
-    <action>Inject naturally:
-      - "As mentioned in [Source], [stat/quote]"
-      - "Research shows that [finding]"
-      - Keep citations conversational for video
-    </action>
-  </check>
+    No need for separate voice adaptation step!
+  </note>
 
-  <template-output>base_script_generated</template-output>
+<template-output>script_generated_with_skill</template-output>
 </step>
 
-<step n="3" goal="Apply voice adaptation">
-  <check if="voice_aware_mode == true">
-    <action>Adapt script to user's authentic voice</action>
-    <!-- Same voice matching as write-posts:
-         - Vocabulary matching
-         - Sentence structure
-         - Tone adjustment
-         - Spoken patterns (if YouTube voice analyzed)
-    -->
+<step n="3" goal="Review and refine generated script">
+  <action>Display generated script to user</action>
 
-    <check if="voice_profile includes spoken_voice">
-      <action>Extra adjustments for video:</action>
-      <action>Apply conversational markers from spoken voice:
-        - User's natural transitions
-        - Filler words (if user uses them naturally)
-        - Speaking rhythm
-        - Teaching patterns
-      </action>
-    </check>
+  <action>Review script quality:
+    - Hook is attention-grabbing ✓
+    - Structure matches platform ✓
+    - Evidence naturally integrated ✓
+    - Voice matches speaking style ✓
+    - Timing feels natural ✓
+  </action>
 
-    <action>Display: "✓ Script adapted to match your speaking style"</action>
+  <ask>Script generated! Would you like to:
+    1. Use it as-is (recommended - multi-agent reviewed)
+    2. Make manual adjustments
+    3. Regenerate with different parameters
+
+    Select: [1/2/3]
+  </ask>
+
+  <check if="option 2 selected">
+    <ask>What would you like to adjust?</ask>
+    <action>Apply user's requested changes</action>
   </check>
 
-  <template-output>voice_adapted_script</template-output>
+  <check if="option 3 selected">
+    <action>Ask for new parameters</action>
+    <action>Re-invoke autogen-script-generator Skill</action>
+  </check>
+
+<template-output>script_finalized</template-output>
 </step>
 
 <step n="4" goal="Add timing and structure">
@@ -321,6 +340,7 @@
     </action>
 
     <template-output>youtube_script_complete</template-output>
+
   </check>
 
   <!-- REELS/TIKTOK SCRIPT (Detailed Fast-Paced Structure) -->
@@ -535,9 +555,10 @@
     </action>
 
     <template-output>reels_tiktok_script_complete</template-output>
+
   </check>
 
-  <template-output>timing_and_visuals_added</template-output>
+<template-output>timing_and_visuals_added</template-output>
 </step>
 
 <step n="5" goal="Generate hook variants">
@@ -596,30 +617,20 @@
     </action>
 
     <template-output>variants_generated</template-output>
+
   </check>
 </step>
 
 <step n="6" goal="Create handoff package and metadata">
   <action>Compile metadata for video production:</action>
 
-  <action>**Production Metadata:**
-    - Duration: {duration}s
-    - Platform: {target_platform}
-    - Script word count: {word_count}
-    - Estimated production time: {production_estimate}
-    - Complexity: {complexity_rating}
-  </action>
+<action>**Production Metadata:** - Duration: {duration}s - Platform: {target_platform} - Script word count: {word_count} - Estimated production time: {production_estimate} - Complexity: {complexity_rating}
+</action>
 
-  <action>**Video-Specific:**
-    - Title: {video_title} (from idea_card, < 100 chars for YouTube)
-    - Description: {video_description}
-    - Thumbnail suggestions: {thumbnail_ideas}
-    - Tags/Hashtags: {tags}
-    - Music/Audio: {audio_recommendations}
-    - Visual assets needed: {asset_list}
-  </action>
+<action>**Video-Specific:** - Title: {video_title} (from idea_card, < 100 chars for YouTube) - Description: {video_description} - Thumbnail suggestions: {thumbnail_ideas} - Tags/Hashtags: {tags} - Music/Audio: {audio_recommendations} - Visual assets needed: {asset_list}
+</action>
 
-  <action>**Create Handoff Package:**
+<action>**Create Handoff Package:**
 
     {
       "content_type": "{platform}_script",
@@ -666,9 +677,9 @@
 
   </action>
 
-  <action>Save to: {handoff_file}</action>
+<action>Save to: {handoff_file}</action>
 
-  <template-output>handoff_created</template-output>
+<template-output>handoff_created</template-output>
 </step>
 
 <step n="7" goal="Present final output">
@@ -708,9 +719,10 @@
     - Want to adjust? → Tell me what to change
 
     **Posting Tip:** {posting_tip}
+
   </action>
 
-  <template-output>workflow_complete</template-output>
+<template-output>workflow_complete</template-output>
 </step>
 
 </workflow>

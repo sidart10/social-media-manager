@@ -19,8 +19,8 @@
     <action>Set research_loaded = false</action>
   </check>
 
-  <action>Display to user:
-    💡 Idea Generation Started
+<action>Display to user:
+💡 Idea Generation Started
 
     Topic: {seed_topic}
     Target platforms: {target_platforms}
@@ -28,32 +28,34 @@
     Style: {style}
 
     Generating evidence-backed Idea Cards...
+
   </action>
 
-  <template-output>session_initialized</template-output>
+<template-output>session_initialized</template-output>
 </step>
 
 <step n="2" goal="Gather intelligence (if no research file)">
   <check if="research_loaded == false">
-    <action>Perform quick research on {seed_topic}</action>
+    <action>Perform quick research on {seed_topic} to gather key findings and examples.</action>
 
     <check if="use_trends == true">
-      <action>Tool: social_media_mcp/get_trending_topics</action>
-      <action>Extract relevant trends</action>
+      <action>Get trending topics and hashtags related to {seed_topic} for timeliness and relevance.</action>
+      <!-- Claude invokes social-media-research Skill automatically -->
     </check>
 
-    <action>Tool: exa_mcp/web_search_exa</action>
-    <action>Parameters: query={seed_topic}, max_results=10</action>
-    <action>Extract key findings and examples</action>
+    <action>Conduct quick web search for key insights, statistics, and recent examples about {seed_topic}.</action>
+    <!-- Claude invokes deep-web-research Skill automatically -->
 
-    <action>Store findings for idea generation</action>
+    <action>Track evidence with sources for idea backing.</action>
+    <!-- Claude invokes evidence-tracker Skill automatically -->
+
   </check>
 
   <check if="research_loaded == true">
     <action>Skip - using research file findings</action>
   </check>
 
-  <template-output>intelligence_gathered</template-output>
+<template-output>intelligence_gathered</template-output>
 </step>
 
 <step n="3" goal="Analyze competitors (if URLs provided)">
@@ -71,74 +73,56 @@
     </action>
 
     <action>Store gap analysis for idea generation</action>
+
   </check>
 
-  <template-output>competitor_analysis_complete</template-output>
+<template-output>competitor_analysis_complete</template-output>
 </step>
 
 <step n="4" goal="Generate Idea Cards">
   <action>Based on research + trends + gaps, generate {idea_count} Idea Cards</action>
 
-  <action>For each idea, create structured card:</action>
+<action>For each idea, create structured card:</action>
 
-  <action>**1. Title & Hook**
-    - Compelling title (specific, not generic)
-    - Hook line (scroll-stopping opening)
-    - Hook type: question|number|story|reveal|imperative
-  </action>
+<action>**1. Title & Hook** - Compelling title (specific, not generic) - Hook line (scroll-stopping opening) - Hook type: question|number|story|reveal|imperative
+</action>
 
-  <action>**2. Outline (Beats)**
-    - 3-7 beats (main points)
-    - Each beat = 1 key idea
-    - Logical flow (setup → insight → payoff)
-  </action>
+<action>**2. Outline (Beats)** - 3-7 beats (main points) - Each beat = 1 key idea - Logical flow (setup → insight → payoff)
+</action>
 
-  <action>**3. Evidence**
-    - Supporting data/stats from research
-    - Expert quotes
-    - Examples/case studies
-    - All with source URLs
-  </action>
+<action>**3. Evidence** - Supporting data/stats from research - Expert quotes - Examples/case studies - All with source URLs
+</action>
 
-  <action>**4. Platform Recommendation**
-    - Best platform(s) for this idea
-    - Why: format fit + audience match
-    - Estimated engagement potential
-  </action>
+<action>**4. Platform Recommendation** - Best platform(s) for this idea - Why: format fit + audience match - Estimated engagement potential
+</action>
 
-  <action>**5. CTA**
-    - Call-to-action appropriate for platform
-    - Examples: question, share prompt, engagement driver
-  </action>
+<action>**5. CTA** - Call-to-action appropriate for platform - Examples: question, share prompt, engagement driver
+</action>
 
-  <action>**6. Metadata**
-    - Target audience level
-    - Content type (tutorial|opinion|story|etc)
-    - Estimated production time
-    - Hashtags/tags
-  </action>
+<action>**6. Metadata** - Target audience level - Content type (tutorial|opinion|story|etc) - Estimated production time - Hashtags/tags
+</action>
 
-  <action>Ensure variety:</action>
-  <action>- Mix of hook types (not all questions)</action>
-  <action>- Mix of platforms (if target_platforms = all)</action>
-  <action>- Mix of content types (if style = mixed)</action>
-  <action>- Range of difficulty (beginner to advanced)</action>
+<action>Ensure variety:</action>
+<action>- Mix of hook types (not all questions)</action>
+<action>- Mix of platforms (if target_platforms = all)</action>
+<action>- Mix of content types (if style = mixed)</action>
+<action>- Range of difficulty (beginner to advanced)</action>
 
-  <template-output>idea_cards_generated</template-output>
+<template-output>idea_cards_generated</template-output>
 </step>
 
 <step n="5" goal="Create hook pack">
   <action>Extract all hooks from generated Idea Cards</action>
   <action>Generate 3 variants for top 3-5 hooks</action>
 
-  <action>Variant types:</action>
-  <action>- Different hook type (question → number)</action>
-  <action>- Different angle (same idea, different framing)</action>
-  <action>- Emotion-driven (add urgency, curiosity, FOMO)</action>
+<action>Variant types:</action>
+<action>- Different hook type (question → number)</action>
+<action>- Different angle (same idea, different framing)</action>
+<action>- Emotion-driven (add urgency, curiosity, FOMO)</action>
 
-  <action>Result: 10-15 hooks ready for A/B testing</action>
+<action>Result: 10-15 hooks ready for A/B testing</action>
 
-  <template-output>hook_pack_created</template-output>
+<template-output>hook_pack_created</template-output>
 </step>
 
 <step n="6" goal="Build content calendar (optional)">
@@ -155,9 +139,10 @@
     <action>- Mix platforms (don't post same platform every day)</action>
     <action>- Mix content types (variety keeps audience engaged)</action>
     <action>- Consider production time (don't schedule all complex ideas first)</action>
+
   </check>
 
-  <template-output>calendar_created</template-output>
+<template-output>calendar_created</template-output>
 </step>
 
 <step n="7" goal="Save and present outputs">
@@ -165,7 +150,7 @@
   <action>Use template: {installed_path}/templates/idea-card.md for each card</action>
   <action>Save to: {default_output_file}</action>
 
-  <action>Display to user:
+<action>Display to user:
 
     ✅ Idea Generation Complete!
 
@@ -198,9 +183,10 @@
     "{top_idea_title}"
     Platform: {top_idea_platform}
     Why: {top_idea_reasoning}
+
   </action>
 
-  <template-output>workflow_complete</template-output>
+<template-output>workflow_complete</template-output>
 </step>
 
 </workflow>

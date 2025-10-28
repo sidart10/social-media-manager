@@ -1,0 +1,59 @@
+{
+  "video_scene": {
+    "scene_metadata": {
+      "scene_id": "ai_agents_002_tool_evolution",
+      "scene_name": "Tool Evolution - Stone to Digital",
+      "scene_number": 2,
+      "duration_target_sec": 3
+    },
+
+    "scene_description": {
+      "environment": "Dark presentation background with three minimalist white silhouette figures showing tool evolution",
+      "visual_elements": "Three iconic figures: 1) Stone age person chiseling, 2) Industrial worker with hammer at workbench, 3) Modern person at computer desk",
+      "layout": "Horizontal progression with arrows between figures",
+      "text": "Stone Era → Industrial Era → Digital Era"
+    },
+
+    "cinematography": {
+      "shot_type": "Wide shot showing all three eras",
+      "camera_movement": "Slow pan left to right following evolution",
+      "lens": { "type": "35mm Prime", "aperture_f": 4.0 },
+      "iso": 400
+    },
+
+    "lighting_design": {
+      "lighting_style": "Clean presentation lighting, minimal shadows",
+      "key_light": { "source": "Soft overhead neutral 5500K", "quality": "Soft even" },
+      "mood": "Educational, clear, professional"
+    },
+
+    "color_and_grade": {
+      "color_palette": {
+        "hex_codes": ["#0A0A0A", "#FFFFFF", "#00D4FF"],
+        "color_names": ["black background", "white silhouettes", "cyan accents"]
+      },
+      "grade_style": "High contrast monochrome with cyan highlights"
+    },
+
+    "composition": {
+      "aspect_ratio": "16:9",
+      "resolution": "1920x1080"
+    },
+
+    "typography": {
+      "text": "Humans build tools to do more.",
+      "position": "Top of frame",
+      "font": "Inter Bold 42px white"
+    },
+
+    "negative_prompt": [
+      "photorealistic people, detailed environments",
+      "colorful, bright, vibrant colors",
+      "3D rendered, CGI characters",
+      "cluttered, busy, detailed backgrounds",
+      "cartoon style, comic book",
+      "low contrast, muddy colors",
+      "text illegible, poor typography"
+    ]
+  }
+}

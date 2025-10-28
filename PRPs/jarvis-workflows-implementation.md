@@ -17,6 +17,7 @@
 ### Current State
 
 **Agent Structure Complete:**
+
 - ✅ Jarvis agent YAML created (`jarvis.agent.yaml`)
 - ✅ Sidecar structure created (`jarvis-sidecar/`)
 - ✅ Config, instructions, memories files created
@@ -24,6 +25,7 @@
 - ✅ Knowledge base initialized
 
 **Infrastructure Available:**
+
 - ✅ Apify API key configured (`.env`)
 - ✅ Twitter API Client module (production-ready)
 - ✅ LinkedIn API Client module (production-ready)
@@ -32,6 +34,7 @@
 - ✅ AI Image Generator (creates visuals)
 
 **What We Need:**
+
 - ❌ 7 workflow implementations (YAML + instructions + templates)
 - ❌ Apify MCP integration (proper tool syntax)
 - ❌ Cost tracking system (estimate + log)
@@ -51,6 +54,7 @@ Build **Jarvis** - a content intelligence powerhouse that:
 7. **Provides** competitive intelligence and gap analysis
 
 **Critical Boundaries:**
+
 - ✅ Jarvis researches, analyzes, ideates, and creates
 - ❌ Jarvis does NOT post (that's Social Posting Agent)
 - ❌ Jarvis does NOT create videos (that's AI Video Agent)
@@ -63,23 +67,19 @@ Build **Jarvis** - a content intelligence powerhouse that:
 ### Must Have (MVP) - 7 Core Workflows
 
 **Phase 1: Foundation (No Dependencies)**
+
 1. `research-topic` - Multi-source topic research
 
-**Phase 2: Analysis (Uses Phase 1)**
-2. `analyze-profile` - Profile intelligence (ALL platforms via Apify + direct APIs)
+**Phase 2: Analysis (Uses Phase 1)** 2. `analyze-profile` - Profile intelligence (ALL platforms via Apify + direct APIs)
 
-**Phase 3: Voice Intelligence (Uses Phase 2)**
-3. `learn-voice` - Build user's personal voice profile
+**Phase 3: Voice Intelligence (Uses Phase 2)** 3. `learn-voice` - Build user's personal voice profile
 
-**Phase 4: Strategy (Uses Phase 2-3)**
-4. `competitive-analysis` - Multi-profile comparison
-5. `generate-ideas` - Evidence-backed Idea Cards
+**Phase 4: Strategy (Uses Phase 2-3)** 4. `competitive-analysis` - Multi-profile comparison 5. `generate-ideas` - Evidence-backed Idea Cards
 
-**Phase 5: Creation (Uses Phase 3-4)**
-6. `write-posts` - Social media posts (LinkedIn, Twitter, Instagram) in user's voice
-7. `write-scripts` - Video scripts (YouTube, Reels, TikTok) in user's voice
+**Phase 5: Creation (Uses Phase 3-4)** 6. `write-posts` - Social media posts (LinkedIn, Twitter, Instagram) in user's voice 7. `write-scripts` - Video scripts (YouTube, Reels, TikTok) in user's voice
 
 **Each Workflow Must Have:**
+
 - ✅ workflow.yaml (complete with all variables defined)
 - ✅ instructions.md (BMAD XML format, step-by-step)
 - ✅ Templates (markdown with clear variable placeholders)
@@ -96,6 +96,7 @@ Build **Jarvis** - a content intelligence powerhouse that:
 ### Updated MCP Server Stack (Cost-Optimized)
 
 **Tier 1: FREE (Always Try First)**
+
 - **youtube-mcp-server** - YouTube analysis (10k units/day)
 - **youtube-transcript** - Video transcripts (unlimited)
 - **script-generation-mcp** - Multi-agent script writing (local)
@@ -103,11 +104,13 @@ Build **Jarvis** - a content intelligence powerhouse that:
 - **linkedin-api-client** - YOUR LinkedIn OAuth (your account)
 
 **Tier 2: LOW-COST (Specialized Tools)**
+
 - **linkedin-mcp** - LinkedIn analysis (RapidAPI)
 - **exa-mcp** - Deep research (paid API)
 - **social-media-mcp** - Trends (uses Brave + OpenAI)
 
 **Tier 3: APIFY (Pay-Per-Use, Only When Necessary)**
+
 - **apify_mcp** - Master gateway to 5000+ scrapers
   - Twitter/X: `xtdata/twitter-x-scraper` (~$0.40/1k tweets)
   - Instagram: `apify/instagram-scraper` (~$0.50/1k posts)
@@ -117,6 +120,7 @@ Build **Jarvis** - a content intelligence powerhouse that:
 ### Apify MCP Tool Syntax (CRITICAL)
 
 **Real tools available in Apify MCP:**
+
 1. `search-actors` - Find actors in Apify Store
 2. `fetch-actor-details` - Get actor requirements/inputs
 3. `call-actor` - Execute actor with parameters
@@ -242,17 +246,18 @@ notes_file: '{sessions_folder}/research-{topic}-notes-{{date}}.md'
   <action>Note name: "session_metadata"</action>
   <action>Content: Topic={{topic}}, Depth={{depth}}, Date={{date}}</action>
 
-  <action>Display to user:
-    🔍 Research Session Started
+<action>Display to user:
+🔍 Research Session Started
 
     Topic: {{topic}}
     Depth: {{depth}}
     Focus: {{focus_areas}}
 
     I'll gather intelligence from multiple sources and compile actionable insights.
+
   </action>
 
-  <template-output>session_initialized</template-output>
+<template-output>session_initialized</template-output>
 </step>
 
 <step n="2" goal="Quick trend scan (Tier 2 - Low cost)">
@@ -279,9 +284,10 @@ notes_file: '{sessions_folder}/research-{topic}-notes-{{date}}.md'
       <action>Log: "social_media_mcp unavailable - skipping trend scan"</action>
       <action>Continue to next step (graceful degradation)</action>
     </check>
+
   </check>
 
-  <template-output>trend_research</template-output>
+<template-output>trend_research</template-output>
 </step>
 
 <step n="3" goal="Deep web research (Tier 2 - Cost varies by depth)">
@@ -315,6 +321,7 @@ notes_file: '{sessions_folder}/research-{topic}-notes-{{date}}.md'
       <action>Log: "exa_mcp deep researcher unavailable, falling back to web search"</action>
       <action>Continue with standard depth approach</action>
     </check>
+
   </check>
 
   <check if="depth == 'standard' OR depth == 'quick' OR deep_research_failed">
@@ -337,9 +344,10 @@ notes_file: '{sessions_folder}/research-{topic}-notes-{{date}}.md'
       <action>Log: "exa_mcp completely unavailable"</action>
       <action>Suggest: "Manual research or try again later"</action>
     </check>
+
   </check>
 
-  <template-output>web_research_complete</template-output>
+<template-output>web_research_complete</template-output>
 </step>
 
 <step n="4" goal="Find real examples from YouTube (Tier 1 - FREE)">
@@ -371,9 +379,10 @@ notes_file: '{sessions_folder}/research-{topic}-notes-{{date}}.md'
     </action>
 
     <action>Display: "Analyzed {{video_count}} YouTube videos for examples"</action>
+
   </check>
 
-  <template-output>youtube_examples</template-output>
+<template-output>youtube_examples</template-output>
 </step>
 
 <step n="5" goal="Synthesize all research">
@@ -381,95 +390,53 @@ notes_file: '{sessions_folder}/research-{topic}-notes-{{date}}.md'
   <action>Parameters: style="detailed"</action>
   <action>Result: Comprehensive summary of all gathered intelligence</action>
 
-  <action>Organize findings into 5 categories:</action>
+<action>Organize findings into 5 categories:</action>
 
-  <action>**1. Trends & Timing**
-    - What's happening NOW with {{topic}}
-    - Why it's relevant/trending
-    - Future predictions
-    - Source: [URLs]
-  </action>
+<action>**1. Trends & Timing** - What's happening NOW with {{topic}} - Why it's relevant/trending - Future predictions - Source: [URLs]
+</action>
 
-  <action>**2. Data & Statistics**
-    - Hard numbers, percentages, metrics
-    - Growth rates, market size
-    - Survey results
-    - Source: [URLs]
-  </action>
+<action>**2. Data & Statistics** - Hard numbers, percentages, metrics - Growth rates, market size - Survey results - Source: [URLs]
+</action>
 
-  <action>**3. Examples & Case Studies**
-    - Real-world applications
-    - Success stories
-    - How others use/discuss this
-    - Source: [URLs + timestamps]
-  </action>
+<action>**3. Examples & Case Studies** - Real-world applications - Success stories - How others use/discuss this - Source: [URLs + timestamps]
+</action>
 
-  <action>**4. Quotes & Expert Opinions**
-    - Attributed quotes from research
-    - Expert perspectives
-    - Contrarian views
-    - Source: [URLs]
-  </action>
+<action>**4. Quotes & Expert Opinions** - Attributed quotes from research - Expert perspectives - Contrarian views - Source: [URLs]
+</action>
 
-  <action>**5. Gaps & Opportunities**
-    - What's NOT being discussed
-    - Overlooked angles
-    - Underserved audiences
-    - Rationale: [Why this is a gap]
-  </action>
+<action>**5. Gaps & Opportunities** - What's NOT being discussed - Overlooked angles - Underserved audiences - Rationale: [Why this is a gap]
+</action>
 
-  <action>For EACH finding, include:
-    - The finding itself
-    - Source URL
-    - Timestamp (if video)
-    - Confidence: high|medium|low (based on source quality + recency)
-  </action>
+<action>For EACH finding, include: - The finding itself - Source URL - Timestamp (if video) - Confidence: high|medium|low (based on source quality + recency)
+</action>
 
-  <template-output>synthesized_research</template-output>
+<template-output>synthesized_research</template-output>
 </step>
 
 <step n="6" goal="Generate content angles">
   <action>Based on synthesized research, brainstorm 10-12 ways to approach {{topic}}</action>
 
-  <action>Content angle types to consider:</action>
+<action>Content angle types to consider:</action>
 
-  <action>**Educational:**
-    1. Tutorial: "How to [do topic]"
-    2. Beginner: "[Topic] explained simply"
-    3. Advanced: "Deep dive: [Subtopic]"
-  </action>
+<action>**Educational:** 1. Tutorial: "How to [do topic]" 2. Beginner: "[Topic] explained simply" 3. Advanced: "Deep dive: [Subtopic]"
+</action>
 
-  <action>**Analytical:**
-    4. Teardown: "Breaking down [example]"
-    5. Comparison: "[Approach A] vs [Approach B]"
-    6. Data: "X surprising stats about [topic]"
-  </action>
+<action>**Analytical:** 4. Teardown: "Breaking down [example]" 5. Comparison: "[Approach A] vs [Approach B]" 6. Data: "X surprising stats about [topic]"
+</action>
 
-  <action>**Opinion/Perspective:**
-    7. Opinion: "Why [hot take]"
-    8. Controversy: "The [topic] debate"
-    9. Prediction: "The future of [topic]"
-  </action>
+<action>**Opinion/Perspective:** 7. Opinion: "Why [hot take]" 8. Controversy: "The [topic] debate" 9. Prediction: "The future of [topic]"
+</action>
 
-  <action>**Experiential:**
-    10. Story: "When I tried [topic]..."
-    11. Mistakes: "X common [topic] mistakes"
-  </action>
+<action>**Experiential:** 10. Story: "When I tried [topic]..." 11. Mistakes: "X common [topic] mistakes"
+</action>
 
-  <action>**Trend-Focused:**
-    12. Trend: "Why everyone's talking about [topic]"
-  </action>
+<action>**Trend-Focused:** 12. Trend: "Why everyone's talking about [topic]"
+</action>
 
-  <action>For EACH angle, provide:
-    - Angle title (specific, compelling)
-    - Brief description (1-2 sentences)
-    - Best platform(s) (YouTube/LinkedIn/Twitter/Reels/Instagram/TikTok)
-    - Target audience level (beginner/intermediate/advanced)
-    - Supporting research points (which findings from step 5 support this)
-    - Confidence: high|medium|low
-  </action>
+<action>For EACH angle, provide: - Angle title (specific, compelling) - Brief description (1-2 sentences) - Best platform(s) (YouTube/LinkedIn/Twitter/Reels/Instagram/TikTok) - Target audience level (beginner/intermediate/advanced) - Supporting research points (which findings from step 5 support this) - Confidence: high|medium|low
+</action>
 
-  <template-output>content_angles</template-output>
+<template-output>content_angles</template-output>
 </step>
 
 <step n="7" goal="Save and present outputs">
@@ -484,7 +451,7 @@ notes_file: '{sessions_folder}/research-{topic}-notes-{{date}}.md'
     - Confidence score
   </action>
 
-  <action>Save to {{default_output_file}}</action>
+<action>Save to {{default_output_file}}</action>
 
   <check if="output_format == 'idea-cards'">
     <action>Convert top 5-10 content angles into Idea Cards</action>
@@ -504,7 +471,7 @@ notes_file: '{sessions_folder}/research-{topic}-notes-{{date}}.md'
     <action>Save to {{notes_file}}</action>
   </check>
 
-  <action>Display to user:
+<action>Display to user:
 
     ✅ Research Complete: {{topic}}
 
@@ -526,9 +493,10 @@ notes_file: '{sessions_folder}/research-{topic}-notes-{{date}}.md'
     - Pick angle(s) that resonate
     - Use /generate-ideas to develop into Idea Cards
     - Use /analyze-profile to see how competitors cover this
+
   </action>
 
-  <template-output>workflow_complete</template-output>
+<template-output>workflow_complete</template-output>
 </step>
 
 </workflow>
@@ -620,10 +588,11 @@ notes_file: '{sessions_folder}/research-{topic}-notes-{{date}}.md'
 All findings backed by sources:
 
 {#evidence_items}
+
 - [{evidence_title}]({evidence_url}) {#timestamp}@ {timestamp}{/timestamp}
   - {evidence_snippet}
   - Confidence: {confidence_level}
-{/evidence_items}
+    {/evidence_items}
 
 ---
 
@@ -631,12 +600,16 @@ All findings backed by sources:
 
 **To develop ideas from this research:**
 ```
+
 /generate-ideas seed_topic="{topic}" use_research_file="{this_file}"
+
 ```
 
 **To see how competitors handle this topic:**
 ```
+
 /analyze-profile url="competitor_url"
+
 ```
 
 ---
@@ -720,25 +693,21 @@ default_output_file: '{sessions_folder}/profile-analysis-{platform}-{handle}-{{d
 <step n="1" goal="Detect platform and validate URL">
   <action>Parse {{profile_url}} to extract platform and handle/ID</action>
 
-  <action>Platform detection patterns:
-    - twitter.com OR x.com → platform = "twitter"
-    - instagram.com → platform = "instagram"
-    - tiktok.com → platform = "tiktok"
-    - linkedin.com/in/ → platform = "linkedin"
-    - youtube.com/@handle OR /channel/ → platform = "youtube"
-  </action>
+<action>Platform detection patterns: - twitter.com OR x.com → platform = "twitter" - instagram.com → platform = "instagram" - tiktok.com → platform = "tiktok" - linkedin.com/in/ → platform = "linkedin" - youtube.com/@handle OR /channel/ → platform = "youtube"
+</action>
 
-  <action>Extract handle/username from URL</action>
-  <action>Store: {{platform}}, {{handle}}</action>
+<action>Extract handle/username from URL</action>
+<action>Store: {{platform}}, {{handle}}</action>
 
-  <action>Display to user:
-    🔍 Platform detected: {{platform}}
-    👤 Profile: {{handle}}
+<action>Display to user:
+🔍 Platform detected: {{platform}}
+👤 Profile: {{handle}}
 
     Analyzing last {{window_days}} days of content...
+
   </action>
 
-  <template-output>platform_detected</template-output>
+<template-output>platform_detected</template-output>
 </step>
 
 <step n="2" goal="Fetch content using cost-optimized approach">
@@ -809,6 +778,7 @@ default_output_file: '{sessions_folder}/profile-analysis-{platform}-{handle}-{{d
         <action>Return partial results: "Analysis incomplete - YouTube data unavailable"</action>
       </check>
     </check>
+
   </check>
 
   <!-- LINKEDIN (Tier 2 - Low cost via RapidAPI) -->
@@ -833,6 +803,7 @@ default_output_file: '{sessions_folder}/profile-analysis-{platform}-{handle}-{{d
       <action>Log: "linkedin-mcp unavailable"</action>
       <action>Suggest fallback: "Use exa_mcp/linkedin_search for basic info OR Apify"</action>
     </check>
+
   </check>
 
   <!-- TWITTER (Tier 1 if yours, Tier 3 if competitor) -->
@@ -908,6 +879,7 @@ default_output_file: '{sessions_folder}/profile-analysis-{platform}-{handle}-{{d
         <action>Exit workflow</action>
       </check>
     </check>
+
   </check>
 
   <!-- INSTAGRAM (Tier 3 - Apify only, no free alternative) -->
@@ -956,6 +928,7 @@ default_output_file: '{sessions_folder}/profile-analysis-{platform}-{handle}-{{d
       <action>Return: "Analysis cancelled"</action>
       <action>Exit workflow</action>
     </check>
+
   </check>
 
   <!-- TIKTOK (Tier 3 - Apify only) -->
@@ -978,9 +951,10 @@ default_output_file: '{sessions_folder}/profile-analysis-{platform}-{handle}-{{d
       <action>Parse: videos[], views, likes, comments, profile_data</action>
       <action>Log cost</action>
     </check>
+
   </check>
 
-  <template-output>content_fetched</template-output>
+<template-output>content_fetched</template-output>
 </step>
 
 <step n="3" goal="Extract top performers">
@@ -988,81 +962,61 @@ default_output_file: '{sessions_folder}/profile-analysis-{platform}-{handle}-{{d
   <action>Normalize by follower count (if available)</action>
   <action>Select top 10 performers</action>
 
-  <action>For each top post, extract:
-    - Content (text/title/caption)
-    - Metrics (likes, comments, shares, views)
-    - Engagement rate (%)
-    - Timestamp/date posted
-    - Format (text, image, video, carousel, reel)
-    - URL (direct link to post/video)
-  </action>
+<action>For each top post, extract: - Content (text/title/caption) - Metrics (likes, comments, shares, views) - Engagement rate (%) - Timestamp/date posted - Format (text, image, video, carousel, reel) - URL (direct link to post/video)
+</action>
 
-  <action>Store as structured data for pattern analysis</action>
+<action>Store as structured data for pattern analysis</action>
 
-  <template-output>top_performers_extracted</template-output>
+<template-output>top_performers_extracted</template-output>
 </step>
 
 <step n="4" goal="Mine content patterns">
   <action>Analyze top 10 performers for patterns</action>
 
-  <action>**Hook Pattern Analysis:**
-    Count and categorize opening lines:
-    - Question hooks: Starts with Why/How/What/Do/Have/Can
-    - Number hooks: Starts with digit or "X ways/things/tools"
-    - Story hooks: Starts with "I/When I/Last week/Yesterday"
-    - Reveal hooks: "The secret/Nobody tells/Here's what"
-    - Imperative hooks: Starts with verb (Learn/Discover/Stop/Start)
+<action>**Hook Pattern Analysis:**
+Count and categorize opening lines: - Question hooks: Starts with Why/How/What/Do/Have/Can - Number hooks: Starts with digit or "X ways/things/tools" - Story hooks: Starts with "I/When I/Last week/Yesterday" - Reveal hooks: "The secret/Nobody tells/Here's what" - Imperative hooks: Starts with verb (Learn/Discover/Stop/Start)
 
     Calculate % distribution
     Identify most common type
     Extract 2-3 example hooks for each type found
+
   </action>
 
-  <action>**Topic Clustering:**
-    Extract main topic/theme from each post
-    Group by similarity (keyword matching)
-    Identify 5-8 topic clusters
-    Count frequency per cluster
-    Rank by engagement
-  </action>
+<action>**Topic Clustering:**
+Extract main topic/theme from each post
+Group by similarity (keyword matching)
+Identify 5-8 topic clusters
+Count frequency per cluster
+Rank by engagement
+</action>
 
-  <action>**Format Distribution:**
-    Categorize each post by format
-    Calculate percentages:
-    - Text-only: X%
-    - Image/photo: Y%
-    - Video (short < 3min): Z%
-    - Video (long > 3min): W%
-    - Carousel/gallery: V%
+<action>**Format Distribution:**
+Categorize each post by format
+Calculate percentages: - Text-only: X% - Image/photo: Y% - Video (short < 3min): Z% - Video (long > 3min): W% - Carousel/gallery: V%
 
     Note which format has highest avg engagement
+
   </action>
 
-  <action>**Timing Patterns:**
-    For each post, extract:
-    - Day of week (Mon-Sun)
-    - Hour of day (0-23)
+<action>**Timing Patterns:**
+For each post, extract: - Day of week (Mon-Sun) - Hour of day (0-23)
 
     Identify:
     - Most common posting days
     - Most common posting hours
     - Best performing times (engagement correlation)
+
   </action>
 
-  <action>**CTA Pattern Recognition:**
-    Extract call-to-action from each post
-    Identify common CTAs:
-    - "Comment below"
-    - "Share if you agree"
-    - "Follow for more"
-    - "Tag someone who needs this"
-    - "Save this for later"
-    - Question-based CTAs
+<action>**CTA Pattern Recognition:**
+Extract call-to-action from each post
+Identify common CTAs: - "Comment below" - "Share if you agree" - "Follow for more" - "Tag someone who needs this" - "Save this for later" - Question-based CTAs
 
     Note most common + most effective
+
   </action>
 
-  <template-output>patterns_mined</template-output>
+<template-output>patterns_mined</template-output>
 </step>
 
 <step n="5" goal="Extract transcript insights (YouTube/TikTok only)">
@@ -1089,6 +1043,7 @@ default_output_file: '{sessions_folder}/profile-analysis-{platform}-{handle}-{{d
 
     <action>Summarize common patterns across transcripts</action>
     <action>Cost: $0 (youtube-transcript is FREE)</action>
+
   </check>
 
   <check if="platform == 'tiktok'">
@@ -1096,63 +1051,38 @@ default_output_file: '{sessions_folder}/profile-analysis-{platform}-{handle}-{{d
     <action>Analyze from video titles and captions instead</action>
   </check>
 
-  <template-output>transcript_insights</template-output>
+<template-output>transcript_insights</template-output>
 </step>
 
 <step n="6" goal="Generate profile summary">
   <action>Compile comprehensive profile summary</action>
   <action>Load template: {installed_path}/templates/profile-summary.md</action>
 
-  <action>Fill template sections:</action>
+<action>Fill template sections:</action>
 
-  <action>**Profile Overview:**
-    - Platform: {{platform}}
-    - Handle: @{{handle}}
-    - Followers/Subscribers: {{follower_count}}
-    - Bio/Description: {{bio}}
-    - Posting cadence: {{posts_per_week}} posts/week
-    - Analysis window: {{window_days}} days
-    - Posts analyzed: {{posts_analyzed}}
-  </action>
+<action>**Profile Overview:** - Platform: {{platform}} - Handle: @{{handle}} - Followers/Subscribers: {{follower_count}} - Bio/Description: {{bio}} - Posting cadence: {{posts_per_week}} posts/week - Analysis window: {{window_days}} days - Posts analyzed: {{posts_analyzed}}
+</action>
 
-  <action>**Content Strategy:**
-    - Content mix: {{format_percentages}}
-    - Top topics: {{top_5_topics}}
-    - Hook preference: {{most_common_hook_type}} ({{percentage}}%)
-    - Posting rhythm: {{best_days}} at {{best_times}}
-    - CTA style: {{common_cta_pattern}}
-  </action>
+<action>**Content Strategy:** - Content mix: {{format_percentages}} - Top topics: {{top_5_topics}} - Hook preference: {{most_common_hook_type}} ({{percentage}}%) - Posting rhythm: {{best_days}} at {{best_times}} - CTA style: {{common_cta_pattern}}
+</action>
 
-  <action>**What Works (Top 3):**
-    - Best format: {{top_format}} ({{engagement_lift}} vs average)
-    - Best topic: {{top_topic}} ({{avg_engagement}})
-    - Best hook type: {{top_hook}} with examples
-    - Best posting time: {{optimal_time}}
-  </action>
+<action>**What Works (Top 3):** - Best format: {{top_format}} ({{engagement_lift}} vs average) - Best topic: {{top_topic}} ({{avg_engagement}}) - Best hook type: {{top_hook}} with examples - Best posting time: {{optimal_time}}
+</action>
 
-  <action>**Evidence:**
-    List all top 10 posts with:
-    - Title/text snippet
-    - URL (clickable)
-    - Engagement metrics
-    - Why it worked (format + topic + hook combo)
-  </action>
+<action>**Evidence:**
+List all top 10 posts with: - Title/text snippet - URL (clickable) - Engagement metrics - Why it worked (format + topic + hook combo)
+</action>
 
-  <template-output>profile_summary_compiled</template-output>
+<template-output>profile_summary_compiled</template-output>
 </step>
 
 <step n="7" goal="Generate actionable recommendations">
   <action>Based on patterns, create 5-7 specific recommendations</action>
 
-  <action>Each recommendation must have:
-    - **Finding:** What the data shows
-    - **Evidence:** Specific examples with links
-    - **Recommendation:** What to do
-    - **Expected impact:** Predicted outcome
-    - **Confidence:** high|medium|low
-  </action>
+<action>Each recommendation must have: - **Finding:** What the data shows - **Evidence:** Specific examples with links - **Recommendation:** What to do - **Expected impact:** Predicted outcome - **Confidence:** high|medium|low
+</action>
 
-  <action>Example structure:
+<action>Example structure:
 
     **Recommendation 1: Format**
     Finding: Video posts drive 3.2x engagement vs text posts
@@ -1165,7 +1095,7 @@ default_output_file: '{sessions_folder}/profile-analysis-{platform}-{handle}-{{d
 
   </action>
 
-  <template-output>recommendations_generated</template-output>
+<template-output>recommendations_generated</template-output>
 </step>
 
 <step n="8" goal="Save outputs and present">
@@ -1173,7 +1103,7 @@ default_output_file: '{sessions_folder}/profile-analysis-{platform}-{handle}-{{d
   <action>Use template: {installed_path}/templates/profile-summary.md</action>
   <action>Save to: {{default_output_file}}</action>
 
-  <action>Display to user:
+<action>Display to user:
 
     ✅ Profile Analysis Complete!
 
@@ -1195,9 +1125,10 @@ default_output_file: '{sessions_folder}/profile-analysis-{platform}-{handle}-{{d
     1. Review full report
     2. Use /generate-ideas to create content based on these patterns
     3. Use /competitive-analysis to compare with competitors
+
   </action>
 
-  <template-output>workflow_complete</template-output>
+<template-output>workflow_complete</template-output>
 </step>
 
 </workflow>
@@ -1227,7 +1158,7 @@ mcp_tools_required:
   - youtube_mcp_server: [get_channel_videos]
   - youtube_transcript: [get_transcript]
   - linkedin_mcp: [fetch_and_save_linkedin_posts, get_saved_posts]
-  - apify_mcp: [call-actor, get-actor-output]  # Fallback only
+  - apify_mcp: [call-actor, get-actor-output] # Fallback only
 
 # Custom Modules (FREE for user's own account)
 custom_modules:
@@ -1268,22 +1199,22 @@ voice_profile_location: '{agent-folder}/memories.md'
 <step n="1" goal="Gather user's profile URLs">
   <ask>I'll analyze your writing to match your authentic voice!
 
-  Please provide your profile URLs (need at least 1, ideally 2-3):
+Please provide your profile URLs (need at least 1, ideally 2-3):
 
-  1. Twitter: Your @handle or profile URL
-  2. LinkedIn: Your profile URL
-  3. YouTube: Your channel URL (I'll analyze your spoken voice too)
+1. Twitter: Your @handle or profile URL
+2. LinkedIn: Your profile URL
+3. YouTube: Your channel URL (I'll analyze your spoken voice too)
 
-  Note: I need at least {{min_posts_required}} posts total for accurate analysis.
+Note: I need at least {{min_posts_required}} posts total for accurate analysis.
 
-  Provide URLs (one per line or comma-separated):
-  </ask>
+Provide URLs (one per line or comma-separated):
+</ask>
 
-  <action>Parse provided URLs</action>
-  <action>Extract platforms and handles</action>
-  <action>Store: {{platforms_provided}}, {{handles}}</action>
+<action>Parse provided URLs</action>
+<action>Extract platforms and handles</action>
+<action>Store: {{platforms_provided}}, {{handles}}</action>
 
-  <template-output>profiles_collected</template-output>
+<template-output>profiles_collected</template-output>
 </step>
 
 <step n="2" goal="Fetch YOUR content (cost-optimized)">
@@ -1321,6 +1252,7 @@ voice_profile_location: '{agent-folder}/memories.md'
         (I'll parse the content)
       </action>
     </check>
+
   </check>
 
   <!-- LINKEDIN - Use linkedin-mcp (Tier 2 - Low cost) -->
@@ -1338,6 +1270,7 @@ voice_profile_location: '{agent-folder}/memories.md'
     <check if="fails">
       <action>Fallback: Use Apify linkedin scraper (estimate cost, ask approval)</action>
     </check>
+
   </check>
 
   <!-- YOUTUBE - Use FREE API (Tier 1) -->
@@ -1351,9 +1284,10 @@ voice_profile_location: '{agent-folder}/memories.md'
     </action>
 
     <action>Display: "✓ Analyzed {{video_count}} YouTube transcripts (FREE)"</action>
+
   </check>
 
-  <action>Total posts collected: {{total_posts}}</action>
+<action>Total posts collected: {{total_posts}}</action>
 
   <check if="total_posts < min_posts_required">
     <ask>⚠️  Only collected {{total_posts}} posts. Need {{min_posts_required}}+ for accurate voice profile.
@@ -1365,72 +1299,48 @@ voice_profile_location: '{agent-folder}/memories.md'
 
     Select: [1/2/3]
     </ask>
+
   </check>
 
-  <template-output>content_collected</template-output>
+<template-output>content_collected</template-output>
 </step>
 
 <step n="3" goal="Analyze writing patterns">
   <action>Display: "Analyzing your writing style across {{total_posts}} posts..."</action>
 
-  <action>**Vocabulary Analysis:**
-    - Technical term frequency (count specialized words)
-    - Complexity level: simple|moderate|advanced
-      • Simple: < 10% technical terms, short sentences
-      • Moderate: 10-30% technical terms, mixed length
-      • Advanced: > 30% technical terms, complex sentences
-    - Jargon vs accessible language ratio
-    - Common word choices (create frequency map)
-  </action>
+<action>**Vocabulary Analysis:** - Technical term frequency (count specialized words) - Complexity level: simple|moderate|advanced
+• Simple: < 10% technical terms, short sentences
+• Moderate: 10-30% technical terms, mixed length
+• Advanced: > 30% technical terms, complex sentences - Jargon vs accessible language ratio - Common word choices (create frequency map)
+</action>
 
-  <action>**Sentence Structure Analysis:**
-    - Calculate average sentence length (words)
-    - Count short (< 10 words) vs long (> 20 words) sentences
-    - Identify rhythm pattern:
-      • Staccato: Mostly short sentences
-      • Flowing: Mostly long sentences
-      • Varied: Mix of short and long (most engaging)
-    - Note sentence complexity (simple vs compound vs complex)
-  </action>
+<action>**Sentence Structure Analysis:** - Calculate average sentence length (words) - Count short (< 10 words) vs long (> 20 words) sentences - Identify rhythm pattern:
+• Staccato: Mostly short sentences
+• Flowing: Mostly long sentences
+• Varied: Mix of short and long (most engaging) - Note sentence complexity (simple vs compound vs complex)
+</action>
 
-  <action>**Tone Marker Extraction:**
-    - Formality indicators: "Furthermore" vs "Plus", "Utilize" vs "Use"
-    - Humor presence: Jokes, sarcasm, self-deprecation count
-    - Enthusiasm markers: Exclamation points, caps, energetic words ("amazing", "excited")
-    - Personal vs professional: "I think" vs "Research shows"
-    - Calculate tone score: 1-10 (1=very formal, 10=very casual)
-  </action>
+<action>**Tone Marker Extraction:** - Formality indicators: "Furthermore" vs "Plus", "Utilize" vs "Use" - Humor presence: Jokes, sarcasm, self-deprecation count - Enthusiasm markers: Exclamation points, caps, energetic words ("amazing", "excited") - Personal vs professional: "I think" vs "Research shows" - Calculate tone score: 1-10 (1=very formal, 10=very casual)
+</action>
 
-  <action>**Signature Phrase Extraction:**
-    - Find phrases used 3+ times
-    - Common transitions: "here's the thing", "but", "so", "and"
-    - Opening phrases: How user starts posts
-    - Closing phrases: How user ends posts
-    - Filler patterns: "actually", "basically", "literally"
-    - Create ranked list by frequency
-  </action>
+<action>**Signature Phrase Extraction:** - Find phrases used 3+ times - Common transitions: "here's the thing", "but", "so", "and" - Opening phrases: How user starts posts - Closing phrases: How user ends posts - Filler patterns: "actually", "basically", "literally" - Create ranked list by frequency
+</action>
 
-  <action>**Emoji Usage Analysis:**
-    - Count emoji frequency: never|rare|moderate|heavy
-      • Never: 0 emojis
-      • Rare: < 0.5 per post
-      • Moderate: 1-2 per post
-      • Heavy: 3+ per post
-    - Placement pattern: beginning|middle|end|scattered
-    - Type preferences: professional (📊📈) vs playful (🎉😊) vs specific meanings (🚀💡)
-  </action>
+<action>**Emoji Usage Analysis:** - Count emoji frequency: never|rare|moderate|heavy
+• Never: 0 emojis
+• Rare: < 0.5 per post
+• Moderate: 1-2 per post
+• Heavy: 3+ per post - Placement pattern: beginning|middle|end|scattered - Type preferences: professional (📊📈) vs playful (🎉😊) vs specific meanings (🚀💡)
+</action>
 
-  <action>**Hook Preference Identification:**
-    - Categorize user's natural hooks (from their actual posts)
-    - Calculate distribution:
-      • Question hooks: X%
-      • Number hooks: Y%
-      • Story hooks: Z%
-      • Statement hooks: W%
-    - Identify natural tendency (which type user gravitates to)
-  </action>
+<action>**Hook Preference Identification:** - Categorize user's natural hooks (from their actual posts) - Calculate distribution:
+• Question hooks: X%
+• Number hooks: Y%
+• Story hooks: Z%
+• Statement hooks: W% - Identify natural tendency (which type user gravitates to)
+</action>
 
-  <template-output>patterns_analyzed</template-output>
+<template-output>patterns_analyzed</template-output>
 </step>
 
 <step n="4" goal="Detect platform variations">
@@ -1452,6 +1362,7 @@ voice_profile_location: '{agent-folder}/memories.md'
       - Teaching mode indicators
       - Note: "Spoken voice is more [casual/explanatory/energetic]"
     </action>
+
   </check>
 
   <check if="only one platform">
@@ -1459,13 +1370,13 @@ voice_profile_location: '{agent-folder}/memories.md'
     <action>Suggest: "For more accurate profile, provide LinkedIn/Twitter/YouTube URLs"</action>
   </check>
 
-  <template-output>platform_variations_detected</template-output>
+<template-output>platform_variations_detected</template-output>
 </step>
 
 <step n="5" goal="Build comprehensive voice profile">
   <action>Compile all findings into voice profile structure</action>
 
-  <action>**Voice Profile Format:**
+<action>**Voice Profile Format:**
 
     # Voice Profile: {{user_name}}
 
@@ -1582,12 +1493,12 @@ voice_profile_location: '{agent-folder}/memories.md'
 
   </action>
 
-  <action>Save voice profile to memories.md (replace "Voice Profile" section)</action>
-  <action>Update voice_profile_status in memories.md: "complete"</action>
-  <action>Update voice_profile_date: {{date}}</action>
-  <action>Update confidence_score: {{confidence}}</action>
+<action>Save voice profile to memories.md (replace "Voice Profile" section)</action>
+<action>Update voice_profile_status in memories.md: "complete"</action>
+<action>Update voice_profile_date: {{date}}</action>
+<action>Update confidence_score: {{confidence}}</action>
 
-  <template-output>voice_profile_saved</template-output>
+<template-output>voice_profile_saved</template-output>
 </step>
 
 <step n="6" goal="Present results to user">
@@ -1623,9 +1534,10 @@ voice_profile_location: '{agent-folder}/memories.md'
     - Use /write-posts or /write-scripts
     - Content will match your style automatically
     - Re-run /learn-voice after 50+ new posts to refine
+
   </action>
 
-  <template-output>workflow_complete</template-output>
+<template-output>workflow_complete</template-output>
 </step>
 
 </workflow>
@@ -1681,10 +1593,11 @@ default_output_file: '{sessions_folder}/idea-cards-{seed_topic}-{{date}}.md'
 ```
 
 **(Full instructions.md similar to original PRP but with:**
+
 - Cost estimation before any Apify calls
 - Uses research-topic output if provided
 - Can invoke analyze-profile for competitors
-- Logs all API costs)**
+- Logs all API costs)\*\*
 
 ---
 
@@ -1783,6 +1696,7 @@ handoff_file: '{output_folder}/{platform}-post-handoff-{{date}}.json'
       <action>Set voice_aware_mode = false</action>
       <action>Continue</action>
     </check>
+
   </check>
 
   <check if="voice profile EXISTS">
@@ -1800,25 +1714,19 @@ handoff_file: '{output_folder}/{platform}-post-handoff-{{date}}.json'
     <action>Set voice_aware_mode = true</action>
 
     <action>Display: "✓ Voice profile loaded (Confidence: {{voice_confidence}}/10)"</action>
+
   </check>
 
-  <template-output>voice_loaded</template-output>
+<template-output>voice_loaded</template-output>
 </step>
 
 <step n="1" goal="Load Idea Card">
   <action>Load idea_card data from {{idea_card_id}} OR {{idea_card_file}}</action>
 
-  <action>Extract from Idea Card:
-    - title
-    - hook_line
-    - outline (beats array)
-    - cta
-    - evidence_items (array)
-    - style (tutorial|opinion|story|etc)
-    - recommended_platforms
-  </action>
+<action>Extract from Idea Card: - title - hook_line - outline (beats array) - cta - evidence_items (array) - style (tutorial|opinion|story|etc) - recommended_platforms
+</action>
 
-  <action>Validate target_platform is in recommended_platforms</action>
+<action>Validate target_platform is in recommended_platforms</action>
 
   <check if="target_platform NOT recommended">
     <ask>⚠️  Idea Card recommends {{recommended_platforms}}, but you selected {{target_platform}}.
@@ -1830,27 +1738,23 @@ handoff_file: '{output_folder}/{platform}-post-handoff-{{date}}.json'
 
     Select: [1/2/3]
     </ask>
+
   </check>
 
-  <template-output>idea_card_loaded</template-output>
+<template-output>idea_card_loaded</template-output>
 </step>
 
 <step n="2" goal="Generate base content with script-generation-mcp">
   <action>Prepare inputs for script generation</action>
 
-  <action>Build context for script_generation_mcp:
-    - Topic: {{idea_card.title}}
-    - Keywords: {{idea_card.hashtags}} + key terms from outline
-    - Style: {{idea_card.style}}
-    - Tone: {{tone_override}} OR {{voice_profile.tone_description}}
-    - Additional context: {{idea_card.why_now}}
-  </action>
+<action>Build context for script_generation_mcp: - Topic: {{idea_card.title}} - Keywords: {{idea_card.hashtags}} + key terms from outline - Style: {{idea_card.style}} - Tone: {{tone_override}} OR {{voice_profile.tone_description}} - Additional context: {{idea_card.why_now}}
+</action>
 
-  <action>Tool: script_generation_mcp/script_generate</action>
-  <action>Parameters: topic={{topic}}, keywords={{keywords}}</action>
-  <action>Result: Generated content (multi-agent refined)</action>
+<action>Tool: script_generation_mcp/script_generate</action>
+<action>Parameters: topic={{topic}}, keywords={{keywords}}</action>
+<action>Result: Generated content (multi-agent refined)</action>
 
-  <action>Display: "✓ Base content generated by script-generation-mcp"</action>
+<action>Display: "✓ Base content generated by script-generation-mcp"</action>
 
   <check if="inject_evidence == true">
     <action>For each main point in generated content:</action>
@@ -1862,7 +1766,7 @@ handoff_file: '{output_folder}/{platform}-post-handoff-{{date}}.json'
     <action>Keep citations natural, not forced</action>
   </check>
 
-  <template-output>base_content_generated</template-output>
+<template-output>base_content_generated</template-output>
 </step>
 
 <step n="3" goal="Apply voice adaptation (if voice profile loaded)">
@@ -1907,13 +1811,14 @@ handoff_file: '{output_folder}/{platform}-post-handoff-{{date}}.json'
     <action>Result: Content that sounds like {{user_name}} wrote it</action>
 
     <action>Display: "✓ Voice-adapted to match your style"</action>
+
   </check>
 
   <check if="voice_aware_mode == false">
     <action>Display: "ℹ️  Using neutral voice (run /learn-voice for personalization)"</action>
   </check>
 
-  <template-output>voice_adapted</template-output>
+<template-output>voice_adapted</template-output>
 </step>
 
 <step n="4" goal="Format for target platform (Adaptive Guidelines)">
@@ -1982,6 +1887,7 @@ handoff_file: '{output_folder}/{platform}-post-handoff-{{date}}.json'
     </action>
 
     <template-output>linkedin_post_formatted</template-output>
+
   </check>
 
   <!-- TWITTER POST (Adaptive: Long-form vs Thread) -->
@@ -2111,6 +2017,7 @@ handoff_file: '{output_folder}/{platform}-post-handoff-{{date}}.json'
     </check>
 
     <template-output>twitter_post_formatted</template-output>
+
   </check>
 
   <!-- INSTAGRAM CAPTION -->
@@ -2159,9 +2066,10 @@ handoff_file: '{output_folder}/{platform}-post-handoff-{{date}}.json'
     </action>
 
     <template-output>instagram_caption_formatted</template-output>
+
   </check>
 
-  <template-output>platform_content_formatted</template-output>
+<template-output>platform_content_formatted</template-output>
 </step>
 
 <step n="5" goal="Generate hook variants (optional)">
@@ -2192,24 +2100,19 @@ handoff_file: '{output_folder}/{platform}-post-handoff-{{date}}.json'
     <action>Display all 3 variants to user for selection</action>
 
     <template-output>hook_variants_generated</template-output>
+
   </check>
 </step>
 
 <step n="6" goal="Generate metadata and handoff package">
   <action>Compile metadata:</action>
 
-  <action>**For All Platforms:**
-    - Hashtags: {{hashtag_list}}
-    - Character count: {{char_count}}
-    - Word count: {{word_count}}
-    - Estimated reading time: {{reading_time}}
-    - Optimal posting time: {{platform_best_time}}
-    - Evidence sources: {{evidence_urls}}
-  </action>
+<action>**For All Platforms:** - Hashtags: {{hashtag_list}} - Character count: {{char_count}} - Word count: {{word_count}} - Estimated reading time: {{reading_time}} - Optimal posting time: {{platform_best_time}} - Evidence sources: {{evidence_urls}}
+</action>
 
-  <action>**Create Handoff Package for Social Posting Agent:**</action>
+<action>**Create Handoff Package for Social Posting Agent:**</action>
 
-  <action>JSON structure:
+<action>JSON structure:
 
     {
       "content_type": "{{platform}}_post",
@@ -2244,16 +2147,16 @@ handoff_file: '{output_folder}/{platform}-post-handoff-{{date}}.json'
 
   </action>
 
-  <action>Save handoff package to: {{handoff_file}}</action>
+<action>Save handoff package to: {{handoff_file}}</action>
 
-  <template-output>handoff_package_created</template-output>
+<template-output>handoff_package_created</template-output>
 </step>
 
 <step n="7" goal="Save and present final output">
   <action>Save formatted post to: {{default_output_file}}</action>
   <action>Save handoff JSON to: {{handoff_file}}</action>
 
-  <action>Display to user:
+<action>Display to user:
 
     ✅ {{platform}} Post Ready!
 
@@ -2283,9 +2186,10 @@ handoff_file: '{output_folder}/{platform}-post-handoff-{{date}}.json'
     - Or adjust and regenerate
 
     **Posting Tip:** {{posting_tip}}
+
   </action>
 
-  <template-output>workflow_complete</template-output>
+<template-output>workflow_complete</template-output>
 </step>
 
 </workflow>
@@ -2313,7 +2217,7 @@ installed_path: '{agent-folder}/workflows/write-scripts'
 # MCP Tools
 mcp_tools_required:
   - script_generation_mcp: [script_generate, add_note]
-  - youtube_transcript: [get_transcript]  # For inspiration from similar videos
+  - youtube_transcript: [get_transcript] # For inspiration from similar videos
 
 # Inputs
 inputs:
@@ -2356,16 +2260,16 @@ handoff_file: '{output_folder}/{platform}-script-handoff-{{date}}.json'
   <!-- Check exists, load if found, offer to run learn-voice if not -->
   <!-- Extract voice characteristics for script adaptation -->
 
-  <template-output>voice_loaded</template-output>
+<template-output>voice_loaded</template-output>
 </step>
 
 <step n="1" goal="Load Idea Card and platform specs">
   <action>Load idea_card from {{idea_card_id}}</action>
   <action>Load platform specs for {{target_platform}}</action>
 
-  <action>Validate duration parameter:</action>
-  <check if="duration not in platform_specs.{{target_platform}}.script_lengths">
-    <ask>⚠️  {{duration}}s isn't standard for {{target_platform}}.
+<action>Validate duration parameter:</action>
+<check if="duration not in platform_specs.{{target_platform}}.script_lengths">
+<ask>⚠️ {{duration}}s isn't standard for {{target_platform}}.
 
     Standard lengths: {{platform_specs.script_lengths}}
 
@@ -2376,9 +2280,10 @@ handoff_file: '{output_folder}/{platform}-script-handoff-{{date}}.json'
 
     Select: [1/2/3]
     </ask>
+
   </check>
 
-  <action>**Load duration-specific GUIDELINES (not rigid rules):**
+<action>**Load duration-specific GUIDELINES (not rigid rules):**
 
     For {{target_platform}} @ {{duration}}s:
 
@@ -2400,24 +2305,20 @@ handoff_file: '{output_folder}/{platform}-script-handoff-{{date}}.json'
 
     Note: First 3 seconds are CRITICAL (retention hook)
     {{/reels OR tiktok}}
+
   </action>
 
-  <template-output>specs_loaded</template-output>
+<template-output>specs_loaded</template-output>
 </step>
 
 <step n="2" goal="Generate base script">
   <action>Prepare script generation context</action>
 
-  <action>Tool: script_generation_mcp/script_generate</action>
-  <action>Parameters:
-    - topic: {{idea_card.title}}
-    - keywords: {{idea_card.hashtags}} + outline terms
-    - style: {{idea_card.style}}
-    - tone: {{tone_override}} OR {{voice_profile.tone}}
-    - format: "video script for {{target_platform}}, {{duration}} seconds"
-  </action>
+<action>Tool: script_generation_mcp/script_generate</action>
+<action>Parameters: - topic: {{idea_card.title}} - keywords: {{idea_card.hashtags}} + outline terms - style: {{idea_card.style}} - tone: {{tone_override}} OR {{voice_profile.tone}} - format: "video script for {{target_platform}}, {{duration}} seconds"
+</action>
 
-  <action>Result: Generated script (multi-agent refined)</action>
+<action>Result: Generated script (multi-agent refined)</action>
 
   <check if="inject_evidence == true">
     <action>Enhance with evidence from idea_card:</action>
@@ -2429,7 +2330,7 @@ handoff_file: '{output_folder}/{platform}-script-handoff-{{date}}.json'
     </action>
   </check>
 
-  <template-output>base_script_generated</template-output>
+<template-output>base_script_generated</template-output>
 </step>
 
 <step n="3" goal="Apply voice adaptation">
@@ -2453,9 +2354,10 @@ handoff_file: '{output_folder}/{platform}-script-handoff-{{date}}.json'
     </check>
 
     <action>Display: "✓ Script adapted to match your speaking style"</action>
+
   </check>
 
-  <template-output>voice_adapted_script</template-output>
+<template-output>voice_adapted_script</template-output>
 </step>
 
 <step n="4" goal="Add timing and structure">
@@ -2496,6 +2398,7 @@ handoff_file: '{output_folder}/{platform}-script-handoff-{{date}}.json'
       - On-screen graphics needed: {{graphics_list}}
       - B-roll clips needed: {{broll_list}}
     </action>
+
   </check>
 
   <check if="target_platform == 'reels' OR 'tiktok'">
@@ -2527,9 +2430,10 @@ handoff_file: '{output_folder}/{platform}-script-handoff-{{date}}.json'
       - Hashtag strategy: {{hashtag_recommendations}}
       - Audio: Trending sound OR original
     </action>
+
   </check>
 
-  <template-output>timing_and_visuals_added</template-output>
+<template-output>timing_and_visuals_added</template-output>
 </step>
 
 <step n="5" goal="Generate hook variants">
@@ -2539,30 +2443,20 @@ handoff_file: '{output_folder}/{platform}-script-handoff-{{date}}.json'
     <!-- All voice-adapted -->
 
     <template-output>variants_generated</template-output>
+
   </check>
 </step>
 
 <step n="6" goal="Create handoff package and metadata">
   <action>Compile metadata for video production:</action>
 
-  <action>**Production Metadata:**
-    - Duration: {{duration}}s
-    - Platform: {{target_platform}}
-    - Script word count: {{word_count}}
-    - Estimated production time: {{production_estimate}}
-    - Complexity: {{complexity_rating}}
-  </action>
+<action>**Production Metadata:** - Duration: {{duration}}s - Platform: {{target_platform}} - Script word count: {{word_count}} - Estimated production time: {{production_estimate}} - Complexity: {{complexity_rating}}
+</action>
 
-  <action>**Video-Specific:**
-    - Title: {{video_title}} (from idea_card, < 100 chars for YouTube)
-    - Description: {{video_description}}
-    - Thumbnail suggestions: {{thumbnail_ideas}}
-    - Tags/Hashtags: {{tags}}
-    - Music/Audio: {{audio_recommendations}}
-    - Visual assets needed: {{asset_list}}
-  </action>
+<action>**Video-Specific:** - Title: {{video_title}} (from idea_card, < 100 chars for YouTube) - Description: {{video_description}} - Thumbnail suggestions: {{thumbnail_ideas}} - Tags/Hashtags: {{tags}} - Music/Audio: {{audio_recommendations}} - Visual assets needed: {{asset_list}}
+</action>
 
-  <action>**Create Handoff Package:**
+<action>**Create Handoff Package:**
 
     {
       "content_type": "{{platform}}_script",
@@ -2609,9 +2503,9 @@ handoff_file: '{output_folder}/{platform}-script-handoff-{{date}}.json'
 
   </action>
 
-  <action>Save to: {{handoff_file}}</action>
+<action>Save to: {{handoff_file}}</action>
 
-  <template-output>handoff_created</template-output>
+<template-output>handoff_created</template-output>
 </step>
 
 <step n="7" goal="Present final output">
@@ -2651,9 +2545,10 @@ handoff_file: '{output_folder}/{platform}-script-handoff-{{date}}.json'
     - Want to adjust? → Tell me what to change
 
     **Posting Tip:** {{posting_tip}}
+
   </action>
 
-  <template-output>workflow_complete</template-output>
+<template-output>workflow_complete</template-output>
 </step>
 
 </workflow>
@@ -2678,7 +2573,7 @@ installed_path: '{agent-folder}/workflows/competitive-analysis'
 
 # MCP Tools (Inherits from analyze-profile)
 mcp_tools_required:
-  - apify_mcp: [call-actor, get-actor-output]  # For multiple profiles
+  - apify_mcp: [call-actor, get-actor-output] # For multiple profiles
   - youtube_mcp_server: [get_channel_details, get_channel_videos]
   - linkedin_mcp: [fetch_and_save_linkedin_posts, get_top_posts]
 
@@ -2720,6 +2615,7 @@ default_output_file: '{sessions_folder}/competitive-analysis-{{date}}.md'
 Execute workflows in THIS ORDER (respects dependencies):
 
 ### Phase 1: Foundation (No Dependencies)
+
 - [ ] **Task 1-3:** Build `research-topic` workflow (30 min)
   - workflow.yaml
   - instructions.md
@@ -2727,6 +2623,7 @@ Execute workflows in THIS ORDER (respects dependencies):
   - Test with a topic
 
 ### Phase 2: Analysis (Uses Phase 1 optionally)
+
 - [ ] **Task 4-6:** Build `analyze-profile` workflow (45 min)
   - workflow.yaml (with ALL platforms: Twitter, Instagram, TikTok, LinkedIn, YouTube)
   - instructions.md (with Apify integration, cost tracking)
@@ -2734,6 +2631,7 @@ Execute workflows in THIS ORDER (respects dependencies):
   - Test with YouTube (free), then Instagram (paid, small cost)
 
 ### Phase 3: Voice Intelligence (CRITICAL - Uses Phase 2)
+
 - [ ] **Task 7-9:** Build `learn-voice` workflow (30 min)
   - workflow.yaml
   - instructions.md (fetch user's posts, analyze patterns, build profile)
@@ -2741,6 +2639,7 @@ Execute workflows in THIS ORDER (respects dependencies):
   - Test by analyzing YOUR profiles
 
 ### Phase 4: Strategy (Uses Phase 2)
+
 - [ ] **Task 10-12:** Build `generate-ideas` workflow (30 min)
   - workflow.yaml
   - instructions.md (can use research-topic output, can invoke analyze-profile)
@@ -2754,6 +2653,7 @@ Execute workflows in THIS ORDER (respects dependencies):
   - Test with 1 your profile + 2 competitors
 
 ### Phase 5: Creation (REQUIRES Phase 3 - Voice Profile)
+
 - [ ] **Task 16-18:** Build `write-posts` workflow (45 min)
   - workflow.yaml
   - instructions.md (loads voice profile, adapts content, flexible Twitter logic)
@@ -2767,6 +2667,7 @@ Execute workflows in THIS ORDER (respects dependencies):
   - Test: Generate 60s YouTube script
 
 ### Phase 6: Integration & Validation
+
 - [ ] **Task 22:** Integration test - full pipeline (30 min)
 - [ ] **Task 23:** Test handoff to Social Posting Agent (15 min)
 - [ ] **Task 24:** Test cost tracking accuracy (15 min)
@@ -2781,66 +2682,49 @@ Execute workflows in THIS ORDER (respects dependencies):
 ### MVP Complete When:
 
 **Agent Structure:**
+
 1. ✅ Jarvis agent YAML valid and loadable
 2. ✅ Sidecar structure complete with all files
 3. ✅ Config.yaml has all MCP servers and platform specs
 
-**All 7 Workflows Built:**
-4. ✅ research-topic works (generates research briefs)
-5. ✅ analyze-profile works (ALL platforms: Twitter, Instagram, TikTok, LinkedIn, YouTube)
-6. ✅ learn-voice works (builds accurate voice profile from 20+ posts)
-7. ✅ generate-ideas works (creates 10 Idea Cards with evidence)
-8. ✅ competitive-analysis works (compares profiles, finds gaps, generates plan)
-9. ✅ write-posts works (generates voice-adapted social posts)
-10. ✅ write-scripts works (generates voice-adapted video scripts)
+**All 7 Workflows Built:** 4. ✅ research-topic works (generates research briefs) 5. ✅ analyze-profile works (ALL platforms: Twitter, Instagram, TikTok, LinkedIn, YouTube) 6. ✅ learn-voice works (builds accurate voice profile from 20+ posts) 7. ✅ generate-ideas works (creates 10 Idea Cards with evidence) 8. ✅ competitive-analysis works (compares profiles, finds gaps, generates plan) 9. ✅ write-posts works (generates voice-adapted social posts) 10. ✅ write-scripts works (generates voice-adapted video scripts)
 
-**Cost Optimization:**
-11. ✅ Free tools prioritized (YouTube API, youtube-transcript)
-12. ✅ Cost estimated before every Apify call
-13. ✅ User approval required for paid tools
-14. ✅ All costs logged to memories.md
-15. ✅ Monthly budget tracking functional
+**Cost Optimization:** 11. ✅ Free tools prioritized (YouTube API, youtube-transcript) 12. ✅ Cost estimated before every Apify call 13. ✅ User approval required for paid tools 14. ✅ All costs logged to memories.md 15. ✅ Monthly budget tracking functional
 
-**Voice-Awareness:**
-16. ✅ Voice profile system works (learns from 20+ posts)
-17. ✅ write-posts loads and applies voice profile
-18. ✅ write-scripts loads and applies voice profile
-19. ✅ Generated content sounds authentic (user validation)
+**Voice-Awareness:** 16. ✅ Voice profile system works (learns from 20+ posts) 17. ✅ write-posts loads and applies voice profile 18. ✅ write-scripts loads and applies voice profile 19. ✅ Generated content sounds authentic (user validation)
 
-**Integration:**
-20. ✅ Handoff packages work with Social Posting Agent
-21. ✅ Scripts work with AI Video Agent
-22. ✅ Evidence tracking works (source links preserved)
-23. ✅ Workflow chaining works (outputs feed into inputs)
+**Integration:** 20. ✅ Handoff packages work with Social Posting Agent 21. ✅ Scripts work with AI Video Agent 22. ✅ Evidence tracking works (source links preserved) 23. ✅ Workflow chaining works (outputs feed into inputs)
 
-**Error Handling:**
-24. ✅ Graceful degradation when MCP fails
-25. ✅ Fallback chains work (free → paid)
-26. ✅ Clear error messages with suggested fixes
+**Error Handling:** 24. ✅ Graceful degradation when MCP fails 25. ✅ Fallback chains work (free → paid) 26. ✅ Clear error messages with suggested fixes
 
 ---
 
 ## 🔗 Essential References
 
 ### BMAD Framework
+
 - Workflow Engine: `{project-root}/bmad/core/tasks/workflow.xml`
 - Brainstorming Example: `{project-root}/bmad/core/workflows/brainstorming/`
 - Social Posting Example: `{project-root}/bmad/agents/social-posting-agent/workflows/`
 
 ### Apify MCP Integration
+
 - Official Docs: https://docs.apify.com/platform/integrations/mcp
 - Actor Store: https://apify.com/store
 - MCP Tools: search-actors, fetch-actor-details, call-actor, get-actor-output
 
 ### Custom Modules
+
 - Twitter Client: `{project-root}/bmad/modules/twitter-api-client/`
 - LinkedIn Client: `{project-root}/bmad/modules/linkedin-api-client/`
 
 ### Research & Analysis
+
 - MCP Research: `{project-root}/MCP_SERVERS_RESEARCH.md`
 - Critical Revisions: `{project-root}/bmad/agents/content-intelligence/PRP-CRITICAL-REVISIONS.md`
 
 ### Agent Files
+
 - Agent YAML: `{project-root}/bmad/agents/content-intelligence/jarvis.agent.yaml`
 - Sidecar Config: `{project-root}/bmad/agents/content-intelligence/jarvis-sidecar/config.yaml`
 - Instructions: `{project-root}/bmad/agents/content-intelligence/jarvis-sidecar/instructions.md`
@@ -2866,6 +2750,7 @@ Execute workflows in THIS ORDER (respects dependencies):
 **Why 9.5/10 (Higher than original):**
 
 **Strengths:**
+
 - ✅ All 7 workflows specified (not 5)
 - ✅ Real Apify MCP tool syntax (search-actors, call-actor)
 - ✅ Complete platform coverage (Instagram, TikTok, Twitter via Apify)
@@ -2877,11 +2762,13 @@ Execute workflows in THIS ORDER (respects dependencies):
 - ✅ Agent structure already built and validated
 
 **Remaining Risks:**
+
 - ⚠️ Apify MCP tool names may vary slightly (easily fixed)
 - ⚠️ Voice adaptation quality depends on algorithm (will iterate)
 - ⚠️ Handoff format needs validation with Social Posting Agent
 
 **Why not 10/10:**
+
 - First time implementing Apify MCP integration
 - Voice-matching algorithm untested
 - Some platform-specific edge cases may emerge
@@ -2890,5 +2777,5 @@ Execute workflows in THIS ORDER (respects dependencies):
 
 ---
 
-*Execute with confidence - all critical issues addressed!*
-*Build order: research-topic → analyze-profile → learn-voice → generate-ideas → competitive-analysis → write-posts → write-scripts*
+_Execute with confidence - all critical issues addressed!_
+_Build order: research-topic → analyze-profile → learn-voice → generate-ideas → competitive-analysis → write-posts → write-scripts_

@@ -9,16 +9,16 @@
   <!-- Check exists, load if found, offer to run learn-voice if not -->
   <!-- Extract voice characteristics for script adaptation -->
 
-  <template-output>voice_loaded</template-output>
+<template-output>voice_loaded</template-output>
 </step>
 
 <step n="1" goal="Load Idea Card and platform specs">
   <action>Load idea_card from {idea_card_id}</action>
   <action>Load platform specs for {target_platform}</action>
 
-  <action>Validate duration parameter:</action>
-  <check if="duration not in platform_specs.{target_platform}.script_lengths">
-    <ask>⚠️  {duration}s isn't standard for {target_platform}.
+<action>Validate duration parameter:</action>
+<check if="duration not in platform_specs.{target_platform}.script_lengths">
+<ask>⚠️ {duration}s isn't standard for {target_platform}.
 
     Standard lengths: {platform_specs.script_lengths}
 
@@ -29,9 +29,10 @@
 
     Select: [1/2/3]
     </ask>
+
   </check>
 
-  <action>**Load duration-specific GUIDELINES (not rigid rules):**
+<action>**Load duration-specific GUIDELINES (not rigid rules):**
 
     For {target_platform} @ {duration}s:
 
@@ -53,24 +54,20 @@
 
     Note: First 3 seconds are CRITICAL (retention hook)
     {/reels OR tiktok}
+
   </action>
 
-  <template-output>specs_loaded</template-output>
+<template-output>specs_loaded</template-output>
 </step>
 
 <step n="2" goal="Generate base script">
   <action>Prepare script generation context</action>
 
-  <action>Tool: script_generation_mcp/script_generate</action>
-  <action>Parameters:
-    - topic: {idea_card.title}
-    - keywords: {idea_card.hashtags} + outline terms
-    - style: {idea_card.style}
-    - tone: {tone_override} OR {voice_profile.tone}
-    - format: "video script for {target_platform}, {duration} seconds"
-  </action>
+<action>Tool: script_generation_mcp/script_generate</action>
+<action>Parameters: - topic: {idea_card.title} - keywords: {idea_card.hashtags} + outline terms - style: {idea_card.style} - tone: {tone_override} OR {voice_profile.tone} - format: "video script for {target_platform}, {duration} seconds"
+</action>
 
-  <action>Result: Generated script (multi-agent refined)</action>
+<action>Result: Generated script (multi-agent refined)</action>
 
   <check if="inject_evidence == true">
     <action>Enhance with evidence from idea_card:</action>
@@ -82,7 +79,7 @@
     </action>
   </check>
 
-  <template-output>base_script_generated</template-output>
+<template-output>base_script_generated</template-output>
 </step>
 
 <step n="3" goal="Apply voice adaptation">
@@ -106,9 +103,10 @@
     </check>
 
     <action>Display: "✓ Script adapted to match your speaking style"</action>
+
   </check>
 
-  <template-output>voice_adapted_script</template-output>
+<template-output>voice_adapted_script</template-output>
 </step>
 
 <step n="4" goal="Add timing and structure">
@@ -289,6 +287,7 @@
     </action>
 
     <template-output>youtube_script_complete</template-output>
+
   </check>
 
   <!-- REELS/TIKTOK SCRIPT (Detailed Fast-Paced Structure) -->
@@ -503,9 +502,10 @@
     </action>
 
     <template-output>reels_tiktok_script_complete</template-output>
+
   </check>
 
-  <template-output>timing_and_visuals_added</template-output>
+<template-output>timing_and_visuals_added</template-output>
 </step>
 
 <step n="5" goal="Generate hook variants">
@@ -564,30 +564,20 @@
     </action>
 
     <template-output>variants_generated</template-output>
+
   </check>
 </step>
 
 <step n="6" goal="Create handoff package and metadata">
   <action>Compile metadata for video production:</action>
 
-  <action>**Production Metadata:**
-    - Duration: {duration}s
-    - Platform: {target_platform}
-    - Script word count: {word_count}
-    - Estimated production time: {production_estimate}
-    - Complexity: {complexity_rating}
-  </action>
+<action>**Production Metadata:** - Duration: {duration}s - Platform: {target_platform} - Script word count: {word_count} - Estimated production time: {production_estimate} - Complexity: {complexity_rating}
+</action>
 
-  <action>**Video-Specific:**
-    - Title: {video_title} (from idea_card, < 100 chars for YouTube)
-    - Description: {video_description}
-    - Thumbnail suggestions: {thumbnail_ideas}
-    - Tags/Hashtags: {tags}
-    - Music/Audio: {audio_recommendations}
-    - Visual assets needed: {asset_list}
-  </action>
+<action>**Video-Specific:** - Title: {video_title} (from idea_card, < 100 chars for YouTube) - Description: {video_description} - Thumbnail suggestions: {thumbnail_ideas} - Tags/Hashtags: {tags} - Music/Audio: {audio_recommendations} - Visual assets needed: {asset_list}
+</action>
 
-  <action>**Create Handoff Package:**
+<action>**Create Handoff Package:**
 
     {
       "content_type": "{platform}_script",
@@ -634,9 +624,9 @@
 
   </action>
 
-  <action>Save to: {handoff_file}</action>
+<action>Save to: {handoff_file}</action>
 
-  <template-output>handoff_created</template-output>
+<template-output>handoff_created</template-output>
 </step>
 
 <step n="7" goal="Present final output">
@@ -676,9 +666,10 @@
     - Want to adjust? → Tell me what to change
 
     **Posting Tip:** {posting_tip}
+
   </action>
 
-  <template-output>workflow_complete</template-output>
+<template-output>workflow_complete</template-output>
 </step>
 
 </workflow>

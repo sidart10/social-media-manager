@@ -71,7 +71,8 @@ instructions:
     <check if="edit_mode == 1">
       <ask>Provide the path to your image file:</ask>
       <action>Store as {{input_image_path}}</action>
-      <action>Validate file exists using Bash: test -f {{input_image_path}}</action>
+      <action>Validate file exists using Bash:</action>
+      <action>Bash: test -f "{{input_image_path}}"</action>
       <check if="file doesn't exist">
         <action>Error: "Image not found at {{input_image_path}}"</action>
         <ask>Try again with correct path?</ask>
@@ -201,8 +202,8 @@ instructions:
     <action>Bash: mkdir -p "{{output_folder}}/edited-images"</action>
 
     <action>Get original image info:</action>
-    <action>Bash: file {{input_image_path}}</action>
-    <action>Bash: ls -lh {{input_image_path}}</action>
+    <action>Bash: file "{{input_image_path}}"</action>
+    <action>Bash: ls -lh "{{input_image_path}}"</action>
     <action>Store original size as {{original_size}}</action>
 
     <action>Verify image format is supported (PNG, JPEG, WebP)</action>

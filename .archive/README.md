@@ -5,6 +5,7 @@ Historical documentation, session reports, and completed work.
 ## Purpose
 
 This directory contains:
+
 - Completed session summaries
 - Build and completion reports
 - Debug and troubleshooting notes
@@ -14,22 +15,28 @@ This directory contains:
 ## Structure
 
 ### sessions/
+
 General session summaries and agent completion reports from various development phases.
 
 ### build-reports/
+
 Reports documenting completed builds, implementations, and verification results.
 
 ### debug-notes/
+
 Troubleshooting documentation, pause analyses, and debugging notes that helped solve issues.
 
 ### youtube-setup/
+
 Complete YouTube API and OAuth setup documentation, including:
+
 - OAuth configuration guides
 - API enablement instructions
 - Testing mode documentation
 - Success reports
 
 ### mcp-reports/
+
 MCP (Model Context Protocol) server research, setup, and status reports.
 
 ## Important Notes
@@ -42,8 +49,9 @@ MCP (Model Context Protocol) server research, setup, and status reports.
 ## Excluded Items
 
 The following are NOT archived here (as requested):
-- JARVIS-* files (remain in root for active reference)
-- ULTRATHINK-* files (remain in root for active reference)
+
+- JARVIS-\* files (remain in root for active reference)
+- ULTRATHINK-\* files (remain in root for active reference)
 
 ---
 

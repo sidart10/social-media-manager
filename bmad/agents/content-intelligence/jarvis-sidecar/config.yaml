@@ -1,20 +1,19 @@
 # Jarvis - Content Intelligence Agent Configuration
 module: content-intelligence
 agent_name: Jarvis
-output_folder: '{agent-folder}/outputs'
-sessions_folder: '{agent-folder}/sessions'
-knowledge_folder: '{agent-folder}/knowledge'
+output_folder: "{agent-folder}/outputs"
+sessions_folder: "{agent-folder}/sessions"
+knowledge_folder: "{agent-folder}/knowledge"
 
 # MCP Server Configuration (Cost-Optimized Tiered Approach)
 mcp_servers:
-
   # ============================================
   # TIER 1: FREE - Always Try These First
   # ============================================
 
   youtube_mcp_server:
     enabled: true
-    cost: 'FREE (10k units/day)'
+    cost: "FREE (10k units/day)"
     priority: 1
     tools:
       - get_channel_details
@@ -26,19 +25,10 @@ mcp_servers:
 
   youtube_transcript:
     enabled: true
-    cost: 'FREE'
+    cost: "FREE"
     priority: 1
     tools:
       - get_transcript
-
-  script_generation_mcp:
-    enabled: true
-    cost: 'FREE (local)'
-    priority: 1
-    tools:
-      - script_generate
-      - add_note
-      - summarize_notes
 
   # ============================================
   # TIER 2: Low-Cost - Use After Free Tier
@@ -46,7 +36,7 @@ mcp_servers:
 
   linkedin_mcp:
     enabled: true
-    cost: 'RapidAPI (varies)'
+    cost: "RapidAPI (varies)"
     priority: 2
     tools:
       - fetch_and_save_linkedin_posts
@@ -57,7 +47,7 @@ mcp_servers:
 
   exa_mcp:
     enabled: true
-    cost: 'Paid API'
+    cost: "Paid API"
     priority: 2
     tools:
       - web_search_exa
@@ -68,11 +58,22 @@ mcp_servers:
 
   social_media_mcp:
     enabled: true
-    cost: 'Uses other API keys'
+    cost: "Uses Brave Search + Perplexity AI (API keys required)"
     priority: 2
     tools:
-      - get_trending_topics
-      - research_topic
+      - get_trending_topics # Platform trending topics
+      - research_topic # Comprehensive research with parameters:
+        #   includeHashtags (extracts hashtags)
+        #   includeFacts (extracts key data points)
+        #   includeTrends (trending data)
+        #   includeNews (recent news articles)
+    capabilities:
+      - "Brave Search integration (web, news, discussions)"
+      - "Perplexity AI deep research"
+      - "Hashtag extraction"
+      - "Fact and statistic extraction"
+      - "News article gathering"
+      - "Keyword frequency analysis"
 
   # ============================================
   # TIER 3: APIFY - Only When No Free Option
@@ -81,62 +82,62 @@ mcp_servers:
 
   apify_mcp:
     enabled: true
-    url: 'https://mcp.apify.com'
-    api_key: '{{APIFY_API_KEY}}'
-    cost: 'Pay per use (~$0.40-0.50 per 1k results)'
+    url: "https://mcp.apify.com"
+    api_key: "{{APIFY_API_KEY}}"
+    cost: "Pay per use (~$0.40-0.50 per 1k results)"
     priority: 3
 
     # Primary scrapers for each platform
     recommended_actors:
       twitter:
-        actor: 'xtdata/twitter-x-scraper'
-        use_when: 'Analyzing competitor Twitter profiles (not your own)'
-        cost_per_1k_tweets: '$0.40'
-        data_extracted: 'tweets, engagement, profile stats, timeline'
+        actor: "xtdata/twitter-x-scraper"
+        use_when: "Analyzing competitor Twitter profiles (not your own)"
+        cost_per_1k_tweets: "$0.40"
+        data_extracted: "tweets, engagement, profile stats, timeline"
 
       instagram:
-        actor: 'apify/instagram-scraper'
-        use_when: 'ANY Instagram analysis (no free alternative)'
-        cost_per_1k_posts: '$0.50'
-        data_extracted: 'posts, likes, comments, followers, profile data'
+        actor: "apify/instagram-scraper"
+        use_when: "ANY Instagram analysis (no free alternative)"
+        cost_per_1k_posts: "$0.50"
+        data_extracted: "posts, likes, comments, followers, profile data"
 
       tiktok:
-        actor: 'clockworks/tiktok-scraper'
-        use_when: 'ANY TikTok analysis (no free alternative)'
-        cost_estimate: '~$0.50 per profile'
-        data_extracted: 'videos, views, likes, comments, profile metrics'
+        actor: "clockworks/tiktok-scraper"
+        use_when: "ANY TikTok analysis (no free alternative)"
+        cost_estimate: "~$0.50 per profile"
+        data_extracted: "videos, views, likes, comments, profile metrics"
 
       linkedin:
-        actor: 'apify/linkedin-profile-scraper'
-        use_when: 'Fallback if linkedin-mcp fails'
-        cost_estimate: '~$0.30 per profile'
+        actor: "apify/linkedin-profile-scraper"
+        use_when: "Fallback if linkedin-mcp fails"
+        cost_estimate: "~$0.30 per profile"
 
       youtube:
-        actor: 'apify/youtube-scraper'
-        use_when: 'Fallback if youtube-mcp-server quota exceeded'
-        cost_estimate: '~$0.40 per channel'
+        actor: "apify/youtube-scraper"
+        use_when: "Fallback if youtube-mcp-server quota exceeded"
+        cost_estimate: "~$0.40 per channel"
 
       facebook:
-        actor: 'apify/facebook-posts-scraper'
-        use_when: 'If user requests Facebook analysis'
-        cost_estimate: '~$0.50 per profile'
+        actor: "apify/facebook-posts-scraper"
+        use_when: "If user requests Facebook analysis"
+        cost_estimate: "~$0.50 per profile"
 
     # Discovery capability
     discovery:
       enabled: true
-      total_actors: '5000+'
-      description: 'Can recommend scrapers when user needs new platforms or data sources'
-      browse_url: 'https://apify.com/store'
+      total_actors: "5000+"
+      description: "Can recommend scrapers when user needs new platforms or data sources"
+      browse_url: "https://apify.com/store"
 
 # Custom Modules (Direct API - Usually Cheaper)
 custom_modules:
   twitter_api_client:
-    path: '{project-root}/bmad/modules/twitter-api-client'
-    use_for: 'YOUR Twitter account (free with API quota)'
+    path: "{project-root}/bmad/modules/twitter-api-client"
+    use_for: "YOUR Twitter account (free with API quota)"
 
   linkedin_api_client:
-    path: '{project-root}/bmad/modules/linkedin-api-client'
-    use_for: 'YOUR LinkedIn posting (OAuth)'
+    path: "{project-root}/bmad/modules/linkedin-api-client"
+    use_for: "YOUR LinkedIn posting (OAuth)"
 
 # Platform Specifications (Writing Guidelines)
 platforms:
@@ -145,17 +146,17 @@ platforms:
     max_title: 100
     max_description: 5000
     optimal_hook_duration: 5
-    structure: 'Hook → Intro → Points → Summary → CTA'
+    structure: "Hook → Intro → Points → Summary → CTA"
 
   reels:
     duration: [30, 60, 90]
-    aspect_ratio: '9:16'
+    aspect_ratio: "9:16"
     hook_duration: 3
-    structure: 'Hook (3s) → Fast Beats → CTA'
+    structure: "Hook (3s) → Fast Beats → CTA"
 
   tiktok:
     duration: [15, 30, 60, 180]
-    aspect_ratio: '9:16'
+    aspect_ratio: "9:16"
     hook_duration: 3
     trends_matter: true
 
@@ -163,22 +164,22 @@ platforms:
     max_text: 3000
     optimal_text: 1600
     hook_max: 140
-    structure: 'Hook line → Context → Points → CTA'
-    tone: 'Professional but conversational'
+    structure: "Hook line → Context → Points → CTA"
+    tone: "Professional but conversational"
 
   twitter:
     max_text_free: 280
     max_text_premium: 25000
     max_media: 4
     thread_recommended: true
-    current_trend: 'Long-form posts gaining traction vs threads'
+    current_trend: "Long-form posts gaining traction vs threads"
 
   instagram:
     max_caption: 2200
     optimal_caption: 125
     hashtag_max: 30
-    hashtag_optimal: '5-10'
-    structure: 'Hook → Story → Value → CTA'
+    hashtag_optimal: "5-10"
+    structure: "Hook → Story → Value → CTA"
 
 # Voice Learning Configuration
 voice_learning:
@@ -197,11 +198,11 @@ voice_learning:
     - hook_preferences
     - humor_style
 
-  voice_profile_location: '{agent-folder}/memories.md'
+  voice_profile_location: "{agent-folder}/memories.md"
 
 # Cost Tracking
 cost_tracking:
   enabled: true
   monthly_budget_alert: 10.00
-  log_location: '{agent-folder}/memories.md'
+  log_location: "{agent-folder}/memories.md"
   track_per_workflow: true

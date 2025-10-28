@@ -15,6 +15,7 @@
 ## Metadata
 
 **Stats:**
+
 - Characters: {char_count}
 - Words: {word_count}
 - Hook length: {hook_chars} chars
@@ -36,4 +37,4 @@
 
 ---
 
-*Ready for Social Posting Agent: /post-linkedin*
+_Ready for Social Posting Agent: /post-linkedin_

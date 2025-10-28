@@ -7,92 +7,111 @@
 <step n="1" goal="Gather user's profile URLs">
   <ask>I'll analyze your writing to match your authentic voice!
 
-  Please provide your profile URLs (need at least 1, ideally 2-3):
+Please provide your profile URLs (need at least 1, ideally 2-3):
 
-  1. Twitter: Your @handle or profile URL
-  2. LinkedIn: Your profile URL
-  3. YouTube: Your channel URL (I'll analyze your spoken voice too)
+1. Twitter: Your @handle or profile URL
+2. LinkedIn: Your profile URL
+3. YouTube: Your channel URL (I'll analyze your spoken voice too)
 
-  Note: I need at least {min_posts_required} posts total for accurate analysis.
+Note: I need at least {min_posts_required} posts total for accurate analysis.
 
-  Provide URLs (one per line or comma-separated):
-  </ask>
+Provide URLs (one per line or comma-separated):
+</ask>
 
-  <action>Parse provided URLs</action>
-  <action>Extract platforms and handles</action>
-  <action>Store: {platforms_provided}, {handles}</action>
+<action>Parse provided URLs</action>
+<action>Extract platforms and handles</action>
+<action>Store: {platforms_provided}, {handles}</action>
 
-  <template-output>profiles_collected</template-output>
+<template-output>profiles_collected</template-output>
 </step>
 
 <step n="2" goal="Fetch YOUR content (cost-optimized)">
   <action>Display: "Fetching your content using free APIs where possible..."</action>
 
-  <!-- TWITTER - Use YOUR API (Tier 1 - FREE) -->
+  <!-- TWITTER - Automatic with smart fallback -->
   <check if="twitter_handle provided">
-    <action>Display: "Twitter: Using your API credentials (FREE)"</action>
+    <action>Display: "📱 Twitter: Fetching your posts..."</action>
 
-    <action>Note: twitter-api-client doesn't have timeline fetch yet</action>
-    <action>Workaround options:</action>
-
-    <ask>To fetch your Twitter posts:
-    1. Use Apify scraper (~$0.02 for 50 tweets)
-    2. I'll guide you to export from Twitter (FREE but manual)
-    3. Skip Twitter for now
-
-    Select: [1/2/3]
-    </ask>
-
-    <check if="option 1 selected">
-      <action>Use Apify: xtdata/twitter-x-scraper</action>
+    <!-- Try mcp_twitter first (if available) -->
+    <check if="mcp_twitter available">
+      <action>Try: mcp_twitter/get_last_tweet_from_user</action>
       <action>Parameters: username={handle}, maxTweets=50</action>
-      <action>Cost: ~$0.02</action>
-      <action>Log cost</action>
+
+      <check if="succeeds">
+        <action>Display: "✓ Fetched {tweet_count} tweets via Twitter MCP (FREE)"</action>
+        <action>Store tweets for analysis</action>
+      </check>
+
+      <check if="fails">
+        <action>Note: Twitter MCP unavailable, using Apify fallback</action>
+        <action>Continue to Apify</action>
+      </check>
     </check>
 
-    <check if="option 2 selected">
-      <action>Guide user:
-        1. Go to twitter.com/{handle}
-        2. Scroll to load last 20-30 tweets
-        3. Copy tweet texts
-        4. Paste here
-
-        (I'll parse the content)
-      </action>
+    <!-- Fallback to Apify (reliable, low cost) -->
+    <check if="mcp_twitter failed OR not available">
+      <action>Display: "Using Apify scraper (~$0.02 for 50 tweets)"</action>
+      <action>Use Apify: apidojo/twitter-scraper-lite</action>
+      <action>Parameters: twitterHandles=[{handle}], maxItems=50, sort=Latest</action>
+      <action>Store tweets for analysis</action>
+      <action>Display: "✓ Fetched {tweet_count} tweets via Apify"</action>
+      <action>Log cost: ~$0.02</action>
     </check>
+
   </check>
 
-  <!-- LINKEDIN - Use linkedin-mcp (Tier 2 - Low cost) -->
+  <!-- LINKEDIN - Use Apify (linkedin-mcp is broken) -->
   <check if="linkedin_url provided">
-    <action>Tool: linkedin_mcp/fetch_and_save_linkedin_posts</action>
-    <action>Parameters: username={handle}</action>
+    <action>Display: "💼 LinkedIn: Fetching your posts..."</action>
 
-    <check if="succeeds">
-      <action>Tool: linkedin_mcp/get_saved_posts</action>
-      <action>Parameters: start=0, limit=50</action>
-      <action>Store posts for analysis</action>
-      <action>Display: "✓ Fetched {post_count} LinkedIn posts"</action>
-    </check>
-
-    <check if="fails">
-      <action>Fallback: Use Apify linkedin scraper (estimate cost, ask approval)</action>
-    </check>
-  </check>
-
-  <!-- YOUTUBE - Use FREE API (Tier 1) -->
-  <check if="youtube_channel provided AND include_video_voice == true">
-    <action>Tool: youtube_mcp_server/get_channel_videos</action>
-    <action>Parameters: channel_id={channel_id}, max_results=10</action>
-
-    <action>For each video:
-      - Tool: youtube_transcript/get_transcript
-      - Extract spoken words (analyze verbal voice)
+    <action>Extract username from LinkedIn URL</action>
+    <action>Use Apify: clockworks/linkedin-profile-scraper or similar</action>
+    <action>Parameters:
+      - profileUrl: {linkedin_url}
+      - maxPosts: 50
     </action>
 
-    <action>Display: "✓ Analyzed {video_count} YouTube transcripts (FREE)"</action>
+    <action>Store posts for analysis</action>
+    <action>Display: "✓ Fetched {post_count} LinkedIn posts via Apify"</action>
+    <action>Log cost: ~$0.03-0.05</action>
+
+    <note>LinkedIn scraping via Apify is more reliable than broken linkedin-mcp</note>
+
   </check>
 
-  <action>Total posts collected: {total_posts}</action>
+  <!-- YOUTUBE - Use Apify (reliable transcript extraction) -->
+  <check if="youtube_channel provided">
+    <action>Display: "🎥 YouTube: Fetching video transcripts..."</action>
+
+    <!-- Get channel videos first -->
+    <action>Display: "Getting recent videos from your channel..."</action>
+    <action>Extract channel handle from URL (e.g., @siddani09)</action>
+
+    <!-- Use Apify YouTube Full Channel Transcripts Extractor -->
+    <action>Use Apify: karamelo/youtube-full-channel-transcripts-extractor</action>
+    <action>Parameters:
+      - channelUrl: {youtube_channel_url}
+      - maxVideos: 10 (most recent)
+      - includeTimestamps: false (for cleaner analysis)
+    </action>
+
+    <action>Store transcripts for analysis</action>
+    <action>Display: "✓ Fetched transcripts from {video_count} YouTube videos"</action>
+    <action>Log cost: ~$0.05 for 10 videos</action>
+
+    <note>YouTube transcripts analyze your SPOKEN voice:
+      - Speaking rhythm and pace
+      - Natural transitions
+      - Teaching patterns
+      - Conversational markers
+      - Filler words (um, like, so)
+
+      This helps adapt scripts to match how you actually speak!
+    </note>
+
+  </check>
+
+<action>Total posts collected: {total_posts}</action>
 
   <check if="total_posts < min_posts_required">
     <ask>⚠️  Only collected {total_posts} posts. Need {min_posts_required}+ for accurate voice profile.
@@ -104,72 +123,48 @@
 
     Select: [1/2/3]
     </ask>
+
   </check>
 
-  <template-output>content_collected</template-output>
+<template-output>content_collected</template-output>
 </step>
 
 <step n="3" goal="Analyze writing patterns">
   <action>Display: "Analyzing your writing style across {total_posts} posts..."</action>
 
-  <action>**Vocabulary Analysis:**
-    - Technical term frequency (count specialized words)
-    - Complexity level: simple|moderate|advanced
-      • Simple: < 10% technical terms, short sentences
-      • Moderate: 10-30% technical terms, mixed length
-      • Advanced: > 30% technical terms, complex sentences
-    - Jargon vs accessible language ratio
-    - Common word choices (create frequency map)
-  </action>
+<action>**Vocabulary Analysis:** - Technical term frequency (count specialized words) - Complexity level: simple|moderate|advanced
+• Simple: < 10% technical terms, short sentences
+• Moderate: 10-30% technical terms, mixed length
+• Advanced: > 30% technical terms, complex sentences - Jargon vs accessible language ratio - Common word choices (create frequency map)
+</action>
 
-  <action>**Sentence Structure Analysis:**
-    - Calculate average sentence length (words)
-    - Count short (< 10 words) vs long (> 20 words) sentences
-    - Identify rhythm pattern:
-      • Staccato: Mostly short sentences
-      • Flowing: Mostly long sentences
-      • Varied: Mix of short and long (most engaging)
-    - Note sentence complexity (simple vs compound vs complex)
-  </action>
+<action>**Sentence Structure Analysis:** - Calculate average sentence length (words) - Count short (< 10 words) vs long (> 20 words) sentences - Identify rhythm pattern:
+• Staccato: Mostly short sentences
+• Flowing: Mostly long sentences
+• Varied: Mix of short and long (most engaging) - Note sentence complexity (simple vs compound vs complex)
+</action>
 
-  <action>**Tone Marker Extraction:**
-    - Formality indicators: "Furthermore" vs "Plus", "Utilize" vs "Use"
-    - Humor presence: Jokes, sarcasm, self-deprecation count
-    - Enthusiasm markers: Exclamation points, caps, energetic words ("amazing", "excited")
-    - Personal vs professional: "I think" vs "Research shows"
-    - Calculate tone score: 1-10 (1=very formal, 10=very casual)
-  </action>
+<action>**Tone Marker Extraction:** - Formality indicators: "Furthermore" vs "Plus", "Utilize" vs "Use" - Humor presence: Jokes, sarcasm, self-deprecation count - Enthusiasm markers: Exclamation points, caps, energetic words ("amazing", "excited") - Personal vs professional: "I think" vs "Research shows" - Calculate tone score: 1-10 (1=very formal, 10=very casual)
+</action>
 
-  <action>**Signature Phrase Extraction:**
-    - Find phrases used 3+ times
-    - Common transitions: "here's the thing", "but", "so", "and"
-    - Opening phrases: How user starts posts
-    - Closing phrases: How user ends posts
-    - Filler patterns: "actually", "basically", "literally"
-    - Create ranked list by frequency
-  </action>
+<action>**Signature Phrase Extraction:** - Find phrases used 3+ times - Common transitions: "here's the thing", "but", "so", "and" - Opening phrases: How user starts posts - Closing phrases: How user ends posts - Filler patterns: "actually", "basically", "literally" - Create ranked list by frequency
+</action>
 
-  <action>**Emoji Usage Analysis:**
-    - Count emoji frequency: never|rare|moderate|heavy
-      • Never: 0 emojis
-      • Rare: < 0.5 per post
-      • Moderate: 1-2 per post
-      • Heavy: 3+ per post
-    - Placement pattern: beginning|middle|end|scattered
-    - Type preferences: professional (📊📈) vs playful (🎉😊) vs specific meanings (🚀💡)
-  </action>
+<action>**Emoji Usage Analysis:** - Count emoji frequency: never|rare|moderate|heavy
+• Never: 0 emojis
+• Rare: < 0.5 per post
+• Moderate: 1-2 per post
+• Heavy: 3+ per post - Placement pattern: beginning|middle|end|scattered - Type preferences: professional (📊📈) vs playful (🎉😊) vs specific meanings (🚀💡)
+</action>
 
-  <action>**Hook Preference Identification:**
-    - Categorize user's natural hooks (from their actual posts)
-    - Calculate distribution:
-      • Question hooks: X%
-      • Number hooks: Y%
-      • Story hooks: Z%
-      • Statement hooks: W%
-    - Identify natural tendency (which type user gravitates to)
-  </action>
+<action>**Hook Preference Identification:** - Categorize user's natural hooks (from their actual posts) - Calculate distribution:
+• Question hooks: X%
+• Number hooks: Y%
+• Story hooks: Z%
+• Statement hooks: W% - Identify natural tendency (which type user gravitates to)
+</action>
 
-  <template-output>patterns_analyzed</template-output>
+<template-output>patterns_analyzed</template-output>
 </step>
 
 <step n="4" goal="Detect platform variations">
@@ -191,6 +186,7 @@
       - Teaching mode indicators
       - Note: "Spoken voice is more [casual/explanatory/energetic]"
     </action>
+
   </check>
 
   <check if="only one platform">
@@ -198,13 +194,13 @@
     <action>Suggest: "For more accurate profile, provide LinkedIn/Twitter/YouTube URLs"</action>
   </check>
 
-  <template-output>platform_variations_detected</template-output>
+<template-output>platform_variations_detected</template-output>
 </step>
 
 <step n="5" goal="Build comprehensive voice profile">
   <action>Compile all findings into voice profile structure</action>
 
-  <action>**Voice Profile Format:**
+<action>**Voice Profile Format:**
 
     # Voice Profile: {user_name}
 
@@ -321,12 +317,12 @@
 
   </action>
 
-  <action>Save voice profile to memories.md (replace "Voice Profile" section)</action>
-  <action>Update voice_profile_status in memories.md: "complete"</action>
-  <action>Update voice_profile_date: {date}</action>
-  <action>Update confidence_score: {confidence}</action>
+<action>Save voice profile to memories.md (replace "Voice Profile" section)</action>
+<action>Update voice_profile_status in memories.md: "complete"</action>
+<action>Update voice_profile_date: {date}</action>
+<action>Update confidence_score: {confidence}</action>
 
-  <template-output>voice_profile_saved</template-output>
+<template-output>voice_profile_saved</template-output>
 </step>
 
 <step n="6" goal="Present results to user">
@@ -362,9 +358,10 @@
     - Use /write-posts or /write-scripts
     - Content will match your style automatically
     - Re-run /learn-voice after 50+ new posts to refine
+
   </action>
 
-  <template-output>workflow_complete</template-output>
+<template-output>workflow_complete</template-output>
 </step>
 
 </workflow>

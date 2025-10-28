@@ -15,6 +15,7 @@
 ## Metadata
 
 **Stats:**
+
 - Words: {word_count}
 - Hook (first 125 chars): "{hook_preview}"
 - Hashtags: {hashtag_count}
@@ -35,5 +36,5 @@
 
 ---
 
-*Ready for Social Posting Agent: /post-instagram*
-*Note: Image/video required for Instagram*
+_Ready for Social Posting Agent: /post-instagram_
+_Note: Image/video required for Instagram_

@@ -1,0 +1,73 @@
+{
+  "video_title": "AI Agents: From Tools to Infrastructure",
+  "source": "Sid Dani's AI Agents Presentation PDF",
+  "method": "JSON → Images → Fade → Merge (Emily-Quality Pipeline)",
+  "scene_count": 6,
+  "total_duration_sec": 18,
+  "scenes": [
+    {
+      "scene_number": 1,
+      "name": "Opening - The Evolution Journey",
+      "content": "People → Tools → AI agents → ...next? progression diagram",
+      "image": "gen_20251025_210305_1_1_acd71ca8.png",
+      "video_clip": "scene_01.mp4"
+    },
+    {
+      "scene_number": 2,
+      "name": "Tool Evolution - Stone to Digital",
+      "content": "Stone Era → Industrial Era → Digital Era silhouettes",
+      "image": "gen_20251025_210342_1_1_8a27c509.png",
+      "video_clip": "scene_02.mp4"
+    },
+    {
+      "scene_number": 3,
+      "name": "Digital Apps as Toolboxes",
+      "content": "Gmail, Calendar, Audience Manager app cards with MCP tools",
+      "image": "gen_20251025_210351_1_1_a73eae48.png",
+      "video_clip": "scene_03.mp4"
+    },
+    {
+      "scene_number": 4,
+      "name": "AI Timeline Evolution",
+      "content": "2022 Assistant → 2023 Tools → 2025 Agent progression",
+      "image": "gen_20251025_210358_1_1_ef85c783.png",
+      "video_clip": "scene_04.mp4"
+    },
+    {
+      "scene_number": 5,
+      "name": "Agent Architecture",
+      "content": "Model + Tool loop + Environment + Context + Evals diagram",
+      "image": "gen_20251025_210435_1_1_db154e0c.png",
+      "video_clip": "scene_05.mp4"
+    },
+    {
+      "scene_number": 6,
+      "name": "Infrastructure Race Finale",
+      "content": "Data centers, gigawatts: constraint is watts not intelligence",
+      "image": "gen_20251025_210453_1_1_7f735f8b.png",
+      "video_clip": "scene_06.mp4"
+    }
+  ],
+  "prompting_method": "JSON-structured (Emily quality standards)",
+  "image_generator": "nanobanana (Gemini 2.5 Flash)",
+  "animation_tool": "Sora2 MCP create_fade_animation (ffmpeg)",
+  "merge_tool": "Sora2 MCP merge_videos",
+  "visual_style": {
+    "aesthetic": "Dark minimalist tech presentation",
+    "color_palette": ["#0A0A0A black", "#FFFFFF white", "#00D4FF cyan", "#FF3B30 red accents"],
+    "consistency": "Global dark background, clean typography, minimal icons throughout",
+    "transitions": "Fade in-out (1.5s each) with seamless merging"
+  },
+  "technical_specs": {
+    "aspect_ratio": "16:9",
+    "resolution": "1920x1080",
+    "total_file_size": "calculated from merge",
+    "codec": "H.264",
+    "frame_rate": 24,
+    "quality_standard": "Emily 7-Pillar (JSON prompting)"
+  },
+  "pipeline_used": "JSON Prompt Generator Module → Nanobanana Images → Sora2 Fade → Sora2 Merge",
+  "generation_time_total": "~5 minutes (images 3min + animations 1min + merge 30s)",
+  "created_at": "2025-10-25T21:04:00Z",
+  "notes": "First complete test of JSON→Images→Video pipeline with 6-scene sequence. Proves flexibility (6 scenes) and quality (Emily standards). Presentation style from Sid Dani's PDF maintained throughout."
+}

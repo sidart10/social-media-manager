@@ -1,40 +1,40 @@
 name: generate-ideas
-description: 'Generate evidence-backed Idea Cards with hooks, outlines, and platform recommendations'
-author: 'Jarvis'
+description: "Generate evidence-backed Idea Cards with hooks, outlines, and platform recommendations"
+author: "Jarvis"
 
 # Variables
-config_source: '{agent-folder}/config.yaml'
-output_folder: '{config_source}:output_folder'
-sessions_folder: '{config_source}:sessions_folder'
+config_source: "{agent-folder}/config.yaml"
+output_folder: "{config_source}:output_folder"
+sessions_folder: "{config_source}:sessions_folder"
 date: system-generated
-installed_path: '{agent-folder}/workflows/generate-ideas'
+installed_path: "{agent-folder}/workflows/generate-ideas"
 
 # MCP Tools
+# Note: Research Skills handle note-taking and summarization automatically
 mcp_tools_required:
-  - script_generation_mcp: [add_note, summarize_notes]
   - social_media_mcp: [get_trending_topics, research_topic]
   - exa_mcp: [web_search_exa, deep_researcher_start, deep_researcher_check]
 
 # Inputs
 inputs:
-  - seed_topic: 'Main topic or theme (required)'
-  - target_platforms: 'Array: [twitter, instagram, tiktok, linkedin, youtube, reels] (default: all)'
-  - competitor_urls: 'Optional: Competitor profile URLs to analyze for gaps'
-  - idea_count: 'Number of ideas to generate (default: 10)'
-  - style: 'tutorial|opinion|story|teardown|announcement|mixed (default: mixed)'
-  - use_trends: 'boolean, incorporate trending topics (default: true)'
-  - use_research_file: 'Optional: Path to research-topic output to use as source'
+  - seed_topic: "Main topic or theme (required)"
+  - target_platforms: "Array: [twitter, instagram, tiktok, linkedin, youtube, reels] (default: all)"
+  - competitor_urls: "Optional: Competitor profile URLs to analyze for gaps"
+  - idea_count: "Number of ideas to generate (default: 10)"
+  - style: "tutorial|opinion|story|teardown|announcement|mixed (default: mixed)"
+  - use_trends: "boolean, incorporate trending topics (default: true)"
+  - use_research_file: "Optional: Path to research-topic output to use as source"
 
 # Outputs
 outputs:
-  - idea_cards: 'Structured ideas with hooks, outlines, evidence'
-  - hook_pack: '10+ hook variations for quick use'
-  - content_calendar: '7-14 day posting schedule'
-  - evidence_summary: 'All sources cited'
+  - idea_cards: "Structured ideas with hooks, outlines, evidence"
+  - hook_pack: "10+ hook variations for quick use"
+  - content_calendar: "7-14 day posting schedule"
+  - evidence_summary: "All sources cited"
 
 # Action workflow
 template: false
-instructions: '{installed_path}/instructions.md'
+instructions: "{installed_path}/instructions.md"
 
 # Output files
-default_output_file: '{sessions_folder}/idea-cards-{seed_topic}-{date}.md'
+default_output_file: "{sessions_folder}/idea-cards-{seed_topic}-{date}.md"

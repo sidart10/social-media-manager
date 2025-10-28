@@ -24,6 +24,7 @@ outputs/
 ## Agent-Specific Outputs
 
 Some agents maintain their own output directories:
+
 - AI Video Agent: `bmad/agents/ai-video-agent/ai-video-agent-sidecar/outputs/`
 - AI Image Generator: `bmad/agents/ai-image-generator/ai-image-generator-sidecar/outputs/`
 

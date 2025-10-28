@@ -16,10 +16,11 @@
 ## Metadata
 
 **Stats:**
+
 - Characters: {char_count}
 - Words: {word_count}
 - Format: {twitter_format}
-{#thread}- Tweets: {tweet_count}{/thread}
+  {#thread}- Tweets: {tweet_count}{/thread}
 
 **Posting Tip:**
 {posting_tip}
@@ -34,4 +35,4 @@
 
 ---
 
-*Ready for Social Posting Agent: /post-twitter*
+_Ready for Social Posting Agent: /post-twitter_
