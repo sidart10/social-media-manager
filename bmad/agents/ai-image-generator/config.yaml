@@ -17,8 +17,19 @@ module_version: "1.0.0"
 sidecar_folder: "{project-root}/bmad/agents/ai-image-generator/ai-image-generator-sidecar"
 sidecar_config: "{project-root}/bmad/agents/ai-image-generator/ai-image-generator-sidecar/config.yaml"
 workflows_folder: "{project-root}/bmad/agents/ai-image-generator/workflows"
-outputs_folder: "{project-root}/bmad/agents/ai-image-generator/ai-image-generator-sidecar/outputs"
 templates_folder: "{project-root}/bmad/agents/ai-image-generator/ai-image-generator-sidecar/templates"
+
+# 🚨 NEW: Centralized Output Management (MANDATORY as of 2025-10-28)
+outputs_base: "{project-root}/outputs"
+outputs_date_format: "MM-DD-YYYY"
+outputs_naming: "lowercase-kebab-case"
+# Runtime variables (set by agent at execution):
+# current_date: "{MM-DD-YYYY}" - Generated using: date +"%m-%d-%Y"
+# session_name: "{platform}-{content-type}-{topic}" - Generated from workflow context
+# outputs_session: "{outputs_base}/{current_date}/{session-name}"
+
+# DEPRECATED: Do NOT use sidecar outputs folder for new content
+deprecated_outputs_folder: "{project-root}/bmad/agents/ai-image-generator/ai-image-generator-sidecar/outputs"
 
 # Skills Configuration
 skills_folder: "{project-root}/.claude/skills/ai-image-generator"

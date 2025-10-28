@@ -1,0 +1,56 @@
+# Jarvis (Content Intelligence) Module Configuration
+# BMAD v6 Standard Config Block
+# Date: 2025-10-28
+
+# Standard BMAD Configuration Values (REQUIRED)
+user_name: sid
+communication_language: english
+document_output_language: english
+output_folder: "{project-root}/docs/content-intelligence"
+
+# Module Metadata
+module_name: content-intelligence
+module_type: agent
+module_version: "1.0.0"
+agent_name: jarvis
+
+# Module-Specific Paths
+sidecar_folder: "{project-root}/bmad/agents/content-intelligence/jarvis-sidecar"
+sidecar_config: "{project-root}/bmad/agents/content-intelligence/jarvis-sidecar/config.yaml"
+workflows_folder: "{project-root}/bmad/agents/content-intelligence/jarvis-sidecar/workflows"
+knowledge_folder: "{project-root}/bmad/agents/content-intelligence/jarvis-sidecar/knowledge"
+
+# 🚨 NEW: Centralized Output Management (MANDATORY as of 2025-10-28)
+outputs_base: "{project-root}/outputs"
+outputs_date_format: "MM-DD-YYYY"
+outputs_naming: "lowercase-kebab-case"
+# Runtime variables (set by agent at execution):
+# current_date: "{MM-DD-YYYY}" - Generated using: date +"%m-%d-%Y"
+# session_name: "{platform}-{content-type}-{topic}" - Generated from workflow context
+# outputs_session: "{outputs_base}/{current_date}/{session-name}"
+
+# DEPRECATED: Do NOT use sidecar outputs folder for new content
+deprecated_outputs_folder: "{project-root}/bmad/agents/content-intelligence/jarvis-sidecar/outputs"
+deprecated_sessions_folder: "{project-root}/bmad/agents/content-intelligence/jarvis-sidecar/sessions"
+
+# MCP Tool Configuration
+mcp_tools:
+  exa_search:
+    enabled: true
+    tool_prefix: "mcp__exa__"
+  social_media_mcp:
+    enabled: true
+    tool_prefix: "mcp__social-media-mcp__"
+  apify:
+    enabled: true
+    tool_prefix: "mcp__apify__"
+  youtube_transcript:
+    enabled: true
+    tool_prefix: "mcp__youtube-transcript__"
+
+# Skills Configuration
+skills_folder: "{project-root}/.claude/skills/jarvis"
+skills_enabled: true
+
+# Note: API keys and advanced settings are stored in sidecar_config
+# This separation keeps sensitive data isolated and module config clean

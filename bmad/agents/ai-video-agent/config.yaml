@@ -1,0 +1,49 @@
+# AI Video Agent Module Configuration
+# BMAD v6 Standard Config Block
+# Date: 2025-10-28
+
+# Standard BMAD Configuration Values (REQUIRED)
+user_name: sid
+communication_language: english
+document_output_language: english
+output_folder: "{project-root}/docs/ai-video-agent"
+
+# Module Metadata
+module_name: ai-video-agent
+module_type: agent
+module_version: "1.0.0"
+
+# Module-Specific Paths
+sidecar_folder: "{project-root}/bmad/agents/ai-video-agent/ai-video-agent-sidecar"
+sidecar_config: "{project-root}/bmad/agents/ai-video-agent/ai-video-agent-sidecar/config.yaml"
+workflows_folder: "{project-root}/bmad/agents/ai-video-agent/workflows"
+
+# 🚨 NEW: Centralized Output Management (MANDATORY as of 2025-10-28)
+outputs_base: "{project-root}/outputs"
+outputs_date_format: "MM-DD-YYYY"
+outputs_naming: "lowercase-kebab-case"
+# Runtime variables (set by agent at execution):
+# current_date: "{MM-DD-YYYY}" - Generated using: date +"%m-%d-%Y"
+# session_name: "{platform}-{content-type}-{topic}" - Generated from workflow context
+# outputs_session: "{outputs_base}/{current_date}/{session-name}"
+
+# DEPRECATED: Do NOT use sidecar outputs folder for new content
+deprecated_outputs_folder: "{project-root}/bmad/agents/ai-video-agent/ai-video-agent-sidecar/outputs"
+
+# MCP Tool Configuration
+mcp_tools:
+  heygen:
+    enabled: true
+    tool_prefix: "mcp__heygen__"
+  veotools:
+    enabled: true
+    tool_prefix: "mcp__veotools__"
+  sora2:
+    enabled: true
+    tool_prefix: "mcp__sora2__"
+  fal_video:
+    enabled: true
+    tool_prefix: "mcp__fal-video__"
+
+# Note: API keys and advanced provider settings are stored in sidecar_config
+# This separation keeps sensitive data isolated and module config clean
