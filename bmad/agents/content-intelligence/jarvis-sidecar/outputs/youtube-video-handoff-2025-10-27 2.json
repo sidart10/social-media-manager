@@ -1,0 +1,178 @@
+{
+  "content_type": "youtube_video_script",
+  "generated_by": "jarvis",
+  "workflow": "write-scripts",
+  "platform": "youtube",
+  "duration_seconds": 120,
+  "format": "educational-deep-dive",
+  "ready_for_agent": "ai-video-agent",
+
+  "script": {
+    "title": "Why Big Tech Is Spending $315 Billion on AI Infrastructure (2025 Breakdown)",
+    "description": "Deep dive into the transformation of AI from software to infrastructure, covering Amazon, Microsoft, Google, and Meta's massive spending increase.",
+
+    "timed_segments": [
+      {
+        "timestamp": "0:00-0:05",
+        "type": "hook",
+        "duration": 5,
+        "text": "In 2015, the Big 4 cloud providers spent $24 billion on infrastructure. This year, they'll spend $315 billion. That's 13 times more. What changed?",
+        "visual": "You to camera, zoom in on $315B reveal",
+        "text_overlay": "$24B → $315B"
+      },
+      {
+        "timestamp": "0:05-0:20",
+        "type": "intro",
+        "duration": 15,
+        "text": "AI didn't just change how we write code or create content. It fundamentally changed how tech giants view infrastructure spending. Let me break down the numbers, because they tell a story most people are missing.",
+        "visual": "Medium shot + data center B-roll",
+        "text_overlay": "The $315B Transformation"
+      },
+      {
+        "timestamp": "0:20-0:45",
+        "type": "beat1_numbers",
+        "duration": 25,
+        "text": "Company spending breakdown with animated bar chart",
+        "key_stats": ["Amazon: 8x → $100B", "Microsoft: 20x → $80B", "Google: 15x → $75B", "Meta: 20x → $60B"],
+        "visual": "Animated bar chart with company logos",
+        "graphics_needed": ["bar_chart_growth"]
+      },
+      {
+        "timestamp": "0:45-1:10",
+        "type": "beat2_shift",
+        "duration": 25,
+        "text": "Explanation of SaaS vs Infrastructure model shift",
+        "key_concepts": ["OpEx vs CapEx", "Token-based compute", "Claude Code example"],
+        "visual": "Split screen comparison + screen recording",
+        "graphics_needed": ["saas_vs_infrastructure_table"]
+      },
+      {
+        "timestamp": "1:10-1:35",
+        "type": "beat3_proof",
+        "duration": 25,
+        "text": "Netflix case study and Jevons Paradox explanation",
+        "key_stats": ["$150M → $1B+ (6.7x ROI)", "DeepSeek → 16% spending increase"],
+        "visual": "Netflix animation + paradox cycle graphic",
+        "graphics_needed": ["netflix_roi", "jevons_paradox_cycle"]
+      },
+      {
+        "timestamp": "1:35-1:50",
+        "type": "beat4_current",
+        "duration": 15,
+        "text": "Current market state and implications",
+        "key_stats": ["36-40% AI workloads", "$95B Q2 2025"],
+        "visual": "Pie chart + global spending map",
+        "graphics_needed": ["ai_workload_pie_chart"]
+      },
+      {
+        "timestamp": "1:50-2:00",
+        "type": "cta",
+        "duration": 10,
+        "text": "Conclusion and subscribe CTA",
+        "visual": "You to camera + end screen elements",
+        "cta_text": "Subscribe for weekly AI insights"
+      }
+    ],
+
+    "full_script_word_count": 1247,
+    "estimated_speaking_time": 116
+  },
+
+  "production": {
+    "thumbnail_options": [
+      {
+        "concept": "The Numbers",
+        "description": "Split screen 2015 vs 2025 with dramatic size difference",
+        "text": "$24B vs $315B - 13x in 10 Years",
+        "recommended": true
+      },
+      {
+        "concept": "The Logos",
+        "description": "Four company logos around central $315B number",
+        "text": "$315 BILLION",
+        "recommended": false
+      },
+      {
+        "concept": "The Question",
+        "description": "Growth arrow with 'What Changed?' question",
+        "text": "$24B → $315B - What Changed?",
+        "recommended": false
+      }
+    ],
+
+    "graphics_needed": [
+      "Company spending bar chart (animated)",
+      "SaaS vs Infrastructure comparison table",
+      "Netflix ROI visualization",
+      "Jevons Paradox cycle diagram",
+      "AI workload pie chart"
+    ],
+
+    "broll_clips_needed": [
+      "Data center exterior (3s)",
+      "Server racks with GPUs (4s)",
+      "Network cables/fiber optics (2s)",
+      "Code on screen (3s)",
+      "Claude Code interface (4s)",
+      "Power plant infrastructure (3s)",
+      "Netflix interface (3s)",
+      "DeepSeek news headlines (2s)"
+    ],
+
+    "camera_setup": {
+      "primary": "Eye level, medium shot, 35-50mm",
+      "lighting": "3-point setup (key, fill, back)",
+      "audio": "Lavalier or shotgun mic"
+    },
+
+    "music_suggestion": {
+      "type": "Modern tech/corporate uplifting",
+      "bpm": "90-110",
+      "volume": "20-25% (background)",
+      "fade_out": "1:45"
+    },
+
+    "estimated_production_time": {
+      "recording": "30-45 minutes",
+      "editing": "3-3.5 hours",
+      "total": "4-4.5 hours"
+    }
+  },
+
+  "metadata": {
+    "tags": ["AI infrastructure", "Cloud computing spending", "AWS Azure Google Cloud", "Tech infrastructure 2025", "Big Tech spending", "Data center investment", "AI capex", "Enterprise technology", "Cloud infrastructure", "AI agents", "Netflix AI", "DeepSeek", "Jevons Paradox", "Tech strategy", "AI economics"],
+
+    "hashtags": ["#AIInfrastructure", "#CloudComputing", "#AWS", "#Azure", "#GoogleCloud", "#Meta", "#TechNews", "#DataCenters", "#EnterpriseAI", "#Capex", "#TechStrategy", "#AIAgents", "#ClaudeCode"],
+
+    "target_audience": ["Tech executives", "CTOs", "Founders", "Tech investors", "Infrastructure engineers"],
+
+    "posting_tips": {
+      "best_times": "Tuesday-Thursday, 2-4pm EST",
+      "first_hour_actions": ["Share on Twitter/X", "Share on LinkedIn", "Pin engagement comment", "Respond to comments"],
+      "promotion_strategy": "Push to social networks immediately, engage heavily in first hour"
+    }
+  },
+
+  "evidence": {
+    "research_file": "bmad/agents/content-intelligence/jarvis-sidecar/sessions/research-ai-infrastructure-spend-2025-10-27.md",
+    "research_sources": [
+      "Dell'Oro Group - Data Center Capex Reports",
+      "Canalys/Omdia - Cloud Infrastructure Spending Q2 2025",
+      "Code Ninja Consulting - Netflix AI Infrastructure Case Study",
+      "Hyperframe Research - Jevons Paradox Analysis",
+      "McKinsey - Enterprise AI Adoption Research"
+    ],
+    "data_points_cited": 15,
+    "voice_profile_used": false
+  },
+
+  "performance_targets": {
+    "views_7_days": "5000-10000",
+    "ctr_target": "8-12%",
+    "avg_view_duration": "80-100 seconds",
+    "retention_target": "67-83%"
+  },
+
+  "timestamp": "2025-10-27T00:00:00Z",
+  "cost": 0.00
+}

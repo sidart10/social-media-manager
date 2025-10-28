@@ -18,4 +18,5 @@ validation: "{installed_path}/checklist.md"
 
 # Output configuration
 default_output_file: "{output_folder}/audit-report-{{workflow_name}}-{{date}}.md"
+
 # Web bundle configuration

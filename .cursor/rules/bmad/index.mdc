@@ -33,6 +33,59 @@ BMAD rules have been installed to: `.cursor/rules/bmad/`
 **Agents:**
 - @bmad/bmb/agents/bmad-builder - bmad-builder
 
+### STANDALONE
+
+**Agents:**
+- @bmad/standalone/agents/AGENT_COMPLETE - AGENT_COMPLETE
+- @bmad/standalone/agents/AGENT_FIXES_APPLIED - AGENT_FIXES_APPLIED
+- @bmad/standalone/agents/COMPREHENSIVE_TEST_REPORT - COMPREHENSIVE_TEST_REPORT
+- @bmad/standalone/agents/IMPLEMENTATION_ROADMAP - IMPLEMENTATION_ROADMAP
+- @bmad/standalone/agents/MCP_QUICK_REFERENCE - MCP_QUICK_REFERENCE
+- @bmad/standalone/agents/MCP_TROUBLESHOOTING - MCP_TROUBLESHOOTING
+- @bmad/standalone/agents/MCP_WORKING_CONFIG - MCP_WORKING_CONFIG
+- @bmad/standalone/agents/README - README
+- @bmad/standalone/agents/READY_TO_USE - READY_TO_USE
+- @bmad/standalone/agents/VALIDATION_REPORT - VALIDATION_REPORT
+- @bmad/standalone/agents/WORKFLOWS_COMPLETE - WORKFLOWS_COMPLETE
+- @bmad/standalone/agents/WORKFLOW_STRATEGY - WORKFLOW_STRATEGY
+- @bmad/standalone/agents/ai-image-generator - ai-image-generator
+- @bmad/standalone/agents/ACTUAL-CURRENT-STATE - ACTUAL-CURRENT-STATE
+- @bmad/standalone/agents/AGENT_BUILD_COMPLETE - AGENT_BUILD_COMPLETE
+- @bmad/standalone/agents/BRAINSTORM-JSON-VIDEO-PROMPTING - BRAINSTORM-JSON-VIDEO-PROMPTING
+- @bmad/standalone/agents/COMPLETE-SYSTEM-SUMMARY - COMPLETE-SYSTEM-SUMMARY
+- @bmad/standalone/agents/CRITICAL-FIXES-COMPLETED - CRITICAL-FIXES-COMPLETED
+- @bmad/standalone/agents/FIXES_APPLIED - FIXES_APPLIED
+- @bmad/standalone/agents/FOCUSED-IMPLEMENTATION-PLAN - FOCUSED-IMPLEMENTATION-PLAN
+- @bmad/standalone/agents/IMPLEMENTATION-PLAN - IMPLEMENTATION-PLAN
+- @bmad/standalone/agents/JSON-INTEGRATION-COMPLETE - JSON-INTEGRATION-COMPLETE
+- @bmad/standalone/agents/JSON-MODULE-INTEGRATED - JSON-MODULE-INTEGRATED
+- @bmad/standalone/agents/MCP_SERVERS_UPDATED - MCP_SERVERS_UPDATED
+- @bmad/standalone/agents/PHASE-1-COMPLETE - PHASE-1-COMPLETE
+- @bmad/standalone/agents/README - README
+- @bmad/standalone/agents/SORA2-DOWNLOAD-FIX - SORA2-DOWNLOAD-FIX
+- @bmad/standalone/agents/ULTRATHINK-ANALYSIS - ULTRATHINK-ANALYSIS
+- @bmad/standalone/agents/UPGRADE-SUMMARY - UPGRADE-SUMMARY
+- @bmad/standalone/agents/ai-video-agent - ai-video-agent
+- @bmad/standalone/agents/README - README
+- @bmad/standalone/agents/jarvis - jarvis
+- @bmad/standalone/agents/CREDENTIALS_SETUP_GUIDE - CREDENTIALS_SETUP_GUIDE
+- @bmad/standalone/agents/CREDENTIALS_STATUS - CREDENTIALS_STATUS
+- @bmad/standalone/agents/LINKEDIN_API_COMPLETE_RESEARCH - LINKEDIN_API_COMPLETE_RESEARCH
+- @bmad/standalone/agents/LINKEDIN_INVESTIGATION - LINKEDIN_INVESTIGATION
+- @bmad/standalone/agents/LINKEDIN_QA_REPORT - LINKEDIN_QA_REPORT
+- @bmad/standalone/agents/MCP_SERVERS_RESEARCH - MCP_SERVERS_RESEARCH
+- @bmad/standalone/agents/PLATFORM_STATUS_COMPLETE - PLATFORM_STATUS_COMPLETE
+- @bmad/standalone/agents/PROGRESS_TRACKER - PROGRESS_TRACKER
+- @bmad/standalone/agents/QA_REPORT_COMPREHENSIVE - QA_REPORT_COMPREHENSIVE
+- @bmad/standalone/agents/README - README
+- @bmad/standalone/agents/SETUP_COMPLETE - SETUP_COMPLETE
+- @bmad/standalone/agents/TEST_RESULTS - TEST_RESULTS
+- @bmad/standalone/agents/TWITTER_API_IMPLEMENTATION_PLAN - TWITTER_API_IMPLEMENTATION_PLAN
+- @bmad/standalone/agents/YOUTUBE_MCP_GUIDE - YOUTUBE_MCP_GUIDE
+- @bmad/standalone/agents/YOUTUBE_SHORTS_GUIDE - YOUTUBE_SHORTS_GUIDE
+- @bmad/standalone/agents/YOUTUBE_SUCCESS - YOUTUBE_SUCCESS
+- @bmad/standalone/agents/social-posting-agent - social-posting-agent
+
 
 ## Quick Reference
 

@@ -1,0 +1,37 @@
+{
+  "content_type": "twitter_post",
+  "generated_by": "jarvis",
+  "workflow": "write-posts",
+  "platform": "twitter",
+  "format": "long-form",
+  "ready_for_agent": "social-posting-agent",
+  "suggested_command": "/post-twitter",
+
+  "content": {
+    "text": "In 2015, the Big 4 cloud providers spent $24B on infrastructure.\n\nIn 2025, they'll spend $315B.\n\nWhat changed? AI stopped being software.\n\nHere's what $315B in hyperscaler spending tells us about where AI infrastructure is heading:\n\n**The Numbers:**\n• Amazon/AWS: $100B (8.3x growth)\n• Microsoft/Azure: $80B (20x growth)\n• Google/GCP: $75B (15x growth)\n• Meta: $60B (20x growth)\n\nThis isn't about buying more servers. It's a fundamental shift in how companies view AI.\n\n**The Shift:**\n\nTraditional software = operational expense (pay per seat, rent monthly)\nAI infrastructure = capital expenditure (own the compute, build the capability)\n\nWhen your engineers burn 50k tokens/day using Claude Code or Cursor, your CFO thinks it's a software subscription.\n\nIt's actually infrastructure. Like bandwidth. Like storage. Like compute.\n\n**Why This Matters:**\n\nToken economics mirror infrastructure costs, not SaaS pricing. Netflix learned this early—invested $150M in AI infrastructure, now generates $1B+ annually from personalized recommendations.\n\nThat's a 6.7x ROI. And it compounds over time.\n\nMost companies are still renting AI tools. The winners are building AI infrastructure.\n\n**The Technical Reality:**\n\nAI agents (like Claude Code) don't run like traditional apps. They need:\n• Persistent sandbox environments\n• File system access\n• High compute for multi-hour workflows\n• Runtime isolation\n\nEvery AI agent needs its own \"digital computer.\" That's infrastructure, not software.\n\n**The Paradox:**\n\nDeepSeek was supposed to crash AI infrastructure spending with more efficient models. Instead, hyperscaler capex jumped 16% above forecasts.\n\nWhy? The Jevons Paradox—increased efficiency drives MORE demand for computing power, not less. Better AI = more use cases = more infrastructure needed.\n\n**Current State:**\n\n• AI workloads now account for 36-40% of all server revenue\n• Accelerated servers (GPUs) dominate hyperscaler spending\n• Custom chips (Google TPUs, AWS Trainium, Microsoft Maia) competing with NVIDIA\n• Cloud spending grew 22% YoY in Q2 2025 to $95.3B\n\n**The Strategic Question:**\n\nShould your company build AI infrastructure or rent it?\n\nDepends on:\n• Scale of AI usage\n• Long-term cost trajectory\n• Competitive advantage from ownership\n• Infrastructure expertise\n\nBut one thing is clear: AI has moved from the software budget to the infrastructure budget.\n\nIf you're still treating AI spending as OpEx instead of CapEx, your finance team needs to reconsider.\n\nThe $315B question every CTO is asking: When do we stop renting and start building?",
+
+    "metadata": {
+      "char_count": 2247,
+      "word_count": 371,
+      "format": "long-form",
+      "posting_tip": "Weekday mornings (8-10am) for best reach. Consider tagging @sama, @satyanadella, @sundarpichai for visibility.",
+      "current_trend": "Long-form posts outperforming threads (Oct 2025)"
+    }
+  },
+
+  "evidence": {
+    "research_file": "bmad/agents/content-intelligence/jarvis-sidecar/sessions/research-ai-infrastructure-spend-2025-10-27.md",
+    "research_sources": [
+      "dcpulse.com - Hyperscaler CapEx projections",
+      "Canalys/Omdia - Cloud spending Q2 2025",
+      "Dell'Oro Group - Data center capex reports",
+      "Code Ninja Consulting - Netflix AI ROI case study",
+      "Hyperframe Research - Jevons Paradox analysis"
+    ],
+    "voice_profile_used": false,
+    "data_points_cited": 8
+  },
+
+  "timestamp": "2025-10-27T00:00:00Z",
+  "cost": 0.00
+}

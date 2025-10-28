@@ -1,0 +1,153 @@
+---
+description: BMAD STANDALONE: SORA2-DOWNLOAD-FIX
+globs: 
+alwaysApply: false
+---
+
+# Sora2 MCP Server - Download Fix
+
+**Date**: October 25, 2025
+**Issue**: Sora2 MCP `get_video_status` doesn't return download URLs
+**Solution**: Use OpenAI API download endpoint directly
+
+---
+
+## ❌ THE PROBLEM
+
+The `sora-2-mcp-server` package has an incomplete implementation:
+
+**What It Does**:
+
+- ✅ `create_video` - Creates video generation jobs
+- ✅ `get_video_status` - Polls job status
+- ✅ `list_videos` - Lists all jobs
+- ✅ `delete_video` - Deletes jobs
+- ✅ `merge_videos` - Merges multiple videos
+- ✅ `create_fade_animation` - Creates fade effects
+
+**What's Missing**:
+
+- ❌ **No download URL in `get_video_status` response**
+- ❌ **No `download_video` or `save_video` tools** (despite documentation mentioning them)
+
+**Response from MCP**:
+
+```json
+{
+  "video_id": "video_68fd...",
+  "status": "completed",
+  "data": {
+    "id": "video_68fd...",
+    "status": "completed",
+    "progress": 100
+    // NO VIDEO URL FIELD!
+  }
+}
+```
+
+---
+
+## ✅ THE SOLUTION
+
+### OpenAI Sora 2 API Download Endpoint
+
+**Endpoint**: `GET https://api.openai.com/v1/videos/{video_id}/content`
+
+**Headers**: `Authorization: Bearer {OPENAI_API_KEY}`
+
+**Returns**: MP4 video file (binary data)
+
+---
+
+## 🔧 IMPLEMENTATION
+
+### Manual Download Command:
+
+```bash
+curl "https://api.openai.com/v1/videos/{VIDEO_ID}/content" \
+  -H "Authorization: Bearer ${OPENAI_API_KEY}" \
+  -o output.mp4
+```
+
+### In Workflows:
+
+**Updated scene-generation-instructions.md** (lines 138-150):
+
+```markdown
+<check if="status == 'completed'">
+  <action>Display: "✅ Video generated! Downloading..."</action>
+
+<action>Download video using OpenAI API:</action>
+<action>Set output*path = {output_folder}/sora2*{timestamp}.mp4</action>
+<action>Call: curl "https://api.openai.com/v1/videos/{video_id}/content"</action>
+<action> -H "Authorization: Bearer ${OPENAI_API_KEY}"</action>
+<action> -o {output_path}</action>
+
+<action>Display: "✅ Cinematic video ready!"</action>
+<action>Display: "📁 Video: {output_path}"</action>
+<action>Set video_path = {output_path}</action>
+</check>
+```
+
+---
+
+## 📊 TESTED & VERIFIED
+
+**Test Video**:
+
+- Video ID: `video_68fd722a2b0081988c64aa76c411298104611f2fe08fd88a`
+- Prompt: "Futuristic king walking into throne room"
+- Model: sora-2
+- Size: 1280x720 (16:9 horizontal)
+- Duration: 8 seconds
+- File Size: 1.9 MB
+- Downloaded: ✅ `/outputs/sora2_king_entrance.mp4`
+
+---
+
+## 🎯 HOW IT WORKS NOW
+
+### Sora2 Workflow (Fixed):
+
+1. **Create video** → `mcp__sora2__create_video` → Returns `video_id`
+2. **Poll status** → `mcp__sora2__get_video_status` → Wait for `status == 'completed'`
+3. **Download video** → `curl https://api.openai.com/v1/videos/{video_id}/content` → Save to local file
+4. **Open video** → User can watch immediately
+
+**Total Time**: ~2-4 minutes (generation) + ~5 seconds (download)
+
+---
+
+## ✅ WORKFLOW UPDATED
+
+**File**: `workflows/scene-generation-instructions.md`
+
+**Changes**:
+
+- ✅ Added download step after Sora2 completion
+- ✅ Uses OpenAI API `/content` endpoint
+- ✅ Saves to `outputs/sora2_{timestamp}.mp4`
+- ✅ Returns local file path (not URL)
+
+**Now Sora2 videos download automatically!**
+
+---
+
+## 🔮 FUTURE: Fix MCP Server
+
+**Proper Solution** (for later):
+
+- Fork/contribute to `sora-2-mcp-server` package
+- Add `download_url` field to `get_video_status` response
+- Or add `save_video` tool as documented
+- Submit PR to maintainer
+
+**Current Workaround** (works perfectly):
+
+- Use curl command in workflow
+- Downloads automatically
+- No MCP server changes needed
+
+---
+
+**Sora2 is now fully functional!** 🚀

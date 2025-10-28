@@ -1,0 +1,330 @@
+# Social Media Posting Agent - MCP Servers Research
+
+## Overview
+
+This document provides comprehensive research on MCP servers available for posting to social media platforms. These servers will be orchestrated by our Social Media Posting Agent.
+
+**Last Updated:** 2025-10-25
+**Status:** Research Complete - 4/5 Platforms Ready
+
+---
+
+## Installed MCP Servers
+
+### 1. mcp_twitter (X/Twitter) ✓ INSTALLED
+
+**Repository:** https://github.com/0xhijo/mcp_twitter
+**Installation:** `npx -y mcp_twitter`
+**Type:** TypeScript/Node.js
+
+#### Available Tools
+
+| Tool Name                              | Description                       | Use Case          |
+| -------------------------------------- | --------------------------------- | ----------------- |
+| `create_twitter_post`                  | Create a new X/Twitter post       | Post text + media |
+| `create_and_post_twitter_thread`       | Create and publish a thread       | Multi-tweet posts |
+| `reply_twitter_tweet`                  | Reply to a specific post          | Engagement        |
+| `get_last_tweet`                       | Get most recent post from account | Monitoring        |
+| `get_last_tweets_options`              | Search posts by query             | Research          |
+| `follow_twitter_from_username`         | Follow a user                     | Growth            |
+| `get_twitter_profile_from_username`    | Get profile data                  | Analysis          |
+| `get_twitter_user_id_from_username`    | Get user ID                       | Lookups           |
+| `get_last_tweet_and_replies_from_user` | Get posts and replies             | Engagement        |
+| `get_own_twitter_account_info`         | Get current account info          | Status            |
+
+#### Authentication Required
+
+- **Mode:** API (recommended) or Credentials (scraper)
+- **API Mode Env Vars:**
+  ```
+  TWITTER_AUTH_MODE=API
+  TWITTER_API=<consumer_key>
+  TWITTER_API_SECRET=<consumer_secret>
+  TWITTER_ACCESS_TOKEN=<access_token>
+  TWITTER_ACCESS_TOKEN_SECRET=<access_token_secret>
+  ```
+
+#### Rate Limits
+
+- **Free Tier:** 500 posts/month (app + user level)
+- **Upgrade:** Required for higher volume
+
+---
+
+### 2. linkedin-mcp (LinkedIn) ✓ INSTALLED
+
+**Repository:** https://pypi.org/project/linkedin-mcp/
+**Installation:** `uvx linkedin-mcp`
+**Type:** Python
+
+#### Available Tools
+
+| Tool Name      | Description                       | Use Case                |
+| -------------- | --------------------------------- | ----------------------- |
+| `authenticate` | Authenticate with LinkedIn OAuth2 | Initial setup           |
+| `create_post`  | Create post with optional media   | Post text + image/video |
+
+#### Authentication Required
+
+- **OAuth2 Flow:** Handled by `authenticate` tool
+- **Env Vars:**
+  ```
+  LINKEDIN_CLIENT_ID=<client_id>
+  LINKEDIN_CLIENT_SECRET=<client_secret>
+  LINKEDIN_REDIRECT_URI=http://localhost:3000/callback
+  ```
+
+#### Scopes Required
+
+- **Member Posts:** `w_member_social`
+- **Organization/Page Posts:** `w_organization_social` + `r_organization_social`
+
+#### Media Handling
+
+- Uses LinkedIn Assets API
+- Flow: `registerUpload` → `upload` → `create_post`
+
+---
+
+### 3. youtube-uploader-mcp (YouTube) ✓ INSTALLED
+
+**Repository:** https://github.com/anwerj/youtube-uploader-mcp
+**Installation:** One-line installer (Go binary)
+**Binary Path:** `/Users/sid/youtube-uploader-mcp/youtube-uploader-mcp-darwin-arm64`
+**Type:** Go
+
+#### Available Capabilities
+
+- Upload videos to YouTube
+- OAuth2 authentication with token refresh
+- Multi-channel support
+- Resumable uploads (recommended for reliability)
+
+#### Authentication Required
+
+- **client_secret.json** from Google Developer Console
+- **Config Path:** `/Users/sid/.config/youtube-uploader-mcp/client_secret_*.json`
+- **OAuth Scopes:** YouTube Data API v3 access
+
+#### Parameters
+
+```bash
+-client_secret_file /path/to/client_secret.json
+```
+
+#### Quota Information
+
+- **Default:** 10,000 units/day
+- **Upload Cost:** 1,600 units per upload
+- **Daily Limit:** ~6 uploads/day (free tier)
+
+#### Features
+
+- Optional thumbnail upload
+- Scheduled publishing (`status.publishAt`)
+- Privacy settings (public/private/unlisted)
+- Resumable uploads for large files
+
+---
+
+### 4. ig-mcp (Instagram) ✓ INSTALLED
+
+**Repository:** https://github.com/jlbadano/ig-mcp
+**Installation:** Git clone + Python dependencies
+**Path:** `/Users/sid/.mcp-servers/ig-mcp`
+**Type:** Python
+
+#### Available Tools
+
+| Tool Name            | Description                      | Use Case             |
+| -------------------- | -------------------------------- | -------------------- |
+| `publish_media`      | Upload and publish images/videos | Primary posting tool |
+| `get_profile_info`   | Get profile details              | Account info         |
+| `get_media_posts`    | Fetch recent posts               | Monitoring           |
+| `get_media_insights` | Get engagement metrics           | Analytics            |
+| `get_account_pages`  | List connected Facebook pages    | Setup                |
+
+#### Authentication Required
+
+- **Instagram Graph API** (Professional/Business accounts only)
+- **Env Vars:**
+  ```
+  INSTAGRAM_ACCESS_TOKEN=<long_lived_token>
+  FACEBOOK_APP_ID=<app_id>
+  FACEBOOK_APP_SECRET=<app_secret>
+  INSTAGRAM_BUSINESS_ACCOUNT_ID=<ig_user_id>
+  ```
+
+#### Account Requirements
+
+- Must be **Professional** (Business or Creator) account
+- Personal accounts cannot post via API
+- May require Page Publishing Authorization (PPA)
+
+#### Publishing Flows
+
+**Single Image:**
+
+1. Create container with `image_url` + `caption`
+2. Returns `creation_id`
+3. Poll `status_code` until `FINISHED`
+4. Call `media_publish` with `creation_id`
+
+**Video/Reel:**
+
+1. Create container with `media_type=VIDEO` or `media_type=REELS`
+2. Poll `status_code` until `FINISHED`
+3. Call `media_publish`
+
+**Carousel:**
+
+1. Create child containers (`is_carousel_item=true`)
+2. Create carousel container with `children=[...]`
+3. Call `media_publish`
+
+#### Rate Limits
+
+- **100 API-published posts per 24 hours**
+- Carousels count as 1 post
+
+#### Validation Requirements
+
+- Proper aspect ratios
+- Duration limits for Reels
+- Caption length constraints
+- Public URL for media until fetch succeeds
+
+---
+
+### 5. TikTok ⚠️ NEEDS SOLUTION
+
+**Status:** No free, posting-focused MCP server available
+
+#### Available Options
+
+**Option A: Composio TikTok MCP** (Paid)
+
+- **URL:** https://mcp.composio.dev/tiktok
+- **Tools:** `TIKTOK_UPLOAD_VIDEO`, publish actions
+- **Pricing:** Requires Composio account
+- **Pros:** Production-ready, follows official Content Posting API
+- **Cons:** Paid service, external dependency
+
+**Option B: Build Custom MCP Server**
+
+- Use TikTok Content Posting API
+- Implement two flows:
+  1. **Upload (Draft):** User finishes in-app
+  2. **Direct Post:** Requires app audit + `video.publish` scope
+- **Note:** Direct Post is private-only until audit approved
+
+**Option C: Existing TikTok MCP Servers**
+
+- **seym0n/tiktok-mcp:** Analysis/metadata only
+- **yap-audio/tiktok-mcp:** Discovery/metadata only
+- **yushengnan0525/tiktok-ads-mcp:** Ads API only
+- **None support content posting**
+
+#### Recommendation
+
+- **Phase 1:** Launch without TikTok, mark workflows as "todo"
+- **Phase 2:** Evaluate Composio or build custom server
+- **Phase 3:** Implement based on volume/budget needs
+
+---
+
+## Unified Request Schema
+
+All platforms will accept this normalized request format:
+
+```json
+{
+  "platform": "instagram|youtube|tiktok|linkedin|x",
+  "caption": "string",
+  "media": [
+    {
+      "kind": "image|video",
+      "url": "https://...",
+      "alt": "string (optional)",
+      "thumbUrl": "https://... (optional)"
+    }
+  ],
+  "privacy": "public|unlisted|private|followers",
+  "schedule": {
+    "at": "ISO-8601",
+    "timezone": "America/Los_Angeles"
+  },
+  "tags": ["#tag1", "#tag2"],
+  "location": "string-or-id",
+  "extras": {}
+}
+```
+
+## Platform-Specific Considerations
+
+### Instagram
+
+- **Container status polling required**
+- Professional account mandatory
+- 100 posts/24h limit
+- PPA may be required
+
+### YouTube
+
+- **Resumable uploads recommended**
+- Quota management critical (1600 units/upload)
+- Scheduling requires private + publishAt
+- Unverified projects may be private-locked
+
+### LinkedIn
+
+- **Assets API upload flow**
+- Separate scopes for member vs org posts
+- Simple, immediate response
+
+### X/Twitter
+
+- **Chunked media upload for large files**
+- Monthly post caps on free tier
+- Rate limiting per app + user
+
+### TikTok
+
+- **Audit required for public posts**
+- Draft flow for immediate use
+- Private-only until approved
+
+---
+
+## Next Steps
+
+1. ✅ Install all MCP servers (4/5 complete)
+2. 🔄 Configure credentials for each platform
+3. 🔄 Test each MCP server with dummy data
+4. 🔄 Document exact tool signatures from testing
+5. 🔄 Create validation workflows
+6. 🔄 Build platform-specific posting workflows
+7. 🔄 Create unified routing workflow
+8. 🔄 Build Social Media Posting Agent
+9. 🔄 Integration testing
+10. 🔄 Production deployment
+
+---
+
+## Credentials Setup Checklist
+
+- [ ] **Twitter:** Create app at https://developer.twitter.com/
+- [ ] **LinkedIn:** Create app at https://developer.linkedin.com/
+- [ ] **YouTube:** Get client_secret.json from Google Cloud Console
+- [ ] **Instagram:** Create Facebook app, get long-lived token
+- [ ] **TikTok:** Decide on approach (Composio vs custom)
+
+---
+
+## Reference Links
+
+- [Instagram Graph API - Content Publishing](https://developers.facebook.com/docs/instagram-platform/content-publishing/)
+- [YouTube Data API v3 - Videos Insert](https://developers.google.com/youtube/v3/docs/videos/insert)
+- [LinkedIn Posts API](https://learn.microsoft.com/en-us/linkedin/marketing/community-management/shares/posts-api)
+- [X API v2 Documentation](https://docs.x.com/x-api/posts/create-post)
+- [TikTok Content Posting API](https://developers.tiktok.com/doc/content-posting-api-reference-upload-video)
