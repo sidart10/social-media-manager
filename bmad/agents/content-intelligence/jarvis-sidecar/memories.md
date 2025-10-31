@@ -1202,10 +1202,10 @@ Let's get to work. ⚡️"
 **Paid API Usage:**
 
 - linkedin-mcp: $0.00
-- exa-mcp: $0.311 (25 searches: AI infrastructure + AI agents + reference voice + All-In video + November calendar research)
-- Apify: $0.38 (Instagram: $0.05, Voice Learning v1: $0.10, Voice Learning v2 COMPLETE: $0.23)
+- exa-mcp: $0.329 (27 searches: AI infrastructure + AI agents + reference voice + All-In video + November calendar research + @onfilm_ajayk username verification)
+- Apify: $0.412 (Instagram: $0.082, Voice Learning v1: $0.10, Voice Learning v2 COMPLETE: $0.23)
 
-**Total This Month: $0.693**
+**Total This Month: $0.741**
 **Budget Alert Threshold: $10.00**
 
 **Recent Usage:**
@@ -1223,6 +1223,7 @@ Let's get to work. ⚡️"
 - 2025-10-29: Exa search - All-In Podcast video analysis ($0.008)
 - 2025-10-30: November Calendar Research - 17 Exa searches ($0.205)
 - 2025-10-30: Apify Twitter scraper attempt - FAILED (monthly limit exceeded) ($0)
+- 2025-10-31: Instagram analysis - @onfilm_ajayk - Apify scraper ($0.032) + Exa verification ($0.018)
 
 ---
 
@@ -1281,6 +1282,7 @@ Let's get to work. ⚡️"
 | 2025-10-27 | write-scripts | YouTube | $0.00 | ✅ | 120s video script, comprehensive production guide |
 | 2025-10-27 | learn-voice v1 | Twitter+LinkedIn+YouTube | $0.10 | ✅ | 90+ pieces (included AI content), surface patterns only |
 | 2025-10-28 | learn-voice v2 | Twitter+LinkedIn+Reference | $0.23 | ✅ | 77 authentic posts, 5 modes, rhetorical DNA, 8/10 confidence |
+| 2025-10-31 | analyze-profile | Instagram | $0.05 | ✅ | @onfilm_ajayk, 12 posts, film photographer/filmmaker, video 10x outperforms photos |
 
 ---
 
@@ -1298,14 +1300,14 @@ Let's get to work. ⚡️"
 
 <!-- Track analyzed profiles for quick reference -->
 
-**Total Profiles:** 2
+**Total Profiles:** 3
 
 **By Platform:**
 
 - Twitter: 1 (@siddaniagi - 57 tweets for voice learning)
 - LinkedIn: 1 (/in/siddani/ - 30 posts for voice learning)
 - YouTube: 1 (@siddani09 - 8 videos, 3 transcripts for voice learning)
-- Instagram: 1 (@thevarunmayya)
+- Instagram: 2 (@thevarunmayya, @onfilm_ajayk)
 - TikTok: 0
 
 **Analyzed:**
@@ -1313,6 +1315,7 @@ Let's get to work. ⚡️"
 - **/in/siddani/ (LinkedIn):** 30 posts analyzed for voice profile, thought leadership, deep analysis
 - **@siddani09 (YouTube):** 8 videos found, 3 transcripts analyzed for spoken voice patterns
 - **@thevarunmayya (Instagram):** 20 reels, avg 21.8K likes, interview clips with tech CEOs perform best (95K+ likes)
+- **@onfilm_ajayk (Instagram):** 12 posts, film photographer/filmmaker, ultra-minimal captions, video content 10x outperforms photos (1,399 likes on showreel vs ~150 avg)
 
 ---
 
