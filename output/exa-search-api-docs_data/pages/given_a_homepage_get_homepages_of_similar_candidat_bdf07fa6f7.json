@@ -1,0 +1,8 @@
+{
+  "title": "given a homepage, get homepages of similar candidates",
+  "content": "def get_more_candidates(homepageURL):\n  new_homepages = []\n  if not homepageURL:\n    return None\n  similarity_search = exa.find_similar_and_contents(homepageURL, num_results=3, text={\"include_html_tags\": False}, exclude_domains=['linkedin.com', 'github.com', 'twitter.com'])\n\n#return a list of emails\n  for res in similarity_search.results:\n    new_homepages.append((res.url, res.text))\n  return new_homepages",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#given-a-homepage,-get-homepages-of-similar-candidates",
+  "links": []
+}

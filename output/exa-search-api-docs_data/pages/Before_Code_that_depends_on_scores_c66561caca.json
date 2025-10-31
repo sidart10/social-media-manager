@@ -1,0 +1,8 @@
+{
+  "title": "Before: Code that depends on scores",
+  "content": "result = exa.search(\"AI startups\", type=\"auto\")\nsorted_results = sorted(result.results, key=lambda x: x.score, reverse=True)",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#before:-code-that-depends-on-scores",
+  "links": []
+}

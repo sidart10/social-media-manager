@@ -1,0 +1,8 @@
+{
+  "title": "Determine whether to continue or end",
+  "content": "def should_continue(state: MessagesState) -> Literal[\"tools\", END]:\n    messages = state[\"messages\"]\n    last_message = messages[-1]\n    return \"tools\" if last_message.tool_calls else END",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#determine-whether-to-continue-or-end",
+  "links": []
+}

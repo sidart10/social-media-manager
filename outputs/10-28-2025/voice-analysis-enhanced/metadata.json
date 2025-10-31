@@ -1,0 +1,44 @@
+{
+  "session_name": "voice-analysis-enhanced",
+  "agent": "jarvis",
+  "created_date": "2025-10-28",
+  "workflow": "learn-voice",
+  "workflow_version": "2.0",
+  "platform": "multi-platform",
+  "content_type": "voice-analysis",
+  "topic": "rhetorical-dna-enhancement",
+  "files_generated": {
+    "analysis": 1,
+    "workflow_files": 2,
+    "metadata": 1
+  },
+  "primary_output": "voice-dna-deep-analysis.md",
+  "data_sources": {
+    "linkedin_posts": 30,
+    "twitter_posts": 5,
+    "reference_voice_tweets": 40
+  },
+  "api_costs": {
+    "linkedin_scraper": 0.15,
+    "twitter_scraper": 0.04,
+    "exa_search": 0.008,
+    "total": 0.198
+  },
+  "workflow_changes": {
+    "version": "1.0 → 2.0",
+    "new_dimensions_added": 10,
+    "total_dimensions": 16,
+    "new_features": [
+      "Argument architecture analysis",
+      "Voice mode detection (5 modes)",
+      "Rhetorical DNA extraction",
+      "Proof style mapping",
+      "Humor mechanics",
+      "Emotional range",
+      "Closing patterns",
+      "Parenthetical analysis",
+      "Cultural voice detection",
+      "Comparative lens"
+    ]
+  }
+}

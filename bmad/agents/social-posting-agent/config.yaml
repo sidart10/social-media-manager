@@ -40,6 +40,12 @@ mcp_tools:
   twitter_mcp:
     enabled: true
     tool_prefix: "mcp__mcp_twitter__"
+  postiz:
+    enabled: true
+    tool_prefix: "mcp__postiz__"
+    description: "Cross-platform social media scheduling and posting"
+    platforms: ["twitter", "linkedin", "instagram", "facebook", "tiktok", "youtube", "pinterest", "reddit"]
+    rate_limit: "30 requests per hour"
 
 # Note: API keys, OAuth tokens, and rate limit data are stored in:
 # - .env (project root) - API keys

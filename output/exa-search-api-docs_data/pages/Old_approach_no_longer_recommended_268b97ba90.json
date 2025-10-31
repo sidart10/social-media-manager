@@ -1,0 +1,8 @@
+{
+  "title": "Old approach (no longer recommended)",
+  "content": "try:\n    result = exa.get_contents([\"https://example.com\"])\nexcept HTTPError as e:\n    print(f\"Error: {e.status_code}\")",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#old-approach-(no-longer-recommended)",
+  "links": []
+}

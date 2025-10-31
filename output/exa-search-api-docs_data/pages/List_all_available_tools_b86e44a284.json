@@ -1,0 +1,58 @@
+{
+  "title": "List all available tools",
+  "content": "npx exa-mcp-server --list-tools\nbash  theme={null}\n   code ~/Library/Application\\ Support/Claude/claude_desktop_config.json\n   powershell  theme={null}\n   code %APPDATA%\\Claude\\claude_desktop_config.json\n   json  theme={null}\n   {\n     \"mcpServers\": {\n       \"exa\": {\n         \"command\": \"npx\",\n         \"args\": [\n           \"-y\",\n          \"exa-mcp-server\"\n          ],\n         \"env\": {\n           \"EXA_API_KEY\": \"your-api-key-here\"\n         }\n       }\n     }\n   }\n   json  theme={null}\n   {\n     \"mcpServers\": {\n       \"exa\": {\n         \"command\": \"npx\",\n         \"args\": [\n           \"-y\",\n           \"exa-mcp-server\",\n           \"--tools=get_code_context_exa\"\n         ],\n         \"env\": {\n           \"EXA_API_KEY\": \"your-api-key-here\"\n         }\n       }\n     }\n   }\n   json  theme={null}\n   {\n     \"mcpServers\": {\n       \"exa\": {\n         \"command\": \"npx\",\n         \"args\": [\n           \"-y\",\n           \"exa-mcp-server\",\n           \"--tools=get_code_context_exa,web_search_exa\"\n         ],\n         \"env\": {\n           \"EXA_API_KEY\": \"your-api-key-here\"\n         }\n       }\n     }\n   }\n   json  theme={null}\n   {\n     \"mcpServers\": {\n       \"exa\": {\n         \"command\": \"npx\",\n         \"args\": [\n           \"-y\",\n           \"exa-mcp-server\",\n           \"--tools=web_search_exa\"\n         ],\n         \"env\": {\n           \"EXA_API_KEY\": \"your-api-key-here\"\n         }\n       }\n     }\n   }\n   json  theme={null}\n   {\n     \"mcpServers\": {\n       \"exa\": {\n         \"command\": \"npx\",\n         \"args\": [\n           \"-y\",\n           \"exa-mcp-server\",\n           \"--tools=deep_researcher_start,deep_researcher_check\"\n         ],\n         \"env\": {\n           \"EXA_API_KEY\": \"your-api-key-here\"\n         }\n       }\n     }\n   }\n   ```\n\n5. **Restart Claude Desktop**\n   * Completely quit Claude Desktop (not just close the window)\n   * Start Claude Desktop again\n   * Look for the 🔌 icon to verify the Exa server is connected\n\n1. **Server Not Found**\n   * Ensure the npm package is correctly installed\n\n2. **API Key Issues**\n   * Confirm your EXA\\_API\\_KEY is valid\n   * Make sure there are no spaces or quotes around the API key\n\n3. **Connection Problems**\n   * Restart Claude Desktop completely\n\n## Additional Resources\n\nFor more information, visit the [Exa MCP Server GitHub repository](https://github.com/exa-labs/exa-mcp-server/).",
+  "code_samples": [
+    {
+      "code": "## Configuring Claude Desktop\n\nTo configure Claude Desktop to use Exa MCP:\n\n1. **Enable Developer Mode in Claude Desktop**\n   * Open Claude Desktop\n   * Click on the top-left menu\n   * Enable Developer Mode\n\n2. **Open the Configuration File**\n\n   * After enabling Developer Mode, go to Settings\n   * Navigate to the Developer Option\n   * Click \"Edit Config\" to open the configuration file\n\n   Alternatively, you can open it directly:\n\n   **macOS:**",
+      "language": "unknown"
+    },
+    {
+      "code": "**Windows:**",
+      "language": "unknown"
+    },
+    {
+      "code": "3. **Add Exa MCP Configuration**\n\n   Add the following to your configuration:",
+      "language": "unknown"
+    },
+    {
+      "code": "Replace `your-api-key-here` with your actual Exa API key.\n\n4. **Enabling Specific Tools**\n\n   To enable only code search (recommended for developers):",
+      "language": "unknown"
+    },
+    {
+      "code": "To enable code search and web search together:",
+      "language": "unknown"
+    },
+    {
+      "code": "To enable only web search:",
+      "language": "unknown"
+    },
+    {
+      "code": "To enable deep researcher tools:",
+      "language": "unknown"
+    }
+  ],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "Configuring Claude Desktop",
+      "id": "configuring-claude-desktop"
+    },
+    {
+      "level": "h2",
+      "text": "Troubleshooting",
+      "id": "troubleshooting"
+    },
+    {
+      "level": "h3",
+      "text": "Common Issues",
+      "id": "common-issues"
+    },
+    {
+      "level": "h2",
+      "text": "Additional Resources",
+      "id": "additional-resources"
+    }
+  ],
+  "url": "llms-txt#list-all-available-tools",
+  "links": []
+}

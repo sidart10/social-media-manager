@@ -1,0 +1,8 @@
+{
+  "title": "Rate Limits",
+  "content": "Source: https://docs.exa.ai/reference/rate-limits\n\nDefault rate limits for Exa API endpoints\n\n<Info>\n  Need higher rate limits? Contact us at [hello@exa.ai](mailto:hello@exa.ai) to discuss an Enterprise plan.\n</Info>\n\nOur API endpoints have default rate limits to ensure reliable performance for all users. Most endpoints are limited by QPS, while the Research API uses concurrent task limits for its long-running operations.\n\n| Endpoint    | Limit               |\n| ----------- | ------------------- |\n| `/search`   | 5 QPS\\*             |\n| `/contents` | 50 QPS              |\n| `/answer`   | 5 QPS               |\n| `/research` | 15 concurrent tasks |\n\n*\\*QPS = Queries Per Second*",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#rate-limits",
+  "links": []
+}

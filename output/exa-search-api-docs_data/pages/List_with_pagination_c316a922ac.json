@@ -1,0 +1,29 @@
+{
+  "title": "List with pagination",
+  "content": "response = exa.research.list_tasks(limit=10)\nif response['hasMore']:\n    next_page = exa.research.list_tasks(cursor=response['nextCursor'])\nJSON JSON theme={null}\n{\n  \"data\": [\n    {\n      \"id\": \"task-1\",\n      \"status\": \"completed\",\n      \"instructions\": \"Research SpaceX valuation\",\n      ...\n    },\n    {\n      \"id\": \"task-2\",\n      \"status\": \"running\",\n      \"instructions\": \"Compare GPU specifications\",\n      ...\n    }\n  ],\n  \"hasMore\": true,\n  \"nextCursor\": \"eyJjcmVhdGVkQXQiOiIyMDI0LTAxLTE1VDE4OjMwOjAwWiIsImlkIjoidGFzay0yIn0=\"\n}\n```",
+  "code_samples": [
+    {
+      "code": "### Input Parameters:\n\n| Parameter | Type           | Description                             | Default |\n| --------- | -------------- | --------------------------------------- | ------- |\n| cursor    | Optional\\[str] | Pagination cursor from previous request | None    |\n| limit     | Optional\\[int] | Number of results to return (1-200)     | 25      |\n\n### Returns:\n\nReturns a dictionary with:\n\n| Field      | Type                       | Description                                   |\n| ---------- | -------------------------- | --------------------------------------------- |\n| data       | List\\[ResearchTaskDetails] | List of research task objects                 |\n| hasMore    | bool                       | Whether there are more results to paginate    |\n| nextCursor | Optional\\[str]             | Cursor for the next page (if hasMore is true) |\n\n### Return Example:",
+      "language": "unknown"
+    }
+  ],
+  "headings": [
+    {
+      "level": "h3",
+      "text": "Input Parameters:",
+      "id": "input-parameters:"
+    },
+    {
+      "level": "h3",
+      "text": "Returns:",
+      "id": "returns:"
+    },
+    {
+      "level": "h3",
+      "text": "Return Example:",
+      "id": "return-example:"
+    }
+  ],
+  "url": "llms-txt#list-with-pagination",
+  "links": []
+}

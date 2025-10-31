@@ -1,0 +1,56 @@
+{
+  "scene": {
+    "environment": {
+      "location_type": "modern gallery hallway",
+      "left_wall": "black-and-white optical swirl mural matte finish",
+      "right_wall": "framed monochrome manga panels with sparse Japanese onomatopoeia",
+      "floor": "light gray polished tile with 2x2m matte gray vinyl sheet under subject to kill reflections"
+    },
+    "time": "indoors artificial light",
+    "mood": "cool composed slightly mysterious"
+  },
+  "subject": {
+    "type": "human",
+    "gender": "female",
+    "approx_age": "early 20s",
+    "appearance": {
+      "skin_tone": "fair-light with neutral undertone",
+      "hair": "jet-black very long straight center part clean specular sheen",
+      "face": "oval face soft makeup subtle gloss on lips light eyeliner and mascara",
+      "earrings": "large silver hoop earrings"
+    },
+    "wardrobe": {
+      "top": "fitted olive/khaki ribbed tank with small rhinestone cross motifs",
+      "bottom": "high-waisted distressed denim shorts with heavy frayed hem and beige repair patches"
+    },
+    "pose": {
+      "stance": "leans back and slightly left with head resting against mural wall",
+      "torso": "relaxed angled 10–15° to camera",
+      "arms_hands": "right arm behind torso/out_of_frame left arm relaxed by side",
+      "expression": "calm neutral-to-soft gaze past camera"
+    }
+  },
+  "framing_composition": {
+    "shot_type": "mid-thigh portrait three-quarter length",
+    "orientation": "vertical",
+    "framing": "subject placed on left third right third shows manga panels"
+  },
+  "camera": {
+    "sensor": "full-frame mirrorless",
+    "lens": {
+      "focal_length_mm": 50,
+      "type": "prime"
+    },
+    "settings": {
+      "aperture": "f/3.2",
+      "shutter_speed": "1/250",
+      "iso": 400,
+      "white_balance": "custom grey-card @ 4600K"
+    }
+  },
+  "lighting": {
+    "key": "broad soft overhead/ceiling panel light",
+    "fill": "60×60cm white bounce 30cm below bust line ~1.3 stops under key",
+    "rim": "narrow 1×2ft strip-light behind subject camera-right ½ stop over key"
+  }
+}

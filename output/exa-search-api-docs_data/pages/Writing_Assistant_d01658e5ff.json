@@ -1,0 +1,44 @@
+{
+  "title": "Writing Assistant",
+  "content": "Source: https://docs.exa.ai/examples/demo-exa-powered-writing-assistant\n\n[Click here to try the Exa-powered Writing Assistant](https://demo.exa.ai/writing)\n\n[Click here to see the relevant GitHub repo and hosting instructions](https://github.com/exa-labs/exa-writing-assist)\n\n## What this doc covers\n\n* Live demo link for hands-on experience (above!)\n* Overview of a real-time writing assistant using Exa and Claude\n* Breakdown of Exa query prompt engineering and generative AI system prompt\n\n## High-level overview\n\nThis demo showcases a real-time writing assistant that uses Exa's search capabilities to provide relevant information and citations as a user writes. The system combines Exa's neural search with Anthropic's Claude AI model to generate contextually appropriate content and citations.\n\n<img src=\"https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/77dd3c1-image.png?fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=71fdb665fe05eba5ea76e04a186d52d3\" alt=\"Conceptual block diagram of how the writing assistant works\" data-og-width=\"1660\" width=\"1660\" data-og-height=\"1660\" height=\"1660\" data-path=\"images/77dd3c1-image.png\" data-optimize=\"true\" data-opv=\"3\" srcset=\"https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/77dd3c1-image.png?w=280&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=24a55ccdac2c7c9b70ba1bba9e488d9a 280w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/77dd3c1-image.png?w=560&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=836e162e10d13bdc1bb4ec7460e65f0f 560w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/77dd3c1-image.png?w=840&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=b96e1b3389aaf96ccef1c55db47636e3 840w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/77dd3c1-image.png?w=1100&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=86f7bd243f85f23508455c31c0078c96 1100w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/77dd3c1-image.png?w=1650&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=adb93218eb741b51466df3faeae052ff 1650w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/77dd3c1-image.png?w=2500&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=d30873c8c5082d9e93845a090a78b3d6 2500w\" />\n\nConceptual block diagram of how the writing assistant works\n\n## Exa prompting and query style\n\nThe Exa search is performed using a unique query style that appends the user's input with a prompt for continuation. Here's the relevant code snippet:\n\n**Key aspects of this query style:**\n\n* **Continuation prompt:** The crucial post-pend \"A helpful source to read so you can continue writing the above:\"\n  * This prompt is designed to find sources that can logically continue the user's writing when passed to an LLM to generate content.\n  * It leverages Exa's ability to understand context and find semantically relevant results.\n  * By framing the query as a request for continuation, it aligns with how people naturally share helpful links.\n* **Length limitation:** It caps the query at 1000 characters to maintain relevance and continue writing just based on the last section of the text.\n\nNote this prompt is not a hard and fast rule for this use-case - we encourage experimentation with query styles to get the best results for your specific use case. For instance, you could further constrain down to just research papers.\n\n## Prompting Claude with Exa results\n\nThe Claude AI model is prompted with a carefully crafted system message and passed the above formatted Exa results. Here is an example system prompt:\n\nThis prompt ensures that:\n\n* Claude will only do completions, not parrot back the user query like in a typical chat based scenario. Note the inclusion of multiple examples that demonstrate Claude should not reply back with the stub even if there are errors, like spelling or grammar, in the input text (which we found to be a common issue)\n* We define the citation style and formatting. We also tell the bot went to collapse authors into 'et al' style citations, as some webpages have many authors\n\nOnce again, experimenting with this prompt is crucial to getting best results for your particular use case.\n\nThis demo illustrates the power of combining Exa's advanced search capabilities with generative AI to create a writing assistant. By leveraging Exa's neural search and content retrieval features, the system can provide relevant, up-to-date information to any AI model, resulting in contextually appropriate content generation with citations.\n\nThis approach showcases how Exa can be integrated into AI-powered applications to enhance user experiences and productivity.\n\n[Click here to try the Exa-powered Writing Assistant](https://demo.exa.ai/writing)",
+  "code_samples": [
+    {
+      "code": "**Key aspects of this query style:**\n\n* **Continuation prompt:** The crucial post-pend \"A helpful source to read so you can continue writing the above:\"\n  * This prompt is designed to find sources that can logically continue the user's writing when passed to an LLM to generate content.\n  * It leverages Exa's ability to understand context and find semantically relevant results.\n  * By framing the query as a request for continuation, it aligns with how people naturally share helpful links.\n* **Length limitation:** It caps the query at 1000 characters to maintain relevance and continue writing just based on the last section of the text.\n\nNote this prompt is not a hard and fast rule for this use-case - we encourage experimentation with query styles to get the best results for your specific use case. For instance, you could further constrain down to just research papers.\n\n## Prompting Claude with Exa results\n\nThe Claude AI model is prompted with a carefully crafted system message and passed the above formatted Exa results. Here is an example system prompt:",
+      "language": "unknown"
+    }
+  ],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "What this doc covers",
+      "id": "what-this-doc-covers"
+    },
+    {
+      "level": "h2",
+      "text": "Demo overview",
+      "id": "demo-overview"
+    },
+    {
+      "level": "h2",
+      "text": "High-level overview",
+      "id": "high-level-overview"
+    },
+    {
+      "level": "h2",
+      "text": "Exa prompting and query style",
+      "id": "exa-prompting-and-query-style"
+    },
+    {
+      "level": "h2",
+      "text": "Prompting Claude with Exa results",
+      "id": "prompting-claude-with-exa-results"
+    },
+    {
+      "level": "h2",
+      "text": "Conclusion",
+      "id": "conclusion"
+    }
+  ],
+  "url": "llms-txt#writing-assistant",
+  "links": []
+}

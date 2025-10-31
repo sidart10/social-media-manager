@@ -1,0 +1,8 @@
+{
+  "title": "List tasks",
+  "content": "Source: https://docs.exa.ai/reference/research/list-tasks\n\nget /research/v1\nRetrieve a paginated list of your research tasks.\n\nThe response follows a cursor-based pagination pattern. Pass the `limit` parameter to control page size (max 50) and use the `cursor` token returned in the response to fetch subsequent pages.\n\n<Card title=\"Get your Exa API key\" icon=\"key\" horizontal href=\"https://dashboard.exa.ai/api-keys\" />",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#list-tasks",
+  "links": []
+}

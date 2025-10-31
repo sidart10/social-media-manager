@@ -1,0 +1,40 @@
+{
+  "scene": "casual 2010s phone selfie unintentional snapshot",
+  "subject": {
+    "type": "adult woman idol vibe",
+    "age_range": "20s",
+    "hair": "straight or simple ponytail",
+    "makeup": "glossy lips eyeliner highlight",
+    "jewelry": "small hoops thin chain bracelets"
+  },
+  "wardrobe": {
+    "top": "basic tee or camisole",
+    "bottom": "denim shorts or mini skirt",
+    "footwear": "sneakers or ankle boots",
+    "notes": "everyday outfit not styled"
+  },
+  "pose": {
+    "angle": "mirror selfie FULL BODY",
+    "body": "standing weight on one hip",
+    "hands": "phone in one hand other relaxed or in pocket",
+    "framing": "HEAD-TO-SHOES feet visible not cropped"
+  },
+  "camera": {
+    "device": "iPhone 4/5 era",
+    "flash": "on harsh LED with mirror glare",
+    "orientation": "vertical",
+    "aspect_ratio": "4:3",
+    "distance": "2–3m from mirror to capture full body",
+    "focus": "soft slight hand-shake blur"
+  },
+  "look": {
+    "texture": "grainy digital noise mild JPEG artifacts",
+    "sharpness": "low soft focus",
+    "color": "cool indoor white balance blown highlights from flash",
+    "effects": "subtle vignette cheap filter vibe"
+  },
+  "background": {
+    "environment": "bedroom or bathroom clutter allowed visible floor",
+    "props": "framed mirror phone visible"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "title": "Create a Search",
+  "content": "Source: https://docs.exa.ai/websets/api/websets/searches/create-a-search\n\npost /v0/websets/{webset}/searches\nCreates a new Search for the Webset.\n\nThe default behavior is to reuse the previous Search results and evaluate them against the new criteria.",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#create-a-search",
+  "links": []
+}

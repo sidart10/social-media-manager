@@ -1,0 +1,8 @@
+{
+  "title": "After: Use results in the order returned (already optimally ranked)",
+  "content": "result = exa.search(\"AI startups\", type=\"auto\")",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#after:-use-results-in-the-order-returned-(already-optimally-ranked)",
+  "links": []
+}

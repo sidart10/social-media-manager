@@ -1,0 +1,8 @@
+{
+  "title": "Prompting Websets",
+  "content": "Source: https://docs.exa.ai/websets/dashboard/walkthroughs/Prompting\n\nHere's how to prompt your query in Websets\n\nWebsets is a web research agent designed to find a perfect list of results that matches your criteria. Here's how to prompt it:\n\n<Note>\n  **How not to prompt Websets:** Websets is not an answer engine, so it's not meant for queries like \"How your I think about xyz\" or \"Give me a report on abc\".&#x20;\n</Note>\n\n* Type in your query, thinking of the type of thing you're trying to find (e.g. Companies, People, Research Papers, Articles, Reports, etc.)&#x20;\n\n* Describing in detail the type of results you'd like. Common descriptors include location, size, theme, industry, qualifiers (e.g. have ISO certification, know rust), past experience etc.\n\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/rkXVtvVkqGs\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen referrerpolicy=\"strict-origin-when-cross-origin\" />",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#prompting-websets",
+  "links": []
+}

@@ -1,0 +1,43 @@
+{
+  "title": "Building a Hallucination Checker",
+  "content": "Source: https://docs.exa.ai/examples/identifying-hallucinations-with-exa\n\nLearn how to build an AI-powered system that identifies and verifies claims using Exa and LangGraph.\n\nWe'll build a hallucination detection system using Exa's search capabilities to verify AI-generated claims. The system works in three steps:\n\n1. Extract claims from text\n2. Search for evidence using Exa\n3. Verify claims against evidence\n\nThis combines RAG with LangGraph to fact-check AI outputs and reduce hallucinations by grounding claims in real-world data.\n\n<Steps>\n  <Step title=\"Pre-requisites and installation\">\n    Install the required packages:\n\n<Note> You'll need both an Exa API key and an Anthropic API key to run this example. You can get your Anthropic API key [here](https://console.anthropic.com/). </Note>\n\n<Card title=\"Get your Exa API key\" icon=\"key\" horizontal href=\"https://dashboard.exa.ai/api-keys\" />\n\nSet up your API keys:\n\n<Step title=\"Create the claim extractor\">\n    First, we'll create functions to extract factual claims from the text:\n\n<Note> We include a regex-based fallback method in case the LLM response isn't properly formatted. This ensures our system remains robust even if the LLM output is unexpected. </Note>\n  </Step>\n\n<Step title=\"Set up Exa search\">\n    Create a function to search for evidence using Exa:\n\n<Note>\n      We format each source with its URL and content for easy reference in the verification step. The print statements help with debugging and understanding the search process.\n    </Note>\n  </Step>\n\n<Step title=\"Create the claim verifier\">\n    Build a function to analyze the evidence and assess each claim:\n\n<Note>\n      The verifier includes robust error handling and defaults to \"Insufficient information\" if there are issues with the LLM response or source processing.\n    </Note>\n  </Step>\n\n<Step title=\"Create the workflow\">\n    Set up the LangGraph workflow to orchestrate the process:\n\n<Step title=\"Test the system\">\n    Let's try it with a sample text about the Eiffel Tower:\n\nThrough this combination of Exa's search capabilities and LangGraph's workflow management, we've created a powerful system for identifying and verifying claims in any text. The system successfully identified both true claims (structure and location) and false claims (construction date and purpose) about the Eiffel Tower.\n  </Step>\n</Steps>",
+  "code_samples": [
+    {
+      "code": "<Note> You'll need both an Exa API key and an Anthropic API key to run this example. You can get your Anthropic API key [here](https://console.anthropic.com/). </Note>\n\n    <Card title=\"Get your Exa API key\" icon=\"key\" horizontal href=\"https://dashboard.exa.ai/api-keys\" />\n\n    Set up your API keys:",
+      "language": "unknown"
+    },
+    {
+      "code": "</Step>\n\n  <Step title=\"Create the claim extractor\">\n    First, we'll create functions to extract factual claims from the text:",
+      "language": "unknown"
+    },
+    {
+      "code": "<Note> We include a regex-based fallback method in case the LLM response isn't properly formatted. This ensures our system remains robust even if the LLM output is unexpected. </Note>\n  </Step>\n\n  <Step title=\"Set up Exa search\">\n    Create a function to search for evidence using Exa:",
+      "language": "unknown"
+    },
+    {
+      "code": "<Note>\n      We format each source with its URL and content for easy reference in the verification step. The print statements help with debugging and understanding the search process.\n    </Note>\n  </Step>\n\n  <Step title=\"Create the claim verifier\">\n    Build a function to analyze the evidence and assess each claim:",
+      "language": "unknown"
+    },
+    {
+      "code": "<Note>\n      The verifier includes robust error handling and defaults to \"Insufficient information\" if there are issues with the LLM response or source processing.\n    </Note>\n  </Step>\n\n  <Step title=\"Create the workflow\">\n    Set up the LangGraph workflow to orchestrate the process:",
+      "language": "unknown"
+    },
+    {
+      "code": "</Step>\n\n  <Step title=\"Test the system\">\n    Let's try it with a sample text about the Eiffel Tower:",
+      "language": "unknown"
+    },
+    {
+      "code": "Sample output:",
+      "language": "unknown"
+    }
+  ],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "Get Started",
+      "id": "get-started"
+    }
+  ],
+  "url": "llms-txt#building-a-hallucination-checker",
+  "links": []
+}

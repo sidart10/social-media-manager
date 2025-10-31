@@ -1,0 +1,8 @@
+{
+  "title": "Define and bind the AI model",
+  "content": "model = ChatAnthropic(model=\"claude-3-5-sonnet-20240620\", temperature=0).bind_tools(\n    [retrieve_web_content]\n)",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#define-and-bind-the-ai-model",
+  "links": []
+}

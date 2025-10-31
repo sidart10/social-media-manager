@@ -1,0 +1,65 @@
+{
+  "title": "Context (Exa Code)",
+  "content": "Source: https://docs.exa.ai/reference/context\n\nGet relevant code snippets and examples from open source libraries and repositories. Search through code repositories to find contextual examples that help developers understand how specific libraries, frameworks, or programming concepts are implemented in practice.\n\n<Card title=\"Get your Exa API key\" icon=\"key\" horizontal href=\"https://dashboard.exa.ai/api-keys\" />\n\nThe Context API (also called **Exa Code**) is a powerful tool for coding agents that need fast, efficient web context. It searches over billions of GitHub repos, docs pages, Stack Overflow posts, and more to find the perfect, token-efficient context that agents need to code correctly.\n\nThis endpoint helps eliminate hallucinations in coding agents by providing real, working code examples from the open source community.\n\nThe Context API excels at finding practical code examples for:\n\n* **Framework usage**: \"use Exa search in python and make sure content is always livecrawled\"\n* **API syntax**: \"use correct syntax for vercel ai sdk to call gpt-5 nano asking it how are you\"\n* **Development setup**: \"how to set up a reproducible Nix Rust development environment\"\n* **Library implementation**: \"React hooks for state management examples\"\n* **Best practices**: \"authentication patterns in NextJS applications\"\n\n**Basic Code Search**\n\n**Example Response:**\n\n\\nimport React, {\\n  useState\\n} from 'react';\\n\\nfunction InputField() {\\n  const [name, setName] = useState('');\\n\\n  const handleChange = (event) => {\\n    setName(event.target.value);\\n  }\\n\\n  return (\\n    <div>\\n      Name:\\n      <input onChange={handleChange} />\\n      Entered name: {name}\\n    </div>\\n  );\\n}\\n\\nexport default InputField;\\n\\nimport { useState } from 'react';\\n\\nfunction Example() {\\n  const [count, setCount] = useState(0);\\n\\n  return (\\n    <div>\\n      <p>You clicked {count} times</p>\\n      <button onClick={() => setCount(count + 1)}>\\n        Click me\\n      </button>\\n    </div>\\n  );\\n}\\n\\nimport { useState } from \\\"react\\\";\\n\\nconst useCounter = () => {\\n  const [count, setCount] = useState(0);\\n\\n  const increment = () => {\\n    setCount((prevCount) => prevCount + 1);\\n  };\\n\\n  const decrement = () => {\\n    setCount((prevCount) => prevCount - 1);\\n  };\\n\\n  return { count, increment, decrement };\\n};\\n\\nexport default useCounter;\\n`\n\n**Library Usage Examples**\n\n**Framework Setup and Configuration**\n\nThe API returns a JSON response with the following structure:\n\n### `query` (required)\n\n* **Type**: `string`\n* **Description**: Search query to find relevant code snippets\n* **Example**: `\"how to use React hooks for state management\"`\n* **Min Length**: 1 character\n* **Max Length**: 2000 characters\n\n### `tokensNum` (optional)\n\n* **Type**: `string | integer`\n* **Default**: `\"dynamic\"`\n* **Description**: Token limit for the response\n* **Options**:\n  * `\"dynamic\"`: Automatically determine optimal response length\n  * `50-100000`: Specific number of tokens to return (5000 is good default for most queries, and use 10000 when 5k doesn't provide enough context)\n\n* Use `\"dynamic\"` for most queries to get optimal, token-efficient responses\n* Specify exact token counts when you need precise output length control\n* Higher token counts return more comprehensive examples but cost more\n\n## Integration Examples\n\n**Using with Python**\n\n```python  theme={null}\nimport requests\n\ndef get_code_context(query, tokens=\"dynamic\"):\n    response = requests.post(\n        \"https://api.exa.ai/context\",\n        headers={\n            \"Content-Type\": \"application/json\",\n            \"x-api-key\": \"YOUR_API_KEY\"\n        },\n        json={\n            \"query\": query,\n            \"tokensNum\": tokens\n        }\n    )\n    \n    result = response.json()\n    return result[\"response\"]",
+  "code_samples": [
+    {
+      "code": "**Example Response:**",
+      "language": "unknown"
+    },
+    {
+      "code": "**Library Usage Examples**",
+      "language": "unknown"
+    },
+    {
+      "code": "**Framework Setup and Configuration**",
+      "language": "unknown"
+    },
+    {
+      "code": "## Response Format\n\nThe API returns a JSON response with the following structure:",
+      "language": "unknown"
+    },
+    {
+      "code": "## Parameters\n\n### `query` (required)\n\n* **Type**: `string`\n* **Description**: Search query to find relevant code snippets\n* **Example**: `\"how to use React hooks for state management\"`\n* **Min Length**: 1 character\n* **Max Length**: 2000 characters\n\n### `tokensNum` (optional)\n\n* **Type**: `string | integer`\n* **Default**: `\"dynamic\"`\n* **Description**: Token limit for the response\n* **Options**:\n  * `\"dynamic\"`: Automatically determine optimal response length\n  * `50-100000`: Specific number of tokens to return (5000 is good default for most queries, and use 10000 when 5k doesn't provide enough context)\n\n**Token Management**\n\n* Use `\"dynamic\"` for most queries to get optimal, token-efficient responses\n* Specify exact token counts when you need precise output length control\n* Higher token counts return more comprehensive examples but cost more\n\n## Integration Examples\n\n**Using with Python**",
+      "language": "unknown"
+    }
+  ],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "Overview",
+      "id": "overview"
+    },
+    {
+      "level": "h2",
+      "text": "Example Use Cases",
+      "id": "example-use-cases"
+    },
+    {
+      "level": "h2",
+      "text": "Response Format",
+      "id": "response-format"
+    },
+    {
+      "level": "h2",
+      "text": "Parameters",
+      "id": "parameters"
+    },
+    {
+      "level": "h3",
+      "text": "`query` (required)",
+      "id": "`query`-(required)"
+    },
+    {
+      "level": "h3",
+      "text": "`tokensNum` (optional)",
+      "id": "`tokensnum`-(optional)"
+    },
+    {
+      "level": "h2",
+      "text": "Integration Examples",
+      "id": "integration-examples"
+    }
+  ],
+  "url": "llms-txt#context-(exa-code)",
+  "links": []
+}

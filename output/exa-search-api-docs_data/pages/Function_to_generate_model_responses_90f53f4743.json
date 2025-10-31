@@ -1,0 +1,8 @@
+{
+  "title": "Function to generate model responses",
+  "content": "def call_model(state: MessagesState):\n    messages = state[\"messages\"]\n    response = model.invoke(messages)\n    return {\"messages\": [response]}",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#function-to-generate-model-responses",
+  "links": []
+}

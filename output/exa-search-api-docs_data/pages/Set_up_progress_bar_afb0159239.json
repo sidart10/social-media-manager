@@ -1,0 +1,19 @@
+{
+  "title": "Set up progress bar",
+  "content": "from tqdm.auto import tqdm\ntqdm.pandas()\n\ndef enrich_row(row):\n    row['School'] = extract_school_from_email(row['Email'])\n    linkedIn_info = get_linkedin_from_name(row['Name'], row['School'])\n    if linkedIn_info:\n        row['LinkedIn'] = linkedIn_info\n    website_url, website_info = exa_search_personal_website(row['Name'], row['School'])\n    row['ExaWebsite'] = website_url\n    row['ContentInfo'] = website_info\n    row['Undergrad'] = extract_undergrad_from_contents(row['ContentInfo'])\n    row['Role'] = extract_current_role_from_contents(row['ContentInfo'])\n    row['ResearchTopics'] = extract_research_topics_from_contents(row['ContentInfo'])\n    row['AI'] = extract_is_ai_from_contents(row['ContentInfo'])\n    row['Score'] = calculate_score(row['ContentInfo'], row['Undergrad'], row['Role'], row['ResearchTopics'], row['AI'])\n    return row\n\nenriched_df = students_df.progress_apply(enrich_row, axis=1)\nsorted_df = enriched_df.sort_values(by='Score', ascending=False).reset_index(drop=True)\nsorted_df\nPython Python theme={null}",
+  "code_samples": [
+    {
+      "code": "## Finding more candidates\n\nNow that we know how to research candidates, let's find some more! We'll take each of the top candidates (score 7-10), and use Exa to find similar profiles.\n\nExa's `find_similar`,allows us to search a URL and find semantically similar URLs. For example, I could search 'hinge.co' and it'll return the homepages of similar dating apps. In this case, we'll pass in the homepages of our top candidates to find similar profiles.",
+      "language": "unknown"
+    }
+  ],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "Finding more candidates",
+      "id": "finding-more-candidates"
+    }
+  ],
+  "url": "llms-txt#set-up-progress-bar",
+  "links": []
+}

@@ -27,18 +27,44 @@
   <template-output>trends_gathered</template-output>
 </step>
 
-<step n="3" goal="Deep web research (Working Tool)">
-  <action>Conduct comprehensive web research on {topic} using exa.</action>
+<step n="3" goal="Deep web research using deep-web-research skill">
+  <action>Load and follow {project-root}/.claude/skills/jarvis/deep-web-research/SKILL.md</action>
 
-  <check if="depth == 'comprehensive'">
-    <action>Use exa deep_researcher_start to initiate AI-powered comprehensive research. Wait 30-60 seconds, then retrieve results with deep_researcher_check. This provides insights, data points, expert quotes, and sources.</action>
-    <!-- Uses exa/deep_researcher - WORKS -->
-  </check>
+  <action>**Execute research per skill instructions:**
 
-  <check if="depth == 'standard' OR depth == 'quick'">
-    <action>Use exa web_search_exa to find recent articles, data, and insights about {topic}. Search for 10 authoritative sources published in last 6 months.</action>
-    <!-- Uses exa/web_search_exa - WORKS -->
-  </check>
+    **Parameters to provide**:
+    - Topic: {topic}
+    - Depth: {depth} (quick | standard | comprehensive | exhaustive)
+    - Focus: {focus_areas} (trends, data, quotes, examples)
+
+    **The skill will automatically**:
+    - Select optimal research tools (Exa, Apify, Archon RAG, WebSearch)
+    - Route based on depth parameter
+    - Execute searches in parallel
+    - Handle tool fallbacks
+    - Optimize for cost (free → low-cost → paid)
+    - Synthesize results into organized output
+
+    **Follow all instructions in SKILL.md** for:
+    - Tool routing logic
+    - Source quality assessment
+    - Data extraction patterns
+    - Synthesis methods
+  </action>
+
+  <action>**Expected research output** (per skill specification):
+    - Key insights with source URLs
+    - Data & statistics with citations
+    - Expert quotes with attribution
+    - Case studies and examples
+    - Source quality scores (high/medium/low)
+    - Cost tracking
+  </action>
+
+  <note>Skills-first model: Load deep-web-research/SKILL.md as expert knowledge.
+    The skill contains complete instructions for intelligent research orchestration.
+    This workflow provides parameters; skill determines execution strategy.
+  </note>
 
   <template-output>web_research_complete</template-output>
 </step>
@@ -66,45 +92,33 @@
   <template-output>examples_gathered</template-output>
 </step>
 
-<step n="5" goal="Synthesize all findings">
-  <action>Organize all research into 5 categories:</action>
+<step n="5" goal="Synthesize findings using research-synthesizer skill">
+  <action>Load and follow {project-root}/.claude/skills/jarvis/research-synthesizer/SKILL.md</action>
 
-  <action>**1. Trends & Timing**
-    - Trending topics from social-media-mcp (if gathered)
-    - Current market signals from exa research
-    - Why this topic is relevant now
-    - Future predictions
+  <action>**Synthesize research per skill instructions:**
+
+    **Input data**:
+    - Deep web research results (from step 3)
+    - Trending topics (from step 2, if gathered)
+    - YouTube examples (from step 4, if provided)
+
+    **Follow SKILL.md instructions to organize into 5 categories**:
+    1. Trends & Timing
+    2. Data & Statistics
+    3. Examples & Case Studies
+    4. Quotes & Expert Opinions
+    5. Gaps & Opportunities
+
+    **Quality requirements** (per skill specification):
+    - Every finding includes: source URL, date, confidence score
+    - Sources organized by quality (high/medium/low)
+    - Duplicates removed
+    - Related findings grouped
   </action>
 
-  <action>**2. Data & Statistics**
-    - Facts and numbers from exa research
-    - Market size, growth rates
-    - Survey results, research findings
-    - All with source citations
-  </action>
-
-  <action>**3. Examples & Case Studies**
-    - YouTube video insights (if provided)
-    - Real-world applications from exa
-    - Success stories
-    - How others are doing this
-  </action>
-
-  <action>**4. Quotes & Expert Opinions**
-    - Expert quotes from exa research
-    - Industry perspectives
-    - Company statements
-    - All attributed with sources
-  </action>
-
-  <action>**5. Gaps & Opportunities**
-    - What's NOT being discussed
-    - Overlooked angles
-    - Underserved audiences
-    - Content opportunities
-  </action>
-
-  <action>For EACH finding: Include source URL, publication date (if available), confidence score (high/medium/low)</action>
+  <note>Skills-first model: research-synthesizer/SKILL.md contains complete instructions
+    for organizing multi-source research into structured output format.
+  </note>
 
   <template-output>findings_organized</template-output>
 </step>

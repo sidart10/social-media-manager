@@ -1,0 +1,35 @@
+{
+  "subject": {
+    "verbatim": "Alien tropical coastline at night with palm islets tessellated ocean surface and a giant geodesic ringed moon in the sky."
+  },
+  "shot": {
+    "type": "establishing wide",
+    "framing": "low shoreline vantage camera ~0.6m above wet tessellated water islets and palms centered mid-distance",
+    "lens": "24mm spherical shallow distortion kept natural",
+    "motion": "slow push-in dolly forward from shore toward islets no secondary moves"
+  },
+  "scene": {
+    "environment": "calm surf over triangular mosaic tiles that shimmer faint gold black lava rocks sparse palms on tiny islets misty blue mountains far background starry sky with a pale sun on horizon and a massive translucent geodesic ringed moon overhead",
+    "time_of_day": "blue hour / night",
+    "weather": "clear slight haze over water gentle onshore breeze"
+  },
+  "visual_details": {
+    "beats": [
+      {
+        "time": "0.0s–2.7s",
+        "action": "Waves lap over the tessellated shore golden lines glint as foam recedes foreground rocks pass frame edges creating parallax.",
+        "focus": "texture of wet tiles and foam micro-ripples"
+      },
+      {
+        "time": "2.7s–5.4s",
+        "action": "Push-in reveals palm islets moonlight back-rim on palm fronds distant mountains emerge through haze.",
+        "focus": "silhouetted palms against misty ridgelines"
+      },
+      {
+        "time": "5.4s–8.0s",
+        "action": "Geodesic ringed moon dominates upper frame gold lattice reflections ripple across water final hold for 0.5s for a clean endpoint.",
+        "focus": "celestial dome and shimmering water grid"
+      }
+    ]
+  }
+}

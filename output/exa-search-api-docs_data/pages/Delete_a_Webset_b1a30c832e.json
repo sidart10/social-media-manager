@@ -1,0 +1,8 @@
+{
+  "title": "Delete a Webset",
+  "content": "Source: https://docs.exa.ai/websets/api/websets/delete-a-webset\n\ndelete /v0/websets/{id}\nDeletes a Webset.\n\nOnce deleted, the Webset and all its Items will no longer be available.",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#delete-a-webset",
+  "links": []
+}

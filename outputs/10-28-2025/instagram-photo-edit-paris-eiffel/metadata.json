@@ -1,0 +1,19 @@
+{
+  "session_name": "instagram-photo-edit-paris-eiffel",
+  "date": "10-28-2025",
+  "platform": "instagram",
+  "content_type": "photo-edit",
+  "description": "Convertible Paris Eiffel Tower transformation edit",
+  "tool_used": "nanobanana",
+  "mode": "edit",
+  "original_image": "/Users/sid/Desktop/4. Coding Projects/social-media-manager/sid-car.jpeg",
+  "edit_instruction": "Transform car interior into open convertible with Paris street scene and Eiffel Tower in the background. Classic Parisian architecture, blue sky with clouds.",
+  "output_file": "images/sid-convertible-paris.png",
+  "dimensions": {
+    "width": 768,
+    "height": 1344
+  },
+  "size_bytes": 2290674,
+  "files_api_id": "files/doovgwr3xcwc",
+  "synthid_watermark": true
+}

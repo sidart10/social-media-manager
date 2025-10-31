@@ -1,0 +1,8 @@
+{
+  "title": "Create and poll a task until completion",
+  "content": "task = exa.research.create_task(\n    instructions=\"Get information about Paris, France\",\n    output_schema={\n        \"type\": \"object\",\n        \"properties\": {\n            \"name\": {\"type\": \"string\"},\n            \"population\": {\"type\": \"string\"},\n            \"founded_date\": {\"type\": \"string\"}\n        }\n    }\n)",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#create-and-poll-a-task-until-completion",
+  "links": []
+}

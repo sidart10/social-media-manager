@@ -1,0 +1,56 @@
+{
+  "view": "POV from inside a car dash-cam perspective through rain-streaked windshield",
+  "scene": {
+    "time": "02:00",
+    "city": "Tokyo",
+    "location_detail": "Shibuya Crossing",
+    "weather": "torrential rain",
+    "ground_state": "wet asphalt with puddles and reflective sheen",
+    "neon_signs": "pink neon kanji reflected on road surface"
+  },
+  "subjects": [
+    {
+      "id": "cat_bus",
+      "category": "magical vehicle",
+      "style_hint": "Ghibli-inspired soft friendly forms not flat cel shading",
+      "material": "translucent body panels",
+      "scale": "giant",
+      "state": "idling at a red light",
+      "lighting": "interior glowing soft amber"
+    },
+    {
+      "id": "girl",
+      "category": "teenage human",
+      "footwear": "LED sneakers subtle light on soles",
+      "wardrobe": "rain-soaked streetwear",
+      "prop": "transparent umbrella",
+      "pose_action": "leans down and kisses the corgi",
+      "emotion": "tender"
+    },
+    {
+      "id": "corgi",
+      "category": "dog",
+      "wardrobe": "hoodie",
+      "pose_action": "standing upright on hind legs under the umbrella",
+      "expression": "content"
+    }
+  ],
+  "composition": {
+    "framing": "windshield edges implied subjects off-center for natural documentary feel",
+    "focus": "sharp focus on girl and corgi cat bus readable foreground raindrops semi-sharp",
+    "depth_of_field": "shallow-to-medium"
+  },
+  "cinematography": {
+    "lens": "anamorphic look",
+    "effects": [
+      "cinematic lens flares",
+      "slight chromatic aberration"
+    ],
+    "grade": "high-contrast teal–orange with cyber-pink accents",
+    "texture": [
+      "fine film-grain",
+      "puddle bokeh",
+      "steam wisps near street grates"
+    ]
+  }
+}

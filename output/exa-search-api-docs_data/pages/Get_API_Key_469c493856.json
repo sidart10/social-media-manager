@@ -1,0 +1,24 @@
+{
+  "title": "Get API Key",
+  "content": "Source: https://docs.exa.ai/reference/team-management/get-api-key\n\nget /api-keys/{id}\nRetrieve details of a specific API key by its ID.\n\n<Card title=\"Get your Exa API key\" icon=\"key\" horizontal href=\"https://dashboard.exa.ai/api-keys\" />\n\nThe Get API Key endpoint allows you to retrieve detailed information about a specific API key using its unique identifier.\n\n* **id**: The unique identifier of the API key to retrieve\n\nReturns detailed information about the API key including:\n\n* **id**: Unique identifier\n* **name**: Descriptive name\n* **rateLimit**: Rate limit in requests per minute (if set)\n* **teamId**: Team ID this key belongs to\n* **createdAt**: When the key was created",
+  "code_samples": [],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "Overview",
+      "id": "overview"
+    },
+    {
+      "level": "h2",
+      "text": "Path Parameters",
+      "id": "path-parameters"
+    },
+    {
+      "level": "h2",
+      "text": "Response",
+      "id": "response"
+    }
+  ],
+  "url": "llms-txt#get-api-key",
+  "links": []
+}

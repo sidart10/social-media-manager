@@ -1,0 +1,13 @@
+{
+    "mcpServers": {
+        "postiz": {
+            "command": "node",
+            "args": [
+                "/Users/sid/Desktop/4. Coding Projects/Postiz/postiz-mcp-server.js"
+            ],
+            "env": {
+                "POSTIZ_API_KEY": "8e016ebccd6f56eea7fbfe1e7acd79103661f8e10407eff9a9b2c78fa531388d"
+            }
+        }
+    }
+}

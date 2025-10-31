@@ -1,0 +1,38 @@
+{
+  "title": "Results are already ranked by relevance, no need to sort by score",
+  "content": "for item in result.results:\n    print(f\"Title: {item.title}\")\njson  theme={null}\n{\n  \"results\": [\n    {\n      \"title\": \"Example AI Startup\",\n      \"url\": \"https://example-startup.com\",\n      \"id\": \"abc123\",\n      \"publishedDate\": \"2024-01-15\",\n      \"author\": \"John Doe\"\n      // Note: No 'score' field\n    }\n  ]\n}\njson  theme={null}\n{\n  \"results\": [\n    {\n\n\"title\": \"Example AI Startup\", \n      \"url\": \"https://example-startup.com\",\n      \"id\": \"abc123\",\n      \"publishedDate\": \"2024-01-15\",\n      \"author\": \"John Doe\"\n    }\n  ]\n}\n```\n\n## Need Help with Migration?\n\nIf you have questions about migrating from Auto/Keyword search scores or need help determining the best search type for your use case, please reach out to [hello@exa.ai](mailto:hello@exa.ai). We're here to help ensure a smooth transition.",
+  "code_samples": [
+    {
+      "code": "## Response Structure Changes\n\n### Auto and Keyword Search (New)",
+      "language": "unknown"
+    },
+    {
+      "code": "### Neural Search (Unchanged)",
+      "language": "unknown"
+    }
+  ],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "Response Structure Changes",
+      "id": "response-structure-changes"
+    },
+    {
+      "level": "h3",
+      "text": "Auto and Keyword Search (New)",
+      "id": "auto-and-keyword-search-(new)"
+    },
+    {
+      "level": "h3",
+      "text": "Neural Search (Unchanged)",
+      "id": "neural-search-(unchanged)"
+    },
+    {
+      "level": "h2",
+      "text": "Need Help with Migration?",
+      "id": "need-help-with-migration?"
+    }
+  ],
+  "url": "llms-txt#results-are-already-ranked-by-relevance,-no-need-to-sort-by-score",
+  "links": []
+}

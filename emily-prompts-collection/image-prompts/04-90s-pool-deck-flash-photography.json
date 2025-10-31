@@ -1,0 +1,47 @@
+{
+  "scene": {
+    "location": "outdoor pool deck near a white building",
+    "background": "clear blue sky with green foliage on the left bright midday sun",
+    "vibe": "candid handheld nostalgic early-1990s consumer film"
+  },
+  "subject": {
+    "age": "adult",
+    "description": "athletic woman with tanned smooth skin beaded with water droplets wet hair loosely tied back",
+    "wardrobe": "white ribbed tank top black high-waisted swim shorts white Nike Air Force 1 sneakers",
+    "pose": "relaxed full-body slight hip pop one hand brushing hair other at side casual confident stance",
+    "expression": "playful cute and alluring direct gaze to camera"
+  },
+  "camera": {
+    "type": "1990s consumer point-and-shoot film camera",
+    "lens_equiv_mm": 35,
+    "flash": "built-in on-camera flash fired",
+    "film": "ISO 800 consumer film",
+    "aperture_f": 5.6,
+    "shutter_s": 0.008,
+    "focus": "center AF soft edge focus"
+  },
+  "aesthetic": {
+    "traits": [
+      "slight motion blur",
+      "heavy film grain",
+      "high ISO noise",
+      "soft focus edges",
+      "washed-out colors",
+      "subtle overexposure",
+      "low dynamic range",
+      "timestamp overlay in orange digits",
+      "looks like cheap 4x6 lab print",
+      "imperfect realism"
+    ]
+  },
+  "lighting": {
+    "sun": "hard midday sun enhancing color and fabric texture",
+    "flash": "direct on-axis fill from built-in flash creating 90s snapshot look",
+    "notes": "specular highlights on skin and water droplets slight shadow fall behind subject"
+  },
+  "color_grade": {
+    "cast": "slight warm shift with cyan in shadows typical of mini-lab prints",
+    "contrast": "low to medium",
+    "saturation": "muted with sun-boosted primaries"
+  }
+}

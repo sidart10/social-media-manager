@@ -1,0 +1,8 @@
+{
+  "title": "Search",
+  "content": "Source: https://docs.exa.ai/reference/search\n\npost /search\nThe search endpoint lets you intelligently search the web and extract contents from the results.\n\nBy default, it automatically chooses between traditional keyword search and Exa's embeddings-based model, to find the most relevant results for your query.\n\n<Card title=\"Get your Exa API key\" icon=\"key\" horizontal href=\"https://dashboard.exa.ai/api-keys\" />",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#search",
+  "links": []
+}

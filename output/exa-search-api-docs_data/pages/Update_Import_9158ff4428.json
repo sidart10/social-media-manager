@@ -1,0 +1,8 @@
+{
+  "title": "Update Import",
+  "content": "Source: https://docs.exa.ai/websets/api/imports/update-import\n\npatch /v0/imports/{id}\nUpdates a import configuration.",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#update-import",
+  "links": []
+}

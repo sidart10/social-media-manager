@@ -1,0 +1,56 @@
+{
+  "name": "youtube-thumbnails-unified",
+  "description": "Comprehensive YouTube thumbnail design guide combining MrBeast strategies, official YouTube guidelines, and expert creator insights for maximum CTR",
+  "sources": [
+    {
+      "type": "documentation",
+      "name": "mrbeast-1of10-guide",
+      "base_url": "https://1of10.com/blog/how-to-make-thumbnails-like-mrbeast/",
+      "description": "MrBeast thumbnail psychology - colors, facial expressions, curiosity gaps, mobile optimization",
+      "max_pages": 30
+    },
+    {
+      "type": "documentation",
+      "name": "mrbeast-strategy-analysis",
+      "base_url": "https://blog.yougenie.co/posts/mrbeast-thumbnail-strategy-analysis/",
+      "description": "Analytical breakdown of MrBeast's thumbnail strategy - color contrast, minimalist focus, emotional hooks",
+      "max_pages": 30
+    },
+    {
+      "type": "documentation",
+      "name": "mrbeast-tutorial-complete",
+      "base_url": "https://blog.yougenie.co/posts/mrbeast-style-thumbnail-tutorial/",
+      "description": "Complete MrBeast-style thumbnail creation tutorial with step-by-step instructions",
+      "max_pages": 30
+    },
+    {
+      "type": "documentation",
+      "name": "elite-video-marketing",
+      "base_url": "https://www.elitevideo.marketing/p/mrbeasts-thumbnails-get-clicks",
+      "description": "Why MrBeast's thumbnails get clicks - depth, FaceTune, expressions, vanishing points",
+      "max_pages": 20
+    },
+    {
+      "type": "documentation",
+      "name": "thomas-frank-ultimate-guide",
+      "base_url": "https://thomasjfrank.com/creator/youtube-thumbnail-design-the-ultimate-guide/",
+      "description": "Ultimate thumbnail design guide from successful YouTuber Thomas Frank",
+      "max_pages": 50
+    },
+    {
+      "type": "documentation",
+      "name": "youtube-official-help",
+      "base_url": "https://support.google.com/youtube/topic/9257891",
+      "description": "Official YouTube thumbnail best practices, size requirements, technical specs",
+      "max_pages": 50
+    }
+  ],
+  "merge_mode": "claude-enhanced",
+  "selectors": {
+    "main_content": "article, .post-content, main",
+    "title": "h1, h2",
+    "code_blocks": "pre code"
+  },
+  "rate_limit": 1,
+  "max_pages": 200
+}

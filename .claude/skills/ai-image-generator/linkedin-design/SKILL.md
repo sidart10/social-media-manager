@@ -9,6 +9,20 @@ description: Professional dark monochrome tech design system for LinkedIn conten
 
 Complete design system and content strategy for professional LinkedIn posts and carousels. Provides dark monochrome tech aesthetic, posting best practices, caption generation, and engagement optimization.
 
+## When to Use This Skill
+
+Use this skill when:
+- Creating LinkedIn content images
+- Designing LinkedIn posts
+- Creating LinkedIn carousels
+- Need B2B professional images
+- Applying dark monochrome tech aesthetic
+- Need LinkedIn-specific design system
+
+Triggers: LinkedIn content, LinkedIn post, LinkedIn carousel, B2B image, professional LinkedIn, dark tech design
+
+**Includes:** Design system, caption strategy, engagement best practices
+
 ## Instructions
 
 When creating LinkedIn content:

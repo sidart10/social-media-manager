@@ -1,0 +1,8 @@
+{
+  "title": "Search with structured summary schema",
+  "content": "company_schema = {\n    \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n    \"title\": \"Company Information\",\n    \"type\": \"object\",\n    \"properties\": {\n        \"name\": {\n            \"type\": \"string\",\n            \"description\": \"The name of the company\"\n        },\n        \"industry\": {\n            \"type\": \"string\",\n            \"description\": \"The industry the company operates in\"\n        },\n        \"foundedYear\": {\n            \"type\": \"number\",\n            \"description\": \"The year the company was founded\"\n        },\n        \"keyProducts\": {\n            \"type\": \"array\",\n            \"items\": {\n                \"type\": \"string\"\n            },\n            \"description\": \"List of key products or services offered by the company\"\n        },\n        \"competitors\": {\n            \"type\": \"array\",\n            \"items\": {\n                \"type\": \"string\"\n            },\n            \"description\": \"List of main competitors\"\n        }\n    },\n    \"required\": [\"name\", \"industry\"]\n}\n\nresult_with_structured_summary = exa.search_and_contents(\n    \"OpenAI company information\",\n    summary={\n        \"schema\": company_schema\n    },\n    category=\"company\",\n    num_results=3\n)",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#search-with-structured-summary-schema",
+  "links": []
+}

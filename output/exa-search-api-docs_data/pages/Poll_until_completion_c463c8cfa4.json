@@ -1,0 +1,34 @@
+{
+  "title": "Poll until completion",
+  "content": "result = exa.research.poll_task(task.id)\nprint(f\"Research complete: {result.data}\")\nPython Python theme={null}",
+  "code_samples": [
+    {
+      "code": "### Input Parameters:\n\n| Parameter       | Type           | Description                               | Default  |\n| --------------- | -------------- | ----------------------------------------- | -------- |\n| task\\_id        | str            | The unique identifier of the task         | Required |\n| poll\\_interval  | Optional\\[int] | Seconds between polling attempts          | 2        |\n| max\\_wait\\_time | Optional\\[int] | Maximum seconds to wait before timing out | 300      |\n\n### Returns:\n\nReturns a `ResearchTaskDetails` object with the completed task data (same structure as `get_task`).\n\n## `research.list_tasks` Method\n\nList all research tasks with optional pagination.\n\n### Input Example:",
+      "language": "unknown"
+    }
+  ],
+  "headings": [
+    {
+      "level": "h3",
+      "text": "Input Parameters:",
+      "id": "input-parameters:"
+    },
+    {
+      "level": "h3",
+      "text": "Returns:",
+      "id": "returns:"
+    },
+    {
+      "level": "h2",
+      "text": "`research.list_tasks` Method",
+      "id": "`research.list_tasks`-method"
+    },
+    {
+      "level": "h3",
+      "text": "Input Example:",
+      "id": "input-example:"
+    }
+  ],
+  "url": "llms-txt#poll-until-completion",
+  "links": []
+}

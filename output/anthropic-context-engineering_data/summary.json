@@ -1,0 +1,13 @@
+{
+  "name": "anthropic-context-engineering",
+  "total_pages": 1,
+  "base_url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+  "llms_txt_detected": false,
+  "llms_txt_variant": null,
+  "pages": [
+    {
+      "title": "Effective context engineering for AI agents",
+      "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
+    }
+  ]
+}

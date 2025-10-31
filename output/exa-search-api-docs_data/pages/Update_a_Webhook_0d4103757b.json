@@ -1,0 +1,8 @@
+{
+  "title": "Update a Webhook",
+  "content": "Source: https://docs.exa.ai/websets/api/webhooks/update-a-webhook\n\npatch /v0/webhooks/{id}\nChange a webhook's settings. You can update:\n- Events: Add or remove which events you want to hear about - URL: Change where notifications are sent - Metadata: Update custom data linked to the webhook\n\nChanges happen right away. If you change the events list, the webhook will start or stop getting notifications for those events immediately.\n\nThe webhook keeps its current status (`active` or `inactive`) when you update it.",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#update-a-webhook",
+  "links": []
+}

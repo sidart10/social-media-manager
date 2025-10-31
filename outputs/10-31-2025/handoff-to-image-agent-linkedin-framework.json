@@ -1,0 +1,62 @@
+{
+  "content_type": "image_request",
+  "ready_for_agent": "ai-image-generator",
+  "suggested_command": "/ai-image-generator *carousel",
+
+  "notion_entry_id": "29c9f76e-64cd-81fe-bfb8-f64dd8a903ef",
+
+  "requirements": {
+    "platform": "linkedin",
+    "image_type": "carousel",
+    "count": 5,
+    "design_system": "linkedin-dark-monochrome",
+
+    "slides": [
+      {
+        "slide": 1,
+        "title": "AI Model Comparison Framework",
+        "subtitle": "The 3-Dimension Decision System for Product Leaders",
+        "content": "Control • Cost • Context",
+        "visual_style": "Title card, bold sans-serif typography, minimal geometric accents, dark background"
+      },
+      {
+        "slide": 2,
+        "title": "Dimension 1: Control vs Speed",
+        "content": "High Control:\n• Claude 4.5\n• Granular reasoning\n• Best for: Complex systems, debugging\n\nHigh Speed:\n• GPT-5\n• Unified reasoning\n• Best for: Rapid prototyping, iteration",
+        "visual_style": "2x2 quadrant matrix, model names positioned, arrows showing tradeoff axis"
+      },
+      {
+        "slide": 3,
+        "title": "Dimension 2: Cost Structure",
+        "content": "GPT-5: $0.03/1K tokens\nClaude Sonnet 4.5: $0.05/1K\nClaude Haiku 4.5: $0.015/1K ⭐\nGemini 2.5 Pro: $0.07/1K",
+        "visual_style": "Horizontal bar chart, Haiku highlighted as best value, $ symbols, clean data viz"
+      },
+      {
+        "slide": 4,
+        "title": "Dimension 3: Context Windows",
+        "content": "Gemini 2.5 Pro: 1M tokens\nClaude 4.5: 1M tokens\nGPT-5: 200K tokens",
+        "visual_style": "Size comparison visualization, stacked bars or circles showing relative capacity"
+      },
+      {
+        "slide": 5,
+        "title": "Your Decision Matrix",
+        "content": "Rapid iteration + multi-modal → GPT-5\nDeep reasoning + coding → Claude 4.5\nCost efficiency + speed → Claude Haiku 4.5\nEnterprise integration → Gemini 2.5 Pro\n\nMost teams need TWO models:\n• Fast model for prototyping\n• Powerful model for production",
+        "visual_style": "Flow chart or decision tree, arrows pointing to recommendations, clean modern layout"
+      }
+    ]
+  },
+
+  "platform_specs": {
+    "aspect_ratio": "1:1",
+    "dimensions": "1080x1080",
+    "format": "PNG",
+    "style_guidance": "Professional tech aesthetic. Dark mode. Minimal text per slide. Data visualization focus. San-serif fonts. Clean geometric layouts. Monochrome with single accent color (electric blue or green). Corporate-friendly but modern."
+  },
+
+  "from_jarvis": {
+    "post_content": "Choosing between GPT-5, Claude 4.5, and Gemini 2.5? Here's the framework I use...",
+    "publish_date": "2025-10-31 09:00 EST",
+    "voice_mode": "Analyst",
+    "performance_goal": "High saves (framework posts get saved for reference)"
+  }
+}

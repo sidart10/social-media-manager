@@ -1,6 +1,6 @@
 ---
 name: create-image
-description: Generate brand new images from text prompts using Emily's proven JSON methodology. Applies 7-pillar quality framework, intelligent tool selection (nanobanana or gpt-image-1), and professional standards. Use when workflow needs to create images from scratch for any platform.
+description: Generate images from text prompts using Emily's JSON methodology and 7-pillar quality framework. Use when creating images, generating visuals, making graphics, designing social media posts for Instagram LinkedIn Twitter, creating YouTube thumbnails, or any image generation task. Intelligent tool selection between nanobanana and gpt-image-1 for optimal results.
 ---
 
 # Create Image
@@ -9,9 +9,26 @@ description: Generate brand new images from text prompts using Emily's proven JS
 
 Generate high-quality images from text prompts using Emily's proven JSON methodology, ensuring professional results through structured prompting, intelligent tool selection, and mandatory quality evaluation.
 
+## When to Use This Skill
+
+Use this skill when:
+- Creating images from scratch
+- Generating social media visuals
+- Making graphics or illustrations
+- Designing Instagram posts, LinkedIn content, Twitter images
+- Creating YouTube thumbnails or video covers
+- Any image generation task from text prompts
+
+Triggers: create image, generate image, make image, design graphic, create visual, generate thumbnail, Instagram post, LinkedIn image, social media visual
+
+**Don't use for:**
+- Editing existing images (use edit-image skill instead)
+- Blending multiple images (use blend-images skill instead)
+- Sid-specific personalized images (use generating-sid-images skill instead)
+
 ## Instructions
 
-When workflow needs to create a new image from scratch:
+When creating a new image from scratch:
 
 1. **Load JSON template** from json-prompt-generator module:
    - Read: `bmad/modules/json-prompt-generator/templates/video-scene.json`

@@ -1,0 +1,24 @@
+{
+  "title": "Phrase Filters: Niche Company Finder",
+  "content": "Source: https://docs.exa.ai/examples/niche-company-finder-with-phrase-filters\n\n## What this doc covers\n\n1. What Phrase filters are and how they work\n2. Using 'Phrase Filters' to find specific results, in this case filtering by a foreign company suffix\n\nIn this simple example, we'll demonstrate a company discovery search that helps find relevant companies incorporated in the Germany (and a few nearby countries) via Phrase Filters. This example will use the fact that companies incorporated in these locations [have a suffix of GmbH](https://en.wikipedia.org/wiki/GmbH), which is a term in the region similar to the US 'incorporated'.\n\n## How Phrase Filters work\n\nExa's search combines semantic relevance with precise filtering: a neural query first retrieves contextually relevant documents, then a phrase filter refines these results by checking for specific text in the content. This two-stage approach delivers highly targeted outputs by leveraging both semantic understanding and exact text matching.\n\n<img src=\"https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/1864e57-Screenshot_2024-07-16_at_05.41.13.png?fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=758bc3c59268a1678e9022748af47aa8\" alt=\"\" data-og-width=\"550\" width=\"550\" data-og-height=\"837\" height=\"837\" data-path=\"images/1864e57-Screenshot_2024-07-16_at_05.41.13.png\" data-optimize=\"true\" data-opv=\"3\" srcset=\"https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/1864e57-Screenshot_2024-07-16_at_05.41.13.png?w=280&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=db7e808a978eeeda7e952f3f932bc580 280w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/1864e57-Screenshot_2024-07-16_at_05.41.13.png?w=560&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=fb331f9d5001a305c88f4e0f7923b19d 560w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/1864e57-Screenshot_2024-07-16_at_05.41.13.png?w=840&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=2a15f67e08991ea632d168de97d87492 840w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/1864e57-Screenshot_2024-07-16_at_05.41.13.png?w=1100&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=abf7bdcb4a7d44fba40fce7d408dee1d 1100w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/1864e57-Screenshot_2024-07-16_at_05.41.13.png?w=1650&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=2b1fd7b067a0017cd2e3ddb4445edeba 1650w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/1864e57-Screenshot_2024-07-16_at_05.41.13.png?w=2500&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=a0d2a4941d8ba4554f020c2bc7a31a85 2500w\" />\n\n## Running a query with phrase filter\n\nUsing Phrase Filters is super simple. As usual, install the `exa_py` library with `pip install exa_py`. Then instantiate the library:\n\n```Python Python theme={null}",
+  "code_samples": [],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "What this doc covers",
+      "id": "what-this-doc-covers"
+    },
+    {
+      "level": "h2",
+      "text": "How Phrase Filters work",
+      "id": "how-phrase-filters-work"
+    },
+    {
+      "level": "h2",
+      "text": "Running a query with phrase filter",
+      "id": "running-a-query-with-phrase-filter"
+    }
+  ],
+  "url": "llms-txt#phrase-filters:-niche-company-finder",
+  "links": []
+}

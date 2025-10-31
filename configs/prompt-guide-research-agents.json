@@ -1,0 +1,17 @@
+{
+  "name": "prompt-guide-research-agents",
+  "description": "Comprehensive deep research agent context engineering guide including practical techniques, design patterns, and prompt optimization strategies",
+  "base_url": "https://www.promptingguide.ai/agents/context-engineering-deep-dive",
+  "selectors": {
+    "main_content": "article",
+    "title": "h1",
+    "code_blocks": "pre code"
+  },
+  "url_patterns": {
+    "include": [],
+    "exclude": []
+  },
+  "categories": {},
+  "rate_limit": 0.5,
+  "max_pages": 30
+}

@@ -1,0 +1,43 @@
+{
+  "title": "Domain Path Filter Support",
+  "content": "Source: https://docs.exa.ai/changelog/domain-path-filter\n\n`includeDomains` and `excludeDomains` now support URL path filtering and subdomain wildcards.\n\n**Date: August 4, 2025**\n\nThe `includeDomains` and `excludeDomains` parameters now support:\n\n* **Path-specific filtering**: Target specific sections of a domain by including the path\n* **Subdomain wildcard matching**: Use `*.domain.com` to match all subdomains\n\n| Pattern                  | What it matches                 | Example URLs                                                          |\n| ------------------------ | ------------------------------- | --------------------------------------------------------------------- |\n| `\"*.substack.com\"`       | Any subdomain of substack.com   | `https://thehobbyist.substack.com/p/location-matters-6-days-273-bets` |\n| `\"exa.ai/blog\"`          | Only the blog section of exa.ai | `https://exa.ai/blog/meet-the-exacluster`                             |\n| `\"linkedin.com/company\"` | Company profiles on LinkedIn    | `https://www.linkedin.com/company/exa-ai`                             |\n\n## When to Use Path Filtering\n\nPath filtering is useful for things like:\n\n1. **Blogs**: Search within blogs like `stripe.com/blog`, `openai.com/blog`, or `stratechery.com/2025`\n2. **Product Catalogs**: Query product pages like `amazon.com/dp`, `etsy.com/listing`, or `ikea.com/us/en/cat`\n3. **Directories**: Search specific directories like `ycombinator.com/companies`, `crunchbase.com/organization`, or `github.com/orgs`\n\n## How To Use Path Filtering\n\nYou can use the same `includeDomains` and `excludeDomains` parameters:\n\nIf you have any questions about domain filtering or need help with your specific use case, please reach out to [hello@exa.ai](mailto:hello@exa.ai).",
+  "code_samples": [
+    {
+      "code": "",
+      "language": "unknown"
+    },
+    {
+      "code": "",
+      "language": "unknown"
+    }
+  ],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "What's New",
+      "id": "what's-new"
+    },
+    {
+      "level": "h2",
+      "text": "Examples",
+      "id": "examples"
+    },
+    {
+      "level": "h2",
+      "text": "When to Use Path Filtering",
+      "id": "when-to-use-path-filtering"
+    },
+    {
+      "level": "h2",
+      "text": "How To Use Path Filtering",
+      "id": "how-to-use-path-filtering"
+    },
+    {
+      "level": "h2",
+      "text": "Need Help?",
+      "id": "need-help?"
+    }
+  ],
+  "url": "llms-txt#domain-path-filter-support",
+  "links": []
+}

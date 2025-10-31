@@ -1,0 +1,8 @@
+{
+  "title": "Websets News Monitor",
+  "content": "Source: https://docs.exa.ai/examples/demo-websets-news-monitor\n\nA live demo that monitors the web semantically using the Websets API.\n\n<Card title=\"Click here to try it out.\" href=\"https://demo.exa.ai/websets-news-monitor\" img=\"https://exa.imgix.net/websets-news-monitor.png\" />",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#websets-news-monitor",
+  "links": []
+}

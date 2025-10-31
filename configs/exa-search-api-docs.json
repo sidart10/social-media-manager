@@ -1,0 +1,17 @@
+{
+  "name": "exa-search-api-docs",
+  "description": "Official Exa AI search API documentation including neural search, filters, content retrieval, best practices for AI-powered web research and data extraction",
+  "base_url": "https://docs.exa.ai/",
+  "selectors": {
+    "main_content": "article",
+    "title": "h1",
+    "code_blocks": "pre code"
+  },
+  "url_patterns": {
+    "include": [],
+    "exclude": []
+  },
+  "categories": {},
+  "rate_limit": 0.5,
+  "max_pages": 50
+}

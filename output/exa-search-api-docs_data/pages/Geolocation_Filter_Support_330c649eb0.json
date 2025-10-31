@@ -1,0 +1,38 @@
+{
+  "title": "Geolocation Filter Support",
+  "content": "Source: https://docs.exa.ai/changelog/geolocation-filter-support\n\n`userLocation` added to the search API to bias search results based on geographic location.\n\n**Date: July 30, 2025**\n\nWe're excited to announce a new `userLocation` parameter that lets you bias search results based on a user's geographic region. The location is passed as an [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code (e.g., \"fr\" for France, \"us\" for the United States).\n\nIf this field is provided, search will return results that are more relevant to users in the provided region.\n\n## When to Use Geolocation Filter\n\nThe `userLocation` parameter is particularly useful for:\n\n1. **Multi-regional applications**: Show users content that's relevant to their region\n2. **Language-specific content**: Prioritizing content in regional languages\n3. **Local discovery**: Surface products or businesses relevant to the users region\n\nConsider using geolocation filtering when the user's physical location or regional context significantly impacts the relevance of search results.\n\n## How To Use Geolocation Filter\n\nHere's how to implement the new `userLocation` parameter:\n\n## Response Structure Changes\n\nThe response structure remains unchanged - geolocation filtering affects result ranking and relevance scoring, but doesn't modify the response format.\n\nIf you have any questions about location filtering or need help with your specific use case, please reach out to [hello@exa.ai](mailto:hello@exa.ai).",
+  "code_samples": [
+    {
+      "code": "",
+      "language": "unknown"
+    },
+    {
+      "code": "",
+      "language": "unknown"
+    }
+  ],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "When to Use Geolocation Filter",
+      "id": "when-to-use-geolocation-filter"
+    },
+    {
+      "level": "h2",
+      "text": "How To Use Geolocation Filter",
+      "id": "how-to-use-geolocation-filter"
+    },
+    {
+      "level": "h2",
+      "text": "Response Structure Changes",
+      "id": "response-structure-changes"
+    },
+    {
+      "level": "h2",
+      "text": "Need Help?",
+      "id": "need-help?"
+    }
+  ],
+  "url": "llms-txt#geolocation-filter-support",
+  "links": []
+}

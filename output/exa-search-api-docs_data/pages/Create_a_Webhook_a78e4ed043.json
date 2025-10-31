@@ -1,0 +1,8 @@
+{
+  "title": "Create a Webhook",
+  "content": "Source: https://docs.exa.ai/websets/api/webhooks/create-a-webhook\n\npost /v0/webhooks\nWebhooks let you get notifications when things happen in your Websets. When you create a webhook, you choose which events you want to know about and where to send the notifications.\n\nWhen an event happens, Exa sends an HTTP POST request to your webhook URL with:\n- Event details (type, time, ID)\n- Full data of what triggered the event\n- A signature to verify the request came from Exa\n\nThe webhook starts as `active` and begins getting notifications right away. You'll get a secret key for checking webhook signatures - save this safely as it's only shown once when you create the webhook.",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#create-a-webhook",
+  "links": []
+}

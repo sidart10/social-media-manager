@@ -1,6 +1,6 @@
 ---
 name: edit-image
-description: Edit and refine existing images with pixel-perfect precision using nanobanana (Gemini). Best-in-class for targeted transformations (blur background, color correct, remove objects, enhance). Use when workflow needs to refine, correct, or transform existing generated or uploaded images.
+description: Edit and refine existing images with pixel-perfect precision using nanobanana. Use when editing images, refining visuals, correcting colors, blurring backgrounds, removing objects, enhancing photos, fixing images, adjusting lighting, or making targeted changes to existing pictures without full regeneration.
 ---
 
 # Edit Image
@@ -9,9 +9,27 @@ description: Edit and refine existing images with pixel-perfect precision using 
 
 Refine, correct, or transform existing images using nanobanana's best-in-class pixel-perfect editing capabilities. Unlike regenerating entire images, editing makes targeted changes while preserving everything else.
 
+## When to Use This Skill
+
+Use this skill when:
+- Editing existing images
+- Refining generated visuals
+- Correcting colors or lighting
+- Blurring backgrounds
+- Removing unwanted objects
+- Enhancing photo quality
+- Fixing artifacts or issues
+- Making targeted modifications to images
+
+Triggers: edit image, refine image, correct image, fix image, enhance photo, blur background, remove object, color correct, adjust lighting
+
+**Don't use for:**
+- Creating new images from scratch (use create-image skill)
+- Blending multiple images (use blend-images skill)
+
 ## Instructions
 
-When workflow needs to edit an existing image:
+When editing an existing image:
 
 1. **Verify editing is appropriate** (vs regenerating):
    - ✅ Edit: Minor tweaks, targeted changes, refinements

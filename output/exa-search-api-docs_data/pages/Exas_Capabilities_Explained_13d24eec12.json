@@ -1,0 +1,97 @@
+{
+  "title": "Exa's Capabilities Explained",
+  "content": "Source: https://docs.exa.ai/reference/exas-capabilities-explained\n\nThis page explains some of the available feature functionalities of Exa and some unique ways you might use Exa for your use-case\n\n## Auto search (prev. Magic Search)\n\n| Where you would use it                                                                                                                                                                                                                              |\n| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| When you want optimal results without manually choosing between neural and keyword search. When you might not know ahead of time what the best search type is. Note Auto search is the default search type - when unspecified, Auto search is used. |\n\n| Description                                                                                                             | Where you would use it                                                                                                                                           |\n| ----------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| Uses Exa's embeddings-based index and query model to perform complex queries and provide semantically relevant results. | For exploratory searches or when looking for conceptually related content rather than exact keyword matches. To find hard to find, specific results from the web |\n\n| Description                                                       | Where you would use it                                                                                                                                                                                                                                                                 |\n| ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| Traditional search method that matches specific words or phrases. | When doing simple, broad searches where the user can refine results manually. Good for general browsing and finding exact matches. Good for matching proper nouns or terms of art that are rarely used in other contexts. When neural search fails to return what you are looking for. |\n\n## Phrase Filter Search\n\n| Description                                                            | Where you would use it                                                                                                                                                               |\n| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |\n| Apply keyword filters atop of a neural search before returning results | When you want the power of Neural Search but also need to specify and filter on some key phrase. Often helpful when filtering on a piece of jargon where a specific match is crucial |\n\n[See a worked example here](/examples/niche-company-finder-with-phrase-filters)\n\n## Large-scale Searches\n\n| Description                                                | Where you would use it                                                                                                            |\n| ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |\n| Exa searches that return a large number of search results. | When desiring comprehensive, semantically relevant data for batch use cases, e.g., for enrichment of CRMs or full topic scraping. |\n\nNote high return results cost more and higher result caps (e.g., 1000 returns) are restricted to Enterprise/Custom plans only. [Get in touch ](https://cal.com/team/exa/exa-intro-chat?date=2024-11-14\\&month=2024-11)if you are interested in learning more.\n\n## Contents Retrieval\n\n| Description                                                                         | Where you would use it                                                                         |\n| ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |\n| Instantly retrieves whole, cleaned and parsed webpage contents from search results. | When you need the full text of webpages for analysis, summarization, or other post-processing. |\n\n| Description                                                      | Where you would use it                                                                                                            |\n| ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |\n| Extracts relevant excerpts or highlights from retrieved content. | When you want a quick or targeted outputs from the most relevant parts of a search entity without wanted to handle the full text. |\n\n## Prompt Engineering\n\nPrompt engineering is crucial for getting the most out of Exa's capabilities. The right prompt can dramatically improve the relevance and usefulness of your search results. This is especially important for neural search and advanced features like writing continuation.\n\n## Writing continuation queries\n\n| Description                                                                                                                                                                                            | Where you would use it                                                                                                                                                                                                                                                                             |\n| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| Prompt crafted by post-pending 'Here is a great resource to continue writing this piece of writing:'. Useful for research writing or any other citation-based text generation after passing to an LLM. | When you're in the middle of writing a piece and need to find relevant sources to continue or expand your content. This is particularly useful for academic writing, content creation, or any scenario where you need to find information that logically follows from what you've already written. |\n\n| Description                                                                             | Where you would use it                                                                                                                                                                                                                                   |\n| --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| Utilizing Exa's long query window to perform matches against semantically rich content. | When you need to find content that matches complex, detailed descriptions or when you want to find content similar to a large piece of text. This is particularly useful for finding niche content or when you're looking for very specific information. |",
+  "code_samples": [
+    {
+      "code": "## Neural Search\n\n| Description                                                                                                             | Where you would use it                                                                                                                                           |\n| ----------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| Uses Exa's embeddings-based index and query model to perform complex queries and provide semantically relevant results. | For exploratory searches or when looking for conceptually related content rather than exact keyword matches. To find hard to find, specific results from the web |",
+      "language": "unknown"
+    },
+    {
+      "code": "## Keyword Search\n\n| Description                                                       | Where you would use it                                                                                                                                                                                                                                                                 |\n| ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| Traditional search method that matches specific words or phrases. | When doing simple, broad searches where the user can refine results manually. Good for general browsing and finding exact matches. Good for matching proper nouns or terms of art that are rarely used in other contexts. When neural search fails to return what you are looking for. |",
+      "language": "unknown"
+    },
+    {
+      "code": "## Phrase Filter Search\n\n| Description                                                            | Where you would use it                                                                                                                                                               |\n| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |\n| Apply keyword filters atop of a neural search before returning results | When you want the power of Neural Search but also need to specify and filter on some key phrase. Often helpful when filtering on a piece of jargon where a specific match is crucial |",
+      "language": "unknown"
+    },
+    {
+      "code": "[See a worked example here](/examples/niche-company-finder-with-phrase-filters)\n\n## Large-scale Searches\n\n| Description                                                | Where you would use it                                                                                                            |\n| ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |\n| Exa searches that return a large number of search results. | When desiring comprehensive, semantically relevant data for batch use cases, e.g., for enrichment of CRMs or full topic scraping. |",
+      "language": "unknown"
+    },
+    {
+      "code": "Note high return results cost more and higher result caps (e.g., 1000 returns) are restricted to Enterprise/Custom plans only. [Get in touch ](https://cal.com/team/exa/exa-intro-chat?date=2024-11-14\\&month=2024-11)if you are interested in learning more.\n\n***\n\n## Contents Retrieval\n\n| Description                                                                         | Where you would use it                                                                         |\n| ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |\n| Instantly retrieves whole, cleaned and parsed webpage contents from search results. | When you need the full text of webpages for analysis, summarization, or other post-processing. |",
+      "language": "unknown"
+    },
+    {
+      "code": "## Highlights\n\n| Description                                                      | Where you would use it                                                                                                            |\n| ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |\n| Extracts relevant excerpts or highlights from retrieved content. | When you want a quick or targeted outputs from the most relevant parts of a search entity without wanted to handle the full text. |",
+      "language": "unknown"
+    },
+    {
+      "code": "***\n\n## Prompt Engineering\n\nPrompt engineering is crucial for getting the most out of Exa's capabilities. The right prompt can dramatically improve the relevance and usefulness of your search results. This is especially important for neural search and advanced features like writing continuation.\n\n## Writing continuation queries\n\n| Description                                                                                                                                                                                            | Where you would use it                                                                                                                                                                                                                                                                             |\n| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| Prompt crafted by post-pending 'Here is a great resource to continue writing this piece of writing:'. Useful for research writing or any other citation-based text generation after passing to an LLM. | When you're in the middle of writing a piece and need to find relevant sources to continue or expand your content. This is particularly useful for academic writing, content creation, or any scenario where you need to find information that logically follows from what you've already written. |",
+      "language": "unknown"
+    },
+    {
+      "code": "## Long queries\n\n| Description                                                                             | Where you would use it                                                                                                                                                                                                                                   |\n| --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| Utilizing Exa's long query window to perform matches against semantically rich content. | When you need to find content that matches complex, detailed descriptions or when you want to find content similar to a large piece of text. This is particularly useful for finding niche content or when you're looking for very specific information. |",
+      "language": "unknown"
+    }
+  ],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "Search Types",
+      "id": "search-types"
+    },
+    {
+      "level": "h2",
+      "text": "Auto search (prev. Magic Search)",
+      "id": "auto-search-(prev.-magic-search)"
+    },
+    {
+      "level": "h2",
+      "text": "Neural Search",
+      "id": "neural-search"
+    },
+    {
+      "level": "h2",
+      "text": "Keyword Search",
+      "id": "keyword-search"
+    },
+    {
+      "level": "h2",
+      "text": "Phrase Filter Search",
+      "id": "phrase-filter-search"
+    },
+    {
+      "level": "h2",
+      "text": "Large-scale Searches",
+      "id": "large-scale-searches"
+    },
+    {
+      "level": "h2",
+      "text": "Contents Retrieval",
+      "id": "contents-retrieval"
+    },
+    {
+      "level": "h2",
+      "text": "Highlights",
+      "id": "highlights"
+    },
+    {
+      "level": "h2",
+      "text": "Prompt Engineering",
+      "id": "prompt-engineering"
+    },
+    {
+      "level": "h2",
+      "text": "Writing continuation queries",
+      "id": "writing-continuation-queries"
+    },
+    {
+      "level": "h2",
+      "text": "Long queries",
+      "id": "long-queries"
+    }
+  ],
+  "url": "llms-txt#exa's-capabilities-explained",
+  "links": []
+}

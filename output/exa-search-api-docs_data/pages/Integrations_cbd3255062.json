@@ -1,0 +1,64 @@
+{
+  "title": "Integrations",
+  "content": "Source: https://docs.exa.ai/websets/dashboard/integrations\n\nConnect your Websets with popular CRM and email tools\n\nWebsets integrates seamlessly with your favorite CRM, email sequencing, and database tools, allowing you to export enriched data directly where you need it. Manage all your integrations from a single dashboard and keep your workflows streamlined.\n\n## Supported integrations\n\nWe've built support for leading platforms across sales, marketing, and data enrichment:\n\n* [Salesforce](https://www.salesforce.com/) - Export People entities as Leads\n* [HubSpot](https://www.hubspot.com/) - Export People entities as Contacts\n\n* [Instantly](https://instantly.ai/) - Export People entities as Leads\n* [Smartlead](https://www.smartlead.ai/) - Export People entities as Leads\n* [Lemlist](https://www.lemlist.com/) - Export People entities as Leads\n\n* [Clay](https://www.clay.com/) - Export any entity type via webhook\n\n## Managing integrations\n\n<img src=\"https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/integrations/connected.png?fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=ddf3ba288cee029617b7c660c6554896\" alt=\"Connected integrations view\" data-og-width=\"1999\" width=\"1999\" data-og-height=\"1061\" height=\"1061\" data-path=\"images/websets/integrations/connected.png\" data-optimize=\"true\" data-opv=\"3\" srcset=\"https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/integrations/connected.png?w=280&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=599c451719609ff6087599d8c277b41b 280w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/integrations/connected.png?w=560&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=96b89f92357be1f5b00fb45d52973003 560w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/integrations/connected.png?w=840&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=c1f8569482d3bba5950309f75b5a8b55 840w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/integrations/connected.png?w=1100&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=1d020ad6499c6174685d891871793725 1100w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/integrations/connected.png?w=1650&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=95fbf7a9ace8c93d2ba50ee1517ca940 1650w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/integrations/connected.png?w=2500&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=af02cc52480505fa05975677fd36dc82 2500w\" />\n\nTo enable an integration:\n\n1. Visit [https://websets.exa.ai/integrations](https://websets.exa.ai/integrations)\n2. Toggle the integration you want to connect\n3. Provide your account credentials\n4. The integration will be scoped to your currently selected team\n\n## Exporting capabilities\n\nCurrently, we support **exporting all** your Webset table rows to connected platforms. Import functionality for further enrichment is coming soon.\n\n<img src=\"https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/integrations/export.png?fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=13617754d7b9606dbcf88ec4523c4a7e\" alt=\"Export options interface\" data-og-width=\"1999\" width=\"1999\" data-og-height=\"1067\" height=\"1067\" data-path=\"images/websets/integrations/export.png\" data-optimize=\"true\" data-opv=\"3\" srcset=\"https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/integrations/export.png?w=280&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=15794cd4d11633fd93ea257f30006160 280w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/integrations/export.png?w=560&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=f2a5ed5f48ac66d259699d60dd975831 560w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/integrations/export.png?w=840&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=933b3e90bec9cc9c47049bfc43c8e9e4 840w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/integrations/export.png?w=1100&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=aafe81a94123550b485dcc5883a5bdf1 1100w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/integrations/export.png?w=1650&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=44e2c19258f336b99f221907a16bddf5 1650w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/integrations/export.png?w=2500&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=397e8211f7811408a7a60f9ff61949ee 2500w\" />\n\nWhen you toggle on the Salesforce integration, you'll be redirected to login to your Salesforce account. After logging in, you'll be redirected back and ready to go!\n\n**Create Leads** – Export any People entity Webset type as **Leads** in your Salesforce account.\n\nWhen you toggle on the HubSpot integration, you'll be redirected to login to your HubSpot account. You'll be prompted to install the Exa app and grant the requested permissions. After approval, you'll be redirected back and fully connected.\n\n**Create Contacts** – Export any People entity Webset type as **Contacts** in your HubSpot account.\n\n<Frame caption=\"Instantly API key setup\">\n  <iframe src=\"https://www.loom.com/embed/870ed25fc8c24d9ab4d4928817761d33?hideEmbedTopBar=true\" allowFullScreen frameBorder=\"0\" className=\"w-full aspect-video\" />\n</Frame>\n\nWhen you toggle on the Instantly integration, you'll need to provide your Instantly API key:\n\n1. Login to your Instantly account and click your avatar in the bottom left corner\n2. Select \"Settings\" from the menu\n3. Navigate to the \"Integrations\" tab\n4. Select \"API Keys\" from the left navigation menu\n5. Click \"Create API Key\"\n6. Name your key and select \"all:all\" for scopes\n7. Copy and paste the generated key into Websets\n\n**Create Leads** – Export any People entity Webset type as **Leads** in your Instantly account.\n\n<Frame caption=\"Smartlead API key setup\">\n  <iframe src=\"https://www.loom.com/embed/a4568d1a7d5a4fea9a0101450175d457?hideEmbedTopBar=true\" allowFullScreen frameBorder=\"0\" className=\"w-full aspect-video\" />\n</Frame>\n\nWhen you toggle on the Smartlead integration, you'll need to provide your Smartlead API key:\n\n1. Login to your Smartlead account and click your avatar in the top right corner\n2. Select \"Settings\" from the menu\n3. Scroll down to \"Smartlead API Key\"\n4. Copy your existing key or generate a new one\n5. Paste the key into Websets and click connect\n\n**Create Leads** – Export any People entity Webset type as **Leads** in your Smartlead account.\n\n<Frame caption=\"Lemlist API key setup\">\n  <iframe src=\"https://www.loom.com/embed/7cd4fd32f35042e4b6d73ffcb6c821f7?hideEmbedTopBar=true\" allowFullScreen frameBorder=\"0\" className=\"w-full aspect-video\" />\n</Frame>\n\nWhen you toggle on the Lemlist integration, you'll need to provide your Lemlist API key:\n\n1. Login to your Lemlist account and click your name in the bottom left corner\n2. Select \"Settings\" from the menu\n3. Click \"Integrations\" in the left menu\n4. Find the \"API overview\" section and click \"Generate\"\n5. Name your key and click \"Create Key\"\n6. Copy and paste the generated key into Websets\n\n**Create Leads** – Export any People entity Webset type as **Leads** in your Lemlist account.\n\n<Frame caption=\"Clay webhook setup\">\n  <iframe src=\"https://www.loom.com/embed/7baebd0584c144e8bd0869b4770b137d?hideEmbedTopBar=true\" allowFullScreen frameBorder=\"0\" className=\"w-full aspect-video\" />\n</Frame>\n\nNo authentication is required for Clay integration, as we currently support exporting Webset data via webhook only. **Note: A Clay Pro account is required.**\n\n**Creating a webhook**\n\n1. Navigate to a Clay table and click \"Add\" at the bottom\n2. Search for \"Webhook\" and select it\n3. This creates a new table view with a Webhook column\n4. Copy the webhook URL from the \"Pull in data from a Webhook\" panel on the right\n\n**Create table rows** – Export Websets of any entity type to Clay:\n\n1. From a Webset, click \"Export\" in the top navigation\n2. Select the \"Clay\" integration option\n3. Paste the webhook URL from Clay\n4. Click \"Export\"\n\nYour Webset rows will populate your Clay table within moments.\n\n<img src=\"https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/integrations/clay-export.png?fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=2171ef8d52ffdc65b74a4e01b6413b0c\" alt=\"Clay export interface\" data-og-width=\"1270\" width=\"1270\" data-og-height=\"1290\" height=\"1290\" data-path=\"images/websets/integrations/clay-export.png\" data-optimize=\"true\" data-opv=\"3\" srcset=\"https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/integrations/clay-export.png?w=280&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=b46f98a3259d4f3addf483446c461ff6 280w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/integrations/clay-export.png?w=560&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=e85316751711cad456b2562175a2c498 560w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/integrations/clay-export.png?w=840&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=67f3bd324938b7bb843b1868fbb4d534 840w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/integrations/clay-export.png?w=1100&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=e1de8ad6869dcd58a47e30dea3ec7529 1100w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/integrations/clay-export.png?w=1650&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=a39e7fec96c92c912529571eedba2edf 1650w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/integrations/clay-export.png?w=2500&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=50fde294b23cf81e9bd3ec34ef8f1d95 2500w\" />",
+  "code_samples": [],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "Overview",
+      "id": "overview"
+    },
+    {
+      "level": "h2",
+      "text": "Supported integrations",
+      "id": "supported-integrations"
+    },
+    {
+      "level": "h2",
+      "text": "Managing integrations",
+      "id": "managing-integrations"
+    },
+    {
+      "level": "h2",
+      "text": "Exporting capabilities",
+      "id": "exporting-capabilities"
+    },
+    {
+      "level": "h2",
+      "text": "Setup guides",
+      "id": "setup-guides"
+    },
+    {
+      "level": "h3",
+      "text": "Salesforce",
+      "id": "salesforce"
+    },
+    {
+      "level": "h3",
+      "text": "HubSpot",
+      "id": "hubspot"
+    },
+    {
+      "level": "h3",
+      "text": "Instantly",
+      "id": "instantly"
+    },
+    {
+      "level": "h3",
+      "text": "Smartlead",
+      "id": "smartlead"
+    },
+    {
+      "level": "h3",
+      "text": "Lemlist",
+      "id": "lemlist"
+    },
+    {
+      "level": "h3",
+      "text": "Clay",
+      "id": "clay"
+    }
+  ],
+  "url": "llms-txt#integrations",
+  "links": []
+}

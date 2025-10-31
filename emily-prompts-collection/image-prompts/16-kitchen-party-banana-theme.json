@@ -1,0 +1,20 @@
+{
+  "prompt": "A candid vibrant photograph of a lively social gathering in a cozy well-used kitchen. The focal point is a cheerful woman with a subtle smile dressed casually in a bright green tank top and colorful patterned shorts. She is actively cooking at the stove holding a spatula over a frying pan with sizzling food. Around her guests are interacting joyfully. To the left a man raises a camera the flash firing capturing the moment. The countertop is a delightful chaos of party food: an open pizza box a large bowl full of fresh red strawberries various bottles plates and utensils.",
+  "generation_parameters": {
+    "style": {
+      "type": "photorealistic",
+      "modifier": "banana-aesthetic",
+      "modifier_details": {
+        "description": "Infuse the scene with a surreal whimsical and slightly tropical banana theme. This should manifest as: 1 A subtle warm yellow color grading over the entire image reminiscent of banana peel hues. 2 The pattern on the central woman's shorts should be a stylized banana print. 3 A single perfectly peeled banana should be impossibly but artfully placed on the countertop next to the strawberries as if it's a prized part of the feast."
+      }
+    },
+    "composition": {
+      "shot_type": "medium shot",
+      "focus": "shallow depth of field focusing on the woman at the stove"
+    },
+    "lighting": {
+      "key_light": "direct bright on-camera flash creating sharp highlights on the foreground subjects",
+      "ambient_light": "warm soft indoor kitchen lighting from overhead lights"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "title": "Storyline Deduplication",
+  "content": "A common issue when monitoring news is handling multiple articles about the same storyline. Often you want to group articles by storyline or remove duplicates so users don't see repeated content.\n\nIn our demo, we solve this using embeddings, vector search, and an LLM to classify duplicates.\n\n<Steps>\n  <Step title=\"Embed the Article Title\">\n    First, we'll embed the article's title using OpenAI's embedding API. We'll use the `text-embedding-3-small` model that produces vectors optimized for similarity comparisons.\n\n<Step title=\"Search for Similar Articles\">\n    Next, we use PostgreSQL's `pgvector` extension to find the 10 most similar articles from the last week.\n\n<Step title=\"Classify Duplicates with an LLM\">\n    Finally, we'll use an LLM with structured outputs to classify whether the article is a duplicate. The LLM will look at the titles of similar articles and determine if they are about the same event.\n\nYou can view the complete deduplication implementation [here](https://github.com/exa-labs/websets-news-monitor/blob/main/src/lib/dedupe.ts).",
+  "code_samples": [
+    {
+      "code": "</Step>\n\n  <Step title=\"Search for Similar Articles\">\n    Next, we use PostgreSQL's `pgvector` extension to find the 10 most similar articles from the last week.",
+      "language": "unknown"
+    },
+    {
+      "code": "</Step>\n\n  <Step title=\"Classify Duplicates with an LLM\">\n    Finally, we'll use an LLM with structured outputs to classify whether the article is a duplicate. The LLM will look at the titles of similar articles and determine if they are about the same event.",
+      "language": "unknown"
+    }
+  ],
+  "headings": [],
+  "url": "llms-txt#storyline-deduplication",
+  "links": []
+}

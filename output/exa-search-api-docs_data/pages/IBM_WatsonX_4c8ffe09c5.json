@@ -1,0 +1,24 @@
+{
+  "title": "IBM WatsonX",
+  "content": "Source: https://docs.exa.ai/reference/ibm-watsonx\n\nCombine IBM WatsonX's AI with Exa's web search to build a smart assistant that can search the internet and answer questions.\n\n<Frame>\n  <video className=\"w-full aspect-video\" controls src=\"https://exa.imgix.net/ibm_exa_integration_video.mp4\" />\n</Frame>\n\n<Card title=\"Try it yourself\" icon=\"notebook\" href=\"https://github.com/exa-labs/ibm-exa/blob/main/ibm_exa_integration.ipynb\">\n  Check out our example notebook to get started quickly\n</Card>\n\nThis integration connects IBM WatsonX with Exa to create an AI that can:\n\n* Search the web to get information\n* Give answers with links to sources\n* Handle both simple and complex questions\n\nWant to see it in action? [Try notebook here.](https://github.com/exa-labs/ibm-exa/blob/main/ibm_exa_integration.ipynb)\n\nMake sure to add your API keys to the notebook.\n\n* [IBM WatsonX](https://www.ibm.com/products/watsonx-ai)\n* [Exa API Playground](https://dashboard.exa.ai/)\n* [Github Repository for this integration](https://github.com/exa-labs/ibm-exa)",
+  "code_samples": [],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "What it does",
+      "id": "what-it-does"
+    },
+    {
+      "level": "h2",
+      "text": "Try Notebook",
+      "id": "try-notebook"
+    },
+    {
+      "level": "h2",
+      "text": "Resources",
+      "id": "resources"
+    }
+  ],
+  "url": "llms-txt#ibm-watsonx",
+  "links": []
+}

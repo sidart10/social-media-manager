@@ -1,0 +1,8 @@
+{
+  "title": "Update a Webset",
+  "content": "Source: https://docs.exa.ai/websets/api/websets/update-a-webset\n\npost /v0/websets/{id}",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#update-a-webset",
+  "links": []
+}

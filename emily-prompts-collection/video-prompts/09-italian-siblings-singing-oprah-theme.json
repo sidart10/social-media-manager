@@ -1,0 +1,39 @@
+{
+  "shot": {
+    "duration": 8,
+    "aspect_ratio": "16:9",
+    "composition": "medium-wide eye-level 35mm lens",
+    "camera_motion": "slow 25cm dolly-in for intimacy",
+    "frame_rate": 24,
+    "film_grain": 0.06
+  },
+  "scene": {
+    "setting": "cozy children's bedroom in an Italian home",
+    "time_of_day": "late-afternoon window light",
+    "atmosphere": "warm soft shadows daylight filtering through sheer curtains"
+  },
+  "subject": {
+    "description": "native Italian siblings sitting cross-legged on a colourful duvet facing camera",
+    "wardrobe": "brother: striped t-shirt & jeans sister: floral dress with hairband"
+  },
+  "visual_details": {
+    "action": "they share a printed lyric sheet breathe together then sing the Oprah opening theme perfectly in unison smiling and nodding to stay on beat"
+  },
+  "cinematography": {
+    "lighting": "key: diffused window left fill: white-card bounce right rim: soft practical lamp in background",
+    "style": "naturalistic light Italian interior realism",
+    "tone": "uplifting wholesome"
+  },
+  "audio": {
+    "sfx": [
+      "page_turn_soft",
+      "light_breath_intake"
+    ],
+    "ambience": "quiet_room_tone",
+    "music": {
+      "track": "oprah_theme_child_duo",
+      "bpm": 108,
+      "mix_db": -12
+    }
+  }
+}

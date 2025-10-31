@@ -1,0 +1,47 @@
+{
+  "style": "High-key studio portrait direct flash aesthetic East Asian social media style Ulzzang Douyin stylized beauty retouching",
+  "subject": {
+    "category": "human",
+    "gender_presentation": "female",
+    "ethnicity": "East Asian Korean Chinese",
+    "age_bracket": "young_adult",
+    "body": {
+      "build": "slim",
+      "posture": "relaxed on sofa seated casually",
+      "pose": "seated legs crossed and tucked close to body",
+      "gesture": "Right hand raised fingers loosely curled back of fingers/knuckles gently supporting the chin and lower cheek"
+    },
+    "face": {
+      "expression": "Playful alluring",
+      "gaze": "right eye direct to camera",
+      "eye_action": "winking with the left eye",
+      "skin_tone": "Very pale porcelain lightened aesthetic",
+      "makeup": "Stylized K-Beauty/Douyin look: flawless matte base strong pink blush high on cheeks pink gradient lips defined brows light eyeliner emphasized Aegyo-sal",
+      "features": "small beauty mark/mole under the left eye"
+    },
+    "hair": {
+      "length": "long",
+      "style": "messy high updo/bun with loose strands and curtain bangs",
+      "color": "dark brown"
+    },
+    "wardrobe": {
+      "top": "white fitted cropped camisole",
+      "outerwear": "light gray zip hoodie worn open and slightly slipping off both shoulders",
+      "bottom": "white lounge shorts with drawstring"
+    }
+  },
+  "environment": {
+    "set": "black leather sofa against a plain white or light gray wall",
+    "props": "Silver laptop Apple MacBook logo visible placed on the cushion"
+  },
+  "lighting": {
+    "key": {
+      "source": "strobe/flash",
+      "modifier": "Bare reflector or direct flash hard source",
+      "effect": "Crisp dark well-defined cast shadows on the wall strong specular highlights on skin"
+    }
+  },
+  "postprocess": {
+    "texture": "Highly smoothed skin poreless appearance porcelain doll or beauty filter effect"
+  }
+}

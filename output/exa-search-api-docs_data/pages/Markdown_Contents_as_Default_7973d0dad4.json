@@ -1,0 +1,24 @@
+{
+  "title": "Markdown Contents as Default",
+  "content": "Source: https://docs.exa.ai/changelog/markdown-contents-as-default\n\nMarkdown content is now the default format for all Exa API endpoints, providing cleaner, more readable content that's ideal for AI applications and text processing.\n\n**Date: 23 June 2025**\n\nWe've updated all Exa API endpoints to return content in markdown format by default. This change provides cleaner, more structured content that's optimized for AI applications, RAG systems, and general text processing workflows.\n\n<Info>\n  All endpoints now process webpage content into clean markdown format by default. Use the `includeHtmlTags` parameter to control content formatting.\n</Info>\n\nPreviously, our endpoints returned content in various formats depending on the specific endpoint configuration. Now, all endpoints consistently return content processed into clean markdown format, making it easier to work with the data across different use cases.\n\n## Content Processing Behavior\n\nThe `includeHtmlTags` parameter now controls how we process webpage content:\n\n* **`includeHtmlTags=false` (default)**: We process webpage content into clean markdown format\n* **`includeHtmlTags=true`**: We return content as HTML without processing to markdown\n\nIn all cases, we remove extraneous data, advertisements, navigation elements, and other boilerplate content, keeping only what we detect as the main content of the page.\n\n**No action required** if you want the new markdown format - it's now the default! If you need HTML content instead:\n\n## Benefits of Markdown Default\n\n1. **Better for AI applications**: Markdown format is more structured and easier for LLMs to process\n2. **Improved readability**: Clean formatting without HTML tags makes content more readable\n3. **RAG optimization**: Markdown content chunks more naturally for retrieval systems\n\nIf you have any questions about this change or need help adapting your implementation, please reach out to [hello@exa.ai](mailto:hello@exa.ai).\n\nWe're excited for you to experience the improved content quality with markdown as the default!",
+  "code_samples": [],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "What Changed",
+      "id": "what-changed"
+    },
+    {
+      "level": "h2",
+      "text": "Content Processing Behavior",
+      "id": "content-processing-behavior"
+    },
+    {
+      "level": "h2",
+      "text": "Benefits of Markdown Default",
+      "id": "benefits-of-markdown-default"
+    }
+  ],
+  "url": "llms-txt#markdown-contents-as-default",
+  "links": []
+}

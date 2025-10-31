@@ -1,0 +1,17 @@
+{
+  "name": "twitter-thread-mastery",
+  "description": "Twitter thread writing examples and engagement tips including structure, hooks, and viral tactics from successful thread creators",
+  "base_url": "https://typefully.com/blog/twitter-thread-examples-tips-to-drive-engagement-2",
+  "selectors": {
+    "main_content": "article",
+    "title": "h1",
+    "code_blocks": "pre code"
+  },
+  "url_patterns": {
+    "include": [],
+    "exclude": []
+  },
+  "categories": {},
+  "rate_limit": 0.5,
+  "max_pages": 20
+}

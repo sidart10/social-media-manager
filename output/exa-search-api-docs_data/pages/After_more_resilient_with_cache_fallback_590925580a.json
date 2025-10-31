@@ -1,0 +1,8 @@
+{
+  "title": "After - more resilient with cache fallback",
+  "content": "result = exa.get_contents(urls, livecrawl=\"preferred\")\n```\n\nThis change maintains your preference for fresh content while improving reliability.",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#after---more-resilient-with-cache-fallback",
+  "links": []
+}

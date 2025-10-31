@@ -1,0 +1,8 @@
+{
+  "title": "OpenRouter",
+  "content": "Source: https://docs.exa.ai/integrations/openrouter\n\nLearn how to use Exa's web search API with OpenRouter. OpenRouter provides web search capabilities that enable AI models to access current information from the web.\n\nFor detailed instructions on using Exa with OpenRouter, visit the [OpenRouter documentation](https://openrouter.ai/docs/features/web-search).",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#openrouter",
+  "links": []
+}

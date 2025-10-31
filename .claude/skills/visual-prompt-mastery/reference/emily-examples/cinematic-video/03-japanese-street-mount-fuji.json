@@ -1,0 +1,31 @@
+{
+  "shot": "Forward dolly along a quiet Japanese residential street toward Mount Fuji on a bright summer day.",
+  "subject": "A lived-in Japanese street with wooden houses stone walls utility poles and overhead cables two slow cars lush trees and Mount Fuji dominating the horizon beneath a deep cobalt sky.",
+  "scene": {
+    "environment": "Sunlit neighborhood lane clean asphalt with painted lines modest shop signs rendered as abstract shapes distant town layered along Fuji's foothills.",
+    "lighting": "High-noon summer light with crisp shadows subtle atmospheric haze over Fuji gentle specular glints on cables and car roofs."
+  },
+  "visual_details": [
+    {
+      "time": "0s–2.5s",
+      "beat": "Establish the lane: foreground utility cables and poles frame the view heat shimmer over asphalt cicada-summer stillness.",
+      "action": "Camera begins a steady centerline push-in depth-of-field favors mid-street Fuji softly present."
+    },
+    {
+      "time": "2.5s–5s",
+      "beat": "A compact car rolls toward camera and passes on the left leaves flicker light flashes along the cables.",
+      "action": "Single forward dolly continues brief focus rack mid-street → foreground cables → back to Fuji."
+    },
+    {
+      "time": "5s–8s",
+      "beat": "Fuji grows prominent small clouds drift a pair of birds crosses frame as wires gently oscillate. Street clears.",
+      "action": "Dolly completes into a wider view of Fuji hold on a clean composition for the final half-second."
+    }
+  ],
+  "cinematography": {
+    "camera_language": "One primary motion: straight forward dolly along the road's centerline.",
+    "lens_feel": "40mm spherical T5.6 for moderate DOF natural perspective minimal distortion.",
+    "movement": "Constant velocity with slight ease-in/ease-out only at start/end.",
+    "grade": "Crisp summer anime-real aesthetic mild bloom on high speculars gentle filmic contrast."
+  }
+}

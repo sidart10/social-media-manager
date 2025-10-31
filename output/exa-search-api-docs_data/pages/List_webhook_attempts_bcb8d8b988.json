@@ -1,0 +1,8 @@
+{
+  "title": "List webhook attempts",
+  "content": "Source: https://docs.exa.ai/websets/api/webhooks/attempts/list-webhook-attempts\n\nget /v0/webhooks/{id}/attempts\nList all attempts made by a Webhook ordered in descending order.",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#list-webhook-attempts",
+  "links": []
+}

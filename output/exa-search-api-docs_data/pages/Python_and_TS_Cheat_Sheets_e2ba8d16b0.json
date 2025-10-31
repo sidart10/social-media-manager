@@ -1,0 +1,13 @@
+{
+  "title": "Python and TS Cheat Sheets",
+  "content": "Source: https://docs.exa.ai/sdks/cheat-sheet\n\nSome common code you might want to use - don't miss the TypeScript tab below!\n\n<Tabs>\n  <Tab title=\"Python\">\n    \n  </Tab>\n\n<Tab title=\"typeScript\">\n    \n  </Tab>\n</Tabs>",
+  "code_samples": [
+    {
+      "code": "</Tab>\n\n  <Tab title=\"typeScript\">",
+      "language": "unknown"
+    }
+  ],
+  "headings": [],
+  "url": "llms-txt#python-and-ts-cheat-sheets",
+  "links": []
+}

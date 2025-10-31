@@ -1,0 +1,14 @@
+{
+  "title": "New approach",
+  "content": "result = exa.get_contents([\"https://example.com\"])\nfor status in result.statuses:\n    if status.status == \"error\":\n        print(f\"Error for {status.id}: {status.error.tag} ({status.error.httpStatusCode})\")\n```\n\n## Need More Information?\n\nIf you'd like more information about the status of a crawl or have specific use cases that require additional status details, please contact us at [hello@exa.ai](mailto:hello@exa.ai) with your use case.",
+  "code_samples": [],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "Need More Information?",
+      "id": "need-more-information?"
+    }
+  ],
+  "url": "llms-txt#new-approach",
+  "links": []
+}

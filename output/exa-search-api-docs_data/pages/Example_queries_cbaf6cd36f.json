@@ -1,0 +1,34 @@
+{
+  "title": "Example queries",
+  "content": "Source: https://docs.exa.ai/websets/dashboard/websets-example-queries\n\nHere are some examples for things to search for, to get you started!\n\n1. Heads of Sales at companies with less than 500 employees, based in Europe\n2. Marketing agencies, based in the US, with less than 30 employees.\n3. Research labs, with at least 3 researchers, that have a biochemistry focus\n4. Engineering managers at fortune 500 companies in traditional (non tech focused) industries\n5. Startups that raised a series B in 2024 and have a head of people\n\n1. Engineers with startup experience, that have contributed to open source projects\n2. Candidate with strong analytical and operational skills, that has worked at a startup before\n3. SDR, with experience selling healthcare products, based in the East Coast\n4. ML Software engineers or computer science PhD students that went to a top 20 US university.\n5. Investment banker or consultant, attended an Ivy League, has been at their role for over 2 years.\n\n## Market Research/Investing\n\n1. Linkedin profile of person that has changed their title to “Stealth Founder” in 2025\n2. Companies in the agrotech space focused on hardware solutions\n3. Financial reports of food & beverage companies that mention team downsizing\n4. Fintech startups that raised a series A in 2024 from a major US based VC fund\n\n1. Hydrochlorous acid manufacturers that have sustainability angles\n2. High end clothing, low minimum order quantity manufacturers in Asia or Europe\n3. Software solutions for fleet management automation\n4. Cool agentic AI tools to help with productivity\n\n1. Research papers, published in a major US journal, focused on cell generation technology\n2. Research papers that disagree with transformer based model methodology for AI training\n3. Research papers written by someone with a phd, focused on astrophysics.",
+  "code_samples": [],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "Sales",
+      "id": "sales"
+    },
+    {
+      "level": "h2",
+      "text": "Recruiting",
+      "id": "recruiting"
+    },
+    {
+      "level": "h2",
+      "text": "Market Research/Investing",
+      "id": "market-research/investing"
+    },
+    {
+      "level": "h2",
+      "text": "Sourcing",
+      "id": "sourcing"
+    },
+    {
+      "level": "h2",
+      "text": "Research Papers",
+      "id": "research-papers"
+    }
+  ],
+  "url": "llms-txt#example-queries",
+  "links": []
+}

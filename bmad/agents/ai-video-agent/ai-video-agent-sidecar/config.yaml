@@ -135,7 +135,74 @@ cost_tracking:
   log_file: "./cost-log.json"
   alert_threshold_usd: 10.0 # Alert if daily cost exceeds
 
-# MCP Server Configuration
+# Skills Configuration (Skills-First Architecture)
+skills_directory: "{project-root}/.claude/skills/ai-video-agent"
+skills_execution_model: "load_and_follow"  # Skills are knowledge packages
+
+# Available Agent-Specific Skills
+skills_available:
+  video_generation:
+    - veotools-mastery  # Google Veo video generation (image-to-video, text-to-video, diagram animation)
+
+# Skills with Executable Scripts
+skills_with_scripts:
+  # None yet - veotools-mastery is pure MCP orchestration
+  # Future additions:
+  #   - video_preprocessing (Python: frame extraction, resizing)
+  #   - metadata_generator (Python: EXIF/metadata injection)
+
+# Skill Loading Guidance
+skill_loading_rules:
+  - "Load skills when task matches skill purpose"
+  - "Follow SKILL.md instructions completely"
+  - "Reference files in skill's reference/ folder when needed"
+  - "veotools-mastery: Load for Veo generation, diagram animation, image-to-video"
+  - "Workflows may reference skills at specific steps"
+  - "All 4 workflows kept (complex orchestration): talking-head, scene, cinematic-sequence, setup-avatars"
+
+# MCP Tools Reference (Documented in Skills)
+# NOTE: MCP server configuration is workspace-level, not agent-level
+# See active MCP servers: `claude mcp list`
+# Skills document which MCP tools they use - no duplication needed
+
+mcp_tools_overview:
+  note: "veotools-mastery skill is self-documenting. See skill's SKILL.md for complete MCP tool usage patterns."
+
+  # Active MCP servers (per `claude mcp list` 2025-10-30)
+  currently_connected:
+    - heygen  # Talking head avatar videos (used directly by workflows)
+    - veotools  # Veo video generation (used by: veotools-mastery skill)
+    - fal-video  # Alternative video providers (future skills)
+
+  skill_mcp_mapping:
+    veotools-mastery:
+      - veotools (mcp__veotools__generate_start, mcp__veotools__generate_get, mcp__veotools__list_models)
+      - Models: Veo 2.0, Veo 3.0, Veo 3.1 (standard and fast variants)
+      - Usage: Image-to-video animation, text-to-video generation, async job management
+
+  direct_mcp_usage:
+    # These tools used directly by workflows (not yet skills-wrapped)
+    heygen:
+      - mcp__heygen__generate_avatar_video
+      - mcp__heygen__get_avatar_video_status
+      - mcp__heygen__list_avatars
+      - mcp__heygen__list_voices
+      - Future: Create heygen-mastery skill for avatar video methodology
+
+  cost_optimization:
+    tier_1_free:
+      # None for video generation (all providers have costs)
+
+    tier_2_low_cost:
+      - Veo 3 Fast (~$0.20-0.30 per 8s clip)
+      - Veo 3 Standard (~$0.30-0.50 per 8s clip)
+
+    tier_3_paid:
+      - HeyGen talking head (~$0.10-0.50 per minute, varies by duration)
+      - Sora 2 (~$0.50-1.00 per clip, cinematic quality)
+      - Always show cost estimate and get user approval before generation
+
+# Legacy MCP Server Configuration (for reference, now documented in skills)
 mcp_servers:
   heygen:
     server_name: "heygen"

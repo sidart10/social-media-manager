@@ -1,0 +1,19 @@
+{
+  "title": "Auto search as Default",
+  "content": "Source: https://docs.exa.ai/changelog/auto-search-as-default\n\nAuto search, which intelligently combines Exa's proprietary neural search with traditional keyword search, is now the default search type for all queries.\n\nThe change to Auto search as default leverages the best of both Exa's proprietary neural search and industry-standard keyword search to give you the best results. Out of the box, Exa now automatically routes your queries to the best search type.\n\n<Info>\n  Read our documentation on Exa's different search types [here](/reference/exas-capabilities-explained).\n</Info>\n\n## What This Means for You\n\n1. **Enhanced results**: Auto search automatically routes queries to the most appropriate search type (neural or keyword), optimizing your search results without any extra effort on your part.\n2. **No Action required**: If you want to benefit from Auto search, you don't need to change anything in your existing implementation. It'll just work!\n3. **Maintaining current behavior**: If you prefer to keep your current search behavior, here's how:\n   * For neural search: Just set `type=\"neural\"` in your search requests.\n   * For keyword search: As always, add `type=\"keyword\"` to your search requests.\n\nHere's what this means for your code when default switches over:\n\n```Python Python theme={null}",
+  "code_samples": [],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "What This Means for You",
+      "id": "what-this-means-for-you"
+    },
+    {
+      "level": "h2",
+      "text": "Quick Example",
+      "id": "quick-example"
+    }
+  ],
+  "url": "llms-txt#auto-search-as-default",
+  "links": []
+}

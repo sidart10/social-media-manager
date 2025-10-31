@@ -1,6 +1,6 @@
 ---
 name: mcp-tool-selection
-description: Intelligent selection between nanobanana (Gemini 2.5 Flash Image) and gpt-image-1 (DALL-E 3) based on use case, quality requirements, and budget. Use when workflow needs to choose the optimal image generation provider.
+description: Intelligent selection between nanobanana (Gemini) and gpt-image-1 (DALL-E 3) for image generation. Use when choosing image generation tool, deciding between providers, optimizing for quality vs speed vs cost, or need guidance on nanobanana vs gpt-image-1 selection. Analyzes use case, platform, and requirements.
 ---
 
 # MCP Tool Selection
@@ -9,9 +9,23 @@ description: Intelligent selection between nanobanana (Gemini 2.5 Flash Image) a
 
 Choose the optimal image generation MCP tool (nanobanana vs gpt-image-1) based on task requirements, quality needs, speed constraints, and budget considerations.
 
+## When to Use This Skill
+
+Use this skill when:
+- Choosing between image generation tools
+- Deciding nanobanana vs gpt-image-1
+- Optimizing for quality vs speed vs cost
+- Need tool recommendation
+- Comparing Gemini vs DALL-E capabilities
+- Unsure which MCP tool to use
+
+Triggers: choose tool, select tool, nanobanana vs gpt-image, which tool, tool selection, Gemini vs DALL-E
+
+**Automatically referenced by:** create-image skill for intelligent routing
+
 ## Instructions
 
-When workflow needs to select an image generation provider:
+When selecting an image generation provider:
 
 1. **Analyze the use case** against the decision matrix:
    - Is it new image generation or editing?

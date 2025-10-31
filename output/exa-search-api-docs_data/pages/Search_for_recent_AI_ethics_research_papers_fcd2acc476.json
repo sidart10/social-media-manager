@@ -1,0 +1,8 @@
+{
+  "title": "Search for recent AI ethics research papers",
+  "content": "search_results = exa.search_and_contents(\n    \"Recent AI ethics research papers\",\n    type=\"neural\",\n    text=True,\n    num_results=5,  # Limit to 5 papers for this example\n)",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#search-for-recent-ai-ethics-research-papers",
+  "links": []
+}

@@ -1,0 +1,40 @@
+{
+  "description": "A hyper-realistic 4K full-body night-time portrait of a 23-year-old Korean woman with clear pale skin and long straight black hair tucked behind one ear",
+  "subject": {
+    "age": 23,
+    "ethnicity": "Korean",
+    "skin_tone": "pale",
+    "hair": {
+      "colour": "black",
+      "style": "long straight tucked behind one ear"
+    },
+    "pose": "standing at a frost-covered bus stop arms folded against the cold",
+    "expression": "70% quiet annoyance 30% amused resignation as if re-reading a text she regrets sending"
+  },
+  "outfit": {
+    "top_layers": [
+      "black blazer",
+      "navy sweatshirt",
+      "crisp white dress shirt",
+      "thin black tie"
+    ],
+    "bottom": "ultra-short black pleated skirt",
+    "legwear": "brand-new white knee-length pelerine socks",
+    "footwear": "polished black shoes"
+  },
+  "environment": {
+    "location": "night-time city bus stop",
+    "ground": "icy pavement reflecting distant headlights",
+    "fog": "dense occupying the top third of the frame",
+    "bus_shelter": {
+      "glass": "steamed-up with one finger-drawn smiley that melts faster than the surrounding condensation"
+    },
+    "lighting": "cool blue-white high contrast cinematic"
+  },
+  "hidden_detail": "reflection in her left shoe: a blurred red double-decker bus that may or may not be arriving",
+  "camera": {
+    "angle": "low eye-level full body in frame",
+    "lens_simulation": "Phase-One medium-format realism",
+    "depth_of_field": "sharp focus on subject soft bokeh on distant lights"
+  }
+}

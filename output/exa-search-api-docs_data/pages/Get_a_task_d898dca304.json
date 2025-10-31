@@ -1,0 +1,8 @@
+{
+  "title": "Get a task",
+  "content": "Source: https://docs.exa.ai/reference/research/get-a-task\n\nget /research/v1/{researchId}\nRetrieve the status and results of a previously created research task.\n\nUse the unique `researchId` returned from `POST /research/v1` to poll until the task is finished.\n\n<Card title=\"Get your Exa API key\" icon=\"key\" horizontal href=\"https://dashboard.exa.ai/api-keys\" />",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#get-a-task",
+  "links": []
+}

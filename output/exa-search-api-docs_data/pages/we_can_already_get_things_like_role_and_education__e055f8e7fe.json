@@ -1,0 +1,8 @@
+{
+  "title": "we can already get things like role and education, but we need to get the name and email this time",
+  "content": "def get_name_from_contents(contents):\n    content = f\"\"\"I'm going to give you some information I found online about a person. Based on the provided information, figure out their full name.\n    Some examples are \\\"Sarah Chieng\\\" or \\\"Will Bryk.\\\" You should answer only in the example format, or return \\\"not sure\\\" if you're not sure. Do not return any other text. Here is the information I have scraped: {contents}.\"\"\"\n    return get_openai_response(content)\n\ndef get_email_from_contents(contents):\n    content = f\"\"\"I'm going to give you some information I found online about a person. Based on the provided information, figure out their email.\n    Some examples are \\\"[[email protected]](/cdn-cgi/l/email-protection)\\\" or \\\"[[email protected]](/cdn-cgi/l/email-protection).\\\" You should answer only in the example format, or return \\\"not sure\\\" if you're not sure. Do not return any other text. Here is the information I have scraped: {contents}.\"\"\"\n    return get_openai_response(content)",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#we-can-already-get-things-like-role-and-education,-but-we-need-to-get-the-name-and-email-this-time",
+  "links": []
+}

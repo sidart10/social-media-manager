@@ -1,6 +1,6 @@
 ---
 name: platform-specs
-description: Centralized specifications for social media platforms (LinkedIn, Instagram, Twitter, etc.). Provides optimal image sizes, aspect ratios, design guidelines, and platform-specific best practices. Use when workflow needs platform requirements.
+description: Social media platform specifications including optimal image sizes, aspect ratios, and design guidelines for Instagram LinkedIn Twitter YouTube TikTok. Use when checking platform requirements, validating image dimensions, choosing aspect ratios, or need platform-specific image specifications. Centralized authority for all platform standards.
 ---
 
 # Platform Specifications
@@ -9,9 +9,24 @@ description: Centralized specifications for social media platforms (LinkedIn, In
 
 Provide centralized, authoritative platform specifications for image generation workflows. Eliminates repetition and ensures consistency across all image generation tasks.
 
+## When to Use This Skill
+
+Use this skill when:
+- Checking platform image requirements
+- Validating image dimensions
+- Choosing correct aspect ratios
+- Need Instagram image specs
+- Need LinkedIn image specs
+- Need Twitter/YouTube/TikTok specs
+- Verifying platform compliance
+
+Triggers: platform specs, image sizes, aspect ratio, Instagram dimensions, LinkedIn size, Twitter specs, YouTube size, platform requirements
+
+**Referenced by:** All image generation skills for platform validation
+
 ## Instructions
 
-When workflow needs platform-specific requirements:
+When checking platform-specific requirements:
 
 1. **Identify target platform** from user input or workflow context:
    - LinkedIn (professional/business)

@@ -1,0 +1,8 @@
+{
+  "title": "Enable deep researcher tools",
+  "content": "npx exa-mcp-server --tools=deep_researcher_start,deep_researcher_check",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#enable-deep-researcher-tools",
+  "links": []
+}

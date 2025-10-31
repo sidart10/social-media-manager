@@ -1,0 +1,8 @@
+{
+  "title": "https://docs.exa.ai/reference/python-sdk-specification#search_and_contents-method",
+  "content": "def exa_search(query: str) -> Dict[str, Any]:\n    return exa.search_and_contents(query=query, type='auto', highlights=True)",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#https://docs.exa.ai/reference/python-sdk-specification#search_and_contents-method",
+  "links": []
+}

@@ -1,0 +1,8 @@
+{
+  "title": "Search with highlights",
+  "content": "result_with_highlights = exa.search_and_contents(\n    \"AI in healthcare\",\n    highlights=True,\n    num_results=2\n)",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#search-with-highlights",
+  "links": []
+}

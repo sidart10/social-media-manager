@@ -1,0 +1,28 @@
+{
+  "name": "paddy-galloway-youtube-mastery",
+  "description": "Paddy Galloway's YouTube growth strategies - the world's leading YouTube strategist helping channels generate 700M+ views/month",
+  "sources": [
+    {
+      "type": "documentation",
+      "name": "paddy-galloway-12-step-process",
+      "base_url": "https://passionfru.it/paddy-galloways-how-to-grow-youtube-71562",
+      "description": "Paddy Galloway's 12-step process for building a YouTube channel from scratch in 12 months",
+      "max_pages": 30
+    },
+    {
+      "type": "documentation",
+      "name": "paddy-galloway-accelerator",
+      "base_url": "https://accelerator.paddygalloway.com/",
+      "description": "YouTube Channel Accelerator curriculum - strategy, ideas, thumbnails, retention, RPM",
+      "max_pages": 20
+    }
+  ],
+  "merge_mode": "claude-enhanced",
+  "selectors": {
+    "main_content": "article, main, .content",
+    "title": "h1, h2",
+    "code_blocks": "pre code"
+  },
+  "rate_limit": 1,
+  "max_pages": 50
+}

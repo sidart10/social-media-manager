@@ -56,6 +56,14 @@
 │       ├── mcp-tools-reference.md
 │       └── usage-examples.md
 │
+├── generating-sid-images/     👤 Personalized images of Sid
+│   ├── SKILL.md
+│   └── reference/             ← 4 knowledge files
+│       ├── fal-custom-model-workflow.md
+│       ├── model-training-guide.md
+│       ├── prompt-templates.md
+│       └── usage-examples.md
+│
 ├── mcp-tool-selection/        🎯 Tool comparison
 │   ├── SKILL.md
 │   └── reference/             ← 3 knowledge files
@@ -72,7 +80,7 @@
         ├── platform-comparison.md
         └── twitter-specs.md
 
-Total: 5 skills, 5 SKILL.md files, 22 reference files
+Total: 6 skills, 6 SKILL.md files, 26 reference files
 ```
 
 ---
@@ -219,6 +227,14 @@ Generated Images
   - Photo blending
   - Creative composites
 
+### For Personalized Images of Sid:
+→ **generating-sid-images** skill
+  - Custom-trained FAL LoRA model
+  - Professional headshots
+  - Social media content
+  - Creative scenarios
+  - Video thumbnails
+
 ### For Platform Requirements:
 → **platform-specs** skill
   - LinkedIn, Instagram, Twitter specs
@@ -276,6 +292,7 @@ Workflows reference skills internally:
 - ✅ create-image (7 reference files)
 - ✅ edit-image (4 reference files)
 - ✅ blend-images (3 reference files)
+- ✅ generating-sid-images (4 reference files) - RENAMED!
 - ✅ mcp-tool-selection (3 reference files)
 - ✅ platform-specs (5 reference files)
 

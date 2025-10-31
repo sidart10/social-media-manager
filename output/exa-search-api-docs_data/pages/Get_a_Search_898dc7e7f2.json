@@ -1,0 +1,8 @@
+{
+  "title": "Get a Search",
+  "content": "Source: https://docs.exa.ai/websets/api/websets/searches/get-a-search\n\nget /v0/websets/{webset}/searches/{id}\nGets a Search by id",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#get-a-search",
+  "links": []
+}

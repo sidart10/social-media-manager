@@ -1,0 +1,39 @@
+{
+  "title": "Import from CSV",
+  "content": "Source: https://docs.exa.ai/websets/dashboard/import-from-csv\n\nTurn your existing CSV data into a Webset\n\nThe Import from CSV feature allows you to transform your existing CSV files containing URLs into fully-functional Websets. This is perfect when you already have a list of websites, companies, or resources that you want to enrich with additional data or apply search criteria to filter.\n\n<img src=\"https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/import-flow.png?fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=6cf23e9e291fe7811942d18c3aa08b33\" alt=\"\" data-og-width=\"1512\" width=\"1512\" data-og-height=\"857\" height=\"857\" data-path=\"images/websets/import-flow.png\" data-optimize=\"true\" data-opv=\"3\" srcset=\"https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/import-flow.png?w=280&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=7144bcac1257ad6234f84e09b3b46e65 280w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/import-flow.png?w=560&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=e0002f49d319b209241babc75e41bb8c 560w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/import-flow.png?w=840&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=4a05c88f7ee0b6c5e1aff2b9b2123458 840w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/import-flow.png?w=1100&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=00a37fce8580e9c539033d63d15c00cb 1100w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/import-flow.png?w=1650&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=11b6832f570530b2a28d21ced7ce3ad1 1650w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/import-flow.png?w=2500&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=be874fa671009913eae844700df875d6 2500w\" />\n\n1. Click \"Start from CSV\" to select your CSV file\n2. Select which column contains the URLs you want to analyze\n3. Review how your data will be imported before proceeding\n4. Your URLs are transformed into a Webset with enrichments and metadata\n\nEnsure your CSV file has a URL column\n\n* For People searches: URLs must be LinkedIn profile URLs (e.g., [https://linkedin.com/in/username](https://linkedin.com/in/username))\n* For Company search: URLs must be company homepage URLs (e.g., [https://example.com](https://example.com))\n* For other searches: use any type of URL\n\nIf you do not have URLs, Websets will attempt to infer URLs based on the information in each CSV row and any extra info you provide.\n\nThe maximum number of results you can import is determined by your plan.\n\n## What happens next?\n\nOnce imported, your CSV becomes a full Webset where you can:\n\n### Enrich with custom columns\n\nAdd any information you want about each URL:\n\n* Contact information (emails, phone numbers)\n* Company metrics (revenue, employee count)\n* Content analysis (sentiment, topics, summaries)\n* Custom data specific to your use case\n\n### Apply search criteria\n\nFilter your imported URLs based on specific criteria:\n\n* Company stage or size\n* Industry or sector\n* Geographic location\n* Content type or topic",
+  "code_samples": [],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "Overview",
+      "id": "overview"
+    },
+    {
+      "level": "h2",
+      "text": "How it works",
+      "id": "how-it-works"
+    },
+    {
+      "level": "h2",
+      "text": "CSV preparation",
+      "id": "csv-preparation"
+    },
+    {
+      "level": "h2",
+      "text": "What happens next?",
+      "id": "what-happens-next?"
+    },
+    {
+      "level": "h3",
+      "text": "Enrich with custom columns",
+      "id": "enrich-with-custom-columns"
+    },
+    {
+      "level": "h3",
+      "text": "Apply search criteria",
+      "id": "apply-search-criteria"
+    }
+  ],
+  "url": "llms-txt#import-from-csv",
+  "links": []
+}

@@ -1,0 +1,213 @@
+{
+  "content_type": "youtube_script",
+  "generated_by": "jarvis",
+  "workflow": "write-scripts",
+  "platform": "youtube",
+  "duration_seconds": 600,
+  "ready_for_agent": "ai-video-agent OR user-production",
+
+  "script": {
+    "title": "Why Anthropic's $8B 'Loss' Is Actually Profitable (The Multi-Model P&L Explained)",
+    "subtitle": "Understanding AI Company Economics Through Dario Amodei's Framework",
+    "full_word_count": 1847,
+    "speaking_pace": 185,
+
+    "hook_variants": [
+      "Anthropic looks like it's losing billions. Here's why that's completely wrong.",
+      "How is Anthropic losing $8 billion while being one of the fastest-growing companies ever?",
+      "Three years. Zero to $5 billion. Here's the accounting trick everyone's missing."
+    ],
+
+    "timed_segments": [
+      {
+        "timestamp": "0:00-0:05",
+        "type": "hook",
+        "duration": 5,
+        "word_count": 14,
+        "key_visual": "Split screen: $5B revenue vs $8B+ losses graphic"
+      },
+      {
+        "timestamp": "0:05-0:25",
+        "type": "intro",
+        "duration": 20,
+        "word_count": 62,
+        "key_visual": "Stripe podcast screenshot + your introduction"
+      },
+      {
+        "timestamp": "0:25-1:55",
+        "type": "point_1",
+        "title": "The Accounting Illusion",
+        "duration": 90,
+        "word_count": 279,
+        "key_visual": "Animated cascade chart showing simultaneous model investments"
+      },
+      {
+        "timestamp": "1:55-3:35",
+        "type": "point_2",
+        "title": "Each Model = Independent Company",
+        "duration": 100,
+        "word_count": 308,
+        "key_visual": "Company A/B/C logos with P&L flows, pharma pipeline analogy"
+      },
+      {
+        "timestamp": "3:35-5:05",
+        "type": "point_3",
+        "title": "Why Investors Called Dario 'Crazy' Twice",
+        "duration": 90,
+        "word_count": 277,
+        "key_visual": "Timeline with revenue bars + IMPOSSIBLE stamp crossed out"
+      },
+      {
+        "timestamp": "5:05-6:25",
+        "type": "point_4",
+        "title": "The Scaling Laws Connection",
+        "duration": 80,
+        "word_count": 246,
+        "key_visual": "Two power law curves multiplying = double exponential"
+      },
+      {
+        "timestamp": "6:25-7:35",
+        "type": "point_5",
+        "title": "Market Structure Implications",
+        "duration": 70,
+        "word_count": 215,
+        "key_visual": "3-6 company logos, capital requirements bar chart"
+      },
+      {
+        "timestamp": "7:35-9:15",
+        "type": "point_6",
+        "title": "Three Endgame Scenarios",
+        "duration": 100,
+        "word_count": 327,
+        "key_visual": "Branching paths showing three possible futures"
+      },
+      {
+        "timestamp": "9:15-10:00",
+        "type": "cta",
+        "duration": 45,
+        "word_count": 139,
+        "key_visual": "Recap montage + end screen with subscribe"
+      }
+    ]
+  },
+
+  "production": {
+    "title_options": [
+      "Why Anthropic's $8B 'Loss' Is Actually Profitable (The Multi-Model P&L Explained)",
+      "Anthropic Looks Broke. Here's Why Investors Are Wrong. (Dario's Framework)",
+      "The Accounting Trick That Makes AI Companies Look Unprofitable"
+    ],
+
+    "description": "Anthropic's financials look like a disaster—billions in losses, exponentially growing CapEx. But CEO Dario Amodei reveals the multi-model P&L framework that changes everything.\n\nIn this video, I break down Dario's explanation from the Stripe podcast on why each AI model generation is actually profitable, even when the company's total P&L shows massive losses.\n\nKey insights:\n• The $100M → $1B → $10B investment cascade\n• Why each model has 9-12 month payback periods\n• The pharma analogy that explains AI economics\n• Three endgame scenarios for the AI market\n• How to actually evaluate AI company valuations\n\nSources:\n- Stripe 'Cheeky Pint' Podcast with Dario Amodei (Aug 2025): https://youtu.be/GcqQ1ebBqkc\n- Full research: research-claude-anthropic-agi-philosophy-10-28-2025.md\n\nTimestamps:\n0:00 - Hook\n0:05 - Introduction  \n0:25 - The Accounting Illusion\n1:55 - Each Model is Independent\n3:35 - Why Investors Called Dario 'Crazy'\n5:05 - Scaling Laws Meet Value Laws\n6:25 - Market Structure Implications\n7:35 - Three Endgame Scenarios\n9:15 - Summary & CTA\n\n#Anthropic #Claude #AI #AGI #TechInvesting #AIEconomics #Startups #DarioAmodei #MachineLearning #BusinessStrategy",
+
+    "thumbnail_recommendations": [
+      {
+        "id": 1,
+        "name": "Numbers Shock",
+        "description": "Split: $8B LOSS (red) vs $20B PROFIT (green)",
+        "text": "THE ACCOUNTING TRICK",
+        "colors": "Red/green contrast, black bg",
+        "confidence": "8/10 - High contrast, clear value prop"
+      },
+      {
+        "id": 2,
+        "name": "Dario Quote",
+        "description": "Dario's face + quote overlay",
+        "text": "Each model is actually PROFITABLE",
+        "colors": "Blue/white professional",
+        "confidence": "7/10 - Authority-driven, less eye-catching"
+      },
+      {
+        "id": 3,
+        "name": "The Cascade",
+        "description": "Cascade graphic with you pointing",
+        "text": "AI Companies Don't Work Like You Think",
+        "colors": "Tech blue gradient",
+        "confidence": "9/10 - Most informative, previews content"
+      }
+    ],
+
+    "hashtags": [
+      "Anthropic",
+      "Claude",
+      "AI",
+      "AGI",
+      "TechInvesting",
+      "AIEconomics",
+      "Startups",
+      "DarioAmodei",
+      "MachineLearning",
+      "BusinessStrategy"
+    ],
+
+    "broll_list": [
+      "Stripe podcast screenshots (Dario + John)",
+      "Financial charts and graphs",
+      "AI data center footage",
+      "Pharmaceutical research lab",
+      "Tech company offices",
+      "Stock market footage",
+      "Success/growth imagery"
+    ],
+
+    "graphics_list": [
+      "The Cascade Chart (animated, appears 3-4 times)",
+      "Traditional P&L vs Reality (split screen)",
+      "Power Law Curves (two graphs multiplying)",
+      "Three Scenarios (branching paths)",
+      "Revenue Timeline (exponential curve)"
+    ],
+
+    "music_suggestion": "Background: Corporate/tech feel, 90-110 BPM, non-distracting, 20-30% volume. Try Epidemic Sound 'Tech & Innovation' category.",
+
+    "estimated_production": {
+      "recording": "45-60 minutes",
+      "graphics": "2-3 hours",
+      "editing": "3-4 hours",
+      "total": "6-8 hours",
+      "complexity": "MEDIUM-HIGH"
+    }
+  },
+
+  "evidence": {
+    "research_file": "bmad/agents/content-intelligence/jarvis-sidecar/sessions/research-claude-anthropic-agi-philosophy-10-28-2025.md",
+    "angle_reference": "Angle 16: Why Anthropic's 'Losses' Are Actually Profits",
+    "primary_sources": [
+      "Stripe Cheeky Pint Podcast - Dario Amodei (Aug 6, 2025)",
+      "Lex Fridman Podcast #452 - Dario Amodei (Nov 11, 2024)",
+      "Anthropic official announcements"
+    ],
+    "key_quotes_used": [
+      "This has never happened in the history of capitalism",
+      "Each model is actually profitable",
+      "The models have this capitalistic impulse",
+      "We might be relatively close to the final set of players"
+    ],
+    "confidence_score": "10/10",
+    "voice_profile_used": true,
+    "voice_confidence": "8/10"
+  },
+
+  "metadata": {
+    "word_count": 1847,
+    "target_audience": "Advanced - Investors, VCs, financial analysts, AI strategists",
+    "complexity_level": "Advanced",
+    "posting_recommendation": "Tuesday-Thursday, 11am-1pm EST",
+    "engagement_tip": "Pin comment asking viewers which scenario (1, 2, or 3) they think is most likely",
+    "cross_promotion": "Share 2-min clip on LinkedIn with key insight, thread on Twitter with full breakdown link",
+    "generated_at": "2025-10-28",
+    "agent_version": "jarvis-v1",
+    "workflow_version": "write-scripts-v1"
+  },
+
+  "next_steps": [
+    "Review script and approve",
+    "Create 5 custom graphics/animations",
+    "Record talking head segments (45-60 min)",
+    "Gather B-roll footage",
+    "Edit full video (3-4 hours)",
+    "Create thumbnail (test 3 options)",
+    "Upload with optimized title/description",
+    "Cross-promote on LinkedIn and Twitter"
+  ]
+}

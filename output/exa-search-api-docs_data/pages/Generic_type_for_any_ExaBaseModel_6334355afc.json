@@ -1,0 +1,8 @@
+{
+  "title": "Generic type for any ExaBaseModel",
+  "content": "ModelT = TypeVar('ModelT', bound='ExaBaseModel')",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#generic-type-for-any-exabasemodel",
+  "links": []
+}

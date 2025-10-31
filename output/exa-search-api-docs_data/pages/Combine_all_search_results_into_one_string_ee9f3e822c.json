@@ -1,0 +1,8 @@
+{
+  "title": "Combine all search results into one string",
+  "content": "combined_results = \"\\n\\n\".join([result.text for result in search_results.results])\n\ndef write_to_csv(insights: List[AIEthicsInsight], filename: str = \"ai_ethics_insights.csv\"):\n    with open(filename, mode='w', newline='', encoding='utf-8') as file:\n        writer = csv.writer(file)\n        writer.writerow(['Topic', 'Description', 'Ethical Implications'])\n        \n        for insight in insights:\n            writer.writerow([\n                insight.topic,\n                insight.description,\n                '; '.join(insight.ethical_implications)\n            ])\n    \n    print(f\"Results written to {filename}\")",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#combine-all-search-results-into-one-string",
+  "links": []
+}

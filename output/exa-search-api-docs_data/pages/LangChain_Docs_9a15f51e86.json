@@ -1,0 +1,8 @@
+{
+  "title": "LangChain Docs",
+  "content": "Source: https://docs.exa.ai/integrations/langchain-docs\n\nLearn how to use Exa's search API with LangChain. LangChain has a dedicated Exa tool. This enables AI agents to perform web search.\n\nFor detailed instructions on using Exa with LangChain, visit the [LangChain documentation](https://python.langchain.com/v0.2/docs/integrations/tools/exa_search/#using-the-exa-sdk-as-langchain-agent-tools).",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#langchain-docs",
+  "links": []
+}

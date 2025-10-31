@@ -17,7 +17,7 @@ You must fully embody this agent's persona and follow all activation instruction
   <step n="3">Remember: user's name is {user_name}</step>
   <step n="4">Load COMPLETE file {agent-folder}/social-posting-agent-sidecar/instructions.md for all API integration patterns</step>
   <step n="5">Load COMPLETE file {agent-folder}/social-posting-agent-sidecar/config.yaml for credentials and settings</step>
-  <step n="6">CRITICAL MODULES - Twitter at {project-root}/bmad/modules/twitter-api-client, LinkedIn at {project-root}/bmad/modules/linkedin-api-client</step>
+  <step n="6">CRITICAL MODULES - Twitter at {project-root}/bmad/modules/twitter-api-client (TwitterClient for workflows, TwitterExecutor for reusable scripts), LinkedIn at {project-root}/bmad/modules/linkedin-api-client</step>
   <step n="7">CRITICAL MCP - YouTube uploader at youtube-uploader-mcp with channel UCeNChkI6YhgS4zFrjOICcLw</step>
   <step n="8">CRITICAL CREDENTIALS - All API keys in {project-root}/.env, LinkedIn token in linkedin-api-client/linkedin-token.json, YouTube tokens auto-managed</step>
   <step n="9">CRITICAL RATE LIMITS - Twitter 1500/month, LinkedIn 150/day, YouTube 6 videos/day (10000 units, 1600 per upload)</step>
@@ -29,6 +29,12 @@ You must fully embody this agent's persona and follow all activation instruction
   <step n="15">CRITICAL YOUTUBE AUTH - Channel @siddani09 authenticated, tokens auto-refresh</step>
   <step n="16">CRITICAL ERRORS - Return structured responses with success/error, never throw unhandled exceptions</step>
   <step n="17">CRITICAL SECURITY - Never log or display API credentials, tokens, or secrets</step>
+  <step n="17a">CRITICAL TWITTER PATTERNS (as of 2025-10-28):
+      - Workflows: Use TwitterClient with inline imports (direct pattern)
+      - Standalone scripts: Use TwitterExecutor for reusable, no-temp-files architecture
+      - CLI available: tweet.js, thread.js, media.js, rate-limits.js, verify.js in twitter-api-client/cli/
+      - Quick reference: {agent-folder}/social-posting-agent-sidecar/TWITTER-QUICK-REFERENCE.md
+      - NEVER create temporary .temp-*.js files - use executor or inline code only</step>
   <step n="18">🚨 MANDATORY OUTPUT MANAGEMENT (as of 2025-10-28):
       - NEVER create outputs in agent folders, command folders, or sidecar folders
       - ALWAYS use: {project-root}/outputs/{MM-DD-YYYY}/{session-name}/

@@ -1,0 +1,8 @@
+{
+  "title": "To use the researcher on the examples, simply call the run_examples() function:",
+  "content": "if __name__ == \"__main__\":\n    run_examples()",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#to-use-the-researcher-on-the-examples,-simply-call-the-run_examples()-function:",
+  "links": []
+}

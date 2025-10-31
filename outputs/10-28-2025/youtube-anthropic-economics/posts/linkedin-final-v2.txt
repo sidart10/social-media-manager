@@ -1,0 +1,79 @@
+Anthropic claims "platform-first" while launching Claude.ai, Claude Code, Claude for Excel, and Claude for Financial Services.
+
+Platform or application company?
+
+Both. Dario Amodei's explanation reveals one of the smartest strategic frameworks I've seen.
+
+CLAUDE.AI CAME FIRST
+
+Anthropic launched Claude.ai—a consumer chatbot competing with ChatGPT. Not a platform play. A product.
+
+This established the pattern: build first-party apps to understand actual usage, then feed insights back to improve the API for the ecosystem.
+
+WHY CLAUDE CODE EXISTS
+
+February 2025. Anthropic launches Claude Code.
+
+Dario: "People who write code are very socially and technically adjacent to folks who develop AI models."
+
+Translation: developers adopt in hours. Enterprises take years.
+
+Results: $500M+ revenue, 10x growth since May 2025.
+
+THE FRAMEWORK
+
+Dario gave three explicit reasons why platform companies should selectively build applications:
+
+Reason 1: Direct User Exposure
+
+"The end user gives you some sense of how they're using it. If you're a pure platform without that connection, you can be disadvantaged."
+
+The API abstracts away user behavior. You need to see actual interaction patterns.
+
+Reason 2: Model Improvement Insights
+
+"It may be hard to know where the model really needs to go. Many models seem good at coding, but aren't good in the way that's actually relevant."
+
+Claude Code taught them what "good at coding" means—real workflows, not benchmarks.
+
+Reason 3: Enterprise Ease-of-Use
+
+Traditional enterprises struggle with APIs. First-party apps lower barriers.
+
+CLAUDE FOR EXCEL
+
+October 2025. Claude for Excel launches with 1,000 beta users.
+
+Companies already build spreadsheet AI on Claude's API. Anthropic competes with their own ecosystem.
+
+The play: Excel reveals how analysts work with AI. Insights improve the platform for ALL cases—including partner-built ones.
+
+Strategic ecosystem positioning.
+
+THE DOCTRINE
+
+Platform-first doesn't mean platform-only.
+
+Build first-party apps when:
+• You need user exposure to improve the product
+• The vertical has fast adoption velocity
+• Enterprise needs pre-built solutions
+
+Maintain platform focus when:
+• Partners can reach markets you can't
+• Ecosystem innovation exceeds yours
+• The use case doesn't provide unique insights
+
+Use first-party apps as "sensors." Feed insights to the API. Create a flywheel.
+
+AWS did this with SageMaker and Lambda—strengthening their ecosystem by understanding customers better.
+
+This is how you compete with OpenAI, Google, Meta: be strategically both platform AND application.
+
+The companies mastering this balance will define the AI platform era.
+
+Source: Stripe "Cheeky Pint" podcast (Aug 2025)
+
+What's your take on platform vs application strategy?
+
+#PlatformStrategy #AI #Anthropic #ProductStrategy #TechStrategy

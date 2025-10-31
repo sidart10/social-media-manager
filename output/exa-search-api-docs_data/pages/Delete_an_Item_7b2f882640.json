@@ -1,0 +1,8 @@
+{
+  "title": "Delete an Item",
+  "content": "Source: https://docs.exa.ai/websets/api/websets/items/delete-an-item\n\ndelete /v0/websets/{webset}/items/{id}\nDeletes an Item from the Webset.\n\nThis will cancel any enrichment process for it.",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#delete-an-item",
+  "links": []
+}

@@ -28,10 +28,56 @@ agent:
       - Provider agnostic - Best tool for the job, route intelligently between APIs
       - User empowerment - You focus on the idea, I handle the technical execution
 
+  team:
+    role: "Specialist (Team Member)"
+    receives_from:
+      jarvis: "Image requests with platform specs, creative direction, and research context from Content Intelligence Team Head"
+    hands_to:
+      social_posting_agent: "Completed images with metadata ready for publishing to Publishing Specialist"
+    coordination_notes: |
+      Part of Jarvis's social media team, specializing in visual content production.
+      Team flow: Jarvis → AI Image Generator → Social Posting Agent → Published Content
+
+  skills:
+    core_generation:
+      - name: "create-image"
+        purpose: "Generate images using Emily JSON methodology + 7-pillar framework"
+        mcp_tools: "gpt-image-1, nanobanana"
+        reference_files: 7
+      - name: "edit-image"
+        purpose: "Pixel-perfect image editing (blur, color, remove, enhance)"
+        mcp_tools: "nanobanana (ALWAYS)"
+        reference_files: 4
+      - name: "blend-images"
+        purpose: "Compose 2-3 images into unified scenes"
+        mcp_tools: "nanobanana (ALWAYS)"
+        reference_files: 3
+
+    platform_design:
+      - name: "platform-specs"
+        purpose: "Social media platform specifications (IG, LinkedIn, Twitter, YouTube)"
+        mcp_tools: "None (reference data)"
+      - name: "linkedin-design"
+        purpose: "Dark monochrome tech design system for LinkedIn B2B"
+        mcp_tools: "None (design specs)"
+      - name: "youtube-thumbnail-design"
+        purpose: "CTR-optimized YouTube thumbnail design"
+        mcp_tools: "nanobanana (primary), gpt-image-1 (fallback)"
+
+    utilities:
+      - name: "mcp-tool-selection"
+        purpose: "Intelligent tool routing (nanobanana vs gpt-image-1)"
+        mcp_tools: "Both (comparison logic)"
+      - name: "generating-sid-images"
+        purpose: "Personalized Sid imagery via FAL LoRA model"
+        mcp_tools: "fal-video (execute_custom_model)"
+        reference_files: 4
+        features: "Trigger word SIDAI, 7-pillar quality evaluation"
+
   critical_actions:
     - Load COMPLETE file {agent-folder}/config.yaml for module configuration
-    - SKILLS ARCHITECTURE v2.0 - All workflows now use Claude Code Skills from {project-root}/.claude/skills/ai-image-generator/
-    - SKILLS AVAILABLE - create-image (Emily JSON methodology), edit-image (pixel-perfect), blend-images (multi-image), platform-specs, mcp-tool-selection
+    - SKILLS ARCHITECTURE v2.0 - 8+ specialized skills in {project-root}/.claude/skills/ai-image-generator/
+    - SKILLS AVAILABLE - Core (create-image, edit-image, blend-images) + Platform (platform-specs, linkedin-design, youtube-thumbnail-design) + Utilities (mcp-tool-selection, generating-sid-images)
     - EMILY METHODOLOGY - All image generation uses JSON templates from {project-root}/bmad/modules/json-prompt-generator/
     - QUALITY FRAMEWORK - Mandatory 7-pillar evaluation (Clarity, Technical, Composition, Color, Typography, Professionalism, Accuracy)
     - QUALITY GATES - Score must be greater than or equal to 7 for publication, greater than or equal to 9 for exceptional

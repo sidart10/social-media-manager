@@ -1,0 +1,34 @@
+{
+  "title": "Event Types",
+  "content": "Source: https://docs.exa.ai/websets/api/events/types\n\nLearn about the events that occur within the Webset API\n\nThe Websets API uses events to notify you about changes in your Websets. You can monitor these events through our [events endpoint](/websets/api/events/list-all-events) or by setting up [webhooks](/websets/api/webhooks/create-a-webhook).\n\nEvents are retained for 60 days before being automatically deleted.\n\n* `webset.created` - Emitted when a new Webset is created.\n* `webset.deleted` - Emitted when a Webset is deleted.\n* `webset.paused` - Emitted when a Webset's operations are paused.\n* `webset.idle` - Emitted when a Webset has no running operations.\n\n* `webset.search.created` - Emitted when a new search is initiated.\n* `webset.search.updated` - Emitted when search progress is updated.\n* `webset.search.completed` - Emitted when a search finishes finding all items.\n* `webset.search.canceled` - Emitted when a search is manually canceled.\n\n* `webset.item.created` - Emitted when a new item has been added to the Webset.\n* `webset.item.enriched` - Emitted when an item's enrichment is completed.\n\n* `import.created` - Emitted when a new import is initiated.\n* `import.completed` - Emitted when an import has been completed.\n\n* `monitor.created` - Emitted when a new monitor is created.\n* `monitor.updated` - Emitted when a monitor's configuration is updated.\n* `monitor.deleted` - Emitted when a monitor is deleted.\n* `monitor.run.created` - Emitted when a monitor run starts.\n* `monitor.run.completed` - Emitted when a monitor run finishes.\n\n* A unique `id`\n* The event `type`\n* A `data` object containing the full resource that triggered the event\n* A `createdAt` timestamp\n\nYou can use these events to:\n\n* Track the progress of searches and enrichments\n* Build real-time dashboards\n* Trigger workflows when new items are found\n* Monitor the status of your exports",
+  "code_samples": [],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "Webset",
+      "id": "webset"
+    },
+    {
+      "level": "h2",
+      "text": "Search",
+      "id": "search"
+    },
+    {
+      "level": "h2",
+      "text": "Item",
+      "id": "item"
+    },
+    {
+      "level": "h2",
+      "text": "Import",
+      "id": "import"
+    },
+    {
+      "level": "h2",
+      "text": "Monitor",
+      "id": "monitor"
+    }
+  ],
+  "url": "llms-txt#event-types",
+  "links": []
+}

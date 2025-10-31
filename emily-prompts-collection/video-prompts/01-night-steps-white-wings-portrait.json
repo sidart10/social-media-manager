@@ -1,0 +1,37 @@
+{
+  "format": "nighttime urban portrait on metal steps",
+  "primary_camera_motion": "single slow handheld push-in from medium to tight overhead 3/4 angle one motion only",
+  "lens": "26–28mm equiv smartphone-front feel",
+  "exposure": "dim ambient with on-camera flash look retain highlight detail on white wings",
+  "shutter_look": "1/48s cinematic with mild motion blur",
+  "aperture_look": "f/2.2 shallow DOF soft halation on speculars",
+  "subject": {
+    "character_string": "Young adult woman with long black hair and straight fringe pale makeup with soft blush seated curl on green metal steps. She wears a black blazer over light dress/tulle that pools on the ground chunky brown platform oxfords and large white feathered costume wings. She sits inward hands clasping the shoe laces looking down—quiet reflective posture.",
+    "mood": "melancholic delicate ethereal but grounded PG-13"
+  },
+  "scene": {
+    "location": "back-alley stoop with green-painted steel stairs cracked pavement small strip of grass and stones",
+    "time": "night",
+    "lighting": "key: on-camera flash pop feel fill: cool streetlamp spill camera-left background falls to shadow",
+    "weather": "dry pavement with slight humidity sheen"
+  },
+  "visual_details": {
+    "beats": [
+      {
+        "time": "0.0-2.5s",
+        "action": "Begin medium framing from above slow push-in starts as she sits curled wings slightly splayed.",
+        "physics": "loose hair shifts subtly feathers quiver from a faint breeze"
+      },
+      {
+        "time": "2.5-5.0s",
+        "action": "She tightens a lace and exhales chin tilts a little eyes glance down wings remain still.",
+        "physics": "cloth compresses at knees tulle trail settles with micro ripples"
+      },
+      {
+        "time": "5.0-8.0s",
+        "action": "Camera eases into a tight portrait she lifts her gaze a touch toward lens then closes eyes softly hold on the quiet.",
+        "physics": "hand tremor minimal specular roll on feathers and shoes remains stable"
+      }
+    ]
+  }
+}

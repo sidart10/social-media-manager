@@ -1,0 +1,8 @@
+{
+  "title": "Explicitly use neural search",
+  "content": "result = exa.search_and_contents(\"hottest AI startups\", type=\"neural\")",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#explicitly-use-neural-search",
+  "links": []
+}

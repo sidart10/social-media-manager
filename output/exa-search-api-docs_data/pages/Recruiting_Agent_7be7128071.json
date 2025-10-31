@@ -1,0 +1,19 @@
+{
+  "title": "Recruiting Agent",
+  "content": "Source: https://docs.exa.ai/examples/exa-recruiting-agent\n\n## What this doc covers\n\n1. Using Exa search with includeDomain to only retrieve search results from a specified domain\n2. Using Exa keyword search to find specific people by name\n3. Using excludeDomain to ignore certain low-signal domains\n4. Using Exa link similarity search to find similar websites\n\nIn this tutorial, we use Exa to **automate** the process of **discovering**, **researching**, and **evaluating** exceptional candidates. If you just want to see the code, check out the [Colab notebook](https://colab.research.google.com/drive/1a-7niLbCtIEjZnPz-qXPS3XwckPgIMrV?usp=sharing).\n\nHere's what we're going to do:\n\n1. Candidate research: Identify potential candidates and use Exa to find additional details, such as personal websites, LinkedIn profiles, and their research topics.\n2. Candidate evaluation: Evaluate candidates using an LLM to score their fit to our hiring criteria.\n3. Finding more candidates: Discover more candidates similar to our top picks.\n\nThis project requires an [Exa API key](https://dashboard.exa.ai/api-keys) and an [OpenAI API key](https://platform.openai.com/api-keys). Get 1000 Exa searches per month free just for [signing up](https://dashboard.exa.ai/overview)!\n\n```Python Python theme={null}",
+  "code_samples": [],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "What this doc covers",
+      "id": "what-this-doc-covers"
+    },
+    {
+      "level": "h2",
+      "text": "Introduction",
+      "id": "introduction"
+    }
+  ],
+  "url": "llms-txt#recruiting-agent",
+  "links": []
+}

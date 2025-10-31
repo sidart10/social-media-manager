@@ -1,0 +1,40 @@
+{
+  "shot": {
+    "description": "Noir night city of tall perfectly gridded towers rising around a calm canal countless window cells glow like stars under a dense starfield.",
+    "camera_motion": "single slow dolly-in from low angle over the canal surface toward the central tower no pans/zooms/orbits",
+    "shot_size": "wide establishing to slightly tighter wide",
+    "lens": "35mm equivalent",
+    "aperture": "f/4",
+    "shutter": "1/48",
+    "iso": "200",
+    "white_balance": "neutral",
+    "focus_style": "deep focus hyperfocal set so buildings remain sharp while water surface holds fine ripples"
+  },
+  "subject": {
+    "name": "grid-tower skyline",
+    "look": "rectilinear monoliths with dense square window lattice minimal antennas harsh verticals no signage",
+    "behavior": "building lights twinkle subtly at random like distant stars"
+  },
+  "scene": {
+    "environment": "symmetrical business district at night canal or flooded plaza in foreground with mirrored reflections low mounds of dark vegetation along banks",
+    "time_of_day": "deep night",
+    "weather": "clear sky with many stars dry air faint haze at base of towers",
+    "grade": "strict black-and-white silver gelatin look with high contrast and soft halation on bright windows"
+  },
+  "visual_details": {
+    "beats": [
+      {
+        "time": "0.0–2.5s",
+        "beat": "Hold the grand centered one-point perspective starry sky static gentle ripple rings travel across the canal reflection."
+      },
+      {
+        "time": "2.5–5.0s",
+        "beat": "Begin slow forward dolly parallax increases on banks a few window cells flicker softly no shimmering artifacts."
+      },
+      {
+        "time": "5.0–8.0s",
+        "beat": "Ease closer to the central tower reflections deepen twinkle rate slows settle into a composed wide with verticals perfectly upright."
+      }
+    ]
+  }
+}

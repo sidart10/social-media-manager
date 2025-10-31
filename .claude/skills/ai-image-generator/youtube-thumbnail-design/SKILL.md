@@ -9,6 +9,20 @@ description: Eye-catching YouTube thumbnail design with bold text, high contrast
 
 Create high-performing YouTube thumbnails that maximize click-through rate (CTR). Supports flexible creation - pure generation from text OR compositing user's image into thumbnail design.
 
+## When to Use This Skill
+
+Use this skill when:
+- Creating YouTube thumbnails
+- Designing video thumbnail images
+- Optimizing video CTR with thumbnail design
+- Need attention-grabbing YouTube covers
+- Generating thumbnail with or without face
+
+Triggers: YouTube thumbnail, video thumbnail, thumbnail image, thumbnail design, video cover image
+
+**For thumbnail STRATEGY:** Use youtube-thumbnail-mastery skill (in jarvis/ - has MrBeast psychology, testing protocols)
+**This skill:** Technical image GENERATION only
+
 ## Instructions
 
 When creating YouTube thumbnail:

@@ -1,0 +1,77 @@
+{
+  "title": "Quickstart",
+  "content": "Source: https://docs.exa.ai/reference/quickstart\n\nMake your first request to one of Exa's API endpoints\n\n## Create and setup your API key\n\n<Card title=\"Get your Exa API key\" icon=\"key\" horizontal href=\"https://dashboard.exa.ai/api-keys\" />\n\n## Create a .env file\n\nCreate a file called `.env` in the root of your project and add the following line.\n\n## Make an API request\n\nUse our python or javascript SDKs, or call the API directly with cURL.\n\n<Tabs>\n  <Tab title=\"Python\">\n    Install the python SDKs with pip.  If you want to store your API key in a `.env` file, make sure to install the dotenv library.\n\nOnce you've installed the SDKs, create a file called `exa.py` and add the code below.\n\n<Tabs>\n      <Tab title=\"Search and crawl\">\n        Get a list of results and their full text content.\n\n<Tab title=\"Answer\">\n        Get an answer to a question, grounded by citations from exa.\n\n<Tab title=\"Chat Completions\">\n        Get a chat completion from exa.\n\n<Tab title=\"Find similar links and get full text\">\n        Find similar links to a given URL and get the full text for each link.\n\n</Tab>\n    </Tabs>\n  </Tab>\n\n<Tab title=\"JavaScript\">\n    Install the javascript SDK with npm. If you want to store your API key in a `.env` file, make sure to install the dotenv library.\n\nOnce you've installed the SDK, create a file called `exa.ts` and add the code below.\n\n<Tabs>\n      <Tab title=\"Search and crawl\">\n        Get a list of results and their full text content.\n\n<Tab title=\"Answer\">\n        Get an answer to a question, grounded by citations from exa.\n\n<Tab title=\"Chat Completions\">\n        Get a chat completion from exa.\n\n<Tab title=\"Find similar links and get full text\">\n        Find similar links to a given URL and get the full text for each link.\n\n</Tab>\n    </Tabs>\n  </Tab>\n\n<Tab title=\"cURL\">\n    Pass one of the following commands to your terminal to make an API request.\n\n<Tabs>\n      <Tab title=\"Search and crawl\">\n        Get a list of results and their full text content.\n\n<Tab title=\"Answer\">\n        Get an answer to a question, grounded by citations from exa.\n\n<Tab title=\"Chat Completions\">\n        Get a chat completion from exa.\n\n</Tab>\n    </Tabs>\n  </Tab>\n</Tabs>",
+  "code_samples": [
+    {
+      "code": "<br />\n\n{\" \"}\n\n## Make an API request\n\nUse our python or javascript SDKs, or call the API directly with cURL.\n\n<Tabs>\n  <Tab title=\"Python\">\n    Install the python SDKs with pip.  If you want to store your API key in a `.env` file, make sure to install the dotenv library.",
+      "language": "unknown"
+    },
+    {
+      "code": "Once you've installed the SDKs, create a file called `exa.py` and add the code below.\n\n    <Tabs>\n      <Tab title=\"Search and crawl\">\n        Get a list of results and their full text content.",
+      "language": "unknown"
+    },
+    {
+      "code": "</Tab>\n\n      <Tab title=\"Answer\">\n        Get an answer to a question, grounded by citations from exa.",
+      "language": "unknown"
+    },
+    {
+      "code": "</Tab>\n\n      <Tab title=\"Chat Completions\">\n        Get a chat completion from exa.",
+      "language": "unknown"
+    },
+    {
+      "code": "</Tab>\n\n      <Tab title=\"Find similar links and get full text\">\n        Find similar links to a given URL and get the full text for each link.",
+      "language": "unknown"
+    },
+    {
+      "code": "</Tab>\n    </Tabs>\n  </Tab>\n\n  <Tab title=\"JavaScript\">\n    Install the javascript SDK with npm. If you want to store your API key in a `.env` file, make sure to install the dotenv library.",
+      "language": "unknown"
+    },
+    {
+      "code": "Once you've installed the SDK, create a file called `exa.ts` and add the code below.\n\n    <Tabs>\n      <Tab title=\"Search and crawl\">\n        Get a list of results and their full text content.",
+      "language": "unknown"
+    },
+    {
+      "code": "</Tab>\n\n      <Tab title=\"Answer\">\n        Get an answer to a question, grounded by citations from exa.",
+      "language": "unknown"
+    },
+    {
+      "code": "</Tab>\n\n      <Tab title=\"Chat Completions\">\n        Get a chat completion from exa.",
+      "language": "unknown"
+    },
+    {
+      "code": "</Tab>\n\n      <Tab title=\"Find similar links and get full text\">\n        Find similar links to a given URL and get the full text for each link.",
+      "language": "unknown"
+    },
+    {
+      "code": "</Tab>\n    </Tabs>\n  </Tab>\n\n  <Tab title=\"cURL\">\n    Pass one of the following commands to your terminal to make an API request.\n\n    <Tabs>\n      <Tab title=\"Search and crawl\">\n        Get a list of results and their full text content.",
+      "language": "unknown"
+    },
+    {
+      "code": "</Tab>\n\n      <Tab title=\"Answer\">\n        Get an answer to a question, grounded by citations from exa.",
+      "language": "unknown"
+    },
+    {
+      "code": "</Tab>\n\n      <Tab title=\"Chat Completions\">\n        Get a chat completion from exa.",
+      "language": "unknown"
+    }
+  ],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "Create and setup your API key",
+      "id": "create-and-setup-your-api-key"
+    },
+    {
+      "level": "h2",
+      "text": "Create a .env file",
+      "id": "create-a-.env-file"
+    },
+    {
+      "level": "h2",
+      "text": "Make an API request",
+      "id": "make-an-api-request"
+    }
+  ],
+  "url": "llms-txt#quickstart",
+  "links": []
+}

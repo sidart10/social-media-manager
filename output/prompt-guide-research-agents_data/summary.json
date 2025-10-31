@@ -1,0 +1,13 @@
+{
+  "name": "prompt-guide-research-agents",
+  "total_pages": 1,
+  "base_url": "https://www.promptingguide.ai/agents/context-engineering-deep-dive",
+  "llms_txt_detected": false,
+  "llms_txt_variant": null,
+  "pages": [
+    {
+      "title": "Context Engineering Deep Dive: Building a Deep Research Agent",
+      "url": "https://www.promptingguide.ai/agents/context-engineering-deep-dive"
+    }
+  ]
+}

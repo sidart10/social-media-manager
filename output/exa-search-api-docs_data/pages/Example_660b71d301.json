@@ -1,0 +1,13 @@
+{
+  "title": "Example",
+  "content": "example_homepage = ('https://winniexu.ca/')\nadditional_homepages = get_more_candidates(example_homepage)\nnew_candidate_url, new_candidate_content = additional_homepages[0]\nname = get_name_from_contents(new_candidate_content)\nemail = get_email_from_contents(new_candidate_content)\n\nprint(f\"Additional Homepages:{additional_homepages}\")\nprint(f\"Name:{name}\")\nprint(f\"Email: {email}\")\n\nPython Python theme={null}\ndef new_candidates_df(df):\n    # get the websites of our top candidates\n    top_candidates_df = df[df['Score'] > 7]\n    websites_list = top_candidates_df['ExaWebsite'].tolist()\n\n# use those top candidates to find new candidates\n    new_candidates = set()\n    for url in websites_list:\n      new_candidates.update(get_more_candidates(url))\n\n#for each new candidate, get their information and add them to the dataframe\n    names = []\n    emails = []\n    urls = []\n    for url, content in tqdm(new_candidates):\n      names.append(get_name_from_contents(content))\n      emails.append(get_email_from_contents(content))\n      urls.append(url)\n\nnew_df = pd.DataFrame({\n        'Name': names,\n        'Email': emails,\n        'ExaWebsite': urls,\n    })\n\nnew_df = new_candidates_df(sorted_df)\nnew_df\n```\n\nAlrighty, that's it! We've just built an automated way of finding, researching, and evaluating candidates. You can use this for recruiting, or tailor this to find customers, companies, etc.\n\nAnd the best part is that every time you use Exa to find new candidates, you can do more `find_similar(new_candidate_homepage)` searches with the new candidates as well -- helping you build an infinite list!\n\nHope this tutorial was helpful and don't forget, you can get started with [Exa for free](https://dashboard.exa.ai/overview) :)",
+  "code_samples": [
+    {
+      "code": "Final stretch -- let's put it all together. Let's find and add our new candidates to our original dataframe.",
+      "language": "unknown"
+    }
+  ],
+  "headings": [],
+  "url": "llms-txt#example",
+  "links": []
+}

@@ -1,0 +1,8 @@
+{
+  "title": "List all Items for a Webset",
+  "content": "Source: https://docs.exa.ai/websets/api/websets/items/list-all-items-for-a-webset\n\nget /v0/websets/{webset}/items\nReturns a list of Webset Items.\n\nYou can paginate through the Items using the `cursor` parameter.",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#list-all-items-for-a-webset",
+  "links": []
+}

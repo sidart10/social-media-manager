@@ -1,0 +1,34 @@
+{
+  "title": "New Livecrawl Option: Preferred",
+  "content": "Source: https://docs.exa.ai/changelog/livecrawl-preferred-option\n\nIntroducing the 'preferred' livecrawl option that tries to fetch fresh content but gracefully falls back to cached results when crawling fails, providing the best of both worlds.\n\n**Date: 7 June 2025**\n\nWe've added a new `livecrawl` option called `\"preferred\"` that provides a more resilient approach to content fetching. This option attempts to crawl fresh content but gracefully falls back to cached results when live crawling fails.\n\n<Info>\n  The `preferred` option is now available in both `/contents` and `/search_and_contents` endpoints.\n</Info>\n\nThe new `livecrawl: \"preferred\"` option provides intelligent fallback behavior:\n\n* **First**: Attempts to crawl fresh content from the live webpage\n* **If crawling succeeds**: Returns the fresh, up-to-date content\n* **If crawling fails but cached content exists**: Returns cached content instead of failing\n* **If crawling fails and no cached content exists**: Returns the crawl error\n\n## How It Differs from \"Always\"\n\nThe key difference between `\"preferred\"` and `\"always\"`:\n\n| Option        | Crawl Fails + Cache Available | Crawl Fails + No Cache |\n| ------------- | ----------------------------- | ---------------------- |\n| `\"preferred\"` | Returns cached content        | Returns crawl error    |\n| `\"always\"`    | Returns crawl error           | Returns crawl error    |\n\nThis makes `\"preferred\"` more resilient for production applications where you want fresh content when possible, but don't want requests to fail when websites are temporarily unavailable.\n\nIf content freshness is critical and you want nothing else, then using `\"always\"` might be better.\n\n## When to Use \"Preferred\"\n\nThe `\"preferred\"` option is ideal when:\n\n* You want the freshest content available but need reliability\n* Building production applications that can't afford to fail on crawl errors\n* Content freshness is important but not critical enough to fail the request\n* You're crawling websites that might be occasionally unavailable\n\n## Complete Livecrawl Options Overview\n\nHere are all four livecrawl options and their behaviors:\n\n| Option        | Crawl Behavior   | Cache Fallback              | Best For                                            |\n| ------------- | ---------------- | --------------------------- | --------------------------------------------------- |\n| `\"always\"`    | Always crawls    | Never falls back            | Critical real-time data, willing to accept failures |\n| `\"preferred\"` | Always crawls    | Falls back on crawl failure | Fresh content with reliability                      |\n| `\"fallback\"`  | Only if no cache | Uses cache first            | Balanced speed and freshness                        |\n| `\"never\"`     | Never crawls     | Always uses cache           | Maximum speed                                       |\n\nIf you're currently using `livecrawl: \"always\"` but experiencing reliability issues:\n\n```python  theme={null}",
+  "code_samples": [],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "What's New",
+      "id": "what's-new"
+    },
+    {
+      "level": "h2",
+      "text": "How It Differs from \"Always\"",
+      "id": "how-it-differs-from-\"always\""
+    },
+    {
+      "level": "h2",
+      "text": "When to Use \"Preferred\"",
+      "id": "when-to-use-\"preferred\""
+    },
+    {
+      "level": "h2",
+      "text": "Complete Livecrawl Options Overview",
+      "id": "complete-livecrawl-options-overview"
+    },
+    {
+      "level": "h2",
+      "text": "Migration Guide",
+      "id": "migration-guide"
+    }
+  ],
+  "url": "llms-txt#new-livecrawl-option:-preferred",
+  "links": []
+}

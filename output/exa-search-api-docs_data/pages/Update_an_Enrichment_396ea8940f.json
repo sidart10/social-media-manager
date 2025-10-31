@@ -1,0 +1,8 @@
+{
+  "title": "Update an Enrichment",
+  "content": "Source: https://docs.exa.ai/websets/api/websets/enrichments/update-an-enrichment\n\npatch /v0/websets/{webset}/enrichments/{id}\nUpdate an Enrichment configuration for a Webset.",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#update-an-enrichment",
+  "links": []
+}

@@ -1,0 +1,8 @@
+{
+  "title": "print(researcher(\"llama antibodies\"))",
+  "content": "This Python implementation of Exa Researcher demonstrates how to leverage Exa's Auto search feature and the OpenAI API to create an automated research tool. By combining Exa's powerful search capabilities with GPT-3.5 Turbo's language understanding and generation, we've created a system that can quickly gather and synthesize information on any given topic.",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#print(researcher(\"llama-antibodies\"))",
+  "links": []
+}

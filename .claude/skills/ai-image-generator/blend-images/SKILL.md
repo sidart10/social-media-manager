@@ -1,6 +1,6 @@
 ---
 name: blend-images
-description: Compose and blend 2-3 images into unified scene using nanobanana's multi-image composition. Best for photo blending, scene reconstruction, creative mashups. Use when workflow needs to combine multiple source images into one cohesive output.
+description: Compose and blend 2-3 images into unified scene using nanobanana. Use when combining images, blending photos, merging pictures, creating photo mashups, compositing scenes, fusing multiple images, mixing visuals, or combining multiple source images into one cohesive output.
 ---
 
 # Blend Images
@@ -9,9 +9,27 @@ description: Compose and blend 2-3 images into unified scene using nanobanana's 
 
 Compose multiple images (2-3) into a single unified scene using nanobanana's multi-image conditioning capability. Perfect for photo blending, scene reconstruction, and creative compositions.
 
+## When to Use This Skill
+
+Use this skill when:
+- Combining multiple images into one
+- Blending photos together
+- Merging 2-3 pictures
+- Creating photo mashups
+- Compositing multiple scenes
+- Fusing images together
+- Mixing multiple visuals
+- Combining source images into cohesive output
+
+Triggers: blend images, combine images, merge photos, photo mashup, composite images, fuse images, mix images, multi-image composition
+
+**Don't use for:**
+- Creating single image from text (use create-image skill)
+- Editing single image (use edit-image skill)
+
 ## Instructions
 
-When workflow needs to blend multiple images:
+When blending multiple images:
 
 1. **Verify blending is appropriate** (vs creating new):
    - ✅ Blend: Have 2-3 source images to combine

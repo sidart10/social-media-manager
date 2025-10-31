@@ -1,0 +1,77 @@
+{
+  "title": "If you want the full text of the citations in the response:",
+  "content": "response_with_text = exa.answer(\n    \"What is the capital of France?\",\n    text=True\n)\nprint(response_with_text.citations[0].text)  # Full page text\nJSON JSON theme={null}\n{\n  \"answer\": \"The capital of France is Paris.\",\n  \"citations\": [\n    {\n      \"id\": \"https://www.example.com/france\",\n      \"url\": \"https://www.example.com/france\",\n      \"title\": \"France - Wikipedia\",\n      \"publishedDate\": \"2023-01-01\",\n      \"author\": null,\n      \"text\": \"France, officially the French Republic, is a country in... [truncated for brevity]\"\n    }\n  ]\n}\nPython Python theme={null}\nstream = exa.stream_answer(\"What is the capital of France?\", text=True)\n\nfor chunk in stream:\n    if chunk.content:\n        print(\"Partial answer:\", chunk.content)\n    if chunk.citations:\n        for citation in chunk.citations:\n            print(\"Citation found:\", citation.url)\nPython Python theme={null}\nfrom exa_py import Exa\nimport os\n\nexa = Exa(os.environ[\"EXA_API_KEY\"])",
+  "code_samples": [
+    {
+      "code": "### Input Parameters:\n\n| Parameter | Type            | Description                                                                              | Default  |\n| --------- | --------------- | ---------------------------------------------------------------------------------------- | -------- |\n| query     | str             | The question to answer.                                                                  | Required |\n| text      | Optional\\[bool] | If true, the full text of each citation is included in the result.                       | False    |\n| stream    | Optional\\[bool] | Note: If true, an error is thrown. Use stream\\_answer() instead for streaming responses. | None     |\n\n### Returns Example:",
+      "language": "unknown"
+    },
+    {
+      "code": "### Return Parameters:\n\nReturns an `AnswerResponse` object:\n\n| Field     | Type                | Description                                   |\n| --------- | ------------------- | --------------------------------------------- |\n| answer    | str                 | The generated answer text                     |\n| citations | List\\[AnswerResult] | List of citations used to generate the answer |\n\n### `AnswerResult` object\n\n| Field           | Type           | Description                                 |\n| --------------- | -------------- | ------------------------------------------- |\n| id              | str            | Temporary ID for the document               |\n| url             | str            | URL of the citation                         |\n| title           | Optional\\[str] | Title of the content, if available          |\n| published\\_date | Optional\\[str] | Estimated creation date                     |\n| author          | Optional\\[str] | The author of the content, if available     |\n| text            | Optional\\[str] | The full text of the content (if text=True) |\n\n***\n\n## `stream_answer` Method\n\nGenerate a streaming answer to a query with Exa's LLM capabilities. Instead of returning a single response, this method yields chunks of text and/or citations as they become available.\n\n### Input Example:",
+      "language": "unknown"
+    },
+    {
+      "code": "### Input Parameters:\n\n| Parameter | Type            | Description                                                            | Default  |\n| --------- | --------------- | ---------------------------------------------------------------------- | -------- |\n| query     | str             | The question to answer.                                                | Required |\n| text      | Optional\\[bool] | If true, includes full text of each citation in the streamed response. | False    |\n\n### Return Type:\n\nA `StreamAnswerResponse` object, which is iterable. Iterating over it yields `StreamChunk` objects:\n\n### `StreamChunk`\n\n| Field     | Type                           | Description                                 |\n| --------- | ------------------------------ | ------------------------------------------- |\n| content   | Optional\\[str]                 | Partial text content of the answer so far.  |\n| citations | Optional\\[List\\[AnswerResult]] | Citations discovered in this chunk, if any. |\n\nUse `stream.close()` to end the streaming session if needed.\n\n## `research.create_task` Method\n\nCreate an asynchronous research task that performs multi-step web research and returns structured JSON results with citations.\n\n### Input Example:",
+      "language": "unknown"
+    }
+  ],
+  "headings": [
+    {
+      "level": "h3",
+      "text": "Input Parameters:",
+      "id": "input-parameters:"
+    },
+    {
+      "level": "h3",
+      "text": "Returns Example:",
+      "id": "returns-example:"
+    },
+    {
+      "level": "h3",
+      "text": "Return Parameters:",
+      "id": "return-parameters:"
+    },
+    {
+      "level": "h3",
+      "text": "`AnswerResult` object",
+      "id": "`answerresult`-object"
+    },
+    {
+      "level": "h2",
+      "text": "`stream_answer` Method",
+      "id": "`stream_answer`-method"
+    },
+    {
+      "level": "h3",
+      "text": "Input Example:",
+      "id": "input-example:"
+    },
+    {
+      "level": "h3",
+      "text": "Input Parameters:",
+      "id": "input-parameters:"
+    },
+    {
+      "level": "h3",
+      "text": "Return Type:",
+      "id": "return-type:"
+    },
+    {
+      "level": "h3",
+      "text": "`StreamChunk`",
+      "id": "`streamchunk`"
+    },
+    {
+      "level": "h2",
+      "text": "`research.create_task` Method",
+      "id": "`research.create_task`-method"
+    },
+    {
+      "level": "h3",
+      "text": "Input Example:",
+      "id": "input-example:"
+    }
+  ],
+  "url": "llms-txt#if-you-want-the-full-text-of-the-citations-in-the-response:",
+  "links": []
+}

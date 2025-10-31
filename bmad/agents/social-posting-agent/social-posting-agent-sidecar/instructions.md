@@ -1,7 +1,7 @@
 # Social Posting Agent - Complete Instructions
 
 **Status:** PRODUCTION READY - 3 Platforms Fully Integrated
-**Last Updated:** 2025-10-26
+**Last Updated:** 2025-10-28 (Added Executor Pattern)
 
 ---
 
@@ -44,6 +44,17 @@ youtube-uploader-mcp (MCP tool prefix: mcp__youtube-uploader-mcp__)
 ---
 
 ## 🐦 TWITTER API CLIENT
+
+**Two Ways to Use Twitter API:**
+
+1. **Direct Client** (for inline workflow execution) → Use TwitterClient
+2. **Executor Pattern** (for reusable scripts/CLI) → Use TwitterExecutor
+
+---
+
+### Pattern 1: Direct Client (Workflows)
+
+**Use when:** Executing inline code within workflows
 
 ### Import and Initialize
 
@@ -133,7 +144,134 @@ console.log(`Remaining: ${stats.remaining.monthly}`);
 
 ---
 
+### Pattern 2: Executor (Reusable Scripts & CLI)
+
+**Use when:** Creating standalone scripts, CLI tools, or automation
+
+**Benefits:**
+- ✅ No temporary files
+- ✅ Consistent error handling
+- ✅ Structured JSON responses
+- ✅ Reusable across workflows
+- ✅ Better for automation
+
+### Import and Initialize
+
+```javascript
+import { TwitterExecutor } from './bmad/modules/twitter-api-client/executor.js';
+
+const executor = new TwitterExecutor();
+```
+
+### 1. Post Tweet
+
+```javascript
+const result = await executor.execute({
+  type: 'tweet',
+  data: {
+    text: 'Your tweet text',
+    media: [{ path: '/path/image.jpg', altText: 'Description' }], // Optional
+    reply_to: '1234567890' // Optional tweet ID to reply to
+  }
+});
+
+// Result structure:
+// {
+//   action: 'tweet',
+//   success: true|false,
+//   data: { id, url, text } or null,
+//   error: null|'error message'
+// }
+```
+
+### 2. Post Thread
+
+```javascript
+const result = await executor.execute({
+  type: 'thread',
+  data: {
+    tweets: [
+      { text: 'Tweet 1' },
+      { text: 'Tweet 2', media: [{ path: '/path/img.jpg' }] },
+      { text: 'Tweet 3' }
+    ]
+  }
+});
+
+// Automatically displays progress and results
+// Returns: { action: 'thread', success, data: { total, successful, failed, results, threadUrl }, error }
+```
+
+### 3. Check Rate Limits
+
+```javascript
+const result = await executor.execute({
+  type: 'rate-limits'
+});
+
+// Displays formatted rate limits and returns data
+```
+
+### 4. Verify Credentials
+
+```javascript
+const result = await executor.execute({
+  type: 'verify'
+});
+
+// Checks connection and returns: { success, data: { username, name, id }, error }
+```
+
+### 5. CLI Tools (Alternative)
+
+**For manual execution or shell scripts:**
+
+```bash
+# Post tweet
+node bmad/modules/twitter-api-client/cli/tweet.js --text "Hello!"
+
+# Post thread from JSON
+node bmad/modules/twitter-api-client/cli/thread.js --input threads/my-thread.json
+
+# Post with media
+node bmad/modules/twitter-api-client/cli/media.js --text "Check this!" --image photo.jpg
+
+# Check limits
+node bmad/modules/twitter-api-client/cli/rate-limits.js
+
+# Verify credentials
+node bmad/modules/twitter-api-client/cli/verify.js
+```
+
+### When to Use Which Pattern?
+
+**Use Direct Client (Pattern 1) when:**
+- ✅ Writing inline code in workflows
+- ✅ Need immediate variable access
+- ✅ Simple, single-purpose execution
+
+**Use Executor (Pattern 2) when:**
+- ✅ Creating reusable utilities
+- ✅ Building CLI tools
+- ✅ Automation scripts
+- ✅ Need structured JSON responses
+- ✅ Want consistent error handling
+
+**Both patterns work equally well, choose based on your use case!**
+
+---
+
 ## 💼 LINKEDIN API CLIENT
+
+**Note:** LinkedIn uses the **Direct Client pattern only** (no executor needed)
+- ✅ Workflows use inline LinkedInClient (correct)
+- ✅ Already modular architecture (auth, posts, images, documents, videos)
+- ✅ No temporary files
+- ✅ No CLI utilities needed (yet)
+
+LinkedIn benefits from interactive workflows more than CLI automation.
+
+---
 
 ### Import and Initialize
 

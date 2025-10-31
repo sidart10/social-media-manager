@@ -1,0 +1,74 @@
+{
+  "title": "OpenAI Responses API",
+  "content": "Source: https://docs.exa.ai/reference/openai-responses-api-with-exa\n\nUse Exa with OpenAI's Responses API - both as a web search tool and for direct research capabilities.\n\nExa is the search engine built for AI. It finds information from across the web and delivers both links and the actual content from pages, making it easy to use with AI models.\n\nExa uses neural search technology to understand the meaning of queries, not just keywords. The API works with both semantic search and traditional keyword methods.\n\nFirst, you'll need API keys from both OpenAI and Exa:\n\n* Get your Exa API key from the [Exa Dashboard](https://dashboard.exa.ai/api-keys)\n* Get your OpenAI API key from the [OpenAI Dashboard](https://platform.openai.com/api-keys)\n\nBoth examples show how to:\n\n1. Set up the OpenAI Response API with Exa as a tool\n2. Make a request to OpenAI\n3. Handle the search function call\n4. Send the search results back to OpenAI\n5. Get the final response\n\nRemember to replace the empty API key strings with your actual API keys when trying these examples.\n\n## How Tool Calling Works\n\nLet's break down how the Exa web search tool works with OpenAI's Response API:\n\n1. **Tool Definition**: First, we define our Exa search as a tool that OpenAI can use:\n\n2. **Initial Request**: When you send a message to OpenAI, the API looks at your message and decides if it needs to search the web. If it does, instead of giving a direct answer, it will return a \"function call\" in its output.\n\n3. **Function Call**: If OpenAI decides to search, it returns something like:\n\n4. **Search Execution**: Your code then:\n\n* Takes this search query\n   * Calls Exa's API to perform the actual web search\n   * Gets real web results back\n\n5. **Final Response**: You send these web results back to OpenAI, and it gives you a final answer using the fresh information from the web.\n\nThis back-and-forth process happens automatically in the code above, letting OpenAI use Exa's web search when it needs to find current information.\n\n## Direct Research with Responses API\n\nIn addition to using Exa as a search tool, you can also access Exa's powerful research capabilities directly through the OpenAI Responses API format. This provides a familiar interface for running complex research tasks.\n\nSimply point the OpenAI client to Exa's API and use our research models:\n\n* **`exa-research`** - Adapts compute to task difficulty. Best for most use cases.\n* **`exa-research-pro`** - Maximum quality with highest reasoning capability. Best for complex, multi-step research.\n\n### Research vs Web Search Tool\n\nChoose the right approach for your use case:\n\n| Feature           | Web Search Tool (Function Calling)               | Direct Research                     |\n| ----------------- | ------------------------------------------------ | ----------------------------------- |\n| **Use Case**      | Augment LLM conversations with web data          | Get comprehensive research reports  |\n| **Control**       | Full control over search queries and integration | Automated multi-step research       |\n| **Response Time** | Fast (seconds)                                   | Longer (45-180 seconds)             |\n| **Best For**      | Interactive chatbots, real-time Q\\&A             | In-depth analysis, research reports |\n\n<Note>\n  For detailed information about research capabilities, structured outputs, and\n  pricing, see the [Exa Research documentation](/reference/exa-research).\n</Note>",
+  "code_samples": [
+    {
+      "code": "",
+      "language": "unknown"
+    },
+    {
+      "code": "</CodeGroup>\n\nBoth examples show how to:\n\n1. Set up the OpenAI Response API with Exa as a tool\n2. Make a request to OpenAI\n3. Handle the search function call\n4. Send the search results back to OpenAI\n5. Get the final response\n\nRemember to replace the empty API key strings with your actual API keys when trying these examples.\n\n## How Tool Calling Works\n\nLet's break down how the Exa web search tool works with OpenAI's Response API:\n\n1. **Tool Definition**: First, we define our Exa search as a tool that OpenAI can use:",
+      "language": "unknown"
+    },
+    {
+      "code": "2. **Initial Request**: When you send a message to OpenAI, the API looks at your message and decides if it needs to search the web. If it does, instead of giving a direct answer, it will return a \"function call\" in its output.\n\n3. **Function Call**: If OpenAI decides to search, it returns something like:",
+      "language": "unknown"
+    },
+    {
+      "code": "4. **Search Execution**: Your code then:\n\n   * Takes this search query\n   * Calls Exa's API to perform the actual web search\n   * Gets real web results back\n\n5. **Final Response**: You send these web results back to OpenAI, and it gives you a final answer using the fresh information from the web.\n\nThis back-and-forth process happens automatically in the code above, letting OpenAI use Exa's web search when it needs to find current information.\n\n## Direct Research with Responses API\n\nIn addition to using Exa as a search tool, you can also access Exa's powerful research capabilities directly through the OpenAI Responses API format. This provides a familiar interface for running complex research tasks.\n\n### How It Works\n\nSimply point the OpenAI client to Exa's API and use our research models:\n\n<CodeGroup>",
+      "language": "unknown"
+    },
+    {
+      "code": "",
+      "language": "unknown"
+    },
+    {
+      "code": "",
+      "language": "unknown"
+    }
+  ],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "What is Exa?",
+      "id": "what-is-exa?"
+    },
+    {
+      "level": "h2",
+      "text": "Get Started",
+      "id": "get-started"
+    },
+    {
+      "level": "h2",
+      "text": "Complete Example",
+      "id": "complete-example"
+    },
+    {
+      "level": "h2",
+      "text": "How Tool Calling Works",
+      "id": "how-tool-calling-works"
+    },
+    {
+      "level": "h2",
+      "text": "Direct Research with Responses API",
+      "id": "direct-research-with-responses-api"
+    },
+    {
+      "level": "h3",
+      "text": "How It Works",
+      "id": "how-it-works"
+    },
+    {
+      "level": "h3",
+      "text": "Available Models",
+      "id": "available-models"
+    },
+    {
+      "level": "h3",
+      "text": "Research vs Web Search Tool",
+      "id": "research-vs-web-search-tool"
+    }
+  ],
+  "url": "llms-txt#openai-responses-api",
+  "links": []
+}

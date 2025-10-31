@@ -1,0 +1,179 @@
+{
+  "handoff_type": "video_production",
+  "ready_for_agent": "ai-video-agent",
+  "suggested_command": "/ai-video-agent",
+  "total_videos": 3,
+  "session": "week-1-agent-wars",
+  "date_created": "2025-10-30",
+
+  "videos": [
+    {
+      "video_id": "video_001_tuesday",
+      "title": "I Built the Same AI Agent on OpenAI and Anthropic - Here's the Winner",
+      "scheduled_date": "2025-11-05",
+      "scheduled_time": "14:00",
+      "duration_seconds": 60,
+      "platforms": ["youtube_shorts", "instagram_reels", "tiktok"],
+
+      "script_file": "outputs/11-04-2025/week-1-agent-wars/posts/TUESDAY-03-video-script-agent-comparison.md",
+
+      "production_specs": {
+        "format": "talking_head_plus_screen_recording",
+        "heygen_avatar": "sid_professional",
+        "heygen_segments": [
+          {"start": 0, "end": 3, "type": "hook"},
+          {"start": 15, "end": 30, "type": "explanation"},
+          {"start": 50, "end": 60, "type": "verdict"}
+        ],
+        "screen_recordings_needed": [
+          "AgentKit visual builder (10s)",
+          "Claude SDK terminal + code (10s)",
+          "Side-by-side comparison (5s)"
+        ],
+        "b_roll_type": "screen_recordings",
+        "text_overlays": true,
+        "music": "subtle_tech_background",
+        "pacing": "fast"
+      },
+
+      "key_messages": [
+        "AgentKit: 45 min build, visual, managed",
+        "Claude SDK: 2 hrs build, code-first, self-hosted",
+        "Speed vs Control tradeoff",
+        "AgentKit for prototypes, Claude for production"
+      ],
+
+      "estimated_cost": 0.00,
+      "heygen_credits": "free_tier_video_1_of_3"
+    },
+
+    {
+      "video_id": "video_002_thursday",
+      "title": "Agent Platform Cost Comparison - Real Numbers",
+      "scheduled_date": "2025-11-07",
+      "scheduled_time": "14:00",
+      "duration_seconds": 60,
+      "platforms": ["youtube_shorts", "instagram_reels", "tiktok"],
+
+      "script_file": "outputs/11-04-2025/week-1-agent-wars/posts/THURSDAY-ALL-7-PIECES.md",
+      "script_section": "PIECE 3: VIDEO SCRIPT",
+
+      "production_specs": {
+        "format": "talking_head_plus_data_visualization",
+        "heygen_avatar": "sid_professional",
+        "heygen_percentage": 40,
+        "animation_percentage": 60,
+        "visual_style": "data_driven_charts",
+        "animations_needed": [
+          "Cost breakdown bars (AgentKit, Claude, Vertex)",
+          "Scaling cost curves",
+          "Enterprise pricing table"
+        ],
+        "text_overlays": true,
+        "pacing": "medium"
+      },
+
+      "key_messages": [
+        "AgentKit: $127 for 1000 runs (variable)",
+        "Claude SDK: $89 for 1000 runs (flat)",
+        "Vertex AI: Enterprise contracts, $15K minimum",
+        "Pricing is strategic, not operational"
+      ],
+
+      "estimated_cost": 0.00,
+      "heygen_credits": "free_tier_video_2_of_3"
+    },
+
+    {
+      "video_id": "video_003_saturday",
+      "title": "Agent Platform Decision Guide - Choose in 60 Seconds",
+      "scheduled_date": "2025-11-09",
+      "scheduled_time": "14:00",
+      "duration_seconds": 60,
+      "platforms": ["youtube_shorts", "instagram_reels", "tiktok"],
+
+      "script_file": "outputs/11-04-2025/week-1-agent-wars/posts/SATURDAY-ALL-9-PIECES.md",
+      "script_section": "PIECE 3: VIDEO SCRIPT",
+
+      "production_specs": {
+        "format": "animated_decision_tree",
+        "heygen_avatar": "sid_professional",
+        "heygen_percentage": 30,
+        "animation_percentage": 70,
+        "visual_style": "decision_flowchart",
+        "animations_needed": [
+          "Interactive decision tree",
+          "Platform logos with checkmarks",
+          "Question-answer flow animation"
+        ],
+        "text_overlays": true,
+        "pacing": "fast"
+      },
+
+      "key_messages": [
+        "Q1: Days or weeks? → AgentKit for days",
+        "Q2: Need control? → Claude SDK",
+        "Q3: On Google Cloud? → Vertex AI",
+        "Test before committing (3-5 year decision)"
+      ],
+
+      "estimated_cost": 0.00,
+      "heygen_credits": "free_tier_video_3_of_3"
+    }
+  ],
+
+  "global_specs": {
+    "aspect_ratio": "9:16",
+    "resolution": "1080x1920",
+    "format": "mp4",
+    "target_retention": "65%+",
+    "hook_critical_window": "0-3 seconds",
+    "platform_optimizations": {
+      "youtube_shorts": {
+        "title_format": "Short, keyword-rich",
+        "description": "First 100 chars critical, include links",
+        "tags": "AI, agents, comparison, tutorial"
+      },
+      "instagram_reels": {
+        "caption_length": "125 chars max for full display",
+        "hashtags": "8-10 relevant hashtags",
+        "cover_frame": "Text overlay with value prop"
+      },
+      "tiktok": {
+        "caption_hook": "First 20 chars critical",
+        "hashtags": "3-5 trending + niche",
+        "sound": "Original audio (your voice)"
+      }
+    }
+  },
+
+  "from_jarvis": {
+    "content_week": "Week 1: Agent Platform Wars",
+    "research_sources": [
+      "outputs/10-30-2025/november-content-calendar-research/",
+      "Fresh Oct 2025 research: AgentKit, Claude SDK, Vertex AI"
+    ],
+    "voice_profile_applied": true,
+    "voice_version": "2.0",
+    "data_verified": true,
+    "benchmarks_included": [
+      "Ramp: 70% dev cycle reduction",
+      "Carlyle: 50% faster dev, 30% accuracy improvement",
+      "Canva: 2 weeks frontend saved",
+      "Rippling: 40% faster cycle",
+      "Production: 60-80% vs Demo: 95% success rates"
+    ]
+  },
+
+  "instructions_for_ai_video_agent": {
+    "priority_order": [
+      "video_001_tuesday (highest priority - comparison)",
+      "video_003_saturday (second - decision guide)",
+      "video_002_thursday (third - cost analysis)"
+    ],
+    "heygen_free_tier_limit": "3 videos per week",
+    "all_videos_within_limit": true,
+    "fallback_if_limit_exceeded": "Use Veo for b-roll only, skip HeyGen avatar",
+    "recommended_production_order": "Tuesday → Saturday → Thursday (spread across week)"
+  }
+}

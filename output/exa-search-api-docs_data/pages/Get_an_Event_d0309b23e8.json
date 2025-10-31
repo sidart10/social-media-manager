@@ -1,0 +1,8 @@
+{
+  "title": "Get an Event",
+  "content": "Source: https://docs.exa.ai/websets/api/events/get-an-event\n\nget /v0/events/{id}\nGet a single Event by id.\n\nYou can subscribe to Events by creating a Webhook.",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#get-an-event",
+  "links": []
+}

@@ -1,0 +1,8 @@
+{
+  "title": "Find similar links",
+  "content": "Source: https://docs.exa.ai/reference/find-similar-links\n\npost /findSimilar\nFind similar links to the link provided and optionally return the contents of the pages.\n\n<Card title=\"Get your Exa API key\" icon=\"key\" horizontal href=\"https://dashboard.exa.ai/api-keys\" />",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#find-similar-links",
+  "links": []
+}

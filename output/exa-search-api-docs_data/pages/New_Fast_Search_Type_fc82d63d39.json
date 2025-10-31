@@ -1,0 +1,38 @@
+{
+  "title": "New Fast Search Type",
+  "content": "Source: https://docs.exa.ai/changelog/new-fast-search-type\n\nIntroducing Exa Fast: The world's fastest search API.\n\n**Date: July 29, 2025**\n\nWe're excited to introduce **Exa Fast** - the fastest search API in the world. Exa Fast uses streamlined versions of our neural and keyword with p50 latency below 425ms.\n\n<Info>\n  Fast search is available immediately on all API plans. [Try Fast search in the dashboard →](https://dashboard.exa.ai/playground/search?q=blog%20post%20about%20AI\\&filters=%7B%22text%22%3A%22true%22%2C%22type%22%3A%22fast%22%2C%22livecrawl%22%3A%22never%22%7D)\n</Info>\n\nThe Fast search type provides:\n\n* **Speed**: p50 latency below 425ms - that's 30% faster than Brave and Google Serp\n* **Exa Index**: Uses the same index of high quality content as our neural search\n* **Customization**: Full compatibility with all the same parameters as our other search types\n\n## When to Use Fast Search\n\nFast search is ideal for:\n\n1. **Fast web grounding**: Integrate real-time web information into responses without sacrificing speed and impacting user experience\n2. **Agentic workflows**: AI agents like deep research that use dozens or hundreds of search calls where milliseconds add up\n3. **Low-latency AI products**: Latency-sensitive applications like AI voice companions where every millisecond matters\n\n## How to Use Fast Search\n\nUsing Fast search is simple - just add `type=\"fast\"` to your search requests:\n\n## Options That Impact Latency\n\nWhile Fast search is optimized for speed, certain options can increase response times:\n\n* **Live crawling**: Fetching content live requires real-time web requests. Set `livecrawl=\"never\"` to use cached content and maintain optimal speed.\n* **AI summaries**: Requesting AI-generated summaries requires LLM processing, which adds significant latency to your requests.\n* **Complex date filters**: Using wide date ranges or multiple date constraints requires additional filtering that can slow down results.\n* **Include/exclude text**: Text-based content filtering requires scanning through results, which impacts response times.\n* **Subpages**: Including subpages in your search requires additional processing and can significantly increase latency.\n\nFor the fastest possible performance, use Fast search with minimal parameters and rely on cached content.",
+  "code_samples": [
+    {
+      "code": "",
+      "language": "unknown"
+    },
+    {
+      "code": "",
+      "language": "unknown"
+    }
+  ],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "What's New",
+      "id": "what's-new"
+    },
+    {
+      "level": "h2",
+      "text": "When to Use Fast Search",
+      "id": "when-to-use-fast-search"
+    },
+    {
+      "level": "h2",
+      "text": "How to Use Fast Search",
+      "id": "how-to-use-fast-search"
+    },
+    {
+      "level": "h2",
+      "text": "Options That Impact Latency",
+      "id": "options-that-impact-latency"
+    }
+  ],
+  "url": "llms-txt#new-fast-search-type",
+  "links": []
+}

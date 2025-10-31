@@ -1,0 +1,114 @@
+{
+  "carousel_title": "The H-1B Data Everyone Got Wrong",
+  "platform": "linkedin",
+  "generation_date": "2025-10-29",
+  "agent": "ai-image-generator",
+  "design_style": "tldraw",
+  "total_slides": 7,
+  "format": "1024x1024",
+  "quality": "high",
+  "tool_used": "mcp__gpt-image-1__create_image",
+
+  "slides": [
+    {
+      "slide_number": 1,
+      "filename": "slide-1-title.png",
+      "type": "title",
+      "title": "The H-1B Data Everyone Got Wrong",
+      "subtitle": "A viral thread fooled millions. Here's what the numbers actually show.",
+      "design_notes": "Soft blue gradient background, ghosted chart icons, clean typography"
+    },
+    {
+      "slide_number": 2,
+      "filename": "slide-2-lca-funnel.png",
+      "type": "data_visualization",
+      "title": "LCA Certifications vs Actual H-1B Approvals",
+      "key_data": "900,000 LCAs → 400,000 USCIS approvals (2.25:1 ratio)",
+      "design_notes": "Funnel chart with soft blue top, teal bottom, showing 4 reduction steps"
+    },
+    {
+      "slide_number": 3,
+      "filename": "slide-3-new-vs-renewals.png",
+      "type": "data_visualization",
+      "title": "H-1B Approvals: New vs Renewals FY 2024",
+      "key_data": "35% new employment (141,000) vs 65% continuing employment (259,000)",
+      "design_notes": "Clean pie chart with soft blue and gray segments, red callout for 85k cap note"
+    },
+    {
+      "slide_number": 4,
+      "filename": "slide-4-it-staffing-firms.png",
+      "type": "data_visualization",
+      "title": "IT Staffing Firms: The Low-Wage H-1B Tier",
+      "key_data": "Cognizant (93,000), Infosys (61,000), TCS (60,000), Wipro (40,000), Capgemini (30,000). Salaries: $85k-92k",
+      "design_notes": "Horizontal bar chart with soft red bars, salary callouts"
+    },
+    {
+      "slide_number": 5,
+      "filename": "slide-5-tech-companies.png",
+      "type": "data_visualization",
+      "title": "Tech Giants: The High-Wage H-1B Tier",
+      "key_data": "Amazon (10,044), Microsoft (5,189), Meta (5,123), Apple (4,202), Google (4,181). Total comp: $300k-380k+",
+      "design_notes": "Horizontal bar chart with soft green bars (contrast with slide 4), total comp callout",
+      "importance": "CRITICAL MISSING SLIDE - Shows two-tier system contrast"
+    },
+    {
+      "slide_number": 6,
+      "filename": "slide-6-india-backlog.png",
+      "type": "data_visualization",
+      "title": "India Green Card Backlog: The 140-Year Crisis",
+      "key_data": "1.1M+ waiting. EB-1: 2.7 years, EB-2: 140 years, EB-3: 140 years",
+      "design_notes": "Three-card layout with color-coded EB categories (yellow, red, orange)"
+    },
+    {
+      "slide_number": 7,
+      "filename": "slide-7-reforms-cta.png",
+      "type": "call_to_action",
+      "title": "Evidence-Based Reforms",
+      "reforms": [
+        "Remove per-country caps → Clear backlog in 8-10 years",
+        "Wage-based selection → Prioritize high-skill positions",
+        "Separate IT staffing tier → Address low-wage concerns"
+      ],
+      "design_notes": "Clean checklist design with teal accent, professional CTA"
+    }
+  ],
+
+  "color_palette": {
+    "primary_blue": "#90CAF9",
+    "primary_teal": "#4DB6AC",
+    "primary_red": "#EF9A9A",
+    "primary_green": "#81C784",
+    "accent_yellow": "#FFF9C4",
+    "accent_coral": "#FFCDD2",
+    "accent_orange": "#FFE0B2",
+    "text_charcoal": "#2C3E50",
+    "background_offwhite": "#FAFAFA"
+  },
+
+  "design_system": {
+    "aesthetic": "tldraw - clean minimalist with soft pastels",
+    "typography": "Sans-serif (Inter-style), clear hierarchy",
+    "shapes": "Rounded corners throughout",
+    "shadows": "Subtle drop shadows",
+    "contrast": "Red (low-wage) vs Green (high-wage) for two-tier narrative"
+  },
+
+  "content_strategy": {
+    "narrative_arc": [
+      "Hook: Everyone got this wrong",
+      "Problem: LCA vs USCIS confusion",
+      "Data: Pipeline breakdown",
+      "Nuance: New vs renewals split",
+      "Contrast: Two-tier wage system (IT staffing vs tech giants)",
+      "Crisis: India backlog generational trap",
+      "Solution: Evidence-based reforms"
+    ],
+    "key_insight": "Slide 5 (tech companies) was MISSING from original carousel - critical for showing two-tier contrast",
+    "data_sources": "USCIS, DOL, Pew Research, Robert Sterling analysis"
+  },
+
+  "linkedin_post_reference": "/outputs/10-29-2025/h1b-visa-research/posts/LINKEDIN-POST-EXTENDED.md",
+
+  "handoff_ready": true,
+  "next_step": "Use /social-posting-agent to schedule LinkedIn post with carousel"
+}

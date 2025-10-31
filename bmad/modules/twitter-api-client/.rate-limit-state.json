@@ -1,10 +1,10 @@
 {
   "monthlyCount": 8,
-  "dailyCount": 8,
-  "hourlyCount": 1,
+  "dailyCount": 0,
+  "hourlyCount": 0,
   "lastReset": {
     "monthly": "2025-10-26T04:14:17.151Z",
-    "daily": "2025-10-26T04:14:17.152Z",
-    "hourly": "2025-10-26T05:31:59.636Z"
+    "daily": "2025-10-30T02:23:26.954Z",
+    "hourly": "2025-10-30T02:23:26.954Z"
   }
 }

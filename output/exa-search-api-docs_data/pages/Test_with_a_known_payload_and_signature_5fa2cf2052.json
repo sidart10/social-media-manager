@@ -1,0 +1,8 @@
+{
+  "title": "Test with a known payload and signature",
+  "content": "test_payload = '{\"type\":\"webset.created\",\"data\":{\"id\":\"ws_test\"}}'\ntest_timestamp = \"1234567890\"\ntest_secret = \"your_webhook_secret\"",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#test-with-a-known-payload-and-signature",
+  "links": []
+}

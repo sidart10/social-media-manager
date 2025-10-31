@@ -1,0 +1,8 @@
+{
+  "title": "Update Monitor",
+  "content": "Source: https://docs.exa.ai/websets/api/monitors/update-monitor\n\npatch /v0/monitors/{id}\nUpdates a monitor configuration.",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#update-monitor",
+  "links": []
+}

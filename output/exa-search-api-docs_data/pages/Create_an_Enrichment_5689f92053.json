@@ -1,0 +1,8 @@
+{
+  "title": "Create an Enrichment",
+  "content": "Source: https://docs.exa.ai/websets/api/websets/enrichments/create-an-enrichment\n\npost /v0/websets/{webset}/enrichments\nCreate an Enrichment for a Webset.",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#create-an-enrichment",
+  "links": []
+}

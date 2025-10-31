@@ -1,11 +1,11 @@
 # Edit Image Workflow
-# Purpose: Transform, enhance, and edit existing images using Nanobanana's pixel-perfect editing
-# Status: PRODUCTION READY - Leverages Gemini's best-in-class editing capabilities
+# Purpose: Transform, enhance, and edit existing images using edit-image and blend-images skills
+# Status: PRODUCTION READY v2.0 - Skills Integration Complete
 
 name: generate-edit-image
-description: "Edit existing images with AI - blur backgrounds, remove objects, style transfer, enhance quality, blend photos"
+description: "Edit existing images using edit-image skill (pixel-perfect editing with nanobanana) and blend-images skill (multi-image composition) - blur backgrounds, remove objects, enhance quality, blend photos"
 author: "AI Image Generator Agent"
-version: "1.0.0"
+version: "2.0.0"
 
 # Configuration
 config_source: "{agent-folder}/ai-image-generator-sidecar/config.yaml"

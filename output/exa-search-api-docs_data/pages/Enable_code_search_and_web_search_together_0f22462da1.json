@@ -1,0 +1,8 @@
+{
+  "title": "Enable code search and web search together",
+  "content": "npx exa-mcp-server --tools=get_code_context_exa,web_search_exa",
+  "code_samples": [],
+  "headings": [],
+  "url": "llms-txt#enable-code-search-and-web-search-together",
+  "links": []
+}

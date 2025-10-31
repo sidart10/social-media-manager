@@ -1,0 +1,79 @@
+Anthropic claims to be "platform-first" while launching Claude.ai, Claude Code, Claude for Excel, and Claude for Financial Services.
+
+Platform company or application company?
+
+The answer: strategically both. And Dario Amodei's explanation from the Stripe podcast reveals one of the smartest frameworks I've encountered for platform strategy.
+
+THE FOUNDATION: CLAUDE.AI CAME FIRST
+
+Before building a developer platform, Anthropic launched Claude.ai—a consumer chatbot competing directly with ChatGPT. Not a platform play. A product.
+
+This established the pattern: build first-party applications to understand how users actually use the model, then feed insights back to improve the API for the entire ecosystem.
+
+WHY CLAUDE CODE EXISTS
+
+February 2025. Anthropic launches Claude Code—their first developer vertical.
+
+Why would a "platform company" build a coding tool when Cursor, Windsurf, and ecosystem partners were already building on their API?
+
+Dario's answer: "The people who write code are very socially and technically adjacent to the folks who develop AI models."
+
+Translation: developers adopt in hours. Enterprises take years.
+
+Results: $500M+ annual revenue, 10x user growth since May 2025.
+
+THE FRAMEWORK: THREE REASONS TO BUILD FIRST-PARTY APPS
+
+Reason 1: Direct User Exposure
+
+"The end user gives you some sense of how exactly they're using it, what they're looking for. If you're a pure platform and you don't have that direct connection, you can be disadvantaged."
+
+Reason 2: Model Improvement Insights
+
+"It may even be hard to know where the model really needs to go. There are many models that seem good at coding, but they aren't good in the way that's actually relevant."
+
+Building Claude Code taught them what "good at coding" means in practice—real developer workflows, not benchmark scores.
+
+Reason 3: Enterprise Ease-of-Use
+
+Traditional enterprises struggle with APIs. First-party apps lower barriers for slower-moving but higher-value customers.
+
+CLAUDE FOR EXCEL: COMPETING WITH YOUR ECOSYSTEM
+
+October 2025. Anthropic launches Claude for Excel with 1,000 beta users.
+
+Companies are already building spreadsheet AI on Claude's API. Anthropic is now competing with their own ecosystem partners.
+
+The play: Excel integration reveals how financial analysts and business users actually work with AI. These insights improve Claude's platform for ALL use cases—including those built by partners.
+
+It's strategic ecosystem positioning, not zero-sum competition.
+
+THE AWS PRECEDENT
+
+AWS built SageMaker, Lambda, and dozens of services while remaining the dominant infrastructure platform. This strengthened their ecosystem because AWS understood customer needs better.
+
+THE ANTHROPIC DOCTRINE
+
+Platform-first strategy doesn't mean platform-only execution.
+
+Build first-party apps when:
+• You need direct user exposure to improve the core product
+• The vertical has fast adoption velocity (testing ground)
+• Enterprise needs pre-built solutions (friction reduction)
+
+Maintain platform focus when:
+• Partners can reach markets you can't
+• Ecosystem innovation exceeds internal capability
+• The use case doesn't provide unique insights
+
+Anthropic's approach: Platform-first in mindset, selectively application-present in execution.
+
+Use first-party apps as "sensors" that make your platform smarter. Feed insights back to the API. Create a flywheel.
+
+This is how you compete with OpenAI, Google, and Meta—not by being purely platform OR application, but strategically both.
+
+Source: Stripe "Cheeky Pint" podcast with Dario Amodei (August 2025)
+
+What's your take on platform vs application strategy? Are you seeing this pattern in other markets?
+
+#PlatformStrategy #AI #Anthropic #ProductStrategy #TechStrategy

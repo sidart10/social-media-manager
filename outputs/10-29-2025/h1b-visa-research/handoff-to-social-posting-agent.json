@@ -1,0 +1,139 @@
+{
+  "handoff_type": "linkedin_carousel_post",
+  "from_agent": "ai-image-generator",
+  "to_agent": "social-posting-agent",
+  "handoff_date": "2025-10-29",
+  "status": "ready_to_post",
+
+  "content": {
+    "platform": "linkedin",
+    "content_type": "carousel",
+    "post_text_file": "/outputs/10-29-2025/h1b-visa-research/posts/LINKEDIN-POST-EXTENDED.md",
+    "post_text_preview": "Today, Florida banned H-1B hiring at state universities. The policy announcement cited examples like \"assistant swim coach from Spain\" and \"clinical professor from West Bank,\" asking: \"Can't we produce these ourselves?\"\n\nFair question. Wrong solution.\n\nThis decision traces back to a viral thread from December 2024 that analyzed 900,000 H-1B records and shaped the immigration debate for months. The thread was methodologically solid, used real data, and got millions of views.\n\nThere's just one problem: it analyzed Labor Condition Applications (LCAs), not actual H-1B visas...",
+
+    "character_count": 2947,
+    "hashtags": "#H1BVisa #Immigration #DataDriven #PolicyAnalysis #TechPolicy"
+  },
+
+  "images": {
+    "carousel_slides": [
+      {
+        "slide_number": 1,
+        "path": "/outputs/10-29-2025/h1b-visa-research/images/slide-1-title.png",
+        "alt_text": "Title slide: The H-1B Data Everyone Got Wrong. A viral thread fooled millions. Here's what the numbers actually show.",
+        "size": "1024x1024"
+      },
+      {
+        "slide_number": 2,
+        "path": "/outputs/10-29-2025/h1b-visa-research/images/slide-2-lca-funnel.png",
+        "alt_text": "Funnel chart showing LCA Certifications vs Actual H-1B Approvals. 900,000 DOL LCA certifications narrowing down to 400,000 USCIS H-1B approvals through 4 reduction steps. Ratio: 2.25:1",
+        "size": "1024x1024"
+      },
+      {
+        "slide_number": 3,
+        "path": "/outputs/10-29-2025/h1b-visa-research/images/slide-3-new-vs-renewals.png",
+        "alt_text": "Pie chart: H-1B Approvals New vs Renewals FY 2024. 35% new employment (141,000) and 65% continuing employment (259,000). Total: 400,000 approvals. Only NEW employment counts toward 85k cap.",
+        "size": "1024x1024"
+      },
+      {
+        "slide_number": 4,
+        "path": "/outputs/10-29-2025/h1b-visa-research/images/slide-4-it-staffing-firms.png",
+        "alt_text": "Bar chart: IT Staffing Firms - The Low-Wage H-1B Tier. Shows Cognizant (93,000 applications, $90k), Infosys (61,000, $88k), TCS (60,000, $85k), Wipro (40,000, $87k), and Capgemini (30,000, $92k). 5-year totals. 95%+ Indian workers, contract model.",
+        "size": "1024x1024"
+      },
+      {
+        "slide_number": 5,
+        "path": "/outputs/10-29-2025/h1b-visa-research/images/slide-5-tech-companies.png",
+        "alt_text": "Bar chart: Tech Giants - The High-Wage H-1B Tier. Shows Amazon (10,044 approvals, $300k+), Microsoft (5,189, $320k+), Meta (5,123, $380k+), Apple (4,202, $350k+), and Google (4,181, $360k+). FY 2025 data. 30-50% Indian workers, direct employees with equity.",
+        "size": "1024x1024"
+      },
+      {
+        "slide_number": 6,
+        "path": "/outputs/10-29-2025/h1b-visa-research/images/slide-6-india-backlog.png",
+        "alt_text": "India Green Card Backlog: The 140-Year Crisis. Shows three EB categories: EB-1 (24,148 people, 2.7 year wait), EB-2 (853,705 people, 140 YEAR wait), EB-3 (262,792 people, 140 YEAR wait). Total: 1.1M+ Indians waiting. Per-country cap creates generational trap.",
+        "size": "1024x1024"
+      },
+      {
+        "slide_number": 7,
+        "path": "/outputs/10-29-2025/h1b-visa-research/images/slide-7-reforms-cta.png",
+        "alt_text": "Evidence-Based Reforms slide with three checkmarked items: Remove per-country caps (clear backlog in 8-10 years), Wage-based selection (prioritize high-skill positions), Separate IT staffing tier (address low-wage concerns). Full analysis with 45+ sources. Follow for data-driven policy insights.",
+        "size": "1024x1024"
+      }
+    ],
+    "total_slides": 7,
+    "design_style": "tldraw aesthetic - clean minimalist with soft pastels"
+  },
+
+  "posting_recommendations": {
+    "optimal_timing": {
+      "when": "24-48 hours AFTER Twitter thread goes live",
+      "best_days": ["Tuesday", "Wednesday", "Thursday"],
+      "best_time": "7-9 AM ET",
+      "rationale": "Let Twitter thread gain traction first, then amplify on LinkedIn when professionals check feed"
+    },
+
+    "engagement_strategy": {
+      "first_60_minutes_critical": true,
+      "actions": [
+        "Reply to EVERY comment within first hour",
+        "Ask follow-up questions to quality comments",
+        "Share additional data points from research",
+        "Link to specific charts when explaining complex points",
+        "Engage immigration practitioners and H-1B holders"
+      ]
+    },
+
+    "expected_performance": {
+      "views": "5,000-25,000",
+      "engagement": "200-1,000 (likes + comments + shares)",
+      "engagement_rate": "4-8%",
+      "rationale": "Timely (DeSantis announcement), correction narrative, authoritative data, balanced perspective"
+    },
+
+    "likely_amplifiers": [
+      "Immigration lawyers (fact-checking community)",
+      "H-1B holders (personal validation)",
+      "Data journalists (methodology appreciation)",
+      "Policy professionals (evidence-based framing)",
+      "Tech workers in immigration debate"
+    ]
+  },
+
+  "cross_platform_context": {
+    "twitter_thread": "Already posted with 32 tweets + 9 charts",
+    "linkedin_timing": "Post 24-48 hours after Twitter for maximum amplification",
+    "substack_expansion": "Plan 3,500-word article with all 45 sources",
+    "youtube_video": "12-15 min explainer using thread as script"
+  },
+
+  "technical_specs": {
+    "image_format": "PNG",
+    "image_size": "1024x1024",
+    "image_quality": "high",
+    "total_file_size": "~10 MB (7 slides)",
+    "upload_order": "Sequential slide-1 through slide-7"
+  },
+
+  "quality_assurance": {
+    "all_slides_generated": true,
+    "design_consistency": "Verified - tldraw aesthetic throughout",
+    "data_accuracy": "Verified against USCIS, DOL, Pew Research sources",
+    "narrative_flow": "Complete 7-slide arc from hook to CTA",
+    "missing_content_addressed": "Yes - added critical slide 5 (Tech Companies high-wage tier)",
+    "alt_text_complete": true,
+    "metadata_complete": true
+  },
+
+  "notes_for_social_posting_agent": [
+    "This carousel was completely regenerated with clean tldraw aesthetic",
+    "Slide 5 (Tech Companies) was MISSING from original - now included to show two-tier contrast",
+    "Design uses soft pastels: blue/teal for positive, red for negative, green for high-wage tier",
+    "All slides maintain consistent 1024x1024 format for LinkedIn",
+    "Post text is 2,947 characters - under 3,000 limit with room for edits",
+    "Consider uploading slides in exact order for proper carousel flow",
+    "Reference LINKEDIN-POST-EXTENDED.md for complete post copy"
+  ],
+
+  "ready_to_execute": true,
+  "execution_command": "/social-posting-agent"
+}

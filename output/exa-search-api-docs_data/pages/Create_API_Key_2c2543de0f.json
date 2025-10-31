@@ -1,0 +1,14 @@
+{
+  "title": "Create API Key",
+  "content": "Source: https://docs.exa.ai/reference/team-management/create-api-key\n\npost /api-keys\nCreate a new API key for your team with optional name and rate limit configuration.\n\n<Card title=\"Get your Exa API key\" icon=\"key\" horizontal href=\"https://dashboard.exa.ai/api-keys\" />\n\nThe Create API Key endpoint allows you to programmatically generate new API keys for your team using your service API key.\n\n## Optional Parameters\n\n* **name**: A descriptive name for the API key to help identify its purpose\n* **rateLimit**: Maximum number of requests per minute allowed for this API key",
+  "code_samples": [],
+  "headings": [
+    {
+      "level": "h2",
+      "text": "Optional Parameters",
+      "id": "optional-parameters"
+    }
+  ],
+  "url": "llms-txt#create-api-key",
+  "links": []
+}
