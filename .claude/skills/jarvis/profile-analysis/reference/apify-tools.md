@@ -1,12 +1,14 @@
-# apify - Complete Tool Reference
+# apify - Complete Tool Reference (VERIFIED)
 
 **MCP Server:** apify (HTTP endpoint)
 **URL:** https://mcp.apify.com
 **Purpose:** Access 5000+ web scrapers for social media platforms
+**Last Verified:** November 1, 2025
+**Source:** `outputs/11-01-2025/apify-research-session/verified-apify-actors.md`
 
 ---
 
-## Available Apify Tools
+## Available Apify MCP Tools
 
 ### Tool 1: search-actors
 
@@ -16,30 +18,12 @@
 
 ```json
 {
-  "query": "instagram profile scraper" | "tiktok scraper" | "twitter scraper"
+  "search": "instagram profile scraper" | "tiktok scraper" | "youtube transcript",
+  "limit": 5
 }
 ```
 
-**Returns:**
-
-```json
-{
-  "actors": [
-    {
-      "id": "apify/instagram-scraper",
-      "name": "Instagram Scraper",
-      "description": "Scrape Instagram profiles, posts, engagement",
-      "pricing": "$0.50 per 1k posts"
-    },
-    {
-      "id": "clockworks/tiktok-scraper",
-      "name": "TikTok Scraper",
-      "description": "Scrape TikTok profiles and videos",
-      "pricing": "~$0.50 per profile"
-    }
-  ]
-}
-```
+**Returns:** List of available actors with ratings, pricing, descriptions
 
 ---
 
@@ -51,29 +35,11 @@
 
 ```json
 {
-  "actorId": "apify/instagram-scraper"
+  "actor": "apify/instagram-scraper"
 }
 ```
 
-**Returns:**
-
-```json
-{
-  "id": "apify/instagram-scraper",
-  "name": "Instagram Scraper",
-  "description": "Official Instagram scraper",
-  "inputSchema": {
-    "username": "string (required)",
-    "maxPosts": "number (default: 12)",
-    "resultsLimit": "number"
-  },
-  "pricing": {
-    "perRun": "minimum $0.01",
-    "per1kResults": "$0.50"
-  },
-  "documentation": "https://apify.com/apify/instagram-scraper"
-}
-```
+**Returns:** Full actor documentation, input schema, pricing details
 
 ---
 
@@ -81,26 +47,21 @@
 
 **Purpose:** Execute an Apify actor to scrape data
 
-**Parameters:**
+**Two-step process:**
+1. Call with `step="info"` to get input schema
+2. Call with `step="call"` and `input` object to execute
+
+**Example:**
 
 ```json
 {
-  "actorId": "apify/instagram-scraper",
+  "actor": "apify/instagram-scraper",
+  "step": "call",
   "input": {
-    "username": "varunmayya",
-    "maxPosts": 20
+    "directUrls": ["https://instagram.com/username/"],
+    "resultsType": "posts",
+    "resultsLimit": 20
   }
-}
-```
-
-**Returns:**
-
-```json
-{
-  "runId": "abc123...",
-  "datasetId": "def456...",
-  "status": "running",
-  "estimatedCost": 0.01
 }
 ```
 
@@ -116,126 +77,278 @@
 
 ```json
 {
-  "datasetId": "def456..."
+  "datasetId": "abc123...",
+  "fields": "text,likesCount,commentsCount",  // optional
+  "limit": 100  // optional
 }
 ```
 
-**Returns (Instagram example):**
+---
 
+## Platform-to-Actor Mapping (VERIFIED ✅)
+
+### YouTube Video Transcripts
+
+**Actor:** `dz_omar/youtube-transcript-metadata-extractor` ✅ TESTED
+
+**Capabilities:**
+- ✅ Full video transcript (auto-generated captions)
+- ✅ Timestamped segments
+- ✅ Video metadata (title, views, likes, description)
+- ✅ Channel info
+
+**Input:**
 ```json
 {
-  "items": [
-    {
-      "text": "Check out this amazing...",
-      "likes": 1250,
-      "comments": 45,
-      "timestamp": "2025-10-15",
-      "mediaType": "image",
-      "url": "https://instagram.com/p/..."
-    }
-    // ... 19 more posts
-  ],
-  "profile": {
-    "username": "varunmayya",
-    "followers": 125000,
-    "following": 450,
-    "bio": "Entrepreneur, creator..."
-  }
+  "youtubeUrl": [{"url": "https://youtube.com/watch?v=VIDEO_ID"}],
+  "cleaningLevel": "mild",
+  "includeTimestamps": true
 }
 ```
 
----
+**Cost:** FREE (platform fee only ~$0.009)
+**Rating:** 4.92/5
+**Use for:** Learning speaking style, content repurposing, video analysis
 
-## Platform-to-Actor Mapping
-
-### Instagram:
-
-- **Actor:** `apify/instagram-scraper`
-- **Cost:** $0.50 per 1k posts (~$0.01 for 20 posts)
-- **Input:** `{username, maxPosts}`
-- **Returns:** posts[], profile data, engagement metrics
-
-### TikTok:
-
-- **Actor:** `clockworks/tiktok-scraper`
-- **Cost:** ~$0.50 per profile
-- **Input:** `{username, maxVideos}`
-- **Returns:** videos[], views, likes, comments, profile
-
-### Twitter/X:
-
-- **Actor:** `apidojo/twitter-scraper-lite`
-- **Cost:** $0.40 per 1k tweets (~$0.02 for 50 tweets)
-- **Input:** `{username, maxTweets}`
-- **Returns:** tweets[], engagement, profile stats
-
-### LinkedIn:
-
-- **Actor:** `dev_fusion/Linkedin-Profile-Scraper`
-- **Cost:** ~$0.30 per profile
-- **Input:** `{profileUrl, maxPosts}`
-- **Returns:** posts[], engagement, profile
-
-### YouTube:
-
-- **Actor:** `streamers/youtube-scraper`
-- **Cost:** ~$0.40 per channel
-- **Input:** `{channelUrl, maxVideos}`
-- **Returns:** videos[], views, engagement, channel stats
+**Tested:** Andrej Karpathy 3.5hr video (3.8M views) - $0.009
 
 ---
 
-## Complete Flow Example (Instagram)
+### Instagram - Captions & Engagement Data
 
-**Step 1: Search for actor**
+**Actor:** `apify/instagram-scraper` ✅ TESTED
 
-```
-search-actors("instagram profile scraper")
-→ Returns list including "apify/instagram-scraper"
-```
+**Capabilities:**
+- ✅ Written captions
+- ✅ Engagement metrics (likes, views, plays, comments)
+- ✅ Hashtags, mentions
+- ✅ Bulk scraping (20+ posts)
+- ❌ NO spoken transcript (use instagram-ai-transcript-extractor below)
 
-**Step 2: Get actor details**
-
-```
-fetch-actor-details("apify/instagram-scraper")
-→ Returns: input schema, pricing
-```
-
-**Step 3: Calculate cost**
-
-```
-Posts: 20
-Cost per 1k: $0.50
-Estimated: 20 × $0.50 / 1000 = $0.01
+**Input:**
+```json
+{
+  "directUrls": ["https://instagram.com/username/"],
+  "resultsType": "posts",
+  "resultsLimit": 20,
+  "addParentData": true
+}
 ```
 
-**Step 4: Get user approval**
+**Cost:** $2.70 per 1000 posts (~$0.05 for 20 posts)
+**Rating:** 4.53/5
+**Use for:** Bulk post analysis, written content patterns, engagement research
+
+**Tested:** @casarthakahuja (21 posts) - $0.057
+
+---
+
+### Instagram - AI Spoken Transcript (PREMIUM)
+
+**Actor:** `sian.agency/instagram-ai-transcript-extractor` ✅ TESTED
+
+**Capabilities:**
+- ✅ **Actual spoken words** (AI transcription)
+- ✅ Word-level timestamps
+- ✅ Sentence segments
+- ✅ Full metadata (likes, views, comments)
+- ✅ Caption text included
+
+**Input:**
+```json
+{
+  "instagramUrl": "https://instagram.com/reel/REEL_ID/",
+  "wordLevelTimestamps": true,
+  "fastProcessing": false
+}
+```
+
+**Cost:** $0.025 per reel
+**Rating:** 5.00/5
+**Use for:** Learning speaking style (actual words said, not written caption)
+
+**Tested:** Sarthak NRI reel (123s, 4.98M plays) - $0.025
+
+---
+
+### TikTok - Captions & Engagement Data
+
+**Actor:** `clockworks/tiktok-scraper` ✅ TESTED (Built-in tool available!)
+
+**Capabilities:**
+- ✅ Video captions
+- ✅ Engagement metrics (likes, plays, comments, shares)
+- ✅ Profile data (122M followers for @mrbeast)
+- ✅ Music info
+- ✅ Can download subtitles (if creator added)
+- ❌ NO AI transcript (use tictechid/anoxvanzi-Transcriber below)
+
+**Input:**
+```json
+{
+  "profiles": ["username"],
+  "resultsPerPage": 10,
+  "shouldDownloadSubtitles": true
+}
+```
+
+**Cost:** $0.006 startup + $0.0037 per video
+**Rating:** High adoption (87K users)
+**Use for:** Bulk TikTok data, caption analysis, engagement patterns
+
+**Tested:** @mrbeast (3 videos, 16M+ plays) - $0.017
+
+---
+
+### TikTok/Instagram/Facebook - AI Spoken Transcript (PREMIUM)
+
+**Actor:** `tictechid/anoxvanzi-Transcriber` ✅ TESTED
+
+**Capabilities:**
+- ✅ **Actual spoken words** (AI transcription)
+- ✅ Timestamped segments
+- ✅ Works for TikTok, Instagram, Facebook Reels
+- ✅ Language detection
+
+**Input:**
+```json
+{
+  "start_urls": "https://tiktok.com/@user/video/VIDEO_ID"
+}
+```
+
+**Cost:** $0.01 startup + $0.0025 per second (~$0.15 for 60s video)
+**Rating:** 5.00/5
+**Use for:** Learning speaking style from TikTok/Facebook (when caption is minimal)
+
+**Tested:** MrBeast pizza video (40s) - $0.11
+
+---
+
+### LinkedIn - Posts & Carousel Images
+
+**Actor:** `datadoping/linkedin-profile-posts-scraper` ✅ TESTED
+
+**Capabilities:**
+- ✅ Full post text
+- ✅ Engagement breakdown (likes, comments, reposts by type)
+- ✅ **Carousel images** (all slides as array)
+- ✅ Video URLs (but NOT transcripts)
+- ✅ Author details
+- ❌ NO text extraction from carousel slides (just image files)
+
+**Input:**
+```json
+{
+  "profiles": ["username"],
+  "max_posts": 10  // minimum 10
+}
+```
+
+**Cost:** $1.20 per 1000 posts (~$0.012 for 10 posts)
+**Rating:** 5.00/5
+**Free tier:** 4 profiles, 100 posts max per run
+**Use for:** Learning writing style, carousel design reference, engagement research
+
+**Tested:** Satya Nadella, Justin Welsh (10 posts each) - $0.012 each
+
+---
+
+## Decision Matrix: Which Actor to Use?
+
+### For Learning Speaking Style (Voice Analysis):
+
+| Platform | Need | Use Actor | Cost |
+|----------|------|-----------|------|
+| YouTube | Spoken transcript | `dz_omar/youtube-transcript-metadata-extractor` | FREE |
+| Instagram Reels | Spoken transcript | `sian.agency/instagram-ai-transcript-extractor` | $0.025/reel |
+| TikTok | Spoken transcript | `tictechid/anoxvanzi-Transcriber` | ~$0.15/video |
+| LinkedIn | Written posts | `datadoping/linkedin-profile-posts-scraper` | $0.001/post |
+
+### For Bulk Content Analysis (Engagement Patterns):
+
+| Platform | Need | Use Actor | Cost |
+|----------|------|-----------|------|
+| Instagram | Captions + metrics | `apify/instagram-scraper` | $0.003/post |
+| TikTok | Captions + metrics | `clockworks/tiktok-scraper` | $0.01/video |
+| LinkedIn | Post text + carousel images | `datadoping/linkedin-profile-posts-scraper` | $0.001/post |
+
+---
+
+## Complete Flow Example (Instagram Reel with AI Transcript)
+
+**User Request:** "Analyze @casarthakahuja's speaking style from Instagram"
+
+**Step 1:** Determine actor based on need
 
 ```
-Display: "Instagram analysis will cost ~$0.01. Proceed? [yes/no]"
+Need: Speaking style (voice analysis)
+→ Requires AI transcript
+→ Actor: sian.agency/instagram-ai-transcript-extractor
+```
+
+**Step 2:** Get specific reel URL
+
+```
+User provides: "https://instagram.com/reel/ABC123/"
+OR
+Use apify/instagram-scraper first to get recent reels, then pick top performer
+```
+
+**Step 3:** Calculate cost
+
+```
+Videos: 1 reel
+Cost per reel: $0.025
+Estimated total: $0.025
+```
+
+**Step 4:** Get user approval
+
+```
+Display: "Instagram AI transcript: $0.025 for 1 reel. Current budget: $0.24/$10. Proceed? [yes/no]"
 User: "yes"
 ```
 
-**Step 5: Execute actor**
+**Step 5:** Execute actor
 
 ```
-call-actor("apify/instagram-scraper", {username: "varunmayya", maxPosts: 20})
-→ Returns: runId, datasetId
+mcp__apify__call-actor:
+  actor: "sian.agency/instagram-ai-transcript-extractor"
+  step: "call"
+  input: {
+    "instagramUrl": "https://instagram.com/reel/ABC123/",
+    "wordLevelTimestamps": true,
+    "fastProcessing": false
+  }
 ```
 
-**Step 6: Retrieve results**
+**Step 6:** Retrieve results
 
 ```
-get-actor-output(datasetId)
-→ Returns: 20 posts with engagement data
+Returns:
+- transcript: "Full spoken content..."
+- words: Word-level timestamps
+- segments: Sentence segments
+- likesCount, videoViewCount, caption, etc.
 ```
 
-**Step 7: Log cost**
+**Step 7:** Analyze speaking patterns
+
+```
+- Hook: First 5 seconds - "A number of NRIs are losing access..."
+- Pacing: ~150 words per minute
+- Pauses: Strategic silence at 14-15s, 22-24s
+- CTA timing: 26-28s ("Follow if...")
+- Delivery: Direct, emotional, structured
+```
+
+**Step 8:** Log cost
 
 ```
 Update memories.md:
-- [2025-10-27] apify/instagram-scraper: $0.01 (20 posts, varunmayya)
-- Monthly total: $0.01
+- [2025-11-01] sian.agency/instagram-ai-transcript-extractor: $0.025 (1 reel, casarthakahuja NRI)
+- Monthly total: $0.242
 ```
 
 ---
@@ -243,29 +356,45 @@ Update memories.md:
 ## Error Handling
 
 **Actor not found:**
-
-- Try alternative search terms
-- Suggest manual actor selection from apify.com/store
+- Verify actor name matches verified list exactly
+- Check: `outputs/11-01-2025/apify-research-session/verified-apify-actors.md`
+- Try search-actors if actor name changed
 
 **Execution fails:**
+- Check Apify credits/authentication
+- Verify URL format (must be full URL with https://)
+- Check content is public (not private account)
+- Verify video has spoken audio (not music-only)
 
-- Check Apify credits available
-- Verify actor input parameters
-- Retry with different actor
-
-**No results returned:**
-
-- Profile may be private
-- Username may be incorrect
-- Try different platform
+**No transcript available:**
+- Video may be music-only without speech
+- Instagram: Fall back to apify/instagram-scraper for caption
+- TikTok: Fall back to clockworks/tiktok-scraper for caption
+- Inform user: "No spoken words detected, using written caption instead"
 
 **Cost exceeded budget:**
+- Show: "Current: $X.XX / $10.00 budget"
+- Ask: "This will add $Y.YY. Proceed? [yes/no]"
+- If declined: Offer free alternatives or manual analysis
 
-- Ask user if want to proceed anyway
-- Suggest reducing maxPosts parameter
-- Offer manual analysis option
+**Rate limiting (rare):**
+- Wait 30-60 seconds
+- Retry automatically
+- If persists: Try alternative actor or schedule for later
+
+---
+
+## Quick Reference: Verified Actors
+
+**YouTube:** `dz_omar/youtube-transcript-metadata-extractor` (FREE)
+**Instagram bulk:** `apify/instagram-scraper` ($0.003/post)
+**Instagram transcripts:** `sian.agency/instagram-ai-transcript-extractor` ($0.025/reel)
+**TikTok bulk:** `clockworks/tiktok-scraper` ($0.01/video)
+**TikTok transcripts:** `tictechid/anoxvanzi-Transcriber` ($0.15/video)
+**LinkedIn:** `datadoping/linkedin-profile-posts-scraper` ($0.001/post)
 
 ---
 
 **For usage examples, see:** `usage-examples.md`
 **For cost calculations, see:** `cost-examples.md`
+**For complete verified actors documentation, see:** `{project-root}/outputs/11-01-2025/apify-research-session/verified-apify-actors.md`

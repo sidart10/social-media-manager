@@ -285,14 +285,21 @@ Use workflows ONLY for multi-step user interaction tasks:
 **Tier 1 - Free** (always try first):
 - WebSearch, WebFetch (built-in)
 - firecrawl (with caching)
+- YouTube transcripts: `dz_omar/youtube-transcript-metadata-extractor` (FREE - verified Nov 1 2025)
 
 **Tier 2 - Low Cost** (use when free insufficient):
 - exa (~$0.05-0.15 per search)
 - social-media-mcp (Brave + Perplexity)
+- LinkedIn posts: `datadoping/linkedin-profile-posts-scraper` ($0.001/post)
+- Instagram bulk: `apify/instagram-scraper` ($0.003/post)
+- TikTok bulk: `clockworks/tiktok-scraper` ($0.01/video)
 
-**Tier 3 - Paid** (use only when necessary):
-- apify (~$0.40-0.50 per 1k results)
+**Tier 3 - Premium AI Transcripts** (use only for voice learning):
+- Instagram spoken transcript: `sian.agency/instagram-ai-transcript-extractor` ($0.025/reel)
+- TikTok spoken transcript: `tictechid/anoxvanzi-Transcriber` ($0.15/video)
 - **Always warn user about cost before calling**
+
+**Complete verified actors list:** `outputs/11-01-2025/apify-research-session/verified-apify-actors.md`
 
 **See**: `config.yaml → mcp_tools_overview` for skill-to-MCP mapping
 
@@ -302,6 +309,7 @@ Use workflows ONLY for multi-step user interaction tasks:
 - If skill fails: Load alternative skill or ask user for guidance
 - Log all errors and costs in memories.md
 - Never fail silently
+- Actor verification date: Nov 1, 2025 (re-verify quarterly)
 
 ## Cost Tracking (MANDATORY)
 

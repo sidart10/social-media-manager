@@ -76,8 +76,17 @@ mcp_tools_overview:
       - firecrawl (firecrawl_search, firecrawl_scrape)
 
     profile-analysis:
-      - apify (instagram-scraper, tiktok-scraper, twitter-scraper-lite)
+      - apify (VERIFIED actors - see outputs/11-01-2025/apify-research-session/verified-apify-actors.md)
+        • YouTube: dz_omar/youtube-transcript-metadata-extractor (FREE)
+        • Instagram bulk: apify/instagram-scraper ($0.003/post)
+        • Instagram transcripts: sian.agency/instagram-ai-transcript-extractor ($0.025/reel)
+        • TikTok bulk: clockworks/tiktok-scraper ($0.01/video)
+        • TikTok transcripts: tictechid/anoxvanzi-Transcriber ($0.15/video)
+        • LinkedIn: datadoping/linkedin-profile-posts-scraper ($0.001/post)
       - exa (for username verification)
+
+    youtube-research:
+      - apify (dz_omar/youtube-transcript-metadata-extractor - FREE, verified Nov 1 2025)
 
     social-media-research:
       - social-media-mcp (get_trending_topics, research_topic)

@@ -49,23 +49,23 @@ standalone: true
 
 # Web Bundle Configuration
 web_bundle:
-  name: 'create-skill'
-  description: 'Interactive workflow to create Claude Code skills following Anthropic best practices with optional research enhancement, proper file structure, and automatic manifest logging'
-  author: 'BMad Builder'
+  name: "create-skill"
+  description: "Interactive workflow to create Claude Code skills following Anthropic best practices with optional research enhancement, proper file structure, and automatic manifest logging"
+  author: "BMad Builder"
 
-  instructions: 'bmad/bmb/workflows/create-skill/instructions.md'
-  validation: 'bmad/bmb/workflows/create-skill/checklist.md'
+  instructions: "bmad/bmb/workflows/create-skill/instructions.md"
+  validation: "bmad/bmb/workflows/create-skill/checklist.md"
   template: false
 
   # Required data files
-  agent_manifest: 'bmad/_cfg/agent-manifest.csv'
-  anthropic_best_practices: 'bmad/bmb/workflows/create-skill/anthropic-best-practices.md'
-  research_context: 'bmad/bmb/workflows/create-skill/research-context.md'
+  agent_manifest: "bmad/_cfg/agent-manifest.csv"
+  anthropic_best_practices: "bmad/bmb/workflows/create-skill/anthropic-best-practices.md"
+  research_context: "bmad/bmb/workflows/create-skill/research-context.md"
 
   web_bundle_files:
-    - 'bmad/bmb/workflows/create-skill/instructions.md'
-    - 'bmad/bmb/workflows/create-skill/checklist.md'
-    - 'bmad/bmb/workflows/create-skill/anthropic-best-practices.md'
-    - 'bmad/bmb/workflows/create-skill/research-context.md'
-    - 'bmad/bmb/workflows/create-skill/skill-template/SKILL-template.md'
-    - 'bmad/_cfg/agent-manifest.csv'
+    - "bmad/bmb/workflows/create-skill/instructions.md"
+    - "bmad/bmb/workflows/create-skill/checklist.md"
+    - "bmad/bmb/workflows/create-skill/anthropic-best-practices.md"
+    - "bmad/bmb/workflows/create-skill/research-context.md"
+    - "bmad/bmb/workflows/create-skill/skill-template/SKILL-template.md"
+    - "bmad/_cfg/agent-manifest.csv"

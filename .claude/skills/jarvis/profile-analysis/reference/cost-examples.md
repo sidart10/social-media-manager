@@ -18,15 +18,23 @@ Cost = (Posts/Videos to analyze) × (Cost per 1000) / 1000
 
 ---
 
-## Platform Costs
+## Platform Costs (VERIFIED Nov 1, 2025)
 
-| Platform  | Actor                               | Cost per 1k        | 20 posts | 50 posts | 100 posts |
-| --------- | ----------------------------------- | ------------------ | -------- | -------- | --------- |
-| Instagram | apify/instagram-scraper             | $0.50              | $0.01    | $0.025   | $0.05     |
-| TikTok    | clockworks/tiktok-scraper           | ~$0.50 per profile | $0.50    | $0.50    | $0.50     |
-| Twitter   | apidojo/twitter-scraper-lite        | $0.40              | $0.008   | $0.02    | $0.04     |
-| LinkedIn  | dev_fusion/Linkedin-Profile-Scraper | $0.30              | $0.006   | $0.015   | $0.03     |
-| YouTube   | streamers/youtube-scraper           | $0.40              | $0.008   | $0.02    | $0.04     |
+### Content Scraping (Captions/Text)
+
+| Platform  | Actor ✅ | Cost per 1k | 10 posts | 20 posts | 50 posts | 100 posts |
+| --------- | -------- | ----------- | -------- | -------- | -------- | --------- |
+| **YouTube** | `dz_omar/youtube-transcript-metadata-extractor` | **FREE** | FREE | FREE | FREE | FREE |
+| **LinkedIn** | `datadoping/linkedin-profile-posts-scraper` | $1.20 | $0.012 | $0.024 | $0.06 | $0.12 |
+| **Instagram** | `apify/instagram-scraper` | $2.70 | $0.027 | $0.054 | $0.135 | $0.27 |
+| **TikTok** | `clockworks/tiktok-scraper` | $0.0037 per video + $0.006 startup | - | $0.08 | $0.19 | $0.38 |
+
+### AI Transcripts (Spoken Words)
+
+| Platform  | Actor ✅ | Cost per video |
+| --------- | -------- | -------------- |
+| **Instagram Reels** | `sian.agency/instagram-ai-transcript-extractor` | $0.025/reel |
+| **TikTok** | `tictechid/anoxvanzi-Transcriber` | ~$0.10-0.20/video (60s avg) |
 
 ---
 

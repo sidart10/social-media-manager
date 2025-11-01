@@ -54,24 +54,24 @@ standalone: true
 
 # Web Bundle Configuration
 web_bundle:
-  name: 'edit-skill'
-  description: 'Edit existing Claude Code skills while maintaining consistency across SKILL.md, supporting files, and all project manifests. Automatically discovers and updates all usage locations in workflows and agents.'
-  author: 'BMad Builder'
+  name: "edit-skill"
+  description: "Edit existing Claude Code skills while maintaining consistency across SKILL.md, supporting files, and all project manifests. Automatically discovers and updates all usage locations in workflows and agents."
+  author: "BMad Builder"
 
-  instructions: 'bmad/bmb/workflows/edit-skill/instructions.md'
-  validation: 'bmad/bmb/workflows/edit-skill/checklist.md'
+  instructions: "bmad/bmb/workflows/edit-skill/instructions.md"
+  validation: "bmad/bmb/workflows/edit-skill/checklist.md"
   template: false
 
   # Required data files
-  skill_manifest: 'bmad/_cfg/skill-manifest.csv'
-  agent_manifest: 'bmad/_cfg/agent-manifest.csv'
-  anthropic_best_practices: 'bmad/bmb/workflows/create-skill/anthropic-best-practices.md'
-  research_context: 'bmad/bmb/workflows/create-skill/research-context.md'
+  skill_manifest: "bmad/_cfg/skill-manifest.csv"
+  agent_manifest: "bmad/_cfg/agent-manifest.csv"
+  anthropic_best_practices: "bmad/bmb/workflows/create-skill/anthropic-best-practices.md"
+  research_context: "bmad/bmb/workflows/create-skill/research-context.md"
 
   web_bundle_files:
-    - 'bmad/bmb/workflows/edit-skill/instructions.md'
-    - 'bmad/bmb/workflows/edit-skill/checklist.md'
-    - 'bmad/bmb/workflows/create-skill/anthropic-best-practices.md'
-    - 'bmad/bmb/workflows/create-skill/research-context.md'
-    - 'bmad/_cfg/skill-manifest.csv'
-    - 'bmad/_cfg/agent-manifest.csv'
+    - "bmad/bmb/workflows/edit-skill/instructions.md"
+    - "bmad/bmb/workflows/edit-skill/checklist.md"
+    - "bmad/bmb/workflows/create-skill/anthropic-best-practices.md"
+    - "bmad/bmb/workflows/create-skill/research-context.md"
+    - "bmad/_cfg/skill-manifest.csv"
+    - "bmad/_cfg/agent-manifest.csv"

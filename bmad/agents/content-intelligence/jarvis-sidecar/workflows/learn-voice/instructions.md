@@ -31,16 +31,17 @@ Provide URLs (one per line or comma-separated):
 <step n="2" goal="Fetch YOUR content (cost-optimized)">
   <action>Display: "Fetching your content using free APIs where possible..."</action>
 
-  <!-- TWITTER - Reliable Apify scraper -->
+  <!-- TWITTER - Use built-in Twitter scraper if available -->
   <check if="twitter_handle provided">
     <action>Display: "📱 Twitter: Fetching your posts..."</action>
 
-    <!-- Use scraper_one/x-profile-posts-scraper (most reliable) -->
-    <action>Display: "Using Apify X Profile Posts Scraper (~$0.02 for 50 posts)"</action>
-    <action>Use Apify: scraper_one/x-profile-posts-scraper</action>
+    <!-- Use apidojo/twitter-scraper-lite (verified, reliable) -->
+    <action>Display: "Using Apify Twitter Scraper Lite (FREE tier available)"</action>
+    <action>Use Apify: apidojo/twitter-scraper-lite</action>
     <action>Parameters:
-      - profileUrls: ["https://x.com/{handle}"]
-      - resultsLimit: 100 (get more to filter AI-generated later)
+      - twitterHandles: ["{handle}"]
+      - maxItems: 100
+      - sort: "Latest"
     </action>
 
     <action>Store tweets for analysis</action>
@@ -49,44 +50,45 @@ Provide URLs (one per line or comma-separated):
 
   </check>
 
-  <!-- LINKEDIN - Use apimaestro (NO COOKIES, reliable) -->
+  <!-- LINKEDIN - Use verified NO COOKIES scraper -->
   <check if="linkedin_url provided">
     <action>Display: "💼 LinkedIn: Fetching your posts..."</action>
 
     <action>Extract username from LinkedIn URL (e.g., /in/siddani/ → siddani)</action>
-    <action>Use Apify: apimaestro/linkedin-profile-posts</action>
+    <action>Use Apify: datadoping/linkedin-profile-posts-scraper ✅ VERIFIED</action>
     <action>Parameters:
-      - username: {linkedin_username}
-      - total_posts: 50 (auto-pagination enabled)
+      - profiles: ["{linkedin_username}"]
+      - max_posts: 50  // minimum 10, get 50 for good sample
     </action>
 
     <action>Store posts for analysis</action>
     <action>Display: "✓ Fetched {post_count} LinkedIn posts"</action>
-    <action>Log cost: ~$0.10-0.15</action>
+    <action>Log cost: ~$0.06 (50 posts × $1.20/1000)</action>
 
   </check>
 
-  <!-- YOUTUBE - Use starvibe for transcripts -->
-  <check if="youtube_channel provided">
+  <!-- YOUTUBE - Use FREE verified transcript extractor -->
+  <check if="youtube_channel or youtube_video provided">
     <action>Display: "🎥 YouTube: Fetching video transcripts..."</action>
 
-    <action>Use Apify: starvibe/youtube-video-transcript</action>
+    <action>Use Apify: dz_omar/youtube-transcript-metadata-extractor ✅ VERIFIED</action>
     <action>Parameters:
-      - channel_url: {youtube_channel_url}
-      - max_videos: 10
-      - language: "en"
+      - youtubeUrl: [{"url": "{video_url}"}]  // Analyze 1-3 videos for speaking voice
+      - cleaningLevel: "mild"
+      - includeTimestamps: true
     </action>
 
     <action>Store transcripts for analysis</action>
     <action>Display: "✓ Fetched transcripts from {video_count} YouTube videos"</action>
-    <action>Log cost: ~$0.05</action>
+    <action>Log cost: FREE (platform fee ~$0.009 per video)</action>
 
     <note>YouTube transcripts analyze your SPOKEN voice:
-      - Speaking rhythm and pace
-      - Natural transitions
-      - Teaching patterns
-      - Conversational markers ("um", "you know", "so")
+      - Speaking rhythm and pace (words per minute)
+      - Natural transitions ("but", "however", "so")
+      - Teaching patterns (step-by-step vs story-driven)
+      - Conversational markers ("um", "you know", "so", "right?")
       - Filler words and verbal tics
+      - Pacing variations
 
       This helps adapt scripts to match how you actually speak!
     </note>

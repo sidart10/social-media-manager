@@ -1,6 +1,6 @@
 ---
 name: youtube-research
-description: Analyze YouTube videos using Apify to extract transcripts with timestamps, identify how topics are explained, find structure patterns, and extract quotes. Use when user provides YouTube URLs or asks how YouTubers explain topics. Uses karamelo/youtube-transcripts Apify actor (reliable, ~$0.01/video).
+description: Analyze YouTube videos using Apify to extract transcripts with timestamps, identify how topics are explained, find structure patterns, and extract quotes. Use when user provides YouTube URLs or asks how YouTubers explain topics. Uses dz_omar/youtube-transcript-metadata-extractor Apify actor (reliable, FREE).
 ---
 
 # YouTube Research
@@ -14,10 +14,10 @@ Extract and analyze YouTube video content using transcripts to understand how to
 When user provides YouTube URL(s) or asks about YouTube content:
 
 1. **Extract transcripts using Apify:**
-   - Actor: `karamelo/youtube-transcripts`
-   - Call actor with: `{"urls": [url1, url2, ...]}`
-   - Note: Parameter is "urls" (not "videoUrls")
-   - Cost: ~$0.01 per video (reliable extraction)
+   - Actor: `dz_omar/youtube-transcript-metadata-extractor` ✅ VERIFIED
+   - Call actor with: `{"youtubeUrl": [{"url": "..."}], "cleaningLevel": "mild", "includeTimestamps": true}`
+   - Note: Parameter is "youtubeUrl" as array of objects (not "urls")
+   - Cost: FREE (platform fee only ~$0.009)
    - **See reference/youtube-transcript-tool.md for Apify actor documentation**
 
 2. **Analyze the transcript** to extract hook (first 10 seconds), structure pattern, memorable quotes with timestamps, and teaching approach. **See reference/analysis-patterns.md for detailed extraction methods.**
@@ -26,14 +26,16 @@ When user provides YouTube URL(s) or asks about YouTube content:
 
 **For step-by-step analysis patterns and examples, see:** `reference/analysis-patterns.md`
 
-## Why Apify?
+## Why This Actor?
 
-The youtube-transcript MCP server is broken. Apify's `karamelo/youtube-transcripts` actor is:
-- ✅ Reliable and actively maintained
-- ✅ Fast (seconds per video)
+The youtube-transcript MCP server is broken. Apify's `dz_omar/youtube-transcript-metadata-extractor` is:
+- ✅ Verified working (Nov 1, 2025)
+- ✅ FREE (platform fee only)
+- ✅ Reliable and actively maintained (4.92/5 rating)
+- ✅ Fast (10-30s per video)
 - ✅ Handles videos with or without manual captions
-- ✅ Returns clean JSON with timestamps
-- ✅ Low cost (~$0.01/video)
+- ✅ Returns comprehensive metadata (views, likes, channel, description)
+- ✅ 100% success rate in testing
 
 ## Reference Documentation
 
@@ -48,8 +50,10 @@ This Skill includes comprehensive YouTube transcript documentation:
 
 ## Example
 
-**User provides:** "youtube.com/watch?v=abc123"
+**User provides:** "https://youtube.com/watch?v=7xTGNNLPyMI"
 
-**You:** Extract video ID → Use Apify karamelo/youtube-transcripts → Extract transcript → Identify hook ("This changed everything..." at 0:05) → Find structure (problem 0:00-1:00, solution 1:00-5:00) → Extract quotes with timestamps → Analyze teaching style
+**You:** Call Apify dz_omar/youtube-transcript-metadata-extractor → Extract full transcript → Identify hook from first 10s → Find structure from chapter timestamps → Extract quotes with timing → Analyze teaching style → Cost: FREE ($0.009 platform fee)
+
+**Real test:** Andrej Karpathy LLM video (3.5 hours, 3.8M views) - Full transcript extracted successfully
 
 **See reference/youtube-transcript-tool.md for complete example with actual Apify integration.**

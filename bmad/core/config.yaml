@@ -6,4 +6,4 @@
 user_name: sid
 communication_language: english
 document_output_language: english
-output_folder: '{project-root}/docs'
+output_folder: "{project-root}/docs"

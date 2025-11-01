@@ -58,9 +58,14 @@ This Skill includes comprehensive Apify documentation:
 **You:**
 1. Search with Exa: "Varun Mayya Instagram profile username"
 2. Find correct username: @thevarunmayya (not @varunmayya)
-3. Detect Instagram → Select apify/instagram-reel-scraper
-4. Estimate $0.05 → Get approval
-5. Scrape 20 reels with verified username
+3. Detect Instagram → Select `apify/instagram-scraper` ✅ VERIFIED
+4. Estimate $0.05 (20 posts) → Get approval
+5. Scrape 20 posts with verified username
 6. Analyze patterns → Create summary → Log cost
 
+**For spoken transcript (voice learning):**
+- Use `sian.agency/instagram-ai-transcript-extractor` on specific reels
+- Cost: $0.025 per reel
+
 **See reference/usage-examples.md Example 1 for complete flow.**
+**See reference/apify-tools.md for all verified actors.**

@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * Comprehensive Skill Validation Test Suite
  * Validates all skills in .claude/skills/ follow Anthropic best practices
@@ -9,18 +8,18 @@
  *   node test/validate-skills.js --strict            # Fail on warnings
  */
 
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 const yaml = require('js-yaml');
 
 // Color codes for terminal output
 const colors = {
-  reset: '\x1b[0m',
-  red: '\x1b[31m',
-  green: '\x1b[32m',
-  yellow: '\x1b[33m',
-  blue: '\x1b[34m',
-  cyan: '\x1b[36m',
+  reset: '\u001B[0m',
+  red: '\u001B[31m',
+  green: '\u001B[32m',
+  yellow: '\u001B[33m',
+  blue: '\u001B[34m',
+  cyan: '\u001B[36m',
 };
 
 class SkillValidator {
@@ -51,7 +50,7 @@ class SkillValidator {
       return this.getResults();
     }
 
-    const content = fs.readFileSync(skillMdPath, 'utf-8');
+    const content = fs.readFileSync(skillMdPath, 'utf8');
 
     // Validate structure
     this.validateYAMLFrontmatter(content);
@@ -83,23 +82,23 @@ class SkillValidator {
     let metadata;
     try {
       metadata = yaml.load(parts[1]);
-    } catch (e) {
-      this.errors.push(`Invalid YAML syntax: ${e.message}`);
+    } catch (error) {
+      this.errors.push(`Invalid YAML syntax: ${error.message}`);
       return;
     }
 
     // Validate name field
-    if (!metadata.name) {
-      this.errors.push("Missing required field: 'name'");
-    } else {
+    if (metadata.name) {
       this.validateName(metadata.name);
+    } else {
+      this.errors.push("Missing required field: 'name'");
     }
 
     // Validate description field
-    if (!metadata.description) {
-      this.errors.push("Missing required field: 'description'");
-    } else {
+    if (metadata.description) {
       this.validateDescription(metadata.description);
+    } else {
+      this.errors.push("Missing required field: 'description'");
     }
 
     // Check allowed-tools (optional)
@@ -205,14 +204,14 @@ class SkillValidator {
     };
 
     for (const [name, regex] of Object.entries(sections)) {
-      if (!regex.test(body)) {
+      if (regex.test(body)) {
+        this.info.push(`✓ Has '## ${name}' section`);
+      } else {
         if (name === 'Examples') {
           this.warnings.push(`Missing recommended section: '## ${name}'`);
         } else {
           this.warnings.push(`Missing section: '## ${name}'`);
         }
-      } else {
-        this.info.push(`✓ Has '## ${name}' section`);
       }
     }
 
@@ -320,27 +319,27 @@ class SkillValidator {
     if (results.errors.length > 0) {
       console.log(`\n${colors.red}❌ ERRORS (must fix):${colors.reset}`);
       console.log('-'.repeat(70));
-      results.errors.forEach(e => {
+      for (const e of results.errors) {
         console.log(`  ${colors.red}✗${colors.reset} ${e}`);
-      });
+      }
     }
 
     // Warnings
     if (results.warnings.length > 0) {
       console.log(`\n${colors.yellow}⚠️  WARNINGS (should fix):${colors.reset}`);
       console.log('-'.repeat(70));
-      results.warnings.forEach(w => {
+      for (const w of results.warnings) {
         console.log(`  ${colors.yellow}⚡${colors.reset} ${w}`);
-      });
+      }
     }
 
     // Info
     if (results.info.length > 0) {
       console.log(`\n${colors.green}✅ VALIDATED:${colors.reset}`);
       console.log('-'.repeat(70));
-      results.info.forEach(i => {
+      for (const i of results.info) {
         console.log(`  ${i}`);
-      });
+      }
     }
 
     // Summary
@@ -411,14 +410,14 @@ async function main() {
   // Find project skills
   if (fs.existsSync(projectSkillsDir)) {
     const projectSkills = findSkills(projectSkillsDir);
-    projectSkills.forEach(s => s.location = 'project');
+    for (const s of projectSkills) s.location = 'project';
     allSkills.push(...projectSkills);
   }
 
   // Find personal skills
   if (fs.existsSync(personalSkillsDir)) {
     const personalSkills = findSkills(personalSkillsDir);
-    personalSkills.forEach(s => s.location = 'personal');
+    for (const s of personalSkills) s.location = 'personal';
     allSkills.push(...personalSkills);
   }
 
@@ -440,9 +439,9 @@ async function main() {
   const results = [];
 
   for (const skill of allSkills) {
-    const displayName = skill.category !== 'root'
-      ? `${skill.category}/${skill.name}`
-      : skill.name;
+    const displayName = skill.category === 'root'
+      ? skill.name
+      : `${skill.category}/${skill.name}`;
 
     const result = validator.validateSkill(skill.path, displayName);
     validator.printResults(result, displayName);
@@ -466,22 +465,22 @@ async function main() {
 
   console.log(`${colors.green}✅ Perfect (100):${colors.reset} ${perfect.length}`);
   if (perfect.length > 0) {
-    perfect.forEach(r => console.log(`   - ${r.name}`));
+    for (const r of perfect) console.log(`   - ${r.name}`);
   }
 
   console.log(`\n${colors.green}✅ Good (75-99):${colors.reset} ${good.length}`);
   if (good.length > 0) {
-    good.forEach(r => console.log(`   - ${r.name} (${r.warnings.length} warning(s))`));
+    for (const r of good) console.log(`   - ${r.name} (${r.warnings.length} warning(s))`);
   }
 
   console.log(`\n${colors.yellow}⚠️  Needs Work (50-74):${colors.reset} ${needsWork.length}`);
   if (needsWork.length > 0) {
-    needsWork.forEach(r => console.log(`   - ${r.name} (${r.warnings.length} warnings)`));
+    for (const r of needsWork) console.log(`   - ${r.name} (${r.warnings.length} warnings)`);
   }
 
   console.log(`\n${colors.red}❌ Failed (0):${colors.reset} ${failed.length}`);
   if (failed.length > 0) {
-    failed.forEach(r => console.log(`   - ${r.name} (${r.errors.length} error(s))`));
+    for (const r of failed) console.log(`   - ${r.name} (${r.errors.length} error(s))`);
   }
 
   // Overall quality
@@ -515,7 +514,7 @@ async function main() {
 }
 
 // Run
-main().catch(err => {
-  console.error(`${colors.red}Fatal error:${colors.reset}`, err);
+main().catch(error => {
+  console.error(`${colors.red}Fatal error:${colors.reset}`, error);
   process.exit(1);
 });
