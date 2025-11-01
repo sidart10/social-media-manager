@@ -1,6 +1,6 @@
 ---
 name: profile-analysis
-description: Analyze social media profiles using Apify scrapers for Instagram, TikTok, Twitter, LinkedIn, or YouTube. Extract posts, engagement, patterns (hooks, topics, formats, timing). Use when user provides profile URLs or asks to analyze accounts, profiles, or channels.
+description: Analyze social media profiles using Apify scrapers for Instagram, TikTok, Twitter, LinkedIn, or YouTube. Extract posts, engagement, patterns (hooks, topics, formats, timing). Use when user provides profile URLs (youtube.com, youtu.be, instagram.com, twitter.com, linkedin.com, tiktok.com) or asks to analyze accounts, profiles, channels, videos, or content creators.
 ---
 
 # Profile Analysis
