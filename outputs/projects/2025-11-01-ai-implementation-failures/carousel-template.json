@@ -1,0 +1,80 @@
+{
+  "carousel_name": "67% of AI Implementations Fail - Strategic Framework",
+  "topic": "AI implementation failures and success patterns",
+  "platform": "LinkedIn",
+  "aspect_ratio": "1:1",
+  "slide_count": 5,
+  "design_system": {
+    "aesthetic": "Sophisticated muted tech - H-1B inspired",
+    "background": "Deep navy (#0A1929) gradient to black",
+    "color_palette": {
+      "mistakes_risks": "#B88B7E",
+      "solutions_wins": "#7FA99B",
+      "neutral": "#8B93A7",
+      "highlight": "#D4A574"
+    },
+    "typography": {
+      "headline_font": "Inter Bold",
+      "headline_size": "36pt",
+      "headline_color": "#E5E5E5",
+      "data_size": "48pt",
+      "body_size": "18pt",
+      "body_color": "#9CA3AF"
+    },
+    "branding": "Sid Dani watermark bottom right (#9CA3AF, 14pt)"
+  },
+  "slides": [
+    {
+      "slide_number": 1,
+      "title": "Pattern Interrupt - The 67% Stat",
+      "prompt": "Create a sophisticated data visualization on a deep navy blue (#0A1929) background with gradient to black. Center the image with a LARGE prominent '67%' in muted amber/terra cotta (#D4A574) color, 120pt bold sans-serif font. Below it in smaller soft white text (#E5E5E5, 24pt): 'of AI implementations fail'. In the bottom right corner, show '33% succeed' in smaller muted teal (#7FA99B, 20pt) for subtle comparison. Add 'Sid Dani' watermark in bottom right corner in muted gray (#9CA3AF, 14pt). Minimal design, Apple keynote aesthetic, generous white space, high contrast. Photography style: Clean data visualization, professional infographic. Camera: Centered composition, balanced layout.",
+      "negative_prompt": "bright colors, vibrant hues, saturated tones, cluttered design, multiple data points, busy layout, charts, graphs, icons, decorative elements, gradients on text, shadows, 3D effects, cartoon style",
+      "emotional_goal": "Shock and curiosity - 'Oh shit, I might be in the 67%'",
+      "key_elements": ["67% large and prominent", "muted amber color", "33% subtle comparison", "minimal clean design"]
+    },
+    {
+      "slide_number": 2,
+      "title": "The Mistake Matrix",
+      "prompt": "Create a clean 3-row matrix visualization on deep navy background (#0A1929). Title at top in soft white (#E5E5E5, 28pt): 'The 3 Mistakes'. Three rows, each showing: Left column - mistake name in muted terra cotta (#B88B7E), Center column - consequence in muted gray (#9CA3AF), Right column - cost in muted amber (#D4A574). Row 1: 'Feature Add → No Moat → Commoditized'. Row 2: 'Ignore Economics → $5 CAC/$20 LTV → Death'. Row 3: 'Deterministic → Prod Fails → 60%'. Use simple arrows (→) between columns. Sans-serif font, 18pt for content, generous spacing between rows. 'Sid Dani' watermark bottom right. Clean, sophisticated data presentation, minimal design.",
+      "negative_prompt": "bright colors, 3D effects, icons, decorative elements, gradients, shadows, complex diagrams, flowcharts, busy layout, multiple colors per row, cartoon style, illustrations",
+      "emotional_goal": "Recognition - 'We're making these exact mistakes'",
+      "key_elements": ["3 clear rows", "arrow progression", "muted colors only", "data-driven presentation"]
+    },
+    {
+      "slide_number": 3,
+      "title": "The Reality Check",
+      "prompt": "Create an authoritative data visualization on deep navy background (#0A1929). Center-stage: '€20M' in LARGE muted amber (#D4A574, 72pt bold). Below it in soft white (#E5E5E5, 20pt): 'average loss per failed AI program'. Small attribution: 'Source: BCG' in muted gray (#9CA3AF, 14pt). Below, show a comparison bar chart: 'Demo Success: 95%' in muted teal (#7FA99B) bar (full width), 'Production: 60%' in muted terra cotta (#B88B7E) bar (60% width). Simple horizontal bars, labeled on left. 'Sid Dani' watermark bottom right. Clean, minimal, Apple keynote style, professional data visualization.",
+      "negative_prompt": "bright colors, 3D charts, pie charts, complex graphs, decorative elements, gradients, shadows, icons, illustrations, multiple fonts, busy layout, saturated colors",
+      "emotional_goal": "Authority - 'This isn't theoretical, companies are bleeding millions'",
+      "key_elements": ["€20M center-stage", "BCG source", "demo vs production comparison", "simple bar chart"]
+    },
+    {
+      "slide_number": 4,
+      "title": "The Winner's Framework",
+      "prompt": "Create a clean 2x2 matrix on deep navy background (#0A1929). Title at top in soft white (#E5E5E5, 28pt): 'The Winner's Framework'. Draw a simple cross dividing the space into 4 quadrants. X-axis label bottom: 'AI as Feature' (left) to 'AI as Core' (right). Y-axis label left: 'Ignore Economics' (bottom) to 'Model Economics' (top). Top-right quadrant (AI as Core + Model Economics) highlighted with muted teal border (#7FA99B) and text 'WINNERS' inside. Other quadrants in muted gray. Simple sans-serif typography, 16pt labels. 'Sid Dani' watermark bottom right. Minimal design, clean lines, professional framework visualization.",
+      "negative_prompt": "bright colors, 3D effects, icons, decorative elements, gradients, shadows, complex diagrams, multiple colors per quadrant, illustrations, busy layout, cartoon style",
+      "emotional_goal": "Clarity - 'There's a clear pattern for the 33% who win'",
+      "key_elements": ["2x2 matrix", "winners quadrant highlighted", "axis labels", "minimal clean design"]
+    },
+    {
+      "slide_number": 5,
+      "title": "The CTA",
+      "prompt": "Create a minimal engagement slide on deep navy background (#0A1929). Center the text: 'What's your AI product strategy?' in large soft white (#E5E5E5, 32pt) sans-serif font, centered. Below in smaller muted teal (#7FA99B, 20pt): 'Share your approach 👇'. Bottom right: 'Sid Dani' in muted gray (#9CA3AF, 16pt). Generous white space, minimal design, Apple keynote aesthetic, clean typography, centered composition. No other elements.",
+      "negative_prompt": "bright colors, decorative elements, icons, graphics, charts, data, gradients, shadows, 3D effects, busy layout, multiple fonts, illustrations, complex design",
+      "emotional_goal": "Engagement - 'I should comment and join this discussion'",
+      "key_elements": ["centered question", "emoji for warmth", "generous white space", "clean typography"]
+    }
+  ],
+  "global_settings": {
+    "size": "1024x1024",
+    "quality": "high",
+    "format": "png",
+    "provider": "nanobanana"
+  },
+  "strategic_notes": {
+    "behavioral_goal": "SAVES + SHARES on LinkedIn",
+    "slide_count_rationale": "5 slides = higher completion rate vs 7+",
+    "design_rationale": "Muted H-1B aesthetic = sophisticated authority",
+    "cta_strategy": "Question format drives comments (algorithm boost)"
+  }
+}
