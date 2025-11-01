@@ -1,0 +1,29 @@
+{
+  "images": [
+    {
+      "filename": "linkedin-thumbnail-icarus-115b-burn.png",
+      "platform_designed_for": "LinkedIn",
+      "design_system": "dark-monochrome-tech",
+      "concept": "Icarus metaphor - ascending toward $115B sun with financial data journey",
+      "size": "1536x1024",
+      "aspect_ratio": "16:9",
+      "mcp_tool_used": "gpt-image-1",
+      "file_size": "2.0 MB",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1761980150/social-media-images/social-media/linkedin-openai-115b-burn-icarus.png",
+      "quality_scores": {
+        "clarity": 8,
+        "technical_quality": 9,
+        "composition": 8,
+        "color_accuracy": 9,
+        "typography": 7,
+        "professionalism": 8,
+        "prompt_accuracy": 9,
+        "overall": 8.3
+      },
+      "used_in_platforms": ["linkedin"],
+      "generated_timestamp": "2025-11-01T06:55:18Z",
+      "methodology": "Emily's JSON framework",
+      "cost": 0.08
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+file 'scene1-dawn-8s.mp4'
+file 'scene2-canyon-8s.mp4'
+file 'scene3-forest-8s.mp4'
+file 'scene4-storm-8s.mp4'
+file 'scene5-winter-8s.mp4'
+file 'scene6-night-v2-8s.mp4'
+file 'scene7-8-void-to-door-8s.mp4'
+file 'scene9-truman-zoom-8s.mp4'

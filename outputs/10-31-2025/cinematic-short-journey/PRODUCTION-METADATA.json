@@ -1,0 +1,130 @@
+{
+  "film_title": "THE JOURNEY",
+  "production_date": "2025-10-31",
+  "final_output": {
+    "file_path": "outputs/10-31-2025/cinematic-short-journey/videos/THE-JOURNEY-FINAL.mp4",
+    "duration_seconds": 64,
+    "format": "1080p 16:9",
+    "file_size_mb": 117,
+    "audio": true,
+    "frame_rate": 24
+  },
+  "style": "Love, Death & Robots - Stylized CGI",
+  "character_consistency_method": "3-view character reference pack + FAL Veo 3.1 reference-to-video",
+  "scene_structure": {
+    "total_scenes": 8,
+    "scene_1": {
+      "title": "Dawn - The Beginning",
+      "duration": "8s",
+      "shot_type": "Wide low angle dolly-in",
+      "environment": "Desert at golden hour sunrise",
+      "file": "scene1-dawn-8s.mp4"
+    },
+    "scene_2": {
+      "title": "Midday - The Harsh Sun",
+      "duration": "8s",
+      "shot_type": "Medium tracking side",
+      "environment": "Red desert canyon, harsh midday",
+      "file": "scene2-canyon-8s.mp4"
+    },
+    "scene_3": {
+      "title": "Forest Transition - The Shift",
+      "duration": "8s",
+      "shot_type": "Wide static surreal transition",
+      "environment": "Desert morphs to green forest mid-stride",
+      "file": "scene3-forest-8s.mp4"
+    },
+    "scene_4": {
+      "title": "Storm - The Test",
+      "duration": "8s",
+      "shot_type": "Medium front push-in",
+      "environment": "Dark forest in heavy rainstorm",
+      "file": "scene4-storm-8s.mp4"
+    },
+    "scene_5": {
+      "title": "Winter - The Cold",
+      "duration": "8s",
+      "shot_type": "Extreme wide crane-up",
+      "environment": "Winter forest, heavy snowfall",
+      "file": "scene5-winter-8s.mp4"
+    },
+    "scene_6": {
+      "title": "Night Transition - Cold to Cosmic",
+      "duration": "8s",
+      "shot_type": "Side tracking with aurora transition",
+      "environment": "Cold night with aurora borealis, Milky Way",
+      "file": "scene6-night-v2-8s.mp4",
+      "note": "Transitions from cold snow to cosmic night with auroras"
+    },
+    "scene_7_8": {
+      "title": "Void to Door - The Moment",
+      "duration": "8s",
+      "shot_type": "Medium dolly following, static for smile",
+      "environment": "Infinite void to door with smile and entry",
+      "file": "scene7-8-void-to-door-8s.mp4",
+      "note": "Combined scenes: void approach + door smile + walk through"
+    },
+    "scene_9": {
+      "title": "The Exit - Truman Show Revelation",
+      "duration": "8s",
+      "shot_type": "Extreme zoom-out infinite pullback",
+      "environment": "Nested reality reveal - door in void in square in darkness",
+      "file": "scene9-truman-zoom-8s.mp4",
+      "note": "Truman Show style metaphysical zoom-out"
+    }
+  },
+  "character_references": {
+    "front_view": "https://res.cloudinary.com/dnezawwer/image/upload/v1761902736/the-journey/character-ref-front.png",
+    "three_quarter_view": "https://res.cloudinary.com/dnezawwer/image/upload/v1761902738/the-journey/character-ref-3quarter.png",
+    "profile_view": "https://res.cloudinary.com/dnezawwer/image/upload/v1761902738/the-journey/character-ref-profile.png"
+  },
+  "frame_seeding_strategy": "Extracted last frame at t=7.75s from each scene, uploaded to Cloudinary, used as additional reference for next scene to maintain motion continuity",
+  "technical_specs": {
+    "video_model": "FAL Veo 3.1 (fal-ai/veo3.1/reference-to-video)",
+    "image_model": "Gemini 2.5 Flash Image (Nano Banana)",
+    "resolution": "1920x1080 (1080p)",
+    "aspect_ratio": "16:9",
+    "frame_rate": "24 fps",
+    "audio": "Native Veo 3.1 synchronized audio",
+    "color_space": "yuv420p"
+  },
+  "prompt_methodology": "Emily's structured JSON format with camera specs, lens choices, timeline beats (0-2.5s, 2.5-5s, 5-8s), physics notes, varied shot compositions per scene",
+  "production_cost": {
+    "character_references": "$0.12 (3 images @ $0.04)",
+    "video_generation": "$25.60 (8 scenes × 8s × $0.40/s with audio)",
+    "total_estimated": "$25.72"
+  },
+  "production_time": {
+    "character_refs": "2 minutes",
+    "prompt_design": "15 minutes",
+    "video_generation": "28 minutes (8 scenes)",
+    "stitching": "1 minute",
+    "total": "46 minutes"
+  },
+  "shot_variety": [
+    "Wide low angle dolly-in",
+    "Medium tracking side",
+    "Wide static transition",
+    "Medium front push-in",
+    "Extreme wide crane-up",
+    "Side tracking aurora transition",
+    "Medium dolly to static",
+    "Extreme zoom-out infinite"
+  ],
+  "key_learnings": {
+    "character_consistency": "3-view reference pack + Veo 3.1 reference-to-video maintained same character across all 8 scenes despite extreme environment changes",
+    "frame_seeding": "Extracting last frame at t=7.75s and using as 3rd/4th reference image created smooth motion continuity between scenes",
+    "prompt_structure": "Emily's timeline beat structure (0-2.5s, 2.5-5s, 5-8s) with detailed physics notes significantly improved generation quality",
+    "shot_variety": "Varying camera positions, angles, and movements per scene created dynamic cinematic storytelling vs repetitive compositions",
+    "style_accuracy": "Stylized CGI (not photorealistic) matched Love, Death & Robots aesthetic better than hyperrealistic approach"
+  },
+  "handoff_package": {
+    "platform": "YouTube / Instagram / LinkedIn",
+    "format": "16:9 cinematic (ready for YouTube, can crop to 9:16 for vertical platforms)",
+    "duration": "64 seconds (can trim to 60s if needed)",
+    "audio": "Synchronized atmospheric audio included",
+    "thumbnail_recommendation": "Scene 8 door smile moment (fourth-wall break)",
+    "description_suggestion": "A lone traveler walks through impossible environments - from desert dawn to cosmic night to metaphysical revelation. A 64-second cinematic journey exploring perseverance, wonder, and the nature of reality. Stylized CGI in the Love, Death & Robots aesthetic.",
+    "tags": ["cinematic short", "Love Death and Robots", "AI generated", "Veo 3.1", "philosophical", "journey", "metaphysical"]
+  }
+}

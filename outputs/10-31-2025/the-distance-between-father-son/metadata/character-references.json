@@ -1,0 +1,110 @@
+{
+  "film_title": "The Distance Between",
+  "film_concept": "Father-son relationship evolving from wonder to fracture to distance to return, told through hands motif and Studio Ghibli aesthetic",
+  "cultural_context": "Indian family, rural India setting, son immigrates to USA",
+  "total_characters": 6,
+  "total_reference_images": 18,
+  "generated_date": "2025-10-31",
+  "session_name": "the-distance-between-father-son",
+
+  "characters": {
+    "father_young": {
+      "age": "35-40 years old",
+      "acts_used": [1],
+      "scenes_used": [1, 2, 3],
+      "description": "Handsome South Asian male, strong shoulders, warm brown eyes with crow's feet, thick dark eyebrows, clean-shaven with stubble, kind smile, thick black wavy hair, cream kurta with rolled sleeves, dark brown pants, worn leather chappals, carpenter's hands with calluses, silver watch",
+      "references": {
+        "front": "https://res.cloudinary.com/dnezawwer/image/upload/v1761909147/films/the-distance-between-father-son/father-young-front.png",
+        "three_quarter": "https://res.cloudinary.com/dnezawwer/image/upload/v1761909148/films/the-distance-between-father-son/father-young-3quarter.png",
+        "profile": "https://res.cloudinary.com/dnezawwer/image/upload/v1761909149/films/the-distance-between-father-son/father-young-profile.png"
+      }
+    },
+
+    "father_middle": {
+      "age": "48-52 years old",
+      "acts_used": [2],
+      "scenes_used": [4, 5, 6, 7],
+      "description": "Same man aged with stress, hunched shoulders, deeper lines, grey streaks at temples, 3-day stubble with grey, tight jaw, tired eyes, disheveled hair, worn faded kurta sleeves down, cracked chappals, scratched watch, swollen joints",
+      "references": {
+        "front": "https://res.cloudinary.com/dnezawwer/image/upload/v1761909168/films/the-distance-between-father-son/father-middle-front.png",
+        "three_quarter": "https://res.cloudinary.com/dnezawwer/image/upload/v1761909169/films/the-distance-between-father-son/father-middle-3quarter.png",
+        "profile": "https://res.cloudinary.com/dnezawwer/image/upload/v1761909170/films/the-distance-between-father-son/father-middle-profile.png"
+      }
+    },
+
+    "father_older": {
+      "age": "62-67 years old",
+      "acts_used": [4],
+      "scenes_used": [12, 13, 14, 15, 16, 17, 18],
+      "description": "Elderly peaceful presence, fully silver-grey hair, deep smile lines, white stubble, gentle wisdom, peaceful tired smile, soft beige kurta, reading glasses on cord, worn thin watch, weathered beautiful hands like old wood grain, wedding ring",
+      "references": {
+        "front": "https://res.cloudinary.com/dnezawwer/image/upload/v1761909172/films/the-distance-between-father-son/father-older-front.png",
+        "three_quarter": "https://res.cloudinary.com/dnezawwer/image/upload/v1761909173/films/the-distance-between-father-son/father-older-3quarter.png",
+        "profile": "https://res.cloudinary.com/dnezawwer/image/upload/v1761909174/films/the-distance-between-father-son/father-older-profile.png"
+      }
+    },
+
+    "son_child": {
+      "age": "7 years old",
+      "acts_used": [1],
+      "scenes_used": [1, 2, 3],
+      "description": "Small child 4'2\", enormous dark eyes full of wonder, thick lashes, gap-toothed innocent smile, chubby cheeks, thick black messy bowl cut with cowlick, oversized white shirt (father's), khaki shorts with string belt, bare dusty feet, scuffed knees, reaching upward in wonder",
+      "references": {
+        "front": "https://res.cloudinary.com/dnezawwer/image/upload/v1761909197/films/the-distance-between-father-son/son-child-front.png",
+        "three_quarter": "https://res.cloudinary.com/dnezawwer/image/upload/v1761909198/films/the-distance-between-father-son/son-child-3quarter.png",
+        "profile": "https://res.cloudinary.com/dnezawwer/image/upload/v1761909199/films/the-distance-between-father-son/son-child-profile.png"
+      }
+    },
+
+    "son_teenager": {
+      "age": "17-18 years old",
+      "acts_used": [2],
+      "scenes_used": [4, 5, 6, 7],
+      "description": "Lanky 5'9\", angular teenage features, dark eyes closed off, thick eyebrows, patchy stubble, tight jaw, emotionless mask, shoulder-length black hair falls across forehead, dark grey tight t-shirt, worn jeans, scuffed sneakers, defensive hunched posture, closed body language",
+      "references": {
+        "front": "https://res.cloudinary.com/dnezawwer/image/upload/v1761909200/films/the-distance-between-father-son/son-teenager-front.png",
+        "three_quarter": "https://res.cloudinary.com/dnezawwer/image/upload/v1761909201/films/the-distance-between-father-son/son-teenager-3quarter.png",
+        "profile": "https://res.cloudinary.com/dnezawwer/image/upload/v1761909203/films/the-distance-between-father-son/son-teenager-profile.png"
+      }
+    },
+
+    "son_adult": {
+      "age": "28-32 years old",
+      "acts_used": [3, 4],
+      "scenes_used": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+      "description": "Handsome 5'10\", athletic build, striking mature features, strong jawline with full well-groomed black beard few grey streaks, warm intelligent dark brown eyes (father's eyes), long thick black hair past shoulders or in low bun with silver-grey at temples, black henley rolled sleeves, dark jeans, brown leather boots, silver inherited watch, messenger bag, thoughtful peaceful presence",
+      "references": {
+        "front": "https://res.cloudinary.com/dnezawwer/image/upload/v1761909204/films/the-distance-between-father-son/son-adult-front.png",
+        "three_quarter": "https://res.cloudinary.com/dnezawwer/image/upload/v1761909205/films/the-distance-between-father-son/son-adult-3quarter.png",
+        "profile": "https://res.cloudinary.com/dnezawwer/image/upload/v1761909206/films/the-distance-between-father-son/son-adult-profile.png"
+      }
+    }
+  },
+
+  "scene_to_character_mapping": {
+    "scene_1": {"father": "father_young", "son": "son_child"},
+    "scene_2": {"father": "father_young", "son": "son_child"},
+    "scene_3": {"father": "father_young", "son": "son_child"},
+    "scene_4": {"father": "father_middle", "son": "son_teenager"},
+    "scene_5": {"father": "father_middle", "son": "son_teenager"},
+    "scene_6": {"father": "father_middle", "son": "son_teenager"},
+    "scene_7": {"father": "father_middle", "son": "son_teenager"},
+    "scene_8": {"son": "son_adult"},
+    "scene_9": {"father": "father_middle", "son": "son_adult"},
+    "scene_10": {"father": "father_middle", "son": "son_adult"},
+    "scene_11": {"father": "father_middle", "son": "son_adult"},
+    "scene_12": {"father": "father_older", "son": "son_adult"},
+    "scene_13": {"son": "son_adult"},
+    "scene_14": {"father": "father_older", "son": "son_adult"},
+    "scene_15": {"father": "father_older", "son": "son_adult"},
+    "scene_16": {"father": "father_older", "son": "son_adult"},
+    "scene_17": {"father": "father_older", "son": "son_adult"},
+    "scene_18": {"son": "son_adult"}
+  },
+
+  "usage_notes": {
+    "fal_veo_3_1_usage": "Use these URLs in image_urls array (up to 3 per scene)",
+    "character_consistency_strategy": "Scene 1 uses 3 character views, Scene 2+ uses 2 character views + previous scene last frame",
+    "url_format": "All URLs are permanent HTTPS, globally accessible, FAL-compatible"
+  }
+}

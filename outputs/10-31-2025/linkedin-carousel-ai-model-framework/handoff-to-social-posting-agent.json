@@ -1,0 +1,66 @@
+{
+  "content_type": "completed_images",
+  "ready_for_agent": "social-posting-agent",
+  "suggested_command": "/social-posting-agent *linkedin-carousel",
+
+  "images": {
+    "count": 5,
+    "platform": "linkedin",
+    "type": "carousel",
+    "paths": [
+      "/Users/sid/Desktop/4. Coding Projects/social-media-manager/outputs/10-31-2025/linkedin-carousel-ai-model-framework/images/slide1-title-card.png",
+      "/Users/sid/Desktop/4. Coding Projects/social-media-manager/outputs/10-31-2025/linkedin-carousel-ai-model-framework/images/slide2-control-vs-speed.png",
+      "/Users/sid/Desktop/4. Coding Projects/social-media-manager/outputs/10-31-2025/linkedin-carousel-ai-model-framework/images/slide3-cost-structure.png",
+      "/Users/sid/Desktop/4. Coding Projects/social-media-manager/outputs/10-31-2025/linkedin-carousel-ai-model-framework/images/slide4-context-windows.png",
+      "/Users/sid/Desktop/4. Coding Projects/social-media-manager/outputs/10-31-2025/linkedin-carousel-ai-model-framework/images/slide5-decision-matrix.png"
+    ],
+    "dimensions": {
+      "width": 1024,
+      "height": 1024
+    },
+    "aspect_ratio": "1:1",
+    "total_size_mb": 6.3,
+    "alt_text": [
+      "Title card: AI Model Comparison Framework - The 3-Dimension Decision System showing Control, Cost, and Context as key dimensions",
+      "Quadrant matrix comparing Claude 4.5 (high control, complex systems) versus GPT-5 (high speed, rapid prototyping) with diagonal tradeoff arrow",
+      "Horizontal bar chart showing cost comparison: Claude Haiku 4.5 at $0.015/1K tokens (highlighted as best value), GPT-5 at $0.03/1K, Claude Sonnet 4.5 at $0.05/1K, Gemini 2.5 Pro at $0.07/1K",
+      "Stacked bar visualization showing context window sizes: Gemini 2.5 Pro and Claude 4.5 both at 1M tokens (tall bars) versus GPT-5 at 200K tokens (short bar)",
+      "Decision matrix with four recommendation paths: GPT-5 for rapid iteration, Claude 4.5 for deep reasoning, Claude Haiku 4.5 for cost efficiency (highlighted), Gemini 2.5 Pro for enterprise"
+    ]
+  },
+
+  "post_content": {
+    "text_file": "/Users/sid/Desktop/4. Coding Projects/social-media-manager/outputs/10-31-2025/scheduled-posts/02-linkedin-post-model-framework-CORRECTED.md",
+    "character_count": 1847,
+    "platform_validated": true,
+    "voice_mode": "Analyst",
+    "hashtags": ["#AI", "#ProductManagement", "#AITools", "#TechLeadership"],
+    "scheduled_time": "2025-10-31 09:00 EST"
+  },
+
+  "from_ai_image_generator": {
+    "generation_method": "create-carousel",
+    "mcp_tool_used": "gpt-image-1",
+    "design_system": "linkedin-dark-monochrome",
+    "quality_score": 8.5,
+    "seven_pillar_scores": {
+      "clarity": 9,
+      "technical_quality": 8,
+      "composition": 9,
+      "color_harmony": 8,
+      "typography": 9,
+      "professionalism": 9,
+      "prompt_accuracy": 8
+    },
+    "iterations": 1,
+    "emily_methodology_applied": true,
+    "total_generation_time_seconds": 120
+  },
+
+  "metadata": {
+    "created_at": "2025-10-31T01:39:30Z",
+    "session_id": "linkedin-carousel-ai-model-framework",
+    "notion_entry_id": "29c9f76e-64cd-81fe-bfb8-f64dd8a903ef",
+    "from_jarvis_handoff": true
+  }
+}

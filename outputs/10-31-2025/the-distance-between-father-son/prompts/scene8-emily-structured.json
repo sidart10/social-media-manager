@@ -1,0 +1,62 @@
+{
+  "scene_number": 8,
+  "title": "The City - Son Working Late",
+  "format": "urban isolation night scene push-in through window to interior",
+  "primary_camera_motion": "single slow push-in through window from exterior to interior 40cm forward",
+  "lens": "35mm spherical T2.0 for urban loneliness shallow DOF",
+  "subject": {
+    "character_string": "Using the provided character images for the son: Stylized animated aesthetic South Asian male 28-32 years with strong jawline full black beard long black hair in low bun intelligent dark brown eyes black henley rolled sleeves dark jeans brown leather boots inherited silver watch messenger bag leaning against desk. Hunched over laptop typing tired isolated posture. Phone on desk.",
+    "mood": "isolated lonely urban disconnect guilt"
+  },
+  "scene": {
+    "location": "tiny urban apartment single room desk near window",
+    "time": "night 11pm working late",
+    "lighting": "key: laptop screen blue cold 6500K light fill: city glow through window amber 3200K distant rim: none deliberately isolated single warm desk lamp visible",
+    "weather": "clear night city glow through window urban buzz distant",
+    "environment": "desk covered with work papers unmade bed background dishes in sink tiny kitchen visible window shows city lights and darkness"
+  },
+  "visual_details": {
+    "beats": [
+      {
+        "time": "0.0-2.5s",
+        "action": "Establish from outside window looking in son silhouette at desk blue laptop glow visible phone rests on desk dark camera begins slow push-in through window glass reflection of city lights on window",
+        "physics": "typing motion visible as silhouette laptop screen glow steady city lights twinkle in background window glass creates depth layer"
+      },
+      {
+        "time": "2.5-5.0s",
+        "action": "Camera now inside apartment son's face fully lit by blue screen glow phone suddenly lights up vibrating on desk screen displays Dad caller ID son stops typing glances at phone hand hovers briefly over phone hesitation visible in expression",
+        "physics": "phone screen brightens desk vibrates subtly typing stops hand trembles slightly in hover breath held city sounds muted inside apartment"
+      },
+      {
+        "time": "5.0-8.0s",
+        "action": "Son looks at phone for long moment doesn't pick up lets it ring out phone screen darkens hand returns to keyboard begins typing again slight exhale of resignation subtle guilt visible in downcast eyes hold on isolated figure alone in blue glow",
+        "physics": "phone stops vibrating screen fades to dark shoulders tense with guilt breathing visible in posture shift fingers resume typing city lights remain constant outside isolation emphasized"
+      }
+    ]
+  },
+  "cinematography": {
+    "aperture_look": "T2.0 very shallow DOF son's face sharp background apartment soft blur",
+    "shutter_look": "1/48s cinematic with natural motion blur",
+    "color_grade": "cold blue laptop dominant tones warm amber city glow in background high contrast isolation desaturated except screen blue"
+  },
+  "color_palette": {
+    "primary": "#154360",
+    "secondary": "#5DADE2",
+    "background": "#1C2833",
+    "accent": "#D68910"
+  },
+  "negative_prompt": [
+    "bright cheerful lighting",
+    "multiple people",
+    "cluttered",
+    "well-lit apartment",
+    "daytime",
+    "happy mood",
+    "warm cozy atmosphere",
+    "unrealistic phone behavior",
+    "low quality",
+    "blurry faces",
+    "poor composition",
+    "harsh shadows on face"
+  ]
+}

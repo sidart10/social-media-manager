@@ -2,78 +2,85 @@
 
 Central navigation for all project documentation.
 
-## Core Documentation
+## 📋 Core Documentation
 
 - [README](../README.md) - Project overview and quick start
+- [brief.md](brief.md) - Comprehensive project brief and architecture
 - [CHANGELOG](../CHANGELOG.md) - Version history and changes
-- [CONTRIBUTING](../CONTRIBUTING.md) - Contribution guidelines
 
-## Agents
+## 🔧 Quick Reference Guides
 
-### Content Intelligence Agent
+Active reference documentation at root level:
 
+- [twitter-quick-reference.md](twitter-quick-reference.md) - Twitter API quick reference
+- [postiz-mcp.md](postiz-mcp.md) - Comprehensive Postiz MCP integration guide
+- [veo-tools-docs.md](veo-tools-docs.md) - Veo video generation tools documentation
+- [image-prompts-examples.md](image-prompts-examples.md) - Image prompt examples and patterns
+- [notion-content-dashboard.md](notion-content-dashboard.md) - Notion content management guide
+- [technical-decisions-template.md](technical-decisions-template.md) - Template for documenting technical decisions
+
+## 🤖 Agents
+
+### Content Intelligence Agent (Jarvis)
 - Location: `bmad/agents/content-intelligence/`
 - Workflows: Research, content generation, competitive analysis
 - Status: Active
 
 ### Social Posting Agent
-
 - Location: `bmad/agents/social-posting-agent/`
-- Platforms: Twitter, LinkedIn, YouTube
+- Platforms: Twitter, LinkedIn, YouTube (via Postiz MCP)
 - Documentation: See agent sidecar directory
 
 ### AI Video Agent
-
 - Location: `bmad/agents/ai-video-agent/`
-- MCP Servers: Sora 2, Veo 3, HeyGen
-- Outputs: `bmad/agents/ai-video-agent/ai-video-agent-sidecar/outputs/`
+- MCP Servers: Veo 3, HeyGen, fal-video
+- Status: Active
 
 ### AI Image Generator
-
 - Location: `bmad/agents/ai-image-generator/`
-- MCP Server: GPT Image 1 (nanobanana)
-- Outputs: `bmad/agents/ai-image-generator/ai-image-generator-sidecar/outputs/`
+- MCP Servers: GPT Image 1 (nanobanana), fal-video
+- Status: Active
 
-## Project Plans (PRPs)
+## 📂 Subdirectories
 
-Active project planning documents:
+- [current-session/](current-session/) - Active session documentation
+- [workflows/](workflows/) - Workflow definitions
+- [agents/](agents/) - Agent-specific documentation
+- [archived/](archived/) - Historical documentation (see below)
 
-- [Active PRPs](../PRPs/active/) - Current implementation plans
-- [Completed PRPs](../PRPs/completed/) - Historical completed plans
-- [Archived PRPs](../PRPs/) - Legacy documentation
+## 🗄️ Archived Documentation
 
-## Setup Guides
+Historical analysis, research, and session reports organized by category:
 
-Setup documentation to be consolidated here:
+### Skills Research & Analysis
+- [archived/skills-research/](archived/skills-research/) - All skills architecture research and decisions
 
-- YouTube API Setup: See `.archive/youtube-setup/`
-- Twitter API Setup: See agent documentation
-- LinkedIn API Setup: See agent documentation
-- MCP Servers: See `.archive/mcp-reports/`
+### Architecture Decisions
+- [archived/architecture-decisions/](archived/architecture-decisions/) - Major architectural decision documentation
 
-## Archive
+### Agent Development History
+- [archived/ai-image-generator/](archived/ai-image-generator/) - AI image agent research and QA reports
+- [archived/ai-video-agent/](archived/ai-video-agent/) - AI video agent refactoring history
+- [archived/social-posting-agent/](archived/social-posting-agent/) - Social posting analysis and LinkedIn research
 
-Historical documentation and session reports:
+### Platform Integration Research
+- [archived/postiz-evaluation/](archived/postiz-evaluation/) - Postiz platform evaluation and integration research
 
-- [Sessions](../.archive/sessions/) - Session summaries
-- [Build Reports](../.archive/build-reports/) - Completion reports
-- [Debug Notes](../.archive/debug-notes/) - Troubleshooting history
-- [YouTube Setup](../.archive/youtube-setup/) - YouTube OAuth and API setup
-- [MCP Reports](../.archive/mcp-reports/) - MCP server research and status
+### Other
+- [archived/session-history/](archived/session-history/) - Historical session reports (moved to project root .archive/)
+- [archived/other-features/](archived/other-features/) - Miscellaneous feature documentation
+- [archived/mcp-analysis/](archived/mcp-analysis/) - MCP server analysis (pre-existing)
+- [archived/modules/](archived/modules/) - Module-specific archived docs
 
-## Generated Outputs
+## 🎯 Generated Outputs
 
-- [Outputs Directory](../outputs/README.md) - Organization of generated content
-- Videos: `outputs/videos/YYYY-MM-DD/`
-- Images: `outputs/images/YYYY-MM-DD/`
-- Posts: `outputs/posts/YYYY-MM-DD/`
-
-## Development
-
-- [v6 Open Items](../v6-open-items.md) - Alpha roadmap and todos
-- [BMad Workflows Guide](../src/modules/bmm/workflows/README.md) - Core workflow system
+- [Project Root: outputs/](../outputs/) - All generated content (videos, images, posts)
+- Organization: `outputs/YYYY-MM-DD/category/`
 
 ---
 
-**Last Updated**: 2025-10-27
-**Status**: Cleanup Phase - Organization in Progress
+**Last Updated**: 2025-10-31
+**Status**: ✅ Cleanup Complete - Aggressive reorganization executed
+**Root Files**: 8 essential docs (down from 38)
+**Archived**: 14 analysis docs organized by category
+**Deleted**: 23 obsolete session reports and duplicates

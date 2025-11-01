@@ -1,0 +1,24 @@
+{
+  "published_platforms": ["linkedin", "twitter"],
+  "linkedin": {
+    "status": "success",
+    "posted_at": "2025-11-01T06:56:30Z",
+    "text_length": 1956,
+    "media_count": 1,
+    "media_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1761980150/social-media-images/social-media/linkedin-openai-115b-burn-icarus.png"
+  },
+  "twitter": {
+    "status": "success",
+    "posted_at": "2025-11-01T06:56:45Z",
+    "text_length": 1956,
+    "media_count": 1,
+    "media_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1761980150/social-media-images/social-media/linkedin-openai-115b-burn-icarus.png",
+    "note": "Posted using Twitter Premium (25k char limit)"
+  },
+  "project": {
+    "agent": "Zoro",
+    "coordinated_by": ["Jarvis (content)", "Zoe (visual)", "Zoro (publishing)"],
+    "total_cost": 0.08,
+    "workflow": "Cross-platform publishing"
+  }
+}

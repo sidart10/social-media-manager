@@ -36,6 +36,12 @@ You must fully embody this agent's persona and follow all activation instruction
       - Skill categories: Content Generation (post-writer, video-script-writer), Research & Intelligence (deep-web-research, research-synthesizer, social-media-research, youtube-research), Analysis (profile-analysis, evidence-tracker, voice-matcher), Formatting & Optimization (platform-formatter), Strategy & Growth (youtube-growth-mastery, youtube-thumbnail-mastery)
       - Key replacements: post-writer replaces broken autogen, video-script-writer replaces broken autogen-script-generator
       - See bmad/agents/content-intelligence/jarvis.md for complete skills documentation</step>
+  <step n="10.5">📊 NOTION STATUS-AWARE SUGGESTIONS (Epic 2 Story 5.1):
+      - Load and execute bmad/agents/content-intelligence/jarvis-sidecar/notion-helper.md
+      - Query Notion Content Tracker for items with Status in [Idea, Research, Next Up] and Graveyard=false
+      - If content found: Display count, top 3 titles, suggested workflows based on status
+      - If query fails or timeout >5 seconds: Log error, proceed without suggestions (graceful degradation)
+      - ALWAYS show standard menu after suggestions (user not forced to follow suggestions)</step>
   <step n="11">Show greeting using {user_name} from config, communicate in {communication_language}, then display numbered list of
       ALL menu items from menu section</step>
   <step n="12">STOP and WAIT for user input - do NOT execute menu items automatically - accept number or trigger text</step>
@@ -88,8 +94,8 @@ You must fully embody this agent's persona and follow all activation instruction
     <item cmd="*competitive-analysis" workflow="bmad/agents/content-intelligence/jarvis-sidecar/workflows/competitive-analysis/workflow.yaml">Multi-profile competitive analysis (orchestrates profile-analysis skill)</item>
     <item cmd="*generate-ideas" workflow="bmad/agents/content-intelligence/jarvis-sidecar/workflows/generate-ideas/workflow.yaml">Generate evidence-backed Idea Cards (uses research-synthesizer skill)</item>
     <item cmd="*learn-voice" workflow="bmad/agents/content-intelligence/jarvis-sidecar/workflows/learn-voice/workflow.yaml">Build voice profile from your content (multi-platform orchestration)</item>
-    <item cmd="*write-post" action="Ask user for topic and platform, then load post-writer/SKILL.md and follow its instructions to generate a complete platform-specific post in user's voice. Apply voice-matcher/SKILL.md if voice profile exists. Use platform-formatter/SKILL.md for final validation. Save to outputs folder.">Write platform-specific post in your voice (uses post-writer skill)</item>
-    <item cmd="*write-script" action="Ask user for topic, platform, and duration, then load video-script-writer/SKILL.md and follow its instructions to generate a complete video script with timing and visual direction. Apply voice-matcher/SKILL.md if voice profile exists. Save to outputs folder.">Write video script with timing and visuals (uses video-script-writer skill)</item>
+    <item cmd="*write-post" workflow="bmad/agents/content-intelligence/jarvis-sidecar/workflows/write-posts/workflow.yaml">Write platform-specific post in your voice (LinkedIn PAIPS, Twitter threads, Substack essays) with voice validation and Notion integration</item>
+    <item cmd="*write-script" workflow="bmad/agents/content-intelligence/jarvis-sidecar/workflows/write-scripts/workflow.yaml">Write video script with timestamps, scene descriptions, and 3 CTR-optimized thumbnail concepts for YouTube/Shorts</item>
     <item cmd="*discover-capabilities" action="Browse 5000+ Apify scrapers and recommend new data sources for your workflows">Explore new platforms and capabilities</item>
     <item cmd="*usage-report" action="Show API usage stats and cost breakdown for this month">Track API costs and optimization opportunities</item>
     <item cmd="*exit">Exit with confirmation</item>

@@ -1,0 +1,46 @@
+{
+  "project": {
+    "name": "LinkedIn Post - OpenAI $115B Burn Analysis",
+    "slug": "linkedin-openai-115b-burn",
+    "created": "2025-10-31T00:00:00Z",
+    "platforms": ["linkedin"],
+    "status": "drafting"
+  },
+  "notion": {
+    "page_url": null,
+    "linked": false,
+    "note": "Local-only project, no Notion tracking"
+  },
+  "content": {
+    "topic": "OpenAI's $115 Billion Burn - Economics Analysis",
+    "research_source": "outputs/10-31-2025/microsoft-openai-deep-research/MASTER-STORY-ANGLES.md",
+    "voice_mode": "Analyst",
+    "formula": "PAIPS (Justin Welsh)"
+  },
+  "quality": {
+    "voice_confidence": 9.0,
+    "word_count": 347,
+    "character_count": 2119,
+    "platform_validated": true
+  },
+  "workflow": {
+    "agent": "Jarvis",
+    "workflow_name": "write-posts",
+    "skills_used": ["post-writer", "voice-matcher", "platform-formatter"],
+    "version": "1.0.0"
+  },
+  "costs": {
+    "research": 0.0,
+    "generation": 0.0,
+    "media": 0.0,
+    "total": 0.0,
+    "note": "Research reused from existing microsoft-openai-deep-research project"
+  },
+  "files": {
+    "linkedin": {
+      "drafts": ["03-drafts/linkedin/post-v1.md"],
+      "published": [],
+      "media": []
+    }
+  }
+}

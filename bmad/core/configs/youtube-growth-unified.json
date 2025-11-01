@@ -1,0 +1,49 @@
+{
+  "name": "youtube-growth-unified",
+  "description": "Complete YouTube channel growth strategy combining official YouTube guidance, Think with Google playbooks, Paddy Galloway insights, and Creator Academy",
+  "sources": [
+    {
+      "type": "documentation",
+      "name": "youtube-creator-academy",
+      "base_url": "https://creatoracademy.youtube.com/",
+      "description": "Official YouTube Creator Academy - comprehensive creator education and best practices",
+      "max_pages": 100
+    },
+    {
+      "type": "documentation",
+      "name": "think-with-google-playbook",
+      "base_url": "https://thinkwithgoogle.com/intl/en-apac/marketing-strategies/video/youtube-playbook-for-brands/",
+      "description": "Official YouTube Playbook for Brands - content strategy, optimization, promotion",
+      "max_pages": 50
+    },
+    {
+      "type": "documentation",
+      "name": "youtube-creators-strategy",
+      "base_url": "https://www.youtube.com/creators/how-things-work/content-creation-strategy/",
+      "description": "Official YouTube Creators content creation strategy and growth tactics",
+      "max_pages": 50
+    },
+    {
+      "type": "documentation",
+      "name": "youtube-artists-resources",
+      "base_url": "https://artists.youtube/additional-resources/",
+      "description": "YouTube for Artists - fanbase building, release strategies, multi-format approach",
+      "max_pages": 50
+    },
+    {
+      "type": "documentation",
+      "name": "youtube-help-center",
+      "base_url": "https://support.google.com/youtube",
+      "description": "Official YouTube Help Center - technical guidance, policies, troubleshooting",
+      "max_pages": 50
+    }
+  ],
+  "merge_mode": "claude-enhanced",
+  "selectors": {
+    "main_content": "article, main, .content",
+    "title": "h1, h2",
+    "code_blocks": "pre code"
+  },
+  "rate_limit": 1,
+  "max_pages": 300
+}

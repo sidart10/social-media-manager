@@ -1,0 +1,17 @@
+{
+  "name": "anthropic-context-engineering",
+  "description": "Anthropic's guide on effective context engineering for AI research agents including strategies for curating information and maintaining optimal token context",
+  "base_url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+  "selectors": {
+    "main_content": "article",
+    "title": "h1",
+    "code_blocks": "pre code"
+  },
+  "url_patterns": {
+    "include": [],
+    "exclude": []
+  },
+  "categories": {},
+  "rate_limit": 0.5,
+  "max_pages": 10
+}

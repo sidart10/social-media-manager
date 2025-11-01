@@ -8,6 +8,26 @@
             "env": {
                 "POSTIZ_API_KEY": "8e016ebccd6f56eea7fbfe1e7acd79103661f8e10407eff9a9b2c78fa531388d"
             }
+        },
+        "plainly": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@plainly-videos/mcp-server@latest"
+            ],
+            "env": {
+                "PLAINLY_API_KEY": "x6d4qcL3NvfWtcRCpsSjCNNVOQJiaoib",
+                "PLAINLY_ORGANIZATION_ID": "52eb1126-3604-48df-8ba1-f6d87998bcb8"
+            }
+        },
+        "submagic": {
+            "command": "/Users/sid/Desktop/4. Coding Projects/sub-magic-mcp-server/venv/bin/python",
+            "args": [
+                "/Users/sid/Desktop/4. Coding Projects/sub-magic-mcp-server/submagic_mcp.py"
+            ],
+            "env": {
+                "SUBMAGIC_API_KEY": "sk-ceab7120d8e23a689599e8b2c13f88f126c35621401d4dc1d7d3c00ca0c8e3b2"
+            }
         }
     }
 }

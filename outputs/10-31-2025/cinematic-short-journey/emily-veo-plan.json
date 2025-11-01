@@ -1,0 +1,425 @@
+{
+  "characters": [
+    {
+      "name": "The Traveler",
+      "age": 35,
+      "height": "5'11\"",
+      "build": "Medium athletic build, weathered by journey",
+      "skin_tone": "Natural, weathered by elements",
+      "hair": "Short dark hair",
+      "eyes": "Determined, focused gaze",
+      "distinguishing_marks": "Stubble beard, weathered appearance",
+      "demeanour": "Undeterred, purposeful, quiet determination, unwavering resolve",
+      "default_outfit": "Dark weathered navy blue jacket, worn brown leather boots, traveler clothing",
+      "mouth_shape_intensity": 0.3,
+      "eye_contact_ratio": 0.1
+    }
+  ],
+  "clips": [
+    {
+      "id": "scene_01_dawn",
+      "shot": {
+        "composition": "Wide establishing low angle shot, camera 0.8m height looking slightly up",
+        "camera_motion": "Slow dolly-in push from extreme wide to wide",
+        "frame_rate": "24fps",
+        "film_grain": 0.2,
+        "camera": "24mm wide-angle lens, gimbal-stable smooth cinematic"
+      },
+      "subject": {
+        "description": "Male in 30s in dark weathered navy jacket and worn brown boots walking steadily toward camera with determined expression",
+        "wardrobe": "Dark weathered navy jacket, worn brown leather boots"
+      },
+      "scene": {
+        "location": "Vast desert landscape with rolling sand dunes",
+        "time_of_day": "Golden hour sunrise",
+        "environment": "Epic scale, warm sunrise key from camera-right, long dramatic shadows, orange purple red sky, distant mountains silhouetted, clear dry heat"
+      },
+      "visual_details": {
+        "action": "Distant traveler small against vast dunes, sunrise breaks over mountains, camera push-in, traveler grows larger, steady pace, boots creating footprints, jacket flutters, continues forward gaze fixed on horizon, sunrise light catches face",
+        "props": null
+      },
+      "cinematography": {
+        "lighting": "Warm sunrise key casting long shadows, soft golden fill, atmospheric",
+        "tone": "Epic determined beginning-of-journey energy",
+        "color_grade": "Warm oranges golds purples, high detail"
+      },
+      "audio_track": {
+        "style": "Atmospheric wind, footsteps on sand, minimal score building",
+        "format": "wav",
+        "sample_rate_hz": 48000,
+        "channels": 2
+      },
+      "dialogue": {
+        "character": "The Traveler",
+        "line": "",
+        "subtitles": false
+      },
+      "performance": {
+        "mouth_shape_intensity": null,
+        "eye_contact_ratio": 0.0
+      },
+      "duration_sec": 7,
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "scene_02_midday",
+      "shot": {
+        "composition": "Medium tracking side shot, camera-left 3m away at 1.5m height",
+        "camera_motion": "Smooth lateral tracking shot moving with character",
+        "frame_rate": "24fps",
+        "film_grain": 0.1,
+        "camera": "35mm standard lens, dolly-track smooth parallel movement"
+      },
+      "subject": {
+        "description": "Same male in dark jacket walking through harsh conditions, sweat glistening, unwavering pace",
+        "wardrobe": "Dark jacket and worn boots, sweat-soaked"
+      },
+      "scene": {
+        "location": "Narrow red desert canyon with towering walls",
+        "time_of_day": "Harsh midday",
+        "environment": "Extreme heat, brutal overhead sun, stark vertical shadows, heat waves rippling, high contrast"
+      },
+      "visual_details": {
+        "action": "Walking through canyon, heat waves ripple, sweat forms, canyon narrows, pace unchanged, determined profile against red wall",
+        "props": null
+      },
+      "cinematography": {
+        "lighting": "Brutal overhead sun, stark shadows, heat radiating",
+        "tone": "Tested but unbroken, quiet resolve",
+        "color_grade": "High contrast reds and oranges, harsh lighting"
+      },
+      "audio_track": {
+        "style": "Heavy breathing, boots on stone, heat ambience",
+        "format": "wav",
+        "sample_rate_hz": 48000,
+        "channels": 2
+      },
+      "dialogue": {
+        "character": "The Traveler",
+        "line": "",
+        "subtitles": false
+      },
+      "performance": {
+        "mouth_shape_intensity": null,
+        "eye_contact_ratio": 0.0
+      },
+      "duration_sec": 6,
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "scene_03_forest",
+      "shot": {
+        "composition": "Wide static shot, 4m in front at 1.8m height",
+        "camera_motion": "Locked static position, environment transforms around character",
+        "frame_rate": "24fps",
+        "film_grain": 0.1,
+        "camera": "40mm moderate wide, tripod-locked completely still"
+      },
+      "subject": {
+        "description": "Same male walking forward without breaking stride as reality seamlessly shifts from desert to forest",
+        "wardrobe": "Dark jacket and boots, transitioning environments"
+      },
+      "scene": {
+        "location": "Seamless transition from desert canyon to lush green forest morphing mid-stride",
+        "time_of_day": "Shifts from harsh noon to filtered afternoon forest light",
+        "environment": "Surreal transformation: canyon walls morph into tall ancient trees, sand becomes moss, filtered green-gold light"
+      },
+      "visual_details": {
+        "action": "Walking from canyon as walls morph into trees, sand flows into moss, character never breaks stride, surreal acceptance, fully in forest with ferns and filtered light",
+        "props": null
+      },
+      "cinematography": {
+        "lighting": "Harsh sun morphs to filtered green-gold forest light shafts",
+        "tone": "Surreal calm acceptance of impossibility",
+        "color_grade": "Transition from warm to cool greens, magical realism"
+      },
+      "audio_track": {
+        "style": "Environmental shift: wind to forest sounds, birds, leaves rustling",
+        "format": "wav",
+        "sample_rate_hz": 48000,
+        "channels": 2
+      },
+      "dialogue": {
+        "character": "The Traveler",
+        "line": "",
+        "subtitles": false
+      },
+      "performance": {
+        "mouth_shape_intensity": null,
+        "eye_contact_ratio": 0.0
+      },
+      "duration_sec": 7,
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "scene_04_storm",
+      "shot": {
+        "composition": "Medium front-facing, 4m in front at 1.6m height facing character head-on",
+        "camera_motion": "Slow push-in from medium to medium-close",
+        "frame_rate": "24fps",
+        "film_grain": 0.15,
+        "camera": "50mm portrait lens, handheld cinematic slight natural movement"
+      },
+      "subject": {
+        "description": "Same male in dark jacket now SOAKED with rain, face streaming water, undeterred expression",
+        "wardrobe": "Dark jacket completely soaked, worn boots in muddy ground"
+      },
+      "scene": {
+        "location": "Dark moody forest in heavy rainstorm",
+        "time_of_day": "Late afternoon storm darkness",
+        "environment": "Heavy rain, thunder, lightning flashes, low ambient light, storm clouds, rain streaks and reflections"
+      },
+      "visual_details": {
+        "action": "Rain begins and intensifies, walking forward, lightning illuminates, rain streams down face, clothes soaked, unwavering despite storm",
+        "props": null
+      },
+      "cinematography": {
+        "lighting": "Low ambient forest light, lightning flashes provide dramatic side-light",
+        "tone": "Tested by elements but unbroken, quiet strength",
+        "color_grade": "Dark blues and greys, dramatic storm lighting"
+      },
+      "audio_track": {
+        "style": "Heavy rain, thunder rumble, lightning crack, wind through trees",
+        "format": "wav",
+        "sample_rate_hz": 48000,
+        "channels": 2
+      },
+      "dialogue": {
+        "character": "The Traveler",
+        "line": "",
+        "subtitles": false
+      },
+      "performance": {
+        "mouth_shape_intensity": null,
+        "eye_contact_ratio": 0.0
+      },
+      "duration_sec": 7,
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "scene_05_winter",
+      "shot": {
+        "composition": "Extreme wide isolation shot, 8m away at 4m height looking down slight angle",
+        "camera_motion": "Slow crane-up and pull-back revealing scale",
+        "frame_rate": "24fps",
+        "film_grain": 0.05,
+        "camera": "18mm ultra-wide lens, crane-smooth steady vertical and backward movement"
+      },
+      "subject": {
+        "description": "Same male in dark jacket with snow accumulation on shoulders, worn boots in deep snow, small figure against vast white",
+        "wardrobe": "Dark jacket with snow, boots in deep snow"
+      },
+      "scene": {
+        "location": "Winter forest clearing with heavy snowfall, bare snow-covered trees",
+        "time_of_day": "Overcast day, diffused white light",
+        "environment": "Heavy continuous snowfall, thick soft flakes, soft diffused skylight, monochromatic white and grey, ethereal quality"
+      },
+      "visual_details": {
+        "action": "Walking through falling snow, visible breath, snow accumulates, camera cranes up and pulls back, traveler grows smaller, isolated figure in vast white expanse",
+        "props": null
+      },
+      "cinematography": {
+        "lighting": "Soft diffused skylight, minimal contrast, gentle shadows",
+        "tone": "Isolated persevering against cold vastness",
+        "color_grade": "Monochromatic whites and greys, ethereal soft lighting"
+      },
+      "audio_track": {
+        "style": "Wind, snow crunching underfoot, breath, ethereal quiet",
+        "format": "wav",
+        "sample_rate_hz": 48000,
+        "channels": 2
+      },
+      "dialogue": {
+        "character": "The Traveler",
+        "line": "",
+        "subtitles": false
+      },
+      "performance": {
+        "mouth_shape_intensity": null,
+        "eye_contact_ratio": 0.0
+      },
+      "duration_sec": 7,
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "scene_06_night",
+      "shot": {
+        "composition": "Low angle cosmic scale, 0.5m above ground looking up at 30-degree angle",
+        "camera_motion": "Slow tilt-up from character to sky revealing cosmic scale",
+        "frame_rate": "24fps",
+        "film_grain": 0.0,
+        "camera": "28mm wide capturing figure and vast sky, tripod-stable slow motorized tilt"
+      },
+      "subject": {
+        "description": "Same male walking forward silhouetted against starry sky, rim-lit by moonlight",
+        "wardrobe": "Dark jacket and boots, silhouette with rim light"
+      },
+      "scene": {
+        "location": "Endless dark plain under vast starry night sky with visible Milky Way",
+        "time_of_day": "Deep night",
+        "environment": "Crystal clear, no clouds, subtle moonlight rim-light, stars brilliant, Milky Way band visible, soft ambient moonlight on ground"
+      },
+      "visual_details": {
+        "action": "Walking across dark plain, moonlight on silhouette, camera tilts up revealing night sky and Milky Way, cosmic scale emphasized",
+        "props": null
+      },
+      "cinematography": {
+        "lighting": "Subtle moonlight rim-light, stars as points of light, soft ambient",
+        "tone": "Cosmic scale, humility, wonder",
+        "color_grade": "Deep blues and blacks with star whites, cosmic grandeur"
+      },
+      "audio_track": {
+        "style": "Night ambience, distant cosmic hum, minimal footsteps, breath as mist",
+        "format": "wav",
+        "sample_rate_hz": 48000,
+        "channels": 2
+      },
+      "dialogue": {
+        "character": "The Traveler",
+        "line": "",
+        "subtitles": false
+      },
+      "performance": {
+        "mouth_shape_intensity": null,
+        "eye_contact_ratio": 0.0
+      },
+      "duration_sec": 7,
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "scene_07_abyss",
+      "shot": {
+        "composition": "Medium shot following from behind, 3m behind at 1.7m height",
+        "camera_motion": "Slow dolly-forward following character from rear toward distant light",
+        "frame_rate": "24fps",
+        "film_grain": 0.0,
+        "camera": "35mm standard lens, dolly-smooth steady following motion"
+      },
+      "subject": {
+        "description": "Same male walking away from camera into infinite void toward tiny distant white light, figure lit by soft sourceless light",
+        "wardrobe": "Dark jacket and worn boots in void"
+      },
+      "scene": {
+        "location": "Infinite void - no ground no sky, deep charcoal abyss with subtle gradients",
+        "time_of_day": "Timeless void space",
+        "environment": "Soft sourceless light illuminating character, subtle gradient to deeper darkness, tiny white light point in far distance"
+      },
+      "visual_details": {
+        "action": "Walking into darkness toward distant light, camera follows from behind, steady progress, light grows imperceptibly, approaching mysterious threshold",
+        "props": "Tiny white light point in distance"
+      },
+      "cinematography": {
+        "lighting": "Soft sourceless light wrapping character, no shadows, void gradients subtle",
+        "tone": "Existential mystery, approaching unknown",
+        "color_grade": "Deep charcoal with subtle gradients, light anchor point"
+      },
+      "audio_track": {
+        "style": "Near silence, void ambience, minimal ethereal hum, distant light resonance",
+        "format": "wav",
+        "sample_rate_hz": 48000,
+        "channels": 2
+      },
+      "dialogue": {
+        "character": "The Traveler",
+        "line": "",
+        "subtitles": false
+      },
+      "performance": {
+        "mouth_shape_intensity": null,
+        "eye_contact_ratio": 0.0
+      },
+      "duration_sec": 7,
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "scene_08_door",
+      "shot": {
+        "composition": "Medium static shot, 4m in front of door at 1.6m height facing character and door",
+        "camera_motion": "Completely static locked position for emotional beat",
+        "frame_rate": "24fps",
+        "film_grain": 0.0,
+        "camera": "50mm portrait lens, tripod-locked no movement"
+      },
+      "subject": {
+        "description": "Same male approaches modern dark wood door, STOPS for first time, TURNS to face camera, KNOWING PEACEFUL SMILE breaking fourth wall, opens door, walks through",
+        "wardrobe": "Dark jacket and worn boots"
+      },
+      "scene": {
+        "location": "Modern dark wood door with sleek silver handle standing alone in void",
+        "time_of_day": "Timeless void",
+        "environment": "Faint glow around door edges, bright white light erupts from inside when opened, dramatic lighting transition"
+      },
+      "visual_details": {
+        "action": "Approaches door, reaches handle, STOPS movement for first time, TURNS to face camera, MAKES EYE CONTACT, knowing peaceful smile, HOLDS GAZE breaking fourth wall, turns back, opens door, bright white light pours out, walks through into light, door remains OPEN",
+        "props": "Modern dark wood door with silver handle"
+      },
+      "cinematography": {
+        "lighting": "Soft ambient void light, door glows faintly, bright white light erupts when opened",
+        "tone": "Knowing, peaceful, acceptance, connection with viewer, revelation",
+        "color_grade": "Dramatic lighting transition, white light bloom"
+      },
+      "audio_track": {
+        "style": "Silence, footsteps stop, door handle sound, light bloom whoosh, peaceful resolution",
+        "format": "wav",
+        "sample_rate_hz": 48000,
+        "channels": 2
+      },
+      "dialogue": {
+        "character": "The Traveler",
+        "line": "",
+        "subtitles": false
+      },
+      "performance": {
+        "mouth_shape_intensity": 0.4,
+        "eye_contact_ratio": 0.8
+      },
+      "duration_sec": 6,
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "scene_09_exit",
+      "shot": {
+        "composition": "Extreme zoom-out, starts close on door rapidly pulls back infinitely",
+        "camera_motion": "Continuous extreme zoom-out revealing nested reality",
+        "frame_rate": "24fps",
+        "film_grain": 0.0,
+        "camera": "Starts 50mm ends ultra-wide perspective, motion-control smooth infinite pullback"
+      },
+      "subject": {
+        "description": "Traveler has passed through door, silhouette briefly visible as camera pulls back",
+        "wardrobe": "Silhouette in doorway light"
+      },
+      "scene": {
+        "location": "Open door with white light, zoom reveals void contained in BLACK SQUARE floating in deeper darkness",
+        "time_of_day": "Beyond time",
+        "environment": "Bright white light from door contrasts with charcoal void contrasts with perfect black square contrasts with infinite deeper darkness, layers revealed through zoom"
+      },
+      "visual_details": {
+        "action": "Door with white light, camera zooms out, door becomes smaller, void framed within PERFECT BLACK SQUARE visible floating in deeper darkness, square becomes tiny point, continues receding into absolute black, final fade",
+        "props": "Door, black square frame, nested reality"
+      },
+      "cinematography": {
+        "lighting": "White light from door, charcoal void, black square, infinite darkness layers",
+        "tone": "Metaphysical revelation, perspective shift, existential",
+        "color_grade": "High contrast whites to blacks, mind-bending nested reality"
+      },
+      "audio_track": {
+        "style": "Light resonance fading, infinite zoom ambience, final silence, fade to black",
+        "format": "wav",
+        "sample_rate_hz": 48000,
+        "channels": 2
+      },
+      "dialogue": {
+        "character": "The Traveler",
+        "line": "",
+        "subtitles": false
+      },
+      "performance": {
+        "mouth_shape_intensity": null,
+        "eye_contact_ratio": 0.0
+      },
+      "duration_sec": 6,
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

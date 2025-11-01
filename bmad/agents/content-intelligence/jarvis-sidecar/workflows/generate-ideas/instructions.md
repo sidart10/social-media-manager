@@ -189,4 +189,82 @@
 <template-output>workflow_complete</template-output>
 </step>
 
+<step n="7.5" goal="Create Notion Pages with Full Relational Linking (Epic 2 Story 5.3)">
+  <action>Load {project-root}/.bmad-core/modules/notion-updates.md</action>
+  <action>Load {project-root}/.bmad-core/modules/notion-relational-helpers.md</action>
+
+  <action>**Create Notion page for each Idea Card:**
+
+    <for-each idea in idea_cards>
+      **Step 1: Create Content Tracker page**
+      - Call: create_content_page(
+          idea_card: {
+            title: idea.title,
+            category: determine_category(idea.topic),  # Tech Insights, AI Products, etc.
+            priority: idea.priority or "2nd Priority",
+            description: idea.outline (first 100 chars),
+            platform: idea.platform_recommendation,
+            keywords: idea.keywords
+          },
+          project_metadata: metadata
+        )
+
+      if page_result.success:
+        page_url = page_result.page_url
+        display(f"✅ Created Notion page: {idea.title}")
+
+        **Step 2: Link to Channel**
+        - Call: link_content_to_channel(page_url, idea.platform_recommendation)
+        - Example: platform="LinkedIn" → Links to "LinkedIn & X" channel
+        - Example: platform="YouTube" → Links to "YouTube" channel
+
+        if channel_result.success:
+          display(f"   → Linked to channel: {channel_result.channel_name}")
+        else:
+          display(f"   ⚠️ Channel not found: {idea.platform_recommendation} (create in Notion)")
+
+        **Step 3: Link to Keywords**
+        - Call: link_content_to_keywords(page_url, idea.keywords)
+        - For each keyword: Search Keywords DB, create if doesn't exist
+        - Link all keywords to content page via Focus Keywords relation
+
+        if keywords_result.linked_count > 0:
+          display(f"   → Linked {keywords_result.linked_count} keywords ({keywords_result.created_count} new)")
+
+        **Step 4: Save page URL to local metadata**
+        - metadata.notion_pages_created.append({
+            "title": idea.title,
+            "url": page_url,
+            "status": "Idea",
+            "platform": idea.platform_recommendation
+          })
+        - save_json("00-session/metadata.json", metadata)
+
+        **Step 5: Log to session**
+        - append_to_file("00-session/session-log.md",
+            f"{timestamp} - Jarvis: Created Notion page '{idea.title}' with Status=Idea, linked to {channel}, {keywords_count} keywords\n"
+          )
+
+      else:
+        display(f"⚠️ Notion page creation failed for '{idea.title}': {page_result.error}")
+        display("ℹ️ Idea Card saved locally in {default_output_file}")
+        display("ℹ️ You can manually create Notion page later")
+      end if
+    </for-each>
+
+    **Summary after all ideas processed:**
+    - Display: f"📊 Notion Summary: Created {success_count} of {idea_count} pages"
+    - Display: f"   Channels linked: {unique_channels_count}"
+    - Display: f"   Keywords linked: {total_keywords_linked} ({new_keywords_created} newly created)"
+
+    **Error Handling:**
+    - If Notion API unavailable: Log error, display warning, all ideas saved locally
+    - If channel not found: Log warning, page still created but without channel link (user can add manually)
+    - If keyword creation fails: Log warning, continue with other keywords (partial success OK)
+    - Network timeout: Skip Notion integration for that idea, continue with next idea
+  </action>
+
+  <template-output>notion_pages_created</template-output>
+</step>
+
 </workflow>

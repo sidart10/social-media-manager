@@ -1,0 +1,17 @@
+{
+  "name": "substack-growth-strategies",
+  "description": "Comprehensive Substack newsletter growth guide for 2025 including writing strategies, Substack Notes, welcome sequences, and audience building",
+  "base_url": "https://landonpoburan.substack.com/p/how-id-teach-substack-growth-in-2025",
+  "selectors": {
+    "main_content": "article",
+    "title": "h1",
+    "code_blocks": "pre code"
+  },
+  "url_patterns": {
+    "include": [],
+    "exclude": []
+  },
+  "categories": {},
+  "rate_limit": 0.5,
+  "max_pages": 20
+}

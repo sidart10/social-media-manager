@@ -1,0 +1,410 @@
+{
+  "film_title": "THE JOURNEY",
+  "total_duration": 60,
+  "aspect_ratio": "16:9",
+  "style": "Love Death and Robots - Stylized CGI",
+  "character_references": [
+    "character-ref-front.png",
+    "character-ref-3quarter.png",
+    "character-ref-profile.png"
+  ],
+  "character_description": "Male in his 30s with dark weathered navy jacket, worn brown leather boots, short dark hair, stubble beard, determined focused expression, medium athletic build - the traveler",
+
+  "scenes": [
+    {
+      "scene_number": 1,
+      "title": "Dawn - The Beginning",
+      "duration": 7,
+      "shot": {
+        "type": "wide_establishing_low_angle",
+        "camera_position": "low to ground 0.8m height looking slightly up at character approaching",
+        "camera_motion_primary": "slow dolly-in push from extreme wide to wide",
+        "lens": "24mm wide-angle",
+        "stabilization": "gimbal-stable smooth cinematic",
+        "aperture_look": "T4.0 deep focus keeping desert and character sharp"
+      },
+      "subject": {
+        "character": "Using the provided images for the traveler: male 30s in dark weathered jacket and worn boots walking steadily toward camera with determined expression",
+        "blocking": "walking from distance toward camera centered in frame boots on sand",
+        "mood": "epic determined beginning-of-journey energy"
+      },
+      "scene": {
+        "environment": "vast desert landscape with rolling sand dunes",
+        "time_of_day": "golden hour sunrise",
+        "weather": "clear dry heat beginning to build",
+        "lighting": "warm sunrise key from camera-right casting long dramatic shadows across dunes soft golden fill orange purple red sky background distant mountains silhouetted"
+      },
+      "visual_details": {
+        "beats": [
+          {
+            "time": "0.0-2.5s",
+            "action": "Establish epic desert scale: distant figure of traveler small against vast dunes sunrise breaks over mountains painting sky in deep oranges and purples camera begins slow push-in",
+            "physics": "sand particles drift in morning breeze long shadows stretch across dunes heat shimmer just beginning"
+          },
+          {
+            "time": "2.5-5.0s",
+            "action": "Traveler grows larger in frame steady walking pace unwavering boots creating footprints in sand jacket flutters slightly in desert wind",
+            "physics": "cloth micro-movement from breeze sand compresses under boots distant dunes show parallax movement"
+          },
+          {
+            "time": "5.0-7.0s",
+            "action": "Camera settles on wide shot showing full body traveler continues forward gaze fixed on horizon determined expression visible sunrise light catches face hold on steady advance",
+            "physics": "breath visible in cool morning air jacket settles sand trail behind him"
+          }
+        ]
+      }
+    },
+
+    {
+      "scene_number": 2,
+      "title": "Midday - The Harsh Sun",
+      "duration": 6,
+      "shot": {
+        "type": "medium_tracking_side",
+        "camera_position": "camera-left 3m away tracking alongside character at 1.5m height",
+        "camera_motion_primary": "smooth lateral tracking shot moving with character",
+        "lens": "35mm standard",
+        "stabilization": "dolly-track smooth parallel movement",
+        "aperture_look": "T2.8 selective focus on character canyon walls softer"
+      },
+      "subject": {
+        "character": "Using the provided images for the traveler: same male in dark jacket and worn boots walking through harsh conditions sweat glistening on face unwavering pace",
+        "blocking": "walking frame-right camera tracks alongside showing profile and forward motion",
+        "mood": "tested but unbroken harsh conditions met with quiet resolve"
+      },
+      "scene": {
+        "environment": "narrow red desert canyon with towering walls on both sides",
+        "time_of_day": "harsh midday",
+        "weather": "extreme heat no clouds",
+        "lighting": "brutal overhead sun creating stark vertical shadows heat waves visible shimmering in air red canyon walls reflecting heat high contrast lighting"
+      },
+      "visual_details": {
+        "beats": [
+          {
+            "time": "0.0-2.0s",
+            "action": "Tracking shot establishes: traveler walking through narrow canyon walls towering above heat waves ripple visibly camera moves smoothly alongside",
+            "physics": "sweat droplets form on face and neck heat shimmer distorts distant canyon depth"
+          },
+          {
+            "time": "2.0-4.0s",
+            "action": "Canyon narrows slightly walls cast partial shadow but heat remains oppressive traveler's pace unchanged sweat soaks shirt collar",
+            "physics": "cloth darkens with moisture dust kicked by boots hangs in still hot air"
+          },
+          {
+            "time": "4.0-6.0s",
+            "action": "Camera holds tracking position showing determined profile against red canyon wall harsh sunlight from above hold on unwavering forward motion",
+            "physics": "breath heavy but controlled shadows sharp and crisp heat radiates from walls"
+          }
+        ]
+      }
+    },
+
+    {
+      "scene_number": 3,
+      "title": "Forest Transition - The Shift",
+      "duration": 7,
+      "shot": {
+        "type": "wide_static_surreal_transition",
+        "camera_position": "static wide shot 4m in front of character at 1.8m height",
+        "camera_motion_primary": "locked static position environment transforms around character",
+        "lens": "40mm moderate wide",
+        "stabilization": "tripod-locked completely still",
+        "aperture_look": "T5.6 balanced focus environment and character equally sharp"
+      },
+      "subject": {
+        "character": "Using the provided images for the traveler: same male dark jacket worn boots walking forward without breaking stride as reality shifts",
+        "blocking": "walking directly toward camera centered in frame steady unwavering pace",
+        "mood": "surreal calm acceptance of impossibility"
+      },
+      "scene": {
+        "environment": "seamless transition from desert canyon to lush green forest morphing mid-stride",
+        "time_of_day": "shifts from harsh noon to filtered afternoon forest light",
+        "weather": "dry heat becomes humid cool forest air",
+        "lighting": "harsh overhead sun morphs to filtered green-gold forest light shafts through canopy"
+      },
+      "visual_details": {
+        "beats": [
+          {
+            "time": "0.0-2.5s",
+            "action": "Traveler walks from red canyon environment camera static character centered desert walls visible behind",
+            "physics": "boots on sand jacket in dry heat normal desert physics"
+          },
+          {
+            "time": "2.5-4.5s",
+            "action": "Reality shifts: canyon walls morph into tall ancient trees sand becomes moss-covered forest floor filtered green light replaces harsh sun character never breaks stride",
+            "physics": "surreal environmental transformation sand flows into moss canyon red fades to forest green seamless impossible transition"
+          },
+          {
+            "time": "4.5-7.0s",
+            "action": "Fully in forest now: lush ferns surround path filtered emerald light tall trees tower above traveler continues forward same determined pace hold on surreal acceptance",
+            "physics": "boots now on soft moss jacket in humid air ferns sway gently new forest atmosphere established"
+          }
+        ]
+      }
+    },
+
+    {
+      "scene_number": 4,
+      "title": "Storm - The Test",
+      "duration": 7,
+      "shot": {
+        "type": "medium_front_facing_dramatic",
+        "camera_position": "4m directly in front of character at 1.6m height facing him head-on",
+        "camera_motion_primary": "slow push-in from medium to medium-close",
+        "lens": "50mm portrait",
+        "stabilization": "handheld cinematic slight natural movement",
+        "aperture_look": "T2.0 shallow DOF character sharp rain streaks in focus forest background soft"
+      },
+      "subject": {
+        "character": "Using the provided images for the traveler: same male dark jacket now soaked with rain worn boots in muddy ground face streaming with water undeterred expression",
+        "blocking": "walking forward toward camera head slightly down against rain but gaze forward",
+        "mood": "tested by elements but unbroken quiet strength"
+      },
+      "scene": {
+        "environment": "dark moody forest in heavy rainstorm",
+        "time_of_day": "late afternoon storm darkness",
+        "weather": "heavy rain thunder lightning flashes",
+        "lighting": "low ambient forest light lightning flashes provide dramatic side-light illumination dark storm clouds overhead rain creates streaks and reflections"
+      },
+      "visual_details": {
+        "beats": [
+          {
+            "time": "0.0-2.5s",
+            "action": "Rain begins: traveler walking forward through forest sudden storm overhead rain starts to fall lightning flash illuminates scene briefly",
+            "physics": "rain droplets begin hitting character and ground thunder rumble forest darkens rapidly"
+          },
+          {
+            "time": "2.5-5.0s",
+            "action": "Heavy downpour now: rain streams down traveler's face and jacket camera pushes slowly closer lightning flash reveals determined expression clothes completely soaked",
+            "physics": "volumetric rain visible jacket darkens with water hair plastered to forehead puddles forming on ground"
+          },
+          {
+            "time": "5.0-7.0s",
+            "action": "Camera settles medium-close on rain-soaked traveler still walking forward another lightning flash thunder implied hold on unwavering resolve despite storm",
+            "physics": "rain intensity sustained water streams continuous breath visible despite exertion forward motion maintained"
+          }
+        ]
+      }
+    },
+
+    {
+      "scene_number": 5,
+      "title": "Winter - The Cold",
+      "duration": 7,
+      "shot": {
+        "type": "extreme_wide_isolation",
+        "camera_position": "very high and distant 8m away at 4m height looking down slight angle",
+        "camera_motion_primary": "slow crane-up and pull-back revealing scale",
+        "lens": "18mm ultra-wide",
+        "stabilization": "crane-smooth steady vertical and backward movement",
+        "aperture_look": "T8.0 everything in sharp focus from foreground snow to distant trees"
+      },
+      "subject": {
+        "character": "Using the provided images for the traveler: same male dark jacket now with snow accumulation on shoulders worn boots in deep snow small figure against vast white landscape",
+        "blocking": "walking forward through snow center-frame growing smaller as camera pulls back",
+        "mood": "isolated persevering against cold vastness"
+      },
+      "scene": {
+        "environment": "winter forest clearing with heavy snowfall bare snow-covered trees",
+        "time_of_day": "overcast day diffused white light",
+        "weather": "heavy continuous snowfall thick soft flakes",
+        "lighting": "soft diffused skylight from overcast clouds monochromatic white and grey tones gentle shadows minimal contrast ethereal quality"
+      },
+      "visual_details": {
+        "beats": [
+          {
+            "time": "0.0-2.5s",
+            "action": "Traveler walks through falling snow visible breath clouds in cold air snow accumulates on shoulders and hair forest clearing around him",
+            "physics": "heavy snowflakes fall continuously breath condenses visibly snow compresses under boots"
+          },
+          {
+            "time": "2.5-5.0s",
+            "action": "Camera begins crane-up and pull-back traveler continues forward growing smaller in frame snow-covered bare trees frame scene emphasizing isolation",
+            "physics": "snow trail visible behind him falling snow creates depth perspective trees sway slightly under snow weight"
+          },
+          {
+            "time": "5.0-7.0s",
+            "action": "Extreme wide now: traveler is small solitary figure in vast white expanse still walking forward snow continues falling hold on isolation and scale",
+            "physics": "distant figure motion subtle but maintained snowfall creates atmospheric haze soft ethereal lighting throughout"
+          }
+        ]
+      }
+    },
+
+    {
+      "scene_number": 6,
+      "title": "Night - The Darkness",
+      "duration": 7,
+      "shot": {
+        "type": "low_angle_cosmic_scale",
+        "camera_position": "very low 0.5m above ground looking up at 30-degree angle",
+        "camera_motion_primary": "slow tilt-up from character to sky revealing cosmic scale",
+        "lens": "28mm wide capturing both figure and vast sky",
+        "stabilization": "tripod-stable slow motorized tilt",
+        "aperture_look": "T2.8 character silhouette sharp stars rendered as points"
+      },
+      "subject": {
+        "character": "Using the provided images for the traveler: same male dark jacket and boots walking forward silhouetted against starry sky rim-lit by moonlight",
+        "blocking": "walking forward lower-third of frame silhouette with subtle rim light",
+        "mood": "cosmic scale humility wonder"
+      },
+      "scene": {
+        "environment": "endless dark plain under vast starry night sky Milky Way visible",
+        "time_of_day": "deep night",
+        "weather": "crystal clear no clouds",
+        "lighting": "subtle moonlight provides rim-light on character silhouette stars provide points of light in deep blue-black sky Milky Way band visible overhead soft ambient moonlight on ground"
+      },
+      "visual_details": {
+        "beats": [
+          {
+            "time": "0.0-2.5s",
+            "action": "Low angle establishes: traveler silhouette walking across dark plain moonlight creates rim-light on shoulders and head profile visible stars brilliant above",
+            "physics": "boots on dark ground subtle dust wisps breath visible as mist against stars"
+          },
+          {
+            "time": "2.5-5.0s",
+            "action": "Camera begins slow tilt upward revealing more of night sky traveler continues in lower frame Milky Way band becomes visible cosmic scale revealed",
+            "physics": "character maintains steady forward motion silhouette remains consistent stars appear stationary vast depth"
+          },
+          {
+            "time": "5.0-7.0s",
+            "action": "Tilt completes: upper two-thirds is now cosmic sky Milky Way dominant traveler small but present in lower frame still walking hold on scale and wonder",
+            "physics": "character movement subtle from low angle cosmic grandeur emphasized infinite perspective"
+          }
+        ]
+      }
+    },
+
+    {
+      "scene_number": 7,
+      "title": "The Abyss - Approaching the Threshold",
+      "duration": 7,
+      "shot": {
+        "type": "medium_dolly_existential",
+        "camera_position": "3m behind character at 1.7m height following from rear",
+        "camera_motion_primary": "slow dolly-forward following character from behind toward distant light",
+        "lens": "35mm standard",
+        "stabilization": "dolly-smooth steady following motion",
+        "aperture_look": "T4.0 character and distant light both sharp void gradients visible"
+      },
+      "subject": {
+        "character": "Using the provided images for the traveler: same male dark jacket worn boots walking away from camera into void toward tiny distant white light figure lit by soft sourceless light",
+        "blocking": "walking away from camera back visible centered in frame approaching distant point of light",
+        "mood": "existential mystery approaching unknown"
+      },
+      "scene": {
+        "environment": "infinite void no ground no sky deep charcoal abyss with subtle gradients",
+        "time_of_day": "timeless void space",
+        "weather": "none - abstract space",
+        "lighting": "soft sourceless light illuminating character from all sides subtle gradient from character to deeper darkness tiny white light point in far distance only brightness anchor"
+      },
+      "visual_details": {
+        "beats": [
+          {
+            "time": "0.0-2.5s",
+            "action": "Void established: traveler's back visible walking into infinite darkness tiny white light point visible far ahead camera follows from behind",
+            "physics": "no ground visible but walking motion natural soft light wraps character no shadows void gradient subtle"
+          },
+          {
+            "time": "2.5-5.0s",
+            "action": "Steady progress toward light: distance closes slightly light remains small camera maintains following distance void depth emphasized",
+            "physics": "walking pace constant light grows imperceptibly void gradients shift subtly suggesting vast scale"
+          },
+          {
+            "time": "5.0-7.0s",
+            "action": "Light slightly larger now but still distant traveler unwavering camera holds following position hold on approach to mysterious threshold",
+            "physics": "light beginning to define as source form not yet revealed character silhouette against brighter center"
+          }
+        ]
+      }
+    },
+
+    {
+      "scene_number": 8,
+      "title": "The Door - The Moment",
+      "duration": 6,
+      "shot": {
+        "type": "medium_static_emotional_beat",
+        "camera_position": "4m in front of door at 1.6m height facing character and door",
+        "camera_motion_primary": "completely static locked position for emotional beat",
+        "lens": "50mm portrait",
+        "stabilization": "tripod-locked no movement",
+        "aperture_look": "T2.0 shallow DOF character and door sharp void background soft"
+      },
+      "subject": {
+        "character": "Using the provided images for the traveler: same male dark jacket worn boots approaches door stops turns to face camera knowing peaceful smile breaks fourth wall",
+        "blocking": "walking to door stops for first time turns 180-degrees to face camera directly smiles then turns back opens door walks through",
+        "mood": "knowing peaceful acceptance connection with viewer revelation"
+      },
+      "scene": {
+        "environment": "modern dark wood door with sleek silver handle standing alone in void faint glow around door edges",
+        "time_of_day": "timeless void",
+        "weather": "none",
+        "lighting": "soft ambient void light door glows faintly around edges creating halo effect bright white light erupts from inside when door opens dramatic lighting transition"
+      },
+      "visual_details": {
+        "beats": [
+          {
+            "time": "0.0-2.0s",
+            "action": "Traveler approaches door from side walking final steps reaches door handle stops movement for first time in entire film",
+            "physics": "walking ceases hand reaches for handle jacket settles breathing slows"
+          },
+          {
+            "time": "2.0-3.5s",
+            "action": "KEY EMOTIONAL MOMENT: traveler turns to face camera directly makes eye contact knowing peaceful smile appears holds gaze breaking fourth wall",
+            "physics": "turn is smooth and intentional smile genuine and warm eye contact direct hold for full moment"
+          },
+          {
+            "time": "3.5-6.0s",
+            "action": "Traveler turns back to door grasps handle opens door bright white light pours out washing over him walks through into light door remains open hold on open door and spilling light",
+            "physics": "door opens smoothly light blooms dramatically figure silhouetted against brightness walks into light fade door left open void illuminated"
+          }
+        ]
+      }
+    },
+
+    {
+      "scene_number": 9,
+      "title": "The Exit - The Revelation",
+      "duration": 6,
+      "shot": {
+        "type": "extreme_zoom_out_mind_bending",
+        "camera_position": "starts close on door rapidly pulls back infinitely",
+        "camera_motion_primary": "continuous extreme zoom-out revealing nested reality",
+        "lens": "starts 50mm ends ultra-wide perspective",
+        "stabilization": "motion-control smooth infinite pullback",
+        "aperture_look": "deep focus everything sharp throughout zoom"
+      },
+      "subject": {
+        "character": "Using the provided images: traveler has passed through door silhouette briefly visible in doorway light as camera pulls back",
+        "blocking": "character through door small silhouette fades as zoom accelerates",
+        "mood": "metaphysical revelation perspective shift existential"
+      },
+      "scene": {
+        "environment": "open door with white light in void zoom reveals void contained in black square floating in deeper darkness",
+        "time_of_day": "beyond time",
+        "weather": "none - abstract concept space",
+        "lighting": "bright white light from open door contrasts with deep charcoal void which contrasts with perfect black square which contrasts with infinite deeper darkness layers of darkness revealed through zoom"
+      },
+      "visual_details": {
+        "beats": [
+          {
+            "time": "0.0-2.0s",
+            "action": "Door with white light pouring out camera begins slow zoom-out door becoming smaller void visible around it",
+            "physics": "light spills into void creating gradient door frame distinct zoom motion smooth and accelerating"
+          },
+          {
+            "time": "2.0-4.0s",
+            "action": "Zoom accelerates: void and door now framed within perfect black square square becomes visible as distinct object floating in even deeper darkness mind-bending revelation",
+            "physics": "nested reality revealed geometric perfection of square frame zoom continues smoothly depth layers become apparent"
+          },
+          {
+            "time": "4.0-6.0s",
+            "action": "Extreme zoom: black square becomes tiny point in infinite deeper darkness continues receding into absolute black final fade to complete black",
+            "physics": "infinite recession effect square shrinking exponentially darkness absolute and final fade smooth and inevitable"
+          }
+        ]
+      }
+    }
+  ]
+}

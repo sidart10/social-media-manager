@@ -1,4 +1,0 @@
-Scene 3: Digital Apps as Toolboxes (Gmail/Calendar/Audience Manager cards with MCP tools)
-Scene 4: AI Timeline (2022 Assistant → 2025 Agent evolution with 5 stages)
-Scene 5: Agent Architecture (Diagram: Model + Tool loop + Environment + Context + Evals)
-Scene 6: Infrastructure Race (Data centers, gigawatts, "constraint is watts not intelligence")

@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/Users/sid/.local/bin/veo", line 7, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/sid/.local/pipx/venvs/veotools/lib/python3.14/site-packages/veotools/cli.py", line 381, in main
+    return ns.func(ns)
+           ~~~~~~~^^^^
+  File "/Users/sid/.local/pipx/venvs/veotools/lib/python3.14/site-packages/veotools/cli.py", line 201, in cmd_plan_run
+    exec_result = veo.execute_scene_plan(
+        plan,
+    ...<4 lines>...
+        seed_frame_offset=ns.seed_offset,
+    )
+  File "/Users/sid/.local/pipx/venvs/veotools/lib/python3.14/site-packages/veotools/plan/executor.py", line 178, in execute_scene_plan
+    result = generate_from_image(
+        image_path,
+    ...<3 lines>...
+        **per_clip_kwargs,
+    )
+  File "/Users/sid/.local/pipx/venvs/veotools/lib/python3.14/site-packages/veotools/generate/video.py", line 389, in generate_from_image
+    return _generate_from_image_google(
+        veo_client.client,
+    ...<4 lines>...
+        **kwargs,
+    )
+  File "/Users/sid/.local/pipx/venvs/veotools/lib/python3.14/site-packages/veotools/generate/video.py", line 489, in _generate_from_image_google
+    raise RuntimeError(error_msg)
+RuntimeError: Video generation failed: No videos in response (operation: models/veo-3.0-generate-preview/operations/cvse2grubmaq)

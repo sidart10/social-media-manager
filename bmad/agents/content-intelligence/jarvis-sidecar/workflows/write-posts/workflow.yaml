@@ -1,0 +1,30 @@
+# Write Posts Workflow
+# Purpose: Generate platform-optimized social media posts with voice matching
+# Epic 4 Story 2.2 - Platform-Optimized Post Generation
+# Created: 2025-11-05
+# Status: NEW DEVELOPMENT
+
+name: write-posts
+description: "Generate social media posts for specific platforms (LinkedIn, Twitter, Substack) that sound authentically like you using Enhanced Voice Profile v2.0 with platform-specific optimization (PAIPS, threads, essays)"
+author: "Jarvis (Content Intelligence)"
+version: "1.0.0"
+
+# Standard Config
+config_source: "{agent-folder}/config.yaml"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+output_folder: "{config_source}:output_folder"
+
+# Workflow-specific paths
+voice_profile: "{agent-folder}/jarvis-sidecar/memories.md"
+skills_folder: "{project-root}/.claude/skills/jarvis"
+
+# This is an action workflow with external instructions
+template: false
+instructions: "{installed_path}/instructions.md"
+
+# Elicitation (review before publishing)
+elicitation: true
+
+# Default output will be determined by platform
+default_output_file: "{output_folder}/posts/{platform}-{topic-slug}-{date}.md"

@@ -1,12 +1,12 @@
 ---
 description: BMAD Method - Master Index
-globs: 
+globs:
 alwaysApply: true
 ---
 
 # BMAD Method - Cursor Rules Index
 
-This is the master index for all BMAD agents and tasks available in your project.
+This is the master index for all BMAD agents, tasks, tools, and workflows available in your project.
 
 ## Installation Complete!
 
@@ -18,6 +18,8 @@ BMAD rules have been installed to: `.cursor/rules/bmad/`
 
 - Reference specific agents: @bmad/{module}/agents/{agent-name}
 - Reference specific tasks: @bmad/{module}/tasks/{task-name}
+- Reference specific tools: @bmad/{module}/tools/{tool-name}
+- Reference specific workflows: @bmad/{module}/workflows/{workflow-name}
 - Reference entire modules: @bmad/{module}
 - Reference this index: @bmad/index
 
@@ -28,62 +30,42 @@ BMAD rules have been installed to: `.cursor/rules/bmad/`
 **Agents:**
 - @bmad/core/agents/bmad-master - bmad-master
 
+**Tasks:**
+- @bmad/core/tasks/index-docs - index-docs
+
+**Tools:**
+- @bmad/core/tools/shard-doc - shard-doc
+
+**Workflows:**
+- @bmad/core/workflows/brainstorming - brainstorming
+- @bmad/core/workflows/party-mode - party-mode
+
 ### BMB
 
 **Agents:**
 - @bmad/bmb/agents/bmad-builder - bmad-builder
 
+**Workflows:**
+- @bmad/bmb/workflows/audit-workflow - audit-workflow
+- @bmad/bmb/workflows/convert-legacy - convert-legacy
+- @bmad/bmb/workflows/create-agent - create-agent
+- @bmad/bmb/workflows/create-module - create-module
+- @bmad/bmb/workflows/create-workflow - create-workflow
+- @bmad/bmb/workflows/edit-agent - edit-agent
+- @bmad/bmb/workflows/edit-module - edit-module
+- @bmad/bmb/workflows/edit-workflow - edit-workflow
+- @bmad/bmb/workflows/module-brief - module-brief
+- @bmad/bmb/workflows/redoc - redoc
+
 ### STANDALONE
 
 **Agents:**
-- @bmad/standalone/agents/AGENT_COMPLETE - AGENT_COMPLETE
-- @bmad/standalone/agents/AGENT_FIXES_APPLIED - AGENT_FIXES_APPLIED
-- @bmad/standalone/agents/COMPREHENSIVE_TEST_REPORT - COMPREHENSIVE_TEST_REPORT
-- @bmad/standalone/agents/IMPLEMENTATION_ROADMAP - IMPLEMENTATION_ROADMAP
-- @bmad/standalone/agents/MCP_QUICK_REFERENCE - MCP_QUICK_REFERENCE
-- @bmad/standalone/agents/MCP_TROUBLESHOOTING - MCP_TROUBLESHOOTING
-- @bmad/standalone/agents/MCP_WORKING_CONFIG - MCP_WORKING_CONFIG
-- @bmad/standalone/agents/README - README
-- @bmad/standalone/agents/READY_TO_USE - READY_TO_USE
-- @bmad/standalone/agents/VALIDATION_REPORT - VALIDATION_REPORT
-- @bmad/standalone/agents/WORKFLOWS_COMPLETE - WORKFLOWS_COMPLETE
-- @bmad/standalone/agents/WORKFLOW_STRATEGY - WORKFLOW_STRATEGY
+- @bmad/standalone/agents/REFACTORING-COMPLETE-2025-10-29 - REFACTORING-COMPLETE-2025-10-29
 - @bmad/standalone/agents/ai-image-generator - ai-image-generator
-- @bmad/standalone/agents/ACTUAL-CURRENT-STATE - ACTUAL-CURRENT-STATE
-- @bmad/standalone/agents/AGENT_BUILD_COMPLETE - AGENT_BUILD_COMPLETE
-- @bmad/standalone/agents/BRAINSTORM-JSON-VIDEO-PROMPTING - BRAINSTORM-JSON-VIDEO-PROMPTING
-- @bmad/standalone/agents/COMPLETE-SYSTEM-SUMMARY - COMPLETE-SYSTEM-SUMMARY
-- @bmad/standalone/agents/CRITICAL-FIXES-COMPLETED - CRITICAL-FIXES-COMPLETED
-- @bmad/standalone/agents/FIXES_APPLIED - FIXES_APPLIED
-- @bmad/standalone/agents/FOCUSED-IMPLEMENTATION-PLAN - FOCUSED-IMPLEMENTATION-PLAN
-- @bmad/standalone/agents/IMPLEMENTATION-PLAN - IMPLEMENTATION-PLAN
-- @bmad/standalone/agents/JSON-INTEGRATION-COMPLETE - JSON-INTEGRATION-COMPLETE
-- @bmad/standalone/agents/JSON-MODULE-INTEGRATED - JSON-MODULE-INTEGRATED
-- @bmad/standalone/agents/MCP_SERVERS_UPDATED - MCP_SERVERS_UPDATED
-- @bmad/standalone/agents/PHASE-1-COMPLETE - PHASE-1-COMPLETE
-- @bmad/standalone/agents/README - README
-- @bmad/standalone/agents/SORA2-DOWNLOAD-FIX - SORA2-DOWNLOAD-FIX
-- @bmad/standalone/agents/ULTRATHINK-ANALYSIS - ULTRATHINK-ANALYSIS
-- @bmad/standalone/agents/UPGRADE-SUMMARY - UPGRADE-SUMMARY
 - @bmad/standalone/agents/ai-video-agent - ai-video-agent
 - @bmad/standalone/agents/README - README
 - @bmad/standalone/agents/jarvis - jarvis
-- @bmad/standalone/agents/CREDENTIALS_SETUP_GUIDE - CREDENTIALS_SETUP_GUIDE
-- @bmad/standalone/agents/CREDENTIALS_STATUS - CREDENTIALS_STATUS
-- @bmad/standalone/agents/LINKEDIN_API_COMPLETE_RESEARCH - LINKEDIN_API_COMPLETE_RESEARCH
-- @bmad/standalone/agents/LINKEDIN_INVESTIGATION - LINKEDIN_INVESTIGATION
-- @bmad/standalone/agents/LINKEDIN_QA_REPORT - LINKEDIN_QA_REPORT
-- @bmad/standalone/agents/MCP_SERVERS_RESEARCH - MCP_SERVERS_RESEARCH
-- @bmad/standalone/agents/PLATFORM_STATUS_COMPLETE - PLATFORM_STATUS_COMPLETE
-- @bmad/standalone/agents/PROGRESS_TRACKER - PROGRESS_TRACKER
-- @bmad/standalone/agents/QA_REPORT_COMPREHENSIVE - QA_REPORT_COMPREHENSIVE
-- @bmad/standalone/agents/README - README
-- @bmad/standalone/agents/SETUP_COMPLETE - SETUP_COMPLETE
-- @bmad/standalone/agents/TEST_RESULTS - TEST_RESULTS
-- @bmad/standalone/agents/TWITTER_API_IMPLEMENTATION_PLAN - TWITTER_API_IMPLEMENTATION_PLAN
-- @bmad/standalone/agents/YOUTUBE_MCP_GUIDE - YOUTUBE_MCP_GUIDE
-- @bmad/standalone/agents/YOUTUBE_SHORTS_GUIDE - YOUTUBE_SHORTS_GUIDE
-- @bmad/standalone/agents/YOUTUBE_SUCCESS - YOUTUBE_SUCCESS
+- @bmad/standalone/agents/AGENT-UPDATE-SUMMARY - AGENT-UPDATE-SUMMARY
 - @bmad/standalone/agents/social-posting-agent - social-posting-agent
 
 
@@ -92,10 +74,12 @@ BMAD rules have been installed to: `.cursor/rules/bmad/`
 - All BMAD rules are Manual type - reference them explicitly when needed
 - Agents provide persona-based assistance with specific expertise
 - Tasks are reusable workflows for common operations
+- Tools provide specialized functionality
+- Workflows orchestrate multi-step processes
 - Each agent includes an activation block for proper initialization
 
 ## Configuration
 
 BMAD rules are configured as Manual rules (alwaysApply: false) to give you control
 over when they're included in your context. Reference them explicitly when you need
-specific agent expertise or task workflows.
+specific agent expertise, task workflows, tools, or guided workflows.

@@ -1,0 +1,96 @@
+{
+  "project": {
+    "slug": "",
+    "full_name": "",
+    "start_date": "",
+    "completion_date": "",
+    "status": "in_progress"
+  },
+  "notion": {
+    "page_url": "",
+    "page_id": "",
+    "current_status": "",
+    "channel": "",
+    "category": "",
+    "priority": ""
+  },
+  "workflow": {
+    "agents_involved": [],
+    "workflows_executed": [],
+    "skills_triggered": [],
+    "handoffs": []
+  },
+  "costs": {
+    "research": 0,
+    "content_generation": 0,
+    "image_generation": 0,
+    "video_generation": 0,
+    "publishing": 0,
+    "total": 0
+  },
+  "duration": {
+    "research_minutes": 0,
+    "content_minutes": 0,
+    "media_minutes": 0,
+    "publishing_minutes": 0,
+    "total_minutes": 0
+  },
+  "file_inventory": {
+    "research": [],
+    "ideas": [],
+    "drafts": {
+      "linkedin": [],
+      "twitter": [],
+      "youtube": [],
+      "instagram": [],
+      "tiktok": [],
+      "substack": [],
+      "facebook": []
+    },
+    "media": {
+      "images": [],
+      "videos": []
+    },
+    "published": {
+      "linkedin": [],
+      "twitter": [],
+      "youtube": [],
+      "instagram": [],
+      "tiktok": [],
+      "substack": [],
+      "facebook": []
+    }
+  },
+  "platforms_published": {
+    "linkedin": {
+      "content_types": [],
+      "urls": [],
+      "scheduled_date": null,
+      "published_date": null
+    },
+    "twitter": {
+      "content_types": [],
+      "urls": [],
+      "scheduled_date": null,
+      "published_date": null
+    },
+    "youtube": {
+      "content_types": [],
+      "urls": [],
+      "scheduled_date": null,
+      "published_date": null
+    },
+    "instagram": {
+      "content_types": [],
+      "urls": [],
+      "scheduled_date": null,
+      "published_date": null
+    }
+  },
+  "quality_scores": {
+    "voice_confidence": null,
+    "image_quality_7_pillar": null,
+    "research_source_count": null
+  },
+  "archived": false
+}

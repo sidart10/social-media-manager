@@ -1,0 +1,60 @@
+{
+  "session": {
+    "name": "cinematic-short-journey",
+    "date": "2025-10-31",
+    "type": "cinematic-script-generation"
+  },
+  "project": {
+    "title": "THE JOURNEY",
+    "description": "60-second cinematic short film about a man walking through changing landscapes toward a mysterious door",
+    "style": "Love, Death & Robots - Photorealistic CGI",
+    "duration": "60 seconds",
+    "format": "Cinematic 16:9 or 2.35:1"
+  },
+  "deliverables": {
+    "script": {
+      "file": "scripts/THE-JOURNEY-cinematic-script.md",
+      "scenes": 9,
+      "optimized_for": "Veo scene-by-scene generation",
+      "includes": [
+        "Scene-by-scene breakdown",
+        "Detailed visual descriptions",
+        "Veo prompts for each scene",
+        "Timing breakdowns",
+        "Production notes",
+        "Color palette guides",
+        "Audio direction",
+        "Thematic interpretation"
+      ]
+    }
+  },
+  "next_steps": [
+    "Hand off script to Video Agent",
+    "Generate scenes using Veo tools",
+    "Scene 1: Dawn desert walk",
+    "Scene 2: Harsh sun canyon",
+    "Scene 3: Forest transition",
+    "Scene 4: Storm rain",
+    "Scene 5: Winter snow",
+    "Scene 6: Night stars",
+    "Scene 7: Approaching void door",
+    "Scene 8: The smile and entry",
+    "Scene 9: Infinite zoom out reveal"
+  ],
+  "technical_requirements": {
+    "character_consistency": "Same man model across all 9 scenes",
+    "walking_pace": "Steady and unchanging (except Scene 8 stop)",
+    "transitions": "Smooth environment morphing between scenes",
+    "camera_work": "Varied (wide, medium, tracking, zoom)",
+    "lighting": "Cinematic and dramatic throughout",
+    "no_dialogue": true,
+    "audio": "Atmospheric score + environmental sounds"
+  },
+  "workflow": {
+    "agent": "Jarvis",
+    "skill_used": "video-script-writer (adapted for cinematic)",
+    "handoff_to": "Video Agent (AI Video Agent)",
+    "generation_tool": "Veo MCP Server",
+    "generation_method": "Scene-by-scene (9 individual scenes)"
+  }
+}

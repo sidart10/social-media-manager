@@ -125,4 +125,55 @@ Analyze the competitor profile completely, extracting same data as your profiles
 <template-output>workflow_complete</template-output>
 </step>
 
+<step n="5.5" goal="Link Gap Keywords to Notion (Epic 2 Story 5.3)">
+  <action>Load {project-root}/.bmad-core/modules/notion-relational-helpers.md</action>
+
+  <action>**Link identified gap keywords to Notion Keywords DB:**
+
+    **Step 1: Extract gap keywords from analysis**
+    - Parse strategic recommendations for content gap themes
+    - Example: Gap analysis found "AI agent debugging", "MCP server setup", "Claude Code workflows"
+    - Extract as keyword list: ["ai agent debugging", "mcp servers", "claude code workflows"]
+
+    **Step 2: Ask user for Notion integration**
+    - Display: f"Found {len(gap_keywords)} gap keywords to track"
+    - Ask: "Add these keywords to Notion Keywords DB? yes/no"
+
+    if user_choice == "yes":
+      **Step 3: Create or find each keyword**
+      - For each gap_keyword:
+        result = find_or_create_keyword(gap_keyword)
+        if result:
+          if result.created:
+            display(f"✅ Created keyword: {gap_keyword}")
+          else:
+            display(f"✅ Found existing: {gap_keyword}")
+
+      **Step 4: Link to current content (if applicable)**
+      - If analyzing competitors for specific content idea:
+        metadata = read_json("00-session/metadata.json")
+        if metadata.notion.page_url exists:
+          # Link gap keywords to the content being researched
+          link_result = link_content_to_keywords(metadata.notion.page_url, gap_keywords)
+          display(f"✅ Linked {link_result.linked_count} gap keywords to your content")
+
+      **Step 5: Summary**
+      - Display: f"📊 Keywords Summary:"
+      - Display: f"   Created: {created_count} new keywords"
+      - Display: f"   Found: {found_count} existing keywords"
+      - Display: f"   Total tracked: {len(gap_keywords)}"
+
+    else:
+      display("ℹ️ Keywords not added to Notion - gap analysis saved locally only")
+    end if
+
+    **Error Handling:**
+    - Notion unavailable: Log error, skip keyword tracking
+    - Keyword creation fails: Continue with remaining keywords (partial success OK)
+    - Linking fails: Log warning, keywords still created (can link manually later)
+  </action>
+
+  <template-output>keywords_linked</template-output>
+</step>
+
 </workflow>

@@ -1,0 +1,1034 @@
+{
+  "project": "The Distance Between",
+  "style": "Studio Ghibli aesthetic - No dialogue, pure visual storytelling",
+  "core_motif": "Hands - building, breaking, reaching, letting go, holding",
+  "total_scenes": 18,
+  "acts": [
+    {
+      "act": 1,
+      "title": "WONDER (Childhood)",
+      "music": "Warm strings, gentle piano, childlike wonder",
+      "color_palette": "Golden Ghibli morning light, soft focus",
+      "scenes": [1, 2, 3]
+    },
+    {
+      "act": 2,
+      "title": "FRACTURE (Teenage Years)",
+      "music": "Discordant, percussive, tense strings, silence gaps",
+      "color_palette": "Darker tones, harsh overhead light, cold shadows",
+      "scenes": [4, 5, 6, 7]
+    },
+    {
+      "act": 3,
+      "title": "DISTANCE (Adult Years)",
+      "music": "Melancholy cello, sparse piano, urban ambience",
+      "color_palette": "Blue computer light, urban loneliness, cool tones",
+      "scenes": [8, 9, 10, 11]
+    },
+    {
+      "act": 4,
+      "title": "RETURN (Resolution)",
+      "music": "Tender, resolved, full orchestra, bittersweet",
+      "color_palette": "Warm sunset, peaceful evening, golden hour return",
+      "scenes": [12, 13, 14, 15, 16, 17, 18]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_number": 1,
+      "title": "Morning Light - Father's Hands Making Breakfast",
+      "act": 1,
+      "shot": {
+        "film_language": "close-up to medium close-up intimate kitchen moment",
+        "primary_camera_motion": "slow 30cm dolly-in on hands then tilt-up to reveal father and son",
+        "motion_path_meters": 0.3,
+        "stabilization": "smooth slider gentle ease-in"
+      },
+      "subject": {
+        "description": "Father's large weathered hands cracking eggs into bowl small boy's hands age 7 reaching up to help spilling juice",
+        "pose_or_behavior": "father gentle patient smile ruffles son's hair boy looks up with wide admiring eyes"
+      },
+      "scene": {
+        "environment": "sunlit Japanese-style kitchen wooden counters traditional rice cooker morning steam",
+        "location_details": "window casting warm rectangular light across counter dust motes floating in sunbeams",
+        "time_of_day": "early morning golden hour 7am",
+        "weather": "clear sunny day soft atmospheric glow"
+      },
+      "visual_details": {
+        "timeline_beats": [
+          {
+            "t": "0.0-2.5s",
+            "action": "Focus tight on father's hands cracking eggs bowl of rice visible camera begins dolly-in small hands enter frame reaching upward",
+            "focus": "hands macro sharp background kitchen softly blurred",
+            "physics": "egg white drips naturally chopsticks rest on bowl rice steams gently"
+          },
+          {
+            "t": "2.5-5.0s",
+            "action": "Boy's small hand accidentally tips juice glass father's large hand catches it mid-fall both hands visible showing size contrast",
+            "focus": "both sets of hands sharp gentle rack to faces",
+            "physics": "juice tilts liquid physics glass caught before spill"
+          },
+          {
+            "t": "5.0-8.0s",
+            "action": "Camera completes dolly and tilts up father ruffles son's hair boy beams up at him morning light halos both figures hold on their connection",
+            "focus": "faces sharp with soft bokeh behind them golden light",
+            "physics": "hair moves naturally from touch warm atmosphere dust particles visible"
+          }
+        ]
+      },
+      "cinematography": {
+        "lens_feel": "50mm spherical T2.8 for intimate warmth shallow DOF",
+        "lighting": "key: warm window light from left fill: bounce from white kitchen walls rim: soft morning glow",
+        "style": "Ghibli domestic warmth naturalistic soft shadows",
+        "grade": "warm golden hour pushed yellows lifted shadows gentle bloom on highlights"
+      },
+      "color_palette": {
+        "primary": "#F4D03F",
+        "secondary": "#E67E22",
+        "background": "#FDF6E3",
+        "accent": "#935116"
+      }
+    },
+    {
+      "scene_number": 2,
+      "title": "The Workshop - Father Building, Son Watching in Awe",
+      "act": 1,
+      "shot": {
+        "film_language": "wide establishing shot to medium shot father at workbench",
+        "primary_camera_motion": "slow 40cm dolly-in from boy's eye-level POV",
+        "motion_path_meters": 0.4,
+        "stabilization": "smooth slider child's reverent observation"
+      },
+      "subject": {
+        "description": "Father building wooden birdhouse at workbench strong capable hands using chisel and hammer boy age 7 sits cross-legged on floor watching mimicking motions",
+        "pose_or_behavior": "father focused methodical movements boy's small hands copy father's gestures invisible tools"
+      },
+      "scene": {
+        "environment": "cluttered workshop wooden walls tools hanging on pegboard sawdust on floor afternoon light",
+        "location_details": "single window casts diagonal light beam workbench covered in wood shavings hand tools",
+        "time_of_day": "afternoon 3pm warm golden light",
+        "weather": "clear day dust particles dance in sunbeam"
+      },
+      "visual_details": {
+        "timeline_beats": [
+          {
+            "t": "0.0-2.5s",
+            "action": "Establish wide workshop father at bench in center of frame boy sitting on floor in foreground camera begins approach from boy's low angle POV",
+            "focus": "father in focus workshop details visible boy's silhouette in foreground",
+            "physics": "wood shavings on floor dust motes in sunbeam hammer rests on bench"
+          },
+          {
+            "t": "2.5-5.0s",
+            "action": "Camera dollies closer father's hands work with chisel precise controlled motions boy's small hands mimic the movements",
+            "focus": "rack from boy's hands to father's hands both sharp momentarily",
+            "physics": "chisel carves wood curled shavings fall boy's hands move in sync but hold nothing"
+          },
+          {
+            "t": "5.0-8.0s",
+            "action": "Father notices boy smiling slightly picks up small tool hands it down to boy without words boy takes it reverently holds it like treasure",
+            "focus": "hands passing tool sharp faces show quiet connection",
+            "physics": "tool changes hands weight visible in boy's grip father returns to work"
+          }
+        ]
+      },
+      "cinematography": {
+        "lens_feel": "35mm spherical T4.0 for environmental context moderate DOF",
+        "lighting": "key: strong diagonal window light from right fill: ambient workshop bounce rim: backlight through sawdust",
+        "style": "Ghibli craftsmanship warm wood tones nostalgic atmosphere",
+        "grade": "warm amber tones enhanced wood grain gentle vignette lifted blacks"
+      },
+      "color_palette": {
+        "primary": "#8B4513",
+        "secondary": "#D2691E",
+        "background": "#F5DEB3",
+        "accent": "#654321"
+      }
+    },
+    {
+      "scene_number": 3,
+      "title": "The Walk - Father and Son Through Field",
+      "act": 1,
+      "shot": {
+        "film_language": "wide landscape shot two figures walking through golden field",
+        "primary_camera_motion": "slow 60cm dolly-in following subjects from behind",
+        "motion_path_meters": 0.6,
+        "stabilization": "smooth glide serene peaceful tracking"
+      },
+      "subject": {
+        "description": "Father and son walking through tall grass field father tall figure son small beside him son's hand reaches up father takes it",
+        "pose_or_behavior": "walking in comfortable silence matching pace father slows steps to match son's stride"
+      },
+      "scene": {
+        "environment": "endless golden grass field distant tree line rolling hills blue sky with gentle clouds",
+        "location_details": "knee-high grass swaying in breeze dirt path visible wildflowers scattered throughout",
+        "time_of_day": "late afternoon 5pm golden hour magic",
+        "weather": "clear perfect day gentle breeze"
+      },
+      "visual_details": {
+        "timeline_beats": [
+          {
+            "t": "0.0-2.5s",
+            "action": "Establish wide landscape two figures small in frame walking away camera begins gentle dolly-in grass sways rhythmically",
+            "focus": "entire landscape in focus deep DOF vast peaceful",
+            "physics": "grass waves move naturally wind visible in fabric clothing sways gently"
+          },
+          {
+            "t": "2.5-5.0s",
+            "action": "Camera closer now boy's hand reaches up in silhouette father's larger hand comes down to meet it they clasp hands continue walking",
+            "focus": "figures sharper still wide enough to see landscape",
+            "physics": "hands meet naturally arms swing gently in walking rhythm grass parts around their legs"
+          },
+          {
+            "t": "5.0-8.0s",
+            "action": "Hold on their connected silhouettes against golden field and sky they walk together pace synchronized distant birds cross sky",
+            "focus": "silhouettes sharp against bright background atmospheric glow",
+            "physics": "birds in distance grass continues swaying both figures same walking rhythm now"
+          }
+        ]
+      },
+      "cinematography": {
+        "lens_feel": "28mm spherical T8.0 for deep focus landscape grandeur",
+        "lighting": "key: golden hour backlight from setting sun fill: ambient skylight rim: sun halos through grass",
+        "style": "Ghibli landscape poetry epic pastoral beauty",
+        "grade": "rich golden tones high contrast silhouettes gentle flares bloom on sun"
+      },
+      "color_palette": {
+        "primary": "#FFD700",
+        "secondary": "#87CEEB",
+        "background": "#F0E68C",
+        "accent": "#2F4F4F"
+      }
+    },
+    {
+      "scene_number": 4,
+      "title": "The Anger - Plate Crashes in Kitchen",
+      "act": 2,
+      "shot": {
+        "film_language": "static locked-off shot cold observation no movement",
+        "primary_camera_motion": "none completely static tension through stillness",
+        "stabilization": "tripod locked harsh"
+      },
+      "subject": {
+        "description": "Father's hands slam on table plate crashes to floor teenage son age 15 stands in doorway face unreadable",
+        "pose_or_behavior": "father's fists clenched tight jaw tensed son frozen watching emotionless mask"
+      },
+      "scene": {
+        "environment": "same kitchen now darker evening harsh overhead fluorescent light cold atmosphere",
+        "location_details": "table with scattered papers single overhead light casting harsh shadows broken plate on tile floor",
+        "time_of_day": "evening 8pm harsh artificial light",
+        "weather": "dark outside window black reflection visible"
+      },
+      "visual_details": {
+        "timeline_beats": [
+          {
+            "t": "0.0-2.5s",
+            "action": "Still frame father's hands flat on table breathing heavy son visible in doorway background both frozen in tableau",
+            "focus": "father's clenched fists sharp son in background slightly soft",
+            "physics": "hands pressed down table slightly depressed papers scattered one still settling"
+          },
+          {
+            "t": "2.5-5.0s",
+            "action": "Plate shards visible on floor in foreground neither figure moves overhead light flickers once stark shadows shift",
+            "focus": "plate shards sharp both figures visible tension held",
+            "physics": "plate pieces scattered naturally light flicker causes shadow movement otherwise complete stillness"
+          },
+          {
+            "t": "5.0-8.0s",
+            "action": "Hold the tableau father's hands slowly unclench son remains in doorway no approach silence screams hold uncomfortable length",
+            "focus": "entire scene in focus cold clarity sharp edges",
+            "physics": "hands release slowly breathing visible in father's shoulders son completely still"
+          }
+        ]
+      },
+      "cinematography": {
+        "lens_feel": "40mm spherical T5.6 for clinical distance moderate sharpness",
+        "lighting": "key: harsh overhead fluorescent flat unflattering fill: none creating hard shadows rim: none deliberately flat",
+        "style": "anti-Ghibli harsh realism cold distance",
+        "grade": "desaturated cool tones pushed greens cyan shadows crushed blacks"
+      },
+      "color_palette": {
+        "primary": "#2C3E50",
+        "secondary": "#34495E",
+        "background": "#95A5A6",
+        "accent": "#7F8C8D"
+      }
+    },
+    {
+      "scene_number": 5,
+      "title": "The Silence - Dinner Table, Clock Ticking",
+      "act": 2,
+      "shot": {
+        "film_language": "slow 180-degree arc around table showing isolation despite proximity",
+        "primary_camera_motion": "smooth 180-degree arc dolly 90cm radius around table",
+        "motion_path_meters": 1.4,
+        "stabilization": "fluid head arc glacially slow"
+      },
+      "subject": {
+        "description": "Father and son eating dinner not looking at each other table between them wall clock visible",
+        "pose_or_behavior": "mechanical eating motions no eye contact son grips fork too tight father stares at plate"
+      },
+      "scene": {
+        "environment": "small dining room single overhead pendant light casting pool of light on table darkness around edges",
+        "location_details": "simple wooden table two chairs facing each other clock on wall showing 7:15 window showing darkness",
+        "time_of_day": "evening dinner time 7pm",
+        "weather": "rain visible through window streaking down glass"
+      },
+      "visual_details": {
+        "timeline_beats": [
+          {
+            "t": "0.0-2.5s",
+            "action": "Begin arc from father's side son in background clock prominent on wall both eating in silence arc starts moving counterclockwise",
+            "focus": "father sharp son and clock visible but softer",
+            "physics": "chopsticks lift rice bowl steams slightly rain streaks on window move downward"
+          },
+          {
+            "t": "2.5-5.0s",
+            "action": "Arc continues now side view both in profile equal in frame neither looks at other food on plates diminishing slowly",
+            "focus": "both figures sharp table between them emphasized",
+            "physics": "eating motions mechanical clockwork precision no conversation body language closed"
+          },
+          {
+            "t": "5.0-8.0s",
+            "action": "Arc completes now from son's side father in background clock shows time passing slightly both still eating hold final composition",
+            "focus": "son sharp father and clock visible physical distance emphasized",
+            "physics": "son's hand grips fork white knuckles father's shoulders hunched rain continues outside"
+          }
+        ]
+      },
+      "cinematography": {
+        "lens_feel": "35mm spherical T2.8 for isolation in frame shallow DOF",
+        "lighting": "key: single overhead pendant cold white fill: none shadows deep and ominous rim: window reflection faint",
+        "style": "oppressive silence visual distance cold palette",
+        "grade": "cold blue-grey tones heavy shadows minimal color saturation"
+      },
+      "color_palette": {
+        "primary": "#1C2833",
+        "secondary": "#566573",
+        "background": "#ABB2B9",
+        "accent": "#273746"
+      }
+    },
+    {
+      "scene_number": 6,
+      "title": "The Room - Son Packing Bag",
+      "act": 2,
+      "shot": {
+        "film_language": "static shot from doorway voyeuristic observation of private moment",
+        "primary_camera_motion": "none static doorway POV watching",
+        "stabilization": "locked tripod no movement"
+      },
+      "subject": {
+        "description": "Teenage son age 18 packing duffle bag on bed methodical movements father passes in hallway pauses visible through doorframe doesn't enter",
+        "pose_or_behavior": "son folding clothes precise mechanical father pauses doorframe silhouette hand rises to knock but doesn't both want to speak neither does"
+      },
+      "scene": {
+        "environment": "son's bedroom childhood posters on walls now packed boxes desk cleared bed half-packed",
+        "location_details": "doorframe creates natural frame within frame hallway lit differently than bedroom single desk lamp on",
+        "time_of_day": "night 10pm late packing",
+        "weather": "darkness outside window single streetlight glow"
+      },
+      "visual_details": {
+        "timeline_beats": [
+          {
+            "t": "0.0-2.5s",
+            "action": "Son visible through doorway packing clothes into bag mechanical movements father's silhouette enters frame from left pauses at doorframe",
+            "focus": "son in bedroom sharp doorframe and father silhouette visible",
+            "physics": "clothes folding natural rhythm father's hand visible at side clenches slightly"
+          },
+          {
+            "t": "2.5-5.0s",
+            "action": "Father's hand rises slowly as if to knock on doorframe hovers there son's hands pause mid-fold sensing presence time stretches",
+            "focus": "split focus father's raised hand foreground son's paused hands background",
+            "physics": "both frozen hand suspended in air breathing visible in father's shoulders"
+          },
+          {
+            "t": "5.0-8.0s",
+            "action": "Father's hand lowers doesn't knock silhouette continues down hallway disappearing son's hands resume packing faster now hold on empty doorway",
+            "focus": "empty doorframe sharp son visible but alone now",
+            "physics": "father's footsteps fade son exhales held breath resumes packing with urgency"
+          }
+        ]
+      },
+      "cinematography": {
+        "lens_feel": "50mm spherical T2.8 for doorframe framing shallow DOF",
+        "lighting": "key: desk lamp warm island in bedroom fill: hallway light cold spill rim: streetlight through window faint",
+        "style": "architectural framing doorway as barrier warm/cold contrast",
+        "grade": "split temperature warm bedroom cool hallway heavy shadows"
+      },
+      "color_palette": {
+        "primary": "#D68910",
+        "secondary": "#273746",
+        "background": "#1B2631",
+        "accent": "#F39C12"
+      }
+    },
+    {
+      "scene_number": 7,
+      "title": "The Leaving - Train Station Goodbye",
+      "act": 2,
+      "shot": {
+        "film_language": "wide shot pulling back as distance grows son walks away",
+        "primary_camera_motion": "slow 80cm dolly-back as son walks forward increasing distance",
+        "motion_path_meters": 0.8,
+        "stabilization": "smooth dolly retreat showing separation"
+      },
+      "subject": {
+        "description": "Son age 18 walking toward train gate bag on shoulder father standing still watching from distance",
+        "pose_or_behavior": "son walking steady pace pauses mid-step turns slightly raises hand half-wave father raises hand same gesture son continues through gate doesn't look back fully"
+      },
+      "scene": {
+        "environment": "modern Japanese train station morning light through glass ceiling crowds in background",
+        "location_details": "platform visible through gate father small in frame distance growing departure board showing times",
+        "time_of_day": "morning 9am departure time",
+        "weather": "overcast light through station ceiling diffused grey light"
+      },
+      "visual_details": {
+        "timeline_beats": [
+          {
+            "t": "0.0-2.5s",
+            "action": "Establish father in foreground sharp son walking mid-frame toward gate camera begins dolly-back matching son's forward walk father completely still",
+            "focus": "father sharp foreground son visible mid-frame gate in background",
+            "physics": "son's gait steady bag sways on shoulder father's posture rigid weight on both feet"
+          },
+          {
+            "t": "2.5-5.0s",
+            "action": "Son pauses mid-stride doesn't turn fully raises hand to side half-wave gesture camera continues retreating father's hand rises mirrors gesture time suspends",
+            "focus": "both hands sharp even at distance gesture emphasized",
+            "physics": "son's hand raises slowly hesitant father's hand rises same speed held moment of connection despite distance"
+          },
+          {
+            "t": "5.0-8.0s",
+            "action": "Son lowers hand continues through gate becoming smaller father remains still hand lowering slowly hold on father alone in frame son disappearing",
+            "focus": "father sharp in foreground now son small distant figure",
+            "physics": "hands lower asymmetrically son absorbed into crowd father isolated stillness emphasized"
+          }
+        ]
+      },
+      "cinematography": {
+        "lens_feel": "50mm spherical T4.0 for separation emphasis moderate DOF",
+        "lighting": "key: diffused overhead station light grey flat fill: ambient station lighting rim: none deliberately muted",
+        "style": "bittersweet departure distance despite proximity modern isolation",
+        "grade": "desaturated cool greys minimal color melancholic flat contrast"
+      },
+      "color_palette": {
+        "primary": "#7F8C8D",
+        "secondary": "#BDC3C7",
+        "background": "#ECF0F1",
+        "accent": "#34495E"
+      }
+    },
+    {
+      "scene_number": 8,
+      "title": "The City - Son Working Late",
+      "act": 3,
+      "shot": {
+        "film_language": "slow push-in on isolated figure in urban apartment",
+        "primary_camera_motion": "slow 40cm push-in through window view to interior",
+        "motion_path_meters": 0.4,
+        "stabilization": "smooth glide urban isolation"
+      },
+      "subject": {
+        "description": "Son age 25 in small apartment desk covered with work laptop and papers phone on desk showing Dad contact doesn't answer",
+        "pose_or_behavior": "hunched over laptop typing blue light on face tired isolated phone lights up glances at it doesn't pick up returns to work"
+      },
+      "scene": {
+        "environment": "tiny urban apartment single room desk near window city lights visible outside",
+        "location_details": "unmade bed in background dishes in sink tiny kitchen area visible window shows city lights and darkness",
+        "time_of_day": "night 11pm working late",
+        "weather": "clear night city glow through window urban buzz distant"
+      },
+      "visual_details": {
+        "timeline_beats": [
+          {
+            "t": "0.0-2.5s",
+            "action": "Establish from outside window looking in son silhouette at desk blue laptop glow phone on desk begins push-in through window",
+            "focus": "window frame sharp son silhouette visible inside",
+            "physics": "typing motion visible laptop screen glow reflects on face city lights twinkle in background"
+          },
+          {
+            "t": "2.5-5.0s",
+            "action": "Camera now inside apartment son's face lit by screen phone lights up buzzing Dad shows on screen son glances at phone pauses",
+            "focus": "son's face sharp phone screen visible illuminated",
+            "physics": "phone vibrates on desk screen brightens son's typing stops hand hovers briefly"
+          },
+          {
+            "t": "5.0-8.0s",
+            "action": "Son looks at phone doesn't pick up hand returns to keyboard phone screen darkens son returns to work alone hold on isolated figure",
+            "focus": "son's hunched posture sharp phone screen dark now",
+            "physics": "phone stops buzzing screen goes dark son's shoulders tense breathing visible in posture"
+          }
+        ]
+      },
+      "cinematography": {
+        "lens_feel": "35mm spherical T2.0 for urban loneliness very shallow DOF",
+        "lighting": "key: laptop screen blue cold light fill: city glow through window amber distant rim: none deliberately isolated",
+        "style": "urban isolation blue hour loneliness modern alienation",
+        "grade": "cold blue laptop tones warm amber city glow high contrast isolation"
+      },
+      "color_palette": {
+        "primary": "#154360",
+        "secondary": "#5DADE2",
+        "background": "#1C2833",
+        "accent": "#D68910"
+      }
+    },
+    {
+      "scene_number": 9,
+      "title": "The Parallel - Split Screen Father and Son",
+      "act": 3,
+      "shot": {
+        "film_language": "split-screen composition both sides mirror each other",
+        "primary_camera_motion": "none static on both sides simultaneous parallel lives",
+        "stabilization": "locked dual composition"
+      },
+      "subject": {
+        "description": "Left side: Father in workshop building alone / Right side: Son in office working late same posture same focused expression",
+        "pose_or_behavior": "both hunched over work hands doing similar motions father with wood son with keyboard identical concentration mirrors"
+      },
+      "scene": {
+        "environment": "Left: familiar workshop now emptier quiet / Right: modern office glass walls emptied for night",
+        "location_details": "Left: workbench single lamp / Right: desk monitor glow",
+        "time_of_day": "Left: evening / Right: night same hour different places",
+        "weather": "Left: workshop window dark / Right: city lights distant"
+      },
+      "visual_details": {
+        "timeline_beats": [
+          {
+            "t": "0.0-2.5s",
+            "action": "Establish split father on left working with chisel son on right typing both in profile same angle mirrored composition identical posture",
+            "focus": "both figures sharp split screen emphasized equally lit",
+            "physics": "Left: chisel carving wood shavings falling / Right: keyboard typing hand motion mirrors chisel rhythm"
+          },
+          {
+            "t": "2.5-5.0s",
+            "action": "Both pause at same moment father sets down tool son leans back both exhale breathing synchronized unknown to each other",
+            "focus": "faces sharp showing similarity in expression genetic mirror",
+            "physics": "Both exhale simultaneously shoulders relax same motion tools/keyboard rest"
+          },
+          {
+            "t": "5.0-8.0s",
+            "action": "Both return to work resuming same focused intensity split screen holds showing connection despite distance more alike than different hold composition",
+            "focus": "both sharp equal weight side by side connection visible",
+            "physics": "Resume work motion synchronized unconsciously same dedication same drive inherited"
+          }
+        ]
+      },
+      "cinematography": {
+        "lens_feel": "50mm spherical T4.0 for matched composition both sides equal",
+        "lighting": "Left: warm workshop lamp golden tones / Right: cool office blue tones temperature contrast",
+        "style": "visual poetry through composition warm vs cool but same soul",
+        "grade": "Left warm amber pushed yellows / Right cold blue pushed cyans high contrast between"
+      },
+      "color_palette": {
+        "primary_left": "#D68910",
+        "primary_right": "#154360",
+        "secondary_left": "#F39C12",
+        "secondary_right": "#5DADE2"
+      }
+    },
+    {
+      "scene_number": 10,
+      "title": "The Phone Call - Visual Only",
+      "act": 3,
+      "shot": {
+        "film_language": "intercutting close-ups faces during call no audio needed",
+        "primary_camera_motion": "slow push-in on each face alternating between them",
+        "motion_path_meters": 0.3,
+        "stabilization": "smooth intimate approach"
+      },
+      "subject": {
+        "description": "Father at home holding phone to ear / Son in apartment phone to ear mouths barely moving saying so little meaning so much",
+        "pose_or_behavior": "both grip phones tight faces show wanting to say more neither does small nods slight smiles sad eyes"
+      },
+      "scene": {
+        "environment": "Father: kitchen evening light / Son: apartment night blue",
+        "location_details": "Father: window behind sunset glow / Son: city lights behind cold urban",
+        "time_of_day": "Father: evening 7pm / Son: night 10pm time zone difference",
+        "weather": "Father: sunset warm / Son: night cold visual temperature contrast"
+      },
+      "visual_details": {
+        "timeline_beats": [
+          {
+            "t": "0.0-2.5s",
+            "action": "Father answers phone brings it to ear begins speaking mouth moves slightly saying few words camera slow push to close-up",
+            "focus": "father's face sharp phone visible warm lighting",
+            "physics": "phone comes to ear hand steady small movements in face mouth barely moves few syllables"
+          },
+          {
+            "t": "2.5-5.0s",
+            "action": "Cut to son listening nods once says few words back mouth movement minimal both say so little camera push closer to son's face",
+            "focus": "son's face sharp cold blue light phone pressed to ear",
+            "physics": "nods once small facial movements breath visible in slight nostril flare hand grips phone"
+          },
+          {
+            "t": "5.0-8.0s",
+            "action": "Intercutting faster both faces want to say more neither does hesitation visible both say goodbye lower phones slowly hold on both alone after hanging up",
+            "focus": "both faces sharp intercutting emphasis on eyes unsaid words",
+            "physics": "phones lower slowly hesitation in movement both sit with phone after call ended"
+          }
+        ]
+      },
+      "cinematography": {
+        "lens_feel": "85mm spherical T2.0 for portrait intimacy very shallow DOF",
+        "lighting": "Father: warm sunset key from window / Son: cold blue ambient from city both rim lit",
+        "style": "emotional restraint everything unsaid warm/cold visual language",
+        "grade": "Father warm golden lifted shadows / Son cold blue crushed blacks emotional distance through color"
+      },
+      "color_palette": {
+        "primary_father": "#D68910",
+        "primary_son": "#154360",
+        "accent_both": "#7F8C8D"
+      }
+    },
+    {
+      "scene_number": 11,
+      "title": "The Years Pass - Seasons Montage",
+      "act": 3,
+      "shot": {
+        "film_language": "time-lapse montage workshop and apartment cycling through seasons",
+        "primary_camera_motion": "locked static position showing passage of time through light and seasons",
+        "stabilization": "tripod locked time-lapse feel"
+      },
+      "subject": {
+        "description": "Father in workshop aging hair graying same position different seasons / Son in apartment succeeding but tired same isolation",
+        "pose_or_behavior": "father's movements slower over time son's posture more hunched both aging working alone"
+      },
+      "scene": {
+        "environment": "Workshop window shows: spring blossoms / summer green / autumn leaves / winter snow / Apartment window shows: seasons passing city unchanging",
+        "location_details": "same frames repeated workshop and apartment seasons visible through windows time passing marked by nature",
+        "time_of_day": "cycling through same times different seasons years passing",
+        "weather": "full seasonal cycle spring summer autumn winter repeat"
+      },
+      "visual_details": {
+        "timeline_beats": [
+          {
+            "t": "0.0-2.5s",
+            "action": "Workshop spring blossoms visible father working hair slightly grey cut to apartment spring evening son working same age time passes visually",
+            "focus": "both figures sharp seasonal changes visible through windows",
+            "physics": "spring light warm both working phone visible on desk and bench nearby unused"
+          },
+          {
+            "t": "2.5-5.0s",
+            "action": "Jump cut summer bright green outside father more grey working slower son busier more papers cycle continues autumn leaves falling winter snow",
+            "focus": "time passage through seasonal light changes aging visible gradually",
+            "physics": "lighting changes with seasons father's hands slower son's posture more bent years visible in small ways"
+          },
+          {
+            "t": "5.0-8.0s",
+            "action": "Seasons cycling faster spring again father noticeably older son established but isolated phone calls continue brief seasonal markers hold final winter both alone",
+            "focus": "final winter hold both figures sharp isolated despite years passing",
+            "physics": "father's hair fully grey movements careful son's face shows years weight distance maintained"
+          }
+        ]
+      },
+      "cinematography": {
+        "lens_feel": "40mm spherical T5.6 for environmental detail moderate DOF",
+        "lighting": "naturalistic seasonal changes spring bright summer golden autumn warm winter cold cycling",
+        "style": "passage of time melancholy seasons change people age distance remains",
+        "grade": "seasonal color shifts spring greens summer yellows autumn oranges winter blues natural progression"
+      },
+      "color_palette": {
+        "spring": "#7DCEA0",
+        "summer": "#F4D03F",
+        "autumn": "#E67E22",
+        "winter": "#AED6F1"
+      }
+    },
+    {
+      "scene_number": 12,
+      "title": "The Call - Realization Moment",
+      "act": 4,
+      "shot": {
+        "film_language": "extreme close-up on son's face as phone shows Dad calling",
+        "primary_camera_motion": "slow 20cm push-in to macro on eyes decision forming",
+        "motion_path_meters": 0.2,
+        "stabilization": "smooth intimate emotional shift"
+      },
+      "subject": {
+        "description": "Son's face phone buzzing Dad displayed hand hovers over phone decision point this call is different",
+        "pose_or_behavior": "expression shifts from routine to concern to determination answers quickly unusual"
+      },
+      "scene": {
+        "environment": "same apartment now different feeling afternoon light instead of night",
+        "location_details": "window showing daylight desk cleared slightly life more stable but still lonely",
+        "time_of_day": "afternoon 3pm unexpected call time",
+        "weather": "sunny day through window warmth returning"
+      },
+      "visual_details": {
+        "timeline_beats": [
+          {
+            "t": "0.0-2.5s",
+            "action": "Phone buzzes on desk Dad shows on screen son reaches for phone movement different faster concerned camera begins push to face",
+            "focus": "phone screen sharp son's reaching hand visible",
+            "physics": "phone vibrates normally son's hand moves quickly no hesitation this time"
+          },
+          {
+            "t": "2.5-5.0s",
+            "action": "Phone to ear son's face listens intently eyes shift concern registers something in father's voice different camera close on eyes now",
+            "focus": "eyes macro sharp reading emotion subtle shifts visible",
+            "physics": "breathing changes micro expressions eye movement processing information hand grips phone tighter"
+          },
+          {
+            "t": "5.0-8.0s",
+            "action": "Decision forms across face nods once even though father can't see determination sets in response short but meaningful camera holds on resolved expression",
+            "focus": "full face sharp decision visible transformation from routine to purposeful",
+            "physics": "jaw sets slight nod exhale decision made shoulders square subtle but complete shift"
+          }
+        ]
+      },
+      "cinematography": {
+        "lens_feel": "100mm spherical T2.0 for intimate emotion macro detail",
+        "lighting": "key: afternoon window light warm soft fill: room bounce gentle rim: window backlight halo",
+        "style": "emotional turning point hope entering warmth returning intimate portrait",
+        "grade": "warm afternoon tones lifted shadows gentle bloom hope in color temperature"
+      },
+      "color_palette": {
+        "primary": "#F39C12",
+        "secondary": "#F8C471",
+        "background": "#FEF5E7",
+        "accent": "#D68910"
+      }
+    },
+    {
+      "scene_number": 13,
+      "title": "The Journey Back - Train/Plane Window",
+      "act": 4,
+      "shot": {
+        "film_language": "profile shot looking out window landscape passing journey reversal",
+        "primary_camera_motion": "slow 30cm dolly-in on son's profile as he reflects",
+        "motion_path_meters": 0.3,
+        "stabilization": "smooth train motion subtle vibration"
+      },
+      "subject": {
+        "description": "Son looking out window landscape passing holds old photograph young him and father in workshop same image from Scene 2",
+        "pose_or_behavior": "quiet contemplation photograph in hands studying it memories visible in expression gentle smile forms"
+      },
+      "scene": {
+        "environment": "train interior modern comfortable landscape visible through large window",
+        "location_details": "window seat afternoon light streaming in familiar countryside passing by returning home",
+        "time_of_day": "afternoon golden hour approaching 4pm",
+        "weather": "clear beautiful day landscape golden fields returning to Act 1 palette"
+      },
+      "visual_details": {
+        "timeline_beats": [
+          {
+            "t": "0.0-2.5s",
+            "action": "Establish son in profile landscape moving past window holds photograph in hands camera begins approach studying his face",
+            "focus": "son sharp photograph visible landscape soft bokeh through window",
+            "physics": "subtle train vibration landscape scrolling by photograph steady in hands gentle movement"
+          },
+          {
+            "t": "2.5-5.0s",
+            "action": "Camera closer now can see photograph clearly young boy and father workshop scene son's thumb traces father's image in photo nostalgic",
+            "focus": "photograph sharp in hands can read the moment captured",
+            "physics": "thumb moves gently across photo surface train rocks subtly breathing even peaceful"
+          },
+          {
+            "t": "5.0-8.0s",
+            "action": "Son looks from photo out window small smile forms landscape becoming familiar nearing home journey reversing Scene 7 hold on hopeful expression",
+            "focus": "son's face sharp gentle smile visible hope in eyes",
+            "physics": "transition from photo to window gaze smile natural subtle landscape speeds by journey ending"
+          }
+        ]
+      },
+      "cinematography": {
+        "lens_feel": "50mm spherical T2.8 for portrait intimacy shallow DOF",
+        "lighting": "key: window light warm afternoon fill: train interior soft rim: backlight from window gentle halo",
+        "style": "nostalgic hopeful journey of return warmth entering",
+        "grade": "warm golden tones returning to Act 1 palette lifted shadows gentle contrast hope"
+      },
+      "color_palette": {
+        "primary": "#F4D03F",
+        "secondary": "#F8C471",
+        "background": "#FEF5E7",
+        "accent": "#E67E22"
+      }
+    },
+    {
+      "scene_number": 14,
+      "title": "The House - Same Door, Years Later",
+      "act": 4,
+      "shot": {
+        "film_language": "static shot same doorway from Scene 6 but reversed POV",
+        "primary_camera_motion": "none static waiting doorway poetry",
+        "stabilization": "locked tripod symmetry with Scene 6"
+      },
+      "subject": {
+        "description": "Father opens door older smaller somehow son stands outside both pause in doorway neither moves to hug just nod father steps aside son enters",
+        "pose_or_behavior": "both pause doorway threshold recognition father aged son grown both stoic small nods enough"
+      },
+      "scene": {
+        "environment": "same house from childhood older now father's house maintained but aged",
+        "location_details": "doorway threshold familiar space inside visible workshop visible in background same but emptier",
+        "time_of_day": "late afternoon 5pm warm light",
+        "weather": "clear day golden light through door warm"
+      },
+      "visual_details": {
+        "timeline_beats": [
+          {
+            "t": "0.0-2.5s",
+            "action": "Door opens slowly father appears in doorway smaller than remembered older son visible outside both freeze seeing each other time suspended",
+            "focus": "doorframe sharp both figures visible equally weighted",
+            "physics": "door opens steady father's hand on door frame slight tremble son stands still bags at side"
+          },
+          {
+            "t": "2.5-5.0s",
+            "action": "Both nod same gesture from Scene 7 recognition no hug just acknowledgment father's eyes show emotion son's show same neither speaks moment holds",
+            "focus": "faces sharp emotion visible in eyes small gestures everything",
+            "physics": "nods synchronized small slight breathing visible both wanting more neither demanding"
+          },
+          {
+            "t": "5.0-8.0s",
+            "action": "Father steps aside gesture invites son in son picks up bag crosses threshold reversal of Scene 6 leaving now entering hold doorway as son passes",
+            "focus": "doorway emphasized son crossing threshold father in background",
+            "physics": "son's gait steady crossing threshold bag weight shifts father watches follows inside"
+          }
+        ]
+      },
+      "cinematography": {
+        "lens_feel": "50mm spherical T2.8 for doorway symmetry moderate DOF",
+        "lighting": "key: afternoon light from outside warm fill: interior house light familiar rim: backlight from outside gentle",
+        "style": "doorway as metaphor crossing back return home poetry of thresholds",
+        "grade": "warm tones returning home palette golden hour lifted shadows gentle"
+      },
+      "color_palette": {
+        "primary": "#D68910",
+        "secondary": "#F39C12",
+        "background": "#FEF5E7",
+        "accent": "#935116"
+      }
+    },
+    {
+      "scene_number": 15,
+      "title": "The Work - Hands Together Fixing Birdhouse",
+      "act": 4,
+      "shot": {
+        "film_language": "macro close-up on hands working together mirror of Scene 2",
+        "primary_camera_motion": "slow 40cm dolly-in from medium to extreme close-up on hands",
+        "motion_path_meters": 0.4,
+        "stabilization": "smooth intimate approach poetry of hands"
+      },
+      "subject": {
+        "description": "Old wooden birdhouse from Scene 2 broken now father and son repair it together father's hands older shaking slightly son's hands steady them",
+        "pose_or_behavior": "working in silence comfortable now son anticipates father's needs hands work in harmony no words needed"
+      },
+      "scene": {
+        "environment": "same workshop from Scene 2 light identical afternoon golden hour",
+        "location_details": "same workbench tools same window same dust motes years passed full circle",
+        "time_of_day": "afternoon 3pm same light as childhood",
+        "weather": "clear day dust particles in sunbeam identical to Act 1"
+      },
+      "visual_details": {
+        "timeline_beats": [
+          {
+            "t": "0.0-2.5s",
+            "action": "Establish birdhouse on bench broken father's weathered hands hold it son's capable hands reach for tool camera begins dolly to hands",
+            "focus": "birdhouse sharp both sets of hands visible age contrast",
+            "physics": "birdhouse shows age wood weathered father's hands tremor visible son's steady confident"
+          },
+          {
+            "t": "2.5-5.0s",
+            "action": "Father's hands shake slightly holding wood son's hands steady them gentle supportive holding father steady continuing work reversed care",
+            "focus": "hands touching sharp steadying contact gentle strong",
+            "physics": "tremor in father's hands son's grip firm but gentle stabilizing continuing motion together"
+          },
+          {
+            "t": "5.0-8.0s",
+            "action": "Working together synchronized father guides son executes like Scene 2 reversed roles understood tool passes hands both work completing repair hold final",
+            "focus": "extreme close-up both hands sharp working together wood grain visible",
+            "physics": "tool exchanges natural wood shavings curl work completes synchronized breathing harmony"
+          }
+        ]
+      },
+      "cinematography": {
+        "lens_feel": "100mm macro T2.8 for hand detail intimate close",
+        "lighting": "key: window light diagonal identical to Scene 2 fill: workshop bounce rim: dust particles in sunbeam",
+        "style": "full circle poetry hands tell story reversal and continuation",
+        "grade": "warm golden tones identical to Act 1 nostalgic completion lifted shadows"
+      },
+      "color_palette": {
+        "primary": "#8B4513",
+        "secondary": "#D2691E",
+        "background": "#F5DEB3",
+        "accent": "#654321"
+      }
+    },
+    {
+      "scene_number": 16,
+      "title": "The Evening - Sitting Outside in Silence",
+      "act": 4,
+      "shot": {
+        "film_language": "wide static shot two figures sitting watching sunset comfortable silence",
+        "primary_camera_motion": "none completely static peaceful acceptance",
+        "stabilization": "locked tripod stillness is peace"
+      },
+      "subject": {
+        "description": "Father and son sitting on porch steps evening watching nothing just being together silence comfortable now not oppressive",
+        "pose_or_behavior": "sitting close but not touching both look forward peaceful neither needs to speak understanding reached"
+      },
+      "scene": {
+        "environment": "house porch evening golden hour sun setting field visible in distance",
+        "location_details": "wooden porch steps worn with age field stretching to horizon same field from Scene 3 full circle",
+        "time_of_day": "evening 6pm golden hour peace",
+        "weather": "perfect clear evening warm gentle breeze"
+      },
+      "visual_details": {
+        "timeline_beats": [
+          {
+            "t": "0.0-2.5s",
+            "action": "Establish wide shot two figures on porch silhouettes against golden hour sky sitting in comfortable silence breathing synchronized",
+            "focus": "entire scene sharp wide composition peaceful",
+            "physics": "gentle breeze moves grass in distance both sitting still relaxed breathing visible in posture"
+          },
+          {
+            "t": "2.5-5.0s",
+            "action": "Hold the silence sunset progressing sky changing color neither speaks comfortable in presence birds cross distant sky time passes peacefully",
+            "focus": "silhouettes sharp against changing sky atmosphere visible",
+            "physics": "light shifts gradually birds in distance grass sways both completely still at peace"
+          },
+          {
+            "t": "5.0-8.0s",
+            "action": "Father's hand moves slowly places something on step between them tool or watch or object son looks at it understands meaning nods hold moment",
+            "focus": "object sharp between them both still silhouettes gift given received",
+            "physics": "hand moves slowly deliberate object placed carefully son's head turns slight nod acceptance"
+          }
+        ]
+      },
+      "cinematography": {
+        "lens_feel": "35mm spherical T8.0 for deep focus entire scene sharp",
+        "lighting": "key: golden hour backlight from setting sun fill: ambient evening sky rim: sun creating halos",
+        "style": "Ghibli peace acceptance sunset poetry comfortable silence",
+        "grade": "rich golden hour deep oranges gentle purples peaceful resolution warm"
+      },
+      "color_palette": {
+        "primary": "#E67E22",
+        "secondary": "#F39C12",
+        "background": "#5D6D7E",
+        "accent": "#D68910"
+      }
+    },
+    {
+      "scene_number": 17,
+      "title": "The Goodbye - Small Wave Returns",
+      "act": 4,
+      "shot": {
+        "film_language": "medium shot from father's POV watching son leave this time different",
+        "primary_camera_motion": "none static father's perspective watching",
+        "stabilization": "locked still observer"
+      },
+      "subject": {
+        "description": "Morning son leaving again car parked outside house father at door son walking to car halfway turns",
+        "pose_or_behavior": "son reaches car door pauses turns back to father raises hand half-wave gesture father raises hand same gesture but this time both smile small genuine"
+      },
+      "scene": {
+        "environment": "same house exterior morning light car in driveway path to car",
+        "location_details": "doorway father stands same as Scene 14 son at car distance between but connection visible",
+        "time_of_day": "morning 8am departing but different from Scene 7",
+        "weather": "beautiful clear morning warm light hopeful"
+      },
+      "visual_details": {
+        "timeline_beats": [
+          {
+            "t": "0.0-2.5s",
+            "action": "Son walks to car father visible in doorframe background son reaches car door hand on handle pauses doesn't open yet",
+            "focus": "son sharp father visible in background doorframe",
+            "physics": "walking steady measured hand touches car door handle hesitates beat pause"
+          },
+          {
+            "t": "2.5-5.0s",
+            "action": "Son turns back to father raises hand half-wave same gesture from Scene 7 but this time father waves back and both smile genuine first real smiles",
+            "focus": "both faces visible sharp despite distance smiles clear",
+            "physics": "turn is full not partial hand raised open honest father's hand mirrors smile breaks across both faces natural"
+          },
+          {
+            "t": "5.0-8.0s",
+            "action": "Hold the moment wave sustained smiles held son opens car door gets in father remains at door both still smiling son drives away father watches peacefully",
+            "focus": "father's face sharp peaceful watching smile remains genuine",
+            "physics": "wave lowers slowly car door opens son enters vehicle drives away slowly father doesn't move inside immediately"
+          }
+        ]
+      },
+      "cinematography": {
+        "lens_feel": "50mm spherical T4.0 for balanced composition moderate DOF",
+        "lighting": "key: morning sun warm golden fill: ambient daylight bright rim: backlight gentle halos",
+        "style": "hopeful departure connection maintained distance accepted warmth prevails",
+        "grade": "warm morning tones golden light lifted shadows gentle contrast peaceful"
+      },
+      "color_palette": {
+        "primary": "#F4D03F",
+        "secondary": "#F8C471",
+        "background": "#AED6F1",
+        "accent": "#E67E22"
+      }
+    },
+    {
+      "scene_number": 18,
+      "title": "The Connection - Final Shot Repaired Birdhouse",
+      "act": 4,
+      "shot": {
+        "film_language": "extreme close-up macro on repaired birdhouse then reveal location",
+        "primary_camera_motion": "slow 50cm dolly-back revealing birdhouse now in son's apartment",
+        "motion_path_meters": 0.5,
+        "stabilization": "smooth reveal final poetry"
+      },
+      "subject": {
+        "description": "Repaired birdhouse from Scene 15 now sitting on son's apartment desk sunlight on it son's hands visible working nearby father's gift carried forward",
+        "pose_or_behavior": "birdhouse prominent symbol connection maintained son working peacefully desk organized life more balanced"
+      },
+      "scene": {
+        "environment": "son's apartment transformed same space from Scene 8 but different feeling warm natural light organized",
+        "location_details": "desk has birdhouse prominent window shows daylight not nighttime life balanced work and connection",
+        "time_of_day": "afternoon natural light workspace peaceful",
+        "weather": "beautiful day sunlight streaming through window warmth"
+      },
+      "visual_details": {
+        "timeline_beats": [
+          {
+            "t": "0.0-2.5s",
+            "action": "Begin extreme macro on birdhouse repaired wood grain visible beautiful craftsmanship father and son's work combined camera begins slow dolly-back",
+            "focus": "birdhouse macro sharp every detail visible repair seamless",
+            "physics": "wood grain texture visible dust particles in sunbeam on birdhouse light plays across surface"
+          },
+          {
+            "t": "2.5-5.0s",
+            "action": "Camera pulls back revealing birdhouse on desk son's hands visible working laptop open phone on desk peaceful atmosphere continues revealing apartment",
+            "focus": "birdhouse to desk to room gradual reveal context becoming clear",
+            "physics": "hands typing peacefully birdhouse stable prominent phone nearby connection visible"
+          },
+          {
+            "t": "5.0-8.0s",
+            "action": "Full reveal son at desk birdhouse prominent apartment transformed warm light organized balanced holds final composition son glances at birdhouse small smile fade out",
+            "focus": "entire scene in focus final composition complete story told",
+            "physics": "son glances from work to birdhouse small smile natural breathing peaceful apartment lived-in balanced final stillness"
+          }
+        ]
+      },
+      "cinematography": {
+        "lens_feel": "100mm macro to 35mm transition for reveal journey",
+        "lighting": "key: natural window light warm afternoon fill: room ambient balanced rim: soft backlight peaceful",
+        "style": "completion full circle connection visible symbol present life balanced",
+        "grade": "warm natural tones balanced contrast peaceful resolution lifted shadows gentle"
+      },
+      "color_palette": {
+        "primary": "#8B4513",
+        "secondary": "#F4D03F",
+        "background": "#FEF5E7",
+        "accent": "#E67E22"
+      }
+    }
+  ],
+  "production_notes": {
+    "music_direction": "No dialogue entire film - music carries emotion",
+    "color_theory": "Act 1 golden warm / Act 2 cold harsh desaturated / Act 3 blue urban isolated / Act 4 return to golden warm resolution",
+    "hands_motif": "Every scene shows hands doing something - building breaking reaching letting go holding - hands tell the story",
+    "doorway_motif": "Scene 6 leaving through doorway / Scene 14 entering through doorway - threshold poetry reversed",
+    "wave_motif": "Scene 7 distant sad wave / Scene 17 close genuine wave with smiles - same gesture transformed",
+    "parallel_structure": "Scene 2 father teaching son workshop / Scene 15 son steadying father workshop - reversed roles full circle",
+    "technical_consistency": "Use Veo3 for all scenes - consistent Ghibli aesthetic throughout - aspect ratio 16:9 cinematic"
+  },
+  "mcp_tool": "veotools (Google Veo 3)",
+  "recommended_model": "veo-3.0-fast-generate-preview for speed or veo-3.0-generate for quality",
+  "total_runtime_estimated": "144 seconds (18 scenes x 8 seconds each)",
+  "aspect_ratio": "16:9 cinematic",
+  "style_keywords": "Studio Ghibli aesthetic anime-real naturalistic lighting nostalgic atmospheric emotional restraint visual poetry"
+}

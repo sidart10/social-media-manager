@@ -1,0 +1,158 @@
+{
+  "film_title": "THE JOURNEY",
+  "total_duration_sec": 60,
+  "aspect_ratio": "16:9",
+  "style": "Love Death and Robots - Photorealistic CGI, Cinematic",
+  "generated_by": "Gemini via veotools",
+  "generated_at": "2025-10-31",
+
+  "characters": [
+    {
+      "name": "The Traveler",
+      "age": 35,
+      "height": "6'1\"",
+      "build": "Lean, athletic build, weathered by travel.",
+      "skin_tone": "Tanned caucasian",
+      "hair": "Short, dark brown, unkempt.",
+      "eyes": "Deep-set, piercing blue, conveying unwavering focus.",
+      "distinguishing_marks": "A faint scar across his left eyebrow.",
+      "demeanour": "Determined, resolute, and introspective. Moves with a steady, unflinching purpose.",
+      "default_outfit": "A dark, heavily weathered canvas jacket over a simple grey shirt, worn dark trousers, and sturdy, scuffed leather boots."
+    }
+  ],
+
+  "scenes": [
+    {
+      "id": "scene_01_desert",
+      "duration_sec": 7,
+      "title": "DAWN - The Beginning",
+      "location": "Vast desert at sunrise",
+      "color_palette": "Warm oranges, golds, deep blacks",
+      "shot_type": "Low-angle wide establishing",
+      "camera_motion": "Slow steady tracking parallel to subject",
+      "lighting": "Golden hour from low sun, high contrast shadows",
+      "tone": "Hopeful, solitary, epic",
+      "action": "Traveler walks left to right with unwavering determination",
+      "audio": "Boots on sand, low wind hum, subtle ambient synth pad"
+    },
+    {
+      "id": "scene_02_canyon",
+      "duration_sec": 7,
+      "title": "MIDDAY - The Harsh Sun",
+      "location": "Deep narrow red rock canyon",
+      "color_palette": "Desaturated reds and browns, high contrast",
+      "shot_type": "Medium tracking shot centered",
+      "camera_motion": "Smooth dolly following alongside",
+      "lighting": "Harsh overhead sunlight, deep shadows",
+      "tone": "Strenuous, relentless, imposing",
+      "action": "Walks steadily along rocky path, never breaks stride",
+      "audio": "Boots on gravel, echoing wind through canyon, steady breathing"
+    },
+    {
+      "id": "scene_03_forest",
+      "duration_sec": 7,
+      "title": "FOREST TRANSITION - The Shift",
+      "location": "Dense primordial forest",
+      "color_palette": "Deep greens, rich earthy browns, soft highlights",
+      "shot_type": "Medium shot waist up",
+      "camera_motion": "Dolly moving backward as subject walks forward",
+      "lighting": "Dappled volumetric sunbeams through canopy",
+      "tone": "Mysterious, serene, ancient",
+      "action": "Pushes aside fern frond continuing forward march",
+      "audio": "Birdsong, rustling leaves, soft twig snap"
+    },
+    {
+      "id": "scene_04_storm",
+      "duration_sec": 7,
+      "title": "STORM - The Test",
+      "location": "Wide empty windswept plain",
+      "color_palette": "Cold desaturated storm blues and deep greys",
+      "shot_type": "Low-angle close-up on face",
+      "camera_motion": "Static but chaotic with wind and rain",
+      "lighting": "Dark moody low-key, harsh lightning flashes",
+      "tone": "Adversity, struggle, perseverance",
+      "action": "Leans into wind, plants each foot deliberately through storm",
+      "audio": "Roaring thunder, heavy rain drumming, howling wind"
+    },
+    {
+      "id": "scene_05_snow",
+      "duration_sec": 7,
+      "title": "WINTER - The Cold",
+      "location": "Barren snow-covered mountain pass",
+      "color_palette": "Muted monochromatic whites, greys, blacks",
+      "shot_type": "High-angle crane shot looking down",
+      "camera_motion": "Slowly booming down as he walks away",
+      "lighting": "Soft diffused overcast light, subtle shadows",
+      "tone": "Isolated, quiet, enduring",
+      "action": "Plods through deep snow, breath misting, small dark shape in white world",
+      "audio": "Near silence - muffled boots in snow, quiet breathing"
+    },
+    {
+      "id": "scene_06_stars",
+      "duration_sec": 7,
+      "title": "NIGHT - The Darkness",
+      "location": "High mountain ridge under cosmos",
+      "color_palette": "Deep cosmic blues, purples, vibrant blacks",
+      "shot_type": "Extreme wide showing silhouette",
+      "camera_motion": "Slow majestic pan following movement",
+      "lighting": "Natural ethereal starlight and nebula glow",
+      "tone": "Awe-inspiring, cosmic, transcendent",
+      "action": "Walks along ridge line dwarfed by cosmos above",
+      "audio": "Ethereal ambient score swells, faint cold wind"
+    },
+    {
+      "id": "scene_07_void",
+      "duration_sec": 7,
+      "title": "THE ABYSS - Approaching Threshold",
+      "location": "Infinite featureless black void",
+      "color_palette": "Charcoal grey and black, soft white light accent",
+      "shot_type": "Medium shot from directly behind",
+      "camera_motion": "Steady forward tracking maintaining distance",
+      "lighting": "Soft ambient glow from distant door only",
+      "tone": "Surreal, final, minimalist",
+      "action": "Walks toward distant glowing door, sole point of light",
+      "audio": "Deep resonant sub-bass drone humming with quiet energy"
+    },
+    {
+      "id": "scene_08_door",
+      "duration_sec": 6,
+      "title": "THE DOOR - The Moment",
+      "location": "Black void at glowing door",
+      "color_palette": "High contrast black and white",
+      "shot_type": "Medium to close-up push-in",
+      "camera_motion": "Slow dramatic push-in on face",
+      "lighting": "Soft key light from door, ethereal glow",
+      "tone": "Acceptance, revelation, peace",
+      "action": "STOPS for first time. Turns to camera, smiles knowingly, opens door releasing white light",
+      "audio": "Sub-bass fades to silence, gentle melodic chime, heavy door latch click",
+      "key_moment": "FOURTH WALL BREAK - Direct eye contact with viewer, knowing peaceful smile"
+    },
+    {
+      "id": "scene_09_revelation",
+      "duration_sec": 6,
+      "title": "THE EXIT - The Revelation",
+      "location": "Void revealed as black square in greater emptiness",
+      "color_palette": "Pure black and pure white - stark graphic",
+      "shot_type": "Close-up to infinite extreme wide",
+      "camera_motion": "Very fast continuous smooth zoom-out",
+      "lighting": "Overwhelming white light to stark black square",
+      "tone": "Mind-bending, metaphysical, awe",
+      "action": "Door opens flooding white light, infinite zoom reveals void contained in black square",
+      "audio": "Orchestral/synth crescendo with light burst, cuts to single resonant note fading to silence",
+      "key_moment": "REALITY REVEAL - Entire journey exists within tiny black square"
+    }
+  ],
+
+  "production_notes": {
+    "model": "veo-3.0-generate-preview",
+    "generation_approach": "Scene-by-scene with Gemini storyboard",
+    "visual_consistency": "Same character model, clothing, walking pace throughout",
+    "key_emotional_beats": [
+      "Determination (Scenes 1-6): Never wavers through changing conditions",
+      "Mystery (Scene 7): Where is he going?",
+      "Connection (Scene 8): The smile - he knows something we don't",
+      "Transcendence (Scene 9): Reality is perspective"
+    ],
+    "thematic_interpretation": "Visual metaphor for life's journey, perseverance, the threshold we all approach, and the mysterious nature of reality itself"
+  }
+}

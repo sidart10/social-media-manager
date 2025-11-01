@@ -61,4 +61,71 @@
 <template-output>workflow_complete</template-output>
 </step>
 
+<step n="3.5" goal="Create Notion Child Content Page (Epic 2 Story 5.2)">
+  <action>Load {project-root}/.bmad-core/modules/notion-updates.md</action>
+  <action>Load {project-root}/.bmad-core/modules/notion-relational-helpers.md</action>
+
+  <action>**Optional: Create child content page for profile analysis in Notion**
+
+    **Ask user:** "Create Notion page for this profile analysis? yes/no (can reference later for competitive intel)"
+
+    if user_choice == "yes":
+      **Step 1: Create Content Tracker page**
+      - Call: create_content_page(
+          idea_card: {
+            title: f"Profile Analysis: @{handle} ({platform})",
+            category: "Competitive Intelligence" or infer from profile content,
+            priority: "3rd Priority",
+            description: f"Analysis of @{handle}: {top_format}, {top_topics}",
+            platform: platform,
+            keywords: extract_keywords_from_analysis(top_topics)
+          },
+          project_metadata: metadata
+        )
+
+      if page_result.success:
+        page_url = page_result.page_url
+        display(f"✅ Created Notion page: Profile Analysis - @{handle}")
+
+        **Step 2: Save profile report to Notion Content Text**
+        - Read full report from: {default_output_file}
+        - Call: update_content_property(
+            page_url,
+            {"Content Text": full_report_markdown},
+            "Jarvis"
+          )
+
+        **Step 3: Link to Channel**
+        - Call: link_content_to_channel(page_url, platform)
+        - Example: platform="LinkedIn" → Links to "LinkedIn & X"
+
+        **Step 4: Link as Note to parent content (if analyzing for specific content idea)**
+        - If user is analyzing competitor for their own content:
+          - Ask: "Link this analysis to a specific content idea in Notion?"
+          - If yes: Prompt for parent content URL
+          - Link via Notes relation
+
+        **Step 5: Save page URL**
+        - metadata.notion_pages_created.append({
+            "title": f"Profile Analysis: @{handle}",
+            "url": page_url,
+            "type": "profile_analysis"
+          })
+        - save_metadata(metadata)
+
+        display(f"✅ Profile analysis saved to Notion for future reference")
+
+      else:
+        display(f"⚠️ Notion page creation skipped or failed")
+        display(f"ℹ️ Analysis saved locally: {default_output_file}")
+      end if
+
+    else:
+      display("ℹ️ Notion page not created - analysis saved locally only")
+    end if
+  </action>
+
+  <template-output>notion_optional_created</template-output>
+</step>
+
 </workflow>

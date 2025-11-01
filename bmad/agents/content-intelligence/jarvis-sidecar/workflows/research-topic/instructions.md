@@ -206,4 +206,44 @@
   <template-output>workflow_complete</template-output>
 </step>
 
+<step n="8.5" goal="Update Notion Status (Epic 2 Story 5.2)">
+  <action>Load {project-root}/.bmad-core/modules/notion-updates.md</action>
+
+  <action>**Update Notion Content Tracker status:**
+
+    **Step 1: Load project metadata**
+    - Read: outputs/{date}/{session}/metadata.json (or outputs/projects/{YYYY-MM-DD}-{slug}/00-session/metadata.json if new structure)
+    - Extract: notion_page_url from metadata.notion.page_url
+
+    **Step 2: Check if Notion page linked**
+    - If notion_page_url exists: Proceed with update
+    - If not exists: Display "ℹ️ No Notion page linked (local-only project)" and skip
+
+    **Step 3: Update status using notion-updates module**
+    - Call: update_content_status(
+        notion_page_url: metadata.notion.page_url,
+        new_status: "Research",
+        agent_name: "Jarvis",
+        project_metadata: metadata
+      )
+
+    **Step 4: Handle result**
+    - If success: Display "✅ Notion updated: Idea → Research"
+    - If failed: Display "⚠️ Notion update failed: {error} (workflow continues)"
+    - Log to session-log.md: "{timestamp} - Jarvis: Status updated to Research"
+
+    **Step 5: Add research brief to Notes relation (optional)**
+    - If research brief saved as separate Notion page: Link via Notes relation
+    - Or: Add URL/path to research brief file in Notion page description
+    - This enables: Click Notion page → See research brief location
+
+    **Error Handling:**
+    - Notion API timeout: Log error, continue workflow
+    - Invalid transition: Log warning (e.g., already at "Research" status)
+    - Network failure: Graceful degradation, local outputs unaffected
+  </action>
+
+  <template-output>notion_updated</template-output>
+</step>
+
 </workflow>

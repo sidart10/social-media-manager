@@ -1,0 +1,71 @@
+# Create Skill - Workflow Configuration
+name: "create-skill"
+description: "Interactive workflow to create Claude Code skills following Anthropic best practices with optional research enhancement, proper file structure, and automatic manifest logging"
+author: "BMad Builder"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/bmb/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Required data files - Agent and workflow manifests for dynamic loading
+agent_manifest: "{project-root}/bmad/_cfg/agent-manifest.csv"
+workflow_manifest: "{project-root}/bmad/_cfg/workflow-manifest.csv"
+skill_manifest: "{project-root}/bmad/_cfg/skill-manifest.csv"
+files_manifest: "{project-root}/bmad/_cfg/files-manifest.csv"
+
+# Skill templates and reference materials
+skill_template_dir: "{installed_path}/skill-template"
+anthropic_best_practices: "{installed_path}/anthropic-best-practices.md"
+research_context: "{installed_path}/research-context.md"
+
+# Optional inputs - Existing skill-creator skill for reference
+recommended_inputs:
+  - existing_skill_creator: "{project-root}/.claude/skills/skill-creator/SKILL.md"
+
+# Module path and component files
+installed_path: "{project-root}/bmad/bmb/workflows/create-skill"
+template: false # Action workflow - creates multiple files, not single document
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# Output configuration - Skills saved to .claude/skills/
+skill_output_base: "{project-root}/.claude/skills"
+skill_path: "{skill_output_base}/{{agent_category}}/{{skill_name}}"
+
+# Tool Requirements
+required_tools:
+  - "Exa Search":
+      description: "Neural search for finding proven methodologies and best practices (research mode only)"
+      link: "https://exa.ai"
+  - "Firecrawl":
+      description: "Web scraping for extracting detailed content from research sources (research mode only)"
+      link: "https://firecrawl.dev"
+
+# Invocation control
+standalone: true
+
+# Web Bundle Configuration
+web_bundle:
+  name: 'create-skill'
+  description: 'Interactive workflow to create Claude Code skills following Anthropic best practices with optional research enhancement, proper file structure, and automatic manifest logging'
+  author: 'BMad Builder'
+
+  instructions: 'bmad/bmb/workflows/create-skill/instructions.md'
+  validation: 'bmad/bmb/workflows/create-skill/checklist.md'
+  template: false
+
+  # Required data files
+  agent_manifest: 'bmad/_cfg/agent-manifest.csv'
+  anthropic_best_practices: 'bmad/bmb/workflows/create-skill/anthropic-best-practices.md'
+  research_context: 'bmad/bmb/workflows/create-skill/research-context.md'
+
+  web_bundle_files:
+    - 'bmad/bmb/workflows/create-skill/instructions.md'
+    - 'bmad/bmb/workflows/create-skill/checklist.md'
+    - 'bmad/bmb/workflows/create-skill/anthropic-best-practices.md'
+    - 'bmad/bmb/workflows/create-skill/research-context.md'
+    - 'bmad/bmb/workflows/create-skill/skill-template/SKILL-template.md'
+    - 'bmad/_cfg/agent-manifest.csv'

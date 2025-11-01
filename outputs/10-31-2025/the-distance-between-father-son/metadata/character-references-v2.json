@@ -1,0 +1,91 @@
+{
+  "film_title": "The Distance Between",
+  "version": "v2 - 2D Hand-Drawn Ghibli Aesthetic",
+  "generated_date": "2025-10-31",
+  "style": "2D hand-drawn animation, watercolor-inspired, traditional Japanese animation cel aesthetic, NOT 3D CGI",
+  "total_characters": 6,
+  "total_reference_images": 18,
+
+  "characters": {
+    "father_young": {
+      "age": "35-40 years old",
+      "acts_used": [1],
+      "scenes_used": [1, 2, 3],
+      "description": "Handsome South Asian male, warm gentle expression, soft brown eyes with crow's feet, thick dark eyebrows, well-groomed black mustache, light stubble, wavy black hair, cream kurta with rolled sleeves, dark brown pants, worn leather chappals, silver watch, carpenter's weathered hands",
+      "references": {
+        "front": "https://res.cloudinary.com/dnezawwer/image/upload/v1761911411/films/the-distance-between-v2/father-young-front.png",
+        "three_quarter": "https://res.cloudinary.com/dnezawwer/image/upload/v1761911413/films/the-distance-between-v2/father-young-3quarter.png",
+        "profile": "https://res.cloudinary.com/dnezawwer/image/upload/v1761911414/films/the-distance-between-v2/father-young-profile.png"
+      }
+    },
+
+    "father_middle": {
+      "age": "48-52 years old",
+      "acts_used": [2],
+      "scenes_used": [4, 5, 6, 7],
+      "description": "Same man aged with stress, hunched shoulders, deeper worry lines, grey streaks at temples, salt-and-pepper mustache, 3-day stubble with grey, tight jaw, tired weary eyes, disheveled hair, worn faded kurta, cracked chappals, scratched watch, swollen knuckles",
+      "references": {
+        "front": "https://res.cloudinary.com/dnezawwer/image/upload/v1761911416/films/the-distance-between-v2/father-middle-front.png",
+        "three_quarter": "https://res.cloudinary.com/dnezawwer/image/upload/v1761911417/films/the-distance-between-v2/father-middle-3quarter.png",
+        "profile": "https://res.cloudinary.com/dnezawwer/image/upload/v1761911418/films/the-distance-between-v2/father-middle-profile.png"
+      }
+    },
+
+    "father_older": {
+      "age": "62-67 years old",
+      "acts_used": [4],
+      "scenes_used": [12, 14, 15, 16, 17],
+      "description": "Elderly peaceful presence, fully silver-grey hair, deep smile lines, white-grey mustache well-groomed, white stubble, gentle wise brown eyes, peaceful tired smile, soft beige kurta, reading glasses on cord, thin worn watch, weathered hands like old wood, wedding ring",
+      "references": {
+        "front": "https://res.cloudinary.com/dnezawwer/image/upload/v1761911444/films/the-distance-between-v2/father-older-front.png",
+        "three_quarter": "https://res.cloudinary.com/dnezawwer/image/upload/v1761911445/films/the-distance-between-v2/father-older-3quarter.png",
+        "profile": "https://res.cloudinary.com/dnezawwer/image/upload/v1761911448/films/the-distance-between-v2/father-older-profile.png"
+      }
+    },
+
+    "son_child": {
+      "age": "7 years old",
+      "acts_used": [1],
+      "scenes_used": [1, 2, 3],
+      "description": "Small South Asian boy, enormous dark innocent eyes, thick lashes, gap-toothed smile with missing front tooth, chubby soft cheeks, thick black messy bowl-cut with cowlick, oversized white shirt (father's), khaki shorts with string belt, bare dusty feet, scuffed knees, small hands reaching upward in wonder",
+      "references": {
+        "front": "https://res.cloudinary.com/dnezawwer/image/upload/v1761911449/films/the-distance-between-v2/son-child-front.png",
+        "three_quarter": "https://res.cloudinary.com/dnezawwer/image/upload/v1761911450/films/the-distance-between-v2/son-child-3quarter.png",
+        "profile": "https://res.cloudinary.com/dnezawwer/image/upload/v1761911451/films/the-distance-between-v2/son-child-profile.png"
+      }
+    },
+
+    "son_teenager": {
+      "age": "17-18 years old",
+      "acts_used": [2],
+      "scenes_used": [4, 5, 6, 7],
+      "description": "Lanky South Asian teenager 5'9\", angular teenage features, dark eyes closed off emotionless, thick eyebrows, tight jaw, patchy stubble beard, shoulder-length black hair across forehead hiding face, dark grey tight t-shirt, worn jeans, scuffed sneakers, defensive hunched posture, closed body language",
+      "references": {
+        "front": "https://res.cloudinary.com/dnezawwer/image/upload/v1761911470/films/the-distance-between-v2/son-teenager-front.png",
+        "three_quarter": "https://res.cloudinary.com/dnezawwer/image/upload/v1761911472/films/the-distance-between-v2/son-teenager-3quarter.png",
+        "profile": "https://res.cloudinary.com/dnezawwer/image/upload/v1761911473/films/the-distance-between-v2/son-teenager-profile.png"
+      }
+    },
+
+    "son_adult": {
+      "age": "28-32 years old",
+      "acts_used": [3, 4],
+      "scenes_used": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+      "description": "Handsome South Asian male, striking mature features, strong jawline, full well-groomed black beard with few grey streaks, warm intelligent dark brown eyes (father's eyes), long thick black hair in low bun with silver-grey at temples, black henley rolled sleeves, dark jeans, brown leather boots, inherited silver watch, messenger bag, thoughtful peaceful presence",
+      "references": {
+        "front": "https://res.cloudinary.com/dnezawwer/image/upload/v1761911474/films/the-distance-between-v2/son-adult-front.png",
+        "three_quarter": "https://res.cloudinary.com/dnezawwer/image/upload/v1761911475/films/the-distance-between-v2/son-adult-3quarter.png",
+        "profile": "https://res.cloudinary.com/dnezawwer/image/upload/v1761911476/films/the-distance-between-v2/son-adult-profile.png"
+      }
+    }
+  },
+
+  "usage_notes": {
+    "aesthetic": "2D hand-drawn animation with watercolor-inspired painting style, gentle pastel tones, soft expressive line work, traditional Japanese animation cel aesthetic",
+    "improvements_from_v1": "Changed from 3D CGI clay figures to proper 2D hand-drawn Ghibli style, added mustache to all father variations, corrected to watercolor aesthetic with soft edges",
+    "fal_veo_usage": "Use these URLs in image_urls array for FAL Veo 3.1 reference-to-video (up to 3 per scene)",
+    "character_consistency_strategy": "Scene 1 uses 3 character views, Scene 2+ uses 2 character views + previous scene last frame",
+    "multi_character_scenes": "Use primary character's 3 refs, describe secondary character in detailed text (cannot mix father + son refs in same image_urls array)",
+    "url_format": "All URLs are permanent HTTPS hosted on Cloudinary, globally accessible, FAL-compatible"
+  }
+}

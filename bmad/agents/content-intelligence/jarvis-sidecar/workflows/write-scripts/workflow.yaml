@@ -1,0 +1,30 @@
+# Write Scripts Workflow
+# Purpose: Generate YouTube/Short video scripts with timestamps and thumbnail concepts
+# Epic 4 Story 2.3 - Video Script Generation
+# Created: 2025-11-05
+# Status: NEW DEVELOPMENT
+
+name: write-scripts
+description: "Generate video scripts for YouTube/Shorts with embedded timestamps, scene descriptions, thumbnail concepts using Enhanced Voice Profile v2.0 and proven formats (Ali Abdaal Top 5, MKBHD Tech Review, Tutorial, Short-form)"
+author: "Jarvis (Content Intelligence)"
+version: "1.0.0"
+
+# Standard Config
+config_source: "{agent-folder}/config.yaml"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+output_folder: "{config_source}:output_folder"
+
+# Workflow-specific paths
+voice_profile: "{agent-folder}/jarvis-sidecar/memories.md"
+skills_folder: "{project-root}/.claude/skills/jarvis"
+
+# This is an action workflow with external instructions
+template: false
+instructions: "{installed_path}/instructions.md"
+
+# Elicitation (review before finalizing)
+elicitation: true
+
+# Default output
+default_output_file: "{output_folder}/scripts/youtube-{topic-slug}-{date}.md"
