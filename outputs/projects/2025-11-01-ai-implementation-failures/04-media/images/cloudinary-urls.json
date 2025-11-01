@@ -1,0 +1,60 @@
+{
+  "carousel_name": "AI Implementation Failures - Strategic Framework",
+  "slide_count": 5,
+  "platform": "LinkedIn",
+  "design_system": "H-1B inspired muted sophistication",
+  "cloudinary_urls": [
+    "https://res.cloudinary.com/dnezawwer/image/upload/v1762025948/social-media-carousels/social-media/carousels/ai-failures/slide-01.png",
+    "https://res.cloudinary.com/dnezawwer/image/upload/v1762025949/social-media-carousels/social-media/carousels/ai-failures/slide-02.png",
+    "https://res.cloudinary.com/dnezawwer/image/upload/v1762025950/social-media-carousels/social-media/carousels/ai-failures/slide-03.png",
+    "https://res.cloudinary.com/dnezawwer/image/upload/v1762025952/social-media-carousels/social-media/carousels/ai-failures/slide-04.png",
+    "https://res.cloudinary.com/dnezawwer/image/upload/v1762025953/social-media-carousels/social-media/carousels/ai-failures/slide-05.png"
+  ],
+  "slides": [
+    {
+      "slide_number": 1,
+      "title": "Pattern Interrupt - 67%",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762025948/social-media-carousels/social-media/carousels/ai-failures/slide-01.png",
+      "local_path": "04-media/images/slide-01-pattern-interrupt.png",
+      "size_bytes": 931576,
+      "emotional_goal": "Shock and curiosity"
+    },
+    {
+      "slide_number": 2,
+      "title": "The Mistake Matrix",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762025949/social-media-carousels/social-media/carousels/ai-failures/slide-02.png",
+      "local_path": "04-media/images/slide-02-mistake-matrix.png",
+      "size_bytes": 948962,
+      "emotional_goal": "Recognition of mistakes"
+    },
+    {
+      "slide_number": 3,
+      "title": "The Reality Check",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762025950/social-media-carousels/social-media/carousels/ai-failures/slide-03.png",
+      "local_path": "04-media/images/slide-03-reality-check.png",
+      "size_bytes": 920497,
+      "emotional_goal": "Authority with BCG data"
+    },
+    {
+      "slide_number": 4,
+      "title": "The Winner's Framework",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762025952/social-media-carousels/social-media/carousels/ai-failures/slide-04.png",
+      "local_path": "04-media/images/slide-04-winners-framework.png",
+      "size_bytes": 921566,
+      "emotional_goal": "Clarity on success pattern"
+    },
+    {
+      "slide_number": 5,
+      "title": "CTA - Engagement",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762025953/social-media-carousels/social-media/carousels/ai-failures/slide-05.png",
+      "local_path": "04-media/images/slide-05-cta.png",
+      "size_bytes": 910044,
+      "emotional_goal": "Drive comments"
+    }
+  ],
+  "total_size_bytes": 4632645,
+  "total_size_mb": 4.42,
+  "generation_date": "2025-11-01T19:37:00Z",
+  "provider": "nanobanana",
+  "cost_estimate": "$0.20"
+}
