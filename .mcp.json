@@ -4,23 +4,45 @@
       "command": "node",
       "args": ["/Users/sid/Desktop/4. Coding Projects/Postiz/postiz-mcp-server.js"],
       "env": {
-        "POSTIZ_API_KEY": "8e016ebccd6f56eea7fbfe1e7acd79103661f8e10407eff9a9b2c78fa531388d"
+        "POSTIZ_API_KEY": "${POSTIZ_API_KEY}"
       }
     },
     "plainly": {
       "command": "npx",
       "args": ["-y", "@plainly-videos/mcp-server@latest"],
       "env": {
-        "PLAINLY_API_KEY": "x6d4qcL3NvfWtcRCpsSjCNNVOQJiaoib",
-        "PLAINLY_ORGANIZATION_ID": "52eb1126-3604-48df-8ba1-f6d87998bcb8"
+        "PLAINLY_API_KEY": "${PLAINLY_API_KEY}",
+        "PLAINLY_ORGANIZATION_ID": "${PLAINLY_ORGANIZATION_ID}"
       }
     },
     "submagic": {
       "command": "/Users/sid/Desktop/4. Coding Projects/sub-magic-mcp-server/venv/bin/python",
       "args": ["/Users/sid/Desktop/4. Coding Projects/sub-magic-mcp-server/submagic_mcp.py"],
       "env": {
-        "SUBMAGIC_API_KEY": "sk-7ba8e8399a9f72b70c1734aa55c9ca836c5d5beb76f6ba7ee31e799285e005e8"
+        "SUBMAGIC_API_KEY": "${SUBMAGIC_API_KEY}"
+      }
+    },
+    "exa": {
+      "command": "npx",
+      "args": ["-y", "exa-mcp-server"],
+      "env": {
+        "EXA_API_KEY": "${EXA_API_KEY}"
+      }
+    },
+    "firecrawl": {
+      "command": "npx",
+      "args": ["-y", "firecrawl-mcp"],
+      "env": {
+        "FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"
+      }
+    },
+    "apify": {
+      "command": "npx",
+      "args": ["-y", "@apify/actors-mcp-server@latest"],
+      "env": {
+        "APIFY_API_TOKEN": "${APIFY_API_KEY}"
       }
     }
   }
 }
+
