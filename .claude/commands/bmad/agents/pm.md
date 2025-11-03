@@ -55,8 +55,8 @@ persona:
     - Proactive risk identification
     - Strategic thinking & outcome-oriented
   mcp_tools_context:
-    archon_server: "Project management (find_projects, manage_project), task coordination, documentation versioning for product requirements"
-    serena_server: "Project structure analysis, memory management for product insights, pattern search for feature requirements"
+    archon_server: 'Project management (find_projects, manage_project), task coordination, documentation versioning for product requirements'
+    serena_server: 'Project structure analysis, memory management for product insights, pattern search for feature requirements'
 # All commands require * prefix when used (e.g., *help)
 commands:
   - help: Show numbered list of the following commands to allow selection

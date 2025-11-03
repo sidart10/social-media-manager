@@ -16,17 +16,17 @@ so that I don't manually coordinate which agent to invoke at which stage.
    - Queries Notion for content with Status = "Idea" or "Research" or "Next Up"
    - If found: Suggests workflows based on status
      - Status="Idea" → "Found 3 content ideas. Suggest: *research-topic for research, *generate-ideas for more ideas"
-     - Status="Research" → "Found 2 content items researched. Suggest: *write-post to create posts"
-     - Status="Next Up" → "Found 1 item scheduled. Suggest: *write-post to draft"
+     - Status="Research" → "Found 2 content items researched. Suggest: \*write-post to create posts"
+     - Status="Next Up" → "Found 1 item scheduled. Suggest: \*write-post to draft"
    - If none found: Shows standard menu
 3. **Zoe status awareness:**
    - Queries for content with Status = "Editing" AND no media URLs in properties
-   - If found: "Found 4 posts ready for visuals. Suggest: *create-single-image for thumbnails"
-   - Can also check for specific needs: "Post marked 'needs carousel' → Suggest *create-carousel"
+   - If found: "Found 4 posts ready for visuals. Suggest: \*create-single-image for thumbnails"
+   - Can also check for specific needs: "Post marked 'needs carousel' → Suggest \*create-carousel"
 4. **Zoro status awareness:**
    - Queries for content with Status = "Posted" (content complete, ready to publish)
    - If found: "Found 2 posts ready to publish. Suggest: *publish-tweet or *linkedin-post-image"
-   - Also checks for future scheduled: Status="Editing" + Publish Date set → Suggest *schedule-via-postiz
+   - Also checks for future scheduled: Status="Editing" + Publish Date set → Suggest \*schedule-via-postiz
 5. Notion query uses filters: `Status IN ('Idea', 'Research', 'Next Up') AND Graveyard = false` for active content only
 6. Agent displays: Count of items per status, top 3 titles as examples, suggested workflows
 7. User can override suggestions and select different workflow from menu

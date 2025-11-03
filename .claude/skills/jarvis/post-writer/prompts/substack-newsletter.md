@@ -18,6 +18,7 @@ Generate a complete, ready-to-publish Substack newsletter optimized for engageme
 ## Input Parameters
 
 You will receive:
+
 - **Topic**: {topic}
 - **Length**: {word_count} words (typically 800-1500)
 - **Style**: {paul_graham_essay | conversational_insight | personal_story | how_to_guide}
@@ -61,6 +62,7 @@ P.S. {Casual, behind-scenes note}
 ```
 
 **Paul Graham Techniques**:
+
 1. **Self-riffing**: Reference own language for smooth transitions
 2. **Strategic vocabulary**: Sophisticated phrases SPARINGLY for impact
 3. **Conversational authenticity**: Mix contractions + formal, sound human
@@ -175,6 +177,7 @@ P.S. {Preview advanced tactics in next newsletter}
 **Subject line = Email open rate**
 
 **Effective patterns**:
+
 - **Curiosity**: "The writing trick nobody talks about"
 - **Benefit**: "How to write faster without quality loss"
 - **Controversy**: "Why {popular belief} is wrong"
@@ -182,6 +185,7 @@ P.S. {Preview advanced tactics in next newsletter}
 - **Specificity**: "3 essays that changed my thinking on {topic}"
 
 **Avoid**:
+
 - Vague ("Some thoughts")
 - Clickbait ("You won't believe...")
 - All caps (LOOKS SPAMMY)
@@ -194,6 +198,7 @@ P.S. {Preview advanced tactics in next newsletter}
 **YOU HAVE ONE PARAGRAPH to hook the reader.**
 
 **Effective openings**:
+
 1. **Surprising observation**: "Everyone talks about X. Nobody mentions Y."
 2. **Question**: "What makes good writing good?"
 3. **Bold statement**: "I wasted 6 months doing this wrong."
@@ -201,6 +206,7 @@ P.S. {Preview advanced tactics in next newsletter}
 5. **Contradiction**: "The advice everyone gives is backwards."
 
 **Opening paragraph quality test**:
+
 - Creates curiosity? (Unanswered question)
 - Sets expectation? (Reader knows where this goes)
 - Feels authentic? (Sounds like human, not AI)
@@ -210,12 +216,14 @@ P.S. {Preview advanced tactics in next newsletter}
 ### Conversational Depth
 
 **Write like you talk** (but better):
+
 - Use contractions naturally ("I'm", "you're", "it's")
 - Include rhetorical questions ("What does this mean?")
 - Vary sentence length (short. Medium length. Sometimes a longer sentence that explores a thought more fully.)
 - One-line paragraphs for emphasis
 
 **Paul Graham's approach**:
+
 - Simple vocabulary (accessible)
 - Complex structure (sophisticated without pretension)
 - Strategic "fancy" words (occasional flash of eloquence)
@@ -223,6 +231,7 @@ P.S. {Preview advanced tactics in next newsletter}
 ### Paragraph Rhythm
 
 **Vary paragraph length**:
+
 - Short (1 line): Emphasis, punch
 - Medium (2-4 lines): Standard explanation
 - Long (5-7 lines): Deep exploration
@@ -232,11 +241,13 @@ P.S. {Preview advanced tactics in next newsletter}
 ### Subheadings (Skimmability)
 
 **Use ## subheadings every 300-500 words**:
+
 - Breaks up long text
 - Allows skimming
 - Creates natural sections
 
 **Subheading style**:
+
 - Clear, specific (not vague)
 - Can be questions
 - Or bold statements
@@ -244,6 +255,7 @@ P.S. {Preview advanced tactics in next newsletter}
 ### Rhetorical Questions (Engagement)
 
 **Sprinkle throughout** (every 2-3 paragraphs):
+
 - "What does this mean for you?"
 - "Why does this matter?"
 - "Sound familiar?"
@@ -256,6 +268,7 @@ P.S. {Preview advanced tactics in next newsletter}
 ## Research Integration
 
 If {research_brief} provided:
+
 - **Weave naturally**: Don't info-dump
 - **Cite sources**: Build credibility
 - **Use quotes**: Social proof
@@ -266,12 +279,14 @@ If {research_brief} provided:
 ## Voice Adaptation
 
 If {voice_profile} provided:
+
 - Match vocabulary sophistication
 - Mirror sentence patterns
 - Use signature phrases
 - Apply tonal preferences
 
 If NO voice profile:
+
 - Conversational, authentic
 - Educated but accessible
 - Personal without oversharing
@@ -280,17 +295,20 @@ If NO voice profile:
 ## Closing Strategy
 
 **Don't force CTAs**:
+
 - Substack is about connection, not conversion
 - Optional soft ask ("Thoughts?" "Reply if...")
 - Natural transition to comments
 
 **Strong closings**:
+
 - Reflection on topic
 - Call back to opening (creates closure)
 - Question to ponder
 - Tease next newsletter (optional)
 
 **P.S. Section** (Highly effective):
+
 - Behind-scenes insight
 - Personal note
 - Preview upcoming content
@@ -301,6 +319,7 @@ If NO voice profile:
 ### Welcome Note (60-70% Open Rate - Most Valuable)
 
 **Structure**:
+
 ```
 Subject: "Welcome to {Newsletter Name}"
 
@@ -331,6 +350,7 @@ Looking forward to having you here,
 ### Substack Notes Integration
 
 **Promote newsletter via Notes**:
+
 - Pull-quote (intriguing excerpt)
 - Key stat or insight
 - Teaser with link
@@ -341,6 +361,7 @@ Looking forward to having you here,
 ### Comments as Growth Tool
 
 **Comment on other newsletters** 5-10x/week:
+
 - Thoughtful (add value)
 - Authentic (not promotional)
 - Builds passive exposure
@@ -349,6 +370,7 @@ Looking forward to having you here,
 ## Length Guidelines
 
 **Typical range**: 800-1500 words
+
 - **Short newsletter**: 800-1000 words (quick read)
 - **Standard newsletter**: 1000-1500 words (depth)
 - **Long-form**: 1500-2500 words (essay/analysis)
@@ -393,17 +415,20 @@ P.S. {personal_note_or_preview}
 **Reading Time**: ~{minutes} minutes (250 words/min average)
 
 **Subject Line Analysis**:
+
 - Curiosity factor: {high/medium/low}
 - Specificity: ✓
 - Length: {chars} (<60 recommended)
 - Predicted open rate: {estimate}
 
 **Hook Strength** (Opening paragraph):
+
 - Immediate engagement: ✓
 - Clear direction: ✓
 - Authentic voice: ✓
 
 **Structure**:
+
 - Sections: {count}
 - Subheadings: {count}
 - Paragraph variety: ✓

@@ -10,6 +10,7 @@
 ## Creation Process
 
 **User request:**
+
 ```
 Create a skill for extracting email addresses from text
 ```
@@ -17,6 +18,7 @@ Create a skill for extracting email addresses from text
 ---
 
 **skill-creator response:**
+
 ```
 Using skill-creator skill...
 
@@ -43,7 +45,7 @@ No additional files needed for regex task.
 
 ## Generated SKILL.md
 
-```yaml
+````yaml
 ---
 name: extracting-email-addresses
 description: Extract email addresses from text using regex patterns. Use when parsing emails, processing text files, or extracting contact information from documents.
@@ -70,9 +72,10 @@ When extracting emails:
    import re
    pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
    emails = re.findall(pattern, text)
-   ```
+````
 
 2. **Remove duplicates:**
+
    ```python
    unique_emails = list(set(emails))
    ```
@@ -92,12 +95,14 @@ When extracting emails:
 **Example 1: Basic extraction**
 
 Input:
+
 ```
 Contact us at support@example.com or sales@company.co.uk
 For urgent matters: admin@site.org
 ```
 
 Output:
+
 ```python
 ['admin@site.org', 'sales@company.co.uk', 'support@example.com']
 ```
@@ -105,11 +110,13 @@ Output:
 **Example 2: From messy text**
 
 Input:
+
 ```
 Emails: john.doe@gmail.com, invalid@, jane_smith@yahoo.com
 ```
 
 Output:
+
 ```python
 ['jane_smith@yahoo.com', 'john.doe@gmail.com']
 # Note: 'invalid@' filtered out (no domain)
@@ -128,7 +135,8 @@ Output:
 - Regex pattern covers 99% of valid emails
 - May not catch every edge case (internationalized domains)
 - For production, consider using email-validator library
-```
+
+````
 
 ---
 
@@ -137,9 +145,10 @@ Output:
 **Running validation:**
 ```bash
 python scripts/validate-skill.py .claude/skills/jarvis/extracting-email-addresses/
-```
+````
 
 **Result:**
+
 ```
 ============================================================
 SKILL VALIDATION REPORT
@@ -162,6 +171,7 @@ SKILL VALIDATION REPORT
 **Location:** `.claude/skills/jarvis/extracting-email-addresses/`
 
 **Contents:**
+
 - SKILL.md (1.8 KB)
 
 **Total time:** 1 minute
@@ -172,11 +182,13 @@ SKILL VALIDATION REPORT
 ## Testing
 
 **Test query:**
+
 ```
 Extract email addresses from this text: "Contact john@example.com or jane.doe@company.org"
 ```
 
 **Expected:**
+
 ```
 Using extracting-email-addresses skill...
 
@@ -192,6 +204,7 @@ Found 2 valid email addresses:
 ## Key Takeaways
 
 **Simple skills:**
+
 - Quick to create (1 min)
 - Template-based (no research)
 - Single SKILL.md file
@@ -199,6 +212,7 @@ Found 2 valid email addresses:
 - No overkill with extras
 
 **When to use simple:**
+
 - Utility functions
 - Data transformations
 - Format conversions

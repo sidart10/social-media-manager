@@ -3,9 +3,11 @@
 **Generated using post-writer skill with justin_welsh_paips style**
 
 ## Topic
+
 "Most creators burn out within 6 months"
 
 ## Style
+
 Justin Welsh PAIPS Formula
 
 ---
@@ -40,6 +42,7 @@ What's your posting frequency?
 ## Why This Works
 
 **PAIPS Formula Applied**:
+
 1. **PROBLEM**: "Most creators burn out within 6 months"
 2. **AGITATE**: "They try posting daily... It's exhausting"
 3. **INTRIGUE**: "But what if there's a better way?"

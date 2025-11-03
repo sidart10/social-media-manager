@@ -31,6 +31,7 @@
 ## ✅ What We Already Have
 
 **fal-video MCP gives us:**
+
 - ✅ **Sora 2** access (`fal-ai/sora-2/image-to-video`)
 - ✅ **Sora 2 Pro** access (`fal-ai/sora-2-pro/image-to-video`)
 - ✅ Handles upload/size issues automatically
@@ -75,6 +76,7 @@ fal-video MCP:
 5. **Maintenance:** One less buggy server to manage
 
 **Keep:**
+
 - ✅ **veotools:** FREE Veo 3 direct access
 - ✅ **fal-video:** Multi-model including Sora 2!
 
@@ -85,6 +87,7 @@ fal-video MCP:
 ## 🎬 After Removing sora2-real
 
 **For Sora 2 access, use:**
+
 ```
 Tool: mcp__fal_video__<sora_tool>
 Model: fal-ai/sora-2/image-to-video
@@ -93,6 +96,7 @@ Model: fal-ai/sora-2-pro/image-to-video
 ```
 
 **Benefits:**
+
 - No base64 size issues (fal.ai handles it)
 - Proven working
 - Access to Pro version too

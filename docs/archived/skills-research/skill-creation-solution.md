@@ -12,6 +12,7 @@
 **Build a SKILL to write good SKILLS!**
 
 **Why:**
+
 - ✅ Skills are model-invoked (perfect for this task!)
 - ✅ Anthropic already has skill-creator skill (proven pattern)
 - ✅ Follows Anthropic best practices automatically
@@ -30,6 +31,7 @@
 ### Option 1: Build Skill-Creator Skill ✅ RECOMMENDED
 
 **Pros:**
+
 - ✅ Model-invoked (auto-loads when you say "create a skill")
 - ✅ Follows Anthropic's own pattern (they have skill-creator skill!)
 - ✅ Can reference official docs in skill's reference/
@@ -39,6 +41,7 @@
 - ✅ Can include validation scripts
 
 **Cons:**
+
 - Limited multi-turn interaction (but one-shot usually fine)
 
 **Best for:** Creating individual well-formed skills
@@ -48,12 +51,14 @@
 ### Option 2: Build Skill-Creator Workflow
 
 **Pros:**
+
 - ✅ Multi-step orchestration
 - ✅ Can ask clarifying questions
 - ✅ Can save to specific locations
 - ✅ Can create handoff packages
 
 **Cons:**
+
 - ❌ More complex than needed
 - ❌ Requires agent to invoke (manual step)
 - ❌ State management overkill for one-shot task
@@ -66,11 +71,13 @@
 ### Option 3: Build Skill-Creator Agent
 
 **Pros:**
+
 - ✅ Full UI (menu, selections)
 - ✅ Multi-workflow coordination
 - ✅ Can guide through complex processes
 
 **Cons:**
+
 - ❌ Massive overkill for skill creation
 - ❌ Need to maintain slash command
 - ❌ More moving parts
@@ -85,11 +92,13 @@
 ### Anthropic's Own Approach
 
 **From their announcement:**
+
 > "Creating skills is simple. The 'skill-creator' skill provides interactive guidance: Claude asks about your workflow, generates the folder structure, formats the SKILL.md file, and bundles the resources you need. No manual file editing required."
 
 **They built a SKILL to create skills!**
 
 **Why that's smart:**
+
 - Model-invoked (automatic when you ask)
 - Simple (does one thing well)
 - Self-documenting (skill that creates skills)
@@ -104,6 +113,7 @@
 **Claude recognizes:** Task matches skill-creator description
 
 **skill-creator auto-loads:**
+
 ```
 Using skill-creator skill to build a new skill...
 
@@ -154,6 +164,7 @@ Created! Test with: "Analyze this Twitter thread: [URL]"
 **Purpose:** Scrape DOCUMENTATION to create reference skills
 
 **Process:**
+
 ```
 Config → Scrape website → Extract docs → Create SKILL.md
 ```
@@ -161,11 +172,13 @@ Config → Scrape website → Extract docs → Create SKILL.md
 **Output:** Skills based on existing documentation (React docs, YouTube guides)
 
 **Good for:**
+
 - Creating skills from documentation websites
 - Building reference libraries
 - Scraping multi-source content
 
 **NOT good for:**
+
 - Creating custom logic skills
 - Building workflow-specific skills
 - Interactive skill authoring
@@ -177,6 +190,7 @@ Config → Scrape website → Extract docs → Create SKILL.md
 **Purpose:** Create CUSTOM skills following best practices
 
 **Process:**
+
 ```
 User describes need → Interactive Q&A → Generate structure → Create files → Validate
 ```
@@ -184,6 +198,7 @@ User describes need → Interactive Q&A → Generate structure → Create files 
 **Output:** Custom skills for YOUR specific workflows
 
 **Good for:**
+
 - Creating Jarvis-specific skills
 - Building AI Image Generator skills
 - Custom business logic skills
@@ -258,16 +273,19 @@ Ask these questions:
 
 **Template:**
 ```
+
 [What it does]. Use when [trigger context 1], [trigger context 2],
 or [trigger context 3]. [Optional: Key capabilities or methods mentioned].
-```
+
+````
 
 **Example - Good:**
 ```yaml
 description: Analyze Twitter thread structure, engagement patterns, hook effectiveness, and viral elements using proven thread formulas. Use when analyzing tweets, Twitter threads, engagement metrics, or thread strategy. Includes Typefully methodology and viral thread breakdowns.
-```
+````
 
 **Example - Bad:**
+
 ```yaml
 description: For Twitter
 ```
@@ -275,12 +293,14 @@ description: For Twitter
 ### 4. Design File Structure
 
 **Simple skill (most common):**
+
 ```
 skill-name/
 └── SKILL.md
 ```
 
 **Medium complexity:**
+
 ```
 skill-name/
 ├── SKILL.md
@@ -292,6 +312,7 @@ skill-name/
 ```
 
 **Complex skill:**
+
 ```
 skill-name/
 ├── SKILL.md
@@ -312,6 +333,7 @@ skill-name/
 ### 5. Generate SKILL.md Content
 
 **Required sections:**
+
 ```markdown
 ---
 name: skill-name
@@ -338,6 +360,7 @@ description: [Well-crafted description]
 ```
 
 **Optional sections:**
+
 - Quick Reference
 - Common Patterns
 - Integration Notes
@@ -358,6 +381,7 @@ Create scripts/ with executable helpers
 Create reference/ with methodology guides
 
 **Reference from SKILL.md:**
+
 ```markdown
 For prompt templates, see [prompts/template.md](prompts/template.md).
 Run helper: `python scripts/helper.py input.txt`
@@ -366,6 +390,7 @@ Run helper: `python scripts/helper.py input.txt`
 ### 7. Validate
 
 **Check YAML frontmatter:**
+
 - Opening --- on line 1
 - Closing --- before content
 - name: lowercase-with-hyphens
@@ -373,11 +398,13 @@ Run helper: `python scripts/helper.py input.txt`
 - No tabs, proper indentation
 
 **Check file paths:**
+
 - Unix-style forward slashes
 - Relative paths from skill directory
 - No absolute paths
 
 **Check description quality:**
+
 - Includes what + when
 - Has trigger keywords
 - Specific, not vague
@@ -386,6 +413,7 @@ Run helper: `python scripts/helper.py input.txt`
 ### 8. Save to Location
 
 **Ask user:**
+
 ```
 Where to save this skill?
 
@@ -402,6 +430,7 @@ Select: [1/2]
 ```
 
 **Create directories:**
+
 ```bash
 mkdir -p {selected_location}
 ```
@@ -411,6 +440,7 @@ mkdir -p {selected_location}
 ### 9. Test Recommendation
 
 **Provide test query:**
+
 ```
 Skill created! Test it with:
 
@@ -433,6 +463,7 @@ This skill includes Anthropic official best practices:
 ## Quality Checklist
 
 Every generated skill should have:
+
 - [ ] Valid YAML frontmatter
 - [ ] Lowercase hyphenated name (gerund form if action)
 - [ ] Description with what + when + triggers
@@ -445,12 +476,14 @@ Every generated skill should have:
 ## Integration
 
 **Works with:**
+
 - `skill-seeker` - For scraping docs to include as references
 - `deep-web-research` - For finding skill methodologies
 - `post-writer` - Could create skills for specific post types
 - `video-script-writer` - Could create skills for video formats
 
 **Example composition:**
+
 ```
 User: "Create a skill for LinkedIn carousel posts"
   → skill-creator guides creation
@@ -461,23 +494,26 @@ User: "Create a skill for LinkedIn carousel posts"
 
 ---
 
-*This skill ensures all new skills follow Anthropic best practices automatically.*
+_This skill ensures all new skills follow Anthropic best practices automatically._
+
 ```
 
 **File structure:**
 ```
+
 .claude/skills/jarvis/skill-creator/
 ├── SKILL.md (above content)
 ├── reference/
-│   ├── anthropic-best-practices.md (from docs/agent-skills.md)
-│   ├── description-examples.md
-│   └── naming-conventions.md
+│ ├── anthropic-best-practices.md (from docs/agent-skills.md)
+│ ├── description-examples.md
+│ └── naming-conventions.md
 ├── examples/
-│   ├── simple-skill-example.md
-│   └── complex-skill-example.md
+│ ├── simple-skill-example.md
+│ └── complex-skill-example.md
 └── templates/
-    ├── SKILL-template.md
-    └── skill-structure-templates.md
+├── SKILL-template.md
+└── skill-structure-templates.md
+
 ```
 
 ---
@@ -564,20 +600,22 @@ User: "Create a skill for LinkedIn carousel posts"
 
 **Create:**
 ```
+
 .claude/skills/jarvis/skill-creator/
 ├── SKILL.md
 ├── reference/
-│   ├── anthropic-best-practices.md
-│   ├── description-optimization.md
-│   └── progressive-disclosure-guide.md
+│ ├── anthropic-best-practices.md
+│ ├── description-optimization.md
+│ └── progressive-disclosure-guide.md
 ├── examples/
-│   ├── simple-skill.md
-│   ├── medium-skill.md
-│   └── complex-skill.md
+│ ├── simple-skill.md
+│ ├── medium-skill.md
+│ └── complex-skill.md
 └── templates/
-    ├── SKILL-template.md
-    └── validation-checklist.md
-```
+├── SKILL-template.md
+└── validation-checklist.md
+
+````
 
 **Extract from docs/agent-skills.md:**
 - Official Anthropic guidelines
@@ -640,13 +678,14 @@ skill-name/
 └── scripts/helper.py
 
 Rule: Start simple!
-```
+````
 
 ---
 
 ### Phase 3: Add Templates (30 min)
 
 **templates/SKILL-template.md:**
+
 ```yaml
 ---
 name: {skill-name}
@@ -674,7 +713,9 @@ When {task type}:
 
 **Example 1: {scenario}**
 ```
+
 {example input}
+
 ```
 
 {example output}
@@ -696,6 +737,7 @@ Works with:
 ### Phase 4: Add Validation (30 min)
 
 **scripts/validate-skill.py:**
+
 ```python
 #!/usr/bin/env python3
 """Validate SKILL.md follows Anthropic best practices"""
@@ -763,6 +805,7 @@ def validate_skill(skill_path):
 **User:** "Create a skill for writing Instagram captions"
 
 **skill-creator activates:**
+
 ```
 Using skill-creator skill...
 
@@ -799,6 +842,7 @@ Test with: "Write an Instagram caption about productivity tips"
 **User:** "Create a skill for analyzing financial statements with ratio calculations"
 
 **skill-creator activates:**
+
 ```
 Using skill-creator skill...
 
@@ -847,6 +891,7 @@ Test with: "Analyze this financial statement: [data]"
 **Best for:** Creating skills from existing docs
 
 **Example use:**
+
 ```
 skill-seeker scrape_docs --config configs/react-docs.json
 → Creates react-reference skill from React documentation
@@ -863,6 +908,7 @@ skill-seeker scrape_docs --config configs/react-docs.json
 **Best for:** Creating NEW custom skills
 
 **Example use:**
+
 ```
 User: "Create a skill for writing product descriptions"
 → skill-creator auto-loads
@@ -876,12 +922,14 @@ User: "Create a skill for writing product descriptions"
 ## Both Tools Have a Place!
 
 ### Use skill-seeker When:
+
 - ✅ Documentation exists online (React, YouTube, APIs)
 - ✅ Want to create reference skills
 - ✅ Multi-source aggregation needed
 - ✅ Building knowledge base from websites
 
 ### Use skill-creator When:
+
 - ✅ Creating custom logic skills
 - ✅ Building workflow-specific capabilities
 - ✅ Need Anthropic best practices enforced
@@ -900,6 +948,7 @@ User: "Create a skill for writing product descriptions"
 **Deliverable:** Working skill-creator skill
 
 **Includes:**
+
 - SKILL.md with creation guidance
 - reference/anthropic-best-practices.md
 - templates/SKILL-template.md
@@ -916,6 +965,7 @@ User: "Create a skill for writing product descriptions"
 **Deliverable:** Production-grade skill creation system
 
 **Adds to Option A:**
+
 - Multiple templates (simple, medium, complex)
 - Interactive questionnaire system
 - Automatic best practice checking
@@ -932,6 +982,7 @@ User: "Create a skill for writing product descriptions"
 **Deliverable:** Access to Anthropic's skill-creator
 
 **How:**
+
 - Use Claude.ai Pro/Max/Team
 - skill-creator already available
 - Just ask Claude to create skills
@@ -946,6 +997,7 @@ User: "Create a skill for writing product descriptions"
 ### Build Minimal skill-creator Skill (Option A)
 
 **Why:**
+
 - ✅ 2-3 hours effort (manageable)
 - ✅ Solves immediate need
 - ✅ Follows Anthropic pattern (they did same thing!)
@@ -954,6 +1006,7 @@ User: "Create a skill for writing product descriptions"
 - ✅ References official docs we already have
 
 **Implementation:**
+
 1. Create skill-creator/SKILL.md (1 hour)
 2. Add reference docs from agent-skills.md (30 min)
 3. Create templates and examples (1 hour)
@@ -971,6 +1024,7 @@ User: "Create a skill for writing product descriptions"
 **With skill-creator, you can easily build:**
 
 **High-value skills to create:**
+
 1. **creating-linkedin-posts** - LinkedIn-specific (extract from write-posts)
 2. **creating-twitter-threads** - Thread-specific (extract from write-posts)
 3. **analyzing-viral-content** - Social media analysis
@@ -987,18 +1041,18 @@ User: "Create a skill for writing product descriptions"
 
 ## Comparison Matrix
 
-| Feature | skill-seeker | skill-creator Skill | skill-creator Workflow | skill-creator Agent |
-|---------|--------------|---------------------|------------------------|---------------------|
-| **Purpose** | Scrape docs | Create custom skills | Create custom skills | Create custom skills |
-| **Invocation** | Manual MCP call | Auto-loads | Manual (/command) | Manual (/command) |
-| **Input** | Config JSON | Conversation | Structured params | Menu selection |
-| **Process** | Web scraping | Interactive Q&A | Multi-step process | Guided UI |
-| **Output** | Doc-based skill | Custom skill | Custom skill | Custom skill |
-| **Effort to build** | N/A (exists) | 3 hours | 6 hours | 12 hours |
-| **Effort to use** | Slow (hours) | Fast (minutes) | Medium (minutes) | Medium (minutes) |
-| **Best practices** | ❌ No | ✅ Yes | ✅ Yes | ✅ Yes |
-| **Validation** | ❌ No | ✅ Yes | ✅ Yes | ✅ Yes |
-| **Use case** | Documentation | Custom skills | Complex skills | Skill libraries |
+| Feature             | skill-seeker    | skill-creator Skill  | skill-creator Workflow | skill-creator Agent  |
+| ------------------- | --------------- | -------------------- | ---------------------- | -------------------- |
+| **Purpose**         | Scrape docs     | Create custom skills | Create custom skills   | Create custom skills |
+| **Invocation**      | Manual MCP call | Auto-loads           | Manual (/command)      | Manual (/command)    |
+| **Input**           | Config JSON     | Conversation         | Structured params      | Menu selection       |
+| **Process**         | Web scraping    | Interactive Q&A      | Multi-step process     | Guided UI            |
+| **Output**          | Doc-based skill | Custom skill         | Custom skill           | Custom skill         |
+| **Effort to build** | N/A (exists)    | 3 hours              | 6 hours                | 12 hours             |
+| **Effort to use**   | Slow (hours)    | Fast (minutes)       | Medium (minutes)       | Medium (minutes)     |
+| **Best practices**  | ❌ No           | ✅ Yes               | ✅ Yes                 | ✅ Yes               |
+| **Validation**      | ❌ No           | ✅ Yes               | ✅ Yes                 | ✅ Yes               |
+| **Use case**        | Documentation   | Custom skills        | Complex skills         | Skill libraries      |
 
 **Winner:** skill-creator SKILL (simplest, follows Anthropic pattern)
 
@@ -1013,6 +1067,7 @@ User: "Create a skill for writing product descriptions"
 **Build a SKILL to write good SKILLS!**
 
 **Why:**
+
 1. ✅ Anthropic did same thing (proven pattern)
 2. ✅ Model-invoked (auto-loads when you say "create skill")
 3. ✅ Simpler than workflow/agent
@@ -1022,6 +1077,7 @@ User: "Create a skill for writing product descriptions"
 7. ✅ Saves hours on every future skill
 
 **Implementation:**
+
 - Create skill-creator/SKILL.md
 - Add Anthropic docs as references
 - Include templates and examples
@@ -1041,11 +1097,13 @@ User: "Create a skill for writing product descriptions"
 **Don't use for:** Custom skill authoring
 
 **skill-seeker purpose:**
+
 - Scrape Anthropic docs → anthropic-context-engineering skill
 - Scrape Exa docs → exa-search-api-docs skill
 - Scrape YouTube guides → youtube-thumbnails-unified skill
 
 **skill-creator purpose:**
+
 - Create custom Jarvis skills
 - Create AI Image Generator skills
 - Create business logic skills
@@ -1059,16 +1117,19 @@ User: "Create a skill for writing product descriptions"
 ### Immediate (This Session)
 
 **Option 1:** Build skill-creator skill now (3 hours)
+
 - Create SKILL.md
 - Add reference docs
 - Test with example
 
 **Option 2:** Return to menu, build later
+
 - Document decision
 - Plan for next session
 - Focus on other priorities
 
 **Option 3:** Quick prototype (1 hour)
+
 - Minimal skill-creator
 - Just SKILL.md, no extras
 - Prove concept works
@@ -1078,6 +1139,7 @@ User: "Create a skill for writing product descriptions"
 ### Future (With skill-creator Built)
 
 **Use skill-creator to build:**
+
 1. creating-linkedin-posts skill
 2. creating-twitter-threads skill
 3. analyzing-viral-content skill
@@ -1096,6 +1158,7 @@ User: "Create a skill for writing product descriptions"
 **Build skill-creator SKILL (Option A - Minimal)**
 
 **Why:**
+
 - Solves your concern about skill-seeker
 - Enables good skill creation going forward
 - 3 hour investment, massive ROI
@@ -1103,6 +1166,7 @@ User: "Create a skill for writing product descriptions"
 - Auto-loads when you need it
 
 **Then:**
+
 - Use it to create high-value skills
 - Refactor workflows incrementally (as you go)
 - No big bang changes
@@ -1111,6 +1175,7 @@ User: "Create a skill for writing product descriptions"
 ---
 
 **Want The Master to:**
+
 - A) Build skill-creator skill NOW (3 hours)?
 - B) Build quick prototype (1 hour)?
 - C) Return to menu, build later?

@@ -56,6 +56,7 @@ This Skill includes comprehensive Apify documentation:
 **User provides:** "Analyze Varun Mayya's Instagram"
 
 **You:**
+
 1. Search with Exa: "Varun Mayya Instagram profile username"
 2. Find correct username: @thevarunmayya (not @varunmayya)
 3. Detect Instagram → Select `apify/instagram-scraper` ✅ VERIFIED
@@ -64,6 +65,7 @@ This Skill includes comprehensive Apify documentation:
 6. Analyze patterns → Create summary → Log cost
 
 **For spoken transcript (voice learning):**
+
 - Use `sian.agency/instagram-ai-transcript-extractor` on specific reels
 - Cost: $0.025 per reel
 

@@ -8,15 +8,18 @@
 ## 🐛 Complete Bug History
 
 ### Bug #1: Files.upload() Parameter ✅ FIXED
+
 **Error:** `got an unexpected keyword argument 'path'`
 **Fix:** Changed `path=` to `file=`
 
 ### Bug #2: Image Format Structure (Attempt 1) ❌ WRONG
+
 **Tried:** `bytesBase64Encoded` (string) + `mimeType`
 **Error:** `Extra inputs are not permitted`
 **Why Wrong:** Google SDK doesn't use this format
 
 ### Bug #3: Correct Image Format ✅ FIXED NOW
+
 **Error:** `Extra inputs are not permitted - bytesBase64Encoded`
 **Correct Format:** `image_bytes` (bytes) + `mime_type`
 
@@ -60,6 +63,7 @@ if image_path and os.path.exists(image_path):
 ## 🎯 What Changed from Bug #2 Fix
 
 **Bug #2 Attempt (WRONG):**
+
 ```python
 image_b64 = base64.b64encode(image_data).decode('utf-8')  # String
 image_input = {
@@ -69,6 +73,7 @@ image_input = {
 ```
 
 **Bug #3 Fix (CORRECT):**
+
 ```python
 image_bytes = f.read()  # Raw bytes
 image_input = {
@@ -78,6 +83,7 @@ image_input = {
 ```
 
 **Key Difference:**
+
 - NOT base64-encoded string
 - NOT `bytesBase64Encoded` key
 - **YES** raw bytes object
@@ -108,12 +114,14 @@ Server: Restarting...
 ## 🚀 RESTART Claude Code NOW!
 
 **The fix IS CORRECT this time because:**
+
 1. ✅ Matches Google SDK Image type exactly
 2. ✅ Uses `image_bytes` (bytes) not base64 string
 3. ✅ Uses `mime_type` not `mimeType`
 4. ✅ Verified against SDK source code
 
 **After restart:**
+
 ```
 mcp__veo3_fixed__generate_video_from_image will WORK!
 ```

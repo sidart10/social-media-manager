@@ -30,6 +30,7 @@ There's no shortage of capital now. But eventually, the bill will come due.
 ---
 
 **Stats:**
+
 - Word count: 347
 - Character count: 2,119 / 3,000
 - Hashtags: #AI #OpenAI #TechEconomics

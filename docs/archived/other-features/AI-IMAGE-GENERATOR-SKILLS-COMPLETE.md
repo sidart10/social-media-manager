@@ -15,31 +15,37 @@ Successfully transformed AI Image Generator from hardcoded workflows to intellig
 ## 📊 What We Built
 
 ### Phase 1: Foundation (BMAD v6 Compliance)
+
 ✅ Created module root config: `bmad/agents/ai-image-generator/config.yaml`
 ✅ Fixed BMAD v6 standard config block in all workflows
 ✅ Updated all path references to use config variables
 
 ### Phase 2: Skills Architecture (Use-Case-Based)
+
 ✅ Created **5 comprehensive skills**:
-  1. **create-image** - Generate NEW images (Emily's JSON + tool selection)
-  2. **edit-image** - Edit EXISTING images (nanobanana pixel-perfect)
-  3. **blend-images** - Compose 2-3 images (multi-image blending)
-  4. **mcp-tool-selection** - Tool comparison reference
-  5. **platform-specs** - Platform requirements (LinkedIn, Instagram, Twitter)
+
+1. **create-image** - Generate NEW images (Emily's JSON + tool selection)
+2. **edit-image** - Edit EXISTING images (nanobanana pixel-perfect)
+3. **blend-images** - Compose 2-3 images (multi-image blending)
+4. **mcp-tool-selection** - Tool comparison reference
+5. **platform-specs** - Platform requirements (LinkedIn, Instagram, Twitter)
 
 ✅ Built **22 reference knowledge files**:
-  - MCP tool documentation
-  - Emily's JSON methodology
-  - Usage examples
-  - Quality frameworks
-  - Platform specifications
-  - Design systems
+
+- MCP tool documentation
+- Emily's JSON methodology
+- Usage examples
+- Quality frameworks
+- Platform specifications
+- Design systems
 
 ### Phase 3: Workflow Updates
+
 ✅ Updated **3 core workflows** to v2.0:
-  1. **generate-single.yaml** - Single image with skills
-  2. **generate-linkedin.yaml** - LinkedIn content with skills
-  3. **generate-carousel.yaml** - Multi-slide with skills
+
+1. **generate-single.yaml** - Single image with skills
+2. **generate-linkedin.yaml** - LinkedIn content with skills
+3. **generate-carousel.yaml** - Multi-slide with skills
 
 ---
 
@@ -82,10 +88,12 @@ Generated Images (with metadata + quality scores)
 ### 1. Use-Case-Based Skills (Your Brilliant Idea!)
 
 **Instead of tool-focused** (nanobanana-mastery, gpt-image-mastery):
+
 - ❌ User has to know which tool to use
 - ❌ Disconnected from actual tasks
 
 **We built purpose-focused** (create, edit, blend):
+
 - ✅ User thinks: "I need to CREATE an image"
 - ✅ Skill intelligently selects right tool
 - ✅ Maps to actual use cases
@@ -93,6 +101,7 @@ Generated Images (with metadata + quality scores)
 ### 2. Emily's JSON Methodology Integration
 
 **Every skill references**:
+
 - JSON prompt templates (10+ sections)
 - Technical precision (hex codes, camera specs)
 - Negative prompts library (10+ items minimum)
@@ -105,17 +114,18 @@ Generated Images (with metadata + quality scores)
 
 **create-image skill automatically chooses:**
 
-| Use Case | Platform | Tool | Why |
-|----------|---------|------|-----|
-| LinkedIn carousel | LinkedIn | gpt-image-1 | Professional + text |
-| Instagram volume | Instagram | nanobanana | Speed + cost |
-| Photorealistic | Any | gpt-image-1 | Quality 9.5/10 |
-| Quick testing | Any | nanobanana | Fast iteration |
-| **Editing** | Any | **nanobanana** | **ALWAYS - best-in-class** |
+| Use Case          | Platform  | Tool           | Why                        |
+| ----------------- | --------- | -------------- | -------------------------- |
+| LinkedIn carousel | LinkedIn  | gpt-image-1    | Professional + text        |
+| Instagram volume  | Instagram | nanobanana     | Speed + cost               |
+| Photorealistic    | Any       | gpt-image-1    | Quality 9.5/10             |
+| Quick testing     | Any       | nanobanana     | Fast iteration             |
+| **Editing**       | Any       | **nanobanana** | **ALWAYS - best-in-class** |
 
 ### 4. Zero Repetition
 
 **Single source of truth**:
+
 - Platform specs → One skill, all workflows reference it
 - Emily's standards → One module, all skills reference it
 - Tool selection logic → One skill, reusable
@@ -126,9 +136,11 @@ Generated Images (with metadata + quality scores)
 ## 📁 Files Created
 
 ### Config & Core:
+
 - `bmad/agents/ai-image-generator/config.yaml` ← Module root config
 
 ### Skills (5 total):
+
 1. `create-image/SKILL.md` + 7 reference files
 2. `edit-image/SKILL.md` + 4 reference files
 3. `blend-images/SKILL.md` + 3 reference files
@@ -136,9 +148,11 @@ Generated Images (with metadata + quality scores)
 5. `platform-specs/SKILL.md` + 5 reference files
 
 ### Documentation:
+
 - `.claude/skills/ai-image-generator/README.md` ← Skills overview
 
 ### Workflows Updated:
+
 - `generate-single.yaml` → v2.0
 - `generate-linkedin.yaml` → v2.0
 - `generate-carousel.yaml` → v2.0
@@ -152,6 +166,7 @@ Generated Images (with metadata + quality scores)
 ### Example: generate-single.yaml
 
 **OLD (v1.0)**:
+
 ```yaml
 <action>Generate using MCP:
   result = mcp__gpt-image-1__create_image({
@@ -162,6 +177,7 @@ Generated Images (with metadata + quality scores)
 ```
 
 **NEW (v2.0)**:
+
 ```yaml
 <action>Reference create-image skill</action>
 <action>- Load JSON template from json-prompt-generator</action>
@@ -173,6 +189,7 @@ Generated Images (with metadata + quality scores)
 ```
 
 **Benefits**:
+
 - Emily-quality methodology automatic
 - Intelligent tool selection
 - Quality guaranteed (score ≥ 7)
@@ -184,7 +201,9 @@ Generated Images (with metadata + quality scores)
 ## 🔄 Workflow Changes Summary
 
 ### generate-single.yaml v2.0
+
 **Changes**:
+
 - ✅ BMAD v6 config block added
 - ✅ Step 3: Uses create-image skill with JSON methodology
 - ✅ Step 5: Intelligent tool selection (not hardcoded)
@@ -192,14 +211,18 @@ Generated Images (with metadata + quality scores)
 - ✅ Step 8: References edit-image skill for refinements
 
 ### generate-linkedin.yaml v2.0
+
 **Changes**:
+
 - ✅ BMAD v6 config block added
 - ✅ Step 6: Each slide uses create-image skill
 - ✅ Tool selection: gpt-image-1 for LinkedIn (professional)
 - ✅ Metadata includes skill_used and methodology
 
 ### generate-carousel.yaml v2.0
+
 **Changes**:
+
 - ✅ BMAD v6 config block added
 - ✅ Step 5: Loop uses create-image skill per slide
 - ✅ Platform-intelligent tool selection
@@ -210,9 +233,11 @@ Generated Images (with metadata + quality scores)
 ## 💎 Skills Breakdown
 
 ### create-image (7 reference files)
+
 **Purpose**: Generate brand new images
 
 **Integrates**:
+
 - Emily's JSON methodology (proven system)
 - Tool selection logic (intelligent)
 - Quality framework (7-pillar)
@@ -220,6 +245,7 @@ Generated Images (with metadata + quality scores)
 - Negative prompts library (comprehensive)
 
 **References**:
+
 - `bmad/modules/json-prompt-generator/templates/`
 - `emily-quality-standards.md`
 - `negative-prompts-library.md`
@@ -229,9 +255,11 @@ Generated Images (with metadata + quality scores)
 ---
 
 ### edit-image (4 reference files)
+
 **Purpose**: Refine existing images with pixel-perfect precision
 
 **Teaches**:
+
 - Nanobanana's best-in-class editing
 - 10 common techniques (blur, color, remove, add, etc.)
 - When to edit vs regenerate
@@ -244,9 +272,11 @@ Generated Images (with metadata + quality scores)
 ---
 
 ### blend-images (3 reference files)
+
 **Purpose**: Compose 2-3 images into one scene
 
 **Teaches**:
+
 - Multi-image conditioning (input_image_path_1/2/3)
 - Photo blending techniques
 - Lighting/scale matching
@@ -259,9 +289,11 @@ Generated Images (with metadata + quality scores)
 ---
 
 ### mcp-tool-selection (3 reference files)
+
 **Purpose**: Tool comparison and decision reference
 
 **Provides**:
+
 - Decision matrices
 - Cost/speed/quality analysis
 - Performance comparisons
@@ -272,9 +304,11 @@ Generated Images (with metadata + quality scores)
 ---
 
 ### platform-specs (5 reference files)
+
 **Purpose**: Centralized platform requirements
 
 **Provides**:
+
 - LinkedIn specifications (sizes, design systems)
 - Instagram specifications (feed, story, reels)
 - Twitter specifications (posts, headers)
@@ -290,6 +324,7 @@ Generated Images (with metadata + quality scores)
 ### What Emily Taught Us:
 
 **From `docs/emily_prompts_QUALITY_ONLY.csv`**:
+
 - JSON-first approach (10+ sections)
 - Technical precision (hex codes, camera specs)
 - Negative prompts (10+ minimum)
@@ -297,12 +332,14 @@ Generated Images (with metadata + quality scores)
 - Photorealistic standards
 
 **From `bmad/modules/json-prompt-generator/`**:
+
 - Proven templates (video-scene.json)
 - 7-pillar quality framework
 - Negative prompts library (categorized)
 - Conversion rules (JSON → text)
 
 **Now Applied to Images**:
+
 - create-image skill uses Emily's templates
 - Mandatory 7-pillar evaluation
 - Quality gates (score ≥ 7 for publication)
@@ -313,18 +350,21 @@ Generated Images (with metadata + quality scores)
 ## 📈 Benefits
 
 ### For Users:
+
 ✅ Emily-quality results automatically
 ✅ Don't need to know MCP tools
 ✅ Consistent professional output
 ✅ Platform-optimized images
 
 ### For Workflows:
+
 ✅ Don't hardcode tool calls
 ✅ Reference skills by purpose
 ✅ Quality guaranteed
 ✅ Intelligent tool selection
 
 ### For Maintenance:
+
 ✅ Update JSON methodology once (in module)
 ✅ Update tool logic once (in skills)
 ✅ All workflows benefit automatically
@@ -335,12 +375,14 @@ Generated Images (with metadata + quality scores)
 ## 🚀 Production Ready
 
 ### All Workflows:
+
 - ✅ BMAD v6 compliant
 - ✅ Skills integration complete
 - ✅ Emily's methodology applied
 - ✅ Quality framework active
 
 ### All Skills:
+
 - ✅ Following Jarvis pattern (SKILL.md + reference/)
 - ✅ Comprehensive MCP documentation
 - ✅ Real usage examples (5 per skill)
@@ -361,6 +403,7 @@ Generated Images (with metadata + quality scores)
 ## 🎯 What This Enables
 
 ### Now Possible:
+
 - Generate professional LinkedIn carousels (Emily-quality)
 - Create Instagram content at scale (cost-effective with nanobanana)
 - Edit images with pixel-perfect precision (nanobanana specialty)
@@ -369,6 +412,7 @@ Generated Images (with metadata + quality scores)
 - Choose optimal tool automatically (intelligent selection)
 
 ### Previously:
+
 - Hardcoded tool calls
 - Manual prompt construction
 - No quality framework
@@ -387,6 +431,7 @@ Generated Images (with metadata + quality scores)
 **Compliance**: 100% BMAD v6
 
 **Integration Points**:
+
 - JSON Prompt Generator Module ← Core methodology
 - Emily's Quality Standards ← 7-pillar framework
 - Platform Specs Skill ← Centralized requirements
@@ -408,6 +453,7 @@ Generated Images (with metadata + quality scores)
 8. ✅ Zero repetition, single source of truth
 
 **Your Vision**:
+
 > "Skills based on use cases... create an image, edit image, blend images... not tool-focused"
 
 **Result**: ✅ EXACTLY THIS! 🎯
@@ -419,10 +465,11 @@ Generated Images (with metadata + quality scores)
 ### User Says: "Create LinkedIn carousel about AI"
 
 **Workflow**: generate-linkedin.yaml
-  ↓
+↓
 **Skill**: create-image
-  ↓
+↓
 **Skill Executes**:
+
 1. Loads Emily's JSON template
 2. Populates: scene_description, composition, lighting, color, typography, negatives
 3. Analyzes: Platform=LinkedIn + has_text=true
@@ -430,25 +477,26 @@ Generated Images (with metadata + quality scores)
 5. Generates: High-quality professional image
 6. Evaluates: 7-pillar quality check
 7. Returns: Image with score 9/10
-  ↓
-**Result**: Professional LinkedIn carousel, Emily-quality, automatically!
+   ↓
+   **Result**: Professional LinkedIn carousel, Emily-quality, automatically!
 
 ---
 
 ### User Says: "Blur the background on this image"
 
 **Workflow**: Any workflow (or direct call)
-  ↓
+↓
 **Skill**: edit-image
-  ↓
+↓
 **Skill Executes**:
+
 1. Recognizes: Edit use case
 2. Selects: **nanobanana** (ALWAYS for editing - best-in-class)
-3. Calls: mcp__nanobanana__generate_image with mode="edit"
+3. Calls: mcp**nanobanana**generate_image with mode="edit"
 4. Applies: Pixel-perfect background blur
 5. Preserves: Subject completely untouched
-  ↓
-**Result**: Perfect depth effect in 20 seconds!
+   ↓
+   **Result**: Perfect depth effect in 20 seconds!
 
 ---
 
@@ -476,6 +524,7 @@ Generated Images (with metadata + quality scores)
 ## ✅ Validation Checklist
 
 ### BMAD v6 Compliance:
+
 - [x] Module config.yaml created
 - [x] Standard config block in all workflows
 - [x] config_source points to module root
@@ -483,6 +532,7 @@ Generated Images (with metadata + quality scores)
 - [x] All paths use config references
 
 ### Skills Pattern (Jarvis-Style):
+
 - [x] SKILL.md + reference/ structure
 - [x] Clear descriptions and when-to-use triggers
 - [x] Complete MCP tool documentation
@@ -490,6 +540,7 @@ Generated Images (with metadata + quality scores)
 - [x] Workflow integration guides
 
 ### Emily's Methodology:
+
 - [x] JSON templates referenced
 - [x] 7-pillar quality framework integrated
 - [x] Negative prompts library (10+ minimum)
@@ -497,6 +548,7 @@ Generated Images (with metadata + quality scores)
 - [x] Quality gates (score ≥ 7)
 
 ### Tool Intelligence:
+
 - [x] create-image selects optimal tool
 - [x] edit-image always uses nanobanana
 - [x] blend-images uses nanobanana
@@ -539,11 +591,13 @@ Generated Images (with metadata + quality scores)
 **All systems green!**
 
 ### Workflows Ready:
+
 - generate-single.yaml v2.0 ✅
 - generate-linkedin.yaml v2.0 ✅
 - generate-carousel.yaml v2.0 ✅
 
 ### Skills Ready:
+
 - create-image ✅
 - edit-image ✅
 - blend-images ✅
@@ -551,6 +605,7 @@ Generated Images (with metadata + quality scores)
 - platform-specs ✅
 
 ### Module Integration:
+
 - JSON Prompt Generator ✅
 - Emily's Quality Standards ✅
 - Negative Prompts Library ✅
@@ -562,6 +617,7 @@ Generated Images (with metadata + quality scores)
 **Mission Status**: ✅ COMPLETE
 
 **What We Built**:
+
 - 5 comprehensive skills
 - 22 reference knowledge files
 - 3 workflows updated to v2.0
@@ -570,11 +626,13 @@ Generated Images (with metadata + quality scores)
 - BMAD v6 compliance achieved
 
 **Token Efficiency**:
+
 - Skills approach: ~70-150 tokens per skill when loaded
 - vs MCP tools: 4,200+ tokens always loaded
 - **~95% token reduction** when skills used selectively!
 
 **Quality Assurance**:
+
 - 7-pillar framework mandatory
 - Score ≥ 7 for publication
 - Emily-standard achievable
@@ -587,6 +645,7 @@ Generated Images (with metadata + quality scores)
 **Your vision realized, brave architect!**
 
 The AI Image Generator now stands as a shining example of:
+
 - Use-case-based skill architecture
 - Emily's proven methodology integration
 - Intelligent tool selection

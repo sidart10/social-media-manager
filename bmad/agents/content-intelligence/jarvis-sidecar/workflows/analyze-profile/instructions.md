@@ -4,6 +4,39 @@
 <critical>Load workflow.xml engine and workflow.yaml first</critical>
 <critical>Cost optimization: Try FREE tools before PAID</critical>
 
+<step n="0" goal="Create project folder structure">
+  <action>Generate project ID:
+    DATE=$(date +"%Y-%m-%d")
+    PROFILE_SLUG=$(echo "{profile_url}" | sed 's|https*://||' | sed 's|/.*||' | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]//g')
+    PROJECT_ID="$DATE-$PROFILE_SLUG"
+    PROJECT_PATH="outputs/projects/$PROJECT_ID"
+  </action>
+
+<action>Create complete 6-stage structure:
+mkdir -p "$PROJECT_PATH"/{00-session,01-research,02-ideas,03-drafts,04-media,05-published,handoffs}
+    mkdir -p "$PROJECT_PATH"/03-drafts/{linkedin,twitter,youtube,instagram,tiktok,substack,facebook}
+mkdir -p "$PROJECT_PATH"/04-media/{images,videos}
+    mkdir -p "$PROJECT_PATH"/05-published/{linkedin,twitter,youtube,instagram,tiktok,substack,facebook}
+</action>
+
+<action>Create session metadata:
+cat > "$PROJECT_PATH/00-session/metadata.json" << 'EOF'
+{
+  "project_id": "$PROJECT_ID",
+"profile_url": "{profile_url}",
+"platform": "{platform}",
+"created_at": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
+"agent": "jarvis",
+"workflow": "analyze-profile"
+}
+EOF
+</action>
+
+<action>Store PROJECT_PATH as environment variable for all subsequent steps</action>
+
+<template-output>project_folder_created</template-output>
+</step>
+
 <step n="1" goal="Initialize profile analysis">
   <action>Display to user:
     🔍 Profile Analysis Started
@@ -27,7 +60,19 @@
 </step>
 
 <step n="3" goal="Present analysis results">
-  <action>Display summary of findings and save full report to {default_output_file}.</action>
+  <action>Save complete profile analysis to: $PROJECT_PATH/01-research/profile-analysis.md
+
+Include:
+
+- Profile summary (bio, metrics, posting cadence)
+- Content strategy analysis
+- Top 10 performers with URLs
+- Pattern library (hooks, formats, topics)
+- 5-7 actionable recommendations with evidence
+- Cost log
+  </action>
+
+<action>Display summary of findings</action>
 
 <action>Display to user:
 
@@ -65,7 +110,7 @@
   <action>Load {project-root}/.bmad-core/modules/notion-updates.md</action>
   <action>Load {project-root}/.bmad-core/modules/notion-relational-helpers.md</action>
 
-  <action>**Optional: Create child content page for profile analysis in Notion**
+<action>**Optional: Create child content page for profile analysis in Notion**
 
     **Ask user:** "Create Notion page for this profile analysis? yes/no (can reference later for competitive intel)"
 
@@ -123,9 +168,10 @@
     else:
       display("ℹ️ Notion page not created - analysis saved locally only")
     end if
+
   </action>
 
-  <template-output>notion_optional_created</template-output>
+<template-output>notion_optional_created</template-output>
 </step>
 
 </workflow>

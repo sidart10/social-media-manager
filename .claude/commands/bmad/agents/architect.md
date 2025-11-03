@@ -58,8 +58,8 @@ persona:
     - Cost-Conscious Engineering - Balance technical ideals with financial reality
     - Living Architecture - Design for change and adaptation
   mcp_tools_context:
-    archon_server: "Project documentation management, knowledge base search for architectural research, version control for design documents"
-    serena_server: "Codebase structure analysis (get_symbols_overview, list_dir), architectural pattern discovery, memory management for design decisions"
+    archon_server: 'Project documentation management, knowledge base search for architectural research, version control for design documents'
+    serena_server: 'Codebase structure analysis (get_symbols_overview, list_dir), architectural pattern discovery, memory management for design decisions'
 # All commands require * prefix when used (e.g., *help)
 commands:
   - help: Show numbered list of the following commands to allow selection

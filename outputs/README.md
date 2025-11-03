@@ -31,11 +31,13 @@ outputs/
 **Format:** `{YYYY-MM-DD}-{project-slug}`
 
 **Examples:**
+
 - `2025-11-05-linkedin-post-ai-agents`
 - `2025-11-03-youtube-mcp-tutorial-video`
 - `2025-11-01-twitter-thread-voice-learning`
 
 **Rules:**
+
 - Date prefix: ISO 8601 format (YYYY-MM-DD) for chronological sorting
 - Project slug: lowercase-kebab-case, 1-50 characters
 - No spaces, underscores, or special characters
@@ -48,7 +50,9 @@ outputs/
 Every project follows the same 6-stage structure:
 
 ### **00-session/** - Session Metadata & Logging
+
 **Contains:**
+
 - `metadata.json` - Project metadata, Notion linking, costs, duration, platform-specific file inventory
 - `session-log.md` - Timestamped log of all agent actions, handoffs, and platform publishing
 
@@ -57,7 +61,9 @@ Every project follows the same 6-stage structure:
 ---
 
 ### **01-research/** - Research Outputs (Shared Across Platforms)
+
 **Contains:**
+
 - `research-brief.md` - Main research findings organized into 5 categories
 - `competitive-analysis.md` - Competitor gap analysis (if performed)
 - `sources.md` - All source URLs with timestamps and reliability scores
@@ -69,7 +75,9 @@ Every project follows the same 6-stage structure:
 ---
 
 ### **02-ideas/** - Content Ideas & Planning (Shared Across Platforms)
+
 **Contains:**
+
 - `idea-cards.md` - Generated idea cards with hooks, outlines, evidence
 - `hook-pack.md` - Hook variants (top 5 × 3 variants = 15 hooks)
 - `content-calendar.md` - 7-14 day posting schedule (if generated)
@@ -81,7 +89,9 @@ Every project follows the same 6-stage structure:
 ---
 
 ### **03-drafts/** - Platform-Specific Text Content (Iterative Drafts)
+
 **Contains 7 Platform Subfolders:**
+
 - `linkedin/` - LinkedIn posts (post-v1.md, post-v2.md, carousel-post.md)
 - `twitter/` - Tweets and threads (thread-v1.md, single-tweet.md)
 - `youtube/` - Video scripts (full-video-script.md, short-script.md, description.md)
@@ -99,7 +109,9 @@ Every project follows the same 6-stage structure:
 ---
 
 ### **04-media/** - Generated Visual Content (Platform-Agnostic, REUSABLE)
+
 **Contains 2 Simple Subfolders:**
+
 - `images/` - All generated images
   - `thumbnail-main.png` (used for LinkedIn, Twitter, Facebook)
   - `thumbnail-youtube.png` (YouTube-specific CTR variant)
@@ -117,11 +129,13 @@ Every project follows the same 6-stage structure:
 **CRITICAL PHILOSOPHY:** Media is REUSABLE—generate once, reference from multiple platform folders in 05-published/
 
 **Naming Convention:**
+
 - ✅ Descriptive not platform-specific: `thumbnail-main.png`, `short-vertical.mp4`
 - ✅ Platform variant suffix only if needed: `thumbnail-youtube.png` (different design from main)
 - ❌ Never: `thumbnail-linkedin.png` (implies can't reuse for Twitter)
 
 **Metadata Example:**
+
 ```json
 {
   "images": [
@@ -138,7 +152,9 @@ Every project follows the same 6-stage structure:
 ---
 
 ### **05-published/** - Published Content (Merged Final + Published, Per Platform)
+
 **Contains 7 Platform Subfolders:**
+
 - `linkedin/` - LinkedIn published content
   - `post.md` (final version published)
   - `carousel-post.md` (if also published carousel)
@@ -152,11 +168,12 @@ Every project follows the same 6-stage structure:
   - `analytics-2025-11-06.md`
 - `youtube/`, `instagram/`, `tiktok/`, `substack/`, `facebook/` - Same pattern
 
-**Populated By:** Zoro (schedule-post primary, publish-*-now backup workflows)
+**Populated By:** Zoro (schedule-post primary, publish-\*-now backup workflows)
 
 **Philosophy:** "Final approved" = "Published" or "Scheduled to publish"—no intermediate limbo state
 
 **Status Mapping:**
+
 - Notion "Editing" ↔ Local has content in 03-drafts/ and 04-media/
 - Notion "Posted" ↔ Local has content in 05-published/ with URLs
 
@@ -165,7 +182,9 @@ Every project follows the same 6-stage structure:
 ---
 
 ### **handoffs/** - Agent Coordination Packages
+
 **Contains:**
+
 - `jarvis-to-zoe.json` - Content brief + requirements for visuals
 - `zoe-to-zoro.json` - Media file paths + platform specifications for publishing
 - `handoff-log.md` - Timeline of all agent handoffs with context
@@ -177,6 +196,7 @@ Every project follows the same 6-stage structure:
 ## Naming Conventions
 
 **All Lowercase Kebab-Case:**
+
 - ✅ `2025-11-05-linkedin-post-ai-agents`
 - ✅ `research-brief.md`
 - ✅ `linkedin-thumbnail.png`
@@ -190,9 +210,11 @@ Every project follows the same 6-stage structure:
 ### Bidirectional Linking
 
 **Local → Notion:**
+
 - `metadata.json` contains: `"notion_page_url": "https://notion.so/..."`
 
 **Notion → Local:**
+
 - Notion page property: `local_files_path` = "outputs/projects/2025-11-05-linkedin-post-ai-agents"
 
 ---
@@ -202,6 +224,7 @@ Every project follows the same 6-stage structure:
 **Scenario:** Research AI agents → Publish to LinkedIn + Twitter + YouTube Short
 
 **Folder Structure Result:**
+
 ```
 2025-11-05-ai-agents-multi-platform/
 ├── 00-session/
@@ -247,32 +270,38 @@ Every project follows the same 6-stage structure:
 ## Finding Content
 
 **Most recent projects:**
+
 ```bash
 ls -lt outputs/projects/ | head -20
 ```
 
 **All LinkedIn posts:**
+
 ```bash
 find outputs/projects/*/03-drafts/linkedin/ -name "*.md"
 find outputs/projects/*/05-published/linkedin/ -name "post.md"
 ```
 
 **All YouTube scripts:**
+
 ```bash
 find outputs/projects/*/03-drafts/youtube/ -name "*.md"
 ```
 
 **All generated images:**
+
 ```bash
 find outputs/projects/*/04-media/images/ -name "*.png"
 ```
 
 **All published content (any platform):**
+
 ```bash
 find outputs/projects/*/05-published/*/url.md
 ```
 
 **Which platforms was image X used for:**
+
 ```bash
 grep -r "thumbnail-main.png" outputs/projects/*/04-media/images/metadata.json
 ```
@@ -282,6 +311,7 @@ grep -r "thumbnail-main.png" outputs/projects/*/04-media/images/metadata.json
 ## Archival
 
 Projects older than 90 days:
+
 ```bash
 mv outputs/projects/2025-10-* outputs/archive/2025-10/
 ```
@@ -291,6 +321,7 @@ mv outputs/projects/2025-10-* outputs/archive/2025-10/
 ## Legacy Folders
 
 **Existing date-only folders (10-28-2025, etc.):**
+
 - LEGACY structure from before 2025-11-05
 - Can stay or be migrated
 - New projects use new structure
@@ -300,6 +331,7 @@ mv outputs/projects/2025-10-* outputs/archive/2025-10/
 ## Template Usage
 
 Copy template for new project:
+
 ```bash
 cp -r outputs/templates/project-structure outputs/projects/2025-11-05-my-project
 ```

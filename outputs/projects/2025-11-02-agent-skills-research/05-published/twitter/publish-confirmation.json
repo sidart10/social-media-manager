@@ -1,0 +1,22 @@
+{
+  "published_via": "Postiz",
+  "platform": "Twitter",
+  "post_type": "thread",
+  "tweet_count": 11,
+  "images_count": 7,
+  "published_at": "2025-11-02T17:40:00Z",
+  "postiz_id": "cmhihq2uf001rnw7wnk9txqog",
+  "postiz_dashboard_url": "http://localhost:5001/p/cmhihq2uf001rnw7wnk9txqog",
+  "cloudinary_urls": [
+    "https://res.cloudinary.com/dnezawwer/image/upload/v1762134167/social-media-postiz/agent-skills-thread/tweet-3-progressive-disclosure.png",
+    "https://res.cloudinary.com/dnezawwer/image/upload/v1762134168/social-media-postiz/agent-skills-thread/tweet-4-token-comparison.png",
+    "https://res.cloudinary.com/dnezawwer/image/upload/v1762134169/social-media-postiz/agent-skills-thread/tweet-5-comparison-table.png",
+    "https://res.cloudinary.com/dnezawwer/image/upload/v1762134171/social-media-postiz/agent-skills-thread/tweet-6-skills-mcp.png",
+    "https://res.cloudinary.com/dnezawwer/image/upload/v1762134172/social-media-postiz/agent-skills-thread/tweet-7-code-execution.png",
+    "https://res.cloudinary.com/dnezawwer/image/upload/v1762134174/social-media-postiz/agent-skills-thread/tweet-8-production-stats.png",
+    "https://res.cloudinary.com/dnezawwer/image/upload/v1762134175/social-media-postiz/agent-skills-thread/tweet-11-evolution-timeline.png"
+  ],
+  "status": "published",
+  "agent": "zoro",
+  "content_source": "03-drafts/twitter/thread-agent-skills-architecture-v2.md"
+}

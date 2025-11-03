@@ -1,33 +1,26 @@
 {
-    "mcpServers": {
-        "postiz": {
-            "command": "node",
-            "args": [
-                "/Users/sid/Desktop/4. Coding Projects/Postiz/postiz-mcp-server.js"
-            ],
-            "env": {
-                "POSTIZ_API_KEY": "8e016ebccd6f56eea7fbfe1e7acd79103661f8e10407eff9a9b2c78fa531388d"
-            }
-        },
-        "plainly": {
-            "command": "npx",
-            "args": [
-                "-y",
-                "@plainly-videos/mcp-server@latest"
-            ],
-            "env": {
-                "PLAINLY_API_KEY": "x6d4qcL3NvfWtcRCpsSjCNNVOQJiaoib",
-                "PLAINLY_ORGANIZATION_ID": "52eb1126-3604-48df-8ba1-f6d87998bcb8"
-            }
-        },
-        "submagic": {
-            "command": "/Users/sid/Desktop/4. Coding Projects/sub-magic-mcp-server/venv/bin/python",
-            "args": [
-                "/Users/sid/Desktop/4. Coding Projects/sub-magic-mcp-server/submagic_mcp.py"
-            ],
-            "env": {
-                "SUBMAGIC_API_KEY": "sk-d9edcbcefb58de88e6cb3167a439e2ee26a3c304d3bef46e4d0caf6acb79e5c2"
-            }
-        }
+  "mcpServers": {
+    "postiz": {
+      "command": "node",
+      "args": ["/Users/sid/Desktop/4. Coding Projects/Postiz/postiz-mcp-server.js"],
+      "env": {
+        "POSTIZ_API_KEY": "8e016ebccd6f56eea7fbfe1e7acd79103661f8e10407eff9a9b2c78fa531388d"
+      }
+    },
+    "plainly": {
+      "command": "npx",
+      "args": ["-y", "@plainly-videos/mcp-server@latest"],
+      "env": {
+        "PLAINLY_API_KEY": "x6d4qcL3NvfWtcRCpsSjCNNVOQJiaoib",
+        "PLAINLY_ORGANIZATION_ID": "52eb1126-3604-48df-8ba1-f6d87998bcb8"
+      }
+    },
+    "submagic": {
+      "command": "/Users/sid/Desktop/4. Coding Projects/sub-magic-mcp-server/venv/bin/python",
+      "args": ["/Users/sid/Desktop/4. Coding Projects/sub-magic-mcp-server/submagic_mcp.py"],
+      "env": {
+        "SUBMAGIC_API_KEY": "sk-7ba8e8399a9f72b70c1734aa55c9ca836c5d5beb76f6ba7ee31e799285e005e8"
+      }
     }
+  }
 }

@@ -1,0 +1,479 @@
+{
+  "characters": [
+    {
+      "name": "The Traveler",
+      "age": 35,
+      "height": "6'1\"",
+      "build": "Lean, athletic build, weathered by travel.",
+      "skin_tone": "Lightly tanned Caucasian",
+      "hair": "Short, dark brown hair, slightly messy, with a light stubble beard.",
+      "eyes": "Deep-set, dark brown eyes that hold a look of steady determination.",
+      "distinguishing_marks": "A faint scar on his left cheekbone.",
+      "demeanour": "Quietly resolute, focused, and purposeful.",
+      "default_outfit": "A dark navy blue hooded jacket over a grey t-shirt, dark cargo pants, and worn brown leather boots.",
+      "mouth_shape_intensity": 0.4,
+      "eye_contact_ratio": 0.1
+    }
+  ],
+  "clips": [
+    {
+      "id": "clip_01_desert_sunrise",
+      "shot": {
+        "composition": "Extreme wide shot, character is a small figure in a vast landscape.",
+        "camera_motion": "Slow, majestic crane up.",
+        "frame_rate": "24fps",
+        "film_grain": 0.1,
+        "camera": "Arri Alexa with 24mm anamorphic lens, Love Death + Robots stylized CGI."
+      },
+      "subject": {
+        "description": "A determined 35-year-old man with short dark hair and a stubble beard, seen from a distance.",
+        "wardrobe": "Dark navy jacket, dark pants, and worn brown boots."
+      },
+      "scene": {
+        "location": "A vast, windswept desert of orange sand dunes.",
+        "time_of_day": "Sunrise",
+        "environment": "The low sun casts long, dramatic shadows. A gentle wind kicks up dust motes that catch the golden light."
+      },
+      "visual_details": {
+        "action": "The Traveler walks steadily and purposefully across the desert, heading towards the rising sun.",
+        "props": null
+      },
+      "cinematography": {
+        "lighting": "Golden hour, warm, high contrast with deep shadows.",
+        "tone": "Epic, hopeful, beginning of a journey.",
+        "color_grade": "Saturated oranges, deep blues, and warm golden tones."
+      },
+      "audio_track": {
+        "lyrics": null,
+        "emotion": null,
+        "flow": null,
+        "wave_download_url": null,
+        "youtube_reference": null,
+        "audio_base64": null,
+        "format": "wav",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "style": "Ambient synth pad swells, sound of gentle wind, subtle crunch of sand underfoot."
+      },
+      "dialogue": {
+        "character": "The Traveler",
+        "line": "",
+        "subtitles": false
+      },
+      "performance": {
+        "mouth_shape_intensity": null,
+        "eye_contact_ratio": 0.0
+      },
+      "duration_sec": 8,
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "clip_02_canyon_midday",
+      "shot": {
+        "composition": "Medium shot from a low angle, emphasizing the towering canyon walls.",
+        "camera_motion": "Steady tracking shot, following the character from the side.",
+        "frame_rate": "24fps",
+        "film_grain": 0.1,
+        "camera": "Sony Venice with 35mm lens, Love Death + Robots stylized CGI."
+      },
+      "subject": {
+        "description": "The determined 35-year-old Traveler, his face set with focus, a thin layer of dust on his jacket.",
+        "wardrobe": "Dark navy jacket, dark pants, and worn brown boots."
+      },
+      "scene": {
+        "location": "A narrow, jagged rock canyon.",
+        "time_of_day": "High Noon",
+        "environment": "The sun is directly overhead, creating harsh, stark shadows. The air shimmers with heat."
+      },
+      "visual_details": {
+        "action": "The Traveler navigates the rocky, uneven canyon floor, his pace unwavering despite the oppressive heat.",
+        "props": null
+      },
+      "cinematography": {
+        "lighting": "Harsh, direct overhead sunlight creating deep, sharp shadows.",
+        "tone": "Struggling, relentless, oppressive.",
+        "color_grade": "Slightly desaturated, high contrast, emphasizing reds and browns."
+      },
+      "audio_track": {
+        "lyrics": null,
+        "emotion": null,
+        "flow": null,
+        "wave_download_url": null,
+        "youtube_reference": null,
+        "audio_base64": null,
+        "format": "wav",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "style": "Tense, rhythmic electronic beat, echo of footsteps on rock, distant cry of a hawk."
+      },
+      "dialogue": {
+        "character": "The Traveler",
+        "line": "",
+        "subtitles": false
+      },
+      "performance": {
+        "mouth_shape_intensity": null,
+        "eye_contact_ratio": 0.0
+      },
+      "duration_sec": 8,
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "clip_03_surreal_forest",
+      "shot": {
+        "composition": "Full shot, showing the character dwarfed by fantastical flora.",
+        "camera_motion": "Slow, dreamlike forward dolly.",
+        "frame_rate": "24fps",
+        "film_grain": 0.0,
+        "camera": "RED Komodo with 50mm lens, Love Death + Robots stylized CGI."
+      },
+      "subject": {
+        "description": "The 35-year-old Traveler, his expression a mix of wonder and continued resolve, his clothes now clean from the previous environment.",
+        "wardrobe": "Dark navy jacket, dark pants, and worn brown boots."
+      },
+      "scene": {
+        "location": "A surreal, bioluminescent forest.",
+        "time_of_day": "Perpetual Twilight",
+        "environment": "Giant, glowing mushrooms and otherworldly plants illuminate the scene with soft, shifting colors. Floating spores drift like embers in the air."
+      },
+      "visual_details": {
+        "action": "The Traveler walks through the alien forest, looking around in quiet awe but never breaking his stride.",
+        "props": null
+      },
+      "cinematography": {
+        "lighting": "Soft, ethereal, multi-colored light emanating from the flora.",
+        "tone": "Mystical, wondrous, surreal.",
+        "color_grade": "Vibrantly saturated blues, purples, and greens."
+      },
+      "audio_track": {
+        "lyrics": null,
+        "emotion": null,
+        "flow": null,
+        "wave_download_url": null,
+        "youtube_reference": null,
+        "audio_base64": null,
+        "format": "wav",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "style": "Ethereal choir, gentle chimes, soft humming sounds from the plants."
+      },
+      "dialogue": {
+        "character": "The Traveler",
+        "line": "",
+        "subtitles": false
+      },
+      "performance": {
+        "mouth_shape_intensity": null,
+        "eye_contact_ratio": 0.0
+      },
+      "duration_sec": 8,
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "clip_04_rain_storm",
+      "shot": {
+        "composition": "Tight close-up on the character's face.",
+        "camera_motion": "Handheld, shaky camera to convey struggle.",
+        "frame_rate": "24fps",
+        "film_grain": 0.2,
+        "camera": "Arri Alexa Mini with 85mm lens, Love Death + Robots stylized CGI."
+      },
+      "subject": {
+        "description": "The 35-year-old Traveler, his hair plastered to his forehead, rain streaming down his face, his jaw clenched in determination.",
+        "wardrobe": "His navy jacket is soaked and dark with rain."
+      },
+      "scene": {
+        "location": "A desolate, muddy plain.",
+        "time_of_day": "Overcast Afternoon",
+        "environment": "A torrential downpour, with wind whipping the rain sideways. Lightning flashes intermittently in the dark grey sky."
+      },
+      "visual_details": {
+        "action": "The Traveler leans into the wind and driving rain, pushing forward one step at a time.",
+        "props": null
+      },
+      "cinematography": {
+        "lighting": "Moody, low-key, desaturated. Brief, harsh flashes of light from lightning strikes.",
+        "tone": "Desperate, struggling, intense.",
+        "color_grade": "Heavily desaturated, cool blue and grey tones."
+      },
+      "audio_track": {
+        "lyrics": null,
+        "emotion": null,
+        "flow": null,
+        "wave_download_url": null,
+        "youtube_reference": null,
+        "audio_base64": null,
+        "format": "wav",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "style": "Loud, roaring wind and rain, distant thunder claps, heavy squelching footsteps."
+      },
+      "dialogue": {
+        "character": "The Traveler",
+        "line": "",
+        "subtitles": false
+      },
+      "performance": {
+        "mouth_shape_intensity": null,
+        "eye_contact_ratio": 0.0
+      },
+      "duration_sec": 8,
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "clip_05_winter_snow",
+      "shot": {
+        "composition": "Wide shot, character moving from background to foreground.",
+        "camera_motion": "Static, locked-off shot.",
+        "frame_rate": "24fps",
+        "film_grain": 0.1,
+        "camera": "RED Ranger with 50mm lens, Love Death + Robots stylized CGI."
+      },
+      "subject": {
+        "description": "The 35-year-old Traveler, his jacket lightly dusted with snow, his breath fogging in the frigid air.",
+        "wardrobe": "Dark navy jacket, dark pants, and worn brown boots, all partially covered in snow."
+      },
+      "scene": {
+        "location": "A silent, snow-covered pine forest.",
+        "time_of_day": "Mid-morning",
+        "environment": "Thick blankets of fresh snow cover everything, muffling all sound. Snowflakes drift down gently from a white sky."
+      },
+      "visual_details": {
+        "action": "The Traveler trudges through knee-deep snow, leaving a deep trail behind him.",
+        "props": null
+      },
+      "cinematography": {
+        "lighting": "Soft, diffused, even lighting from the overcast sky.",
+        "tone": "Isolated, quiet, persevering.",
+        "color_grade": "Cool color palette with dominant whites, greys, and muted blues."
+      },
+      "audio_track": {
+        "lyrics": null,
+        "emotion": null,
+        "flow": null,
+        "wave_download_url": null,
+        "youtube_reference": null,
+        "audio_base64": null,
+        "format": "wav",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "style": "Near silence, only the muffled crunch of boots in deep snow and the sound of his breathing."
+      },
+      "dialogue": {
+        "character": "The Traveler",
+        "line": "",
+        "subtitles": false
+      },
+      "performance": {
+        "mouth_shape_intensity": null,
+        "eye_contact_ratio": 0.0
+      },
+      "duration_sec": 8,
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "clip_06_starry_night",
+      "shot": {
+        "composition": "Low angle medium shot, looking up at the character against the sky.",
+        "camera_motion": "Very slow, subtle orbit around the character.",
+        "frame_rate": "24fps",
+        "film_grain": 0.0,
+        "camera": "Sony Venice 2 with 18mm wide-angle lens, Love Death + Robots stylized CGI."
+      },
+      "subject": {
+        "description": "The 35-year-old Traveler, standing still for the first time, looking up at the heavens with a sense of awe.",
+        "wardrobe": "Dark navy jacket, dark pants, and worn brown boots."
+      },
+      "scene": {
+        "location": "A vast, grassy field at night.",
+        "time_of_day": "Midnight",
+        "environment": "A crystal-clear night sky with no moon. The Milky Way galaxy is spectacularly visible, a brilliant band of light and color stretching across the entire sky."
+      },
+      "visual_details": {
+        "action": "The Traveler pauses his journey, lowering his hood to look up at the cosmic display above him.",
+        "props": null
+      },
+      "cinematography": {
+        "lighting": "Natural, faint light from the stars, casting a soft, cool glow on the character.",
+        "tone": "Awe-inspiring, profound, contemplative.",
+        "color_grade": "Deep blues and blacks contrasted with the vibrant nebulous colors of the Milky Way."
+      },
+      "audio_track": {
+        "lyrics": null,
+        "emotion": null,
+        "flow": null,
+        "wave_download_url": null,
+        "youtube_reference": null,
+        "audio_base64": null,
+        "format": "wav",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "style": "A grand, orchestral score begins to swell, mixed with the gentle chirping of crickets."
+      },
+      "dialogue": {
+        "character": "The Traveler",
+        "line": "",
+        "subtitles": false
+      },
+      "performance": {
+        "mouth_shape_intensity": null,
+        "eye_contact_ratio": 0.0
+      },
+      "duration_sec": 8,
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "clip_07_infinite_void",
+      "shot": {
+        "composition": "Medium shot from behind the character.",
+        "camera_motion": "Slow, steady push-in towards the distant light.",
+        "frame_rate": "24fps",
+        "film_grain": 0.0,
+        "camera": "Virtual camera, Love Death + Robots stylized CGI."
+      },
+      "subject": {
+        "description": "The 35-year-old Traveler, his form silhouetted against a distant light source.",
+        "wardrobe": "Dark navy jacket, dark pants, and worn brown boots."
+      },
+      "scene": {
+        "location": "An infinite, featureless black void.",
+        "time_of_day": "N/A",
+        "environment": "Absolute blackness, with a single, small, brilliant point of white light in the far distance. He walks on an unseen, reflective floor."
+      },
+      "visual_details": {
+        "action": "The Traveler walks with renewed purpose towards the solitary point of light, which grows steadily larger.",
+        "props": null
+      },
+      "cinematography": {
+        "lighting": "Extreme high contrast. The only light source is the destination, which casts a growing rim light on the character.",
+        "tone": "Finality, mysterious, hopeful, minimalist.",
+        "color_grade": "Pure black and white."
+      },
+      "audio_track": {
+        "lyrics": null,
+        "emotion": null,
+        "flow": null,
+        "wave_download_url": null,
+        "youtube_reference": null,
+        "audio_base64": null,
+        "format": "wav",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "style": "The orchestral score becomes a single, sustained, high-frequency synth note. The only other sound is the faint, echoing sound of his footsteps."
+      },
+      "dialogue": {
+        "character": "The Traveler",
+        "line": "",
+        "subtitles": false
+      },
+      "performance": {
+        "mouth_shape_intensity": null,
+        "eye_contact_ratio": 0.0
+      },
+      "duration_sec": 8,
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "clip_08_the_door",
+      "shot": {
+        "composition": "Medium close-up on the character.",
+        "camera_motion": "Camera is static as he turns, then pushes past him as he enters the door.",
+        "frame_rate": "24fps",
+        "film_grain": 0.0,
+        "camera": "Virtual camera with 50mm lens, Love Death + Robots stylized CGI."
+      },
+      "subject": {
+        "description": "The 35-year-old Traveler, his face illuminated by a warm glow. His expression of determination softens into one of peace and understanding.",
+        "wardrobe": "Dark navy jacket, dark pants, and worn brown boots."
+      },
+      "scene": {
+        "location": "The infinite black void.",
+        "time_of_day": "N/A",
+        "environment": "He now stands before a simple, wooden door that glows with a warm, inviting light from within. The void is absolute darkness behind him."
+      },
+      "visual_details": {
+        "action": "He reaches the door and stops. He turns his head, looks directly into the camera, and offers a gentle, knowing smile. He then turns back, pushes the door open, and walks through, leaving it ajar.",
+        "props": "A single, glowing wooden door."
+      },
+      "cinematography": {
+        "lighting": "Warm, soft key light coming from the open doorway, illuminating his face.",
+        "tone": "Peaceful, climactic, cathartic.",
+        "color_grade": "Warm, inviting tones from the door contrasting with the pure black of the void."
+      },
+      "audio_track": {
+        "lyrics": null,
+        "emotion": null,
+        "flow": null,
+        "wave_download_url": null,
+        "youtube_reference": null,
+        "audio_base64": null,
+        "format": "wav",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "style": "The sustained synth note fades into a beautiful, resolved orchestral chord. The sound of a wooden door creaking open."
+      },
+      "dialogue": {
+        "character": "The Traveler",
+        "line": "",
+        "subtitles": false
+      },
+      "performance": {
+        "mouth_shape_intensity": null,
+        "eye_contact_ratio": 0.9
+      },
+      "duration_sec": 8,
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "clip_09_revelation",
+      "shot": {
+        "composition": "Starts as a close-up on the open, glowing doorway.",
+        "camera_motion": "An impossibly fast, extreme zoom out.",
+        "frame_rate": "24fps",
+        "film_grain": 0.0,
+        "camera": "Virtual camera, Love Death + Robots stylized CGI."
+      },
+      "subject": {
+        "description": "N/A",
+        "wardrobe": "N/A"
+      },
+      "scene": {
+        "location": "The camera's viewpoint is in the void, looking at the door.",
+        "time_of_day": "N/A",
+        "environment": "As the camera zooms out, the glowing door and the infinite black void it sits in are revealed to be contained within a small, perfect black square. This square is floating silently in the middle of a vast, colorful, and complex nebula."
+      },
+      "visual_details": {
+        "action": "The camera pulls back at an accelerating speed, revealing the metaphysical nature of the scene. The scale shifts from personal to cosmic.",
+        "props": "The glowing door, a black square, a colorful nebula."
+      },
+      "cinematography": {
+        "lighting": "The scene becomes brilliantly lit by the vibrant colors of the surrounding nebula.",
+        "tone": "Metaphysical, awe-inspiring, revelatory.",
+        "color_grade": "A full spectrum of vibrant, cosmic colors."
+      },
+      "audio_track": {
+        "lyrics": null,
+        "emotion": null,
+        "flow": null,
+        "wave_download_url": null,
+        "youtube_reference": null,
+        "audio_base64": null,
+        "format": "wav",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "style": "The orchestral chord crescendos into a massive, epic climax, then cuts abruptly to silence as the final image holds."
+      },
+      "dialogue": {
+        "character": "The Traveler",
+        "line": "",
+        "subtitles": false
+      },
+      "performance": {
+        "mouth_shape_intensity": null,
+        "eye_contact_ratio": null
+      },
+      "duration_sec": 8,
+      "aspect_ratio": "16:9"
+    }
+  ]
+}

@@ -11,16 +11,19 @@
 ### ✅ create-image (FIXED)
 
 **Before:**
+
 ```yaml
 description: ... Use when workflow needs to create images ...
 ```
 
 **After:**
+
 ```yaml
 description: Generate images from text prompts using Emily's JSON methodology and 7-pillar quality framework. Use when creating images, generating visuals, making graphics, designing social media posts for Instagram LinkedIn Twitter, creating YouTube thumbnails, or any image generation task.
 ```
 
 **Added:**
+
 - "When to Use" section with 6 triggers
 - Direct action verbs (creating, generating, making, designing)
 - Platform specifics (Instagram, LinkedIn, Twitter)
@@ -31,16 +34,19 @@ description: Generate images from text prompts using Emily's JSON methodology an
 ### ✅ edit-image (FIXED)
 
 **Before:**
+
 ```yaml
 description: ... Use when workflow needs to refine, correct, or transform ...
 ```
 
 **After:**
+
 ```yaml
 description: Edit and refine existing images with pixel-perfect precision using nanobanana. Use when editing images, refining visuals, correcting colors, blurring backgrounds, removing objects, enhancing photos, fixing images, adjusting lighting, or making targeted changes ...
 ```
 
 **Added:**
+
 - "When to Use" section
 - 9 direct action triggers
 - Specific tasks (blur background, remove object)
@@ -50,16 +56,19 @@ description: Edit and refine existing images with pixel-perfect precision using 
 ### ✅ blend-images (FIXED)
 
 **Before:**
+
 ```yaml
 description: ... Use when workflow needs to combine multiple source images ...
 ```
 
 **After:**
+
 ```yaml
 description: Compose and blend 2-3 images into unified scene using nanobanana. Use when combining images, blending photos, merging pictures, creating photo mashups, compositing scenes, fusing multiple images, mixing visuals ...
 ```
 
 **Added:**
+
 - "When to Use" section
 - 8 direct action triggers
 - Creative composition variants
@@ -73,6 +82,7 @@ description: Compose and blend 2-3 images into unified scene using nanobanana. U
 **Current issue:** Check description
 
 **Needs:**
+
 - Remove "workflow needs" if present
 - Add "creating thumbnails, designing YouTube covers, making video thumbnails"
 - Add "When to Use" section
@@ -84,6 +94,7 @@ description: Compose and blend 2-3 images into unified scene using nanobanana. U
 **Current issue:** Check description
 
 **Needs:**
+
 - Direct triggers for LinkedIn content
 - Platform-specific keywords
 
@@ -94,6 +105,7 @@ description: Compose and blend 2-3 images into unified scene using nanobanana. U
 **Current issue:** Check description
 
 **Needs:**
+
 - Triggers for platform requirements
 - May already be good (utility skill)
 
@@ -104,6 +116,7 @@ description: Compose and blend 2-3 images into unified scene using nanobanana. U
 **Current issue:** Check description
 
 **Needs:**
+
 - Tool selection triggers
 - May already be good (utility skill)
 

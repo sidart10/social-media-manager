@@ -19,18 +19,18 @@ bmad/agents/{agent}/workflows/{workflow-name}/
 ```yaml
 name: workflow-name
 description: One-line workflow purpose
-version: "1.0"
+version: '1.0'
 owner: agent-name
-elicit: true|false        # Enable elicitation-based refinement?
+elicit: true|false # Enable elicitation-based refinement?
 
 # Metadata for discovery
-triggers:                 # What contexts/commands trigger this workflow
-  - "research {topic}"
-  - "analyze profile"
+triggers: # What contexts/commands trigger this workflow
+  - 'research {topic}'
+  - 'analyze profile'
 
-skills_triggered:         # Which skills this workflow invokes (via context creation)
-  - deep-web-research     # Step 1 context: "Research {topic} with depth={depth}"
-  - research-synthesizer  # Step 3 context: "Synthesize findings into categories"
+skills_triggered: # Which skills this workflow invokes (via context creation)
+  - deep-web-research # Step 1 context: "Research {topic} with depth={depth}"
+  - research-synthesizer # Step 3 context: "Synthesize findings into categories"
 
 # Steps reference external instructions.md
 steps_file: instructions.md
@@ -135,6 +135,7 @@ template_file: template.md
 **MVP Requirement:** ALL workflows must follow external instructions.md pattern (no embedded YAML or JavaScript code blocks).
 
 **Current State:**
+
 - ✅ Jarvis workflows: Already standardized (external instructions.md)
 - ⚠️ Zoe workflows: Need migration from embedded YAML to external
 - ⚠️ Zoro workflows: Need migration from embedded YAML to external
@@ -182,6 +183,7 @@ Select 1-9 or just type your question/feedback:
 ```
 
 **Elicitation Workflow:**
+
 1. Workflow generates draft content
 2. Presents content + rationale + menu (1-9 options)
 3. User selects method or provides custom feedback

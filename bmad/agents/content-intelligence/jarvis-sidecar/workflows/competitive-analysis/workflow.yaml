@@ -4,7 +4,9 @@ author: "Jarvis"
 
 # Variables
 config_source: "{agent-folder}/config.yaml"
-sessions_folder: "{config_source}:sessions_folder"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
 date: system-generated
 installed_path: "{agent-folder}/workflows/competitive-analysis"
 
@@ -37,4 +39,6 @@ template: false
 instructions: "{installed_path}/instructions.md"
 
 # Output files
-default_output_file: "{sessions_folder}/competitive-analysis-{date}.md"
+# Note: Actual output path created dynamically in Step 0 of instructions.md
+# Pattern: outputs/projects/{YYYY-MM-DD}-competitive-analysis/01-research/competitive-analysis.md
+default_output_file: "{project-root}/outputs/projects/{date}-competitive-analysis/01-research/competitive-analysis.md"

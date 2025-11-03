@@ -1,0 +1,235 @@
+{
+  "project": {
+    "title": "NEON DIVIDE",
+    "subtitle": "A Dystopian Love Story",
+    "genre": "Sci-Fi Romance / Cyberpunk Drama",
+    "inspiration": "Romeo & Juliet reimagined in retro-futuristic cyberpunk world",
+    "created_date": "2025-11-01",
+    "total_runtime": "64 seconds",
+    "aspect_ratio": "16:9",
+    "resolution": "1280x720",
+    "fps": 24,
+    "tone": "Dark, moody, retro-cyberpunk with bittersweet hope"
+  },
+  "narrative_summary": "In a dystopian megacity divided by a glowing neon wall, Aria (corporate elite) and Kai (lower district rebel) meet in forbidden neutral ground. Their love defies faction borders, but discovery forces a heartbreaking sacrifice. Separated by the barrier, they maintain connection through a flickering holographic heart - a promise that love transcends physical division.",
+  "visual_style": {
+    "color_palette": {
+      "upper_district": "#00D4FF (cold blue neon)",
+      "lower_district": "#FF6B35 (warm amber/red)",
+      "neutral_zone": "#FF00FF and #00FFFF (magenta/cyan blend)",
+      "background": "#0B0B0B to #1A1A1A (deep shadows)"
+    },
+    "aesthetic": "Blade Runner meets 1980s retro-futurism",
+    "characteristics": "Film grain, analog warmth, neon-noir lighting, atmospheric haze, rain/steam effects, holographic UI elements, vintage CRT displays"
+  },
+  "characters": {
+    "aria": {
+      "name": "Aria",
+      "faction": "Upper District Corporate Elite",
+      "age": "Early 20s",
+      "appearance": "Young East Asian woman, sleek black hair with blue highlights, subtle cybernetic temple enhancement",
+      "wardrobe": "White futuristic corporate blazer, silver accents, holographic ID badge",
+      "lighting": "Cold blue neon",
+      "archetype": "Isolated privilege seeking connection",
+      "reference_image": "character-aria-reference.png"
+    },
+    "kai": {
+      "name": "Kai",
+      "faction": "Lower District Rebellion",
+      "age": "Early 20s",
+      "appearance": "Rugged man, messy dark brown hair, light stubble, scar on left cheek, weathered hands",
+      "wardrobe": "Distressed brown leather jacket with tech patches, cargo pants, combat boots, analog watch",
+      "lighting": "Warm amber/red neon",
+      "archetype": "Determined resourceful rebel",
+      "reference_image": "character-kai-reference.png"
+    }
+  },
+  "scenes": [
+    {
+      "scene_number": 1,
+      "title": "The Divided City",
+      "act": "ACT I: The Divided World",
+      "duration": "8 seconds",
+      "file": "scene-01-divided-city.mp4",
+      "shot_type": "Aerial establishing shot",
+      "camera_movement": "Slow forward dolly descending toward neon wall",
+      "location": "Dystopian megacity exterior",
+      "characters": [],
+      "key_visual_elements": [
+        "Glowing neon wall barrier",
+        "Corporate towers (blue)",
+        "Industrial decay (amber/red)",
+        "Rain",
+        "Holographic ads"
+      ],
+      "narrative_purpose": "Establish the divided world and visual contrast between factions",
+      "model": "veo-3.0-fast-generate-preview",
+      "generation_time": "59 seconds"
+    },
+    {
+      "scene_number": 2,
+      "title": "Her World",
+      "act": "ACT I: The Divided World",
+      "duration": "8 seconds",
+      "file": "scene-02-her-world.mp4",
+      "shot_type": "Close-up character portrait",
+      "camera_movement": "Slow push-in from medium to close-up",
+      "location": "Corporate tower office interior",
+      "characters": ["Aria"],
+      "key_visual_elements": [
+        "Floor-to-ceiling window",
+        "Holographic data streams",
+        "Blue neon reflection on face",
+        "View of lower district"
+      ],
+      "narrative_purpose": "Introduce Aria's isolated privilege and yearning for something more",
+      "model": "veo-3.0-fast-generate-preview",
+      "generation_time": "53 seconds"
+    },
+    {
+      "scene_number": 3,
+      "title": "His World",
+      "act": "ACT I: The Divided World",
+      "duration": "8 seconds",
+      "file": "scene-03-his-world.mp4",
+      "shot_type": "Tracking shot circling character",
+      "camera_movement": "Handheld-style circular tracking",
+      "location": "Industrial workshop interior",
+      "characters": ["Kai"],
+      "key_visual_elements": [
+        "Vintage CRT monitors",
+        "Analog dials",
+        "Steam pipes",
+        "Warm amber neon",
+        "Grated ceiling view to upper city"
+      ],
+      "narrative_purpose": "Introduce Kai's resourceful rebellion and determination to transcend barriers",
+      "model": "veo-3.0-fast-generate-preview",
+      "generation_time": "52 seconds"
+    },
+    {
+      "scene_number": 4,
+      "title": "The Meeting",
+      "act": "ACT II: The Connection",
+      "duration": "8 seconds",
+      "file": "scene-04-the-meeting.mp4",
+      "shot_type": "Dual character symmetrical composition",
+      "camera_movement": "Dual tracking shots converging to center",
+      "location": "Abandoned subway station (neutral ground)",
+      "characters": ["Aria", "Kai"],
+      "key_visual_elements": [
+        "Flickering fluorescent lights",
+        "Pink/cyan neon graffiti",
+        "Blue light (left) vs amber light (right)",
+        "Purple blend where lights meet"
+      ],
+      "narrative_purpose": "First meeting across the divide, fate and forbidden attraction",
+      "model": "veo-3.0-fast-generate-preview",
+      "generation_time": "52 seconds"
+    },
+    {
+      "scene_number": 5,
+      "title": "The Connection",
+      "act": "ACT II: The Connection",
+      "duration": "8 seconds",
+      "file": "scene-05-the-connection.mp4",
+      "shot_type": "Extreme close-up macro",
+      "camera_movement": "Slow motion, shallow depth of field",
+      "location": "Subway station (intimate moment)",
+      "characters": ["Aria (hand)", "Kai (hand)"],
+      "key_visual_elements": [
+        "Hands reaching",
+        "Cyan vs magenta lighting",
+        "Holographic sparks",
+        "Neural-link particle effects",
+        "Bokeh neon background"
+      ],
+      "narrative_purpose": "Physical and digital connection forming, defiant love despite danger",
+      "model": "veo-3.0-fast-generate-preview",
+      "generation_time": "63 seconds"
+    },
+    {
+      "scene_number": 6,
+      "title": "The Chase",
+      "act": "ACT III: The Consequences",
+      "duration": "8 seconds",
+      "file": "scene-06-the-chase.mp4",
+      "shot_type": "Dynamic action tracking",
+      "camera_movement": "Fast tracking following runners from behind",
+      "location": "Neon-lit subway tunnels",
+      "characters": ["Aria", "Kai"],
+      "key_visual_elements": [
+        "Security drones",
+        "Red laser scanning beams",
+        "Alarm strobes",
+        "Enforcer shadows on walls",
+        "Steam bursts",
+        "Couple running hand-in-hand"
+      ],
+      "narrative_purpose": "Discovery and pursuit, rebellion against system, urgency and danger",
+      "model": "veo-3.0-fast-generate-preview",
+      "generation_time": "52 seconds"
+    },
+    {
+      "scene_number": 7,
+      "title": "The Sacrifice",
+      "act": "ACT III: The Consequences",
+      "duration": "8 seconds",
+      "file": "scene-07-the-sacrifice.mp4",
+      "shot_type": "Split-screen emotional climax",
+      "camera_movement": "Close-up on barrier interaction",
+      "location": "Neon wall energy barrier doorway",
+      "characters": ["Aria", "Kai"],
+      "key_visual_elements": [
+        "Glowing energy barrier",
+        "Hands pressed on opposite sides",
+        "Blue light (Aria side) vs amber (Kai side)",
+        "Red alarm lights",
+        "Enforcer shadows",
+        "Lens flare through barrier"
+      ],
+      "narrative_purpose": "Heartbreaking sacrifice, separation despite love, tragic Romeo & Juliet moment",
+      "model": "veo-3.0-fast-generate-preview",
+      "generation_time": "53 seconds"
+    },
+    {
+      "scene_number": 8,
+      "title": "The Promise",
+      "act": "ACT III: The Consequences",
+      "duration": "8 seconds",
+      "file": "scene-08-the-promise.mp4",
+      "shot_type": "Dual split-screen final shot",
+      "camera_movement": "Slow dolly back from close-ups to wide cityscape",
+      "location": "Both worlds shown simultaneously",
+      "characters": ["Aria (corporate tower)", "Kai (workshop)"],
+      "key_visual_elements": [
+        "Symmetrical composition",
+        "Blue corporate office vs amber workshop",
+        "Floating holographic cyan heart in both spaces",
+        "Divided city with neon wall",
+        "Flickering but persistent heart symbol"
+      ],
+      "narrative_purpose": "Bittersweet ending, love transcending barriers, hope for eventual reunion, unfinished story inviting sequel",
+      "model": "veo-3.0-fast-generate-preview",
+      "generation_time": "63 seconds"
+    }
+  ],
+  "production_details": {
+    "total_scenes": 8,
+    "completed_scenes": 8,
+    "total_generation_time": "~7 minutes",
+    "ai_model": "Google Veo 3 (veo-3.0-fast-generate-preview)",
+    "generation_platform": "veotools MCP server",
+    "character_reference_tool": "nanobanana (Gemini 2.5 Flash)",
+    "output_format": "MP4 H.264",
+    "total_frames": 1536,
+    "file_sizes_total": "~50-80 MB estimated"
+  },
+  "next_steps": {
+    "editing": "Combine 8 scenes using FFmpeg or video editing software",
+    "audio": "Add retro-synth soundtrack, ambient cyberpunk sounds, dialogue (optional)",
+    "color_grading": "Apply final cyan/magenta color grade with film grain overlay",
+    "export": "Final master file at 1920x1080 or 4K upscale",
+    "distribution": "Upload to Cloudinary, publish to YouTube/Vimeo, social media cutdowns"
+  }
+}

@@ -12,6 +12,7 @@
 **NO - Don't deprecate workflows!**
 
 **Why:** Skills and workflows serve DIFFERENT purposes:
+
 - **Skills** = Expert knowledge (WHAT/HOW)
 - **Workflows** = Process orchestration (WHEN/WHERE/STATE)
 
@@ -28,12 +29,14 @@
 > "Instead of building fragmented, custom-designed agents for each use case, anyone can now specialize their agents with **composable capabilities** by capturing and sharing their **procedural knowledge**."
 
 **Key words:**
+
 - Onboarding guide
 - Procedural knowledge
 - Composable capabilities
 - Expertise packages
 
 **NOT mentioned:**
+
 - State management
 - Multi-step orchestration
 - User interaction flows
@@ -56,12 +59,14 @@
 ### ✅ Provide Expert Knowledge
 
 **From cookbooks:**
+
 - Financial analysis methodologies
 - Brand guideline application
 - Document creation instructions
 - Data processing techniques
 
 **Example:** post-writer skill
+
 - Contains Justin Welsh formulas
 - Contains Greg Isenberg patterns
 - Contains viral engagement data
@@ -72,9 +77,11 @@
 ### ✅ Include Executable Code
 
 **From engineering blog:**
+
 > "Skills can also include code for Claude to execute as tools at its discretion. Large language models excel at many tasks, but certain operations are better suited for traditional code execution."
 
 **Example:** PDF skill
+
 - Includes Python script to extract form fields
 - Deterministic, reliable, repeatable
 - Doesn't load PDF into context
@@ -86,11 +93,13 @@
 ### ✅ Progressive Disclosure
 
 **Three levels:**
+
 1. Metadata (name, description) - Loaded at session start
 2. SKILL.md body - Loaded when relevant
 3. Additional files (forms.md, reference.md) - Loaded on-demand
 
 **From docs:**
+
 > "Agents with a filesystem and code execution tools don't need to read the entirety of a skill into their context window when working on a particular task. This means that the amount of context that can be bundled into a skill is effectively unbounded."
 
 **Benefit:** Massive skills possible, only load what's needed
@@ -100,9 +109,11 @@
 ### ✅ Compose with Other Skills
 
 **From docs:**
+
 > "Compose multiple Skills for complex tasks"
 
 **Example:** Financial reporting workflow could use:
+
 - `xlsx` skill (create spreadsheet)
 - `pptx` skill (create presentation)
 - `pdf` skill (create report)
@@ -116,6 +127,7 @@
 ### ❌ Complex State Management
 
 **Skills don't maintain state across steps:**
+
 - No "load voice profile, then use it in Step 5"
 - No "store idea card, reference it later"
 - No "track which step we're on"
@@ -127,12 +139,14 @@
 ### ❌ User Interaction Mid-Flow
 
 **Skills don't handle:**
+
 - Asking user questions
 - Getting confirmations
 - Branching based on user choices
 - Multi-turn conversations within task
 
 **Example workflow interaction:**
+
 ```xml
 <ask>Voice profile not found. Options:
   1. Run /learn-voice first
@@ -156,11 +170,13 @@ Select: [1/2/3]
 ### ❌ Multi-Step Orchestration
 
 **Skills don't orchestrate sequences:**
+
 - Load A → Process B → Save C → Call workflow D
 - Step 1, 2, 3, 4, 5 with dependencies
 - "Do X, then based on result do Y or Z"
 
 **Example workflow orchestration:**
+
 ```xml
 Step 0: Load voice profile
 Step 1: Load idea card
@@ -179,12 +195,14 @@ Step 7: Save to outputs/ with timestamp
 ### ❌ File I/O to Specific Locations
 
 **Skills don't manage:**
+
 - Save to outputs/ with specific naming convention
 - Create handoff JSONs in specific directories
 - Organize outputs by date/platform/type
 - Template file population
 
 **Example workflow file management:**
+
 ```
 Save to: bmad/agents/content-intelligence/jarvis-sidecar/outputs/linkedin-post-{topic}-{date}.md
 Create handoff: bmad/agents/content-intelligence/jarvis-sidecar/outputs/linkedin-post-{topic}-{date}.json
@@ -232,6 +250,7 @@ Create handoff: bmad/agents/content-intelligence/jarvis-sidecar/outputs/linkedin
 ### Example: write-posts Workflow
 
 **Orchestration (can't move to skill):**
+
 - ✅ Step 0: Load voice profile from memories.md
 - ✅ Step 1: Load idea card from previous workflow
 - ❌ Step 2: Generate content ← SKILL DOES THIS!
@@ -249,6 +268,7 @@ Create handoff: bmad/agents/content-intelligence/jarvis-sidecar/outputs/linkedin
 ### Example: write-scripts Workflow
 
 **Orchestration (can't move to skill):**
+
 - ✅ Step 0: Load voice profile
 - ✅ Step 1: Load idea card & validate platform/duration
 - ❌ Step 2: Generate script ← SKILL DOES THIS!
@@ -268,15 +288,18 @@ Create handoff: bmad/agents/content-intelligence/jarvis-sidecar/outputs/linkedin
 ### Skills Are "Onboarding Guides"
 
 **From Anthropic:**
+
 > "Building a skill for an agent is like putting together an onboarding guide for a new hire."
 
 **What onboarding guides contain:**
+
 - Knowledge (how to do the job)
 - Procedures (step-by-step instructions)
 - Tools (scripts to help)
 - References (where to look for info)
 
 **What onboarding guides DON'T contain:**
+
 - State tracking (what step are we on?)
 - Conditional decisions (if A then B else C)
 - File organization (where to save what)
@@ -287,6 +310,7 @@ Create handoff: bmad/agents/content-intelligence/jarvis-sidecar/outputs/linkedin
 ### Workflows Are "Process Managers"
 
 **What managers do:**
+
 - Coordinate multiple expert contributions
 - Track state across multi-step processes
 - Make decisions based on context
@@ -295,6 +319,7 @@ Create handoff: bmad/agents/content-intelligence/jarvis-sidecar/outputs/linkedin
 - Ensure quality checkpoints
 
 **What managers DON'T do:**
+
 - Know all the expertise themselves (they call experts!)
 - Generate content directly (they delegate to skills!)
 
@@ -305,6 +330,7 @@ Create handoff: bmad/agents/content-intelligence/jarvis-sidecar/outputs/linkedin
 ### Hiring a Writer
 
 **With Skill Only:**
+
 ```
 You: "Write a LinkedIn post about AI"
 Writer (skill): Uses Justin Welsh formula, generates post
@@ -314,6 +340,7 @@ Result: Post text
 **Problem:** Where does it get saved? What about voice? Idea card? Platform validation? Handoff to posting agent?
 
 **With Workflow + Skill:**
+
 ```
 You: "Write a LinkedIn post about AI"
 Manager (workflow):
@@ -339,6 +366,7 @@ Result: Complete package ready for next step
 ### What Cookbooks Show
 
 **Notebook 1:** Basic skills usage
+
 - Excel skill creates spreadsheet
 - PowerPoint skill creates presentation
 - PDF skill creates document
@@ -346,6 +374,7 @@ Result: Complete package ready for next step
 **Simple requests, simple outputs!**
 
 **Notebook 2:** Financial applications
+
 - Cross-format workflows: CSV → Excel → PowerPoint → PDF
 - Multiple skills composed
 - Token optimization
@@ -353,6 +382,7 @@ Result: Complete package ready for next step
 **Still simple: Claude decides which skills, generates outputs**
 
 **Notebook 3:** Custom skills development
+
 - Brand guidelines skill
 - Financial analyzer skill
 - Financial modeler skill
@@ -364,6 +394,7 @@ Result: Complete package ready for next step
 ### What Cookbooks DON'T Show
 
 **Not in cookbooks:**
+
 - Multi-step state management
 - User interaction checkpoints
 - Complex conditional logic
@@ -380,12 +411,14 @@ Result: Complete package ready for next step
 ### Option 1: Skills Only (What You Suggested)
 
 **Pros:**
+
 - Simpler architecture
 - Everything in .claude/skills/
 - Automatic loading
 - Composable
 
 **Cons:**
+
 - ❌ No state management
 - ❌ No user interaction
 - ❌ No file organization
@@ -401,6 +434,7 @@ Result: Complete package ready for next step
 ### Option 2: Workflows + Skills (Current)
 
 **Pros:**
+
 - ✅ Skills provide expertise
 - ✅ Workflows orchestrate process
 - ✅ State management works
@@ -410,6 +444,7 @@ Result: Complete package ready for next step
 - ✅ Multi-step dependencies tracked
 
 **Cons:**
+
 - More complex architecture
 - Two systems to maintain
 - Need to understand both
@@ -421,12 +456,14 @@ Result: Complete package ready for next step
 ### Option 3: Thin Workflows + Rich Skills (RECOMMENDED)
 
 **Move FROM workflows TO skills:**
+
 - Content generation knowledge
 - Creator methodologies
 - Best practices
 - Prompt templates
 
 **Keep IN workflows:**
+
 - Step orchestration
 - State management
 - User interaction
@@ -437,6 +474,7 @@ Result: Complete package ready for next step
 **Example refactor:**
 
 **Before (workflow has knowledge):**
+
 ```xml
 <step n="2">
   <action>Generate LinkedIn post using Justin Welsh PAIPS:
@@ -450,6 +488,7 @@ Result: Complete package ready for next step
 ```
 
 **After (workflow calls skill):**
+
 ```xml
 <step n="2">
   <action>Use post-writer skill (auto-loaded):
@@ -468,6 +507,7 @@ Result: Complete package ready for next step
 ### 1. Anthropic's Own Architecture
 
 **From engineering blog:**
+
 > "we hope to enable agents to create, edit, and evaluate Skills on their own"
 
 **Note:** Even Anthropic's vision includes AGENTS (orchestrators) using skills!
@@ -475,11 +515,13 @@ Result: Complete package ready for next step
 They're not saying "skills replace agents" - they're saying "agents use skills"
 
 **Our architecture:**
+
 ```
 Agents → Workflows → Skills
 ```
 
 **Anthropic's architecture:**
+
 ```
 Agents → Skills
 ```
@@ -491,11 +533,13 @@ Agents → Skills
 ### 2. Skills Cookbook Examples
 
 **Every cookbook example is SIMPLE:**
+
 - "Create an Excel spreadsheet" → xlsx skill → Done
 - "Generate a presentation" → pptx skill → Done
 - "Analyze financial data" → custom skill → Done
 
 **No cookbook shows:**
+
 - Load state from file
 - Ask user mid-process
 - Save to specific location
@@ -522,6 +566,7 @@ Agents → Skills
 ```
 
 **If we tried to put all this in a skill:**
+
 - How would skill load previous state?
 - How would skill ask user questions?
 - How would skill know where to save outputs?
@@ -536,16 +581,19 @@ Agents → Skills
 ### Refactor: Thin Workflows + Rich Skills
 
 **Current state:**
+
 - Workflows: 50% orchestration + 50% knowledge
 - Skills: 100% knowledge
 
 **Target state:**
+
 - Workflows: 100% orchestration (THIN!)
 - Skills: 100% knowledge (RICH!)
 
 ### Move TO Skills:
 
 **Content generation patterns:**
+
 - ✅ Justin Welsh formulas
 - ✅ Ali Abdaal methodologies
 - ✅ MrBeast psychology
@@ -560,6 +608,7 @@ Agents → Skills
 ### Keep IN Workflows:
 
 **Process orchestration:**
+
 - ✅ Load state (voice profile, idea cards)
 - ✅ User interaction (ask questions, get confirmations)
 - ✅ Conditional logic (if platform == X then Y)
@@ -577,6 +626,7 @@ Agents → Skills
 ### Before (Knowledge in Workflow)
 
 **Workflow contains:**
+
 ```xml
 <step n="2">
   <action>Generate LinkedIn post:
@@ -603,6 +653,7 @@ Agents → Skills
 ### After (Knowledge Only in Skill)
 
 **Workflow (THIN):**
+
 ```xml
 <step n="2" goal="Generate content using post-writer skill">
   <note>post-writer skill auto-loads for social post tasks</note>
@@ -619,22 +670,28 @@ Agents → Skills
 ```
 
 **Skill (RICH - already is!):**
+
 ```markdown
 # post-writer Skill
 
 ## Justin Welsh PAIPS Formula
+
 Problem → Agitate → Invalidate → Promise → Solve
 
 ## Justin Welsh Top 5 Format
+
 Strategic ordering, withhold best until end
 
 ## Greg Isenberg Question Format
+
 Hook with question, build curiosity
 
 ## deedydas Data-Driven
+
 Stats-heavy, cite sources
 
 ## Platform Specifications
+
 LinkedIn: 150-300 words, hook <140 chars, hashtags 3-5
 Twitter: Long-form 500-2500 OR thread 7 tweets
 Instagram: Caption 600-1200 chars, hashtags 5-10
@@ -649,12 +706,14 @@ Instagram: Caption 600-1200 chars, hashtags 5-10
 ### 1. Skills Become Portable
 
 **Rich skills can be:**
+
 - Shared across teams
 - Uploaded to Anthropic
 - Used in multiple workflows
 - Composed freely
 
 **Example:** post-writer skill could be used by:
+
 - write-posts workflow
 - generate-ideas workflow (for caption drafts)
 - competitive-analysis workflow (for comparison posts)
@@ -665,6 +724,7 @@ Instagram: Caption 600-1200 chars, hashtags 5-10
 ### 2. Workflows Become Clearer
 
 **Thin workflows:**
+
 - Just orchestration logic
 - Easier to understand
 - Easier to debug
@@ -680,11 +740,13 @@ Instagram: Caption 600-1200 chars, hashtags 5-10
 ### 3. Better Separation of Concerns
 
 **Current confusion:**
+
 - "Is this workflow or skill?"
 - "Why is knowledge duplicated?"
 - "Which one updates when methodologies change?"
 
 **After refactor:**
+
 - Knowledge: Always in skills
 - Process: Always in workflows
 - Clear responsibility boundaries
@@ -723,6 +785,7 @@ Layer 3: Skills (Expert Knowledge)
 ### Phase 1: Audit Current Workflows
 
 **Identify knowledge currently in workflows:**
+
 - Creator methodologies
 - Platform specifications
 - Best practices
@@ -742,6 +805,7 @@ Layer 3: Skills (Expert Knowledge)
 **youtube-thumbnail-mastery:** Already rich (has MrBeast, Thomas Frank)
 
 **Other skills may need enrichment:**
+
 - voice-matcher: Add more voice extraction techniques
 - platform-formatter: Add all platform specs from workflows
 - research-synthesizer: Add research organization methodologies
@@ -765,6 +829,7 @@ Layer 3: Skills (Expert Knowledge)
 ### Phase 4: Test & Iterate
 
 **Verify:**
+
 - Skills auto-load correctly
 - Workflows reference skills properly
 - Knowledge accessible when needed
@@ -846,6 +911,7 @@ Layer 3: Skills (Expert Knowledge)
 **NO - But workflows should be THINNER!**
 
 **Why not deprecate:**
+
 1. Skills can't manage state
 2. Skills can't handle user interaction
 3. Skills can't orchestrate multi-step processes
@@ -853,6 +919,7 @@ Layer 3: Skills (Expert Knowledge)
 5. Skills can't organize file outputs
 
 **What we SHOULD do:**
+
 1. ✅ Move ALL knowledge TO skills
 2. ✅ Make workflows pure orchestration
 3. ✅ Clear separation of concerns
@@ -924,20 +991,20 @@ workflows/
 
 ## Comparison Table
 
-| Capability | Skills | Workflows | Who Should Own |
-|-----------|--------|-----------|----------------|
-| Creator methodologies | ✅ Can | ❌ Shouldn't | **Skills** |
-| Best practices | ✅ Can | ❌ Shouldn't | **Skills** |
-| Platform algorithms | ✅ Can | ❌ Shouldn't | **Skills** |
-| Content generation | ✅ Can | ❌ Shouldn't | **Skills** |
-| Executable scripts | ✅ Can | ❌ Can't | **Skills** |
-| Load state from disk | ❌ Can't | ✅ Can | **Workflows** |
-| User interaction | ❌ Can't | ✅ Can | **Workflows** |
-| Conditional logic | ❌ Limited | ✅ Can | **Workflows** |
-| File organization | ❌ Can't | ✅ Can | **Workflows** |
-| Handoff creation | ❌ Can't | ✅ Can | **Workflows** |
-| Step dependencies | ❌ Can't | ✅ Can | **Workflows** |
-| Multi-step orchestration | ❌ Can't | ✅ Can | **Workflows** |
+| Capability               | Skills     | Workflows    | Who Should Own |
+| ------------------------ | ---------- | ------------ | -------------- |
+| Creator methodologies    | ✅ Can     | ❌ Shouldn't | **Skills**     |
+| Best practices           | ✅ Can     | ❌ Shouldn't | **Skills**     |
+| Platform algorithms      | ✅ Can     | ❌ Shouldn't | **Skills**     |
+| Content generation       | ✅ Can     | ❌ Shouldn't | **Skills**     |
+| Executable scripts       | ✅ Can     | ❌ Can't     | **Skills**     |
+| Load state from disk     | ❌ Can't   | ✅ Can       | **Workflows**  |
+| User interaction         | ❌ Can't   | ✅ Can       | **Workflows**  |
+| Conditional logic        | ❌ Limited | ✅ Can       | **Workflows**  |
+| File organization        | ❌ Can't   | ✅ Can       | **Workflows**  |
+| Handoff creation         | ❌ Can't   | ✅ Can       | **Workflows**  |
+| Step dependencies        | ❌ Can't   | ✅ Can       | **Workflows**  |
+| Multi-step orchestration | ❌ Can't   | ✅ Can       | **Workflows**  |
 
 **Clear separation!**
 
@@ -948,6 +1015,7 @@ workflows/
 ### Custom Skills from Cookbook
 
 **1. applying-brand-guidelines/**
+
 ```
 SKILL.md:
 - Company brand colors
@@ -962,6 +1030,7 @@ SKILL.md:
 ---
 
 **2. analyzing-financial-statements/**
+
 ```
 SKILL.md:
 - Financial ratio calculations
@@ -975,6 +1044,7 @@ SKILL.md:
 ---
 
 **3. creating-financial-models/**
+
 ```
 SKILL.md:
 - Financial modeling best practices
@@ -992,15 +1062,18 @@ SKILL.md:
 ### Skills = "How to Do the Job"
 
 **From Anthropic:**
+
 > "Building a skill for an agent is like putting together an onboarding guide for a new hire."
 
 **Onboarding guide contains:**
+
 - How we write code here
 - What our brand guidelines are
 - How to analyze data
 - What methodologies we use
 
 **Onboarding guide does NOT contain:**
+
 - When to load previous state
 - How to ask manager (user) for approval
 - Where to save files
@@ -1013,6 +1086,7 @@ SKILL.md:
 ### Workflows = "Managing the Work"
 
 **What managers do:**
+
 - Coordinate expert work (skills!)
 - Track progress through multi-step process
 - Check in with stakeholders (user interaction)
@@ -1029,6 +1103,7 @@ SKILL.md:
 ### DON'T Deprecate Workflows
 
 **Keep workflows for:**
+
 1. State management (load voice, idea cards)
 2. User interaction (questions, confirmations)
 3. Conditional logic (platform routing)
@@ -1043,6 +1118,7 @@ SKILL.md:
 ### DO Refactor Workflows
 
 **Make workflows THINNER:**
+
 1. Remove knowledge details
 2. Just reference skills
 3. Pass context to skills
@@ -1050,6 +1126,7 @@ SKILL.md:
 5. Manage state and I/O
 
 **Example target:**
+
 - Current: 639 lines (write-posts)
 - Target: ~200 lines (just orchestration)
 - Knowledge: Moved to skills
@@ -1059,6 +1136,7 @@ SKILL.md:
 ### DO Enrich Skills
 
 **Make skills RICHER:**
+
 1. All creator methodologies
 2. All platform algorithms
 3. All best practices
@@ -1158,6 +1236,7 @@ IDEAL STATE (Clean):
 ---
 
 **Files analyzed:**
+
 - ✅ docs/agent-skills/agent-skills.md (official docs)
 - ✅ docs/agent-skills/equipping-agents-for-the-real-world-with-ahent-skills.md
 - ✅ Anthropic cookbooks (GitHub)

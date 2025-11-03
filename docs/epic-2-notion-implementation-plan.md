@@ -24,6 +24,7 @@ Transform agents from stateless executors to Notion-aware collaborators. Agents 
 **File:** `bmad/agents/{agent}/{agent}-sidecar/notion-helper.md`
 
 **Functionality:**
+
 ```python
 def check_content_status(agent_name):
     """Query Notion Content Tracker for content matching agent's domain"""
@@ -72,6 +73,7 @@ def check_content_status(agent_name):
 **Modify:** Each agent's activation (jarvis.md, zoe.md, zoro.md)
 
 **Add to activation sequence:**
+
 ```xml
 <step n="2.5" name="Check Notion Status">
   <action>
@@ -89,11 +91,13 @@ def check_content_status(agent_name):
 ### Step 3: Test Status-Aware Triggering
 
 **Test Scenarios:**
+
 1. Notion has 3 items with Status="Idea" → Jarvis suggests research-topic
 2. Notion has 2 items with Status="Editing", no images → Zoe suggests create-single-image
 3. Notion has 1 item with Status="Editing", has images → Zoro suggests schedule-post
 
 **Success Criteria:**
+
 - Agents display relevant suggestions based on Notion status
 - User can override and select different workflow from menu
 - Query completes in <5 seconds
@@ -113,6 +117,7 @@ def check_content_status(agent_name):
 **File:** `.bmad-core/modules/notion-updates.md`
 
 **Functions:**
+
 ```python
 def update_content_status(page_url, new_status, agent_name):
     """Update Content Tracker status with validation"""
@@ -168,26 +173,31 @@ def update_content_property(page_url, property_name, value):
 ```
 
 **Jarvis Workflows:**
+
 - research-topic → Status: Idea → Research
 - write-post → Status: Research → Writing → Editing
 - generate-ideas → Create new pages with Status=Idea
 
 **Zoe Workflows:**
+
 - create-single-image → Add image URL, keep Status=Editing
 - create-scene → Add video URL, keep Status=Editing
 
 **Zoro Workflows:**
+
 - schedule-post → Status: Editing → Posted (after scheduled), add Publish Date
 
 ### Step 3: Implement Transition Validation
 
 **Rules:**
+
 - Forward-only: Cannot go Idea → Posted (must progress through states)
 - Agents validate before updating
 - User manual overrides respected
 - Concurrent updates: last-write-wins for properties, atomic status updates
 
 **Error Handling:**
+
 - Notion API timeout → Log error, continue workflow (don't block)
 - Invalid status → Log warning, prompt user
 - Network failure → Graceful degradation
@@ -205,6 +215,7 @@ def update_content_property(page_url, property_name, value):
 ### Step 1: Implement Relational Linking
 
 **Jarvis - Create Relations:**
+
 ```python
 def create_content_idea_in_notion(idea_card, project_metadata):
     """Create Notion page with full relational linking"""
@@ -241,6 +252,7 @@ def create_content_idea_in_notion(idea_card, project_metadata):
 ```
 
 **Zoro - Track Analytics:**
+
 ```python
 def update_performance_metrics(page_url, platform_data):
     """Update Views/Likes/Comments after publishing"""
@@ -256,11 +268,13 @@ def update_performance_metrics(page_url, platform_data):
 ### Step 2: Test Relational Integrity
 
 **Test Scenarios:**
+
 1. Jarvis generate-ideas → Creates page → Links to Channel → Links to Keywords
 2. Zoro publish → Updates Views/Likes → Links to correct Channel
 3. Multi-platform publish → Single Notion page links to multiple Channels
 
 **Validation:**
+
 - All relations use page URLs (not IDs) for stability
 - Relations exist before linking (no orphans)
 - Failure to create relation logs warning but doesn't block workflow
@@ -272,26 +286,31 @@ def update_performance_metrics(page_url, platform_data):
 ## Implementation Order
 
 **Day 1:**
+
 - Create notion-helper.md for each agent
 - Implement status query logic
 - Test Jarvis status-aware triggering
 
 **Day 2:**
+
 - Create notion-updates.md module
 - Add status updates to research-topic workflow
 - Test status transitions
 
 **Day 3:**
+
 - Add status updates to all existing Jarvis workflows (5 workflows)
 - Add status updates to Zoe workflows (4 workflows)
 - Test concurrent updates
 
 **Day 4:**
+
 - Add status updates to Zoro workflows (4 workflows)
 - Implement relational linking in generate-ideas
 - Test end-to-end: Idea creation → Research → Writing → Editing → Posted
 
 **Day 5 (Buffer):**
+
 - Handle edge cases discovered during testing
 - Document Notion integration patterns
 - Update architecture.md with Notion implementation details
@@ -301,23 +320,27 @@ def update_performance_metrics(page_url, platform_data):
 ## Success Criteria
 
 **Story 5.1 Complete:**
+
 - ✅ All 3 agents check Notion before showing menu
 - ✅ Suggestions relevant to status (Jarvis sees "Idea" → suggests research-topic)
 - ✅ Query performance <5 seconds
 
 **Story 5.2 Complete:**
+
 - ✅ All workflows update Notion status
 - ✅ Transition rules enforced (forward-only, validated)
 - ✅ Status updates logged with timestamps
 - ✅ Notion failures don't block workflows
 
 **Story 5.3 Complete:**
+
 - ✅ generate-ideas creates pages with full relations
 - ✅ Keywords linked automatically
 - ✅ Channels linked based on platform
 - ✅ Analytics tracked after publishing
 
 **Epic 2 Complete:**
+
 - ✅ All 3 stories' acceptance criteria met
 - ✅ Tested with real content (3+ test scenarios)
 - ✅ Documentation updated (ARCHITECTURE.md reflects Notion integration)
@@ -328,16 +351,19 @@ def update_performance_metrics(page_url, platform_data):
 ## Risk Mitigation
 
 **Risk 1: Notion MCP learning curve**
+
 - Mitigation: Start with simple queries (fetch page, update single property)
 - Mitigation: Reference docs/notion-content-dashboard.md for schema
 - Mitigation: Test each Notion operation independently before integrating
 
 **Risk 2: Status transition edge cases**
+
 - Mitigation: User manual overrides respected (agents don't fight user)
 - Mitigation: Extensive logging for debugging
 - Mitigation: Graceful degradation if Notion unavailable
 
 **Risk 3: Performance (Notion queries slow)**
+
 - Mitigation: Cache status checks (don't query every time)
 - Mitigation: Async where possible
 - Mitigation: Timeout after 5 seconds, proceed without Notion suggestions

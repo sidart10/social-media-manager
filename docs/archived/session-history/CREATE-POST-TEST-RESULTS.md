@@ -43,10 +43,10 @@
   "platforms": ["linkedin"],
   "researchRequirements": {
     "includeHashtags": false,
-    "includeFacts": true  // Auto-detected from instruction!
+    "includeFacts": true // Auto-detected from instruction!
   },
   "schedulingRequirements": {
-    "postImmediately": false  // Preview mode ✓
+    "postImmediately": false // Preview mode ✓
   },
   "actionableInsights": true
 }
@@ -61,6 +61,7 @@
 **This tool CAN replace script_generation_mcp!**
 
 **For write-posts workflow:**
+
 ```
 social-media-mcp/create_post({
   instruction: "Write {platform} post about {topic} based on {idea_card}",
@@ -70,6 +71,7 @@ social-media-mcp/create_post({
 ```
 
 **Benefits:**
+
 - ✅ Actually exists (not fictional!)
 - ✅ Uses GPT-5 (cutting edge)
 - ✅ Platform-specific formatting
@@ -78,6 +80,7 @@ social-media-mcp/create_post({
 - ✅ Preview mode (doesn't post)
 
 **Challenges:**
+
 - ⚠️ Q&A mode (asks questions before generating)
 - Need to handle conversational flow
 - Or use ignoreHistory to skip Q&A

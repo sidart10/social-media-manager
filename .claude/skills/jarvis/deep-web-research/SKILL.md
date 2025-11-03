@@ -12,22 +12,27 @@ Automatically selects and orchestrates the best research tools for your task. Yo
 ## Available Research Tools (Auto-Selected)
 
 **Tier 1: AI-Powered Neural Search**
+
 - `mcp__exa__search` - Semantic web search with live crawl
 - `deep_researcher_start/check` - Multi-step research agent (if enabled)
 
 **Tier 2: Comprehensive Scraping**
+
 - `apify/website-content-crawler` - Deep site content extraction
 - `apify/rag-web-browser` - AI-powered browsing + Google search
 
 **Tier 3: Knowledge Base**
+
 - `mcp__archon__rag_search_knowledge_base` - Search existing knowledge
 - `mcp__archon__rag_search_code_examples` - Find code patterns
 
 **Tier 4: Standard Search**
+
 - `WebSearch` - Google search (fast, free)
 - `WebFetch` - Detailed page analysis
 
 **The skill intelligently routes based on**:
+
 - Research depth (quick | standard | comprehensive | exhaustive)
 - Topic type (general | technical | company | trend)
 - Cost optimization (free tools first, paid when needed)
@@ -40,22 +45,26 @@ When user requests research, the skill automatically:
 ### 1. Determine Research Strategy
 
 **Quick** (free, 5-10 seconds):
+
 - Use: WebSearch → WebFetch
 - Cost: $0
 - Best for: Recent news, quick facts, basic overview
 
 **Standard** (low cost, 10-20 seconds):
-- Use: mcp__exa__search (numResults=10, livecrawl="fallback")
+
+- Use: mcp**exa**search (numResults=10, livecrawl="fallback")
 - Cost: ~$0.05
 - Best for: Article discovery, trend analysis, standard topics
 
 **Comprehensive** (moderate cost, 20-40 seconds):
-- Use: mcp__exa__search (numResults=15, livecrawl="always")
+
+- Use: mcp**exa**search (numResults=15, livecrawl="always")
 - Plus: WebFetch on top sources for depth
 - Cost: ~$0.10-0.15
 - Best for: Deep dives, market analysis, detailed research
 
 **Exhaustive** (higher cost, 60-120 seconds):
+
 - Use: deep_researcher_start/check (if available)
 - OR: Apify website-content-crawler + rag-web-browser
 - Plus: Archon RAG for existing knowledge
@@ -66,6 +75,7 @@ When user requests research, the skill automatically:
 ### 2. Execute Research
 
 **Automatically orchestrates tools in parallel when possible**:
+
 - Run multiple searches simultaneously
 - Fetch top sources concurrently
 - Check knowledge base in parallel
@@ -74,6 +84,7 @@ When user requests research, the skill automatically:
 ### 3. Synthesize Results
 
 **Extract and organize**:
+
 - Key insights (main findings)
 - Data & statistics (numbers with sources)
 - Expert quotes (attributed with URLs)
@@ -83,6 +94,7 @@ When user requests research, the skill automatically:
 ### 4. Quality Assessment
 
 **Auto-score sources**:
+
 - High: .edu, major publications, official docs, recent (<3 months)
 - Medium: Tech blogs, Medium (verified), 3-6 months old
 - Low: Personal blogs, no attribution, old (>6 months)
@@ -90,6 +102,7 @@ When user requests research, the skill automatically:
 ### 5. Track Everything
 
 **Metadata included**:
+
 - All source URLs
 - Publication dates
 - Relevance scores
@@ -128,6 +141,7 @@ IF depth == 'exhaustive':
 ## Usage
 
 **From workflows** - just invoke the skill:
+
 ```xml
 <action>Use deep-web-research skill:
   - Topic: {topic}
@@ -137,11 +151,13 @@ IF depth == 'exhaustive':
 ```
 
 **Direct invocation**:
+
 ```
 Use deep-web-research skill for comprehensive research on "AI infrastructure market 2025"
 ```
 
 **The skill figures out**:
+
 - Which tools to use
 - What order to call them
 - How to synthesize results
@@ -150,6 +166,7 @@ Use deep-web-research skill for comprehensive research on "AI infrastructure mar
 ## No Manual Tool Selection Needed
 
 **Before** (manual):
+
 ```
 Use exa deep_researcher_start
 Wait 30 seconds
@@ -157,6 +174,7 @@ Use deep_researcher_check with researchId
 ```
 
 **After** (automatic):
+
 ```
 Use deep-web-research skill with depth=comprehensive
 ```
@@ -166,6 +184,7 @@ The skill handles all the complexity internally.
 ## Tool Availability Awareness
 
 **The skill adapts**:
+
 - If deep_researcher available → uses it for exhaustive research
 - If not available → uses Apify + exa + WebFetch
 - If Apify quota exceeded → falls back to exa + WebSearch
@@ -212,6 +231,7 @@ This Skill includes comprehensive exa documentation:
 Source: https://www.neotas.com/what-is-the-osint-framework/
 
 **Core Process:**
+
 1. **Identify** - Define intelligence objectives
 2. **Collect** - Gather from surface web, deep web, dark web sources
 3. **Process** - Filter and analyze data
@@ -219,6 +239,7 @@ Source: https://www.neotas.com/what-is-the-osint-framework/
 5. **Disseminate** - Present actionable intelligence
 
 **Applications:**
+
 - Cybersecurity threat intelligence
 - Corporate due diligence
 - Competitive intelligence
@@ -228,6 +249,7 @@ Source: https://www.neotas.com/what-is-the-osint-framework/
 Source: https://blog.mcafeeinstitute.com/5-incredible-osint-techniques-to-supercharge-your-investigations-in-2025/
 
 **Technique:**
+
 - Start with known username or email
 - Scan for variations across platforms (Twitter, LinkedIn, Instagram)
 - Match subtle clues and behavioral patterns
@@ -239,10 +261,12 @@ Source: https://blog.mcafeeinstitute.com/5-incredible-osint-techniques-to-superc
 Source: https://www.anthropic.com/research/building-effective-agents
 
 **Distinction:**
+
 - **Workflows**: LLMs orchestrated through predefined code paths
 - **Agents**: LLMs dynamically direct their own processes and tool usage
 
 **Best Practices:**
+
 - Use simplest solution possible
 - Only increase complexity when needed
 - Workflows for predictability, agents for flexibility
@@ -252,6 +276,7 @@ Source: https://www.anthropic.com/research/building-effective-agents
 Source: https://www.agentx.so/mcp/blog/how-to-build-an-ai-agent-research-team-from-concept-to-automation
 
 **Agent Types:**
+
 - **Retrieval agent** - Gathers relevant literature
 - **Analysis agent** - Applies structured reasoning
 - **Summary agent** - Crafts human-readable insights

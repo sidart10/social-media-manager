@@ -40,12 +40,14 @@ The AI-Powered Social Media Agent Team is a modular, extensible system for AI-dr
 - **Organic Growth Model:** New agents/workflows/skills addable without modifying existing components
 
 **System Scale:**
+
 - 3 Core Agents (Jarvis, Zoe, Zoro)
-- 20+ Workflows (research, content generation, visual production, publishing)
-- 24+ Skills (autonomous expertise modules)
-- 20+ MCP Integrations (Notion, Postiz, Apify, Exa, image/video generation)
+- 30 Workflows operational (16 agent-specific + 2 core + 12 BMad Builder, 20+ planned future)
+- 23+ Skills (autonomous expertise modules)
+- 12+ MCP Integrations (Notion, Postiz, Cloudinary, fal-video, Exa, Firecrawl, Apify, image generation)
 
 **Target Performance:**
+
 - Content creation time: 75-135 min → 10-15 min (85-90% reduction)
 - Content output: 2-3 posts/week → 8-10 posts/week (3-4x increase)
 - Voice consistency: ≥8/10 confidence via Enhanced Voice Profile v2.0
@@ -109,6 +111,7 @@ The AI-Powered Social Media Agent Team is a modular, extensible system for AI-dr
 ### System Boundaries
 
 **In Scope:**
+
 - Content research and intelligence gathering
 - AI-powered content generation (posts, scripts) with voice matching
 - Visual content production (images, videos, carousels)
@@ -117,6 +120,7 @@ The AI-Powered Social Media Agent Team is a modular, extensible system for AI-dr
 - Cost optimization through intelligent tool routing
 
 **Out of Scope (for MVP):**
+
 - Direct social media scheduling UI (delegated to Postiz)
 - Real-time analytics dashboards (manual tracking in Notion)
 - Multi-user collaboration (single creator use case)
@@ -132,16 +136,19 @@ The AI-Powered Social Media Agent Team is a modular, extensible system for AI-dr
 **Principle:** Components interact through natural language descriptions and JSON, not hard dependencies.
 
 **Implementation:**
+
 - Agents coordinate via Notion status updates + JSON handoff packages (not direct function calls)
 - Workflows invoke skills via context creation ("Research {topic} with depth=comprehensive"), not explicit imports
 - Skills call MCPs via Claude Code platform, not direct API clients
 
 **Benefits:**
+
 - Add new agents without modifying existing agents
 - Update skill tool selection without breaking workflows
 - Swap MCP providers without changing skill logic
 
 **Anti-Pattern Example:**
+
 ```javascript
 // ❌ WRONG: Hard dependency in workflow
 import { deepWebResearch } from '../skills/deep-web-research';
@@ -158,17 +165,20 @@ const results = await deepWebResearch(topic, depth);
 **Principle:** Notion Content Tracker provides shared state that all agents respect as authoritative.
 
 **Implementation:**
+
 - Content lifecycle: Idea → Research → Next Up → Writing → Editing → Posted → Archived
 - Agents check status before suggesting workflows (Jarvis reads "Idea", Zoe reads "Editing")
 - Agents update status as work completes (Jarvis moves to "Writing", Zoro moves to "Posted")
 - User can manually update status in Notion, agents adapt to current state
 
 **Benefits:**
+
 - Asynchronous collaboration (user updates Notion, agents respond)
 - Mobile accessibility (check content status on phone)
 - Unified view of content pipeline across all projects
 
 **State Transitions:**
+
 ```
 Idea ──(Jarvis: research-topic)──▶ Research ──(Jarvis: write-post)──▶ Writing
                                                                           │
@@ -181,12 +191,14 @@ Archived ◀──(Manual)── Posted ◀──(Zoro: publish)── Editing �
 **Principle:** Skills are autonomous expertise modules that Claude discovers based on task context, not explicit calls.
 
 **Implementation:**
+
 - Skills have rich descriptions optimized for discovery ("Generate platform-optimized social media posts using proven formulas...")
 - Workflows create context-rich steps ("Generate LinkedIn post about {topic} using {voice_profile}")
 - Claude matches context against skill descriptions, loads matching skills
 - Skills execute as autonomous VMs with tool access, return results
 
 **Discovery Algorithm (conceptual):**
+
 ```python
 # When workflow step creates context:
 context = "Research AI agents with depth=comprehensive"
@@ -201,6 +213,7 @@ context = "Research AI agents with depth=comprehensive"
 ```
 
 **Benefits:**
+
 - Skills composable across workflows (any workflow can use any skill)
 - Cross-agent skill usage (Zoe can use Jarvis skills if needed)
 - Skill improvements don't break workflow callers
@@ -210,6 +223,7 @@ context = "Research AI agents with depth=comprehensive"
 **Principle:** Optimize for cost vs quality trade-offs using tiered tool selection.
 
 **Implementation:**
+
 - **Free-first:** WebSearch before Exa, WebFetch before Firecrawl
 - **Depth-based:** quick=free, standard=low-cost, comprehensive=paid, exhaustive=user-approval-required
 - **Quality-conscious:** gpt-image-1 for LinkedIn (professional), nanobanana for Instagram (social)
@@ -217,14 +231,15 @@ context = "Research AI agents with depth=comprehensive"
 
 **Tool Selection Matrix:**
 
-| Use Case | Free Option | Low Cost | High Quality | Cost Range |
-|----------|-------------|----------|--------------|------------|
-| Research | WebSearch | Exa neural search | Exa + Firecrawl + Apify | $0 → $0.50+ |
-| Images | - | nanobanana ($0.039) | gpt-image-1 ($0.04-0.08) | $0.039 → $0.08 |
-| Videos | - | Veo 3 fast ($0.30/8s) | HeyGen ($0.20-0.50/min) | $0.30 → $3+ |
-| Scraping | - | Apify actors ($0.02-0.15) | Manual APIs | $0.02 → $0.50 |
+| Use Case | Free Option | Low Cost                  | High Quality             | Cost Range     |
+| -------- | ----------- | ------------------------- | ------------------------ | -------------- |
+| Research | WebSearch   | Exa neural search         | Exa + Firecrawl + Apify  | $0 → $0.50+    |
+| Images   | -           | nanobanana ($0.039)       | gpt-image-1 ($0.04-0.08) | $0.039 → $0.08 |
+| Videos   | -           | Veo 3 fast ($0.30/8s)     | HeyGen ($0.20-0.50/min)  | $0.30 → $3+    |
+| Scraping | -           | Apify actors ($0.02-0.15) | Manual APIs              | $0.02 → $0.50  |
 
 **Benefits:**
+
 - Stay under $50/month budget for 30+ posts
 - Transparent cost tracking per operation
 - Quality available when needed (user decides)
@@ -234,21 +249,23 @@ context = "Research AI agents with depth=comprehensive"
 **Principle:** Use local outputs/ for complete artifacts, Notion for metadata and coordination state.
 
 **Implementation:**
+
 - **Local (outputs/):** Research briefs (full citations), generated content (multi-turn edits), images/videos (files), handoff packages (JSON), session metadata
 - **Notion:** Status workflow, publish dates, performance metrics (Views/Likes), relations (Keywords, Channels), mobile-accessible metadata
 
 **Storage Decision Matrix:**
 
-| Data Type | Local | Notion | Rationale |
-|-----------|-------|--------|-----------|
-| Research briefs (5-10 pages) | ✅ | ❌ | Too large for Notion, full citations needed |
-| Content status | ❌ | ✅ | Shared state, mobile access, status workflow |
-| Generated images/videos | ✅ | URL only | Files stored locally, URLs in Notion for reference |
-| Voice profiles | ✅ | ❌ | Git-tracked config, not collaborative |
-| Performance metrics | Summary | ✅ | Notion tracks Views/Likes/Comments over time |
-| Handoff packages | ✅ | Summary | Full JSON local, key metadata in Notion properties |
+| Data Type                    | Local   | Notion   | Rationale                                          |
+| ---------------------------- | ------- | -------- | -------------------------------------------------- |
+| Research briefs (5-10 pages) | ✅      | ❌       | Too large for Notion, full citations needed        |
+| Content status               | ❌      | ✅       | Shared state, mobile access, status workflow       |
+| Generated images/videos      | ✅      | URL only | Files stored locally, URLs in Notion for reference |
+| Voice profiles               | ✅      | ❌       | Git-tracked config, not collaborative              |
+| Performance metrics          | Summary | ✅       | Notion tracks Views/Likes/Comments over time       |
+| Handoff packages             | ✅      | Summary  | Full JSON local, key metadata in Notion properties |
 
 **Benefits:**
+
 - No Notion size limits for large artifacts
 - Mobile access to status and metadata
 - Git version control for local configs
@@ -259,16 +276,19 @@ context = "Research AI agents with depth=comprehensive"
 **Principle:** System grows through component addition, not modification of existing components.
 
 **Implementation:**
+
 - **No central registries:** Agents discovered via .claude/commands/, skills via .claude/skills/, no manifest updates
 - **Self-contained modules:** Each agent folder has persona, workflows, config—can add/remove independently
 - **Pattern-based extensibility:** create-agent and create-workflow templates provide complete guidance
 
 **Growth Examples:**
+
 - New agent: Create .claude/commands/{name}/{name}.md + bmad/agents/{name}/ → Claude Code auto-discovers
 - New workflow: Add bmad/agents/{agent}/workflows/{name}/ with workflow.yaml + instructions.md → Agent menu auto-includes
 - New skill: Create .claude/skills/{agent}/{name}/SKILL.md with description → Claude auto-discovers via description matching
 
 **Benefits:**
+
 - No breaking changes when adding components
 - Parallel development (multiple people can add agents simultaneously)
 - Confident extension (follow templates, no architecture rewrites)
@@ -311,14 +331,15 @@ System
 
 **CRITICAL:** This system uses custom terminology that differs from Claude Code native concepts.
 
-| Our Term | Claude Code Term | Invocation Model | Description |
-|----------|------------------|------------------|-------------|
-| **Agent** | Slash Command | User-invoked | Persona-driven menu interface presenting workflow options |
-| **Workflow** | (Custom) | User-selected | YAML+XML multi-step process orchestrator with state management |
-| **Skill** | Agent Skill | Model-invoked | Autonomous expertise module Claude discovers via description |
-| **MCP** | MCP Server | Tool-invoked | External API/service integration (Notion, Exa, Apify, etc.) |
+| Our Term     | Claude Code Term | Invocation Model | Description                                                    |
+| ------------ | ---------------- | ---------------- | -------------------------------------------------------------- |
+| **Agent**    | Slash Command    | User-invoked     | Persona-driven menu interface presenting workflow options      |
+| **Workflow** | (Custom)         | User-selected    | YAML+XML multi-step process orchestrator with state management |
+| **Skill**    | Agent Skill      | Model-invoked    | Autonomous expertise module Claude discovers via description   |
+| **MCP**      | MCP Server       | Tool-invoked     | External API/service integration (Notion, Exa, Apify, etc.)    |
 
 **Invocation Flow:**
+
 1. User invokes Agent (`/jarvis`) → User-driven
 2. Agent presents menu of Workflows → User selects
 3. Workflow executes steps creating context → Process-driven
@@ -362,16 +383,19 @@ bmad/agents/{agent-name}/
 # Agent Name (e.g., Jarvis - Content Intelligence Lead)
 
 ## Persona
+
 - Role: [Primary function]
 - Style: [Communication approach]
 - Focus: [Core responsibilities]
 
 ## Available Commands
-1. *workflow-1 - [Description]
-2. *workflow-2 - [Description]
-...
+
+1. \*workflow-1 - [Description]
+2. \*workflow-2 - [Description]
+   ...
 
 ## Agent Activation
+
 [Greeting message + auto-display command menu]
 ```
 
@@ -382,6 +406,7 @@ bmad/agents/{agent-name}/
 **Role:** Research, strategy, content creation, voice consistency guardian
 
 **Workflows Owned (7):**
+
 1. `research-topic` - Deep research with intelligent tool routing (WebSearch → Exa → Apify based on depth)
 2. `analyze-profile` - Social media profile analysis (Instagram, TikTok, Twitter, LinkedIn, YouTube)
 3. `competitive-analysis` - Multi-profile comparison for gap identification
@@ -391,6 +416,7 @@ bmad/agents/{agent-name}/
 7. `write-script` - Video scripts with timestamps, scene descriptions, thumbnail concepts **[NEW - NEEDS CREATION]**
 
 **Skills Triggered (via context creation):**
+
 - deep-web-research (intelligent tool routing: WebSearch/Exa/Firecrawl/Apify)
 - post-writer (Justin Welsh PAIPS, Greg Isenberg threads, Paul Graham essays)
 - video-script-writer (Ali Abdaal Top 5, MKBHD reviews, YouTube chapters)
@@ -402,12 +428,14 @@ bmad/agents/{agent-name}/
 - youtube-growth-mastery, youtube-thumbnail-mastery, social-media-research, youtube-research
 
 **Notion Integration:**
+
 - Checks Status: Idea, Research, Next Up
 - Updates Status: Idea → Research → Writing → Editing
 - Sets Properties: Publish Date, Content Text, Category, Priority, Focus Keywords
 - Creates Relations: Links to Keywords DB, Notes DB (research sources)
 
 **Handoff Patterns:**
+
 - Text-only path: Jarvis writes → suggests Zoro (Status: Editing → Posted)
 - With visuals path: Jarvis writes → suggests Zoe (Status stays Editing until visuals added)
 
@@ -418,6 +446,7 @@ bmad/agents/{agent-name}/
 **Role:** Image and video creation using Emily JSON methodology (7-pillar quality ≥7/10) and Veo/HeyGen for videos
 
 **Workflows Owned (7):**
+
 1. `create-single-image` - Platform-optimized images (LinkedIn dark tech, YouTube CTR thumbnails, Instagram graphics)
 2. `create-carousel` - Multi-slide carousels (2-10 images) with consistent design system
 3. `edit-image` - Image refinement (blur, color correction, object removal, style transfer)
@@ -427,6 +456,7 @@ bmad/agents/{agent-name}/
 7. `create-cinematic-sequence` - Multi-scene video with stitching and transitions
 
 **Skills Triggered (via context creation):**
+
 - create-image (Emily JSON 10-section methodology, 7-pillar quality evaluation)
 - edit-image (pixel-perfect editing via nanobanana)
 - blend-images (multi-image compositing)
@@ -438,15 +468,18 @@ bmad/agents/{agent-name}/
 - generating-sid-images (user-specific image generation patterns)
 
 **Tool Selection Logic:**
+
 - **Images:** gpt-image-1 ($0.04-0.08) for LinkedIn/Twitter professional, nanobanana ($0.039) for YouTube/Instagram social
 - **Videos:** HeyGen ($0.20-0.50/min) for avatars, Veo 3 fast ($0.30/8s) for b-roll, Fal-Video ($1-3) for cinematic
 
 **Notion Integration:**
+
 - Checks Status: Editing (content ready, needs visuals)
 - Keeps Status: Editing (doesn't move to Posted—that's Zoro's job)
 - Adds Properties: Image URLs to media properties, thumbnail concepts to "Thumbnail ideas"
 
 **Handoff Patterns:**
+
 - Zoe adds visuals → suggests Zoro for publishing (Status stays Editing)
 - Standalone visuals: Zoe creates → saves to Notion with "Posted" status → suggests Zoro
 
@@ -457,6 +490,7 @@ bmad/agents/{agent-name}/
 **Role:** Multi-platform publishing via Postiz MCP (primary) and direct APIs (backup), validation, rate limiting, analytics tracking
 
 **Workflows Owned (6+):**
+
 1. `schedule-post` - PRIMARY: Multi-platform scheduling via Postiz MCP (Twitter, LinkedIn, Instagram, Facebook, TikTok, YouTube) **[NEW - NEEDS CREATION]**
 2. `publish-tweet-now` - Immediate Twitter posting via direct API (bypass Postiz for urgent posts)
 3. `publish-linkedin-now` - Immediate LinkedIn posting via direct API
@@ -465,24 +499,29 @@ bmad/agents/{agent-name}/
 6. Additional: 10+ existing workflows for specific post types (linkedin-post-image, post-tweet-with-video, youtube-upload-short, etc.)
 
 **Publishing Strategy:**
+
 - **PRIMARY:** Postiz MCP for all scheduled posts (unified queue, multi-platform consistency, optimal timing)
 - **BACKUP:** Direct APIs for immediate "post now" operations when scheduling not appropriate (breaking news, urgent announcements)
 
 **Skills Triggered:**
+
 - None (Zoro is pure API/MCP integration layer—validation and formatting logic embedded in workflow steps, no autonomous skills needed)
 
 **Validation Checks (per platform):**
+
 - **Twitter:** 25k chars Premium / 280 standard, 1-4 images (5MB each), video 512MB, rate limit 1500 posts/month Premium
 - **LinkedIn:** 3000 chars, single image (8MB), multi-image carousel (2-20), PDF carousel, video 200MB, rate limit 150 posts/day
 - **YouTube:** No text limit, video 128GB, auto-detect Shorts (9:16 + ≤3 min), rate limit 6 uploads/day
 
 **Notion Integration:**
+
 - Checks Status: Posted (ready to publish)
 - Updates Status: Editing → Posted (after publishing)
 - Sets Properties: Publish Date (actual publish time), future date if scheduled via Postiz
 - Prompts User: Manually add Views/Likes/Comments after publishing (Notion doesn't auto-track)
 
 **Handoff Patterns:**
+
 - Final step: Zoro publishes → updates Notion Status to "Posted" → no further agent handoffs
 
 ---
@@ -510,18 +549,18 @@ bmad/agents/{agent}/workflows/{workflow-name}/
 ```yaml
 name: workflow-name
 description: One-line workflow purpose
-version: "1.0"
+version: '1.0'
 owner: agent-name
-elicit: true|false        # Enable elicitation-based refinement?
+elicit: true|false # Enable elicitation-based refinement?
 
 # Metadata for discovery
-triggers:                 # What contexts/commands trigger this workflow
-  - "research {topic}"
-  - "analyze profile"
+triggers: # What contexts/commands trigger this workflow
+  - 'research {topic}'
+  - 'analyze profile'
 
-skills_triggered:         # Which skills this workflow invokes (via context creation)
-  - deep-web-research     # Step 1 context: "Research {topic} with depth={depth}"
-  - research-synthesizer  # Step 3 context: "Synthesize findings into categories"
+skills_triggered: # Which skills this workflow invokes (via context creation)
+  - deep-web-research # Step 1 context: "Research {topic} with depth={depth}"
+  - research-synthesizer # Step 3 context: "Synthesize findings into categories"
 
 # Steps reference external instructions.md
 steps_file: instructions.md
@@ -626,6 +665,7 @@ template_file: template.md
 **MVP Requirement:** ALL workflows must follow external instructions.md pattern (no embedded YAML or JavaScript code blocks).
 
 **Current State:**
+
 - ✅ Jarvis workflows: Already standardized (external instructions.md)
 - ⚠️ Zoe workflows: Need migration from embedded YAML to external
 - ⚠️ Zoro workflows: Need migration from embedded YAML to external
@@ -673,6 +713,7 @@ Select 1-9 or just type your question/feedback:
 ```
 
 **Elicitation Workflow:**
+
 1. Workflow generates draft content
 2. Presents content + rationale + menu (1-9 options)
 3. User selects method or provides custom feedback
@@ -708,36 +749,43 @@ Skills are **autonomous expertise modules** containing methodologies, best pract
 ---
 name: skill-name
 description: Discovery-optimized description (what, when, keywords)
-version: "1.0"
+version: '1.0'
 owner: agent-name (primary, but cross-agent usage allowed)
-tools:                    # MCPs this skill uses
+tools: # MCPs this skill uses
   - exa
   - firecrawl
   - apify
-cost_range: "$0 - $0.50+"
+cost_range: '$0 - $0.50+'
 ---
 
 # Skill Name
 
 ## Purpose
+
 [What this skill does, why it exists]
 
 ## When to Use
+
 [Trigger conditions, context patterns that match]
 
 ## Instructions
+
 [Step-by-step methodology for Claude to execute]
 
 ## Tool Orchestration
+
 [How to select and route between tools based on parameters]
 
 ## Quality Standards
+
 [Success criteria, validation checks]
 
 ## Examples
+
 [Concrete usage examples with inputs/outputs]
 
 ## Reference Documentation
+
 [Links to methodology docs in reference/ folder]
 ```
 
@@ -752,21 +800,27 @@ cost_range: "$0 - $0.50+"
 **Examples from Current System:**
 
 **post-writer skill:**
+
 ```yaml
 description: Generate platform-optimized social media posts using proven formulas (Justin Welsh PAIPS for LinkedIn, Greg Isenberg questions for Twitter, Paul Graham essays for Substack). Use when creating LinkedIn posts, Twitter threads, Substack essays, or any social media content requiring voice-matched writing.
 ```
+
 **Triggers:** "LinkedIn post", "Twitter thread", "social media content", "voice-matched"
 
 **deep-web-research skill:**
+
 ```yaml
 description: Multi-tool research orchestrator using Exa neural search, Apify platform scrapers, Firecrawl web scraping, and WebSearch. Intelligently routes between tools based on depth parameter (quick=free, comprehensive=paid). Use when researching topics, gathering web data, analyzing trends, or scraping social media platforms.
 ```
+
 **Triggers:** "research", "web data", "Exa", "Apify", "scraping", "trends"
 
 **veotools-mastery skill:**
+
 ```yaml
 description: Google Veo 2.0/3.0/3.1 video generation expertise for animating diagrams, creating b-roll scenes, and image-to-video conversion. Knows model selection (veo-3.1-fast for iteration, veo-3.1-standard for quality), aspect ratio optimization (16:9 YouTube, 9:16 Shorts), and async job management. Use when generating videos from images, animating diagrams, or creating b-roll footage.
 ```
+
 **Triggers:** "animate diagram", "video from image", "b-roll", "Veo"
 
 ### Avoiding Skill Conflicts
@@ -789,6 +843,7 @@ description: Platform trend analysis for Twitter, LinkedIn, Instagram using soci
 **When workflow step creates context:** "Research {topic} with depth=comprehensive"
 
 **Claude's discovery algorithm:**
+
 1. Analyzes context: task=research, depth=comprehensive, domain=web
 2. Scans available skills for description matches
 3. Finds: deep-web-research (description contains "research", "Exa", "Apify", "depth parameter")
@@ -797,6 +852,7 @@ description: Platform trend analysis for Twitter, LinkedIn, Instagram using soci
 6. Returns research results to workflow
 
 **Workflow authors optimize for discovery by:**
+
 - Using specific task terminology ("research" not "find stuff")
 - Including parameters mentioned in skill descriptions ("depth=comprehensive" matches deep-web-research's "depth parameter")
 - Providing rich context (topic, platform, format) that skills can match against
@@ -814,10 +870,10 @@ description: Platform trend analysis for Twitter, LinkedIn, Instagram using soci
 
 **Skills vs Direct MCP Calls:**
 
-| Approach | When to Use | Example |
-|----------|-------------|---------|
-| **Skill invocation** | Complex tool orchestration, intelligent routing, quality validation | deep-web-research (routes WebSearch → Exa → Apify based on depth) |
-| **Direct MCP call** | Simple single-tool operations, no routing logic needed | Zoro workflows: direct Postiz MCP for scheduling, direct Twitter API for posting |
+| Approach             | When to Use                                                         | Example                                                                          |
+| -------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| **Skill invocation** | Complex tool orchestration, intelligent routing, quality validation | deep-web-research (routes WebSearch → Exa → Apify based on depth)                |
+| **Direct MCP call**  | Simple single-tool operations, no routing logic needed              | Zoro workflows: direct Postiz MCP for scheduling, direct Twitter API for posting |
 
 ---
 
@@ -829,67 +885,68 @@ description: Platform trend analysis for Twitter, LinkedIn, Instagram using soci
 
 **Primary MCPs:**
 
-| MCP Server | Purpose | Tools Used | Cost Model |
-|------------|---------|------------|------------|
-| **Notion** | Collaborative state, status workflow, metadata | notion-search, notion-fetch, notion-update-page, notion-create-pages | Free (workspace plan) |
-| **Postiz** | PRIMARY multi-platform publishing | integrationSchedulePostTool, integrationList, integrationSchema | Free tier (self-hosted) |
-| **Cloudinary** | **CRITICAL** Media hosting for public URLs | upload-asset, asset-update, search-assets, transform-asset | Free tier + pay-per-use |
-| **fal-video** | **PRIMARY** Video generation hub | execute_custom_model (Veo 3, Luma Ray 2, Kling, Pixverse, Sora, etc.) | $0.30-3.00 per video |
-| **Exa** | Neural search, web research | search (neural + similar results) | $0.05-0.15 per query |
-| **Firecrawl** | Web scraping with caching | firecrawl_scrape, firecrawl_crawl, firecrawl_search | $0.10-0.30 per scrape |
-| **Apify** | Platform scrapers | apify/instagram-scraper, clockworks/tiktok-scraper, scraper_one/x-profile-posts | $0.02-0.50 per actor |
-| **nanobanana** | Image generation (Gemini 2.5 Flash) | generate_image, edit_image, upload_file | $0.039 per image |
-| **gpt-image-1** | Image generation (DALL-E 3) | create_image, create_image_edit | $0.04-0.08 per image |
-| **mcp-twitter** | Twitter API (Premium) | create_twitter_post, reply_twitter_tweet, get_last_tweets_options | Included in Premium ($8/mo) |
-| **youtube-uploader-mcp** | YouTube Data API v3 | upload_video, get_remaining_quota | Free (API quota) |
-| **social-media-mcp** | Brave + Perplexity trends | research_topic, get_trending_topics | Free (Brave) + Perplexity |
-| **chrome-devtools** | Browser automation for scraping | navigate_page, take_snapshot, fill_form | Free (built-in) |
-| **serena** | IDE code analysis & file operations | find_symbol, search_for_pattern, list_dir | Free (IDE integration) |
+**Tool Naming Note:** Notion uses simple names (notion-search). Other MCPs use mcp** prefix (mcp**fal-video\_\_execute_custom_model). See [MCP Tool Naming Standards](./mcp-tool-naming-standards.md).
+
+| MCP Server           | Purpose                                                                                   | Tools Used                                                                          | Cost Model                  |
+| -------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | --------------------------- |
+| **Notion**           | Collaborative state, status workflow, metadata                                            | notion-search, notion-fetch, notion-update-page, notion-create-pages                | Free (workspace plan)       |
+| **Postiz**           | PRIMARY for ALL platforms (Twitter, LinkedIn, Instagram, Facebook, TikTok, YouTube, etc.) | mcp**postiz**integrationSchedulePostTool, integrationList, integrationSchema        | Free tier (self-hosted)     |
+| **Cloudinary**       | **CRITICAL** Media hosting for public URLs                                                | upload-asset, asset-update, search-assets, transform-asset                          | Free tier + pay-per-use     |
+| **fal-video**        | **PRIMARY** Video generation hub                                                          | execute_custom_model (Veo 3, Luma Ray 2, Kling, Pixverse, Sora, etc.)               | $0.30-3.00 per video        |
+| **Exa**              | Neural search, web research                                                               | search (neural + similar results)                                                   | $0.05-0.15 per query        |
+| **Firecrawl**        | Web scraping with caching                                                                 | firecrawl_scrape, firecrawl_crawl, firecrawl_search                                 | $0.10-0.30 per scrape       |
+| **Apify**            | Platform scrapers                                                                         | apify/instagram-scraper, clockworks/tiktok-scraper, scraper_one/x-profile-posts     | $0.02-0.50 per actor        |
+| **nanobanana**       | Image generation (Gemini 2.5 Flash)                                                       | generate_image, edit_image, upload_file                                             | $0.039 per image            |
+| **gpt-image-1**      | Image generation (DALL-E 3)                                                               | create_image, create_image_edit                                                     | $0.04-0.08 per image        |
+| **mcp-twitter**      | Twitter API (direct posting backup)                                                       | mcp**mcp_twitter**create_twitter_post, reply_twitter_tweet, get_last_tweets_options | Included in Premium ($8/mo) |
+| **social-media-mcp** | Brave + Perplexity trends                                                                 | research_topic, get_trending_topics                                                 | Free (Brave) + Perplexity   |
+| **chrome-devtools**  | Browser automation for scraping                                                           | navigate_page, take_snapshot, fill_form                                             | Free (built-in)             |
+| **serena**           | IDE code analysis & file operations                                                       | find_symbol, search_for_pattern, list_dir                                           | Free (IDE integration)      |
 
 **Custom Modules (Node.js):**
 
-| Module | Purpose | API | Cost |
-|--------|---------|-----|------|
-| **twitter-api-client** | Direct Twitter Premium API | OAuth 2.0, 25k char posts, threading | $8/month Premium |
-| **linkedin-api-client** | Direct LinkedIn API | OAuth 2.0, posts/carousels/PDFs/videos | Free (API quota) |
+| Module                  | Purpose                    | API                                    | Cost             |
+| ----------------------- | -------------------------- | -------------------------------------- | ---------------- |
+| **twitter-api-client**  | Direct Twitter Premium API | OAuth 2.0, 25k char posts, threading   | $8/month Premium |
+| **linkedin-api-client** | Direct LinkedIn API        | OAuth 2.0, posts/carousels/PDFs/videos | Free (API quota) |
 
 ### Tool Selection Decision Matrix
 
 **Research:**
 
-| Depth | Tools Used | Cost | Use Case |
-|-------|------------|------|----------|
-| quick | WebSearch (free) | $0 | Fast initial scan, 10-20 results |
-| standard | Exa neural search | $0.05 | Quality research, 10 auto + 5 similar |
-| comprehensive | Exa + Firecrawl | $0.10-0.15 | Detailed analysis with content scraping |
-| exhaustive | Exa + Firecrawl + Apify | $0.50+ (user approval) | Complete deep dive with platform scraping |
+| Depth         | Tools Used              | Cost                   | Use Case                                  |
+| ------------- | ----------------------- | ---------------------- | ----------------------------------------- |
+| quick         | WebSearch (free)        | $0                     | Fast initial scan, 10-20 results          |
+| standard      | Exa neural search       | $0.05                  | Quality research, 10 auto + 5 similar     |
+| comprehensive | Exa + Firecrawl         | $0.10-0.15             | Detailed analysis with content scraping   |
+| exhaustive    | Exa + Firecrawl + Apify | $0.50+ (user approval) | Complete deep dive with platform scraping |
 
 **Images:**
 
-| Platform | Tool | Cost | Rationale |
-|----------|------|------|-----------|
-| LinkedIn, Twitter | gpt-image-1 (DALL-E 3) | $0.04-0.08 | Professional quality needed, text rendering 9.5/10 |
-| YouTube, Instagram | nanobanana (Gemini 2.5) | $0.039 | Social media volume, speed priority (10-15s) |
-| Custom high-quality | gpt-image-1 | $0.04-0.08 | User explicitly requests best quality |
+| Platform            | Tool                    | Cost       | Rationale                                          |
+| ------------------- | ----------------------- | ---------- | -------------------------------------------------- |
+| LinkedIn, Twitter   | gpt-image-1 (DALL-E 3)  | $0.04-0.08 | Professional quality needed, text rendering 9.5/10 |
+| YouTube, Instagram  | nanobanana (Gemini 2.5) | $0.039     | Social media volume, speed priority (10-15s)       |
+| Custom high-quality | gpt-image-1             | $0.04-0.08 | User explicitly requests best quality              |
 
 **Videos:**
 
-| Format | Tool | Cost | Rationale |
-|--------|------|------|-----------|
-| Talking head avatars | HeyGen | $0.20-0.50/min | High-quality faces, consent verification |
-| B-roll, diagram animation | Veo 3 fast | $0.30/8s | Fast iteration (60s generation) |
-| Production b-roll | Veo 3 standard | $0.50/8s | Highest quality (120s generation) |
-| Cinematic sequences | Fal-Video (Luma, Kling) | $1-3/video | Multi-scene storytelling |
+| Format                    | Tool                    | Cost           | Rationale                                |
+| ------------------------- | ----------------------- | -------------- | ---------------------------------------- |
+| Talking head avatars      | HeyGen                  | $0.20-0.50/min | High-quality faces, consent verification |
+| B-roll, diagram animation | Veo 3 fast              | $0.30/8s       | Fast iteration (60s generation)          |
+| Production b-roll         | Veo 3 standard          | $0.50/8s       | Highest quality (120s generation)        |
+| Cinematic sequences       | Fal-Video (Luma, Kling) | $1-3/video     | Multi-scene storytelling                 |
 
 **Platform Scraping:**
 
-| Platform | Apify Actor | Cost | Alternative |
-|----------|-------------|------|------------|
-| Instagram | apify/instagram-scraper | ~$0.05 | Manual Instagram Graph API (if access) |
-| TikTok | clockworks/tiktok-scraper | ~$0.05 | TikTok Research API (if access) |
-| Twitter | apidojo/twitter-scraper-lite | $0.02-0.04 | Direct Twitter Premium API |
-| LinkedIn | apimaestro/linkedin-profile-posts | $0.10-0.15 | LinkedIn API (if granted access) |
-| YouTube | starvibe/youtube-transcripts | $0.05/video | YouTube Data API v3 (free quota) |
+| Platform  | Apify Actor                       | Cost        | Alternative                            |
+| --------- | --------------------------------- | ----------- | -------------------------------------- |
+| Instagram | apify/instagram-scraper           | ~$0.05      | Manual Instagram Graph API (if access) |
+| TikTok    | clockworks/tiktok-scraper         | ~$0.05      | TikTok Research API (if access)        |
+| Twitter   | apidojo/twitter-scraper-lite      | $0.02-0.04  | Direct Twitter Premium API             |
+| LinkedIn  | apimaestro/linkedin-profile-posts | $0.10-0.15  | LinkedIn API (if granted access)       |
+| YouTube   | starvibe/youtube-transcripts      | $0.05/video | YouTube Data API v3 (free quota)       |
 
 ### Tool Evolution Strategy
 
@@ -905,14 +962,14 @@ research:
     - tool: WebSearch
       cost: $0
       quality: 6/10
-      last_updated: "2025-10-31"
+      last_updated: '2025-10-31'
       status: active
 
   paid_low:
     - tool: Exa
       cost: $0.05-0.15
       quality: 8/10
-      last_updated: "2025-10-31"
+      last_updated: '2025-10-31'
       status: active
       notes: Neural search, 10 auto + 5 similar results
 
@@ -920,7 +977,7 @@ research:
     - tool: Apify
       cost: $0.02-0.50
       quality: 9/10
-      last_updated: "2025-10-31"
+      last_updated: '2025-10-31'
       status: active
       notes: Platform-specific scrapers, varies by actor
 
@@ -931,7 +988,7 @@ images:
       cost: $0.039
       quality: 7.5/10
       speed: 10-15s
-      last_updated: "2025-10-31"
+      last_updated: '2025-10-31'
       status: active
 
   quality_optimized:
@@ -940,7 +997,7 @@ images:
       cost: $0.04-0.08
       quality: 9.5/10
       speed: 20-30s
-      last_updated: "2025-10-31"
+      last_updated: '2025-10-31'
       status: active
 
 videos:
@@ -948,33 +1005,36 @@ videos:
     - tool: HeyGen
       cost: $0.20-0.50/min
       quality: 9/10
-      last_updated: "2025-10-31"
+      last_updated: '2025-10-31'
       status: active
 
-  b_roll:
-    - tool: veotools (Veo 3 fast)
-      cost: $0.30/8s
-      quality: 8/10
-      speed: 60s generation
-      last_updated: "2025-10-31"
-      status: active
+  all_video_generation:
+    - tool: fal-video (execute_custom_model - PRIMARY)
+      models: 22+ (Veo 3, Luma Ray 2, Kling Master, Pixverse, and more)
+      cost: $0.30-3.00 per video (model-dependent)
+      quality: 8-9/10 (model-dependent)
+      speed: 60-180s generation
+      last_updated: '2025-11-02'
+      status: active - PRIMARY for ALL video needs
 
-    - tool: veotools (Veo 3 standard)
-      cost: $0.50/8s
+    - tool: heygen (generate_avatar_video - SPECIALIZED)
+      use_case: Talking heads ONLY
+      cost: $0.20-0.50 per minute
       quality: 9/10
-      speed: 120s generation
-      last_updated: "2025-10-31"
-      status: active
+      last_updated: '2025-11-02'
+      status: active - SPECIALIZED use case
 
-  cinematic:
-    - tool: fal-video (Luma Ray 2)
-      cost: $1-3
-      quality: 9/10
-      last_updated: "2025-10-31"
-      status: active
+    - tool: veotools (generate_start - DEPRECATED)
+      cost: $0.30-0.50/8s
+      quality: 8-9/10
+      last_updated: '2025-11-02'
+      status: deprecated
+      migration_note: 'Veo 3 accessible via fal-video with 21 additional models. Use fal-video instead.'
+      keep_for: 'Backup only if fal-video unavailable'
 ```
 
 **Monthly Optimization Process:**
+
 1. Review tool-registry.yaml
 2. Compare cost/quality/speed actual vs documented
 3. Test new tools/models that have emerged
@@ -1106,22 +1166,26 @@ outputs/
 **Stage Breakdown:**
 
 **00-session/** - Project Tracking & Coordination
+
 - `metadata.json` - Complete project history (costs, duration, files, Notion linking)
 - `session-log.md` - Timestamped execution log of all agent actions
 - **When Created:** Automatically when project starts
 - **Populated By:** All agents (append to log, update metadata)
 
 **01-research/** - Shared Research (Platform-Agnostic)
+
 - Research briefs, competitive analysis, sources
 - **Philosophy:** Research is platform-agnostic—same research used for LinkedIn post, Twitter thread, YouTube video
 - **Populated By:** Jarvis (research-topic, analyze-profile, competitive-analysis workflows)
 
 **02-ideas/** - Shared Ideas (Platform-Agnostic)
+
 - Idea cards, hook packs, content calendars
 - **Philosophy:** Ideas are platform-agnostic—same idea adapted for different platforms in 03-drafts/
 - **Populated By:** Jarvis (generate-ideas workflow)
 
 **03-drafts/** - Platform-Specific Text Content
+
 - **7 Platform Subfolders:** linkedin/, twitter/, youtube/, instagram/, tiktok/, substack/, facebook/
 - Each platform folder contains iterative drafts: post-v1.md, post-v2.md, thread-v1.md, script-v1.md
 - **Why Platform-Specific:** LinkedIn post (PAIPS, <300 words) differs from Twitter thread (questions, numbered tweets) differs from YouTube script (timestamps, scenes)
@@ -1129,6 +1193,7 @@ outputs/
 - **Populated By:** Jarvis (write-post, write-script workflows when created)
 
 **04-media/** - Platform-Agnostic REUSABLE Media ⚡ **CRITICAL DESIGN**
+
 - **2 Simple Subfolders:** images/, videos/
 - **Philosophy:** Media is REUSABLE across platforms—generate once, reference from multiple platform folders
 - **Naming Convention:**
@@ -1141,6 +1206,7 @@ outputs/
 - **Populated By:** Zoe (create-single-image, create-carousel, create-scene workflows)
 
 **05-published/** - Published Content (MERGED Final + Published, Per Platform)
+
 - **7 Platform Subfolders:** linkedin/, twitter/, youtube/, instagram/, tiktok/, substack/, facebook/
 - Each platform folder contains:
   - `post.md` or `thread.md` or `script.md` (final published version)
@@ -1153,9 +1219,10 @@ outputs/
   - Notion "Editing" ↔ Local has content in 03-drafts/ and 04-media/
   - Notion "Posted" ↔ Local has content in 05-published/ with URLs
 - **Independent Lifecycles:** LinkedIn published, YouTube still drafting (each platform at different stage)
-- **Populated By:** Zoro (schedule-post, publish-*-now workflows)
+- **Populated By:** Zoro (schedule-post, publish-\*-now workflows)
 
 **handoffs/** - Agent Coordination Packages
+
 - JSON packages for agent handoffs (jarvis-to-zoe.json, zoe-to-zoro.json)
 - handoff-log.md with timeline
 - **Populated By:** All agents when creating handoffs
@@ -1238,6 +1305,7 @@ outputs/
 ```
 
 **Naming Conventions:**
+
 - **Folders:** lowercase-kebab-case (e.g., `linkedin-post-ai-agents`)
 - **Files:** lowercase-kebab-case (e.g., `research-brief.md`, `animated-diagram.mp4`)
 - **No mixed case, underscores, or spaces** (cross-platform consistency)
@@ -1249,23 +1317,23 @@ outputs/
 
 **Properties Used by Agents:**
 
-| Property | Type | Agent Usage | Example |
-|----------|------|-------------|---------|
-| **Name** | Title | Jarvis creates, all read | "AI Agents: The Future of Work" |
-| **Status** | Status | All update | Idea → Research → Writing → Editing → Posted |
-| **Channel** | Relation (My Channels DB) | Jarvis links, Zoro validates | LinkedIn, Twitter, YouTube |
-| **Category** | Select | Jarvis sets based on topic | AI & Tech, Career Growth, Personal |
-| **Priority** | Select | Jarvis sets, user overrides | High, Medium, Low |
-| **Publish Date** | Date | Jarvis estimates, Zoro confirms actual | 2025-11-05 |
-| **Content Text** | Long Text | Jarvis populates full post/script | Full post body or video script |
-| **Thumbnail ideas** | Text | Jarvis (write-script) generates | "3 CTR-optimized concepts with MrBeast pillars" |
-| **YouTube Title ideas** | Text | Jarvis (write-script) generates | "60-70 char keyword-rich titles" |
-| **Views** | Number | Zoro prompts user to add post-publish | 1250 |
-| **Likes** | Number | Zoro prompts user to add post-publish | 87 |
-| **Comments** | Number | Zoro prompts user to add post-publish | 12 |
-| **Focus Keywords** | Relation (Keywords DB) | Jarvis links from research | "AI agents", "automation", "productivity" |
-| **Notes** | Relation (Action Items DB) | Jarvis links research briefs | Research brief page URL |
-| **local_files** | URL | All agents add | Link to outputs/projects/{slug}/ |
+| Property                | Type                       | Agent Usage                            | Example                                         |
+| ----------------------- | -------------------------- | -------------------------------------- | ----------------------------------------------- |
+| **Name**                | Title                      | Jarvis creates, all read               | "AI Agents: The Future of Work"                 |
+| **Status**              | Status                     | All update                             | Idea → Research → Writing → Editing → Posted    |
+| **Channel**             | Relation (My Channels DB)  | Jarvis links, Zoro validates           | LinkedIn, Twitter, YouTube                      |
+| **Category**            | Select                     | Jarvis sets based on topic             | AI & Tech, Career Growth, Personal              |
+| **Priority**            | Select                     | Jarvis sets, user overrides            | High, Medium, Low                               |
+| **Publish Date**        | Date                       | Jarvis estimates, Zoro confirms actual | 2025-11-05                                      |
+| **Content Text**        | Long Text                  | Jarvis populates full post/script      | Full post body or video script                  |
+| **Thumbnail ideas**     | Text                       | Jarvis (write-script) generates        | "3 CTR-optimized concepts with MrBeast pillars" |
+| **YouTube Title ideas** | Text                       | Jarvis (write-script) generates        | "60-70 char keyword-rich titles"                |
+| **Views**               | Number                     | Zoro prompts user to add post-publish  | 1250                                            |
+| **Likes**               | Number                     | Zoro prompts user to add post-publish  | 87                                              |
+| **Comments**            | Number                     | Zoro prompts user to add post-publish  | 12                                              |
+| **Focus Keywords**      | Relation (Keywords DB)     | Jarvis links from research             | "AI agents", "automation", "productivity"       |
+| **Notes**               | Relation (Action Items DB) | Jarvis links research briefs           | Research brief page URL                         |
+| **local_files**         | URL                        | All agents add                         | Link to outputs/projects/{slug}/                |
 
 **Status Workflow Transitions:**
 
@@ -1341,6 +1409,7 @@ User creates idea in Notion
 ```
 
 **Handoff Locations:**
+
 - **Local:** `outputs/projects/{slug}/handoffs/{source}-to-{target}.json`
 - **Notion:** Key metadata summarized in page properties (voice_confidence, quality_scores)
 
@@ -1502,6 +1571,7 @@ Step 4: Is this a simple TOOL CALL with no orchestration?
 ### Agent Extension Guidelines
 
 **Create New Agent When:**
+
 - Distinct user-facing persona needed (different communication style, focus area)
 - Separate workflow menu makes sense (5+ unrelated workflows would clutter existing agent)
 - Different MCP tool ecosystem (agent specializes in tools existing agents don't use)
@@ -1509,6 +1579,7 @@ Step 4: Is this a simple TOOL CALL with no orchestration?
 **Agent Creation Pattern:**
 
 1. Create agent definition files:
+
    ```
    .claude/commands/{agent-name}/{agent-name}.md
    bmad/agents/{agent-name}/{agent-name}.md
@@ -1517,26 +1588,32 @@ Step 4: Is this a simple TOOL CALL with no orchestration?
    ```
 
 2. Define persona in agent.md:
+
    ```markdown
    # Agent Name
+
    ## Persona
+
    - Role: [Primary function]
    - Style: [Communication approach]
    - Focus: [Core responsibilities]
 
    ## Available Commands
-   1. *workflow-1 - [Description]
-   ...
+
+   1. \*workflow-1 - [Description]
+      ...
    ```
 
 3. Agent auto-discovered by Claude Code (no registry update needed)
 
 **Current Agents (for reference):**
+
 - Jarvis: Content intelligence (research, writing, voice)
 - Zoe: Visual production (images, videos)
 - Zoro: Publishing (multi-platform distribution)
 
 **Potential Future Agents:**
+
 - Newsletter Agent: Email newsletter generation (Substack, ConvertKit, Beehiiv)
 - Analytics Agent: Performance analysis and optimization suggestions
 - Podcast Agent: Audio content production (scripts, editing, distribution)
@@ -1544,6 +1621,7 @@ Step 4: Is this a simple TOOL CALL with no orchestration?
 ### Workflow Extension Guidelines
 
 **Create New Workflow When:**
+
 - Multi-step process with user interaction at each step
 - State management needed (pause/resume support)
 - Orchestrates multiple skills in sequence
@@ -1552,6 +1630,7 @@ Step 4: Is this a simple TOOL CALL with no orchestration?
 **Workflow Creation Pattern:**
 
 1. Create workflow folder:
+
    ```
    bmad/agents/{agent}/workflows/{workflow-name}/
    ├── workflow.yaml
@@ -1561,6 +1640,7 @@ Step 4: Is this a simple TOOL CALL with no orchestration?
    ```
 
 2. Define workflow.yaml:
+
    ```yaml
    name: workflow-name
    description: One-line purpose
@@ -1573,6 +1653,7 @@ Step 4: Is this a simple TOOL CALL with no orchestration?
    ```
 
 3. Write instructions.md (external XML format):
+
    ```xml
    <workflow name="workflow-name">
      <step id="1" name="Step Name">
@@ -1587,6 +1668,7 @@ Step 4: Is this a simple TOOL CALL with no orchestration?
 4. Workflow auto-appears in agent menu (no manual registration)
 
 **Current Workflows by Agent:**
+
 - Jarvis (7): research-topic, analyze-profile, competitive-analysis, generate-ideas, learn-voice, write-post [NEW], write-script [NEW]
 - Zoe (7): create-single-image, create-carousel, edit-image, blend-images, create-talking-head, create-scene, create-cinematic-sequence
 - Zoro (6+): schedule-post [NEW], publish-tweet-now, publish-linkedin-now, publish-youtube-now, check-rate-limits, plus 10+ specific post type workflows
@@ -1594,6 +1676,7 @@ Step 4: Is this a simple TOOL CALL with no orchestration?
 ### Skill Extension Guidelines
 
 **Create New Skill When:**
+
 - Autonomous expertise needed (runs without user interaction)
 - Reusable across multiple workflows
 - Orchestrates complex tool selection/routing
@@ -1602,6 +1685,7 @@ Step 4: Is this a simple TOOL CALL with no orchestration?
 **Skill Creation Pattern:**
 
 1. Create skill folder:
+
    ```
    .claude/skills/{agent-name}/{skill-name}/
    ├── SKILL.md
@@ -1612,6 +1696,7 @@ Step 4: Is this a simple TOOL CALL with no orchestration?
    ```
 
 2. Define SKILL.md with discovery-optimized description:
+
    ```markdown
    ---
    name: skill-name
@@ -1619,21 +1704,28 @@ Step 4: Is this a simple TOOL CALL with no orchestration?
    tools:
      - mcp-1
      - mcp-2
-   cost_range: "$0 - $0.50"
+   cost_range: '$0 - $0.50'
    ---
 
    # Skill Name
+
    ## Purpose
+
    ## When to Use (trigger conditions)
+
    ## Instructions (step-by-step methodology)
+
    ## Tool Orchestration
+
    ## Quality Standards
+
    ## Examples
    ```
 
 3. Skill auto-discovered by Claude via description matching
 
 **Current Skills by Agent:**
+
 - Jarvis (12): deep-web-research, post-writer, video-script-writer, profile-analysis, voice-matcher, platform-formatter, research-synthesizer, evidence-tracker, youtube-growth-mastery, youtube-thumbnail-mastery, social-media-research, youtube-research
 - Zoe (9): create-image, edit-image, blend-images, veotools-mastery, platform-specs, linkedin-design, youtube-thumbnail-design, mcp-tool-selection, generating-sid-images
 - Shared (2): visual-prompt-mastery, skill-creator
@@ -1641,11 +1733,13 @@ Step 4: Is this a simple TOOL CALL with no orchestration?
 ### Tool/MCP Integration Guidelines
 
 **Add Direct MCP Call When:**
+
 - Simple single-tool operation (no routing logic)
 - No autonomous expertise needed
 - Workflow has all context to call tool directly
 
 **Example: Zoro workflows use direct MCPs**
+
 ```yaml
 # schedule-post workflow (to be created)
 steps:
@@ -1654,11 +1748,13 @@ steps:
 ```
 
 **Create Skill for MCP When:**
+
 - Complex tool orchestration (multiple MCPs, routing logic)
 - Quality validation needed
 - Reusable across workflows
 
 **Example: deep-web-research skill orchestrates multiple MCPs**
+
 ```
 Skill routes based on depth parameter:
 - quick → WebSearch MCP
@@ -1812,13 +1908,15 @@ social-media-manager/
 ### Prerequisites
 
 **Required Software:**
+
 - Claude Code Desktop Application (MacOS, Windows, or Linux)
 - Node.js v18+ (for twitter-api-client, linkedin-api-client modules)
 - Git (for version control)
 
 **Required API Keys (stored in .env):**
+
 - `ANTHROPIC_API_KEY` - Claude Code
-- `NOTION_API_KEY` - Notion integration token (ntn_***)
+- `NOTION_API_KEY` - Notion integration token (ntn\_\*\*\*)
 - `POSTIZ_API_KEY` - Postiz self-hosted instance
 - `EXA_API_KEY` - Exa neural search
 - `FIRECRAWL_API_KEY` - Firecrawl web scraping
@@ -1911,18 +2009,19 @@ social-media-manager/
 
 **Cost Breakdown (estimated):**
 
-| Service | Use Case | Monthly Cost |
-|---------|----------|--------------|
-| Exa | Research (standard depth, 30 posts) | $1.50 (30 × $0.05) |
-| Apify | Profile analysis (4 per month) | $0.60 (4 × $0.15) |
-| nanobanana | Images (30 posts × 1 image avg) | $1.17 (30 × $0.039) |
-| gpt-image-1 | LinkedIn images (10 posts) | $0.60 (10 × $0.06) |
-| veotools | Videos (8 posts × 1 video) | $2.40 (8 × $0.30) |
-| HeyGen | Talking heads (4 videos × 1 min) | $1.40 (4 × $0.35) |
-| Twitter Premium API | Account access | $8.00 (monthly subscription) |
-| **Total** | | **~$15.67 + $8 = $23.67** |
+| Service             | Use Case                            | Monthly Cost                 |
+| ------------------- | ----------------------------------- | ---------------------------- |
+| Exa                 | Research (standard depth, 30 posts) | $1.50 (30 × $0.05)           |
+| Apify               | Profile analysis (4 per month)      | $0.60 (4 × $0.15)            |
+| nanobanana          | Images (30 posts × 1 image avg)     | $1.17 (30 × $0.039)          |
+| gpt-image-1         | LinkedIn images (10 posts)          | $0.60 (10 × $0.06)           |
+| veotools            | Videos (8 posts × 1 video)          | $2.40 (8 × $0.30)            |
+| HeyGen              | Talking heads (4 videos × 1 min)    | $1.40 (4 × $0.35)            |
+| Twitter Premium API | Account access                      | $8.00 (monthly subscription) |
+| **Total**           |                                     | **~$15.67 + $8 = $23.67**    |
 
 **Buffer:** $26.33 remaining for:
+
 - Comprehensive research (Firecrawl, exhaustive Apify)
 - High-quality images when needed (more gpt-image-1)
 - Cinematic videos (Fal-Video Luma/Kling)
@@ -1957,11 +2056,13 @@ social-media-manager/
 **Manual validation during MVP, automated testing in Phase 2**
 
 **Testing Cadence:**
+
 - **Daily:** Run 1-2 end-to-end pipelines with real content (Jarvis → Zoe → Zoro)
 - **Weekly:** Review cost data, update tool-registry.yaml if needed
 - **Monthly:** Audit workflow standardization compliance (all using external instructions.md?)
 
 **Test Artifacts:**
+
 - Test session outputs in `outputs/projects/testing-{date}/`
 - Tool performance log (cost, speed, quality scores)
 - Workflow success rate tracking (target: 95%)
@@ -1983,6 +2084,7 @@ social-media-manager/
 ### Appendix A: Complete MCP Tool Inventory
 
 **Notion MCP:**
+
 - notion-search (query, filters, teamspace scoping)
 - notion-fetch (page/database retrieval)
 - notion-create-pages (bulk page creation)
@@ -1992,6 +2094,7 @@ social-media-manager/
 - notion-update-database (schema updates)
 
 **Postiz MCP:**
+
 - integrationList (get connected accounts)
 - integrationSchema (platform-specific requirements)
 - integrationSchedulePostTool (queue future posts)
@@ -1999,28 +2102,34 @@ social-media-manager/
 - generateVideoTool (optional, we use Zoe instead)
 
 **Exa MCP:**
+
 - search (neural search, 10 auto + 5 similar results)
 
 **Firecrawl MCP:**
+
 - firecrawl_scrape (single URL scraping)
 - firecrawl_crawl (multi-page crawling)
 - firecrawl_map (sitemap discovery)
 
 **Apify MCP:**
+
 - fetch-actor-details (actor metadata)
 - search-actors (actor discovery)
 - call-actor (actor execution, two-step: info → call)
 
 **nanobanana MCP:**
+
 - generate_image (Gemini 2.5 Flash image generation)
 - upload_file (Gemini Files API for large images)
 - show_output_stats (usage statistics)
 
 **gpt-image-1 MCP:**
+
 - create_image (DALL-E 3 generation)
 - create_image_edit (DALL-E 3 editing)
 
 **veotools MCP:**
+
 - list_models (available Veo models)
 - generate_start (async video generation)
 - generate_get (check job status)
@@ -2028,6 +2137,7 @@ social-media-manager/
 - performance_start_trace (performance profiling)
 
 **fal-video MCP:**
+
 - luma_ray2 (Luma Dream Machine)
 - kling_master_text (Kling 2.1 text-to-video)
 - pixverse_text (Pixverse V4.5 text-to-video)
@@ -2035,6 +2145,7 @@ social-media-manager/
 - list_available_models (registry)
 
 **HeyGen MCP:**
+
 - get_remaining_credits (quota check)
 - get_voices (available voice options)
 - get_avatar_groups (avatar collections)
@@ -2043,6 +2154,7 @@ social-media-manager/
 - get_avatar_video_status (job status)
 
 **mcp-twitter MCP:**
+
 - create_twitter_post (25k char posts, Premium)
 - reply_twitter_tweet (threaded replies)
 - get_last_tweet (profile retrieval)
@@ -2050,6 +2162,7 @@ social-media-manager/
 - create_and_post_twitter_thread (auto-linked threads)
 
 **youtube-uploader-mcp:**
+
 - authenticate (OAuth2 flow)
 - accesstoken (token retrieval)
 - channels (list user channels)
@@ -2057,6 +2170,7 @@ social-media-manager/
 - upload_video (upload with metadata, auto-detect Shorts)
 
 **social-media-mcp:**
+
 - create_post (Brave + Perplexity, multi-platform scheduling)
 - get_trending_topics (platform trends)
 - research_topic (topic research with facts/news/hashtags)
@@ -2100,11 +2214,11 @@ social-media-manager/
 
 ### Appendix D: Revision History
 
-| Date | Version | Changes | Author |
-|------|---------|---------|--------|
-| 2025-10-31 | 1.0 | Initial architecture document created | Winston (Architect Agent) |
-| 2025-11-05 | 1.1 | **CRITICAL ALIGNMENT UPDATES:** (1) Updated lifecycle from 7 stages to 6 stages (merged 05-final/ and 06-published/ into 05-published/), (2) Added platform subfolders to 03-drafts/ and 05-published/ (linkedin/, twitter/, youtube/, instagram/, tiktok/, substack/, facebook/), (3) Added platform-agnostic media philosophy section explaining 04-media/ reusability across platforms with cost efficiency examples, (4) Updated all legacy output path references from outputs/{date}/{session}/ to outputs/projects/{YYYY-MM-DD}-{slug}/, (5) Updated metadata.json schema to reflect platform-specific file_inventory structure. All changes align with PRD v1.0 requirements (FR52-55, Epic 7 Story 7.6). | BMad Builder |
-| 2025-11-05 | 1.2 | **EPIC 1 COMPLETION:** Created tool-registry.yaml (.bmad-core/data/tool-registry.yaml) documenting 13+ tools including fal-video (PRIMARY video via execute_custom_model), Cloudinary (CRITICAL for public URLs), Apify actors, image models, research tools, social APIs with cost models, success rates, quality scores, alternatives considered, and tool evolution process (Epic 1 Story 7.4). Created workflow-registry.yaml (.bmad-core/data/workflow-registry.yaml) documenting 10 workflows with purposes, skills triggered, inputs/outputs, Notion updates, Cloudinary integration steps, dependencies, and example use cases (Epic 1 Story 7.5). Added registry references to Tool Integration Strategy and Workflow System sections. Updated MCP Server Registry table to include fal-video and Cloudinary as primary tools. | BMad Builder |
+| Date       | Version | Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Author                    |
+| ---------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| 2025-10-31 | 1.0     | Initial architecture document created                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Winston (Architect Agent) |
+| 2025-11-05 | 1.1     | **CRITICAL ALIGNMENT UPDATES:** (1) Updated lifecycle from 7 stages to 6 stages (merged 05-final/ and 06-published/ into 05-published/), (2) Added platform subfolders to 03-drafts/ and 05-published/ (linkedin/, twitter/, youtube/, instagram/, tiktok/, substack/, facebook/), (3) Added platform-agnostic media philosophy section explaining 04-media/ reusability across platforms with cost efficiency examples, (4) Updated all legacy output path references from outputs/{date}/{session}/ to outputs/projects/{YYYY-MM-DD}-{slug}/, (5) Updated metadata.json schema to reflect platform-specific file_inventory structure. All changes align with PRD v1.0 requirements (FR52-55, Epic 7 Story 7.6).                                                                                                                       | BMad Builder              |
+| 2025-11-05 | 1.2     | **EPIC 1 COMPLETION:** Created tool-registry.yaml (.bmad-core/data/tool-registry.yaml) documenting 13+ tools including fal-video (PRIMARY video via execute_custom_model), Cloudinary (CRITICAL for public URLs), Apify actors, image models, research tools, social APIs with cost models, success rates, quality scores, alternatives considered, and tool evolution process (Epic 1 Story 7.4). Created workflow-registry.yaml (.bmad-core/data/workflow-registry.yaml) documenting 10 workflows with purposes, skills triggered, inputs/outputs, Notion updates, Cloudinary integration steps, dependencies, and example use cases (Epic 1 Story 7.5). Added registry references to Tool Integration Strategy and Workflow System sections. Updated MCP Server Registry table to include fal-video and Cloudinary as primary tools. | BMad Builder              |
 
 ---
 

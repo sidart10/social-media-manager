@@ -96,6 +96,7 @@ All findings backed by sources:
 ```
 /jarvis then generate-ideas
 ```
+
 Input: seed_topic="{topic}", use_research_file="{this_file}"
 
 ### Option 2: Write Posts Directly
@@ -103,6 +104,7 @@ Input: seed_topic="{topic}", use_research_file="{this_file}"
 ```
 /jarvis then write-posts
 ```
+
 Choose platform (LinkedIn/Twitter/Instagram), reference this research file
 
 ### Option 3: Create Video Scripts
@@ -110,6 +112,7 @@ Choose platform (LinkedIn/Twitter/Instagram), reference this research file
 ```
 /jarvis then write-scripts
 ```
+
 Choose format (YouTube/Reels/TikTok), reference this research file
 
 ### Option 4: Generate Visualizations
@@ -121,9 +124,11 @@ Choose format (YouTube/Reels/TikTok), reference this research file
 {#viz_items}
 
 **{viz_title}**
+
 ```
 /ai-image-generator then single
 ```
+
 Data to visualize:
 {viz_data_specs}
 
@@ -136,6 +141,7 @@ Data to visualize:
 ```
 /jarvis then analyze-profile
 ```
+
 Input: competitor_url (to compare approaches)
 
 ---

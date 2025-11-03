@@ -5,22 +5,26 @@
 **This PRD uses custom terminology that differs from standard Claude Code concepts. Understanding this distinction is essential:**
 
 **OUR SYSTEM:**
+
 - **"Agents"** = Custom persona-driven menu interfaces (bmad/agents/) that present numbered workflow options to users. These are slash command handlers with personality. Example: `/jarvis` shows Jarvis persona + menu of 7 workflows.
 - **"Workflows"** = Custom YAML+XML process orchestrators (workflow.yaml + instructions.md) that manage multi-step processes, state management, file I/O, user interaction, and Notion updates. These are user-invoked via agent menus.
 - **"Skills"** = Claude Code Agent Skills (.claude/skills/) - model-invoked autonomous expertise that Claude discovers based on description matching. These contain methodologies, not processes.
 
 **STANDARD CLAUDE CODE:**
+
 - **Slash Commands** = User-invoked commands (type `/command` to trigger)
 - **Agent Skills** = Model-invoked capabilities (Claude autonomously uses when relevant)
 - **"Agents"** = Not a native concept (our custom orchestration layer)
 - **"Workflows"** = Not a native concept (our custom YAML+XML system)
 
 **KEY DIFFERENCE:**
+
 - **Slash Commands** (Claude Code) ≈ **Our Agents** (user explicitly invokes)
 - **Agent Skills** (Claude Code) = **Our Skills** (model autonomously discovers)
 - **Our Workflows** = Custom orchestration layer between agents and skills
 
 **INVOCATION MODEL:**
+
 - User invokes Agent (`/jarvis`) → User-driven
 - Agent presents menu of Workflows → User selects
 - Workflow executes steps creating context → Process-driven
@@ -37,6 +41,7 @@
 
 **Role:** Research, strategy, content creation, voice consistency
 **Workflows Owned:**
+
 1. `research-topic` - Deep research on any topic
    - **Triggers Skills:** deep-web-research (via context: "research {topic}" + depth parameter), research-synthesizer (via context: "synthesize findings into categories")
    - **Updates Notion:** Status Idea→Research, adds research URL to Notes relation
@@ -66,6 +71,7 @@
    - **Updates Notion:** Saves script to Content Text, thumbnail concepts to "Thumbnail ideas" property
 
 **Jarvis Skill Dependencies:**
+
 - deep-web-research, post-writer, video-script-writer, profile-analysis, voice-matcher, platform-formatter, research-synthesizer, evidence-tracker, youtube-growth-mastery, youtube-thumbnail-mastery, social-media-research, youtube-research
 
 ---
@@ -74,6 +80,7 @@
 
 **Role:** All visual content creation (images, videos, graphics, animations)
 **Workflows Owned:**
+
 1. `create-single-image` - Generate single optimized image
    - **Triggers Skills:** create-image (via context: "generate {design_choice} image for {platform}"), platform-specs (via context loading platform requirements), linkedin-design or youtube-thumbnail-design (via design choice context)
    - **Updates Notion:** Adds image URL to page, keeps Status="Editing"
@@ -103,6 +110,7 @@
    - **Updates Notion:** Adds final video URL
 
 **Zoe Skill Dependencies:**
+
 - create-image, edit-image, blend-images, veotools-mastery, platform-specs, linkedin-design, youtube-thumbnail-design, mcp-tool-selection, generating-sid-images
 
 ---
@@ -138,6 +146,7 @@
    - **Updates Notion:** N/A (informational only)
 
 **Zoro Skill Dependencies:**
+
 - None (Zoro is pure API/MCP integration layer, no autonomous skills needed—validation and formatting logic embedded in workflow steps)
 
 ---
@@ -145,62 +154,75 @@
 ## Skill → Tool Mapping
 
 **deep-web-research Skill:**
+
 - **Tools Used:** WebSearch (free), Exa (neural search, $0.05-0.15), Firecrawl (web scraping with caching), Apify (platform scrapers)
 - **Apify Actors:** apify/instagram-scraper, clockworks/tiktok-scraper, apidojo/twitter-scraper-lite, apify/youtube-scraper
 - **Routing Logic:** depth=quick→WebSearch only, depth=standard→Exa, depth=comprehensive→Exa+Firecrawl, depth=exhaustive→Exa+Firecrawl+Apify (user approval required)
 - **Tool Evolution:** Current Apify actors documented as best practice (Oct 2025). If better scrapers emerge or current ones become unreliable, skill will update tool selection. Workflows calling this skill unaffected by tool changes.
 
 **post-writer Skill:**
+
 - **Tools Used:** None (pure Claude generation using learned voice + platform formulas)
 - **Methodologies:** Justin Welsh PAIPS (LinkedIn), Greg Isenberg questions (Twitter), Paul Graham essays (Substack)
 - **Tool Evolution:** May add MCP tools for grammar checking, SEO optimization, or A/B testing in future iterations
 
 **video-script-writer Skill:**
+
 - **Tools Used:** None (pure Claude generation using scriptwriting methodologies)
 - **Methodologies:** Ali Abdaal storytelling, MKBHD review structure, YouTube chapter timestamps
 - **Tool Evolution:** May integrate youtube-research skill for trending format analysis
 
 **profile-analysis Skill:**
+
 - **Tools Used:** Apify (platform scrapers), social-media-mcp (Brave + Perplexity for trends)
 - **Apify Actors:** apify/instagram-scraper (profile + posts + metrics), clockworks/tiktok-scraper (profile + videos), apidojo/twitter-scraper-lite (tweets + profile)
 - **Tool Evolution:** May add direct platform APIs (Instagram Graph API, TikTok Research API) if access granted. Current scrapers work but may need replacement as platforms change anti-bot measures.
 
 **voice-matcher Skill:**
+
 - **Tools Used:** None (pure Claude analysis of historical content)
 - **Data Source:** User's 77+ historical posts analyzed for patterns
 - **Tool Evolution:** May integrate sentiment analysis MCP or stylometry tools for deeper voice profiling
 
 **create-image Skill:**
+
 - **Tools Used:** nanobanana (Gemini 2.5 Flash, $0.002-0.004/image), gpt-image-1 (DALL-E 3, $0.04-0.08/image)
 - **Tool Selection:** Default to nanobanana for cost efficiency, use gpt-image-1 when quality >cost priority or when specific DALL-E features needed
 - **Tool Evolution:** Monitor new models (Imagen 4, Midjourney API if released, FLUX Kontext Pro via fal-video). Update based on quality/cost benchmarks.
 
 **edit-image Skill:**
+
 - **Tools Used:** nanobanana (edit mode), gpt-image-1 (edit mode)
 - **Tool Evolution:** May add Cloudinary transformation API for programmatic edits (crop, resize, filters)
 
 **blend-images Skill:**
+
 - **Tools Used:** nanobanana (multi-image input mode)
 - **Tool Evolution:** May add custom compositing if nanobanana blending quality insufficient
 
 **veotools-mastery Skill:**
+
 - **Tools Used:** veotools (Veo 3 via Google AI Studio), fal-video (Veo 3, Luma Ray 2, Kling 2.1, Pixverse V4.5, Sora 2 via Fal.ai), heygen (talking head avatars)
 - **Model Selection:** HeyGen for avatars ($0.20-0.50/min, high quality faces), Veo 3 for fast b-roll ($0.30-0.60/8sec), Fal-Video Luma/Kling for cinematic ($1-3/video)
 - **Tool Evolution:** Video generation rapidly improving. Currently Veo 3 best quality/cost for b-roll, but Sora 2, Kling 3, and others launching. Skill will benchmark and update model preferences quarterly based on quality/cost/speed.
 
 **youtube-thumbnail-mastery Skill:**
+
 - **Tools Used:** None (strategic knowledge: MrBeast 6 pillars, Thomas Frank AIDA, CTR psychology)
 - **Tool Evolution:** May integrate CTR prediction API or A/B testing data if available
 
 **linkedin-design Skill:**
+
 - **Tools Used:** None (design system knowledge: dark monochrome palette, typography rules, layout templates)
 - **Tool Evolution:** May formalize into Figma templates or Cloudinary transformation presets
 
 **research-synthesizer Skill:**
+
 - **Tools Used:** None (pure Claude synthesis of research findings)
 - **Tool Evolution:** May integrate citation management or fact-checking MCPs
 
 **platform-formatter Skill:**
+
 - **Tools Used:** None (formatting rules per platform)
 - **Tool Evolution:** May add HTML-to-markdown converters or platform-specific preview generators
 
@@ -215,6 +237,7 @@ Skills are **model-invoked**—Claude autonomously decides when to use them by m
 **Description Best Practices:**
 
 Each skill must have discovery-optimized description including:
+
 1. **What the skill does** (capabilities)
 2. **When to use it** (trigger conditions)
 3. **Key terms users/workflows mention** (discovery keywords)
@@ -222,30 +245,36 @@ Each skill must have discovery-optimized description including:
 **Examples from Current System:**
 
 **post-writer skill:**
+
 ```yaml
 ---
 name: post-writer
 description: Generate platform-optimized social media posts using proven formulas (Justin Welsh PAIPS for LinkedIn, Greg Isenberg questions for Twitter, Paul Graham essays for Substack). Use when creating LinkedIn posts, Twitter threads, Substack essays, or any social media content requiring voice-matched writing.
 ---
 ```
+
 **Triggers:** "LinkedIn post", "Twitter thread", "social media content", "voice-matched"
 
 **deep-web-research skill:**
+
 ```yaml
 ---
 name: deep-web-research
 description: Multi-tool research orchestrator using Exa neural search, Apify platform scrapers, Firecrawl web scraping, and WebSearch. Intelligently routes between tools based on depth parameter (quick=free, comprehensive=paid). Use when researching topics, gathering web data, analyzing trends, or scraping social media platforms.
 ---
 ```
+
 **Triggers:** "research", "web data", "Exa", "Apify", "scraping", "trends"
 
 **veotools-mastery skill:**
+
 ```yaml
 ---
 name: veotools-mastery
 description: Google Veo 2.0/3.0/3.1 video generation expertise for animating diagrams, creating b-roll scenes, and image-to-video conversion. Knows model selection (veo-3.1-fast for iteration, veo-3.1-standard for quality), aspect ratio optimization (16:9 YouTube, 9:16 Shorts), and async job management. Use when generating videos from images, animating diagrams, or creating b-roll footage.
 ---
 ```
+
 **Triggers:** "animate diagram", "video from image", "b-roll", "Veo"
 
 **Avoiding Skill Conflicts:**
@@ -271,6 +300,7 @@ description: Platform trend analysis for Twitter, LinkedIn, Instagram using soci
 When workflow step says: "Research {topic} with depth=comprehensive"
 
 Claude's discovery process:
+
 1. Analyzes context: task=research, depth=comprehensive, domain=web
 2. Scans available skills for description matches
 3. Finds: deep-web-research (description contains "research", "Exa", "Apify", "depth parameter")
@@ -279,6 +309,7 @@ Claude's discovery process:
 6. Returns research results to workflow
 
 **Workflow authors optimize for discovery by:**
+
 - Using specific task terminology ("research" not "find stuff")
 - Including parameters mentioned in skill descriptions ("depth=comprehensive" matches deep-web-research's "depth parameter")
 - Providing rich context (topic, platform, format) that skills can match against
@@ -288,6 +319,7 @@ Claude's discovery process:
 ## Notion Integration Architecture
 
 **Content Tracker Database:**
+
 - **Data Source URL:** `collection://956447a76e7b4b2eafb1e4c9adfcbcf3`
 - **Purpose:** Central hub for all content ideas, workflow status, and metadata
 - **Status Workflow:** Idea → Research → Next Up → Writing → Editing → Posted → Archived
@@ -297,6 +329,7 @@ Claude's discovery process:
   - Zoro: Reads from Posted (ready to publish), updates to Posted with Publish Date
 
 **Key Properties Used by Agents:**
+
 - **Name** (title) - Content title (Jarvis creates)
 - **Status** (status) - Workflow stage (all agents update)
 - **Channel** (relation) - Target platform(s) (Jarvis links, Zoro validates)
@@ -310,7 +343,8 @@ Claude's discovery process:
 - **Notes** (relation) - Research sources (Jarvis links research brief pages)
 
 **MCP Server:** Notion MCP (`@notionhq/notion-mcp-server`)
-- **Authentication:** Integration token (ntn_***) stored in Claude Code MCP settings
+
+- **Authentication:** Integration token (ntn\_\*\*\*) stored in Claude Code MCP settings
 - **Permissions:** Read content, Update content, Insert content
 - **Shared With:** Content Dashboard page + all child databases
 
@@ -322,12 +356,14 @@ Claude's discovery process:
 **Strategic Decision:** Use Postiz MCP as the unified publishing interface for all platforms (Twitter, LinkedIn, Instagram, Facebook, TikTok, YouTube), with direct APIs available only for urgent immediate posting when scheduling not appropriate.
 
 **Primary Use Cases:**
+
 1. **Schedule posts for future dates** (recommended default) - Queue content with optimal posting times
 2. **Multi-platform distribution** - Post to multiple platforms simultaneously from single interface
 3. **Unified queue management** - View all scheduled content in Postiz dashboard
 4. **Analytics tracking** - Centralized performance metrics (Views/Likes/Comments) across platforms
 
 **Integration Points:**
+
 - **Primary Workflow:** `schedule-post` workflow (Zoro's main publishing interface)
   - Handles: Twitter, LinkedIn, Instagram, Facebook, TikTok, YouTube
   - User specifies: platforms[], post_content, media_paths[], schedule_date (future timestamp or "next-free-slot")
@@ -338,6 +374,7 @@ Claude's discovery process:
   - Advantage: Full API feature access (Twitter Premium 25k chars, LinkedIn carousels), lower latency
 
 **Why Postiz Primary:**
+
 - **Consistency:** All platforms use same publishing interface (no switching between Twitter API, LinkedIn API, YouTube API)
 - **Batch efficiency:** Queue multiple posts across platforms in single session
 - **Optimal timing:** Schedule for best engagement times without manual posting
@@ -345,6 +382,7 @@ Claude's discovery process:
 - **Less complexity:** One integration to maintain vs 3+ separate APIs
 
 **MCP Server:** Postiz MCP (`mcp__postiz`)
+
 - **Tools Available:**
   - integrationList: Get connected platform accounts
   - integrationSchema: Get platform-specific requirements (char limits, media formats)
@@ -361,6 +399,7 @@ Claude's discovery process:
 
 **Repository Type:** Modular Monorepo
 **Structure:**
+
 ```
 /
 ├── .claude/
@@ -439,6 +478,7 @@ Claude's discovery process:
 ```
 
 **Design Principles:**
+
 - **Loose coupling:** Each agent folder is self-contained, can be added/removed independently
 - **No central registry:** Agents discovered via .claude/commands/, skills via .claude/skills/, no manifest files to update
 - **Dual location pattern:** Agent definitions in both .claude/commands/ (Claude Code reads) and bmad/agents/ (source of truth with workflows/config)
@@ -456,6 +496,7 @@ Claude's discovery process:
 **Testing Strategy:** Manual validation during MVP, automated testing in Phase 2
 
 **MVP Testing Approach:**
+
 1. **Unit testing:** Individual skill invocations (does post-writer generate content with voice >8/10?)
 2. **Workflow testing:** End-to-end workflow execution (does research-topic complete all steps without errors?)
 3. **Integration testing:** Agent handoffs (does Jarvis→Zoe→Zoro pipeline work with Notion status updates?)
@@ -463,11 +504,13 @@ Claude's discovery process:
 5. **Cost tracking:** Monitor actual vs estimated costs per workflow execution
 
 **Test Artifacts:**
+
 - Test session outputs in outputs/testing/{date}/
 - Tool performance log (cost, speed, quality scores)
 - Workflow success rate tracking (95% target)
 
 **Testing Cadence:**
+
 - **Daily:** Run 1-2 end-to-end pipelines with real content
 - **Weekly:** Review cost data, update tool selection if needed
 - **Monthly:** Audit workflow standardization compliance
@@ -477,12 +520,14 @@ Claude's discovery process:
 ## Additional Technical Assumptions
 
 **Data Persistence Strategy:**
+
 - **Transient (session):** outputs/{date}/{session}/ - cleared after 30 days or manually
 - **Persistent (config):** agent memories.md, voice profiles, preferences - version controlled in git
 - **Collaborative (Notion):** Content Tracker, channels, keywords, tasks - authoritative source, agents sync to it
 - **Hybrid (handoffs):** JSON packages saved to outputs/ AND summarized in Notion page properties
 
 **Tool Choice Philosophy:**
+
 - **Free-first:** Always try WebSearch, WebFetch before paid APIs
 - **Cost-conscious:** nanobanana ($0.002/image) before gpt-image-1 ($0.04/image) unless quality demands it
 - **User-approved:** Operations >$1 require explicit confirmation (video generation, exhaustive research)
@@ -490,6 +535,7 @@ Claude's discovery process:
 - **Abstracted in skills:** Workflows don't call tools directly, skills handle tool orchestration and can optimize over time
 
 **Notion vs Local Outputs Trade-off:**
+
 - **Notion advantages:** Shared workspace, status-driven collaboration, mobile access (check status on phone), analytics (Views/Likes), relational data (Keywords, Channels)
 - **Local outputs/ advantages:** Full artifacts (research briefs, multi-page content), version history (git tracked), no API dependencies, faster access
 - **MVP Approach:** Use both—Notion for status/metadata/coordination, local for complete artifacts. Notion pages link to local files via URLs when needed.

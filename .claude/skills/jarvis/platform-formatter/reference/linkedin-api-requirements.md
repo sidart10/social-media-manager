@@ -8,6 +8,7 @@
 **Escape Method:** Prefix with backslash `\`
 
 **Examples:**
+
 - `Hello (world)` → `Hello \(world\)`
 - `#hashtag` → `\#hashtag`
 - `@mention` → `\@mention`
@@ -17,13 +18,13 @@ See `scripts/platforms/linkedin.py` - `escape_little_text()` function
 
 ## Content Types
 
-| Type | Description | API Requirements |
-|------|-------------|------------------|
-| text | Plain text post | Escaped text |
-| image | Single image + text | Escaped text + Image URN |
+| Type        | Description          | API Requirements             |
+| ----------- | -------------------- | ---------------------------- |
+| text        | Plain text post      | Escaped text                 |
+| image       | Single image + text  | Escaped text + Image URN     |
 | multi_image | Carousel 2-20 images | Escaped text + Multiple URNs |
-| document | PDF/PPT/DOC + text | Escaped text + Document URN |
-| video | Video + text | Escaped text + Video URN |
+| document    | PDF/PPT/DOC + text   | Escaped text + Document URN  |
+| video       | Video + text         | Escaped text + Video URN     |
 
 ## Character Limits
 
@@ -41,6 +42,7 @@ See `scripts/platforms/linkedin.py` - `escape_little_text()` function
 `POST /rest/posts` (v202410+)
 
 **Payload Structure:**
+
 ```json
 {
   "author": "urn:li:person:{id}",

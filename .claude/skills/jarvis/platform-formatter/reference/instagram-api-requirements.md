@@ -8,6 +8,7 @@
 **API Field:** `media_product_type` = undefined OR not set
 
 **Payload:**
+
 ```json
 {
   "caption": "Your caption text",
@@ -28,6 +29,7 @@
 **Duration:** 3-90 seconds (some accounts limited to 60s)
 
 **Payload:**
+
 ```json
 {
   "caption": "Your caption",
@@ -39,6 +41,7 @@
 ```
 
 **Critical:**
+
 - Must set `media_type: "REELS"` explicitly
 - To differentiate from feed, check `media_product_type` on read
 
@@ -51,19 +54,18 @@
 **API Requirement:** Post as album
 
 **Payload:**
+
 ```json
 {
   "caption": "Your caption",
   "media_type": "CAROUSEL",
-  "children": [
-    "media_id_1",
-    "media_id_2"
-  ],
+  "children": ["media_id_1", "media_id_2"],
   "access_token": "..."
 }
 ```
 
 **Process:**
+
 1. Upload each image/video separately
 2. Get media IDs
 3. Create carousel with children array
@@ -79,10 +81,12 @@
 ## Media Requirements
 
 **Images:**
+
 - Format: JPEG only (via Graph API)
 - Size: 1080x1080 (square), 1080x1350 (portrait), 1080x566 (landscape)
 
 **Videos (Reels):**
+
 - Format: MP4 or MOV
 - Codec: H.264, AAC audio
 - Max size: 300 MB

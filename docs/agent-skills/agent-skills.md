@@ -6,8 +6,8 @@ This guide shows you how to create, use, and manage Agent Skills in Claude Code.
 
 ## Prerequisites
 
-* Claude Code version 1.0 or later
-* Basic familiarity with [Claude Code](/en/docs/claude-code/quickstart)
+- Claude Code version 1.0 or later
+- Basic familiarity with [Claude Code](/en/docs/claude-code/quickstart)
 
 ## What are Agent Skills?
 
@@ -17,10 +17,10 @@ Agent Skills package expertise into discoverable capabilities. Each Skill consis
 
 **Benefits**:
 
-* Extend Claude's capabilities for your specific workflows
-* Share expertise across your team via git
-* Reduce repetitive prompting
-* Compose multiple Skills for complex tasks
+- Extend Claude's capabilities for your specific workflows
+- Share expertise across your team via git
+- Reduce repetitive prompting
+- Compose multiple Skills for complex tasks
 
 Learn more in the [Agent Skills overview](/en/docs/agents-and-tools/agent-skills/overview).
 
@@ -42,9 +42,9 @@ mkdir -p ~/.claude/skills/my-skill-name
 
 **Use personal Skills for**:
 
-* Your individual workflows and preferences
-* Experimental Skills you're developing
-* Personal productivity tools
+- Your individual workflows and preferences
+- Experimental Skills you're developing
+- Personal productivity tools
 
 ### Project Skills
 
@@ -56,9 +56,9 @@ mkdir -p .claude/skills/my-skill-name
 
 **Use project Skills for**:
 
-* Team workflows and conventions
-* Project-specific expertise
-* Shared utilities and scripts
+- Team workflows and conventions
+- Project-specific expertise
+- Shared utilities and scripts
 
 Project Skills are checked into git and automatically available to team members.
 
@@ -87,8 +87,8 @@ Show concrete examples of using this Skill.
 
 **Field requirements**:
 
-* `name`: Must use lowercase letters, numbers, and hyphens only (max 64 characters)
-* `description`: Brief description of what the Skill does and when to use it (max 1024 characters)
+- `name`: Must use lowercase letters, numbers, and hyphens only (max 64 characters)
+- `description`: Brief description of what the Skill does and when to use it (max 1024 characters)
 
 The `description` field is critical for Claude to discover when to use your Skill. It should include both what the Skill does and when Claude should use it.
 
@@ -115,6 +115,7 @@ Reference these files from SKILL.md:
 For advanced usage, see [reference.md](reference.md).
 
 Run the helper script:
+
 ```bash
 python scripts/helper.py input.txt
 ```
@@ -145,9 +146,9 @@ This Skill provides read-only file access.
 
 When this Skill is active, Claude can only use the specified tools (Read, Grep, Glob) without needing to ask for permission. This is useful for:
 
-* Read-only Skills that shouldn't modify files
-* Skills with limited scope (e.g., only data analysis, no file writing)
-* Security-sensitive workflows where you want to restrict capabilities
+- Read-only Skills that shouldn't modify files
+- Skills with limited scope (e.g., only data analysis, no file writing)
+- Security-sensitive workflows where you want to restrict capabilities
 
 If `allowed-tools` is not specified, Claude will ask for permission to use tools as normal, following the standard permission model.
 
@@ -159,9 +160,9 @@ If `allowed-tools` is not specified, Claude will ask for permission to use tools
 
 Skills are automatically discovered by Claude from three sources:
 
-* Personal Skills: `~/.claude/skills/`
-* Project Skills: `.claude/skills/`
-* Plugin Skills: bundled with installed plugins
+- Personal Skills: `~/.claude/skills/`
+- Project Skills: `.claude/skills/`
+- Plugin Skills: bundled with installed plugins
 
 **To view all available Skills**, ask Claude directly:
 
@@ -247,9 +248,9 @@ cat SKILL.md | head -n 10
 
 Ensure:
 
-* Opening `---` on line 1
-* Closing `---` before Markdown content
-* Valid YAML syntax (no tabs, correct indentation)
+- Opening `---` on line 1
+- Closing `---` before Markdown content
+- Valid YAML syntax (no tabs, correct indentation)
 
 ### View errors
 
@@ -334,14 +335,14 @@ One Skill should address one capability:
 
 **Focused**:
 
-* "PDF form filling"
-* "Excel data analysis"
-* "Git commit messages"
+- "PDF form filling"
+- "Excel data analysis"
+- "Git commit messages"
 
 **Too broad**:
 
-* "Document processing" (split into separate Skills)
-* "Data tools" (split by data type or operation)
+- "Document processing" (split into separate Skills)
+- "Data tools" (split by data type or operation)
 
 ### Write clear descriptions
 
@@ -363,9 +364,9 @@ description: For files
 
 Have teammates use Skills and provide feedback:
 
-* Does the Skill activate when expected?
-* Are the instructions clear?
-* Are there missing examples or edge cases?
+- Does the Skill activate when expected?
+- Are the instructions clear?
+- Are there missing examples or edge cases?
 
 ### Document Skill versions
 
@@ -375,6 +376,7 @@ You can document Skill versions in your SKILL.md content to track changes over t
 # My Skill
 
 ## Version History
+
 - v2.0.0 (2025-10-01): Breaking changes to API
 - v1.1.0 (2025-09-15): Added new features
 - v1.0.0 (2025-09-01): Initial release
@@ -593,17 +595,17 @@ Claude loads additional files only when needed.
     Write Skills that Claude can use effectively
   </Card>
 
-  `<Card title="Agent Skills overview" icon="book" href="/en/docs/agents-and-tools/agent-skills/overview">`
-    Learn how Skills work across Claude products
-  `</Card>`
+`<Card title="Agent Skills overview" icon="book" href="/en/docs/agents-and-tools/agent-skills/overview">`
+Learn how Skills work across Claude products
+`</Card>`
 
-  `<Card title="Use Skills in the Agent SDK" icon="cube" href="/en/api/agent-sdk/skills">`
-    Use Skills programmatically with TypeScript and Python
-  `</Card>`
+`<Card title="Use Skills in the Agent SDK" icon="cube" href="/en/api/agent-sdk/skills">`
+Use Skills programmatically with TypeScript and Python
+`</Card>`
 
-  `<Card title="Get started with Agent Skills" icon="rocket" href="/en/docs/agents-and-tools/agent-skills/quickstart">`
-    Create your first Skill
-  `</Card>`
+`<Card title="Get started with Agent Skills" icon="rocket" href="/en/docs/agents-and-tools/agent-skills/quickstart">`
+Create your first Skill
+`</Card>`
 `</CardGroup>`
 
 # Agent Skills
@@ -614,8 +616,8 @@ This guide shows you how to create, use, and manage Agent Skills in Claude Code.
 
 ## Prerequisites
 
-* Claude Code version 1.0 or later
-* Basic familiarity with [Claude Code](/en/docs/claude-code/quickstart)
+- Claude Code version 1.0 or later
+- Basic familiarity with [Claude Code](/en/docs/claude-code/quickstart)
 
 ## What are Agent Skills?
 
@@ -625,10 +627,10 @@ Agent Skills package expertise into discoverable capabilities. Each Skill consis
 
 **Benefits**:
 
-* Extend Claude's capabilities for your specific workflows
-* Share expertise across your team via git
-* Reduce repetitive prompting
-* Compose multiple Skills for complex tasks
+- Extend Claude's capabilities for your specific workflows
+- Share expertise across your team via git
+- Reduce repetitive prompting
+- Compose multiple Skills for complex tasks
 
 Learn more in the [Agent Skills overview](/en/docs/agents-and-tools/agent-skills/overview).
 
@@ -650,9 +652,9 @@ mkdir -p ~/.claude/skills/my-skill-name
 
 **Use personal Skills for**:
 
-* Your individual workflows and preferences
-* Experimental Skills you're developing
-* Personal productivity tools
+- Your individual workflows and preferences
+- Experimental Skills you're developing
+- Personal productivity tools
 
 ### Project Skills
 
@@ -664,9 +666,9 @@ mkdir -p .claude/skills/my-skill-name
 
 **Use project Skills for**:
 
-* Team workflows and conventions
-* Project-specific expertise
-* Shared utilities and scripts
+- Team workflows and conventions
+- Project-specific expertise
+- Shared utilities and scripts
 
 Project Skills are checked into git and automatically available to team members.
 
@@ -695,8 +697,8 @@ Show concrete examples of using this Skill.
 
 **Field requirements**:
 
-* `name`: Must use lowercase letters, numbers, and hyphens only (max 64 characters)
-* `description`: Brief description of what the Skill does and when to use it (max 1024 characters)
+- `name`: Must use lowercase letters, numbers, and hyphens only (max 64 characters)
+- `description`: Brief description of what the Skill does and when to use it (max 1024 characters)
 
 The `description` field is critical for Claude to discover when to use your Skill. It should include both what the Skill does and when Claude should use it.
 
@@ -723,6 +725,7 @@ Reference these files from SKILL.md:
 For advanced usage, see [reference.md](reference.md).
 
 Run the helper script:
+
 ```bash
 python scripts/helper.py input.txt
 ```
@@ -753,9 +756,9 @@ This Skill provides read-only file access.
 
 When this Skill is active, Claude can only use the specified tools (Read, Grep, Glob) without needing to ask for permission. This is useful for:
 
-* Read-only Skills that shouldn't modify files
-* Skills with limited scope (e.g., only data analysis, no file writing)
-* Security-sensitive workflows where you want to restrict capabilities
+- Read-only Skills that shouldn't modify files
+- Skills with limited scope (e.g., only data analysis, no file writing)
+- Security-sensitive workflows where you want to restrict capabilities
 
 If `allowed-tools` is not specified, Claude will ask for permission to use tools as normal, following the standard permission model.
 
@@ -767,9 +770,9 @@ If `allowed-tools` is not specified, Claude will ask for permission to use tools
 
 Skills are automatically discovered by Claude from three sources:
 
-* Personal Skills: `~/.claude/skills/`
-* Project Skills: `.claude/skills/`
-* Plugin Skills: bundled with installed plugins
+- Personal Skills: `~/.claude/skills/`
+- Project Skills: `.claude/skills/`
+- Plugin Skills: bundled with installed plugins
 
 **To view all available Skills**, ask Claude directly:
 
@@ -855,9 +858,9 @@ cat SKILL.md | head -n 10
 
 Ensure:
 
-* Opening `---` on line 1
-* Closing `---` before Markdown content
-* Valid YAML syntax (no tabs, correct indentation)
+- Opening `---` on line 1
+- Closing `---` before Markdown content
+- Valid YAML syntax (no tabs, correct indentation)
 
 ### View errors
 
@@ -942,14 +945,14 @@ One Skill should address one capability:
 
 **Focused**:
 
-* "PDF form filling"
-* "Excel data analysis"
-* "Git commit messages"
+- "PDF form filling"
+- "Excel data analysis"
+- "Git commit messages"
 
 **Too broad**:
 
-* "Document processing" (split into separate Skills)
-* "Data tools" (split by data type or operation)
+- "Document processing" (split into separate Skills)
+- "Data tools" (split by data type or operation)
 
 ### Write clear descriptions
 
@@ -971,9 +974,9 @@ description: For files
 
 Have teammates use Skills and provide feedback:
 
-* Does the Skill activate when expected?
-* Are the instructions clear?
-* Are there missing examples or edge cases?
+- Does the Skill activate when expected?
+- Are the instructions clear?
+- Are there missing examples or edge cases?
 
 ### Document Skill versions
 
@@ -983,6 +986,7 @@ You can document Skill versions in your SKILL.md content to track changes over t
 # My Skill
 
 ## Version History
+
 - v2.0.0 (2025-10-01): Breaking changes to API
 - v1.1.0 (2025-09-15): Added new features
 - v1.0.0 (2025-09-01): Initial release
@@ -1201,19 +1205,18 @@ Claude loads additional files only when needed.
     Write Skills that Claude can use effectively
   </Card>
 
-  `<Card title="Agent Skills overview" icon="book" href="/en/docs/agents-and-tools/agent-skills/overview">`
-    Learn how Skills work across Claude products
-  `</Card>`
+`<Card title="Agent Skills overview" icon="book" href="/en/docs/agents-and-tools/agent-skills/overview">`
+Learn how Skills work across Claude products
+`</Card>`
 
-  `<Card title="Use Skills in the Agent SDK" icon="cube" href="/en/api/agent-sdk/skills">`
-    Use Skills programmatically with TypeScript and Python
-  `</Card>`
+`<Card title="Use Skills in the Agent SDK" icon="cube" href="/en/api/agent-sdk/skills">`
+Use Skills programmatically with TypeScript and Python
+`</Card>`
 
-  `<Card title="Get started with Agent Skills" icon="rocket" href="/en/docs/agents-and-tools/agent-skills/quickstart">`
-    Create your first Skill
-  `</Card>`
+`<Card title="Get started with Agent Skills" icon="rocket" href="/en/docs/agents-and-tools/agent-skills/quickstart">`
+Create your first Skill
+`</Card>`
 `</CardGroup>`
-
 
 # Get started with Agent Skills in the API
 
@@ -1223,18 +1226,18 @@ This tutorial shows you how to use Agent Skills to create a PowerPoint presentat
 
 ## Prerequisites
 
-* [Anthropic API key](https://console.anthropic.com/settings/keys)
-* Python 3.7+ or curl installed
-* Basic familiarity with making API requests
+- [Anthropic API key](https://console.anthropic.com/settings/keys)
+- Python 3.7+ or curl installed
+- Basic familiarity with making API requests
 
 ## What are Agent Skills?
 
 Pre-built Agent Skills extend Claude's capabilities with specialized expertise for tasks like creating documents, analyzing data, and processing files. Anthropic provides the following pre-built Agent Skills in the API:
 
-* **PowerPoint (pptx)**: Create and edit presentations
-* **Excel (xlsx)**: Create and analyze spreadsheets
-* **Word (docx)**: Create and edit documents
-* **PDF (pdf)**: Generate PDF documents
+- **PowerPoint (pptx)**: Create and edit presentations
+- **Excel (xlsx)**: Create and analyze spreadsheets
+- **Word (docx)**: Create and edit documents
+- **PDF (pdf)**: Generate PDF documents
 
 <Note>
   **Want to create custom Skills?** See the [Agent Skills Cookbook](https://github.com/anthropics/claude-cookbooks/tree/main/skills) for examples of building your own Skills with domain-specific expertise.
@@ -1248,19 +1251,19 @@ First, let's see what Skills are available. We'll use the Skills API to list all
   ```python Python theme={null}
   import anthropic
 
-  client = anthropic.Anthropic()
+client = anthropic.Anthropic()
 
 # List Anthropic-managed Skills
 
-  skills = client.beta.skills.list(
-      source="anthropic",
-      betas=["skills-2025-10-02"]
-  )
+skills = client.beta.skills.list(
+source="anthropic",
+betas=["skills-2025-10-02"]
+)
 
-  for skill in skills.data:
-      print(f"{skill.id}: {skill.display_title}")
+for skill in skills.data:
+print(f"{skill.id}: {skill.display_title}")
 
-```
+````
 
   ```typescript TypeScript theme={null}
   import Anthropic from '@anthropic-ai/sdk';
@@ -1276,7 +1279,7 @@ First, let's see what Skills are available. We'll use the Skills API to list all
   for (const skill of skills.data) {
     console.log(`${skill.id}: ${skill.display_title}`);
   }
-```
+````
 
 ```bash
   curl "https://api.anthropic.com/v1/skills?source=anthropic" \
@@ -1299,36 +1302,36 @@ Now we'll use the PowerPoint Skill to create a presentation about renewable ener
   ```python Python theme={null}
   import anthropic
 
-  client = anthropic.Anthropic()
+client = anthropic.Anthropic()
 
 # Create a message with the PowerPoint Skill
 
-  response = client.beta.messages.create(
-      model="claude-sonnet-4-5-20250929",
-      max_tokens=4096,
-      betas=["code-execution-2025-08-25", "skills-2025-10-02"],
-      container={
-          "skills": [
-              {
-                  "type": "anthropic",
-                  "skill_id": "pptx",
-                  "version": "latest"
-              }
-          ]
-      },
-      messages=[{
-          "role": "user",
-          "content": "Create a presentation about renewable energy with 5 slides"
-      }],
-      tools=[{
-          "type": "code_execution_20250825",
-          "name": "code_execution"
-      }]
-  )
+response = client.beta.messages.create(
+model="claude-sonnet-4-5-20250929",
+max_tokens=4096,
+betas=["code-execution-2025-08-25", "skills-2025-10-02"],
+container={
+"skills": [
+{
+"type": "anthropic",
+"skill_id": "pptx",
+"version": "latest"
+}
+]
+},
+messages=[{
+"role": "user",
+"content": "Create a presentation about renewable energy with 5 slides"
+}],
+tools=[{
+"type": "code_execution_20250825",
+"name": "code_execution"
+}]
+)
 
-  print(response.content)
+print(response.content)
 
-```
+````
 
   ```typescript TypeScript theme={null}
   import Anthropic from '@anthropic-ai/sdk';
@@ -1360,7 +1363,7 @@ Now we'll use the PowerPoint Skill to create a presentation about renewable ener
   });
 
   console.log(response.content);
-```
+````
 
 ```bash
   curl https://api.anthropic.com/v1/messages \
@@ -1395,12 +1398,12 @@ Now we'll use the PowerPoint Skill to create a presentation about renewable ener
 
 Let's break down what each part does:
 
-* **`container.skills`**: Specifies which Skills Claude can use
-* **`type: "anthropic"`**: Indicates this is an Anthropic-managed Skill
-* **`skill_id: "pptx"`**: The PowerPoint Skill identifier
-* **`version: "latest"`**: The Skill version set to the most recently published
-* **`tools`**: Enables code execution (required for Skills)
-* **Beta headers**: `code-execution-2025-08-25` and `skills-2025-10-02`
+- **`container.skills`**: Specifies which Skills Claude can use
+- **`type: "anthropic"`**: Indicates this is an Anthropic-managed Skill
+- **`skill_id: "pptx"`**: The PowerPoint Skill identifier
+- **`version: "latest"`**: The Skill version set to the most recently published
+- **`tools`**: Enables code execution (required for Skills)
+- **Beta headers**: `code-execution-2025-08-25` and `skills-2025-10-02`
 
 When you make this request, Claude automatically matches your task to the relevant Skill. Since you asked for a presentation, Claude determines the PowerPoint Skill is relevant and loads its full instructions: the second level of progressive disclosure. Then Claude executes the Skill's code to create your presentation.
 
@@ -1420,12 +1423,11 @@ The presentation was created in the code execution container and saved as a file
                   file_id = result_block.file_id
                   break
 
-  if file_id:
-      # Download the file
-      file_content = client.beta.files.download(
-          file_id=file_id,
-          betas=["files-api-2025-04-14"]
-      )
+if file_id: # Download the file
+file_content = client.beta.files.download(
+file_id=file_id,
+betas=["files-api-2025-04-14"]
+)
 
     # Save to disk
       with open("renewable_energy.pptx", "wb") as f:
@@ -1433,7 +1435,7 @@ The presentation was created in the code execution container and saved as a file
 
     print(f"Presentation saved to renewable_energy.pptx")
 
-```
+````
 
   ```typescript TypeScript theme={null}
   // Extract file ID from response
@@ -1462,7 +1464,7 @@ The presentation was created in the code execution container and saved as a file
 
     console.log('Presentation saved to renewable_energy.pptx');
   }
-```
+````
 
 ```bash
   # Extract file_id from response (using jq)
@@ -1517,28 +1519,32 @@ Now that you've created your first document with Skills, try these variations:
   ```
 
 ```typescript
-  const response = await client.beta.messages.create({
-    model: 'claude-sonnet-4-5-20250929',
-    max_tokens: 4096,
-    betas: ['code-execution-2025-08-25', 'skills-2025-10-02'],
-    container: {
-      skills: [
-        {
-          type: 'anthropic',
-          skill_id: 'xlsx',
-          version: 'latest'
-        }
-      ]
-    },
-    messages: [{
+const response = await client.beta.messages.create({
+  model: 'claude-sonnet-4-5-20250929',
+  max_tokens: 4096,
+  betas: ['code-execution-2025-08-25', 'skills-2025-10-02'],
+  container: {
+    skills: [
+      {
+        type: 'anthropic',
+        skill_id: 'xlsx',
+        version: 'latest',
+      },
+    ],
+  },
+  messages: [
+    {
       role: 'user',
-      content: 'Create a quarterly sales tracking spreadsheet with sample data'
-    }],
-    tools: [{
+      content: 'Create a quarterly sales tracking spreadsheet with sample data',
+    },
+  ],
+  tools: [
+    {
       type: 'code_execution_20250825',
-      name: 'code_execution'
-    }]
-  });
+      name: 'code_execution',
+    },
+  ],
+});
 ```
 
 ```bash
@@ -1601,28 +1607,32 @@ Now that you've created your first document with Skills, try these variations:
   ```
 
 ```typescript
-  const response = await client.beta.messages.create({
-    model: 'claude-sonnet-4-5-20250929',
-    max_tokens: 4096,
-    betas: ['code-execution-2025-08-25', 'skills-2025-10-02'],
-    container: {
-      skills: [
-        {
-          type: 'anthropic',
-          skill_id: 'docx',
-          version: 'latest'
-        }
-      ]
-    },
-    messages: [{
+const response = await client.beta.messages.create({
+  model: 'claude-sonnet-4-5-20250929',
+  max_tokens: 4096,
+  betas: ['code-execution-2025-08-25', 'skills-2025-10-02'],
+  container: {
+    skills: [
+      {
+        type: 'anthropic',
+        skill_id: 'docx',
+        version: 'latest',
+      },
+    ],
+  },
+  messages: [
+    {
       role: 'user',
-      content: 'Write a 2-page report on the benefits of renewable energy'
-    }],
-    tools: [{
+      content: 'Write a 2-page report on the benefits of renewable energy',
+    },
+  ],
+  tools: [
+    {
       type: 'code_execution_20250825',
-      name: 'code_execution'
-    }]
-  });
+      name: 'code_execution',
+    },
+  ],
+});
 ```
 
 ```bash
@@ -1685,28 +1695,32 @@ Now that you've created your first document with Skills, try these variations:
   ```
 
 ```typescript
-  const response = await client.beta.messages.create({
-    model: 'claude-sonnet-4-5-20250929',
-    max_tokens: 4096,
-    betas: ['code-execution-2025-08-25', 'skills-2025-10-02'],
-    container: {
-      skills: [
-        {
-          type: 'anthropic',
-          skill_id: 'pdf',
-          version: 'latest'
-        }
-      ]
-    },
-    messages: [{
+const response = await client.beta.messages.create({
+  model: 'claude-sonnet-4-5-20250929',
+  max_tokens: 4096,
+  betas: ['code-execution-2025-08-25', 'skills-2025-10-02'],
+  container: {
+    skills: [
+      {
+        type: 'anthropic',
+        skill_id: 'pdf',
+        version: 'latest',
+      },
+    ],
+  },
+  messages: [
+    {
       role: 'user',
-      content: 'Generate a PDF invoice template'
-    }],
-    tools: [{
+      content: 'Generate a PDF invoice template',
+    },
+  ],
+  tools: [
+    {
       type: 'code_execution_20250825',
-      name: 'code_execution'
-    }]
-  });
+      name: 'code_execution',
+    },
+  ],
+});
 ```
 
 ```bash
@@ -1749,27 +1763,26 @@ Now that you've used pre-built Agent Skills, you can:
     Use Skills with the Claude API
   </Card>
 
-  `<Card title="Create Custom Skills" icon="code" href="/en/api/skills/create-skill">`
-    Upload your own Skills for specialized tasks
-  `</Card>`
+`<Card title="Create Custom Skills" icon="code" href="/en/api/skills/create-skill">`
+Upload your own Skills for specialized tasks
+`</Card>`
 
-  `<Card title="Authoring Guide" icon="pen" href="/en/docs/agents-and-tools/agent-skills/best-practices">`
-    Learn best practices for writing effective Skills
-  `</Card>`
+`<Card title="Authoring Guide" icon="pen" href="/en/docs/agents-and-tools/agent-skills/best-practices">`
+Learn best practices for writing effective Skills
+`</Card>`
 
-  `<Card title="Use Skills in Claude Code" icon="terminal" href="/en/docs/claude-code/skills">`
-    Learn about Skills in Claude Code
-  `</Card>`
+`<Card title="Use Skills in Claude Code" icon="terminal" href="/en/docs/claude-code/skills">`
+Learn about Skills in Claude Code
+`</Card>`
 
-  `<Card title="Use Skills in the Agent SDK" icon="cube" href="/en/api/agent-sdk/skills">`
-    Use Skills programmatically in TypeScript and Python
-  `</Card>`
+`<Card title="Use Skills in the Agent SDK" icon="cube" href="/en/api/agent-sdk/skills">`
+Use Skills programmatically in TypeScript and Python
+`</Card>`
 
-  `<Card title="Agent Skills Cookbook" icon="book-open" href="https://github.com/anthropics/anthropic-cookbook/blob/main/skills/README.md">`
-    Explore example Skills and implementation patterns
-  `</Card>`
+`<Card title="Agent Skills Cookbook" icon="book-open" href="https://github.com/anthropics/anthropic-cookbook/blob/main/skills/README.md">`
+Explore example Skills and implementation patterns
+`</Card>`
 `</CardGroup>`
-
 
 # Agent Skills
 
@@ -1779,8 +1792,8 @@ This guide shows you how to create, use, and manage Agent Skills in Claude Code.
 
 ## Prerequisites
 
-* Claude Code version 1.0 or later
-* Basic familiarity with [Claude Code](/en/docs/claude-code/quickstart)
+- Claude Code version 1.0 or later
+- Basic familiarity with [Claude Code](/en/docs/claude-code/quickstart)
 
 ## What are Agent Skills?
 
@@ -1790,10 +1803,10 @@ Agent Skills package expertise into discoverable capabilities. Each Skill consis
 
 **Benefits**:
 
-* Extend Claude's capabilities for your specific workflows
-* Share expertise across your team via git
-* Reduce repetitive prompting
-* Compose multiple Skills for complex tasks
+- Extend Claude's capabilities for your specific workflows
+- Share expertise across your team via git
+- Reduce repetitive prompting
+- Compose multiple Skills for complex tasks
 
 Learn more in the [Agent Skills overview](/en/docs/agents-and-tools/agent-skills/overview).
 
@@ -1815,9 +1828,9 @@ mkdir -p ~/.claude/skills/my-skill-name
 
 **Use personal Skills for**:
 
-* Your individual workflows and preferences
-* Experimental Skills you're developing
-* Personal productivity tools
+- Your individual workflows and preferences
+- Experimental Skills you're developing
+- Personal productivity tools
 
 ### Project Skills
 
@@ -1829,9 +1842,9 @@ mkdir -p .claude/skills/my-skill-name
 
 **Use project Skills for**:
 
-* Team workflows and conventions
-* Project-specific expertise
-* Shared utilities and scripts
+- Team workflows and conventions
+- Project-specific expertise
+- Shared utilities and scripts
 
 Project Skills are checked into git and automatically available to team members.
 
@@ -1860,8 +1873,8 @@ Show concrete examples of using this Skill.
 
 **Field requirements**:
 
-* `name`: Must use lowercase letters, numbers, and hyphens only (max 64 characters)
-* `description`: Brief description of what the Skill does and when to use it (max 1024 characters)
+- `name`: Must use lowercase letters, numbers, and hyphens only (max 64 characters)
+- `description`: Brief description of what the Skill does and when to use it (max 1024 characters)
 
 The `description` field is critical for Claude to discover when to use your Skill. It should include both what the Skill does and when Claude should use it.
 
@@ -1888,6 +1901,7 @@ Reference these files from SKILL.md:
 For advanced usage, see [reference.md](reference.md).
 
 Run the helper script:
+
 ```bash
 python scripts/helper.py input.txt
 ```
@@ -1918,9 +1932,9 @@ This Skill provides read-only file access.
 
 When this Skill is active, Claude can only use the specified tools (Read, Grep, Glob) without needing to ask for permission. This is useful for:
 
-* Read-only Skills that shouldn't modify files
-* Skills with limited scope (e.g., only data analysis, no file writing)
-* Security-sensitive workflows where you want to restrict capabilities
+- Read-only Skills that shouldn't modify files
+- Skills with limited scope (e.g., only data analysis, no file writing)
+- Security-sensitive workflows where you want to restrict capabilities
 
 If `allowed-tools` is not specified, Claude will ask for permission to use tools as normal, following the standard permission model.
 
@@ -1932,9 +1946,9 @@ If `allowed-tools` is not specified, Claude will ask for permission to use tools
 
 Skills are automatically discovered by Claude from three sources:
 
-* Personal Skills: `~/.claude/skills/`
-* Project Skills: `.claude/skills/`
-* Plugin Skills: bundled with installed plugins
+- Personal Skills: `~/.claude/skills/`
+- Project Skills: `.claude/skills/`
+- Plugin Skills: bundled with installed plugins
 
 **To view all available Skills**, ask Claude directly:
 
@@ -2020,9 +2034,9 @@ cat SKILL.md | head -n 10
 
 Ensure:
 
-* Opening `---` on line 1
-* Closing `---` before Markdown content
-* Valid YAML syntax (no tabs, correct indentation)
+- Opening `---` on line 1
+- Closing `---` before Markdown content
+- Valid YAML syntax (no tabs, correct indentation)
 
 ### View errors
 
@@ -2107,14 +2121,14 @@ One Skill should address one capability:
 
 **Focused**:
 
-* "PDF form filling"
-* "Excel data analysis"
-* "Git commit messages"
+- "PDF form filling"
+- "Excel data analysis"
+- "Git commit messages"
 
 **Too broad**:
 
-* "Document processing" (split into separate Skills)
-* "Data tools" (split by data type or operation)
+- "Document processing" (split into separate Skills)
+- "Data tools" (split by data type or operation)
 
 ### Write clear descriptions
 
@@ -2136,9 +2150,9 @@ description: For files
 
 Have teammates use Skills and provide feedback:
 
-* Does the Skill activate when expected?
-* Are the instructions clear?
-* Are there missing examples or edge cases?
+- Does the Skill activate when expected?
+- Are the instructions clear?
+- Are there missing examples or edge cases?
 
 ### Document Skill versions
 
@@ -2148,6 +2162,7 @@ You can document Skill versions in your SKILL.md content to track changes over t
 # My Skill
 
 ## Version History
+
 - v2.0.0 (2025-10-01): Breaking changes to API
 - v1.1.0 (2025-09-15): Added new features
 - v1.0.0 (2025-09-01): Initial release
@@ -2366,15 +2381,15 @@ Claude loads additional files only when needed.
     Write Skills that Claude can use effectively
   </Card>
 
-  `<Card title="Agent Skills overview" icon="book" href="/en/docs/agents-and-tools/agent-skills/overview">`
-    Learn how Skills work across Claude products
-  `</Card>`
+`<Card title="Agent Skills overview" icon="book" href="/en/docs/agents-and-tools/agent-skills/overview">`
+Learn how Skills work across Claude products
+`</Card>`
 
-  `<Card title="Use Skills in the Agent SDK" icon="cube" href="/en/api/agent-sdk/skills">`
-    Use Skills programmatically with TypeScript and Python
-  `</Card>`
+`<Card title="Use Skills in the Agent SDK" icon="cube" href="/en/api/agent-sdk/skills">`
+Use Skills programmatically with TypeScript and Python
+`</Card>`
 
-  `<Card title="Get started with Agent Skills" icon="rocket" href="/en/docs/agents-and-tools/agent-skills/quickstart">`
-    Create your first Skill
-  `</Card>`
+`<Card title="Get started with Agent Skills" icon="rocket" href="/en/docs/agents-and-tools/agent-skills/quickstart">`
+Create your first Skill
+`</Card>`
 `</CardGroup>`

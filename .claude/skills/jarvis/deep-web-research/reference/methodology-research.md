@@ -11,6 +11,7 @@
 Deep web research has evolved from basic Google searches to sophisticated multi-layered intelligence operations. The 2025 landscape combines traditional OSINT (Open Source Intelligence) methodologies with AI-powered research agents, creating hybrid systems that can process months of research in minutes while maintaining investigative rigor.
 
 **Key Findings:**
+
 - OSINT is a structured methodology, not passive collection
 - AI research agents work best with simple, composable patterns (Anthropic)
 - Multi-source synthesis is critical (cross-platform correlation)
@@ -29,18 +30,21 @@ Deep web research has evolved from basic Google searches to sophisticated multi-
 **The Process:**
 
 **Step 1: IDENTIFY**
+
 - Define intelligence objectives
 - Specify requirements
 - Determine success criteria
 - Identify target sources
 
 **Step 2: COLLECT**
+
 - Surface web: Search engines, public websites, social media
 - Deep web: Databases, subscription sites, unindexed forums
 - Dark web: Tor networks, .onion domains, hidden services
 - Public records: Government filings, legal documents, patents
 
 **Step 3: PROCESS**
+
 - Filter irrelevant data
 - Organize by category
 - Standardize formats
@@ -48,6 +52,7 @@ Deep web research has evolved from basic Google searches to sophisticated multi-
 - Tag by source quality
 
 **Step 4: ANALYZE**
+
 - Extract patterns and trends
 - Identify relationships and connections
 - Detect anomalies
@@ -55,6 +60,7 @@ Deep web research has evolved from basic Google searches to sophisticated multi-
 - Assess source credibility
 
 **Step 5: DISSEMINATE**
+
 - Present in actionable format
 - Include source citations
 - Provide confidence scores
@@ -63,6 +69,7 @@ Deep web research has evolved from basic Google searches to sophisticated multi-
 
 **Application to deep-web-research skill:**
 This framework maps directly to the skill's depth levels:
+
 - Quick = Steps 1-2 (identify + collect surface web)
 - Standard = Steps 1-3 (+ basic processing)
 - Comprehensive = Steps 1-4 (+ analysis)
@@ -81,16 +88,19 @@ Stitching together fragmented online personas by matching subtle clues across mu
 **Implementation:**
 
 **Phase 1: Seed Identification**
+
 - Start with known data point (username, email, handle)
 - Identify primary platform presence
 
 **Phase 2: Variation Scanning**
+
 - Search for username variations:
   - "john_doe" → "johndoe" → "j.doe" → "john.doe"
   - Case variations, punctuation changes
   - Platform-specific adaptations
 
 **Phase 3: Pattern Matching**
+
 - **Temporal patterns:** Posting times indicate time zones
 - **Linguistic patterns:** Writing style, vocabulary, grammar
 - **Interest patterns:** Topics, hashtags, groups
@@ -98,18 +108,21 @@ Stitching together fragmented online personas by matching subtle clues across mu
 - **Bio patterns:** Similar phrasing across platforms
 
 **Phase 4: Connection Mapping**
+
 - Link accounts with high confidence scores
 - Build comprehensive digital footprint
 - Identify relationships and networks
 - Map influence and reach
 
 **Value:**
+
 - Reveals hidden connections
 - Uncovers complete identity picture
 - Discovers behavioral patterns
 - Enables predictive analysis
 
 **Tools:**
+
 - Username search engines (Sherlock, WhatsMyName)
 - Social media scrapers (platform-specific APIs)
 - Pattern matching algorithms
@@ -117,6 +130,7 @@ Stitching together fragmented online personas by matching subtle clues across mu
 
 **Application to deep-web-research:**
 When researching individuals or organizations, use this technique to:
+
 - Gather from multiple platforms simultaneously
 - Cross-reference findings
 - Build complete intelligence picture
@@ -131,12 +145,14 @@ When researching individuals or organizations, use this technique to:
 **Internet Layers:**
 
 **Surface Web (<5% of internet)**
+
 - Indexed by standard search engines
 - Readily accessible
 - Examples: Public websites, news, social media
 - Intelligence value: LOW for covert activities
 
 **Deep Web (Unindexed content)**
+
 - Not indexed by traditional search engines
 - Requires specific access (login, subscription, direct URL)
 - Examples:
@@ -149,6 +165,7 @@ When researching individuals or organizations, use this technique to:
 - Intelligence value: MEDIUM (bridge between open and clandestine)
 
 **Dark Web (Intentionally hidden)**
+
 - Accessible only through anonymizing technologies
 - Technologies: Tor Browser, I2P (Invisible Internet Project)
 - Domains: .onion (Tor), .i2p
@@ -162,12 +179,14 @@ When researching individuals or organizations, use this technique to:
 **Intelligence Objectives:**
 
 **Counterterrorism:**
+
 - Monitor extremist group communications
 - Track propaganda dissemination
 - Identify planning activities
 - Detect recruitment and radicalization
 
 **Cyber Threat Intelligence:**
+
 - Track exploit kits and malware toolkits
 - Monitor ransomware-as-a-service offerings
 - Find breach data and leaked credentials
@@ -175,12 +194,14 @@ When researching individuals or organizations, use this technique to:
 - Profile threat actors and tradecraft
 
 **Operational Security:**
+
 - Use anonymizing technologies (VPNs, Tor)
 - Maintain operational security (OPSEC)
 - Document evidence chain
 - Follow legal frameworks
 
 **Application to deep-web-research:**
+
 - Tier 1: Surface web (WebSearch, Exa)
 - Tier 2: Deep web (Apify deep scraping, API access)
 - Tier 3: Dark web (specialized tools - future enhancement)
@@ -197,6 +218,7 @@ When researching individuals or organizations, use this technique to:
 **Workflow vs Agent:**
 
 **Workflows** (Recommended for most use cases):
+
 - LLMs orchestrated through predefined code paths
 - Predictable execution
 - Easier to debug
@@ -204,6 +226,7 @@ When researching individuals or organizations, use this technique to:
 - Best for: Well-defined tasks, production systems
 
 **Agents** (Use sparingly):
+
 - LLMs dynamically direct own processes
 - Flexible but unpredictable
 - Higher latency and cost
@@ -218,6 +241,7 @@ Last resort: Full agent (dynamic control)
 ```
 
 **Best Practices:**
+
 1. **Simplest solution** - Don't over-engineer
 2. **Composable patterns** - Build modular, reusable components
 3. **Avoid frameworks** unless they add clear value
@@ -225,6 +249,7 @@ Last resort: Full agent (dynamic control)
 5. **Measure tradeoffs** - Latency/cost vs task performance
 
 **Application to deep-web-research:**
+
 - Use **workflow pattern** (skill orchestrates tool selection)
 - Not full agent (skill doesn't need LLM to decide everything)
 - Simple, composable (Exa → Apify → Archon → WebSearch fallback chain)
@@ -261,12 +286,14 @@ Last resort: Full agent (dynamic control)
    - Output: Delegated sub-tasks
 
 **Benefits:**
+
 - Parallelized reasoning (faster)
 - Specialized expertise (more accurate)
 - Scalable processing (handle complex tasks)
 - Clear explainability (trace delegation path)
 
 **Chain-of-Thought (CoT) Prompting:**
+
 - Agents "think out loud" through reasoning process
 - Improves accuracy on complex problems
 - Makes decision process transparent
@@ -274,6 +301,7 @@ Last resort: Full agent (dynamic control)
 
 **Application to deep-web-research:**
 Map MCP tools to agent roles:
+
 - **Retrieval:** Exa (neural search), WebSearch (fallback)
 - **Analysis:** Apify (deep scraping), WebFetch (detail extraction)
 - **Summary:** Archon RAG (synthesize with existing knowledge)
@@ -286,6 +314,7 @@ Map MCP tools to agent roles:
 **Synthesized from OSINT best practices**
 
 **High Confidence Sources:**
+
 - .edu domains (academic institutions)
 - .gov domains (government agencies)
 - Major publications (WSJ, NYT, Reuters)
@@ -295,6 +324,7 @@ Map MCP tools to agent roles:
 - Recent (<3 months for fast-moving topics)
 
 **Medium Confidence Sources:**
+
 - Established tech blogs (TechCrunch, Wired)
 - Medium articles from verified authors
 - GitHub documentation
@@ -302,6 +332,7 @@ Map MCP tools to agent roles:
 - Recent (3-6 months old)
 
 **Low Confidence Sources:**
+
 - Personal blogs (unverified)
 - Old articles (>6 months for tech topics)
 - No author attribution
@@ -309,6 +340,7 @@ Map MCP tools to agent roles:
 - Questionable credibility
 
 **Verification Tactics:**
+
 - **Triangulation:** Confirm from 3+ independent sources
 - **Author credentials:** Check expertise and bias
 - **Publication date:** Assess recency and relevance
@@ -351,12 +383,14 @@ Based on this research, consider:
 ## Conclusion
 
 Deep web research in 2025 combines:
+
 - **OSINT rigor** (5-step framework, source verification)
 - **AI power** (multi-source synthesis, pattern detection)
 - **Simple architecture** (Anthropic's composable patterns)
 - **Intelligent orchestration** (tool routing and fallbacks)
 
 **The deep-web-research skill embodies these principles:**
+
 - ✅ Follows OSINT framework (identify → collect → process → analyze → disseminate)
 - ✅ Uses simple workflow pattern (not over-complicated)
 - ✅ Multi-tool delegation (specialized tools for different needs)

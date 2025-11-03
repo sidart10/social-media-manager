@@ -39,7 +39,9 @@ Input: `{example-input}`
 
 Output:
 ```
+
 {example-output}
+
 ```
 
 **Example 2: {scenario-name}**
@@ -240,18 +242,21 @@ When {task-type}:
 ## Template Selection Guide
 
 **Use Basic Template when:**
+
 - Simple utility skill
 - No research needed
 - Generic task
 - User provides all knowledge
 
 **Use Medium Template when:**
+
 - Multiple methods/approaches
 - Need examples for each
 - Moderate complexity
 - Some existing knowledge
 
 **Use Research-Enhanced Template when:**
+
 - Complex domain
 - Research conducted
 - Multiple sources synthesized

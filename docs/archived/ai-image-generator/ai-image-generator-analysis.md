@@ -11,6 +11,7 @@
 **Your observation:** Skills more mature than workflows ✅ CORRECT!
 
 **The situation:**
+
 - ✅ **Skills:** 8 well-designed, mature, comprehensive
 - ⚠️ **Agent:** Mixed knowledge with orchestration
 - ❌ **Workflows:** NO workflows in sidecar! (Only 5 in agent root)
@@ -24,6 +25,7 @@
 
 **1. Command file:**
 `.claude/commands/ai-image-generator/ai-image-generator.md`
+
 - 118 lines
 - Has activation steps
 - References skills
@@ -31,6 +33,7 @@
 
 **2. Agent manifest:**
 `bmad/agents/ai-image-generator/ai-image-generator.agent.yaml`
+
 - Clean YAML structure
 - Defines menu
 - References workflows
@@ -38,6 +41,7 @@
 
 **3. Sidecar instructions:**
 `bmad/agents/ai-image-generator/ai-image-generator-sidecar/instructions.md`
+
 - 710 lines (HUGE!)
 - MCP tool guides
 - API constraints
@@ -80,6 +84,7 @@ bmad/agents/ai-image-generator/workflows/
 ```
 
 **All have:**
+
 - ✅ Proper YAML frontmatter
 - ✅ Clear descriptions
 - ✅ Detailed instructions
@@ -95,23 +100,28 @@ bmad/agents/ai-image-generator/workflows/
 ### What's in BOTH Agent Instructions AND Skills
 
 **Emily JSON Methodology:**
+
 - ❌ Duplicated in: instructions.md (lines 1-100)
 - ✅ Already in: create-image/SKILL.md
 - ❌ Duplicated in: sid-ai-images/SKILL.md
 
 **MCP Tool Selection:**
+
 - ❌ Duplicated in: instructions.md (lines 12-45)
 - ✅ Already in: mcp-tool-selection/SKILL.md
 
 **Quality Framework:**
+
 - ❌ Duplicated in: instructions.md
 - ✅ Already in: create-image/reference/quality-framework.md
 
 **Platform Specs:**
+
 - ❌ Duplicated in: instructions.md
 - ✅ Already in: platform-specs/SKILL.md
 
 **API Constraints:**
+
 - ❌ In instructions.md (66-100)
 - ✅ Should be in: mcp-tool-selection or create-image skills
 
@@ -154,6 +164,7 @@ Better: Workflows are lean YAML only!
 ### Skills Are More Mature!
 
 **create-image skill:**
+
 - ✅ Complete Emily JSON methodology
 - ✅ 7-pillar quality framework
 - ✅ Tool selection logic
@@ -168,6 +179,7 @@ Better: Workflows are lean YAML only!
 ### Agent Instructions Are Bloated
 
 **instructions.md (710 lines) contains:**
+
 - MCP tool guides (should be in skills!)
 - API constraints (should be in skills!)
 - Emily methodology (already in create-image skill!)
@@ -184,11 +196,13 @@ Better: Workflows are lean YAML only!
 ### Why AI Image Generator is Easier to Refactor
 
 **Jarvis problem:**
+
 - Knowledge in workflow instructions.md files (hard to extract)
 - 7 separate instruction files
 - 5,817 lines to refactor
 
 **AI Image Generator advantage:**
+
 - ✅ Knowledge in ONE place (sidecar/instructions.md)
 - ✅ Skills already comprehensive
 - ✅ Workflows are lean YAML (no instructions.md!)
@@ -205,6 +219,7 @@ Better: Workflows are lean YAML only!
 **Current:** instructions.md (710 lines)
 
 **Remove (already in skills):**
+
 - Emily JSON methodology → create-image skill has this
 - MCP tool details → mcp-tool-selection skill has this
 - Quality framework → create-image/reference/quality-framework.md
@@ -212,6 +227,7 @@ Better: Workflows are lean YAML only!
 - Negative prompts → create-image/reference/
 
 **Keep (orchestration only):**
+
 - Workflow execution steps
 - File I/O instructions
 - Output management rules
@@ -226,6 +242,7 @@ Better: Workflows are lean YAML only!
 **Current:** ai-image-generator.md (118 lines)
 
 **Simplify activation steps:**
+
 ```xml
 <step n="4">🆕 SKILLS ARCHITECTURE:
   All image generation uses skills from .claude/skills/ai-image-generator/
@@ -248,6 +265,7 @@ Better: Workflows are lean YAML only!
 **Current workflows are ALREADY clean! (Just YAML)**
 
 **Just add notes:**
+
 ```yaml
 # Uses create-image skill (model-invoked)
 # Skill handles: Emily JSON, tool selection, quality framework
@@ -259,14 +277,14 @@ Better: Workflows are lean YAML only!
 
 ## Comparison Table
 
-| Component | Jarvis | AI Image Generator |
-|-----------|--------|-------------------|
-| **Agent instructions** | Complex (split) | Bloated but centralized |
+| Component                 | Jarvis               | AI Image Generator      |
+| ------------------------- | -------------------- | ----------------------- |
+| **Agent instructions**    | Complex (split)      | Bloated but centralized |
 | **Workflow instructions** | 7 files, 5,817 lines | 0 files! (just YAML) ✅ |
-| **Skills** | 12 mature | 8 VERY mature ✅ |
-| **Knowledge duplication** | Workflows + skills | Agent + skills |
-| **Refactor effort** | High (15 hours) | Low (3 hours) ✅ |
-| **Structure quality** | Needs work | Better baseline ✅ |
+| **Skills**                | 12 mature            | 8 VERY mature ✅        |
+| **Knowledge duplication** | Workflows + skills   | Agent + skills          |
+| **Refactor effort**       | High (15 hours)      | Low (3 hours) ✅        |
+| **Structure quality**     | Needs work           | Better baseline ✅      |
 
 **AI Image Generator is in BETTER shape!**
 
@@ -281,6 +299,7 @@ Better: Workflows are lean YAML only!
 **Evidence:**
 
 **create-image skill maturity:**
+
 - ✅ Complete methodology (Emily JSON)
 - ✅ Tool selection logic
 - ✅ Quality framework (7 pillars)
@@ -291,6 +310,7 @@ Better: Workflows are lean YAML only!
 - ✅ Platform integration
 
 **Workflow maturity:**
+
 - ✅ Clean YAML structure
 - ✅ No knowledge duplication in workflows themselves!
 - ⚠️ But agent instructions.md has duplication
@@ -298,6 +318,7 @@ Better: Workflows are lean YAML only!
 ---
 
 **For Jarvis - DIFFERENT:**
+
 - Skills: Mature (but workflows duplicate knowledge)
 - Workflows: Bloated (knowledge + orchestration mixed)
 
@@ -308,18 +329,21 @@ Better: Workflows are lean YAML only!
 ### For AI Image Generator: Light Refactor (3 hours)
 
 **Phase 1: Thin sidecar/instructions.md**
+
 - Current: 710 lines
 - Remove knowledge (already in skills)
 - Target: ~150 lines
 - Effort: 2 hours
 
 **Phase 2: Update agent command**
+
 - Current: 118 lines
 - Simplify skill references
 - Target: ~80 lines
 - Effort: 30 min
 
 **Phase 3: Add workflow comments**
+
 - Just add skill reference notes
 - Effort: 30 min
 
@@ -330,22 +354,26 @@ Better: Workflows are lean YAML only!
 ### What Makes AI Image Generator Easier
 
 **1. Workflows Already Lean:**
+
 - ✅ Just YAML (no instructions.md files!)
 - ✅ No 639-line instruction files like Jarvis
 - ✅ Clean separation already exists
 
 **2. Skills Already Comprehensive:**
+
 - ✅ create-image has EVERYTHING
 - ✅ All reference docs exist
 - ✅ Emily methodology complete
 - ✅ Quality framework documented
 
 **3. Duplication in ONE Place:**
+
 - ❌ Just sidecar/instructions.md (710 lines)
 - ✅ NOT spread across 7 workflow files
 - ✅ Easier to extract and remove
 
 **4. Better Baseline Architecture:**
+
 - Agent YAML is clean
 - Workflows are YAML-only
 - Skills are mature
@@ -358,6 +386,7 @@ Better: Workflows are lean YAML only!
 ### Don't Touch (Already Good!)
 
 **Keep as-is:**
+
 - ✅ All 8 skills (mature, comprehensive)
 - ✅ Workflow YAML files (lean, clean)
 - ✅ agent.yaml (well-structured)
@@ -367,10 +396,12 @@ Better: Workflows are lean YAML only!
 ### Do Refactor (Light Touch)
 
 **Thin down:**
+
 - ⚠️ sidecar/instructions.md (710 → ~150 lines)
 - ⚠️ command/ai-image-generator.md (118 → ~80 lines)
 
 **How:**
+
 - Remove Emily methodology (in create-image skill)
 - Remove tool selection logic (in mcp-tool-selection skill)
 - Remove quality framework (in create-image/reference/)
@@ -384,6 +415,7 @@ Better: Workflows are lean YAML only!
 ### Jarvis Refactor
 
 **Scope:**
+
 - 7 workflow instructions.md files
 - 5,817 total lines
 - 40-60% reduction target
@@ -394,6 +426,7 @@ Better: Workflows are lean YAML only!
 ### AI Image Generator Refactor
 
 **Scope:**
+
 - 1 sidecar/instructions.md file
 - 710 lines
 - 70-75% reduction target
@@ -408,6 +441,7 @@ Better: Workflows are lean YAML only!
 ### Skills Quality (Excellent!)
 
 **All 8 skills scored:**
+
 - create-image: ✅ Comprehensive
 - edit-image: ✅ Specialized
 - blend-images: ✅ Multi-image capable
@@ -442,6 +476,7 @@ Better: Workflows are lean YAML only!
 ### Recommended Action: Light Refactor (Do It!)
 
 **Why:**
+
 - Only 3 hours effort (vs 15 for Jarvis)
 - Skills already mature (no skill work needed!)
 - Workflows already clean (minimal touch!)
@@ -449,6 +484,7 @@ Better: Workflows are lean YAML only!
 - Massive clarity improvement
 
 **When:**
+
 - Could do now (3 hours)
 - OR incrementally (1 hour sessions)
 - Much less risky than Jarvis refactor
@@ -475,30 +511,37 @@ Better: Workflows are lean YAML only!
 **Current sections (710 lines):**
 
 **Lines 1-100: Emily JSON Methodology**
+
 - Status: ❌ DUPLICATED in create-image skill
 - Action: DELETE (reference skill instead)
 
 **Lines 12-65: MCP Tool Usage**
+
 - Status: ❌ DUPLICATED in mcp-tool-selection skill
 - Action: DELETE (reference skill instead)
 
 **Lines 66-100: API Constraints**
+
 - Status: ❌ DUPLICATED in create-image/reference/mcp-tools-reference.md
 - Action: DELETE (in skill already)
 
 **Lines 101-200: Quality Framework**
+
 - Status: ❌ DUPLICATED in create-image/reference/quality-framework.md
 - Action: DELETE (in skill already)
 
 **Lines 201-400: Platform Specs**
+
 - Status: ❌ DUPLICATED in platform-specs skill
 - Action: DELETE (in skill already)
 
 **Lines 401-550: Generation Process**
+
 - Status: ⚠️ MIXED (some orchestration, some knowledge)
 - Action: EXTRACT knowledge to skills, keep orchestration
 
 **Lines 551-710: Output Management**
+
 - Status: ✅ KEEP (orchestration logic!)
 - Action: Keep as-is
 
@@ -516,6 +559,7 @@ You are a Visual Content Producer using mature Claude Code skills.
 ## Skills Architecture
 
 All image generation uses auto-loaded skills:
+
 - `create-image` - Emily JSON methodology + tool selection + quality
 - `edit-image` - Pixel-perfect editing with nanobanana
 - `blend-images` - Multi-image composition
@@ -540,6 +584,7 @@ When executing workflows:
 ## Output Management
 
 MANDATORY structure:
+
 - Base: {project-root}/outputs/{MM-DD-YYYY}/{session-name}/
 - Images: {session}/images/
 - Metadata: {session}/metadata.json
@@ -549,12 +594,14 @@ See {project-root}/outputs/README.md for complete rules.
 ## Orchestration Only
 
 You coordinate:
+
 - Workflow step execution
 - File I/O and organization
 - Quality gate application
 - User confirmations
 
 Skills provide:
+
 - Emily JSON methodology
 - Tool selection logic
 - Quality evaluation
@@ -607,21 +654,25 @@ NO instructions.md files!
 ## Why AI Image Generator is Better Structured
 
 **1. Workflows Are Lean:**
+
 - Just YAML definitions
 - No giant instructions.md files
 - References to skills only
 
 **2. Skills Are Rich:**
+
 - All knowledge in skills
 - Comprehensive references
 - Well-documented
 - Auto-load correctly
 
 **3. Duplication in ONE Place:**
+
 - Just sidecar/instructions.md
 - Easy to fix (vs 7 files in Jarvis)
 
 **4. Clear Responsibility:**
+
 - Workflows: Coordinate steps
 - Skills: Provide knowledge
 - Agent: Menu + config
@@ -633,6 +684,7 @@ NO instructions.md files!
 ### Option 1: Light Refactor NOW (3 hours - RECOMMENDED)
 
 **Why:**
+
 - Only 3 hours effort
 - Skills already perfect
 - Workflows already clean
@@ -640,6 +692,7 @@ NO instructions.md files!
 - Huge clarity gain
 
 **Steps:**
+
 1. Thin sidecar/instructions.md (2 hours)
 2. Simplify agent command (30 min)
 3. Test workflows (30 min)
@@ -651,11 +704,13 @@ NO instructions.md files!
 ### Option 2: Leave As-Is
 
 **Why you might:**
+
 - Works currently
 - Refactor Jarvis first (higher priority)
 - Come back later
 
 **Downside:**
+
 - Duplication remains
 - 710-line instructions.md confusing
 - Not leveraging mature skills fully
@@ -665,6 +720,7 @@ NO instructions.md files!
 ### Option 3: Just Document Current State
 
 **Mark duplication:**
+
 - Add notes: "This duplicates create-image skill"
 - Don't refactor yet
 - Live with it
@@ -682,21 +738,25 @@ NO instructions.md files!
 **1. Low effort (3 hours vs 15 for Jarvis)**
 
 **2. Skills are already perfect:**
+
 - create-image: Complete methodology
 - All reference docs exist
 - Nothing to add to skills!
 
 **3. Workflows already clean:**
+
 - No instructions.md to refactor!
 - Just YAML (already good!)
 - Zero workflow work needed!
 
 **4. High ROI:**
+
 - 3 hours → 70% code reduction
 - Eliminate all duplication
 - Much clearer architecture
 
 **5. Easier than Jarvis:**
+
 - 1 file vs 7 files
 - 710 lines vs 5,817 lines
 - Cleaner baseline
@@ -710,11 +770,13 @@ NO instructions.md files!
 ### Lines of Code by Component
 
 **Jarvis:**
+
 - Workflow instructions: 5,817 lines
 - Agent instructions: ~500 lines
 - **Total to refactor: ~6,300 lines**
 
 **AI Image Generator:**
+
 - Workflow instructions: 0 lines (no files!)
 - Agent instructions: 710 lines
 - **Total to refactor: 710 lines**
@@ -726,11 +788,13 @@ NO instructions.md files!
 ### Knowledge Consolidation
 
 **Jarvis:**
+
 - Skills have knowledge ✅
 - Workflows ALSO have knowledge ❌
 - Need to extract from workflows → skills
 
 **AI Image Generator:**
+
 - Skills have knowledge ✅
 - Workflows DON'T have knowledge ✅
 - Need to remove from agent instructions only
@@ -746,20 +810,24 @@ NO instructions.md files!
 **YES - and that's GREAT!**
 
 **For AI Image Generator:**
+
 - Skills: 95% mature ✅
 - Workflows: 90% mature ✅ (lean YAML)
 - Agent: 60% mature ⚠️ (bloated instructions)
 
 **The fix:**
+
 - Thin agent instructions (3 hours)
 - Done!
 
 **For Jarvis:**
+
 - Skills: 90% mature ✅
 - Workflows: 40% mature ❌ (knowledge + orchestration mixed)
 - Agent: 70% mature
 
 **The fix:**
+
 - Refactor 7 workflow files (15 hours)
 - Much harder!
 
@@ -773,24 +841,27 @@ NO instructions.md files!
 ## Emily's JSON Methodology
 
 Load video-scene.json template:
+
 - scene_description: Environment, mood...
 - subject_and_action: What to show...
 - composition_and_framing: Layout...
-[... 80 lines of Emily methodology ...]
+  [... 80 lines of Emily methodology ...]
 
 ## MCP Tool Selection
 
 Choose between nanobanana and gpt-image-1:
+
 - LinkedIn + text → gpt-image-1 (typography)
 - Instagram + volume → nanobanana (speed)
-[... 40 lines of tool selection logic ...]
+  [... 40 lines of tool selection logic ...]
 
 ## Quality Framework
 
 7-pillar evaluation:
+
 1. Clarity (1-10)
 2. Technical Quality (1-10)
-[... 60 lines of quality framework ...]
+   [... 60 lines of quality framework ...]
 ```
 
 **Total: ~180 lines of knowledge duplicated!**
@@ -805,17 +876,20 @@ Choose between nanobanana and gpt-image-1:
 All image generation uses auto-loaded skills:
 
 **create-image skill provides:**
+
 - Emily JSON methodology (complete in skill)
 - 7-pillar quality framework (reference/quality-framework.md)
 - Tool selection logic (via mcp-tool-selection skill)
 - All generation knowledge
 
 **When workflow references create-image:**
+
 - Skill auto-loads
 - Provides all methodology
 - You just coordinate execution
 
 **Other skills:**
+
 - edit-image: Editing workflows
 - blend-images: Composition workflows
 - platform-specs: Platform requirements
@@ -824,6 +898,7 @@ All image generation uses auto-loaded skills:
 ## Workflow Execution
 
 Execute workflow steps:
+
 1. Skills auto-load
 2. Apply skill knowledge
 3. Save outputs per output management rules
@@ -841,16 +916,19 @@ Execute workflow steps:
 **Your observation:** ✅ 100% CORRECT!
 
 **AI Image Generator has:**
+
 - ✅ Mature skills (8 comprehensive)
 - ✅ Lean workflows (YAML only!)
 - ⚠️ Bloated agent instructions (710 lines)
 
 **The fix:**
+
 - Thin agent instructions (2-3 hours)
 - Reference skills instead of duplicating
 - Architecture becomes perfect!
 
 **Effort vs Jarvis:**
+
 - Jarvis: 15 hours (7 workflow files)
 - AI Image: 3 hours (1 agent file)
 - **5x easier!**

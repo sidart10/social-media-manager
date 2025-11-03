@@ -8,12 +8,14 @@
 ## Model Updates
 
 **OpenAI:**
+
 - Old: gpt-4o
 - New: **gpt-5**
 - Released: August 7, 2025
 - Best for: Coding and agentic tasks
 
 **Anthropic:**
+
 - Old: claude-3-opus-20240229
 - New: **claude-sonnet-4-5-20250929**
 - Released: September 29, 2025

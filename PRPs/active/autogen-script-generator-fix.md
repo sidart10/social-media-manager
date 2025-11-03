@@ -23,6 +23,7 @@ The autogen-script-generator skill currently generates stub content (233 charact
 ## Current State Analysis
 
 ### File Structure
+
 ```
 .claude/skills/jarvis/autogen-script-generator/
 ├── scripts/
@@ -40,6 +41,7 @@ The autogen-script-generator skill currently generates stub content (233 charact
 ```
 
 ### Test Evidence
+
 ```bash
 # Current behavior (BROKEN):
 $ python generate_script.py --platform "linkedin" --research-file "research.md"
@@ -55,25 +57,29 @@ Stderr: "Loaded research: 150+ facts"
 
 ## Solution Design
 
-###  Implementation Blueprint
+### Implementation Blueprint
 
 **Phase 1: Activate Detailed Prompts**
+
 - File: `scripts/agents.py` (line 9)
 - Change: Import from `prompts_complex` instead of `prompts`
 - Impact: Agents get full system messages with examples, guidelines, parameter templating
 
 **Phase 2: Fix Research Loader**
+
 - File: `scripts/research_agent.py` (complete rewrite of lines 30-85)
 - Change: Replace hardcoded header parser with intelligent content extractor
 - Extract: statistics, quotes, bullets, all sections, full text
 - Impact: Research data loads from ANY markdown structure
 
 **Phase 3: Enhance Agent Context**
+
 - File: `scripts/agents.py` (lines 120-131)
 - Change: Update Research_Agent system message with loaded data stats
 - Impact: Agents receive rich research summaries
 
 **Phase 4: Cleanup**
+
 - Remove: `prompts.py` (stub version)
 - Remove: `prompts.py.bak` (no longer needed)
 - Rename: `prompts_complex.py` → `prompts.py`
@@ -88,6 +94,7 @@ Stderr: "Loaded research: 150+ facts"
 **File:** `.claude/skills/jarvis/autogen-script-generator/scripts/agents.py`
 
 **Change line 9:**
+
 ```python
 # FROM:
 from prompts import (
@@ -115,6 +122,7 @@ from prompts_complex import (
 ```
 
 **Validation:**
+
 ```bash
 python -c "from scripts.agents import create_agents; print('✓ Import successful')"
 ```
@@ -250,6 +258,7 @@ def extract_all_sections(content: str) -> Dict[str, str]:
 ```
 
 **Validation:**
+
 ```bash
 # Test research loader directly
 python -c "
@@ -323,6 +332,7 @@ ls -lh prompts.py  # Should be ~16KB, not 2KB
 ## Validation Gates (MUST PASS)
 
 ### Gate 1: Syntax & Imports
+
 ```bash
 cd ~/.claude/skills/jarvis/autogen-script-generator/scripts/
 
@@ -333,6 +343,7 @@ python -c "from prompts import POST_TITLE_PROMPT; print('✓ prompts.py has deta
 ```
 
 ### Gate 2: Research Loading Test
+
 ```bash
 # Test with real xAI research file
 python -c "
@@ -355,6 +366,7 @@ print('\\n✓✓✓ Research loader validation PASSED')
 ```
 
 ### Gate 3: End-to-End Integration Test
+
 ```bash
 cd ~/.claude/skills/jarvis/autogen-script-generator
 
@@ -373,6 +385,7 @@ python scripts/generate_script.py \
 ```
 
 ### Gate 4: Simple Agent Test
+
 ```bash
 # Run simple test to verify agents work
 cd ~/.claude/skills/jarvis/autogen-script-generator
@@ -416,17 +429,20 @@ git checkout agents.py research_agent.py prompts.py
 ## References & Context
 
 ### AutoGen Documentation
+
 - Agent Teams: https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/teams.html
 - Assistant Agents: https://microsoft.github.io/autogen/stable/reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.AssistantAgent
 - Model Clients: https://microsoft.github.io/autogen/stable/reference/python/autogen_ext/autogen_ext.models.openai.html
 
 ### Codebase Patterns
+
 - **Agent creation pattern**: `scripts/agents.py` lines 109-244
 - **Research loading pattern**: `scripts/research_agent.py` lines 30-85
 - **Test pattern**: `scripts/test_simple.py` (simple 2-agent test)
 - **Voice profile loading**: `scripts/generate_script.py` lines 30-51
 
 ### Example Detailed Prompt (from prompts_complex.py)
+
 ```python
 TITLE_AGENT_PROMPT = """
 You're a master clickbait artist - an expert at crafting irresistible titles...
@@ -454,6 +470,7 @@ To hook 'em and reel 'em in, the titles you create should:
 ## Confidence Score: 9/10
 
 **Why High Confidence:**
+
 - ✅ Problem well-understood (research shows exact issues)
 - ✅ Solution is straightforward (import changes + parser rewrite)
 - ✅ Validation gates are executable and specific
@@ -462,6 +479,7 @@ To hook 'em and reel 'em in, the titles you create should:
 - ✅ Test pattern exists (test_simple.py)
 
 **Why Not 10/10:**
+
 - Regex extraction might miss edge cases in some markdown formats
 - Unknown if research_context variable is properly formatted in agents.py line 80-95
 
@@ -470,6 +488,7 @@ To hook 'em and reel 'em in, the titles you create should:
 ## Post-Implementation
 
 After validation passes:
+
 1. Test with other research files (not just xAI)
 2. Test all platforms (Twitter thread, Instagram, YouTube script)
 3. Update SKILL.md if behavior changed

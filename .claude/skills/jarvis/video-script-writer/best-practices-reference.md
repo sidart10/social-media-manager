@@ -1,4 +1,5 @@
 # Consolidated YouTube Script Writing Best Practices
+
 **Compiled from**: Ali Abdaal, MKBHD, JXT Group 2025 Strategies, HipClip Retention Guide
 
 ---
@@ -34,7 +35,7 @@ CLOSING: Tease future content + subscribe CTA + sponsor mention
 - **Scripts 98% of content** in Google Drive
 - Keeps notes in Google Keep for research
 - Anchors every video with a **central theme/motif** (e.g., "the redemption of this phone")
-- Asks: *"What would I want covered in a video about this topic?"*
+- Asks: _"What would I want covered in a video about this topic?"_
 - Performs from script BUT doesn't read directly (maintains conversational feel)
 - Focus: **Share maximum useful info in minimum time**
 
@@ -45,22 +46,25 @@ CLOSING: Tease future content + subscribe CTA + sponsor mention
 ### 1. "Retention Script" Framework
 
 **Cold Open with Immediate Intrigue Hook**:
+
 - Begin mid-action
-- Example: *"This is the biggest mistake even pro investors make—are you doing it too?"*
+- Example: _"This is the biggest mistake even pro investors make—are you doing it too?"_
 
 **"Micro-Loop" Narrative Structure**:
+
 - Break content into smaller curiosity-driven segments
 - Don't rely on single story arc
 - Each segment creates mini-cliffhanger
 
 **Psychological Momentum Phrases**:
+
 - Use time-bounded language
-- Example: *"In the next 30 seconds, you'll see exactly how this works"*
+- Example: _"In the next 30 seconds, you'll see exactly how this works"_
 
 ### 2. "Conversational Compression"
 
 - Break dense concepts into punchy sentences
-- **Pattern Interrupts**: *"Wait, what?"* or *"Here's something no one tells you…"*
+- **Pattern Interrupts**: _"Wait, what?"_ or _"Here's something no one tells you…"_
 - Mix short impactful statements with longer ones (rhythm variation)
 
 ### 3. "Cinematic Scriptwriting"
@@ -93,12 +97,14 @@ CLOSING: Tease future content + subscribe CTA + sponsor mention
 **CRITICAL - Make or break moment**
 
 Elements:
+
 1. **Immediate value proposition** - What will they learn?
 2. **Curiosity gap** - Create question in viewer's mind
 3. **Pattern break** - Unexpected opening
 4. **Bold statement** - Grab attention instantly
 
 Examples:
+
 - "85% of you are making this mistake right now"
 - "This changed everything I thought I knew about..."
 - "Watch what happens when I..."
@@ -114,11 +120,13 @@ Examples:
 **Structure**: Hook → Preview → Deliver → Recap → CTA
 
 **Pacing**:
+
 - 80% educational value
 - 20% entertainment
 - Strategic visual breaks every 10-30 seconds (long-form) or 2-3 seconds (short-form)
 
 **Retention Tactics**:
+
 - Pattern interrupts every 45-60 seconds
 - Surprise element at 50-60% mark (re-engage droppers)
 - Progressive disclosure (don't give best content first!)
@@ -157,6 +165,7 @@ This re-engages viewers who were about to leave
 ### Engagement Prompts
 
 Place naturally:
+
 - After delivering major value
 - Before revealing best tip
 - During transitions
@@ -173,6 +182,7 @@ Yes: "If this tip saved you time, hit like so more people see this" ✅
 **MKBHD**: Scripts 98% (talking head tech reviews)
 **Ali Abdaal**: Scripts structure + key phrases (educational)
 **Recommended**:
+
 - **Script precisely**: Hooks, transitions, CTAs
 - **Outline**: Main content points (allows natural delivery)
 
@@ -189,6 +199,7 @@ Yes: "If this tip saved you time, hit like so more people see this" ✅
 ### For Long-Form (10-20 min Talking Head)
 
 **Pace**: Moderate, conversational
+
 - Cuts every 10-30 seconds
 - B-roll optional, supplementary
 - Deep knowledge delivery
@@ -197,6 +208,7 @@ Yes: "If this tip saved you time, hit like so more people see this" ✅
 ### For Short-Form (30-90s Vertical)
 
 **Pace**: Fast, punchy
+
 - Cuts every 2-3 seconds
 - B-roll CRITICAL for retention
 - Quick wins only
@@ -207,18 +219,21 @@ Yes: "If this tip saved you time, hit like so more people see this" ✅
 ## 💡 Platform-Specific Notes
 
 ### YouTube (Long-Form)
+
 - SEO matters (titles, descriptions, tags)
 - Timestamps in description
 - End screens planned
 - Session duration optimization
 
 ### YouTube Shorts
+
 - 3-second hook (absolute max)
 - Vertical format
 - No expectation of deep content
 - Entertainment + quick value
 
 ### Reels / TikTok
+
 - Same as Shorts
 - Trending sounds boost discovery
 - Hashtag strategy: 2 broad + 2-3 niche
@@ -254,6 +269,7 @@ Before filming, verify script has:
 ---
 
 **Sources**:
+
 - Ali Abdaal Script Template (typeshare.co)
 - MKBHD Skillshare Course insights
 - JXT Group 2025 Strategies

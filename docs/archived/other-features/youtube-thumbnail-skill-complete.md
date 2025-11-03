@@ -15,6 +15,7 @@
 **Purpose**: Create high-performing YouTube thumbnails with flexible modes
 
 **Files Created:**
+
 1. **SKILL.md** - Main skill file with instructions
 2. **reference/youtube-specs.md** - Official YouTube requirements (1280×720, <2MB, etc.)
 3. **reference/design-best-practices.md** - What performs (faces +40% CTR, bold text, contrast)
@@ -30,20 +31,23 @@
 ### Mode A: Create From Scratch (No User Image)
 
 **When to use:**
+
 - Topic doesn't need your face (tutorials, tech, abstract)
 - Don't have quality photo
 - Fast iteration
 - Brand-only content
 
 **How it works:**
+
 ```yaml
 mcp__nanobanana__generate_image:
   prompt: "YouTube thumbnail with bold text 'BUILD AI AGENTS', vibrant orange-blue gradient background, abstract tech visual, high contrast..."
-  mode: "generate"
+  mode: 'generate'
   # No input_image_path needed
 ```
 
 **Workflow:**
+
 1. Describe video topic
 2. Choose YouTube design
 3. Generate thumbnail from scratch
@@ -58,20 +62,23 @@ mcp__nanobanana__generate_image:
 ### Mode B: With Your Image (Personalized)
 
 **When to use:**
+
 - Personal branding important
 - Building audience recognition
 - Have quality expressive photos
 - Want 40% CTR boost from faces!
 
 **How it works:**
+
 ```yaml
 mcp__nanobanana__generate_image:
   prompt: "YouTube thumbnail: Person from first image with surprised expression, bold text 'THIS CHANGED EVERYTHING', vibrant background..."
-  mode: "generate"
-  input_image_path_1: "/path/to/your/headshot-surprised.jpg"
+  mode: 'generate'
+  input_image_path_1: '/path/to/your/headshot-surprised.jpg'
 ```
 
 **Workflow:**
+
 1. Describe video topic
 2. Choose YouTube design
 3. Provide your image path
@@ -90,6 +97,7 @@ mcp__nanobanana__generate_image:
 ## 🎨 What the Skill Provides
 
 ### YouTube Specifications:
+
 - Size: 1280×720px (YouTube official)
 - MCP mapping: 1536×1024 (closest)
 - Format: JPG/PNG, under 2MB
@@ -97,6 +105,7 @@ mcp__nanobanana__generate_image:
 - Mobile-first design (156×88px preview)
 
 ### Design Best Practices:
+
 - **Faces**: +40% CTR (close-up, expressive emotion)
 - **Text**: 3-7 words MAX (large, bold, high contrast)
 - **Colors**: Vibrant, saturated (orange-blue most popular)
@@ -104,12 +113,14 @@ mcp__nanobanana__generate_image:
 - **Curiosity**: Intrigue without spoiling
 
 ### Content Strategy:
+
 - Hook-driven (first impression critical)
 - Emotion-driven (surprise, excitement, curiosity)
 - A/B testing recommendations
 - Performance metrics to track
 
 ### Tool Selection:
+
 - **Primary**: nanobanana (fast, cheap, supports Mode B)
 - **Why**: Only tool with multi-image input for Mode B
 - **Cost**: $0.039 per thumbnail (high volume friendly)
@@ -121,6 +132,7 @@ mcp__nanobanana__generate_image:
 ### create-single.yaml (Updated)
 
 **Step 1: Design Selection**
+
 ```yaml
 Which design style?
 1. LinkedIn ⭐
@@ -132,6 +144,7 @@ Which design style?
 ```
 
 **If YouTube chosen:**
+
 ```yaml
 → Asks: Include your image? [y/n]
 → If yes: Asks for image path + emotion (Mode B)
@@ -145,6 +158,7 @@ Which design style?
 ### create-carousel.yaml (Updated)
 
 **Step 1: Design Selection**
+
 ```yaml
 Which design style?
 1. LinkedIn ⭐
@@ -155,6 +169,7 @@ Which design style?
 ```
 
 **YouTube carousel use case:**
+
 - Generate 2-5 thumbnail variations for same video
 - A/B test different designs
 - Pick best performer
@@ -165,18 +180,21 @@ Which design style?
 ## 🎯 Skill Auto-Loading
 
 **Trigger words in youtube-thumbnail-design description:**
+
 - "YouTube thumbnail"
 - "video CTR"
 - "attention-grabbing"
 - "eye-catching designs"
 
 **When Claude sees:**
+
 - "Create YouTube thumbnail"
 - "Optimize video CTR"
 - "Make eye-catching thumbnail"
 - design_choice == 2 (YouTube)
 
 **Skill auto-loads and provides:**
+
 - YouTube specifications
 - Bold text guidelines (3-7 words)
 - Face composition strategies (Mode B)
@@ -191,6 +209,7 @@ Which design style?
 **Primary Tool**: nanobanana (Gemini 2.5 Flash)
 
 **Why nanobanana:**
+
 - ✅ Fast generation (~20-30s)
 - ✅ Cost-effective ($0.039 per thumbnail)
 - ✅ Mode A: Pure generation from text
@@ -199,6 +218,7 @@ Which design style?
 - ✅ High volume friendly (create many thumbnails cheaply)
 
 **When NOT gpt-image-1:**
+
 - ❌ Can't do Mode B (no multi-image input)
 - ❌ Slower (60-90s)
 - ❌ More expensive
@@ -213,6 +233,7 @@ Which design style?
 ### Mode A Examples:
 
 **Tech Tutorial:**
+
 ```
 Topic: "Build AI Agents in 10 Minutes"
 Mode: A (no face needed - topic-focused)
@@ -221,6 +242,7 @@ Result: Bold text + tech visual, vibrant background
 ```
 
 **Explainer Video:**
+
 ```
 Topic: "How Neural Networks Work"
 Mode: A (abstract concept - no face needed)
@@ -233,6 +255,7 @@ Result: Abstract brain/network visual, eye-catching
 ### Mode B Examples:
 
 **Personal Commentary:**
+
 ```
 Topic: "My Thoughts on AI Safety"
 Mode: B (your face - personal opinion)
@@ -242,6 +265,7 @@ Result: Your face + bold text, professional
 ```
 
 **Reaction/Review:**
+
 ```
 Topic: "I Tried Claude Code for 30 Days"
 Mode: B (your face - personal experience)
@@ -257,12 +281,14 @@ Result: Your expressive face + text, curiosity-driven
 ### What youtube-thumbnail-design Skill Provides:
 
 **Specifications:**
+
 - [x] YouTube official requirements (1280×720, 16:9, <2MB)
 - [x] MCP size mapping (1536×1024 closest)
 - [x] Format recommendations (JPG/PNG)
 - [x] Safe zone guidelines
 
 **Design Knowledge:**
+
 - [x] Face best practices (close-up, emotion, 40% CTR boost)
 - [x] Text guidelines (3-7 words, bold, high contrast)
 - [x] Color strategy (vibrant, complementary)
@@ -270,18 +296,21 @@ Result: Your expressive face + text, curiosity-driven
 - [x] Mobile optimization (156×88px preview test)
 
 **Flexible Modes:**
+
 - [x] Mode A: From scratch (no user image)
 - [x] Mode B: With user image (composition)
 - [x] Workflow asks which mode
 - [x] Different prompts for each mode
 
 **Performance Optimization:**
+
 - [x] CTR optimization techniques
 - [x] A/B testing recommendations
 - [x] Emotion selection (surprised/excited/curious/serious)
 - [x] Curiosity gap strategies
 
 **Tool Integration:**
+
 - [x] nanobanana as primary (fast, supports both modes)
 - [x] Proper parameters for each mode
 - [x] Negative prompts for quality
@@ -307,6 +336,7 @@ Result: Your expressive face + text, curiosity-driven
 ## 📈 Expected Results
 
 ### Mode A (No Face):
+
 - Clean, professional thumbnails
 - Topic-focused
 - Fast generation
@@ -314,6 +344,7 @@ Result: Your expressive face + text, curiosity-driven
 - Cost: $0.039
 
 ### Mode B (With Face):
+
 - Personalized thumbnails
 - +40% CTR vs no face
 - Brand building
@@ -327,19 +358,17 @@ Result: Your expressive face + text, curiosity-driven
 **Total Skills Now**: 7 skills
 
 **Universal (Actions):**
+
 1. create-image
 2. edit-image
 3. blend-images
 
-**Design Systems (Aesthetics):**
-4. linkedin-design ⭐ (complete)
-5. youtube-thumbnail-design 🎬 (complete - NEW!)
-6. platform-specs (fallback for others)
+**Design Systems (Aesthetics):** 4. linkedin-design ⭐ (complete) 5. youtube-thumbnail-design 🎬 (complete - NEW!) 6. platform-specs (fallback for others)
 
-**Utility:**
-7. mcp-tool-selection
+**Utility:** 7. mcp-tool-selection
 
 **Coming Soon:**
+
 - instagram-design skill
 - twitter-design skill
 - custom-design templates
@@ -363,6 +392,7 @@ Result: Your expressive face + text, curiosity-driven
 **PRODUCTION READY!** 🚀
 
 Try it:
+
 ```
 /ai-image-generator
 > single

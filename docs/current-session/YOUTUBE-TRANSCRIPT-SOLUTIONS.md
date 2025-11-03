@@ -13,6 +13,7 @@
 **Actor:** `karamelo/youtube-full-channel-transcripts-extractor`
 
 **Features:**
+
 - ✅ Extracts transcripts from entire channels
 - ✅ Handles videos, shorts, streams, podcasts
 - ✅ Organizes by video ID and title
@@ -23,6 +24,7 @@
 **Cost:** ~$0.05 for 10 videos
 
 **Usage in learn-voice workflow:**
+
 ```xml
 <action>Use Apify: karamelo/youtube-full-channel-transcripts-extractor</action>
 <action>Parameters:
@@ -39,19 +41,25 @@
 ## Alternative Apify Actors
 
 ### Option 2: Single Video Transcript
+
 **Actor:** `karamelo/youtube-transcripts`
+
 - Good for individual videos
 - Fast (seconds per video)
 - Pay-per-result pricing
 
 ### Option 3: Premium Version
+
 **Actor:** `smartly_automated/youtube-transcript-scraper-premium-version`
+
 - Handles videos without subtitles
 - Advanced subtitle generation
 - 15+ languages support
 
 ### Option 4: Multi-Platform
+
 **Actor:** `invideoiq/video-transcript-scraper`
+
 - YouTube + X + Facebook + TikTok
 - One tool for all platforms
 - Good for cross-platform analysis
@@ -63,16 +71,19 @@
 **Created:** `/scripts/youtube_transcript_fetcher.py`
 
 **Python Library:** `youtube-transcript-api`
+
 - Latest version: 1.2.3 (Oct 2025)
 - Actively maintained
 - Works reliably
 
 **Installation:**
+
 ```bash
 pip install youtube-transcript-api
 ```
 
 **Usage:**
+
 ```bash
 # Single video
 python scripts/youtube_transcript_fetcher.py \
@@ -85,11 +96,13 @@ python scripts/youtube_transcript_fetcher.py \
 ```
 
 **Limitations:**
+
 - No automatic channel video discovery
 - Requires manual video URLs
 - Best for single videos
 
 **When to use:**
+
 - Apify unavailable
 - Need offline processing
 - Custom integration requirements
@@ -101,11 +114,13 @@ python scripts/youtube_transcript_fetcher.py \
 **Issue:** The youtube-transcript MCP server wrapper had bugs
 
 **Root cause:**
+
 - MCP wrapper implementation issues
 - Not the underlying library (library works great!)
 - Common with community MCP servers
 
 **Solution:**
+
 - Use Apify (reliable, professionally maintained)
 - Or use Python library directly (proven, stable)
 
@@ -114,12 +129,14 @@ python scripts/youtube_transcript_fetcher.py \
 ## What's Now in learn-voice Workflow
 
 **OLD (Broken):**
+
 ```xml
 <action>Tool: youtube_transcript/get_transcript</action>
 <!-- This fails! ❌ -->
 ```
 
 **NEW (Working):**
+
 ```xml
 <action>Use Apify: karamelo/youtube-full-channel-transcripts-extractor</action>
 <action>Parameters:
@@ -134,12 +151,12 @@ python scripts/youtube_transcript_fetcher.py \
 
 ## Cost Comparison
 
-| Method | Cost | Reliability | Speed |
-|--------|------|-------------|-------|
-| **Broken MCP** | FREE | ❌ Doesn't work | N/A |
-| **Apify Channel Extractor** | ~$0.05/10 videos | ✅ Excellent | Fast |
-| **Python Script** | FREE | ✅ Good | Moderate |
-| **YouTube Data API** | FREE (quota limits) | ✅ Good | Fast |
+| Method                      | Cost                | Reliability     | Speed    |
+| --------------------------- | ------------------- | --------------- | -------- |
+| **Broken MCP**              | FREE                | ❌ Doesn't work | N/A      |
+| **Apify Channel Extractor** | ~$0.05/10 videos    | ✅ Excellent    | Fast     |
+| **Python Script**           | FREE                | ✅ Good         | Moderate |
+| **YouTube Data API**        | FREE (quota limits) | ✅ Good         | Fast     |
 
 **Best value:** Apify (~$0.005 per video, 100% reliable)
 
@@ -164,6 +181,7 @@ YouTube: https://youtube.com/@siddani09
 **Or test Apify actor directly:**
 
 Via MCP:
+
 ```
 Use: apify/call-actor
 Actor: karamelo/youtube-full-channel-transcripts-extractor
@@ -178,6 +196,7 @@ Input: {
 ## What YouTube Transcripts Analyze
 
 **For Voice Profile:**
+
 - Speaking rhythm and pace
 - Natural transitions ("so...", "and then...", "but here's the thing...")
 - Teaching patterns (how you explain concepts)
@@ -186,6 +205,7 @@ Input: {
 - Technical vocabulary in speech
 
 **Benefits for Script Writing:**
+
 - Scripts match your ACTUAL speaking style
 - Natural delivery patterns
 - Authentic conversational flow

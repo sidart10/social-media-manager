@@ -12,6 +12,7 @@
 **Redesign platform-formatter skill as API formatting library** for successful content uploads via LinkedIn API, Twitter/X API, and Instagram Graph API.
 
 **Critical Understanding**:
+
 - This is NOT about social media best practices or engagement tactics
 - This IS about API-specific formatting so uploads succeed
 - User does NOT want hashtags on any platform
@@ -26,13 +27,15 @@
 **Session Date**: October 29, 2025
 
 **Completed**:
+
 1. ✅ Created modular architecture (8 Python files)
 2. ✅ Implemented LinkedIn little Text escaping (TESTED, WORKING)
 3. ✅ Created format_platform.py orchestrator
-4. ✅ Built platforms/__init__.py registry
+4. ✅ Built platforms/**init**.py registry
 5. ✅ Started individual platform formatters
 
 **Current State**:
+
 ```
 .claude/skills/jarvis/platform-formatter/
 ├── SKILL.md (partially refactored)
@@ -56,6 +59,7 @@
 **Actual Need**: API upload formatter with escaping, content types, API compliance
 
 **Key Misunderstandings Fixed**:
+
 - Platform-formatter is NOT for social media strategy
 - It's for preparing content for API clients (bmad/modules/linkedin-api-client, twitter-api-client)
 - User does NOT want hashtags anywhere
@@ -68,6 +72,7 @@
 ### Skills to Use
 
 **1. Load: deep-web-research skill**
+
 ```
 Use deep-web-research skill with depth=comprehensive:
 - Research Twitter X API v2 content types and formatting
@@ -76,6 +81,7 @@ Use deep-web-research skill with depth=comprehensive:
 ```
 
 **2. Reference: skill-creator v2.0**
+
 ```
 Location: ~/.claude/skills/skill-creator/
 Has automation scripts you can reference:
@@ -86,6 +92,7 @@ Has automation scripts you can reference:
 ### Existing API Client Implementations
 
 **LinkedIn API Client** (YOUR REFERENCE):
+
 ```
 Location: bmad/modules/linkedin-api-client/
 
@@ -102,6 +109,7 @@ YOUR TASK: The Python linkedin.py you create should be the REAL implementation
 ```
 
 **Twitter API Client** (YOUR REFERENCE):
+
 ```
 Location: bmad/modules/twitter-api-client/
 
@@ -122,18 +130,21 @@ Missing:
 ### Research Already Completed
 
 **LinkedIn little Text Format** (COMPLETE):
+
 - Source: https://learn.microsoft.com/en-us/linkedin/marketing/community-management/shares/little-text-format
 - Reserved characters: `| { } @ [ ] ( ) < > # \ * _ ~`
 - ALL must be escaped with backslash
 - Implementation: See `scripts/platforms/linkedin.py` (WORKING)
 
 **Twitter/X API** (RESEARCHED):
+
 - Regular tweets: 280 chars
 - Long-form: 25,000 chars (Premium only)
 - No formatting support in API (bold/italic web-only)
 - Same endpoint for both (v2/tweets)
 
 **Instagram Graph API** (RESEARCHED):
+
 - media_product_type = 'REELS' vs undefined (feed)
 - All feed videos now auto-convert to Reels
 - Carousel: 2-10 items
@@ -146,6 +157,7 @@ Missing:
 ### TASK 1: Remove ALL Hashtag Logic (HIGH PRIORITY)
 
 **Files to Update:**
+
 ```
 scripts/platforms/twitter.py
 scripts/platforms/instagram.py
@@ -155,6 +167,7 @@ scripts/platforms/youtube.py
 ```
 
 **What to Remove:**
+
 - ❌ All HASHTAG_LIMIT constants
 - ❌ All hashtag parameters in functions
 - ❌ All hashtag handling logic
@@ -162,12 +175,14 @@ scripts/platforms/youtube.py
 - ❌ All hashtag recommendations
 
 **What to Keep:**
+
 - ✅ Character limits
 - ✅ Validation logic
 - ✅ Line break handling
 - ✅ Text formatting
 
 **Example - twitter.py BEFORE:**
+
 ```python
 HASHTAG_LIMIT = 2
 
@@ -179,6 +194,7 @@ def format_content(content, hashtags=None):  # ← Remove hashtags param
 ```
 
 **Example - twitter.py AFTER:**
+
 ```python
 # NO HASHTAG_LIMIT
 
@@ -188,6 +204,7 @@ def format_content(content):  # ← No hashtags param
 ```
 
 **Test After Removal:**
+
 ```bash
 python3 format_platform.py twitter --content "Test post"
 # Should NOT mention hashtags anywhere
@@ -384,6 +401,7 @@ def format_for_platform(platform, content, content_type='default'):
 ```
 
 **Update CLI:**
+
 ```bash
 python3 format_platform.py twitter --content "text" --type long_form
 python3 format_platform.py instagram --content "caption" --type reels
@@ -398,7 +416,7 @@ python3 format_platform.py linkedin --content "post" --type text
 
 #### reference/linkedin-api-requirements.md
 
-```markdown
+````markdown
 # LinkedIn API Formatting Requirements
 
 ## little Text Format Escaping
@@ -409,6 +427,7 @@ python3 format_platform.py linkedin --content "post" --type text
 **Escape Method:** Prefix with backslash `\`
 
 **Examples:**
+
 - `Hello (world)` → `Hello \(world\)`
 - `#hashtag` → `\#hashtag`
 - `@mention` → `\@mention`
@@ -418,13 +437,13 @@ See `scripts/platforms/linkedin.py` - `escape_little_text()` function
 
 ## Content Types
 
-| Type | Description | API Requirements |
-|------|-------------|------------------|
-| text | Plain text post | Escaped text |
-| image | Single image + text | Escaped text + Image URN |
+| Type        | Description          | API Requirements             |
+| ----------- | -------------------- | ---------------------------- |
+| text        | Plain text post      | Escaped text                 |
+| image       | Single image + text  | Escaped text + Image URN     |
 | multi_image | Carousel 2-20 images | Escaped text + Multiple URNs |
-| document | PDF/PPT/DOC + text | Escaped text + Document URN |
-| video | Video + text | Escaped text + Video URN |
+| document    | PDF/PPT/DOC + text   | Escaped text + Document URN  |
+| video       | Video + text         | Escaped text + Video URN     |
 
 ## Character Limits
 
@@ -442,6 +461,7 @@ See `scripts/platforms/linkedin.py` - `escape_little_text()` function
 `POST /rest/posts` (v202410+)
 
 **Payload Structure:**
+
 ```json
 {
   "author": "urn:li:person:{id}",
@@ -452,12 +472,14 @@ See `scripts/platforms/linkedin.py` - `escape_little_text()` function
   }
 }
 ```
+````
 
 ## References
 
 - Official Docs: https://learn.microsoft.com/en-us/linkedin/marketing/community-management/shares/little-text-format
 - Existing Implementation: bmad/modules/linkedin-api-client/lib/formatter.js
-```
+
+````
 
 #### reference/twitter-api-requirements.md
 
@@ -477,7 +499,7 @@ See `scripts/platforms/linkedin.py` - `escape_little_text()` function
 {
   "text": "Your tweet text here"
 }
-```
+````
 
 **Escaping:** NOT needed (API handles)
 
@@ -490,6 +512,7 @@ See `scripts/platforms/linkedin.py` - `escape_little_text()` function
 **Premium Required:** YES (Premium or Premium Plus)
 
 **Payload:**
+
 ```json
 {
   "text": "Your long-form content here... [up to 25k chars]"
@@ -497,6 +520,7 @@ See `scripts/platforms/linkedin.py` - `escape_little_text()` function
 ```
 
 **Important:**
+
 - API does NOT support formatting (bold, italic) - web UI only
 - Truncated to 280 for non-Premium accounts
 - No special escaping needed
@@ -510,6 +534,7 @@ See `scripts/platforms/linkedin.py` - `escape_little_text()` function
 **API Endpoint:** `POST /2/tweets`
 
 **Payload:**
+
 ```json
 {
   "text": "Your tweet text",
@@ -520,6 +545,7 @@ See `scripts/platforms/linkedin.py` - `escape_little_text()` function
 ```
 
 **Media Upload:**
+
 - First: Upload via `POST /1.1/media/upload`
 - Returns: media_id
 - Then: Include in tweet payload
@@ -532,12 +558,14 @@ See `scripts/platforms/linkedin.py` - `escape_little_text()` function
 **API Endpoint:** `POST /2/tweets` (multiple calls)
 
 **Process:**
+
 1. Post first tweet
 2. Get tweet_id
 3. Post reply with `in_reply_to_tweet_id`
 4. Repeat
 
 **Payload (2nd+ tweets):**
+
 ```json
 {
   "text": "Second tweet text",
@@ -560,7 +588,8 @@ See `scripts/platforms/linkedin.py` - `escape_little_text()` function
 
 - X API v2 Docs: https://developer.x.com/en/docs/twitter-api
 - Existing Implementation: bmad/modules/twitter-api-client/lib/client.js
-```
+
+````
 
 #### reference/instagram-api-requirements.md
 
@@ -581,7 +610,7 @@ See `scripts/platforms/linkedin.py` - `escape_little_text()` function
   "image_url": "https://...",
   "access_token": "..."
 }
-```
+````
 
 **Note:** Videos posted to feed now auto-convert to Reels
 
@@ -595,6 +624,7 @@ See `scripts/platforms/linkedin.py` - `escape_little_text()` function
 **Duration:** 3-90 seconds (some accounts limited to 60s)
 
 **Payload:**
+
 ```json
 {
   "caption": "Your caption",
@@ -606,6 +636,7 @@ See `scripts/platforms/linkedin.py` - `escape_little_text()` function
 ```
 
 **Critical:**
+
 - Must set `media_type: "REELS"` explicitly
 - To differentiate from feed, check `media_product_type` on read
 
@@ -618,19 +649,18 @@ See `scripts/platforms/linkedin.py` - `escape_little_text()` function
 **API Requirement:** Post as album
 
 **Payload:**
+
 ```json
 {
   "caption": "Your caption",
   "media_type": "CAROUSEL",
-  "children": [
-    "media_id_1",
-    "media_id_2"
-  ],
+  "children": ["media_id_1", "media_id_2"],
   "access_token": "..."
 }
 ```
 
 **Process:**
+
 1. Upload each image/video separately
 2. Get media IDs
 3. Create carousel with children array
@@ -646,10 +676,12 @@ See `scripts/platforms/linkedin.py` - `escape_little_text()` function
 ## Media Requirements
 
 **Images:**
+
 - Format: JPEG only (via Graph API)
 - Size: 1080x1080 (square), 1080x1350 (portrait), 1080x566 (landscape)
 
 **Videos (Reels):**
+
 - Format: MP4 or MOV
 - Codec: H.264, AAC audio
 - Max size: 300 MB
@@ -664,7 +696,8 @@ See `scripts/platforms/linkedin.py` - `escape_little_text()` function
 
 - Graph API Docs: https://developers.facebook.com/docs/instagram-platform
 - Reels API Guide: https://www.getphyllo.com/post/a-complete-guide-to-the-instagram-reels-api
-```
+
+````
 
 ---
 
@@ -675,16 +708,17 @@ See `scripts/platforms/linkedin.py` - `escape_little_text()` function
 **Old Description:**
 ```yaml
 description: Format content for specific social media platforms based on platform specifications (length limits, structure rules, hashtag strategies).
-```
+````
 
 **New Description:**
+
 ```yaml
 description: Format content for API upload to social platforms. Handles LinkedIn little Text escaping, Twitter/X content type routing (tweet vs long-form), Instagram media_product_type differentiation (feed vs reels). Validates character limits, escapes special characters, prepares API-compliant payloads. NO hashtags. Use before uploading via linkedin-api-client or twitter-api-client.
 ```
 
 **Update Instructions Section:**
 
-```markdown
+````markdown
 ## Instructions
 
 ### Step 1: Identify Platform and Content Type
@@ -712,10 +746,12 @@ python3 scripts/format_platform.py twitter --content "Long article..." --type lo
 # Instagram Reels
 python3 scripts/format_platform.py instagram --content "Reel caption" --type reels
 ```
+````
 
 ### Step 3: Validate Output
 
 **Check formatter returns:**
+
 - `formatted`: API-ready text (escaped if needed)
 - `valid`: true/false
 - `warnings`: Any issues
@@ -724,17 +760,20 @@ python3 scripts/format_platform.py instagram --content "Reel caption" --type ree
 ### Step 4: Use in API Client
 
 **LinkedIn Example:**
+
 ```javascript
-const formatted = formatPostText(rawText);  // Uses linkedin.py logic
+const formatted = formatPostText(rawText); // Uses linkedin.py logic
 await createTextPost(accessToken, personUrn, formatted.formatted);
 ```
 
 **Twitter Example:**
+
 ```javascript
-const payload = {text: formattedText};  // No escaping needed
+const payload = { text: formattedText }; // No escaping needed
 await rwClient.v2.tweet(payload);
 ```
-```
+
+````
 
 ---
 
@@ -831,7 +870,7 @@ if __name__ == "__main__":
 
     print("=" * 60)
     print("✅ ALL TESTS PASSED")
-```
+````
 
 ---
 
@@ -842,6 +881,7 @@ if __name__ == "__main__":
 **Location:** `~/.claude/skills/skill-creator/`
 
 **Use enhance_skill.py to add research:**
+
 ```bash
 python3 ~/.claude/skills/skill-creator/scripts/enhance_skill.py \
   .claude/skills/jarvis/platform-formatter \
@@ -854,6 +894,7 @@ This will research and add findings to the skill!
 ### deep-web-research
 
 **Use for API research:**
+
 ```
 Use deep-web-research skill with depth=comprehensive:
 - Topic: "Twitter X API v2 content types long-form media requirements"
@@ -864,6 +905,7 @@ Use deep-web-research skill with depth=comprehensive:
 ### Existing API Clients (YOUR REFERENCE)
 
 **Check these for real-world usage:**
+
 ```
 bmad/modules/linkedin-api-client/lib/formatter.js
 bmad/modules/linkedin-api-client/lib/client.js
@@ -879,6 +921,7 @@ See how they call formatters and what they need!
 **When you're done, verify:**
 
 ### LinkedIn:
+
 - [ ] Escapes all 15 reserved characters
 - [ ] No hashtag logic
 - [ ] Handles all 5 content types (text, image, multi_image, document, video)
@@ -886,6 +929,7 @@ See how they call formatters and what they need!
 - [ ] Test: `python3 platforms/linkedin.py` passes
 
 ### Twitter:
+
 - [ ] No escaping (API doesn't need it)
 - [ ] No hashtag logic
 - [ ] Handles 4 content types (tweet, long_form, media_tweet, thread)
@@ -893,6 +937,7 @@ See how they call formatters and what they need!
 - [ ] Returns API payload template
 
 ### Instagram:
+
 - [ ] No escaping
 - [ ] No hashtag logic
 - [ ] Handles 3 content types (feed, reels, carousel)
@@ -900,6 +945,7 @@ See how they call formatters and what they need!
 - [ ] Returns API payload template
 
 ### All Platforms:
+
 - [ ] NO hashtag parameters
 - [ ] NO hashtag constants
 - [ ] NO hashtag validation
@@ -919,7 +965,7 @@ See how they call formatters and what they need!
 5. ✅ ZERO hashtag logic anywhere
 6. ✅ Reference docs explain API requirements
 7. ✅ Test suite passes
-8. ✅ Can be used by bmad/modules/*-api-client
+8. ✅ Can be used by bmad/modules/\*-api-client
 
 ---
 
@@ -928,16 +974,13 @@ See how they call formatters and what they need!
 **Recommended Order:**
 
 **Day 1 (4 hours):**
+
 1. Remove all hashtag logic (2 hours)
 2. Add Twitter content types (2 hours)
 
-**Day 2 (4 hours):**
-3. Add Instagram content types (2 hours)
-4. Create reference documentation (2 hours)
+**Day 2 (4 hours):** 3. Add Instagram content types (2 hours) 4. Create reference documentation (2 hours)
 
-**Day 3 (4 hours):**
-5. Build test suite (2 hours)
-6. Integration testing with API clients (2 hours)
+**Day 3 (4 hours):** 5. Build test suite (2 hours) 6. Integration testing with API clients (2 hours)
 
 **Total: 12 hours over 3 sessions**
 
@@ -1006,6 +1049,7 @@ The linkedin-api-client and twitter-api-client depend on proper formatting for s
 **Take your time, do it right, test thoroughly.**
 
 The Builder has laid the foundation with:
+
 - ✅ Modular architecture
 - ✅ LinkedIn escaping (complete and tested)
 - ✅ Test harness in place

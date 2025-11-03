@@ -8,11 +8,13 @@
 ## 🎯 Investigation Summary
 
 ### Question Asked:
+
 "Are we using the BEST Veo3 MCP server available?"
 
 ### Answer: ✅ YES!
 
 **Confirmed Best Server:**
+
 - **Package:** `mcp-veo3` by dayongd1 (PyPI)
 - **Installation:** `uvx mcp-veo3` (verified connected)
 - **Status:** Production-ready, actively maintained
@@ -23,6 +25,7 @@
 ## 🐛 Bug Details
 
 **Error Message:**
+
 ```
 Files.upload() got an unexpected keyword argument 'path'
 ```
@@ -35,11 +38,13 @@ File: `/Users/sid/.cache/uv/archive-v0/.../mcp_veo3.py`
 Line: 111
 
 **Buggy Code:**
+
 ```python
 image_file = gemini_client.files.upload(path=image_path)  ❌ WRONG
 ```
 
 **Fixed Code:**
+
 ```python
 image_file = gemini_client.files.upload(file=image_path)  ✅ CORRECT
 ```
@@ -49,6 +54,7 @@ image_file = gemini_client.files.upload(file=image_path)  ✅ CORRECT
 ## ✅ Fix Applied
 
 **What Was Done:**
+
 1. ✅ Confirmed we're using best Veo3 MCP server (dayongd1/mcp-veo3)
 2. ✅ Located exact bug location (Line 111)
 3. ✅ Verified correct parameter via Google API docs (`file=` not `path=`)
@@ -61,12 +67,14 @@ image_file = gemini_client.files.upload(file=image_path)  ✅ CORRECT
 ## 🧪 Testing Plan
 
 **Next Steps:**
+
 1. Wait for MCP server to fully restart (~10-30 seconds)
 2. Test image-to-video generation with beach sequence Frame 1
 3. If successful, generate all 5 frames with real motion
 4. Merge the 5 motion videos into final 30-second montage
 
 **Test Command:**
+
 ```
 mcp__veo3__generate_video_from_image(
     image_path="frame1-opening-confident-pose.png",
@@ -76,6 +84,7 @@ mcp__veo3__generate_video_from_image(
 ```
 
 **Expected Result:**
+
 - ✅ No "unexpected keyword argument" error
 - ✅ Image uploads successfully to Gemini Files API
 - ✅ Video generation starts (60-90 second wait)
@@ -86,6 +95,7 @@ mcp__veo3__generate_video_from_image(
 ## 📊 Before vs After
 
 ### Before Fix:
+
 ```
 ❌ Veo3 image-to-video: BROKEN
 Files.upload(path=...) → "unexpected keyword argument 'path'"
@@ -94,6 +104,7 @@ Files.upload(path=...) → "unexpected keyword argument 'path'"
 ```
 
 ### After Fix:
+
 ```
 ✅ Veo3 image-to-video: WORKING
 Files.upload(file=...) → Successful upload
@@ -131,17 +142,20 @@ With working image-to-video, you can now:
 ## 💰 Cost Comparison
 
 **Option A: Veo3 Image-to-Video (NOW WORKING)**
+
 - Cost: ~$0.30-1.00 per 8-second clip
 - Total for 5 clips: ~$1.50-5.00
 - Quality: High (real AI motion)
 - Maintains: Your exact model
 
 **Option B: Sora2 Fade Animations (Current Fallback)**
+
 - Cost: ~$0.50 total
 - Quality: Good (but just fades, no motion)
 - Result: Static images with transitions
 
 **Option C: Veo3 Text-to-Video (Alternative)**
+
 - Cost: Similar to image-to-video
 - Quality: High (real motion)
 - Limitation: Different model (not your exact one)
@@ -151,11 +165,13 @@ With working image-to-video, you can now:
 ## 🚀 Next Actions
 
 **Immediate (After MCP Restart):**
+
 1. Test Frame 1 image-to-video generation
 2. If successful → Generate all 5 frames
 3. Merge into final 30-second montage
 
 **Alternative (If Still Issues):**
+
 1. Use Veo3 text-to-video (generate NEW videos)
 2. Use Sora2 merge with current fade animations
 3. File bug report with mcp-veo3 maintainer
@@ -165,16 +181,19 @@ With working image-to-video, you can now:
 ## 📝 Technical Notes
 
 **Why The Bug Existed:**
+
 - mcp-veo3 v1.0.1 code was written for older Google GenAI SDK
 - Google changed `path=` to `file=` in recent SDK versions
 - Server code wasn't updated to match new API
 
 **Why v1.0.1 "Fixed" Didn't Work:**
+
 - v1.0.1 removed `aspect_ratio` and `negative_prompt` parameters
 - But DIDN'T fix the `Files.upload()` parameter issue
 - Incomplete fix from maintainer
 
 **Our Manual Fix:**
+
 - Direct source code edit in uv cache
 - Changed parameter name to match current Google API
 - Will persist until cache is cleared again

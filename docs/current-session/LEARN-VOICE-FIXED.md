@@ -8,7 +8,9 @@
 ## What Was Fixed
 
 ### Problem:
+
 The learn-voice workflow was asking users to choose between 3 options for Twitter:
+
 1. Use Apify scraper (~$0.02)
 2. Manual export (FREE but tedious)
 3. Skip Twitter
@@ -20,6 +22,7 @@ This created unnecessary friction and confusion during the workflow.
 **NEW BEHAVIOR:**
 
 #### Twitter (Automatic):
+
 1. **Try mcp_twitter first** (FREE if available)
    - `mcp_twitter/get_last_tweet_from_user`
    - If succeeds: ✓ Done (FREE)
@@ -32,11 +35,13 @@ This created unnecessary friction and confusion during the workflow.
 **No user intervention required!** ✨
 
 #### LinkedIn (Already good):
+
 - Uses `linkedin-mcp` first
 - Falls back to Apify if needed
 - Consistent pattern
 
 #### YouTube (FREE):
+
 - Uses `youtube_transcript/get_transcript`
 - Analyzes spoken voice from video transcripts
 - Completely free
@@ -46,12 +51,14 @@ This created unnecessary friction and confusion during the workflow.
 ## Benefits
 
 **Before:**
+
 - User had to choose options
 - Confused about what to pick
 - Manual export was tedious
 - Extra questions slowed workflow
 
 **After:**
+
 - ✅ Fully automatic
 - ✅ Smart fallback system
 - ✅ Tries free options first
@@ -92,12 +99,14 @@ This created unnecessary friction and confusion during the workflow.
 ## MCPs Used
 
 **Available MCPs:**
+
 - `mcp_twitter` - Twitter MCP for free fetching
 - `apify` - Reliable scraping fallback
 - `linkedin-mcp` - LinkedIn integration
 - `youtube-transcript` - Free transcript extraction
 
 **Smart Integration:**
+
 - Always tries free options first
 - Falls back to paid only when needed
 - Transparent about costs
@@ -108,6 +117,7 @@ This created unnecessary friction and confusion during the workflow.
 ## Testing
 
 **To test the fixed workflow:**
+
 ```bash
 /jarvis:jarvis1
 
@@ -122,6 +132,7 @@ YouTube: @siddani09
 ```
 
 **Expected behavior:**
+
 - No questions about Twitter fetching method
 - Smooth automatic fetch from all platforms
 - Clear progress updates

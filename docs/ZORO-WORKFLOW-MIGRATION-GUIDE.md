@@ -10,6 +10,7 @@
 ## ✅ TEMPLATE CREATED: post-text-tweet
 
 **Migrated Workflow:** `post-text-tweet/`
+
 - ✅ workflow.yaml (metadata only, references external instructions)
 - ✅ instructions.md (XML workflow format with Notion integration)
 - ✅ Old format archived (post-text-tweet.yaml.old)
@@ -21,24 +22,17 @@
 ## 📋 REMAINING WORKFLOWS TO MIGRATE (9)
 
 **Twitter Workflows (2):**
+
 1. ⏳ create-thread.yaml → create-thread/
 2. ⏳ post-tweet-with-image.yaml → post-tweet-with-image/
 
-**LinkedIn Workflows (4):**
-3. ⏳ linkedin-post-text.yaml → linkedin-post-text/
-4. ⏳ linkedin-post-image.yaml → linkedin-post-image/
-5. ⏳ linkedin-post-multiimage.yaml → linkedin-post-multiimage/
-6. ⏳ linkedin-post-pdf.yaml → linkedin-post-pdf/
+**LinkedIn Workflows (4):** 3. ⏳ linkedin-post-text.yaml → linkedin-post-text/ 4. ⏳ linkedin-post-image.yaml → linkedin-post-image/ 5. ⏳ linkedin-post-multiimage.yaml → linkedin-post-multiimage/ 6. ⏳ linkedin-post-pdf.yaml → linkedin-post-pdf/
 
-**YouTube Workflows (2):**
-7. ⏳ youtube-upload-video.yaml → youtube-upload-video/
-8. ⏳ youtube-upload-short.yaml → youtube-upload-short/
+**YouTube Workflows (2):** 7. ⏳ youtube-upload-video.yaml → youtube-upload-video/ 8. ⏳ youtube-upload-short.yaml → youtube-upload-short/
 
-**Other (1):**
-9. ⏳ post-tweet-with-video.yaml → post-tweet-with-video/
+**Other (1):** 9. ⏳ post-tweet-with-video.yaml → post-tweet-with-video/
 
-**Already Standard:**
-10. ✅ schedule-post/ (already has external instructions.md!)
+**Already Standard:** 10. ✅ schedule-post/ (already has external instructions.md!)
 
 ---
 
@@ -47,23 +41,26 @@
 **For each workflow:**
 
 ### **Step 1: Create folder**
+
 ```bash
 mkdir -p zoro-sidecar/workflows/{workflow-name}/
 ```
 
 ### **Step 2: Create workflow.yaml (Metadata Only)**
-```yaml
-name: {workflow-name}
-description: "{description from old file}"
-author: "Zoro (Publishing Agent)"
-version: "2.0.0-standardized"
 
-config_source: "{project-root}/bmad/agents/zoro/config.yaml"
+```yaml
+name: { workflow-name }
+description: '{description from old file}'
+author: 'Zoro (Publishing Agent)'
+version: '2.0.0-standardized'
+
+config_source: '{project-root}/bmad/agents/zoro/config.yaml'
 template: false
-instructions: "{installed_path}/instructions.md"
+instructions: '{installed_path}/instructions.md'
 ```
 
 ### **Step 3: Create instructions.md (XML Format)**
+
 ```xml
 <workflow>
 <critical>Load {project-root}/bmad/core/tasks/workflow.xml</critical>
@@ -90,6 +87,7 @@ instructions: "{installed_path}/instructions.md"
 ```
 
 ### **Step 4: Archive old file**
+
 ```bash
 mv {workflow-name}.yaml {workflow-name}.yaml.old
 ```
@@ -101,12 +99,14 @@ mv {workflow-name}.yaml {workflow-name}.yaml.old
 ## 💡 MIGRATION TIPS
 
 **Converting JavaScript to XML:**
+
 - `console.log()` → `<action>Display:</action>`
 - `const x = y` → `<action>Store as {{x}}</action>`
 - `if (condition)` → `<check if="condition">`
 - `await client.method()` → `<action>Call client.method()</action>`
 
 **Adding Notion Integration:**
+
 - Always add as final step (before completion)
 - Use Pattern 1 from notion-integration-patterns.md
 - Update Status → Posted
@@ -114,6 +114,7 @@ mv {workflow-name}.yaml {workflow-name}.yaml.old
 - Link to appropriate Channel (Twitter, LinkedIn, YouTube)
 
 **Adding Output Management:**
+
 - Save to: `05-published/{platform}/`
 - Create: post.md, url.md, publish-confirmation.json
 - Follow 6-stage lifecycle pattern
@@ -125,11 +126,13 @@ mv {workflow-name}.yaml {workflow-name}.yaml.old
 **Story 7.1: Workflow Format Standardization**
 
 **Before Migration:**
+
 - Jarvis: ✅ 7/7 standardized (external instructions.md)
 - Zoe: 🔄 13/13 mixed (some YAML, some have instructions.md) - ACCEPTABLE
 - Zoro: ❌ 1/11 standardized (only schedule-post)
 
 **After Template Created:**
+
 - Jarvis: ✅ 7/7 standardized
 - Zoe: ✅ 13/13 operational (mixed format acceptable for image/video workflows)
 - Zoro: 🔄 2/11 standardized (post-text-tweet + schedule-post)
@@ -143,6 +146,7 @@ mv {workflow-name}.yaml {workflow-name}.yaml.old
 ## 🎯 COMPLETION STRATEGY
 
 **Next Session (1-1.5 hours):**
+
 1. Migrate linkedin-post-image (15 min)
 2. Migrate youtube-upload-video (15 min)
 3. Migrate create-thread (20 min)
@@ -152,6 +156,7 @@ mv {workflow-name}.yaml {workflow-name}.yaml.old
 **Result:** Epic 8 Story 7.1 100% Complete!
 
 **Then:**
+
 - Story 7.2: Tool Performance Tracking (1 hour)
 - Epic 8: 100% Complete
 - **MVP: 60% Complete!**
@@ -161,6 +166,7 @@ mv {workflow-name}.yaml {workflow-name}.yaml.old
 ## 📋 MIGRATION CHECKLIST (Per Workflow)
 
 **For each workflow migration:**
+
 - [ ] Create folder: `workflows/{name}/`
 - [ ] Create workflow.yaml with external instructions reference
 - [ ] Create instructions.md with XML format
@@ -180,6 +186,7 @@ mv {workflow-name}.yaml {workflow-name}.yaml.old
 ---
 
 🧙 **Shall the Builder:**
+
 1. **Continue migration** (migrate all 9 remaining workflows - 1-1.5 hours)?
 2. **Document and pause** (template created, finish migrations fresh next time)?
 3. **Test the migrated workflow** (validate post-text-tweet works)?

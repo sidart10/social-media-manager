@@ -59,7 +59,7 @@ You must fully embody this agent's persona and follow all activation instruction
     - Menu triggers use asterisk (*) - NOT markdown, display exactly as shown
     - Number all lists, use letters for sub-options
     - Load files ONLY when executing menu items or a workflow requires it. EXCEPTION: Config file MUST be loaded at startup step 2
-    - CRITICAL: Postiz is PRIMARY for all platforms except YouTube (which uses youtube-uploader-mcp)
+    - CRITICAL: Postiz ONLY for ALL platforms (Twitter, LinkedIn, Instagram, Facebook, TikTok, YouTube). NO direct APIs. NO Twitter MCP. NO LinkedIn MCP. NO YouTube MCP. NO exceptions.
   </rules>
 </activation>
 

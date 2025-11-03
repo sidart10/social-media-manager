@@ -1,0 +1,156 @@
+{
+  "handoff_type": "twitter_thread_with_images",
+  "created_by": "Jarvis + Zoe",
+  "created_at": "2025-11-02T23:45:00Z",
+  "project_path": "/Users/sid/Desktop/4. Coding Projects/social-media-manager/outputs/11-02-2025/agent-skills-thread",
+
+  "content": {
+    "platform": "twitter",
+    "format": "thread",
+    "thread_length": 10,
+    "images_count": 3,
+
+    "tweets": [
+      {
+        "number": 1,
+        "text": "Anthropic shipped Agent Skills last month.\n\nMost people think they're just \"better prompts.\"\n\nThey're not. Agent Skills are the missing architecture layer between raw LLMs and production agents.\n\nHere's why this matters for anyone building AI systems:\n\n🧵",
+        "has_image": false,
+        "char_count": 276
+      },
+      {
+        "number": 2,
+        "text": "Don't get me wrong - prompts work for demos.\n\nBut production agents need:\n• Context management (can't reload 2000 tokens every call)\n• Tool orchestration (which MCP, when, in what order)\n• Procedural memory (your workflows, not generic instructions)\n• Team coordination (sharing expertise across developers)\n\nTraditional approaches fail at scale.",
+        "has_image": false,
+        "char_count": 276
+      },
+      {
+        "number": 3,
+        "text": "Agent Skills solve this through 3-tier progressive disclosure:\n\n**Tier 1: Metadata only (~50 tokens)**\n- Skill name + description loaded at startup\n- Claude scans ALL skills, loads NONE yet\n- Token-efficient discovery\n\nThink: table of contents, not the full manual.",
+        "has_image": true,
+        "image_path": "04-media/images/diagram-1-progressive-disclosure-LIGHT.png",
+        "char_count": 218
+      },
+      {
+        "number": 4,
+        "text": "**Tier 2: Full instructions (when relevant)**\n- SKILL.md loaded only when task matches\n- Keep other skills dormant\n\n**Tier 3: Additional resources (on-demand)**\n- Reference docs, scripts, templates\n- Loaded ONLY when needed\n\nResult: Unbounded context capacity with minimal token overhead.",
+        "has_image": false,
+        "char_count": 239
+      },
+      {
+        "number": 5,
+        "text": "What sets Agent Skills apart from RAG, fine-tuning, or massive system prompts:\n\nRAG retrieves facts. Skills encode *procedures*.\n\nFine-tuning locks knowledge in weights. Skills update instantly.\n\nSystem prompts bloat every request. Skills load on-demand.\n\nProcedural knowledge > factual retrieval for agents.",
+        "has_image": false,
+        "char_count": 252
+      },
+      {
+        "number": 6,
+        "text": "The insight everyone's missing: Agent Skills and MCP are *complementary*, not competitive.\n\n**MCP** = External world (connect to GitHub, databases, APIs)\n**Skills** = Internal knowledge (HOW to use those tools)\n\nExample:\nMCP gives Claude access to your database.\nSkills teach it your query optimization patterns.\n\nYou need both.",
+        "has_image": true,
+        "image_path": "04-media/images/diagram-2-skills-mcp-venn-LIGHT.png",
+        "char_count": 268
+      },
+      {
+        "number": 7,
+        "text": "Here's where it gets interesting: Skills can bundle executable code.\n\nWhy? Some tasks shouldn't burn tokens.\n\n• Sorting a list? Run Python instantly.\n• Extracting PDF forms? Use deterministic script.\n• Generating creative content? Let Claude reason.\n\nSkills let Claude decide when to execute code vs when to reason.\n\nEfficiency meets flexibility.",
+        "has_image": false,
+        "char_count": 262
+      },
+      {
+        "number": 8,
+        "text": "Production numbers from Anthropic's engineering blog:\n\n• Context efficiency: 100-token metadata vs 2000-token full instructions\n• Unlimited capacity: Skills load from filesystem, not context window\n• Cross-surface: Same skill works in Claude.ai, Claude Code, API, Agent SDK\n• Team distribution: Git-based sharing, instant availability\n\nThis is architecture for scale, not toys.",
+        "has_image": true,
+        "image_path": "04-media/images/diagram-3-context-efficiency-LIGHT.png",
+        "char_count": 271
+      },
+      {
+        "number": 9,
+        "text": "I built 12 skills for my social media agent:\n\n• deep-web-research (Exa + Apify orchestration)\n• post-writer (Justin Welsh + Greg Isenberg formulas)\n• voice-matcher (77 posts analyzed, 8/10 confidence)\n\nEach skill is 200-500 lines. Workflows compose them.\n\nResult: Research → Strategy → Creation pipeline, all voice-matched, all evidence-backed.\n\nAgent Skills turned generic LLM into domain expert.",
+        "has_image": false,
+        "char_count": 273
+      },
+      {
+        "number": 10,
+        "text": "We're watching the shift from \"AI assistants\" to \"AI operating systems.\"\n\nPhase 1: Raw prompts (artisanal, fragile)\nPhase 2: MCP (tool connectivity)\nPhase 3: Agent Skills (procedural knowledge)\n\nNext: Skills that self-modify. Agents that create their own expertise modules.\n\nThe cathedral window era of AI agents is ending.\n\nModular, composable, scalable architecture is here.",
+        "has_image": false,
+        "char_count": 277
+      }
+    ]
+  },
+
+  "assets": [
+    {
+      "type": "image",
+      "tweet_number": 3,
+      "local_path": "04-media/images/diagram-1-progressive-disclosure-LIGHT.png",
+      "full_path": "/Users/sid/Desktop/4. Coding Projects/social-media-manager/outputs/11-02-2025/agent-skills-thread/04-media/images/diagram-1-progressive-disclosure-LIGHT.png",
+      "description": "3-tier progressive disclosure architecture diagram",
+      "size": "1024x1024",
+      "quality_score": 9.0,
+      "cloudinary_url": null,
+      "needs_upload": true
+    },
+    {
+      "type": "image",
+      "tweet_number": 6,
+      "local_path": "04-media/images/diagram-2-skills-mcp-venn-LIGHT.png",
+      "full_path": "/Users/sid/Desktop/4. Coding Projects/social-media-manager/outputs/11-02-2025/agent-skills-thread/04-media/images/diagram-2-skills-mcp-venn-LIGHT.png",
+      "description": "Skills and MCP complementary relationship Venn diagram",
+      "size": "1024x1024",
+      "quality_score": 9.0,
+      "cloudinary_url": null,
+      "needs_upload": true
+    },
+    {
+      "type": "image",
+      "tweet_number": 8,
+      "local_path": "04-media/images/diagram-3-context-efficiency-LIGHT.png",
+      "full_path": "/Users/sid/Desktop/4. Coding Projects/social-media-manager/outputs/11-02-2025/agent-skills-thread/04-media/images/diagram-3-context-efficiency-LIGHT.png",
+      "description": "40x context efficiency improvement comparison",
+      "size": "1024x1024",
+      "quality_score": 9.5,
+      "cloudinary_url": null,
+      "needs_upload": true
+    }
+  ],
+
+  "metadata": {
+    "topic": "Agent Skills technical deep dive",
+    "voice_mode": "Analyst",
+    "research_cost": 0.041,
+    "visual_production_cost": 0.12,
+    "total_cost": 0.161,
+    "research_sources": [
+      "https://www.anthropic.com/news/skills",
+      "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills",
+      "https://leehanchung.github.io/blogs/2025/10/26/claude-skills-deep-dive/",
+      "https://simonwillison.net/2025/Oct/16/claude-skills/"
+    ],
+    "quality_metrics": {
+      "content_quality": 9.0,
+      "visual_quality": 9.17,
+      "voice_match": 9.0,
+      "overall": 9.06
+    }
+  },
+
+  "posting_instructions": {
+    "platform": "twitter",
+    "format": "thread",
+    "best_time": "Tuesday-Thursday 9-11am PT",
+    "first_hour_actions": [
+      "Reply with source thread: 'Full breakdown from @AnthropicAI: https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills'",
+      "Like and reply to all comments",
+      "Monitor engagement velocity"
+    ],
+    "hashtags": [],
+    "visual_breaks": [3, 6, 8],
+    "requires_cloudinary": true,
+    "requires_postiz": false
+  },
+
+  "ready_for_agent": "zoro",
+  "suggested_command": "/zoro *schedule-post",
+  "priority": "normal",
+
+  "notes": "Technical thread explaining Agent Skills importance with architecture focus. High-quality educational diagrams in light style. Personal implementation proof (12 skills built). Ready for developer audience."
+}

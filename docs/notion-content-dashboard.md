@@ -223,18 +223,18 @@ For advanced use cases, you can build a custom MCP server with specific tools:
 
 1. **Generate Ideas:** Use web research or trend analysis to identify content topics
 2. **Store in Database:** Create new page in Content Tracker [DB]
-    
-    ```
-    Database: [Content Tracker [DB]](https://www.notion.so/38a6deb43ccb4c2ebb8c1517fb4c525a/ds/956447a76e7b4b2eafb1e4c9adfcbcf3?db=49d227f4b5c448598c640632ffaf1f52&pvs=21)
-    Properties to set:
-    - Name: "[Content Title]"
-    - Status: "Idea"
-    - Category: [Auto-detect based on topic]
-    - Channel: [Select based on content type]
-    - Priority: [Set based on trend urgency]
-    - Description: "[Brief summary]"
-    ```
-    
+
+   ```
+   Database: [Content Tracker [DB]](https://www.notion.so/38a6deb43ccb4c2ebb8c1517fb4c525a/ds/956447a76e7b4b2eafb1e4c9adfcbcf3?db=49d227f4b5c448598c640632ffaf1f52&pvs=21)
+   Properties to set:
+   - Name: "[Content Title]"
+   - Status: "Idea"
+   - Category: [Auto-detect based on topic]
+   - Channel: [Select based on content type]
+   - Priority: [Set based on trend urgency]
+   - Description: "[Brief summary]"
+   ```
+
 3. **Add Keywords:** Search Keywords [DB] or create new keywords, link via Focus Keywords relation
 4. **Create Task:** Add task in Action Items [DB] linked to content page
 
@@ -242,9 +242,9 @@ For advanced use cases, you can build a custom MCP server with specific tools:
 
 ```sql
 -- Check for existing similar content
-SELECT Name, Status, Category 
-FROM "[Content Tracker [DB]](https://www.notion.so/38a6deb43ccb4c2ebb8c1517fb4c525a/ds/956447a76e7b4b2eafb1e4c9adfcbcf3?db=49d227f4b5c448598c640632ffaf1f52&pvs=21)" 
-WHERE Category = 'AI Products' 
+SELECT Name, Status, Category
+FROM "[Content Tracker [DB]](https://www.notion.so/38a6deb43ccb4c2ebb8c1517fb4c525a/ds/956447a76e7b4b2eafb1e4c9adfcbcf3?db=49d227f4b5c448598c640632ffaf1f52&pvs=21)"
+WHERE Category = 'AI Products'
 AND Status NOT IN ('Archived', 'Posted')
 ```
 
@@ -254,13 +254,13 @@ AND Status NOT IN ('Archived', 'Posted')
 
 1. **Monitor Status:** Query Content Ideas view ([`view://1706decf-86d2-46a5-bb34-20575660e9fa`](view://1706decf-86d2-46a5-bb34-20575660e9fa)) daily
 2. **Update Status:** Move content through pipeline based on completion
-    - Idea → Research (when research begins)
-    - Research → Writing (when outline is ready)
-    - Writing → Editing (when draft complete)
-    - Editing → Posted (when published)
+   - Idea → Research (when research begins)
+   - Research → Writing (when outline is ready)
+   - Writing → Editing (when draft complete)
+   - Editing → Posted (when published)
 3. **Set Dates:**
-    - Update "Next Actions" for next milestone
-    - Set "Publish Date" when scheduling
+   - Update "Next Actions" for next milestone
+   - Set "Publish Date" when scheduling
 4. **Performance Tracking:** After publish, update Views, Likes, Comments weekly
 
 ## Workflow 3: Multi-Channel Content Distribution
@@ -269,29 +269,29 @@ AND Status NOT IN ('Archived', 'Posted')
 
 1. **Identify Source Content:** Find content with Status = "Posted" and high View Performance
 2. **Repurpose Strategy:**
-    - Long-form video → Short clips for TikTok/Reels
-    - Blog post → Twitter thread + LinkedIn post
-    - Podcast → Quote graphics
+   - Long-form video → Short clips for TikTok/Reels
+   - Blog post → Twitter thread + LinkedIn post
+   - Podcast → Quote graphics
 3. **Create Child Content:**
-    - Create new page in Content Tracker [DB]
-    - Set Parent Content relation to source
-    - Assign different Channel
-    - Status starts at "Next Up"
+   - Create new page in Content Tracker [DB]
+   - Set Parent Content relation to source
+   - Assign different Channel
+   - Status starts at "Next Up"
 
 ## Workflow 4: Keyword Research & Optimization
 
 **Agent Instructions:**
 
 1. **Analyze Gaps:**
-    
-    ```sql
-    -- Find channels without content
-    SELECT [c.Name](http://c.Name), COUNT(ct.url) as content_count
-    FROM "[My Channels [DB]](https://www.notion.so/38a6deb43ccb4c2ebb8c1517fb4c525a/ds/0145d0effd0848988b489cebeaa46a1d?db=640276b83cf94d90869b13ca58008ea7&pvs=21)" c
-    LEFT JOIN "[Content Tracker [DB]](https://www.notion.so/38a6deb43ccb4c2ebb8c1517fb4c525a/ds/956447a76e7b4b2eafb1e4c9adfcbcf3?db=49d227f4b5c448598c640632ffaf1f52&pvs=21)" ct ON [ct.Channel](http://ct.Channel) LIKE '%' || c.url || '%'
-    GROUP BY [c.Name](http://c.Name)
-    ```
-    
+
+   ```sql
+   -- Find channels without content
+   SELECT [c.Name](http://c.Name), COUNT(ct.url) as content_count
+   FROM "[My Channels [DB]](https://www.notion.so/38a6deb43ccb4c2ebb8c1517fb4c525a/ds/0145d0effd0848988b489cebeaa46a1d?db=640276b83cf94d90869b13ca58008ea7&pvs=21)" c
+   LEFT JOIN "[Content Tracker [DB]](https://www.notion.so/38a6deb43ccb4c2ebb8c1517fb4c525a/ds/956447a76e7b4b2eafb1e4c9adfcbcf3?db=49d227f4b5c448598c640632ffaf1f52&pvs=21)" ct ON [ct.Channel](http://ct.Channel) LIKE '%' || c.url || '%'
+   GROUP BY [c.Name](http://c.Name)
+   ```
+
 2. **Research Keywords:** For each category, find high-volume, low-difficulty keywords
 3. **Store Keywords:** Add to Keywords [DB] with Volume and Difficulty data
 4. **Link to Content:** Associate keywords with relevant content ideas
@@ -302,13 +302,13 @@ AND Status NOT IN ('Archived', 'Posted')
 
 1. **Weekly Review:** Query Published Content Calendar ([`view://c44e7662-468b-40a0-93f8-b6607c81f4e9`](view://c44e7662-468b-40a0-93f8-b6607c81f4e9))
 2. **Calculate Metrics:**
-    - Average views per channel
-    - Best performing categories
-    - Engagement rate (Likes + Comments / Views)
+   - Average views per channel
+   - Best performing categories
+   - Engagement rate (Likes + Comments / Views)
 3. **Identify Patterns:**
-    - Which categories get highest views?
-    - Which channels have best engagement?
-    - What content pillars perform best?
+   - Which categories get highest views?
+   - Which channels have best engagement?
+   - What content pillars perform best?
 4. **Recommend Strategy:** Update Priority and Category focus based on data
 
 ---
@@ -318,7 +318,7 @@ AND Status NOT IN ('Archived', 'Posted')
 ## Query 1: Get All Active Content Ideas
 
 ```sql
-SELECT 
+SELECT
   url,
   Name,
   Status,
@@ -335,7 +335,7 @@ ORDER BY Priority ASC, "date:Next Actions:start" ASC
 ## Query 2: Get Content by Channel
 
 ```sql
-SELECT 
+SELECT
   [c.Name](http://c.Name) as content_title,
   c.Status,
   c."date:Publish Date:start" as publish_date,
@@ -351,7 +351,7 @@ ORDER BY c."date:Publish Date:start" DESC
 ## Query 3: Find Overdue Tasks
 
 ```sql
-SELECT 
+SELECT
   "Action Items" as task_name,
   "Kanban Status" as status,
   "date:Due Date:start" as due_date
@@ -365,13 +365,13 @@ ORDER BY "date:Due Date:start" ASC
 ## Query 4: Top Keywords by Content Count
 
 ```sql
-SELECT 
+SELECT
   k.Keyword,
   k.Volume,
   k.Difficulty,
   COUNT(DISTINCT json_each.value) as content_count
 FROM "[Keywords [DB]](https://www.notion.so/38a6deb43ccb4c2ebb8c1517fb4c525a/ds/7955dfc668fc47d38dfe77cc5d96bb18?db=b4956bf5fbd84939900cb637a58ff82c&pvs=21)" k
-LEFT JOIN json_each(k."Associated Content") 
+LEFT JOIN json_each(k."Associated Content")
 GROUP BY k.Keyword, k.Volume, k.Difficulty
 ORDER BY content_count DESC, k.Volume DESC
 LIMIT 20
@@ -380,7 +380,7 @@ LIMIT 20
 ## Query 5: Performance by Category
 
 ```sql
-SELECT 
+SELECT
   Category,
   COUNT(*) as content_count,
   AVG(Views) as avg_views,
@@ -460,20 +460,20 @@ Agent receives instruction → Analyze task type
 ## Notion API Setup
 
 1. **Create Integration:**
-    - Go to: [notion.so/my-integrations](http://notion.so/my-integrations)
-    - Click "New integration"
-    - Name: "Social Media Agent"
-    - Capabilities: Read content, Update content, Insert content
+   - Go to: [notion.so/my-integrations](http://notion.so/my-integrations)
+   - Click "New integration"
+   - Name: "Social Media Agent"
+   - Capabilities: Read content, Update content, Insert content
 2. **Share Databases:**
-    
-    Must share with integration:
-    
-    - Content Dashboard ([Content Dashboard](https://www.notion.so/Content-Dashboard-352616c50de241598f488ee6b5369312?pvs=21))
-    - All databases will inherit access
+
+   Must share with integration:
+   - Content Dashboard ([Content Dashboard](https://www.notion.so/Content-Dashboard-352616c50de241598f488ee6b5369312?pvs=21))
+   - All databases will inherit access
+
 3. **API Token:**
-    - Format: `ntn_` followed by alphanumeric string
-    - Store securely in environment variables
-    - Rotate periodically for security
+   - Format: `ntn_` followed by alphanumeric string
+   - Store securely in environment variables
+   - Rotate periodically for security
 
 ## MCP Security Considerations
 
@@ -498,21 +498,21 @@ Agent receives instruction → Analyze task type
 
 1. Research trending AI tools
 2. For each idea:
-    
-    ```python
-    create_page({
-      "database_id": "[Content Tracker [DB]](https://www.notion.so/38a6deb43ccb4c2ebb8c1517fb4c525a/ds/956447a76e7b4b2eafb1e4c9adfcbcf3?db=49d227f4b5c448598c640632ffaf1f52&pvs=21)",
-      "properties": {
-        "Name": {"title": [{"text": {"content": "How to Use [Tool] for [Purpose]"}}]},
-        "Status": {"status": {"name": "Idea"}},
-        "Category": {"select": {"name": "AI Products"}},
-        "Channel": {"relation": [{"id": "[LinkedIn & X](https://www.notion.so/LinkedIn-X-05fb9cced38f4521acb517824dddc35a?pvs=21)"}]},  # LinkedIn & X
-        "Priority": {"select": {"name": "2nd Priority"}},
-        "Description": {"rich_text": [{"text": {"content": "[Brief description]"}}]}
-      }
-    })
-    ```
-    
+
+   ```python
+   create_page({
+     "database_id": "[Content Tracker [DB]](https://www.notion.so/38a6deb43ccb4c2ebb8c1517fb4c525a/ds/956447a76e7b4b2eafb1e4c9adfcbcf3?db=49d227f4b5c448598c640632ffaf1f52&pvs=21)",
+     "properties": {
+       "Name": {"title": [{"text": {"content": "How to Use [Tool] for [Purpose]"}}]},
+       "Status": {"status": {"name": "Idea"}},
+       "Category": {"select": {"name": "AI Products"}},
+       "Channel": {"relation": [{"id": "[LinkedIn & X](https://www.notion.so/LinkedIn-X-05fb9cced38f4521acb517824dddc35a?pvs=21)"}]},  # LinkedIn & X
+       "Priority": {"select": {"name": "2nd Priority"}},
+       "Description": {"rich_text": [{"text": {"content": "[Brief description]"}}]}
+     }
+   })
+   ```
+
 3. Create associated keywords
 4. Generate summary report
 

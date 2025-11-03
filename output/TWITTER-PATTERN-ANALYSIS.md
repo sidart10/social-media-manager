@@ -8,6 +8,7 @@
 ## GREG ISENBERG PATTERNS (536K followers)
 
 ### Content Strategy (His Own Words)
+
 ```
 "my entire content strategy is this
 
@@ -19,6 +20,7 @@ i won't hold back"
 ### Single Tweet Style
 
 **Pattern 1: Philosophical Question (Trailing)**
+
 ```
 how do kids even learn at school anymore now that AI exists?
 
@@ -30,6 +32,7 @@ why isn't anyone talking about
 ```
 
 **Format**:
+
 - Multi-line (line breaks for readability)
 - Statement → Context → Solution → Trailing question
 - Ends mid-thought (creates curiosity)
@@ -38,11 +41,13 @@ why isn't anyone talking about
 **Engagement**: 936 replies, 322 reposts, 2,862 likes
 
 **Pattern 2: Image Commentary (One-Word)**
+
 ```
 yeah [+ image]
 ```
 
 **Format**:
+
 - Minimal text
 - Powerful image does the work
 - Ultra-casual tone
@@ -52,6 +57,7 @@ yeah [+ image]
 **Key Insight**: Sometimes less text + better image = more viral
 
 ### Posting Style Characteristics
+
 - Conversational ("i won't hold back", "sippin' a martini")
 - Lowercase preference
 - Line breaks for emphasis
@@ -65,6 +71,7 @@ yeah [+ image]
 ### Single Tweet Style
 
 **Pattern 1: Quote + Commentary**
+
 ```
 A kid applying to college told me:
 
@@ -74,6 +81,7 @@ Narrative is everything."
 ```
 
 **Format**:
+
 - Setup line
 - Quoted statement (with quotation marks)
 - Punch line conclusion
@@ -81,6 +89,7 @@ Narrative is everything."
 **Engagement**: 39 replies, 14 reposts, 678 likes
 
 **Pattern 2: Data-Driven Analysis + Image**
+
 ```
 Here's every single product OpenAI is working on.
 
@@ -90,6 +99,7 @@ And who better to run that playbook than the ex-boss of Y Combinator! [+ chart i
 ```
 
 **Format**:
+
 - Bold opener ("Here's every single product...")
 - Analysis paragraph
 - Commentary/insight
@@ -98,6 +108,7 @@ And who better to run that playbook than the ex-boss of Y Combinator! [+ chart i
 **Engagement**: 102 replies, 147 reposts, 1,407 likes
 
 **Pattern 3: Thread Announcement**
+
 ```
 ANNOUNCING
 
@@ -109,6 +120,7 @@ There's never been a better time in technology to be building.
 ```
 
 **Format**:
+
 - ALL CAPS opener (ANNOUNCING)
 - Professional announcement tone
 - Thread indicator (1/7)
@@ -117,6 +129,7 @@ There's never been a better time in technology to be building.
 **Engagement**: 114 replies, 148 reposts, 1,866 likes
 
 ### Posting Style Characteristics
+
 - Data/chart-driven
 - Professional but accessible
 - Commentary on tech/AI trends
@@ -171,6 +184,7 @@ There's never been a better time in technology to be building.
 ```
 
 **Characteristics**:
+
 - Lowercase
 - Line breaks
 - Ends mid-thought
@@ -187,6 +201,7 @@ There's never been a better time in technology to be building.
 ```
 
 **Characteristics**:
+
 - Proper grammar
 - Quotation marks for quotes
 - Clean, professional
@@ -201,6 +216,7 @@ There's never been a better time in technology to be building.
 ```
 
 **Examples**:
+
 - "yeah" + chart
 - "this." + screenshot
 - "exactly" + infographic
@@ -218,6 +234,7 @@ There's never been a better time in technology to be building.
 ```
 
 **Characteristics**:
+
 - Starts with "Here's..."
 - Includes specific data
 - Tech/business analysis
@@ -261,6 +278,7 @@ Here's what it means: [Show more]
 ### Body (After "Show more")
 
 **Structure**:
+
 ```
 [Continue from hook]
 
@@ -285,6 +303,7 @@ Here's what it means: [Show more]
 ```
 
 **Best Practices**:
+
 - Use line breaks liberally
 - Bold for **emphasis**
 - Numbered lists when applicable
@@ -297,17 +316,18 @@ Here's what it means: [Show more]
 
 ## TWEET TYPE COMPARISON
 
-| Type | Length | Hook Critical? | Format | Engagement | Use When |
-|------|--------|----------------|---------|------------|----------|
-| **Single Tweet** | <280 chars | YES | Bold statement, question, quote | Quick reactions | One clear idea |
-| **Thread** | 5-10 tweets | YES (first tweet) | 1/X format, progression | Deep engagement | Multi-step content |
-| **Long-Form** | 500-2500 chars | YES (first 280) | Headings, sections | Thought leadership | In-depth analysis |
+| Type             | Length         | Hook Critical?    | Format                          | Engagement         | Use When           |
+| ---------------- | -------------- | ----------------- | ------------------------------- | ------------------ | ------------------ |
+| **Single Tweet** | <280 chars     | YES               | Bold statement, question, quote | Quick reactions    | One clear idea     |
+| **Thread**       | 5-10 tweets    | YES (first tweet) | 1/X format, progression         | Deep engagement    | Multi-step content |
+| **Long-Form**    | 500-2500 chars | YES (first 280)   | Headings, sections              | Thought leadership | In-depth analysis  |
 
 ---
 
 ## ENGAGEMENT PATTERNS OBSERVED
 
 ### Greg Isenberg's Top Performers
+
 - **"yeah" + image**: 6,323 likes (minimal text, strong visual)
 - **Content strategy manifesto**: 3,838 likes (personal, authentic)
 - **Education AI question**: 2,862 likes (philosophical, trailing question)
@@ -315,6 +335,7 @@ Here's what it means: [Show more]
 **Pattern**: Authenticity + thought-provoking > polished corporate
 
 ### Deedydas's Top Performers
+
 - **Anthology Fund announcement**: 1,866 likes (professional, newsworthy, thread)
 - **OpenAI analysis**: 1,407 likes (data + analysis + visual)
 - **College quote**: 678 likes (controversial, real story)
@@ -326,18 +347,22 @@ Here's what it means: [Show more]
 ## RECOMMENDED ADDITIONS TO POST-WRITER SKILL
 
 ### 1. Single Tweet Prompt
+
 **For**: Standalone tweets (<280 chars), quick observations, viral potential
 
 **Formulas to include**:
+
 - Thought-provoking question (Greg style)
 - Quote + punch (Deedy style)
 - Bold claim + analysis preview
 - Image + minimal text
 
 ### 2. Twitter Long-Form Prompt
+
 **For**: In-depth posts (500-2500 chars), thought leadership, detailed analysis
 
 **Structure**:
+
 - Hook in first 280 (must compel "Show more")
 - Body with sections/headings
 - Visual integration
@@ -348,18 +373,21 @@ Here's what it means: [Show more]
 ## KEY INSIGHTS FOR IMPLEMENTATION
 
 **Single Tweets**:
+
 - Shorter often = more viral (Greg's "yeah" = 6.3K likes)
 - Line breaks critical for readability
 - Trailing questions create engagement
 - Visual proof boosts credibility
 
 **Long-Form**:
+
 - First 280 characters = EVERYTHING (feed visibility)
 - Use headings/formatting (it's available)
 - Keep conversational despite length
 - Images throughout, not just end
 
 **Both**:
+
 - Authenticity > polish
 - Data/visuals boost engagement
 - Question format invites comments

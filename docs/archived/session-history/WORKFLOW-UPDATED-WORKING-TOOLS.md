@@ -8,9 +8,11 @@
 ## What Changed
 
 **Removed:**
+
 - ❌ social-media-mcp/research_topic (broken - parameter bug)
 
 **Now Uses:**
+
 - ✅ social-media-mcp/get_trending_topics (works!)
 - ✅ exa/deep_researcher_start (works!)
 - ✅ exa/web_search_exa (works!)

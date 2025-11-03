@@ -9,6 +9,7 @@
 ## 🔍 PROJECT CONTEXT
 
 **Current State:**
+
 - ✅ Jarvis agent built (content intelligence)
 - ✅ Research workflows functional (research-topic, analyze-profile)
 - ✅ 4 MCP Skills with reference/ docs
@@ -26,67 +27,82 @@ Package AutoGen as a Claude Skill for deterministic, high-quality script generat
 ### Agent Architecture (8+ Agents):
 
 **1. Master_Agent**
+
 - Determines: Reel vs Video (based on duration)
 - Logic: ≤60s = reel, >60s = video
 
 **2. Research_Agent**
+
 - Uses: search_tool (Tavily)
 - Gets: Background info on topic
 
 **3. Title_Agent**
+
 - Creates: Clickbait titles (8-12 words)
 - Style: Curiosity-inducing, viral potential
 
 **4. Intro_Hook_Agent** (Videos)
+
 - Creates: 150-word compelling hook
 - Pattern: Thought-provoking → curiosity trigger
 
 **5. Intro_Hook_Agent_Reel** (Reels/Shorts)
+
 - Creates: 8-word maximum hook
 - Pattern: Attention-grabbing, urgent
 
 **6. Content_Agent** (Videos)
+
 - Creates: Main content with facts, examples
 - Uses: Research data, quotes, statistics
 - Structure: Logical flow, step-by-step
 
 **7. Content_Agent_Reel** (Reels/Shorts)
+
 - Creates: Fast-paced content for short duration
 - Style: Concise, punchy, value-packed
 
 **8. Tone_Agent** (Videos)
+
 - Applies: MKBHD conversational style
 - Adds: Natural speech patterns
 
 **9. Tone_Agent_Reel** (Reels/Shorts)
+
 - Combines: Hook + Content
 - Style: Fast-paced, engaging
 - Adds: Spoken English patterns (um, like, pauses)
 
 **10. Formatter_Agent**
+
 - Converts: To spoken English
 - Adds: Filler words, pauses, natural imperfections
 
 **11. Spoken_English_Agent**
+
 - Refines: Natural conversational delivery
 - Maintains: Core content, improves flow
 
 **12. Outro_Agent**
+
 - Creates: Engagement prompts
 - CTAs: Questions, subscribe requests
 
 **13. Reviewer_Agent**
+
 - Validates: Facts against research
 - Corrects: Errors, adjusts sentences
 - Returns: Final polished script
 
 **14. Script_Writer_Agent**
+
 - Final pass: 200-word professional script
 - Removes: Timestamps, technical directions
 
 ### Orchestration:
 
 **RoundRobinGroupChat:**
+
 ```python
 team = RoundRobinGroupChat([
     Research_Agent,
@@ -128,11 +144,13 @@ team = RoundRobinGroupChat([
 ### Phase 1: Create Skill Structure (30 min)
 
 **Task 1.1:** Create directory structure
+
 ```bash
 mkdir -p ~/.claude/skills/jarvis/autogen-script-generator/{scripts,reference}
 ```
 
 **Task 1.2:** Create requirements.txt
+
 ```
 autogen-agentchat>=0.2.0
 autogen-core>=0.2.0
@@ -142,11 +160,13 @@ tavily-python>=0.1.0  # For search_tool
 ```
 
 **Task 1.3:** Extract agents.py from your code
+
 - Copy all agent definitions (Master_Agent, Research_Agent, etc.)
 - Update model to gpt-5
 - Make configurable (accept parameters)
 
 **Task 1.4:** Extract prompts.py from your code
+
 - All the system messages you provided
 - TITLE_AGENT_PROMPT
 - INTRO_HOOK_AGENT_PROMPT
@@ -155,6 +175,7 @@ tavily-python>=0.1.0  # For search_tool
 - etc.
 
 **Task 1.5:** Create generate_script.py (main entry point)
+
 ```python
 #!/usr/bin/env python3
 import asyncio
@@ -185,6 +206,7 @@ if __name__ == "__main__":
 ### Phase 2: Adapt Code for Skill Usage (45 min)
 
 **Task 2.1:** Add Research Integration
+
 ```python
 # Load research brief if provided
 if research_data:
@@ -198,6 +220,7 @@ if research_data:
 ```
 
 **Task 2.2:** Add Voice Profile Integration
+
 ```python
 # Apply user's voice to Tone_Agent
 if voice_profile:
@@ -213,6 +236,7 @@ if voice_profile:
 ```
 
 **Task 2.3:** Add Platform-Specific Logic
+
 ```python
 # Route to appropriate agents
 if platform in ["reels", "tiktok"] or duration_seconds <= 90:
@@ -256,29 +280,31 @@ Professional script generation using multi-agent collaboration with fact-checkin
 When user needs a script or polished post:
 
 1. **Execute Python script:**
-   ```
-   python scripts/generate_script.py \
-     --topic "{topic}" \
-     --duration "{duration}" \
-     --platform "{platform}" \
-     --research-file "{research_brief_path}" \
-     --voice-profile "{voice_profile_path}"
-   ```
+```
+
+python scripts/generate_script.py \
+ --topic "{topic}" \
+ --duration "{duration}" \
+ --platform "{platform}" \
+ --research-file "{research_brief_path}" \
+ --voice-profile "{voice_profile_path}"
+
+```
 
 2. **AutoGen agents collaborate:**
-   - Research_Agent: Loads research data
-   - Title_Agent: Creates compelling title
-   - Hook_Agent: Creates attention-grabbing opening
-   - Content_Agent: Main content with research evidence
-   - Tone_Agent: Applies style (MKBHD + user voice)
-   - Reviewer_Agent: Fact-checks against research
+- Research_Agent: Loads research data
+- Title_Agent: Creates compelling title
+- Hook_Agent: Creates attention-grabbing opening
+- Content_Agent: Main content with research evidence
+- Tone_Agent: Applies style (MKBHD + user voice)
+- Reviewer_Agent: Fact-checks against research
 
 3. **Returns:** Polished script with:
-   - Timestamps (for videos)
-   - Natural spoken style
-   - Research citations
-   - Platform-appropriate formatting
-   - User's voice characteristics
+- Timestamps (for videos)
+- Natural spoken style
+- Research citations
+- Platform-appropriate formatting
+- User's voice characteristics
 
 **For agent roles, see:** `reference/agent-roles.md`
 **For usage examples, see:** `reference/usage-examples.md`
@@ -287,15 +313,18 @@ When user needs a script or polished post:
 
 **Input:**
 ```
+
 topic: "AI Automation Tools"
 duration: "90s"
 platform: "youtube"
 research: sessions/research-AI_automation-2025-10-27.md
 voice: memories.md voice profile
+
 ```
 
 **Output:**
 ```
+
 [0:00-0:05] HOOK
 "Did you know 73% of developers automate less than 20% of their workflows?"
 
@@ -307,6 +336,7 @@ Let me show you the 5 AI tools that changed this for me...
 
 [1:15-1:30] OUTRO
 Which tool are you trying first? Drop a comment...
+
 ```
 
 **See reference/usage-examples.md for complete examples.**
@@ -317,17 +347,20 @@ Which tool are you trying first? Drop a comment...
 ### Phase 4: Create Reference Docs (30 min)
 
 **reference/agent-roles.md:**
+
 - Explains each agent's purpose
 - Shows collaboration flow
 - Documents prompts
 
 **reference/usage-examples.md:**
+
 - Example 1: YouTube video script
 - Example 2: Reel script
 - Example 3: LinkedIn post
 - Shows input/output for each
 
 **reference/workflow-integration.md:**
+
 - How write-posts uses this
 - How write-scripts uses this
 - Parameter mappings
@@ -352,6 +385,7 @@ pip install autogen-agentchat autogen-core autogen-ext openai tavily-python
 ### Phase 6: Test (30 min)
 
 **Test 1: Direct Python execution**
+
 ```bash
 python scripts/generate_script.py \
   --topic "AI automation" \
@@ -360,12 +394,14 @@ python scripts/generate_script.py \
 ```
 
 **Test 2: Via Claude Skill**
+
 ```
 Ask Claude: "Generate a 60s reel script about AI automation"
 Should invoke autogen-script-generator Skill automatically
 ```
 
 **Test 3: From Jarvis workflow**
+
 ```
 /jarvis:jarvis1 → write-scripts
 Idea: #1
@@ -401,6 +437,7 @@ Duration: 60s
 ### For Posts (LinkedIn, Twitter, Instagram):
 
 **Use AutoGen with post-specific config:**
+
 ```python
 generate_script(
     topic=idea_card.title,
@@ -414,6 +451,7 @@ generate_script(
 ```
 
 **AutoGen adjusts:**
+
 - No Master_Agent (not video vs reel)
 - No timestamps
 - Text-only output
@@ -435,6 +473,7 @@ generate_script(
 ```
 
 **AutoGen includes:**
+
 - Master_Agent determines format
 - Timestamps
 - Visual cues
@@ -509,6 +548,7 @@ graph TB
 ### Enhancement 1: Research Data Loading
 
 **Add to generate_script.py:**
+
 ```python
 def load_research_brief(file_path):
     """Load research brief markdown and extract structured data"""
@@ -542,6 +582,7 @@ Use these facts, quotes, and examples in the script.
 ### Enhancement 2: Voice Profile Loading
 
 **Add to generate_script.py:**
+
 ```python
 def load_voice_profile(file_path):
     """Load voice profile from memories.md"""
@@ -576,6 +617,7 @@ Match user's writing voice:
 ### Enhancement 3: Platform-Specific Output
 
 **Add routing logic:**
+
 ```python
 # Different agent teams for different outputs
 if content_type == "post":
@@ -618,6 +660,7 @@ else:
 ### For LinkedIn Post:
 
 **Input:**
+
 ```
 topic: "AI Automation Tools"
 platform: "linkedin"
@@ -627,6 +670,7 @@ voice: voice-profile
 ```
 
 **AutoGen Process:**
+
 ```
 Research_Agent: Loads research facts, quotes
 Title_Agent: Creates hook "73% of developers..."
@@ -636,6 +680,7 @@ Reviewer_Agent: Validates facts
 ```
 
 **Output:**
+
 ```
 73% of developers automate less than 20% of their workflows.
 
@@ -660,6 +705,7 @@ What's your go-to automation tool?
 ### For Reel Script:
 
 **Input:**
+
 ```
 topic: "AI Automation"
 platform: "reels"
@@ -667,6 +713,7 @@ duration: "60s"
 ```
 
 **AutoGen Process:**
+
 ```
 Master_Agent: Detects reel (≤60s)
 Intro_Hook_Agent_Reel: "Stop wasting 10 hours every week"
@@ -675,6 +722,7 @@ Tone_Agent_Reel: Adds um, like, pauses
 ```
 
 **Output:**
+
 ```
 [0:00-0:03] HOOK
 Stop wasting 10 hours every week

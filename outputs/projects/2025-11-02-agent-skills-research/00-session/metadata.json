@@ -1,0 +1,55 @@
+{
+  "project_id": "2025-11-02-agent-skills-research",
+  "topic": "Agent Skills Architecture & Production Analysis",
+  "depth": "comprehensive",
+  "created_at": "2025-11-02T00:00:00Z",
+  "agent": "jarvis",
+  "workflow": "research-topic",
+  "research_stats": {
+    "sources_gathered": 35,
+    "exa_searches": 3,
+    "screenshots_captured": 5,
+    "cost_usd": 0.05
+  },
+  "outputs": {
+    "research_brief": "01-research/research-brief.md",
+    "screenshots": "04-media/images/",
+    "screenshot_files": [
+      "01-hero-section.png",
+      "02-anatomy-skill-md.png",
+      "03-progressive-disclosure.png",
+      "04-context-window-diagram.png",
+      "05-code-execution.png"
+    ]
+  },
+  "next_steps": [
+    "Refine Twitter thread with production data",
+    "Generate LinkedIn long-form post",
+    "Create YouTube script (15-min explainer)",
+    "Write Substack deep-dive"
+  ],
+  "content_angles": 12,
+  "confidence_score": "8/10",
+  "notion": {
+    "page_url": "https://www.notion.so/2a09f76e64cd813c88f8dd1d5a71d545",
+    "page_id": "2a09f76e-64cd-813c-88f8-dd1d5a71d545",
+    "status": "Posted",
+    "created_at": "2025-11-02T17:45:00Z"
+  },
+  "published": {
+    "twitter": {
+      "posted_at": "2025-11-02T17:40:00Z",
+      "postiz_id": "cmhihq2uf001rnw7wnk9txqog",
+      "postiz_url": "http://localhost:5001/p/cmhihq2uf001rnw7wnk9txqog",
+      "format": "11-tweet thread",
+      "images": 7
+    },
+    "linkedin": {
+      "scheduled_for": "2025-11-03T14:00:00Z",
+      "postiz_id": "cmhihunwh0022nw7wsi58k9vi",
+      "postiz_url": "http://localhost:5001/p/cmhihunwh0022nw7wsi58k9vi",
+      "format": "long-form post",
+      "images": 1
+    }
+  }
+}

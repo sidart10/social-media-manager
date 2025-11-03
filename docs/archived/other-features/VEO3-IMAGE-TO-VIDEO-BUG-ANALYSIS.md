@@ -17,6 +17,7 @@ Files.upload() got an unexpected keyword argument 'path'
 The Veo3 MCP server is calling Google's Gemini `Files.upload()` API with a `path` parameter, but the actual API doesn't accept that parameter name.
 
 **Google Gemini Files API Correct Usage:**
+
 ```python
 # WRONG (what Veo3 MCP is doing):
 Files.upload(path="/path/to/image.png")
@@ -30,12 +31,14 @@ Files.upload(file=<file_object>)
 ## 📊 Current Capabilities
 
 ### Veo3 MCP Server
+
 - ✅ `generate_video` (text-to-video) - **WORKS**
 - ❌ `generate_video_from_image` (image-to-video) - **BROKEN**
 - ✅ `list_generated_videos` - Works
 - ✅ `get_video_info` - Works
 
 ### Sora2 MCP Server
+
 - ✅ `create_video` (text-to-video) - Works
 - ❌ **No image-to-video capability**
 - ✅ `merge_videos` - Works
@@ -44,9 +47,11 @@ Files.upload(file=<file_object>)
 ## 🎯 Fix Options
 
 ### Option 1: Fix Veo3 MCP Server (RECOMMENDED)
+
 **Complexity:** Medium
 **Impact:** Permanent fix, enables image-to-video with real motion
 **Steps:**
+
 1. Locate Veo3 MCP server source code
 2. Find the `generate_video_from_image` function
 3. Fix the `Files.upload()` call parameter from `path=` to `file=`
@@ -54,14 +59,17 @@ Files.upload(file=<file_object>)
 5. Restart MCP server
 
 ### Option 2: Use Alternative Tools
+
 **Complexity:** Low
 **Impact:** Workaround, not a real fix
 **Options:**
+
 - RunwayML Gen-2 (external service, $$$)
 - Pika Labs (external service, $$$)
 - Use only text-to-video (doesn't maintain exact model)
 
 ### Option 3: Enhance Sora2 for Image-to-Video
+
 **Complexity:** High
 **Impact:** Would add capability to Sora2
 **Not Feasible:** Sora2 API doesn't support image-to-video yet
@@ -71,12 +79,14 @@ Files.upload(file=<file_object>)
 ### Step 1: Locate Veo3 MCP Server
 
 Veo3 is likely running via Claude's MCP infrastructure. Possible locations:
+
 - NPM global packages
 - Python packages (via pip/uv)
 - Claude's built-in MCP servers
 - Custom installation in project
 
 **Search Commands:**
+
 ```bash
 # Find npm packages
 npm list -g | grep veo
@@ -95,10 +105,12 @@ grep -i "veo" ~/.claude.json
 ### Step 2: Identify Source Code Location
 
 The Veo3 MCP server is likely:
+
 - A Node.js/TypeScript MCP server
 - OR a Python MCP server
 
 **Look for files:**
+
 - `veo-mcp-server/` directory
 - `mcp-veo/` directory
 - Files with `veo` in name
@@ -109,6 +121,7 @@ The Veo3 MCP server is likely:
 **File to find:** Something like `veo3-server.ts` or `veo3-server.py`
 
 **Code to find (Python example):**
+
 ```python
 # CURRENT BROKEN CODE:
 result = Files.upload(
@@ -124,6 +137,7 @@ result = Files.upload(
 ```
 
 **OR (if using file object):**
+
 ```python
 # Open file and upload
 with open(image_path, 'rb') as f:
@@ -136,6 +150,7 @@ with open(image_path, 'rb') as f:
 ### Step 4: Test the Fix
 
 After fixing:
+
 ```bash
 # Restart Claude Code
 # OR restart the MCP server if running separately
@@ -147,6 +162,7 @@ claude mcp test veo3
 ### Step 5: Verify
 
 Try the image-to-video generation again:
+
 ```python
 mcp__veo3__generate_video_from_image(
     image_path="/path/to/image.png",
@@ -189,6 +205,7 @@ https://ai.google.dev/gemini-api/docs/file-uploading
 ## ✅ Success Criteria
 
 Fix is successful when:
+
 - ✅ `mcp__veo3__generate_video_from_image` doesn't throw parameter error
 - ✅ Image files upload successfully to Gemini Files API
 - ✅ Video generation starts and completes
@@ -198,12 +215,14 @@ Fix is successful when:
 ## 📞 Next Steps
 
 **Immediate:**
+
 1. Search for Veo3 MCP server source code
 2. Locate the bug in the code
 3. Apply the fix
 4. Test with your beach sequence images
 
 **Alternative:**
+
 1. Use Veo3 text-to-video to generate NEW videos (not exact model)
 2. Use professional video editor for motion effects
 3. Wait for bug fix from Veo3 MCP maintainer

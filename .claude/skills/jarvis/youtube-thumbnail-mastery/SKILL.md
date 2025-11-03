@@ -10,6 +10,7 @@ Comprehensive thumbnail design skill combining strategies from MrBeast, Thomas F
 ## When to Use This Skill
 
 Trigger this skill when:
+
 - Designing YouTube thumbnails
 - Optimizing video CTR (click-through rate)
 - Learning thumbnail psychology
@@ -46,6 +47,7 @@ Your thumbnail's job is to put a **burning question** in the viewer's mind. Not 
 ### Color Strategy
 
 **MrBeast's Primary Palette:**
+
 - Electric Blue
 - Bright Red
 - Vibrant Green
@@ -70,6 +72,7 @@ Your thumbnail's job is to put a **burning question** in the viewer's mind. Not 
 **Good:** Shows setup, hides payoff (viewer MUST watch)
 
 **Example:** "$1 vs $1,000,000 Hotel Room"
+
 - Shows both levels
 - Doesn't show which is better
 - Doesn't show MrBeast's reaction to staying in each
@@ -82,6 +85,7 @@ Your thumbnail's job is to put a **burning question** in the viewer's mind. Not 
 **Why:** Thumbnail design is 80% marketing psychology, 20% design skill.
 
 Creating thumbnail first helps you:
+
 - Clarify who you're reaching
 - Understand viewer expertise level
 - Structure your script better
@@ -90,12 +94,14 @@ Creating thumbnail first helps you:
 ### 2. Shoot Thumbnail Poses
 
 **Camera Settings:**
+
 - 4K resolution
 - 60 FPS (critical - prevents motion blur)
 - ALL-I codec
 - LOG color
 
 **Process:**
+
 - Film for 5+ minutes (first 5 min = warmup)
 - Try 20+ expressions
 - Use markers in editing
@@ -107,12 +113,14 @@ Smiling, Surprised, Frowning, Serious, Confident, Eyebrow raised, Scared, Confus
 ### 3. Template System
 
 **Efficiency Gains:**
+
 - Pre-made background
 - Consistent branding elements
 - Reusable layer structure
 - 80% faster production
 
 **Tools:**
+
 - Photoshop: Select Subject + Layer Mask
 - Lightroom: Batch color grading
 - ThumbsUp.tv: Test at all sizes
@@ -126,6 +134,7 @@ Smiling, Surprised, Frowning, Serious, Confident, Eyebrow raised, Scared, Confus
 **Length:** 1-5 words maximum
 
 **Examples:**
+
 - "FREE MONEY" ✅
 - "$100,000" ✅
 - "How I Made Money Online With This Simple Method" ❌
@@ -133,6 +142,7 @@ Smiling, Surprised, Frowning, Serious, Confident, Eyebrow raised, Scared, Confus
 ### 5. Depth & Composition
 
 **MrBeast's Recent Strategy:**
+
 - Clear blue sky + horizon line
 - Distinct vanishing point
 - Outdoor settings with depth
@@ -145,6 +155,7 @@ Smiling, Surprised, Frowning, Serious, Confident, Eyebrow raised, Scared, Confus
 ### FaceTune Strategy
 
 MrBeast smooths skin to near-cartoonish levels. Why?
+
 - Symmetrical faces = higher appeal
 - Smooth skin = more clicks
 - Exaggerated = more attention
@@ -154,6 +165,7 @@ MrBeast smooths skin to near-cartoonish levels. Why?
 ### Testing Protocol
 
 **Create 3-5 Variants:**
+
 - Different expressions
 - Different color schemes
 - Different text placement
@@ -162,6 +174,7 @@ MrBeast smooths skin to near-cartoonish levels. Why?
 **When to Change:** If CTR below channel average after 24-48 hours, swap it.
 
 **Tools:**
+
 - YouTube's A/B thumbnail test (built-in)
 - TubeBuddy
 - ThumbsUp.tv (preview at all sizes)
@@ -173,16 +186,19 @@ Place black-to-transparent gradient under text for readability without harsh box
 ## Integration with Your Workflow
 
 ### Pre-Production
+
 1. Sketch thumbnail concept
 2. Plan shot composition
 3. Design 3-5 variants
 
 ### Production
+
 4. Shoot thumbnail poses (60 FPS!)
 5. Capture context shots
 6. Get multiple angles
 
 ### Post-Production
+
 7. Edit from template
 8. Test at mobile size
 9. A/B test variants
@@ -213,16 +229,19 @@ Place black-to-transparent gradient under text for readability without harsh box
 ## Tools & Resources
 
 **Design:**
+
 - Photoshop (industry standard)
 - Lightroom (batch color grading)
 - Still Exporter plugin ($30 - exports marked frames)
 
 **Testing:**
+
 - ThumbsUp.tv (preview at all sizes)
 - YouTube Studio (built-in A/B testing)
 - TubeBuddy (analytics)
 
 **AI Assistants:**
+
 - 1of10 (MrBeast-style generator)
 - ThumbGenie (quick variations)
 

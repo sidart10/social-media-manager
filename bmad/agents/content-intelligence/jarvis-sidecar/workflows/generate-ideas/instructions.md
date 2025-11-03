@@ -4,6 +4,38 @@
 <critical>Load workflow.xml engine and workflow.yaml first</critical>
 <critical>Use existing research when available to avoid duplicate API calls</critical>
 
+<step n="0" goal="Create project folder structure">
+  <action>Generate project ID:
+    DATE=$(date +"%Y-%m-%d")
+    TOPIC_SLUG=$(echo "{seed_topic}" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g' | sed 's/[^a-z0-9-]//g')
+    PROJECT_ID="$DATE-$TOPIC_SLUG"
+    PROJECT_PATH="outputs/projects/$PROJECT_ID"
+  </action>
+
+<action>Create complete 6-stage structure:
+mkdir -p "$PROJECT_PATH"/{00-session,01-research,02-ideas,03-drafts,04-media,05-published,handoffs}
+    mkdir -p "$PROJECT_PATH"/03-drafts/{linkedin,twitter,youtube,instagram,tiktok,substack,facebook}
+mkdir -p "$PROJECT_PATH"/04-media/{images,videos}
+    mkdir -p "$PROJECT_PATH"/05-published/{linkedin,twitter,youtube,instagram,tiktok,substack,facebook}
+</action>
+
+<action>Create session metadata:
+cat > "$PROJECT_PATH/00-session/metadata.json" << 'EOF'
+{
+  "project_id": "$PROJECT_ID",
+"topic": "{seed_topic}",
+"created_at": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
+"agent": "jarvis",
+"workflow": "generate-ideas"
+}
+EOF
+</action>
+
+<action>Store PROJECT_PATH as environment variable for all subsequent steps</action>
+
+<template-output>project_folder_created</template-output>
+</step>
+
 <step n="1" goal="Initialize idea generation session">
   <action>Load research if provided</action>
 
@@ -148,7 +180,16 @@
 <step n="7" goal="Save and present outputs">
   <action>Compile all Idea Cards into markdown document</action>
   <action>Use template: {installed_path}/templates/idea-card.md for each card</action>
-  <action>Save to: {default_output_file}</action>
+  <action>Save to: $PROJECT_PATH/02-ideas/idea-cards.md
+
+Include:
+
+- All {idea_count} Idea Cards with hooks, outlines, evidence
+- Hook pack (10+ variations)
+- Platform recommendations
+- Content calendar (7-14 days)
+- Evidence summary with all source URLs
+  </action>
 
 <action>Display to user:
 
@@ -193,7 +234,7 @@
   <action>Load {project-root}/.bmad-core/modules/notion-updates.md</action>
   <action>Load {project-root}/.bmad-core/modules/notion-relational-helpers.md</action>
 
-  <action>**Create Notion page for each Idea Card:**
+<action>**Create Notion page for each Idea Card:**
 
     <for-each idea in idea_cards>
       **Step 1: Create Content Tracker page**
@@ -262,9 +303,10 @@
     - If channel not found: Log warning, page still created but without channel link (user can add manually)
     - If keyword creation fails: Log warning, continue with other keywords (partial success OK)
     - Network timeout: Skip Notion integration for that idea, continue with next idea
+
   </action>
 
-  <template-output>notion_pages_created</template-output>
+<template-output>notion_pages_created</template-output>
 </step>
 
 </workflow>

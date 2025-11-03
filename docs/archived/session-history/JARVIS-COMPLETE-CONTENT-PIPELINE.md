@@ -145,6 +145,7 @@ OUTPUT: YouTube script
 **The AutoGen system handles this via:**
 
 #### For LinkedIn (Professional):
+
 ```python
 platform = "linkedin"
 tone = "professional and data-driven"
@@ -158,6 +159,7 @@ audience = "CTOs and engineering leaders"
 ```
 
 #### For Twitter (Casual):
+
 ```python
 platform = "twitter"
 tone = "casual and conversational"
@@ -171,6 +173,7 @@ audience = "developers"
 ```
 
 #### For Reels/TikTok (Engaging):
+
 ```python
 platform = "reels"
 tone = "MKBHD-style casual"
@@ -188,6 +191,7 @@ audience = "general tech enthusiasts"
 ### User Voice Profile Integration
 
 **From learn-voice workflow:**
+
 ```
 memories.md contains:
 - Vocabulary level (simple/moderate/advanced)
@@ -198,6 +202,7 @@ memories.md contains:
 ```
 
 **AutoGen integration:**
+
 ```python
 # Before generating, load voice profile
 voice_profile = load_from_memories()
@@ -224,25 +229,31 @@ TONE_AGENT_PROMPT = f"""
 ### What Research Provides:
 
 **From research-brief.md:**
+
 ```markdown
 ## Key Facts
+
 - "73% of developers automate < 20% of workflows" (DevSurvey)
 - "AI automation market growing 28% YoY" (TechCrunch)
 
 ## Hashtags
+
 #AIAutomation #ProductivityTools #NoCode
 
 ## YouTube Examples
+
 - "Start with one repetitive task" - @creator (2:34)
 - Demo-heavy approach works best
 
 ## Gaps
+
 - Nobody covers automation for designers
 ```
 
 ### How Writing Uses It:
 
 **write-posts workflow:**
+
 ```
 Idea Card #3: "5 AI Tools That Automate Your Workflows"
 ↓
@@ -258,6 +269,7 @@ Generates LinkedIn post WITH evidence from research
 ```
 
 **write-scripts workflow:**
+
 ```
 Idea Card #2: "Why Most Developers Are Missing Out on Automation"
 ↓
@@ -279,6 +291,7 @@ Generates script WITH research-backed content
 **AutoGen can generate all these (via parameters):**
 
 ### Post Type 1: LinkedIn Article
+
 ```python
 platform = "linkedin"
 content_type = "educational"
@@ -288,6 +301,7 @@ structure = "hook → 3 points with data → CTA"
 ```
 
 ### Post Type 2: Twitter Thread
+
 ```python
 platform = "twitter"
 content_type = "thread"
@@ -297,6 +311,7 @@ structure = "hook tweet → point tweets → summary + CTA"
 ```
 
 ### Post Type 3: Instagram Caption
+
 ```python
 platform = "instagram"
 content_type = "story-driven"
@@ -307,6 +322,7 @@ emoji_usage = "2-5 strategically placed"
 ```
 
 ### Script Type 1: YouTube (3-10 min)
+
 ```python
 platform = "youtube"
 duration = "90s" or "5min" or "10min"
@@ -316,6 +332,7 @@ includes = ["timestamps", "B-roll suggestions", "visual cues"]
 ```
 
 ### Script Type 2: Reels/TikTok (30-90s)
+
 ```python
 platform = "reels"
 duration = "60s"
@@ -331,10 +348,12 @@ spoken_style = "um, like, you know" (natural)
 ### How Everything Connects:
 
 **Step 1: Research** (research-topic)
+
 - Gathers: trends, data, quotes, examples
 - Saves: research-brief.md
 
 **Step 2: Ideation** (generate-ideas)
+
 - Input: research-brief.md
 - Process: Creates Idea Cards with:
   - Titles (from content angles)
@@ -344,11 +363,13 @@ spoken_style = "um, like, you know" (natural)
 - Saves: idea-cards.md
 
 **Step 3: Voice Learning** (learn-voice) - ONE TIME
+
 - Analyzes YOUR content
 - Extracts voice patterns
 - Saves: voice profile in memories.md
 
 **Step 4: Writing** (write-posts OR write-scripts)
+
 - Input:
   - Idea Card (which one to create)
   - Research brief (for evidence)

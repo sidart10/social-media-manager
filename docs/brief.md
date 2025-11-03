@@ -20,26 +20,31 @@ This project creates an AI-powered social media team built on Claude Code that a
 ### Current State & Pain Points
 
 **Content Creation Complexity:**
+
 - Creating a single LinkedIn post requires: research (30-60 min), writing (20-30 min), image creation (15-30 min), formatting/publishing (10-15 min)
 - Total time per post: 75-135 minutes of focused work
 - Multiplied across platforms (LinkedIn, Twitter, YouTube, Instagram) = unsustainable for solo creators
 
 **Voice Consistency Challenges:**
+
 - Maintaining authentic voice across different content types (posts, scripts, threads) is mentally taxing
 - Platform-specific formatting requirements (LinkedIn PAIPS, Twitter threads, YouTube descriptions) require context-switching
 - Quality varies based on energy levels and time pressure
 
 **Multi-Platform Publishing Friction:**
+
 - Each platform has different: character limits, media requirements, API rate limits, optimal formats
 - Manual publishing requires remembering platform-specific rules (Twitter Premium 25k chars vs standard 280)
 - Rate limit tracking is manual and error-prone (Twitter 1500/month, LinkedIn 150/day, YouTube 6/day)
 
 **Research & Evidence Gathering:**
+
 - Finding credible sources, extracting insights, and synthesizing information is time-consuming
 - Neural search tools (Exa), web scraping (Apify, Firecrawl), and traditional search each have different use cases
 - Citing sources properly while writing content slows down flow state
 
 **Visual Content Bottleneck:**
+
 - Stock images feel generic and don't match brand aesthetic
 - Custom image creation requires design skills or expensive tools
 - Video production (talking heads, b-roll, animations) is even more resource-intensive
@@ -48,12 +53,14 @@ This project creates an AI-powered social media team built on Claude Code that a
 ### Impact of the Problem
 
 **Quantifiable Impact:**
+
 - Current output: 2-3 posts/week across platforms (limited by time)
 - Desired output: 1-2 posts/day across 4+ platforms (8-10x increase needed)
 - Manual cost: $0 but 10-15 hours/week (unsustainable)
 - Outsourced cost: $2000-5000/month for equivalent output (unaffordable)
 
 **Opportunity Cost:**
+
 - Time spent on content creation = time not spent on strategy, audience building, product development
 - Inconsistent posting schedule hurts algorithmic reach and audience retention
 - Missing trending topics due to slow production cycles
@@ -61,21 +68,25 @@ This project creates an AI-powered social media team built on Claude Code that a
 ### Why Existing Solutions Fall Short
 
 **Social Media Management Tools (Buffer, Hootsuite, Later):**
+
 - ✅ Solve: Scheduling and basic analytics
 - ❌ Don't solve: Content creation, research, visual production
 - Verdict: Post-production tools, not creation tools
 
 **AI Writing Assistants (ChatGPT, Claude, Jasper):**
+
 - ✅ Solve: Basic content generation
 - ❌ Don't solve: Voice consistency, research integration, platform formatting, visual creation, publishing
 - Verdict: Single-task tools requiring heavy manual orchestration
 
 **All-in-One AI Platforms (Postiz, ContentStudio):**
+
 - ✅ Solve: Multi-platform scheduling with some AI writing
 - ❌ Don't solve: Deep research, custom visual generation, workflow customization, voice profile learning
 - Verdict: Generic AI that doesn't learn your voice or provide research depth
 
 **Freelancers/Agencies:**
+
 - ✅ Solve: High-quality content creation
 - ❌ Don't solve: Cost ($2k-5k/month), voice consistency (they're not you), iteration speed (back-and-forth delays)
 - Verdict: Expensive, slow, and loses authenticity
@@ -83,12 +94,14 @@ This project creates an AI-powered social media team built on Claude Code that a
 ### Urgency & Importance
 
 **Why Now:**
+
 1. **Claude Code Platform Maturity** - Agents + Skills infrastructure now stable and production-ready
 2. **MCP Ecosystem Growth** - 20+ integrations available (Exa, Apify, Firecrawl, Notion, YouTube, Twitter, LinkedIn APIs)
 3. **AI Model Quality** - Veo 3, Gemini 2.5, GPT-4, DALL-E 3 now reliable enough for production content
 4. **Personal Need** - Current manual process unsustainable, need working system now
 
 **Risk of Delay:**
+
 - Continued time sink prevents focus on higher-value activities
 - Inconsistent posting hurts audience growth during critical period
 - Technical debt in current ad-hoc approach makes future improvements harder
@@ -102,16 +115,19 @@ This project creates an AI-powered social media team built on Claude Code that a
 Build a **modular multi-agent AI team** where specialized agents coordinate through reusable workflows and autonomous skills. The architecture is explicitly designed for extensibility—as your social media needs evolve, you can add new agents (analytics, community management, SEO), new skills (advanced editing, A/B testing, trend detection), and new workflows (content calendaring, performance optimization) without refactoring the core system.
 
 **Current Agent Roster (Starting Point):**
+
 - **Jarvis** (Content Intelligence Lead) - Research, strategy, writing
 - **AI Image Generator** (Visual Production Specialist) - Images, graphics, thumbnails
 - **AI Video Agent** (Video Production Specialist) - Talking heads, b-roll, animations
 - **Social Posting Agent** (Publishing Specialist) - Multi-platform distribution
 
 **Future Agent Potential (Extensible by Design):**
+
 - Analytics Agent, Community Agent, SEO Agent, Trend Monitor Agent, etc.
 - Each new agent plugs into the same coordination model—no architectural changes required
 
 **Agent Coordination Model:**
+
 ```
 USER REQUEST
     ↓
@@ -135,26 +151,31 @@ PUBLISHING (Multi-platform)
 ### Key Differentiators
 
 **1. Voice Consistency Through Learning**
+
 - System learns from 77+ historical posts to extract voice profile (v2.0, 8/10 confidence)
 - Applies learned voice automatically to all content generation
 - Multiple modes: Lowercase Builder-Philosopher (primary), Analyst, Critic, Excited Hype
 
 **2. Evidence-Backed Research**
+
 - All content backed by research with source citations
 - Intelligent tool routing: free (WebSearch) → low-cost (Exa $0.05) → comprehensive (Exa + Firecrawl)
 - Quality scoring for sources (high/medium/low reliability)
 
 **3. Platform-First Design**
+
 - Each agent knows platform rules (LinkedIn <300 words, Twitter 25k Premium, YouTube Short ≤3min 9:16)
 - Automatic formatting (LinkedIn PAIPS formula, Twitter Greg Isenberg questions)
 - Built-in validation prevents publishing errors
 
 **4. Cost Optimization**
+
 - Tiered approach: free tools first, paid only when necessary with user approval
 - Transparent tracking in agent memories (October 2025: $12.34 total)
 - Target: <$50/month for 30+ posts across platforms
 
 **5. Workflow Standardization**
+
 - Custom workflows ensure quality gates, handoff formats, validation rules
 - Repeatable processes for common tasks (research-topic, write-post, generate-image, publish-tweet)
 - Incremental output saving prevents losing work mid-session
@@ -162,11 +183,13 @@ PUBLISHING (Multi-platform)
 ### Why This Solution Will Succeed
 
 **Technical Feasibility:**
+
 - Built on proven Claude Code platform (stable agent + skill infrastructure)
 - Leverages 20+ production-ready MCP integrations
 - No custom infrastructure needed - pure orchestration layer
 
 **Architectural Soundness:**
+
 - Clear separation: Agents (interface) → Workflows (process) → Skills (expertise) → MCPs (tools)
 - Reusable skills across workflows prevent duplication
 - Stateless workflows enable pause/resume and error recovery
@@ -174,11 +197,13 @@ PUBLISHING (Multi-platform)
 - **Composability:** Skills can be mixed and matched across workflows as needs evolve
 
 **Already Partially Working:**
+
 - Investigation shows 4 agents operational with 24+ skills, 20+ workflows
 - 20+ MCP integrations configured and functional
 - Real outputs generated: research briefs, LinkedIn posts, YouTube thumbnails, talking head videos
 
 **Main Work Needed:**
+
 - Standardization (workflows, handoff formats, documentation)
 - Quality gates (validation, error handling)
 - Testing (end-to-end pipeline validation)
@@ -190,6 +215,7 @@ PUBLISHING (Multi-platform)
 User provides topic → Jarvis researches and writes → Visual agents create images/videos → Social agent publishes → Content live in 10-15 minutes instead of 2 hours
 
 **Long-term (Post-MVP):**
+
 - Analytics agent tracks performance, suggests optimizations
 - Community agent monitors comments/DMs, drafts responses
 - Autonomous scheduling based on audience analytics
@@ -202,6 +228,7 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 ### Primary User Segment: Solo Content Creator (You)
 
 **Profile:**
+
 - **Role:** Technical founder/content creator building personal brand
 - **Platforms:** LinkedIn (primary), Twitter, YouTube, Instagram
 - **Content Volume Goal:** 1-2 posts/day across platforms (vs current 2-3/week)
@@ -210,6 +237,7 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 - **Budget:** <$50/month for AI tools (prefer pay-per-use over subscriptions)
 
 **Current Workflow:**
+
 1. Manual research (browser tabs, taking notes, bookmarking)
 2. Write in IDE/notes app, iterate multiple times
 3. Create visuals in Figma/Canva or skip visuals entirely
@@ -217,6 +245,7 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 5. Track what posted where in spreadsheet
 
 **Pain Points:**
+
 - Research time consuming (30-60 min per topic)
 - Voice inconsistency when rushed
 - Visual creation bottleneck (often skip images due to time)
@@ -225,6 +254,7 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 - No centralized output management
 
 **Goals:**
+
 - Increase output to 8-10 posts/week without increasing time investment
 - Maintain authentic voice across all content
 - Professional visuals for every post
@@ -233,6 +263,7 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 - Centralized outputs with session tracking
 
 **Success Criteria:**
+
 - Time per post: 75-135 min → 10-15 min (85-90% reduction)
 - Output volume: 2-3 posts/week → 8-10 posts/week (3-4x increase)
 - Quality consistency: Variable → Consistent (voice matching ≥8/10, quality score ≥7/10)
@@ -241,6 +272,7 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 ### Secondary User Segment: Small Content Teams (Future)
 
 **Profile:**
+
 - 2-5 person teams managing brand social media
 - Need content collaboration and approval workflows
 - Multiple brand voices to maintain
@@ -318,7 +350,7 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 - **Documentation & Architecture**
   - Single authoritative ARCHITECTURE.md (consolidates all documentation)
   - Clear definitions: Agents (interface) → Workflows (process) → Skills (expertise) → MCPs (tools)
-  - Naming conventions (write-* workflows, *-writer skills)
+  - Naming conventions (write-_ workflows, _-writer skills)
   - Complete skill documentation (SKILL.md + reference/ + examples/)
   - **Guidelines for extensibility:** When to create new agent vs add workflow, when to create skill vs call MCP directly, how to compose skills across workflows
   - **Rationale:** Without this, system becomes unmaintainable as complexity grows. Clear patterns enable confident addition of new components without breaking existing ones.
@@ -338,6 +370,7 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 ### MVP Success Criteria
 
 **Functional Success:**
+
 - ✅ User provides topic → Complete post (text + image + video) ready to publish in 10-15 minutes
 - ✅ End-to-end pipeline works: Jarvis research → write → AI Image/Video generate → Social Posting publish
 - ✅ Zero platform-specific errors (validation catches all issues before publishing)
@@ -345,18 +378,21 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 - ✅ Cost tracking transparent (<$50/month for 30 posts validated)
 
 **Technical Success:**
+
 - ✅ All workflows use standardized format (external instructions.md, validated handoff packages)
 - ✅ ARCHITECTURE.md exists and complete (single source of truth)
 - ✅ Error handling patterns implemented (graceful degradation on API failures)
 - ✅ All outputs in centralized location (outputs/{date}/{session}/)
 
 **User Experience Success:**
+
 - ✅ User can complete full pipeline without consulting documentation (workflows guide them)
 - ✅ 80% of generated content requires no manual rework
 - ✅ User reports: "This feels like I wrote it" for voice consistency
 - ✅ User can pause/resume workflows without losing progress
 
 **Timeline:**
+
 - MVP Complete: 8-13 days of focused development (from current state)
 
 ---
@@ -368,30 +404,35 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 ### Phase 2 Features (3-6 months post-MVP)
 
 **Analytics & Optimization Agent:**
+
 - Track performance metrics across platforms (engagement, reach, clicks)
 - Identify top-performing content patterns
 - Suggest optimal posting times based on audience analytics
 - Generate performance reports with insights
 
 **Community Management Agent:**
+
 - Monitor comments, DMs, mentions across platforms
 - Draft context-aware responses maintaining brand voice
 - Escalate urgent/sensitive interactions to user
 - Track sentiment trends and audience feedback
 
 **Autonomous Scheduling:**
+
 - Smart timing based on audience activity patterns
 - Content calendar optimization (balance topics, formats, platforms)
 - Queue management with automatic posting
 - Holiday/event awareness for timely content
 
 **Advanced Research Capabilities:**
+
 - Real-time trend monitoring and alerts
 - Competitive intelligence tracking (monitor key accounts)
 - Content gap analysis (what topics you haven't covered)
 - SEO keyword research integration
 
 **Quality Improvements:**
+
 - A/B testing framework (test headlines, images, posting times)
 - Multi-variant generation (3-5 options per request, user selects best)
 - Feedback loop (user ratings improve future generations)
@@ -400,28 +441,33 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 ### Long-term Vision (1-2 years)
 
 **Mature Agentic Ecosystem:**
+
 - 10+ specialized agents working in concert (content, visuals, publishing, analytics, community, SEO, trends, optimization, testing, scheduling)
 - 50+ refined skills covering every aspect of content creation and distribution
 - 100+ battle-tested workflows for common and edge case scenarios
 - Self-improving through feedback loops—agents learn what works and refine their approaches
 
 **Autonomous Content Engine:**
+
 - System proactively suggests content based on trends, gaps, calendar
 - End-to-end automation: trending topic detected → researched → created → scheduled → published
 - User reviews and approves queued content vs creating from scratch
 - Self-optimizing based on performance data
 
 **Multi-Brand Platform:**
+
 - Support multiple voice profiles (personal brand, company brand, client brands)
 - Team collaboration features (roles, permissions, approval workflows)
 - White-label capability for agencies
 
 **Cross-Platform Content Intelligence:**
+
 - Repurpose content across formats (blog post → Twitter thread → LinkedIn carousel → YouTube script)
 - Platform-specific optimization (same core content, different angles per platform)
 - Content series planning (multi-post campaigns, cohesive narratives)
 
 **Advanced Media Production:**
+
 - Custom brand design systems (beyond current LinkedIn dark monochrome)
 - Advanced video editing (multi-scene stitching, transitions, captions)
 - Animation capabilities (explainer videos, data visualization)
@@ -430,17 +476,20 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 ### Expansion Opportunities
 
 **Vertical Expansion:**
+
 - Podcast production (script writing, show notes, audiogram creation)
 - Newsletter creation (Substack, Beehiiv integration)
 - Blog post writing with SEO optimization
 - Email marketing campaigns
 
 **Horizontal Expansion:**
+
 - Additional platforms (TikTok, Pinterest, Reddit, Discord)
 - E-commerce integration (product descriptions, marketing copy)
 - Sales enablement (LinkedIn outreach, cold email sequences)
 
 **Platform Evolution:**
+
 - Agent SDK migration (standalone application, not Claude Code dependent)
 - Web interface (browser-based, no IDE required)
 - Mobile app (on-the-go content approval, scheduling)
@@ -465,21 +514,25 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 ### Technology Preferences
 
 **Core Platform:**
+
 - **Agent Framework:** Claude Code Agents (built-in, XML-based persona definitions)
 - **Skill Framework:** Claude Code Skills (autonomous VMs with sandboxed tools)
 - **Workflow Engine:** Custom YAML + XML orchestration layer (your architecture)
 
 **Integration Layer:**
+
 - **MCP Servers:** 20+ configured (Exa, Apify, Firecrawl, Notion, Twitter, LinkedIn, YouTube, Postiz, HeyGen, Veo, Fal-Video, Nanobanana, Cloudinary, Chrome DevTools, Serena)
 - **Custom API Clients:** Node.js modules for Twitter Premium, LinkedIn (OAuth)
 - **Data Persistence:** File-based (agent memories.md, outputs/{date}/{session}/, Notion for research)
 
 **Content Generation:**
+
 - **Text:** Claude Sonnet 4 (via Claude Code)
 - **Images:** Gemini 2.5 Flash (nanobanana, $0.002-0.004/image) or DALL-E 3 (gpt-image-1, $0.04-0.08/image)
 - **Videos:** HeyGen (avatars, $0.20-0.50/min), Veo 3 (b-roll, $0.30-0.60/8sec), Fal-Video multi-model (Sora 2, Luma Ray, Kling)
 
 **Research & Data:**
+
 - **Neural Search:** Exa ($0.05-0.15/search, 1000 free/month)
 - **Web Scraping:** Firecrawl (caching), Apify (platform scrapers)
 - **Traditional Search:** WebSearch (free), WebFetch (free)
@@ -488,6 +541,7 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 ### Architecture Considerations
 
 **Repository Structure:**
+
 - **Type:** Modular Monorepo (single repository, independently composable agent modules)
 - **Design Principle:** Each agent/skill/workflow is self-contained and can be added/removed without affecting others
 - **Layout:**
@@ -506,6 +560,7 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 - **Extensibility Pattern:** New agents follow create-agent template, new workflows follow create-workflow template, new skills follow skill structure. No central registry or dependency management needed—loose coupling by design.
 
 **Service Architecture:**
+
 - **Type:** Orchestration layer on Claude Code platform
 - **Pattern:** Multi-agent coordination with stateless workflows
 - **Modularity:** Each agent exposes menu commands, each workflow can invoke any skill, each skill can call any MCP
@@ -513,12 +568,14 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 - **Communication:** Handoff packages (JSON) passed between agents—standardized format enables any agent to coordinate with any other agent
 
 **Integration Requirements:**
+
 - **Authentication:** MCP servers configured in Claude Code settings
 - **API Keys:** Stored in .env (gitignored), referenced by MCPs
 - **Rate Limiting:** Tracked in agent memories, enforced in workflows
 - **Error Recovery:** Graceful degradation (free tools if paid APIs fail)
 
 **Security/Compliance:**
+
 - **Data Privacy:** No PII collected, user content stays local in outputs/
 - **API Security:** Keys never committed to git, MCP handles auth
 - **Platform Compliance:** Respect Twitter/LinkedIn/YouTube TOS (no automation abuse)
@@ -531,21 +588,25 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 ### Constraints
 
 **Budget:**
+
 - **Hard Limit:** $50/month for all AI/API services
 - **Breakdown:** Exa $15, Apify $10, Images $10, Videos $15
 - **Implication:** Must optimize for free tiers (WebSearch, caching) and low-cost models (nanobanana)
 
 **Timeline:**
+
 - **MVP Development:** 8-13 days focused work (standardization + validation)
 - **Pace:** Solo development, part-time (not full-time dedicated)
 - **Implication:** Prioritize high-impact features, defer nice-to-haves
 
 **Resources:**
+
 - **Team:** Solo developer (you)
 - **Support:** No dedicated QA, design, or DevOps
 - **Implication:** Keep architecture simple, prioritize reliability over features
 
 **Technical:**
+
 - **Platform Lock-in:** Claude Code only (desktop application, not web)
 - **API Dependencies:** 20+ external services (Exa, Apify, Twitter, LinkedIn, YouTube, etc.)
 - **No Custom Training:** Use base models, no fine-tuning (cost prohibitive)
@@ -657,6 +718,7 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 ### A. Research Summary
 
 **System Investigation (October 31, 2025):**
+
 - **Scope:** Comprehensive analysis of existing 4-agent social media system
 - **Findings:**
   - 4 agents operational: Jarvis (content intelligence), AI Image Generator (visuals), AI Video Agent (videos), Social Posting Agent (publishing)
@@ -667,12 +729,14 @@ User provides topic → Jarvis researches and writes → Visual agents create im
   - **Gap Analysis:** Main work needed is standardization, documentation, and validation - not building from scratch
 
 **Architecture Documentation Analysis:**
+
 - **Key Documents:** AGENT-WORKFLOW-SKILL-MAP.md, agent-skills.md, create-agent instructions.md, create-workflow instructions.md
 - **Architecture Pattern:** 3-layer hierarchy confirmed: Agents (interface) → Workflows (process) → Skills (expertise) → MCPs (tools)
 - **Workflow Engine:** Custom YAML + XML orchestration layer
 - **Handoff Coordination:** JSON packages mentioned but not formally specified
 
 **MCP Ecosystem Review:**
+
 - **Research Tools:** Exa (neural search, $0.05-0.15), Firecrawl (web scraping, caching), Apify (platform scrapers), WebSearch/WebFetch (free)
 - **Content Generation:** gpt-image-1 (DALL-E 3, $0.04-0.08), nanobanana (Gemini 2.5, $0.002-0.004), HeyGen (avatars, $0.20-0.50/min), veotools (Veo 3, $0.30-0.60/8sec), fal-video (multi-model)
 - **Publishing:** mcp-twitter (Premium API), youtube-uploader-mcp (Data API v3), postiz (multi-platform scheduling)
@@ -681,6 +745,7 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 ### B. Stakeholder Input
 
 **Primary Stakeholder (You) - Key Priorities:**
+
 1. **"I want to ground myself, create an actual plan"** - Need clarity and roadmap
 2. **"Skills are VM instances, workflows are something we have created"** - Architecture distinction clarified
 3. **"Standardize & document existing"** - MVP scope = clean up current state
@@ -688,6 +753,7 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 5. **"This is for now only used in Claude Code"** - Platform constraint for MVP
 
 **Design Considerations:**
+
 - Don't build rigid architecture - need flexibility to add agents, skills, capabilities
 - Consider merging AI Image + AI Video into single "Zoe" agent (similar skill patterns)
 - 3-agent model more appealing: Jarvis (brain), Zoe (visuals), Zoro (publishing)
@@ -696,6 +762,7 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 ### C. References
 
 **Codebase Locations:**
+
 - Investigation Report: Comprehensive findings from October 31, 2025 investigation
 - `.claude/commands/` - Agent menu definitions (jarvis.md, ai-image-generator.md, ai-video-agent.md, social-posting-agent.md)
 - `.claude/skills/` - Skill knowledge modules (24+ skills across jarvis/, ai-image-generator/, ai-video-agent/)
@@ -704,6 +771,7 @@ User provides topic → Jarvis researches and writes → Visual agents create im
 - `docs/` - Documentation (content-intelligence/, agent-skills/, architecture/)
 
 **Key Documentation:**
+
 - `AGENT-WORKFLOW-SKILL-MAP.md` - Architecture overview
 - `bmad/bmb/workflows/create-agent/instructions.md` - Agent creation patterns
 - `bmad/bmb/workflows/create-workflow/instructions.md` - Workflow creation guide

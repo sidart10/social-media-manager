@@ -33,6 +33,7 @@
 - [LlamaIndex Docs](https://docs.exa.ai/integrations/llamaIndex-docs.md)
 - [OpenRouter](https://docs.exa.ai/integrations/openrouter.md)
 - [Answer](https://docs.exa.ai/reference/answer.md): Get an LLM answer to a question informed by Exa search results. `/answer` performs an Exa search and uses an LLM to generate either:
+
 1. A direct answer for specific queries. (i.e. "What is the capital of France?" would return "Paris")
 2. A detailed summary with citations for open-ended queries (i.e. "What is the state of ai in healthcare?" would return a summary with citations to relevant sources)
 
@@ -54,6 +55,7 @@ Alternatively, you can use the OpenAI compatible [chat completions interface](ht
 - [Get contents](https://docs.exa.ai/reference/get-contents.md): Get the full page contents, summaries, and metadata for a list of URLs.
 
 Returns instant results from our cache, with automatic live crawling as fallback for uncached pages.
+
 - [Welcome to Exa](https://docs.exa.ai/reference/getting-started.md): Exa is a search engine made for AIs.
 - [How Exa Search Works](https://docs.exa.ai/reference/how-exa-search-works.md): Exa is a novel search engine that utilizes the latest advancements in AI language processing to return the best possible results.
 - [IBM WatsonX](https://docs.exa.ai/reference/ibm-watsonx.md)
@@ -69,6 +71,7 @@ Returns instant results from our cache, with automatic live crawling as fallback
 - [Quickstart](https://docs.exa.ai/reference/quickstart.md): Make your first request to one of Exa's API endpoints
 - [Rate Limits](https://docs.exa.ai/reference/rate-limits.md): Default rate limits for Exa API endpoints
 - [Create a task](https://docs.exa.ai/reference/research/create-a-task.md): Create an asynchronous research task that explores the web, gathers sources, synthesizes findings, and returns results with citations. Can be used to generate:
+
 1. Structured JSON matching an `outputSchema` you provide.
 2. A detailed markdown report when no schema is provided.
 
@@ -84,9 +87,10 @@ Use the unique `researchId` returned from `POST /research/v1` to poll until the 
 
 The response follows a cursor-based pagination pattern. Pass the `limit` parameter to control page size (max 50) and use the `cursor` token returned in the response to fetch subsequent pages.
 
-- [Search](https://docs.exa.ai/reference/search.md): The search endpoint lets you intelligently search the web and extract contents from the results. 
+- [Search](https://docs.exa.ai/reference/search.md): The search endpoint lets you intelligently search the web and extract contents from the results.
 
 By default, it automatically chooses between traditional keyword search and Exa's embeddings-based model, to find the most relevant results for your query.
+
 - [Enterprise Documentation & Security ](https://docs.exa.ai/reference/security.md)
 - [Managing Your Team](https://docs.exa.ai/reference/setting-up-team.md): Details on Team structure and account management for the Exa platform
 - [Create API Key](https://docs.exa.ai/reference/team-management/create-api-key.md): Create a new API key for your team with optional name and rate limit configuration.
@@ -104,9 +108,11 @@ By default, it automatically chooses between traditional keyword search and Exa'
 - [Get an Event](https://docs.exa.ai/websets/api/events/get-an-event.md): Get a single Event by id.
 
 You can subscribe to Events by creating a Webhook.
+
 - [List all Events](https://docs.exa.ai/websets/api/events/list-all-events.md): List all events that have occurred in the system.
 
 You can paginate through the results using the `cursor` parameter.
+
 - [Event Types](https://docs.exa.ai/websets/api/events/types.md): Learn about the events that occur within the Webset API
 - [Get started](https://docs.exa.ai/websets/api/get-started.md): Create your first Webset
 - [How It Works](https://docs.exa.ai/websets/api/how-it-works.md)
@@ -117,6 +123,7 @@ You can paginate through the results using the `cursor` parameter.
 - **Exclude**: Prevent duplicate or already known results from appearing in your searches
 
 Once the import is created, you can upload your data to the returned `uploadUrl` until `uploadValidUntil` (by default 1 hour).
+
 - [Delete Import](https://docs.exa.ai/websets/api/imports/delete-import.md): Deletes a import.
 - [Get Import](https://docs.exa.ai/websets/api/imports/get-import.md): Gets a specific import.
 - [List Imports](https://docs.exa.ai/websets/api/imports/list-imports.md): Lists all imports for the Webset.
@@ -139,34 +146,41 @@ Monitors automatically run on your defined schedule to ensure your Websets stay 
 - [Create a Webhook](https://docs.exa.ai/websets/api/webhooks/create-a-webhook.md): Webhooks let you get notifications when things happen in your Websets. When you create a webhook, you choose which events you want to know about and where to send the notifications.
 
 When an event happens, Exa sends an HTTP POST request to your webhook URL with:
+
 - Event details (type, time, ID)
 - Full data of what triggered the event
 - A signature to verify the request came from Exa
 
 The webhook starts as `active` and begins getting notifications right away. You'll get a secret key for checking webhook signatures - save this safely as it's only shown once when you create the webhook.
+
 - [Delete a Webhook](https://docs.exa.ai/websets/api/webhooks/delete-a-webhook.md): Remove a webhook from your account. Once deleted, the webhook stops getting notifications right away and cannot be brought back.
 
 Important notes: - The webhook stops working as soon as you delete it - You cannot undo this - you'll need to create a new webhook if you want it back - Any notifications currently being sent may still complete
+
 - [Get a Webhook](https://docs.exa.ai/websets/api/webhooks/get-a-webhook.md): Get information about a webhook using its ID.
-The webhook secret is not shown here for security - you only get it when you first create the webhook.
+  The webhook secret is not shown here for security - you only get it when you first create the webhook.
 - [List webhooks](https://docs.exa.ai/websets/api/webhooks/list-webhooks.md): Get a list of all webhooks in your account.
-The results come in pages. Use `limit` to set how many webhooks to get per page (up to 200). Use `cursor` to get the next page of results.
+  The results come in pages. Use `limit` to set how many webhooks to get per page (up to 200). Use `cursor` to get the next page of results.
 - [Update a Webhook](https://docs.exa.ai/websets/api/webhooks/update-a-webhook.md): Change a webhook's settings. You can update:
 - Events: Add or remove which events you want to hear about - URL: Change where notifications are sent - Metadata: Update custom data linked to the webhook
 
 Changes happen right away. If you change the events list, the webhook will start or stop getting notifications for those events immediately.
 
 The webhook keeps its current status (`active` or `inactive`) when you update it.
+
 - [Verifying Signatures](https://docs.exa.ai/websets/api/webhooks/verifying-signatures.md): Learn how to securely verify webhook signatures to ensure requests are from Exa
 - [Cancel a running Webset](https://docs.exa.ai/websets/api/websets/cancel-a-running-webset.md): Cancels all operations being performed on a Webset.
 
 Any enrichment or search will be stopped and the Webset will be marked as `idle`.
+
 - [Create a Webset](https://docs.exa.ai/websets/api/websets/create-a-webset.md): Creates a new Webset with optional search, import, and enrichment configurations. The Webset will automatically begin processing once created.
 
 You can specify an `externalId` to reference the Webset with your own identifiers for easier integration.
+
 - [Delete a Webset](https://docs.exa.ai/websets/api/websets/delete-a-webset.md): Deletes a Webset.
 
 Once deleted, the Webset and all its Items will no longer be available.
+
 - [Cancel a running Enrichment](https://docs.exa.ai/websets/api/websets/enrichments/cancel-a-running-enrichment.md): All running enrichments will be canceled. You can not resume an Enrichment after it has been canceled.
 - [Create an Enrichment](https://docs.exa.ai/websets/api/websets/enrichments/create-an-enrichment.md): Create an Enrichment for a Webset.
 - [Delete an Enrichment](https://docs.exa.ai/websets/api/websets/enrichments/delete-an-enrichment.md): When deleting an Enrichment, any running enrichments will be canceled and all existing `enrichment_result` generated by this Enrichment will no longer be available.
@@ -178,38 +192,43 @@ Once deleted, the Webset and all its Items will no longer be available.
 - [Delete an Item](https://docs.exa.ai/websets/api/websets/items/delete-an-item.md): Deletes an Item from the Webset.
 
 This will cancel any enrichment process for it.
+
 - [Get an Item](https://docs.exa.ai/websets/api/websets/items/get-an-item.md): Returns a Webset Item.
 - [List all Items for a Webset](https://docs.exa.ai/websets/api/websets/items/list-all-items-for-a-webset.md): Returns a list of Webset Items.
 
 You can paginate through the Items using the `cursor` parameter.
+
 - [List all Websets](https://docs.exa.ai/websets/api/websets/list-all-websets.md): Returns a list of Websets.
 
 You can paginate through the results using the `cursor` parameter.
+
 - [null](https://docs.exa.ai/websets/api/websets/overview.md)
 - [Preview a webset](https://docs.exa.ai/websets/api/websets/preview-a-webset.md): Preview how a search query will be decomposed before creating a webset. This endpoint performs the same query analysis that happens during webset creation, allowing you to see the detected entity type, generated search criteria, and available enrichment columns in advance.
 
 Use this to help users understand how their search will be interpreted before committing to a full webset creation.
+
 - [Cancel a running Search](https://docs.exa.ai/websets/api/websets/searches/cancel-a-running-search.md): Cancels a currently running Search.
 
 You can cancel all searches at once by using the `websets/:webset/cancel` endpoint.
+
 - [Create a Search](https://docs.exa.ai/websets/api/websets/searches/create-a-search.md): Creates a new Search for the Webset.
 
 The default behavior is to reuse the previous Search results and evaluate them against the new criteria.
+
 - [Get a Search](https://docs.exa.ai/websets/api/websets/searches/get-a-search.md): Gets a Search by id
 - [Update a Webset](https://docs.exa.ai/websets/api/websets/update-a-webset.md)
 - [Exclude Results](https://docs.exa.ai/websets/dashboard/exclude-results.md): Avoid duplicate results in your new searches by excluding URLs from previous Websets or CSV files.
 - [Get started](https://docs.exa.ai/websets/dashboard/get-started.md): Welcome to the Websets Dashboard! Find anything you want on the web, no matter how complex.
 - [Import from CSV](https://docs.exa.ai/websets/dashboard/import-from-csv.md): Turn your existing CSV data into a Webset
 - [Integrations](https://docs.exa.ai/websets/dashboard/integrations.md): Connect your Websets with popular CRM and email tools
-- [Creating Enrichments ](https://docs.exa.ai/websets/dashboard/walkthroughs/Creating-enrichments.md): Here's how to create enrichments (also known as Adding Columns). 
-- [Exploring your results ](https://docs.exa.ai/websets/dashboard/walkthroughs/Exploring-your-results.md): Explore your Websets matched results, view summaries, criteria justification 
+- [Creating Enrichments ](https://docs.exa.ai/websets/dashboard/walkthroughs/Creating-enrichments.md): Here's how to create enrichments (also known as Adding Columns).
+- [Exploring your results ](https://docs.exa.ai/websets/dashboard/walkthroughs/Exploring-your-results.md): Explore your Websets matched results, view summaries, criteria justification
 - [Adding and Managing Your Team Members in Websets](https://docs.exa.ai/websets/dashboard/walkthroughs/Managing-Team-Members.md): Here's how to manage your team.
 - [Prompting Websets](https://docs.exa.ai/websets/dashboard/walkthroughs/Prompting.md): Here's how to prompt your query in Websets
 - [Downloading and Sharing Your Results](https://docs.exa.ai/websets/dashboard/walkthroughs/Sharing-and-Downloading-Your-Results.md): Here's how to share or download your results and enrichments.
 - [Example queries](https://docs.exa.ai/websets/dashboard/websets-example-queries.md): Here are some examples for things to search for, to get you started!
 - [FAQ](https://docs.exa.ai/websets/faq.md): Frequently asked questions about Websets
 - [Welcome to Websets](https://docs.exa.ai/websets/overview.md): Our goal is to help you find anything you want on the web, no matter how complex.
-
 
 ## Optional
 

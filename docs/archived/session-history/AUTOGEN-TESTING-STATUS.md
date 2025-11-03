@@ -10,6 +10,7 @@
 **Error:** Template string formatting issues with {variables} in prompts
 
 **Root cause:**
+
 - Prompts have {audience}, {objective}, {tone}, etc. as placeholders
 - These need to be filled when creating agents
 - Some variables like {facts}, {quotes} were meant as examples, not actual variables
@@ -20,11 +21,13 @@
 ## Fix Applied
 
 **Created simplified prompts:**
+
 - Removed complex template variables
 - Kept prompts clear and direct
 - No {xxx} patterns that cause formatting errors
 
 **Files:**
+
 - prompts_complex.py (original - has issues)
 - prompts.py (simplified - should work)
 

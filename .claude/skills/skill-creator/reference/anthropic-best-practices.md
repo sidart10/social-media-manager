@@ -10,6 +10,7 @@
 ### Requirements (STRICT)
 
 **From official docs:**
+
 - Lowercase letters only
 - Numbers allowed
 - Hyphens only (no underscores, no spaces)
@@ -19,6 +20,7 @@
 ### Examples
 
 **✅ GOOD:**
+
 - `analyzing-financial-statements`
 - `creating-linkedin-posts`
 - `generating-commit-messages`
@@ -26,6 +28,7 @@
 - `extracting-pdf-text`
 
 **❌ BAD:**
+
 - `Financial_Analyzer` (uppercase + underscore)
 - `linkedin-helper` (not gerund form - use `creating-linkedin-posts`)
 - `analyzer` (too generic - be specific)
@@ -37,6 +40,7 @@
 **Pattern:** verb + ing
 
 **Examples:**
+
 - analyze → `analyzing`
 - create → `creating`
 - generate → `generating`
@@ -57,6 +61,7 @@
 **Min recommended:** 100+ characters (for good triggers)
 
 **Must include:**
+
 1. WHAT the skill does
 2. WHEN to use it
 3. Trigger keywords
@@ -71,27 +76,35 @@
 ### Good vs Bad Examples
 
 **❌ TOO VAGUE:**
+
 ```yaml
 description: Helps with documents
 ```
+
 **Why bad:** No triggers, no what/when, too generic
 
 **❌ TOO GENERIC:**
+
 ```yaml
 description: For data analysis
 ```
+
 **Why bad:** No specifics, won't trigger reliably
 
 **✅ SPECIFIC:**
+
 ```yaml
 description: Extract text and tables from PDF files, fill forms, merge documents. Use when working with PDF files, forms, or document extraction. Requires pypdf and pdfplumber packages.
 ```
+
 **Why good:** What (extract/fill/merge), when (PDF files, forms), triggers (PDF, forms, documents)
 
 **✅ RICH WITH TRIGGERS:**
+
 ```yaml
 description: Analyze Excel spreadsheets, create pivot tables, and generate charts. Use when working with Excel files, spreadsheets, or analyzing tabular data in .xlsx format. Includes financial ratios, data validation, and visualization.
 ```
+
 **Why good:** Multiple triggers (Excel, spreadsheets, .xlsx, pivot tables, charts, financial)
 
 ---
@@ -101,12 +114,14 @@ description: Analyze Excel spreadsheets, create pivot tables, and generate chart
 ### Three-Level Architecture
 
 **Level 1: Metadata (Always Loaded)**
+
 - name + description only
 - Loaded at session start for ALL skills
 - Token cost: ~50 tokens per skill
 - Used for: Discovery and matching
 
 **Level 2: SKILL.md Body (Loaded When Relevant)**
+
 - Full instructions
 - Core methodology
 - Basic examples
@@ -114,6 +129,7 @@ description: Analyze Excel spreadsheets, create pivot tables, and generate chart
 - Token cost: ~2000-5000 tokens
 
 **Level 3: Bundled Files (Loaded On-Demand)**
+
 - reference/ files
 - prompts/ templates
 - examples/ detailed
@@ -124,10 +140,12 @@ description: Analyze Excel spreadsheets, create pivot tables, and generate chart
 ### Design Pattern
 
 **Keep SKILL.md lean:**
+
 ```markdown
 # My Skill
 
 ## Instructions
+
 Core process here (concise)
 
 For detailed methodology, see [reference/methodology.md](reference/methodology.md).
@@ -135,6 +153,7 @@ For examples, see [examples/samples.md](examples/samples.md).
 ```
 
 **Move details to bundled files:**
+
 - Deep methodologies → reference/
 - Complex examples → examples/
 - Reusable prompts → prompts/
@@ -147,6 +166,7 @@ For examples, see [examples/samples.md](examples/samples.md).
 ## File Structure Patterns
 
 ### Simple Skill
+
 ```
 skill-name/
 └── SKILL.md (1-3 KB)
@@ -159,6 +179,7 @@ skill-name/
 ---
 
 ### Medium Skill
+
 ```
 skill-name/
 ├── SKILL.md (2-4 KB)
@@ -175,6 +196,7 @@ skill-name/
 ---
 
 ### Complex Skill
+
 ```
 skill-name/
 ├── SKILL.md (3-5 KB)
@@ -227,11 +249,13 @@ allowed-tools: Read, Grep, Glob
 ### Common Mistakes
 
 **❌ Tabs instead of spaces:**
+
 ```yaml
-name:	skill-name  # Tab character - INVALID!
+name: skill-name # Tab character - INVALID!
 ```
 
 **❌ Missing dashes:**
+
 ```yaml
 name: skill-name
 description: Text
@@ -239,11 +263,13 @@ description: Text
 ```
 
 **❌ Unquoted special characters:**
+
 ```yaml
 description: Text with: colons  # Should quote if complex
 ```
 
 **✅ Correct:**
+
 ```yaml
 ---
 name: skill-name
@@ -256,6 +282,7 @@ description: Simple text works without quotes. "Use quotes for: complex, punctua
 ## Validation Checklist
 
 ### YAML Validation
+
 - [ ] Opening `---` on line 1
 - [ ] Closing `---` before content
 - [ ] `name` field present
@@ -267,6 +294,7 @@ description: Simple text works without quotes. "Use quotes for: complex, punctua
 - [ ] Valid YAML syntax
 
 ### Description Quality
+
 - [ ] Includes WHAT skill does
 - [ ] Includes WHEN to use
 - [ ] Has trigger keywords
@@ -276,6 +304,7 @@ description: Simple text works without quotes. "Use quotes for: complex, punctua
 - [ ] Mentions domains if relevant (Instagram, Twitter)
 
 ### File Structure
+
 - [ ] SKILL.md exists
 - [ ] All referenced files exist
 - [ ] Paths are relative (not absolute)
@@ -283,6 +312,7 @@ description: Simple text works without quotes. "Use quotes for: complex, punctua
 - [ ] Scripts have execute permissions (if any)
 
 ### Content Quality
+
 - [ ] "When to Use" section present
 - [ ] "Instructions" section present
 - [ ] At least one example
@@ -294,11 +324,13 @@ description: Simple text works without quotes. "Use quotes for: complex, punctua
 ## Security Considerations
 
 **From Anthropic docs:**
+
 > "Skills provide Claude with new capabilities through instructions and code. While this makes them powerful, it also means that malicious skills may introduce vulnerabilities."
 
 ### Safe Practices
 
 **When including code:**
+
 - Review all scripts before adding
 - Validate dependencies are trusted
 - No hardcoded credentials
@@ -306,12 +338,14 @@ description: Simple text works without quotes. "Use quotes for: complex, punctua
 - Clear comments explaining what code does
 
 **When referencing external resources:**
+
 - Cite trusted sources only
 - Include source URLs
 - Note credibility level
 - Update date references
 
 **When using in team:**
+
 - Code review skills before merging
 - Document what skill does
 - Test in safe environment first
@@ -324,6 +358,7 @@ description: Simple text works without quotes. "Use quotes for: complex, punctua
 ### Pattern 1: Content Generation Skill
 
 **Structure:**
+
 ```
 skill-name/
 ├── SKILL.md
@@ -335,6 +370,7 @@ skill-name/
 ```
 
 **Key sections in SKILL.md:**
+
 - Content frameworks/formulas
 - Platform specifications
 - Voice/tone guidelines
@@ -346,6 +382,7 @@ skill-name/
 ### Pattern 2: Data Analysis Skill
 
 **Structure:**
+
 ```
 skill-name/
 ├── SKILL.md
@@ -358,6 +395,7 @@ skill-name/
 ```
 
 **Key sections:**
+
 - Analysis methodologies
 - Calculation formulas
 - Validation rules
@@ -369,6 +407,7 @@ skill-name/
 ### Pattern 3: Format Conversion Skill
 
 **Structure:**
+
 ```
 skill-name/
 ├── SKILL.md
@@ -380,6 +419,7 @@ skill-name/
 ```
 
 **Key sections:**
+
 - Input format specifications
 - Output format specifications
 - Conversion rules

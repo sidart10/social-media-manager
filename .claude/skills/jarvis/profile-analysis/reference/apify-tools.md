@@ -48,6 +48,7 @@
 **Purpose:** Execute an Apify actor to scrape data
 
 **Two-step process:**
+
 1. Call with `step="info"` to get input schema
 2. Call with `step="call"` and `input` object to execute
 
@@ -78,8 +79,8 @@
 ```json
 {
   "datasetId": "abc123...",
-  "fields": "text,likesCount,commentsCount",  // optional
-  "limit": 100  // optional
+  "fields": "text,likesCount,commentsCount", // optional
+  "limit": 100 // optional
 }
 ```
 
@@ -92,15 +93,17 @@
 **Actor:** `dz_omar/youtube-transcript-metadata-extractor` ✅ TESTED
 
 **Capabilities:**
+
 - ✅ Full video transcript (auto-generated captions)
 - ✅ Timestamped segments
 - ✅ Video metadata (title, views, likes, description)
 - ✅ Channel info
 
 **Input:**
+
 ```json
 {
-  "youtubeUrl": [{"url": "https://youtube.com/watch?v=VIDEO_ID"}],
+  "youtubeUrl": [{ "url": "https://youtube.com/watch?v=VIDEO_ID" }],
   "cleaningLevel": "mild",
   "includeTimestamps": true
 }
@@ -119,6 +122,7 @@
 **Actor:** `apify/instagram-scraper` ✅ TESTED
 
 **Capabilities:**
+
 - ✅ Written captions
 - ✅ Engagement metrics (likes, views, plays, comments)
 - ✅ Hashtags, mentions
@@ -126,6 +130,7 @@
 - ❌ NO spoken transcript (use instagram-ai-transcript-extractor below)
 
 **Input:**
+
 ```json
 {
   "directUrls": ["https://instagram.com/username/"],
@@ -148,6 +153,7 @@
 **Actor:** `sian.agency/instagram-ai-transcript-extractor` ✅ TESTED
 
 **Capabilities:**
+
 - ✅ **Actual spoken words** (AI transcription)
 - ✅ Word-level timestamps
 - ✅ Sentence segments
@@ -155,6 +161,7 @@
 - ✅ Caption text included
 
 **Input:**
+
 ```json
 {
   "instagramUrl": "https://instagram.com/reel/REEL_ID/",
@@ -176,6 +183,7 @@
 **Actor:** `clockworks/tiktok-scraper` ✅ TESTED (Built-in tool available!)
 
 **Capabilities:**
+
 - ✅ Video captions
 - ✅ Engagement metrics (likes, plays, comments, shares)
 - ✅ Profile data (122M followers for @mrbeast)
@@ -184,6 +192,7 @@
 - ❌ NO AI transcript (use tictechid/anoxvanzi-Transcriber below)
 
 **Input:**
+
 ```json
 {
   "profiles": ["username"],
@@ -205,12 +214,14 @@
 **Actor:** `tictechid/anoxvanzi-Transcriber` ✅ TESTED
 
 **Capabilities:**
+
 - ✅ **Actual spoken words** (AI transcription)
 - ✅ Timestamped segments
 - ✅ Works for TikTok, Instagram, Facebook Reels
 - ✅ Language detection
 
 **Input:**
+
 ```json
 {
   "start_urls": "https://tiktok.com/@user/video/VIDEO_ID"
@@ -230,6 +241,7 @@
 **Actor:** `datadoping/linkedin-profile-posts-scraper` ✅ TESTED
 
 **Capabilities:**
+
 - ✅ Full post text
 - ✅ Engagement breakdown (likes, comments, reposts by type)
 - ✅ **Carousel images** (all slides as array)
@@ -238,10 +250,11 @@
 - ❌ NO text extraction from carousel slides (just image files)
 
 **Input:**
+
 ```json
 {
   "profiles": ["username"],
-  "max_posts": 10  // minimum 10
+  "max_posts": 10 // minimum 10
 }
 ```
 
@@ -258,20 +271,20 @@
 
 ### For Learning Speaking Style (Voice Analysis):
 
-| Platform | Need | Use Actor | Cost |
-|----------|------|-----------|------|
-| YouTube | Spoken transcript | `dz_omar/youtube-transcript-metadata-extractor` | FREE |
-| Instagram Reels | Spoken transcript | `sian.agency/instagram-ai-transcript-extractor` | $0.025/reel |
-| TikTok | Spoken transcript | `tictechid/anoxvanzi-Transcriber` | ~$0.15/video |
-| LinkedIn | Written posts | `datadoping/linkedin-profile-posts-scraper` | $0.001/post |
+| Platform        | Need              | Use Actor                                       | Cost         |
+| --------------- | ----------------- | ----------------------------------------------- | ------------ |
+| YouTube         | Spoken transcript | `dz_omar/youtube-transcript-metadata-extractor` | FREE         |
+| Instagram Reels | Spoken transcript | `sian.agency/instagram-ai-transcript-extractor` | $0.025/reel  |
+| TikTok          | Spoken transcript | `tictechid/anoxvanzi-Transcriber`               | ~$0.15/video |
+| LinkedIn        | Written posts     | `datadoping/linkedin-profile-posts-scraper`     | $0.001/post  |
 
 ### For Bulk Content Analysis (Engagement Patterns):
 
-| Platform | Need | Use Actor | Cost |
-|----------|------|-----------|------|
-| Instagram | Captions + metrics | `apify/instagram-scraper` | $0.003/post |
-| TikTok | Captions + metrics | `clockworks/tiktok-scraper` | $0.01/video |
-| LinkedIn | Post text + carousel images | `datadoping/linkedin-profile-posts-scraper` | $0.001/post |
+| Platform  | Need                        | Use Actor                                   | Cost        |
+| --------- | --------------------------- | ------------------------------------------- | ----------- |
+| Instagram | Captions + metrics          | `apify/instagram-scraper`                   | $0.003/post |
+| TikTok    | Captions + metrics          | `clockworks/tiktok-scraper`                 | $0.01/video |
+| LinkedIn  | Post text + carousel images | `datadoping/linkedin-profile-posts-scraper` | $0.001/post |
 
 ---
 
@@ -356,28 +369,33 @@ Update memories.md:
 ## Error Handling
 
 **Actor not found:**
+
 - Verify actor name matches verified list exactly
 - Check: `outputs/11-01-2025/apify-research-session/verified-apify-actors.md`
 - Try search-actors if actor name changed
 
 **Execution fails:**
+
 - Check Apify credits/authentication
 - Verify URL format (must be full URL with https://)
 - Check content is public (not private account)
 - Verify video has spoken audio (not music-only)
 
 **No transcript available:**
+
 - Video may be music-only without speech
 - Instagram: Fall back to apify/instagram-scraper for caption
 - TikTok: Fall back to clockworks/tiktok-scraper for caption
 - Inform user: "No spoken words detected, using written caption instead"
 
 **Cost exceeded budget:**
+
 - Show: "Current: $X.XX / $10.00 budget"
 - Ask: "This will add $Y.YY. Proceed? [yes/no]"
 - If declined: Offer free alternatives or manual analysis
 
 **Rate limiting (rare):**
+
 - Wait 30-60 seconds
 - Retry automatically
 - If persists: Try alternative actor or schedule for later

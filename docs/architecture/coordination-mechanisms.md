@@ -41,6 +41,7 @@
 ```
 
 **Handoff Locations:**
+
 - **Local:** `outputs/projects/{slug}/handoffs/{source}-to-{target}.json`
 - **Notion:** Key metadata summarized in page properties (voice_confidence, quality_scores)
 

@@ -5,6 +5,7 @@ Interactive workflow to create Claude Code skills following Anthropic best pract
 ## Purpose
 
 This workflow guides you through creating high-quality Claude Code Agent Skills that:
+
 - Follow Anthropic naming and description conventions
 - Auto-load based on Claude's model-invoked discovery
 - Optionally incorporate researched methodologies (Exa + Firecrawl)
@@ -14,11 +15,13 @@ This workflow guides you through creating high-quality Claude Code Agent Skills 
 ## How to Invoke
 
 **Via BMad Builder:**
+
 ```
 /bmad:bmb:workflows:create-skill
 ```
 
 **Or directly:**
+
 ```
 workflow bmad/bmb/workflows/create-skill
 ```
@@ -41,6 +44,7 @@ workflow bmad/bmb/workflows/create-skill
 ## Expected Inputs
 
 **User Provides:**
+
 - Skill purpose and requirements
 - Creation mode preference (quick vs research)
 - Skill name approval
@@ -49,6 +53,7 @@ workflow bmad/bmb/workflows/create-skill
 - Validation confirmation
 
 **Workflow Loads Automatically:**
+
 - Agent list from `bmad/_cfg/agent-manifest.csv` (dynamic!)
 - Anthropic best practices guide
 - Research context (if research mode)
@@ -59,12 +64,14 @@ workflow bmad/bmb/workflows/create-skill
 ### Files Created
 
 **Minimum (quick mode):**
+
 ```
 .claude/skills/{category}/{skill-name}/
 └── SKILL.md
 ```
 
 **Full (research mode):**
+
 ```
 .claude/skills/{category}/{skill-name}/
 ├── SKILL.md
@@ -83,12 +90,14 @@ workflow bmad/bmb/workflows/create-skill
 ### Manifests Updated
 
 **skill-manifest.csv:**
+
 ```csv
 name,description,agent_category,path,research_enhanced
 "skill-name","Skill description...","jarvis",".claude/skills/jarvis/skill-name/SKILL.md","true"
 ```
 
 **files-manifest.csv:**
+
 - Adds entry for each created file
 - Includes SHA-256 hash for integrity tracking
 - Maintains same format as workflow/agent manifests
@@ -98,6 +107,7 @@ name,description,agent_category,path,research_enhanced
 ### Dynamic Agent Discovery
 
 **No hardcoded agent names!** The workflow:
+
 1. Loads `agent-manifest.csv` at runtime
 2. Extracts all agent names dynamically
 3. Presents numbered menu: "1. agent1, 2. agent2, ... N. standalone"
@@ -106,6 +116,7 @@ name,description,agent_category,path,research_enhanced
 ### Research Integration
 
 **Research mode uses:**
+
 - Exa neural search for finding methodologies
 - Firecrawl for scraping detailed content
 - Smart query generation from skill purpose
@@ -115,6 +126,7 @@ name,description,agent_category,path,research_enhanced
 ### Validation
 
 **Validates against Anthropic requirements:**
+
 - YAML frontmatter format
 - Name conventions (lowercase, hyphens, <=64 chars, gerund form)
 - Description quality (<=1024 chars, includes "use when", has triggers)
@@ -124,9 +136,11 @@ name,description,agent_category,path,research_enhanced
 ## Tool Requirements
 
 **Required:**
+
 - File system access (Write, Read, Bash)
 
 **Optional (research mode only):**
+
 - **Exa Search** - Neural search for methodologies
 - **Firecrawl** - Web scraping for detailed content
 

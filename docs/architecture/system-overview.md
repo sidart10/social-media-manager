@@ -53,6 +53,7 @@
 ## System Boundaries
 
 **In Scope:**
+
 - Content research and intelligence gathering
 - AI-powered content generation (posts, scripts) with voice matching
 - Visual content production (images, videos, carousels)
@@ -61,6 +62,7 @@
 - Cost optimization through intelligent tool routing
 
 **Out of Scope (for MVP):**
+
 - Direct social media scheduling UI (delegated to Postiz)
 - Real-time analytics dashboards (manual tracking in Notion)
 - Multi-user collaboration (single creator use case)

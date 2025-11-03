@@ -8,6 +8,7 @@
 ## ✅ REMOVED: Buggy Tools
 
 **Removed:**
+
 - ❌ veo3-fixed (mcp-veo3) - 3+ bugs, unfixable SDK issues
 - ❌ sora2-real (sora2-mcp) - Base64 size limits
 - ❌ sora-pro - Connection issues
@@ -26,6 +27,7 @@
 **API:** Gemini (FREE!)
 
 **Installation:**
+
 ```bash
 pipx install "git+https://github.com/frontboat/veotools.git"
 pipx inject veotools fastmcp
@@ -36,6 +38,7 @@ claude mcp add veotools \
 ```
 
 **Capabilities:**
+
 - ✅ Image-to-video with Veo 3
 - ✅ Text-to-video
 - ✅ Video stitching with FFmpeg
@@ -44,6 +47,7 @@ claude mcp add veotools \
 - ✅ Frame extraction
 
 **Use For:**
+
 - Image animation
 - Multi-scene videos
 - FREE production work
@@ -59,6 +63,7 @@ claude mcp add veotools \
 **API:** fal.ai (unified gateway)
 
 **Installation:**
+
 ```bash
 claude mcp add fal-video \
   -e FAL_KEY=2470b2e9-655d-4acb-b5f0-54e04996884d:21549e7d164ebbb5aa1899ead6166076 \
@@ -66,6 +71,7 @@ claude mcp add fal-video \
 ```
 
 **Available Models on fal.ai:**
+
 - ✅ **Veo 3.1** (`fal-ai/veo3.1/reference-to-video`)
 - ✅ **Veo 3.1 Fast** (`fal-ai/veo3.1/fast/image-to-video`)
 - ✅ **Sora 2** (`fal-ai/sora-2/image-to-video`)
@@ -76,6 +82,7 @@ claude mcp add fal-video \
 - ✅ **Pixverse**, **MiniMax**, and more!
 
 **Use For:**
+
 - Premium productions
 - Model comparison
 - When veotools has issues
@@ -99,6 +106,7 @@ image_to_video:
 ```
 
 **This gives you:**
+
 - ✅ FREE option (veotools)
 - ✅ Reliable fallback (fal.ai)
 - ✅ Model flexibility (Veo, Sora, Kling, etc.)
@@ -130,6 +138,7 @@ Removed:
 ## 🧪 After Restart - Testing Plan
 
 ### Test 1: VeoTools (Primary)
+
 ```
 mcp__veotools__generate_from_image(
     image_path="frame1-opening-confident-pose.png",
@@ -142,6 +151,7 @@ mcp__veotools__generate_from_image(
 **Expected:** FREE Veo 3 image-to-video!
 
 ### Test 2: fal-video with Veo 3.1 (Backup)
+
 ```
 mcp__fal_video__<veo_tool>(
     image="frame1.png",
@@ -153,6 +163,7 @@ mcp__fal_video__<veo_tool>(
 **Expected:** Paid but reliable Veo 3.1!
 
 ### Test 3: fal-video with Sora 2 (Premium)
+
 ```
 mcp__fal_video__<sora_tool>(
     image="frame1.png",
@@ -167,12 +178,12 @@ mcp__fal_video__<sora_tool>(
 
 ## 💰 Cost Comparison
 
-| Tool | Model | Cost per 8s | Quality |
-|------|-------|-------------|---------|
-| **veotools** | Veo 3 | $0 (FREE!) | High |
-| **fal-video** | Veo 3.1 | ~$0.30 | High |
-| **fal-video** | Sora 2 | ~$0.80 | Premium |
-| **fal-video** | Kling 2.5 | ~$0.50 | Excellent motion |
+| Tool          | Model     | Cost per 8s | Quality          |
+| ------------- | --------- | ----------- | ---------------- |
+| **veotools**  | Veo 3     | $0 (FREE!)  | High             |
+| **fal-video** | Veo 3.1   | ~$0.30      | High             |
+| **fal-video** | Sora 2    | ~$0.80      | Premium          |
+| **fal-video** | Kling 2.5 | ~$0.50      | Excellent motion |
 
 ---
 
@@ -196,6 +207,7 @@ Ready for AI Video Agent production use!
 ## 🚀 RESTART CLAUDE CODE!
 
 **After restart:**
+
 ```
 /ai-video-agent
 

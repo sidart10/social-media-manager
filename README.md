@@ -22,116 +22,151 @@ Built with specialized agents, Claude Code skills, and integrated MCP servers fo
 
 ## 🤖 Agent Architecture
 
-### Team Structure
+### Team Structure (Updated 2025-11-02)
 
 ```
 Jarvis (Content Intelligence - Team Head)
     ↓ coordinates
-├── AI Image Generator (Visual Production Specialist)
-├── AI Video Agent (Video Production Specialist)
-└── Social Posting Agent (Publishing Specialist)
+├── Zoe (Visual Production - Images + Videos)
+└── Zoro (Publishing & Distribution - Multi-Platform)
 ```
+
+**3-Agent System** (streamlined from original 4-agent architecture):
+
+- **Jarvis**: Research, strategy, content creation
+- **Zoe**: ALL visual production (images AND videos - consolidated)
+- **Zoro**: Publishing via Postiz (unified multi-platform)
 
 ### Available Agents
 
-#### **1. Jarvis** - Content Intelligence Team Head
+#### **1. Jarvis** - Content Intelligence Team Head 🎯
+
 **Command**: `/jarvis`
 **Location**: `bmad/agents/content-intelligence/`
 
+**Role:** Research, strategy, and content creation with evidence-backed intelligence
+
 **Capabilities**:
+
 - Deep web research (Exa, Apify, Firecrawl, WebSearch)
-- Profile analysis across platforms
-- Competitive intelligence
-- Content idea generation
-- Post writing (LinkedIn, Twitter/X, Substack)
+- Profile analysis across ALL platforms (Twitter, Instagram, TikTok, LinkedIn, YouTube)
+- Competitive intelligence and gap analysis
+- Evidence-backed idea generation
+- Post writing (LinkedIn, Twitter/X threads, Substack newsletters)
 - Video script writing (YouTube, Shorts, Reels, TikTok)
-- Voice profile matching
-- Team coordination and handoffs
+- Voice profile matching (Enhanced v2.0 - learns your authentic writing style)
+- Team coordination (hands off to Zoe for visuals, Zoro for publishing)
 
 **12 Specialized Skills**:
-- deep-web-research
-- profile-analysis
-- post-writer
-- video-script-writer
-- platform-formatter
-- voice-matcher
-- research-synthesizer
-- social-media-research
-- youtube-research
-- youtube-growth-mastery
-- youtube-thumbnail-mastery
-- evidence-tracker
+
+- deep-web-research (intelligent tool routing by depth)
+- profile-analysis (multi-platform scraping)
+- post-writer (platform-specific formulas: PAIPS, Greg Isenberg, Paul Graham)
+- video-script-writer (Ali Abdaal, MKBHD methodologies)
+- platform-formatter (validation + optimization)
+- voice-matcher (consistency scoring)
+- research-synthesizer (multi-source organization)
+- social-media-research (trend detection)
+- youtube-research (video analysis)
+- youtube-growth-mastery (optimization strategies)
+- youtube-thumbnail-mastery (CTR psychology)
+- evidence-tracker (source attribution)
+
+**7 Workflows**: research-topic, analyze-profile, competitive-analysis, generate-ideas, learn-voice, write-posts, write-scripts
 
 ---
 
-#### **2. AI Image Generator** - Visual Production Specialist
-**Command**: `/ai-image-generator`
-**Location**: `bmad/agents/ai-image-generator/`
+#### **2. Zoe** - Visual Production Specialist (Images + Videos) 🎨
+
+**Command**: `/zoe`
+**Location**: `bmad/agents/zoe/`
+
+**Role:** ALL visual content production (consolidated image + video specialist)
 
 **Capabilities**:
-- Social media image generation (LinkedIn, Instagram, Twitter, YouTube)
-- LinkedIn carousels with dark monochrome tech design system
-- YouTube thumbnails optimized for CTR
-- Image editing and blending
-- Platform-specific aspect ratios and dimensions
-- Emily JSON methodology with 7-pillar quality framework
 
-**9 Specialized Skills**:
-- create-image
-- edit-image
-- blend-images
-- platform-specs
-- linkedin-design
-- youtube-thumbnail-design
-- mcp-tool-selection
-- generating-sid-images
+**Images:**
+
+- Emily JSON methodology with structured 10+ section prompts
+- 7-pillar quality evaluation (≥7/10 required for publication)
+- Platform design systems (LinkedIn dark monochrome, YouTube CTR thumbnails)
+- Tool selection logic (nanobanana for social, gpt-image-1 for professional)
+- Carousels, single images, thumbnails
+
+**Videos:**
+
+- fal-video execute_custom_model (PRIMARY - 22+ models: Veo 3, Luma Ray 2, Kling, Pixverse)
+- Text-to-video and image-to-video generation
+- HeyGen talking heads (specialized avatar videos)
+- Platform optimization (16:9 YouTube, 9:16 Shorts/Reels)
+
+**Integration:**
+
+- Cloudinary upload for public URLs (required for Postiz)
+- Notion status tracking
+- Quality scoring and metadata
+
+**9+ Specialized Skills**:
+
+- create-image (Emily JSON orchestrator)
+- edit-image (pixel-perfect editing)
+- blend-images (multi-image compositing)
+- video-generation (fal-video model selection)
+- platform-specs (aspect ratios, limits)
+- linkedin-design (dark tech aesthetic)
+- youtube-thumbnail-design (MrBeast 6 pillars, Thomas Frank AIDA)
+- mcp-tool-selection (intelligent routing)
+
+**8 Workflows**: create-single-image, create-carousel, create-scene, create-talking-head, setup-avatars, edit-image, blend-images, video-editing
 
 **MCP Tools**:
-- gpt-image-1 (OpenAI DALL-E)
-- nanobanana (Gemini 2.5 Flash)
+
+- nanobanana (Gemini 2.5 Flash images)
+- gpt-image-1 (OpenAI DALL-E 3 professional images)
+- fal-video (Universal video hub - PRIMARY)
+- heygen (Talking head avatars - SPECIALIZED)
+- cloudinary (Media hosting)
 
 ---
 
-#### **3. AI Video Agent** - Video Production Specialist
-**Command**: `/ai-video-agent`
-**Location**: `bmad/agents/ai-video-agent/`
+#### **3. Zoro** - Publishing & Distribution Specialist 📤
+
+**Command**: `/zoro`
+**Location**: `bmad/agents/zoro/`
+
+**Role:** Multi-platform publishing EXCLUSIVELY via Postiz (NO direct APIs)
 
 **Capabilities**:
-- Talking head videos with HeyGen (avatar + voice cloning)
-- Scene generation with Veo 3 (fast b-roll, diagram animation)
-- Cinematic videos with Sora 2 (premium quality)
-- Image-to-video animation
-- Multi-scene stitching and merging
-- Platform optimization (9:16 vertical, 16:9 horizontal)
-- Enhanced cinematic prompting system
 
-**1 Specialized Skill**:
-- veotools-mastery
+**Publishing (Postiz ONLY):**
+
+- Multi-platform scheduling (Twitter, LinkedIn, Instagram, Facebook, TikTok, YouTube)
+- Twitter threads via postsAndComments array (automatic threading!)
+- Immediate posting (type: "now") OR scheduled posting (type: "schedule")
+- Platform validation (character limits, media formats)
+- HTML formatting via formatForPostiz() utility
+
+**Media Handling:**
+
+- Cloudinary integration (uploads media, gets public URLs)
+- Public HTTPS URLs required for Postiz (not local paths)
+- Images AND videos supported (including YouTube videos!)
+
+**Integration:**
+
+- Notion status updates (Editing → Posted)
+- Platform URL auto-extraction from Postiz response
+- Analytics tracking (Views, Likes, Comments)
+
+**1 Primary Workflow**: schedule-post (handles everything)
 
 **MCP Tools**:
-- heygen (avatar videos)
-- veotools (Veo 3 generation)
-- fal-video (multiple video models)
 
----
+- postiz (PRIMARY and ONLY publishing tool)
+- cloudinary (Media hosting for public URLs)
+- notion (Status tracking)
 
-#### **4. Social Posting Agent** - Publishing Specialist
-**Command**: `/social-posting-agent`
-**Location**: `bmad/agents/social-posting-agent/`
-
-**Capabilities**:
-- Twitter/X posting (Premium API with 25k character posts, images, threads)
-- LinkedIn posting (carousels, documents, videos)
-- YouTube uploads (videos and Shorts)
-- Platform validation and rate limiting
-- Multi-platform scheduling via Postiz
-- Cross-platform publishing orchestration
-
-**API Integrations**:
-- Twitter Premium API (OAuth 1.0a)
-- LinkedIn API (OAuth 2.0)
-- YouTube Data API v3
-- Postiz MCP (scheduling)
+**Publishing Policy:** Postiz ONLY for ALL platforms. NO Twitter MCP, NO LinkedIn MCP, NO YouTube MCP, NO exceptions.
 
 ---
 
@@ -142,13 +177,14 @@ All domain knowledge lives in Claude Code skills organized by agent:
 ```
 .claude/skills/
 ├── jarvis/                    (12 skills - research, writing, analysis)
-├── ai-image-generator/        (9 skills - visual production)
-├── ai-video-agent/            (1 skill - video generation)
-├── visual-prompt-mastery/     (1 skill - prompt engineering)
+├── zoe/                       (9-11 skills - images + videos)
+├── visual-prompt-mastery/     (1 skill - Emily methodology)
 └── skill-creator/             (1 skill - skill development)
 
 Total: 24 specialized skills
 ```
+
+**Key Update (2025-11-02):** AI Image Generator + AI Video Agent skills consolidated under zoe/ directory
 
 ---
 
@@ -168,17 +204,20 @@ Total: 24 specialized skills
 ### Usage
 
 **1. Start Jarvis (Content Intelligence)**:
+
 ```bash
 /jarvis
 ```
 
 **2. Research a topic**:
+
 ```
 Select: *research-topic
 Enter topic: "AI automation trends 2025"
 ```
 
 **3. Generate content**:
+
 ```
 Select: *write-post
 Platform: LinkedIn
@@ -186,18 +225,17 @@ Topic: Based on research findings
 ```
 
 **4. Create visuals** (if needed):
+
 ```bash
-/ai-image-generator
+/zoe
+# Select: *create-image or *create-carousel or *create-scene
 ```
 
-**5. Create videos** (if needed):
-```bash
-/ai-video-agent
-```
+**5. Publish**:
 
-**6. Publish**:
 ```bash
-/social-posting-agent
+/zoro
+# Select: *schedule-post (handles ALL platforms via Postiz)
 ```
 
 ---
@@ -245,6 +283,7 @@ social-media-manager/
 ### Agent Configuration
 
 Each agent has a sidecar folder with:
+
 - `config.yaml` - API keys, user settings, platform specs
 - `instructions.md` - Private agent directives
 - `memories.md` - Learning log and context
@@ -252,33 +291,39 @@ Each agent has a sidecar folder with:
 
 **Example**: `bmad/agents/content-intelligence/jarvis-sidecar/config.yaml`
 
-### MCP Servers
+### MCP Servers (Updated 2025-11-02)
 
-The system uses 20+ MCP servers for capabilities:
+**Currently Configured (3):**
+
+- **postiz** (Multi-platform publishing - PRIMARY)
+- **plainly** (Video templates)
+- **submagic** (Video captions, editing)
+
+**Required for Full Functionality (12+):**
 
 **Research & Scraping**:
+
 - exa (neural search)
 - firecrawl (web scraping)
 - apify (Instagram, TikTok, Twitter scraping)
-- social-media-mcp (Brave + Perplexity)
 
 **Content Generation**:
-- gpt-image-1 (OpenAI images)
-- nanobanana (Gemini images)
-- heygen (avatar videos)
-- veotools (Veo 3 videos)
-- fal-video (multi-model video)
+
+- nanobanana (Gemini 2.5 Flash images)
+- gpt-image-1 (OpenAI DALL-E 3 images)
+- fal-video (PRIMARY video - 22+ models)
+- heygen (Talking head avatars)
 
 **Publishing**:
-- mcp-twitter (Twitter API)
-- youtube-uploader (YouTube API)
-- postiz (multi-platform scheduling)
-- typefully (Twitter scheduling)
+
+- postiz (PRIMARY and ONLY - all platforms)
+- cloudinary (Media hosting - CRITICAL for public URLs)
 
 **Infrastructure**:
-- notion (knowledge management)
-- cloudinary (media storage)
-- chrome-devtools (web automation)
+
+- notion (Knowledge management, status tracking)
+
+**Publishing Policy:** Postiz ONLY for all platform publishing. No direct Twitter/LinkedIn/YouTube API MCPs.
 
 ---
 
@@ -321,64 +366,97 @@ The system uses 20+ MCP servers for capabilities:
 ```bash
 # 1. Research topic
 /jarvis
-*research-topic → "AI infrastructure trends"
+2  # Select research-topic
+Topic: "AI infrastructure trends"
 
 # 2. Generate post
-*write-post → LinkedIn, professional tone
+/jarvis
+7  # Select write-post
+Platform: LinkedIn
 
 # 3. Create carousel images
-/ai-image-generator
-*linkedin → 5 slides, dark monochrome design
+/zoe
+2  # Select create-carousel
+Platform: LinkedIn, slides: 5, style: dark tech monochrome
 
 # 4. Publish
-/social-posting-agent
-*linkedin → Post with carousel
+/zoro
+2  # Select schedule-post
+Platform: LinkedIn, type: now or schedule
+# Zoro uploads to Cloudinary → Posts via Postiz
 ```
 
-### Example 2: YouTube Short with Thumbnail
+### Example 2: Twitter Thread with Diagrams
 
 ```bash
-# 1. Write script
+# 1. Research + Write
 /jarvis
-*write-script → YouTube Short, 60 seconds, tech topic
+2  # research-topic
+7  # write-post (Twitter thread format)
 
-# 2. Generate thumbnail
-/ai-image-generator
-*youtube-thumbnail → CTR-optimized design
+# 2. Create diagrams
+/zoe
+2  # create-single-image (repeat for 3 diagrams)
+Platform: Twitter, style: light educational
 
-# 3. Create talking head video
-/ai-video-agent
-*create-talking-head → 9:16 vertical, captions ON
-
-# 4. Upload to YouTube
-/social-posting-agent
-*youtube → Auto-detects as Short, adds thumbnail
+# 3. Publish thread
+/zoro
+2  # schedule-post
+Platform: Twitter (X)
+# Zoro builds postsAndComments array (auto-threads!)
+# Attaches diagrams to specific tweets
+# Posts via Postiz - proper threaded structure!
 ```
 
 ---
 
-## 🎯 Output Management
+## 🎯 Output Management (v2.0 Structure)
 
-All outputs saved to centralized structure:
+**Updated:** 2025-11-02 - New 6-stage project lifecycle structure
+
+All outputs saved to project-centric structure:
 
 ```
-outputs/
-└── {MM-DD-YYYY}/
-    └── {platform}-{content-type}-{topic}/
-        ├── posts/              # Written content
-        ├── images/             # Generated visuals
-        ├── videos/             # Rendered videos
-        ├── research/           # Research briefs
-        ├── data/               # Raw data, spreadsheets
-        └── handoff-*.json      # Agent coordination packages
+outputs/projects/
+└── {YYYY-MM-DD}-{project-slug}/
+    ├── 00-session/             # metadata.json, session-log.md
+    ├── 01-research/            # Research briefs (shared across platforms)
+    ├── 02-ideas/               # Idea cards, hook packs (shared)
+    ├── 03-drafts/              # Platform-specific content
+    │   ├── linkedin/
+    │   ├── twitter/
+    │   ├── youtube/
+    │   ├── instagram/
+    │   └── tiktok/
+    ├── 04-media/               # Platform-agnostic REUSABLE media
+    │   ├── images/             # ONE thumbnail for multiple platforms!
+    │   │   └── metadata.json   # Tracks which platforms use each asset
+    │   └── videos/
+    │       └── metadata.json
+    ├── 05-published/           # Published content per platform
+    │   ├── linkedin/           # post.md, url.md, publish-confirmation.json
+    │   ├── twitter/
+    │   └── youtube/
+    └── handoffs/               # Agent coordination
+        ├── jarvis-to-zoe.json
+        └── zoe-to-zoro.json
 ```
 
-**Metadata tracking**: Every output includes JSON metadata with:
+**Benefits:**
+
+- **Media Reusability**: One image serves LinkedIn + Twitter + Instagram
+- **Platform Agnostic**: Assets named by purpose (thumbnail-main.png), not platform
+- **Clear Lifecycle**: Idea → Research → Draft → Media → Published
+- **Cost Efficiency**: Track which platforms reuse assets
+
+**Metadata tracking**: Every stage includes JSON metadata with:
+
 - Generation parameters
 - Quality scores
 - Cost tracking
 - Source attribution
 - Timestamps
+- Platform usage (for media reusability)
 
 ---
 
@@ -395,6 +473,7 @@ outputs/
 ## 📈 Cost Optimization
 
 **Tiered Approach**:
+
 1. **Free tier**: WebSearch, WebFetch, Firecrawl (with caching)
 2. **Low cost**: Exa (~$0.05-0.15/search), Social Media MCP
 3. **Paid tier**: Apify (~$0.40-0.50/1k results) - requires user approval
@@ -425,6 +504,7 @@ outputs/
 ## 🤝 Contributing
 
 This is a personal project but open to collaboration. Feel free to:
+
 - Report issues
 - Suggest features
 - Share improvements
@@ -447,4 +527,21 @@ MIT License - See LICENSE for details
 
 **Built for autonomous social media content creation with human oversight and quality control.**
 
-_Last updated: October 31, 2025_
+---
+
+## 🏗️ Recent Updates (2025-11-02)
+
+**Phase 7: Production-Ready System Fixes**
+
+- ✅ Agent consolidation: AI Video + AI Image → Zoe (visual specialist)
+- ✅ Agent rename: Social Posting → Zoro (publishing specialist)
+- ✅ Output structure: v2.0 with 6-stage project lifecycle
+- ✅ Workflow fixes: BMad v6 compliance (external instructions, proper variables)
+- ✅ Publishing policy: Postiz-only (no direct API MCPs)
+- ✅ Thread support: Documented postsAndComments array threading
+- ✅ Tool names: Verified all MCP references correct
+- ✅ Registries: Cleaned duplicates, fixed phantom paths
+
+**Production Status:** 90% complete (27/30 tasks) - Ready for testing
+
+_Last updated: November 2, 2025_

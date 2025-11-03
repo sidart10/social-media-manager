@@ -18,9 +18,9 @@ Imagine scheduling a post about your latest coding project right from your Curso
 
 Postiz uses MCP to offer a simple way to manage social media. Connecting Postiz to Cursor or Claude lets you schedule posts right from your chat. It’s like having a social media assistant in your coding environment. This simplifies the process, making social media management part of your workflow instead of a separate, time-consuming chore.
 
-* **Connect to Cursor:** Ask your AI assistant to schedule a post about your progress, all within your coding session.
-* **Connect to Notion:** Integrate your Notion workspace and automate the scheduling of team and project updates across different social platforms.
-* **Connect to any SaaS:** Connect Postiz to almost any SaaS application and trigger social media posts based on events within those platforms.
+- **Connect to Cursor:** Ask your AI assistant to schedule a post about your progress, all within your coding session.
+- **Connect to Notion:** Integrate your Notion workspace and automate the scheduling of team and project updates across different social platforms.
+- **Connect to any SaaS:** Connect Postiz to almost any SaaS application and trigger social media posts based on events within those platforms.
 
 This flexibility makes MCP a truly integrated and automated solution for managing social media. As of early 2025, platforms like Facebook, Instagram, and WhatsApp each have over **two billion** users. This huge reach makes efficient management tools like MCP essential for connecting with large audiences. See more stats here: [Global social network user statistics](https://www.statista.com/statistics/272014/global-social-networks-ranked-by-number-of-users/).
 
@@ -28,16 +28,16 @@ This flexibility makes MCP a truly integrated and automated solution for managin
 
 Using Social Media MCP offers many advantages:
 
-* **Increased Efficiency:** Manage all your social media activity from one place, saving time and effort.
-* **Improved Focus:** Stay focused by eliminating the need to switch between different apps.
-* **Enhanced Consistency:** Schedule posts in advance and maintain a consistent presence online.
-* **Simplified Collaboration:** Integrate team workflows and automate content sharing from collaborative platforms like Notion.
+- **Increased Efficiency:** Manage all your social media activity from one place, saving time and effort.
+- **Improved Focus:** Stay focused by eliminating the need to switch between different apps.
+- **Enhanced Consistency:** Schedule posts in advance and maintain a consistent presence online.
+- **Simplified Collaboration:** Integrate team workflows and automate content sharing from collaborative platforms like Notion.
 
 By using this new protocol, individuals and teams can get the most out of their social media presence. It streamlines content creation and distribution, letting you focus on creating quality content and interacting with your audience.
 
 ## Connecting Postiz With Cursor: Your New Development Workflow
 
-Connecting Postiz to Cursor gives developers a powerful way to manage their social media presence right from their coding environment. This is all thanks to the  **Social Media MCP** . With this integration, you can seamlessly schedule posts about your daily work, share coding milestones, and connect with the tech community, all without breaking your workflow.
+Connecting Postiz to Cursor gives developers a powerful way to manage their social media presence right from their coding environment. This is all thanks to the **Social Media MCP** . With this integration, you can seamlessly schedule posts about your daily work, share coding milestones, and connect with the tech community, all without breaking your workflow.
 
 This means no more switching back and forth between different apps! You can keep your focus where it belongs – on your code.
 
@@ -76,10 +76,10 @@ As you can see, using the MCP method drastically reduces the time spent on repet
 
 Here are a few tips to help you get the most out of the Postiz-Cursor integration:
 
-* **Use detailed prompts:** The more information you give in your prompts, the better your posts will be.
-* **Schedule posts strategically:** Pay attention to your audience’s activity patterns to figure out the best times to post.
-* **Monitor post performance:** Keep track of engagement metrics to see what content resonates with your audience.
-* **Explore advanced features:** Take advantage of Postiz’s advanced features, like content templates and AI-powered content suggestions.
+- **Use detailed prompts:** The more information you give in your prompts, the better your posts will be.
+- **Schedule posts strategically:** Pay attention to your audience’s activity patterns to figure out the best times to post.
+- **Monitor post performance:** Keep track of engagement metrics to see what content resonates with your audience.
+- **Explore advanced features:** Take advantage of Postiz’s advanced features, like content templates and AI-powered content suggestions.
 
 By following these tips, you can effectively use the Postiz-Cursor integration to boost your social media presence without disrupting your development workflow. This combination lets you share your accomplishments, connect with the tech community, and build your personal brand, all from within your coding environment.
 
@@ -97,9 +97,9 @@ Connecting Notion to Postiz through the **Social Media MCP** transforms your doc
 
 Postiz offers many options to customize your social media posts:
 
-* **Tailor Post Formats:** Design custom templates to fit each social media platform.
-* **Manage Team Permissions:** Control who can create and schedule posts from Notion.
-* **Create Content Calendars:** Plan and schedule your content in advance, all within Notion.
+- **Tailor Post Formats:** Design custom templates to fit each social media platform.
+- **Manage Team Permissions:** Control who can create and schedule posts from Notion.
+- **Create Content Calendars:** Plan and schedule your content in advance, all within Notion.
 
 These features ensure your social media presence is professional and reflects your brand. Social media becomes an integrated part of your workflow, not just another item on your to-do list.
 
@@ -115,15 +115,15 @@ Imagine this: your sales team closes a big deal in your CRM. With **Social Media
 
 Forward-thinking teams are already using **Social Media MCP** to connect various SaaS tools to their social media strategies:
 
-* **Product Teams:** Announcing new feature releases directly from their project management tool.
-* **Marketing Teams:** Sharing key performance indicators and campaign updates from their analytics dashboard.
-* **HR Teams:** Promoting job openings and company culture updates from their HR platform.
+- **Product Teams:** Announcing new feature releases directly from their project management tool.
+- **Marketing Teams:** Sharing key performance indicators and campaign updates from their analytics dashboard.
+- **HR Teams:** Promoting job openings and company culture updates from their HR platform.
 
 These are just a few examples. A marketing team could configure Postiz to automatically tweet a celebratory message every time a campaign hits a specific performance milestone, all without lifting a finger.
 
 ### Building Automated Content Workflows
 
-Creating custom connections between your SaaS applications and Postiz is key to maximizing the benefits of  **Social Media MCP** . This means defining specific triggers within your SaaS tools that start automated posting workflows. For example, a new entry in your CRM system indicating a new customer could automatically trigger a welcome message on your social media channels. Setting up templates and rules within Postiz allows you to personalize these automated posts, making sure they connect with your target audience. Social media usage is constantly growing. In the United States, **246 million** Americans used social media as of January 2025, highlighting the importance of a strong social media strategy. Learn more about this trend here: [social media usage in America](https://www.sprinklr.com/blog/social-media-in-america/).
+Creating custom connections between your SaaS applications and Postiz is key to maximizing the benefits of **Social Media MCP** . This means defining specific triggers within your SaaS tools that start automated posting workflows. For example, a new entry in your CRM system indicating a new customer could automatically trigger a welcome message on your social media channels. Setting up templates and rules within Postiz allows you to personalize these automated posts, making sure they connect with your target audience. Social media usage is constantly growing. In the United States, **246 million** Americans used social media as of January 2025, highlighting the importance of a strong social media strategy. Learn more about this trend here: [social media usage in America](https://www.sprinklr.com/blog/social-media-in-america/).
 
 ### Maintaining Authenticity in Automation
 
@@ -193,9 +193,9 @@ Implementing **Social Media MCP** with [Postiz](https://postiz.com/) offers a po
 
 Before diving into implementation, consider these key factors:
 
-* **Identify Your Goals:** What do you want to achieve with Social Media MCP? Increased efficiency? Consistent branding? Better engagement?
-* **Prioritize Integrations:** Which platforms and tools are most important for your workflow? Start with the integrations that will deliver the biggest impact. Perhaps begin by connecting Postiz to Cursor for streamlined development updates or integrating with Notion for team-wide content distribution.
-* **Workflow Assessment:** How does your current content creation and distribution process work? Identify areas where automation can bring the most benefit.
+- **Identify Your Goals:** What do you want to achieve with Social Media MCP? Increased efficiency? Consistent branding? Better engagement?
+- **Prioritize Integrations:** Which platforms and tools are most important for your workflow? Start with the integrations that will deliver the biggest impact. Perhaps begin by connecting Postiz to Cursor for streamlined development updates or integrating with Notion for team-wide content distribution.
+- **Workflow Assessment:** How does your current content creation and distribution process work? Identify areas where automation can bring the most benefit.
 
 This upfront planning sets the stage for a successful implementation and helps you align Social Media MCP with your overall social media strategy.
 
@@ -203,10 +203,10 @@ This upfront planning sets the stage for a successful implementation and helps y
 
 Follow these best practices to optimize your Social Media MCP integration:
 
-* **Start Small:** Begin with one or two integrations and gradually add more as you become comfortable. For example, start by connecting Postiz to Cursor and then later incorporate Notion.
-* **Use Clear and Concise Prompts:** When using AI assistants like Cursor or [Claude](https://www.anthropic.com/index/introducing-claude), provide specific instructions to ensure the generated posts accurately reflect your intentions.
-* **Test Thoroughly:** Before going live, test your automated workflows to catch any errors and ensure everything is working as expected.
-* **Monitor and Adjust:** Keep track of your social media performance and adjust your automation strategies accordingly.
+- **Start Small:** Begin with one or two integrations and gradually add more as you become comfortable. For example, start by connecting Postiz to Cursor and then later incorporate Notion.
+- **Use Clear and Concise Prompts:** When using AI assistants like Cursor or [Claude](https://www.anthropic.com/index/introducing-claude), provide specific instructions to ensure the generated posts accurately reflect your intentions.
+- **Test Thoroughly:** Before going live, test your automated workflows to catch any errors and ensure everything is working as expected.
+- **Monitor and Adjust:** Keep track of your social media performance and adjust your automation strategies accordingly.
 
 These practices are crucial for efficient and successful implementation. They ensure that your automated content aligns with your goals and resonates with your audience.
 
@@ -214,10 +214,10 @@ These practices are crucial for efficient and successful implementation. They en
 
 As your needs grow, consider these tips for scaling your Social Media MCP implementation:
 
-* **Refine Your Workflows:** Continuously look for ways to improve your automation processes based on performance data.
-* **Explore Advanced Features:** Utilize Postiz’s advanced features like content templates, AI-powered content suggestions, and A/B testing to optimize your social media output. Consider using Postiz’s templating system to maintain brand consistency while adapting content for different platforms.
-* **Engage With the Community:** Connect with other Postiz users and learn from their experiences. The Postiz community offers valuable insights and support.
-* **Stay Updated:** Keep up with the latest developments in Social Media MCP and Postiz to take advantage of new features and improvements.
+- **Refine Your Workflows:** Continuously look for ways to improve your automation processes based on performance data.
+- **Explore Advanced Features:** Utilize Postiz’s advanced features like content templates, AI-powered content suggestions, and A/B testing to optimize your social media output. Consider using Postiz’s templating system to maintain brand consistency while adapting content for different platforms.
+- **Engage With the Community:** Connect with other Postiz users and learn from their experiences. The Postiz community offers valuable insights and support.
+- **Stay Updated:** Keep up with the latest developments in Social Media MCP and Postiz to take advantage of new features and improvements.
 
 By following this roadmap and implementing these best practices, you can effectively use Social Media MCP to improve your social media operations. This will result in a more streamlined workflow, increased efficiency, and improved engagement.
 
@@ -241,9 +241,9 @@ As social media evolves, so will the challenges businesses face. MCP is well-pos
 
 How can you prepare for these advancements?
 
-* **Stay Informed:** Keep up-to-date on the latest MCP developments and related technologies by following industry blogs and engaging with the Postiz community ([some references on Reddit](https://www.reddit.com/r/selfhosted/comments/1jzsfav/postiz_v1392_opensource_social_media_scheduling) and Product Hunt).
-* **Experiment with New Features:** As new Postiz features become available, try them out to understand their potential and how they can improve your workflow.
-* **Provide Feedback:** Share your insights and suggestions with the Postiz team to contribute to the platform’s development and ensure it meets evolving user needs.
+- **Stay Informed:** Keep up-to-date on the latest MCP developments and related technologies by following industry blogs and engaging with the Postiz community ([some references on Reddit](https://www.reddit.com/r/selfhosted/comments/1jzsfav/postiz_v1392_opensource_social_media_scheduling) and Product Hunt).
+- **Experiment with New Features:** As new Postiz features become available, try them out to understand their potential and how they can improve your workflow.
+- **Provide Feedback:** Share your insights and suggestions with the Postiz team to contribute to the platform’s development and ensure it meets evolving user needs.
 
 By actively engaging with the technology and community, you can take full advantage of the future of Social Media MCP.
 

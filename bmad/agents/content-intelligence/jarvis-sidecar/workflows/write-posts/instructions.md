@@ -13,12 +13,10 @@
 
     This workflow generates platform-optimized posts that sound authentically like you.
     Uses: Enhanced Voice Profile v2.0 (10 rhetorical dimensions)
+
   </action>
 
-  <action>**Load voice profile:**
-    - Read: {agent-folder}/jarvis-sidecar/memories.md
-    - Extract: Enhanced Voice Profile v2.0 section
-    - Check confidence: Should be ≥8/10 for best results
+<action>**Load voice profile:** - Read: {agent-folder}/jarvis-sidecar/memories.md - Extract: Enhanced Voice Profile v2.0 section - Check confidence: Should be ≥8/10 for best results
 
     if voice_profile not found:
       display("⚠️ No voice profile found!")
@@ -28,20 +26,23 @@
     else:
       display(f"✅ Voice Profile v2.0 loaded (confidence: {confidence}/10)")
       display(f"   Voice modes available: {list_voice_modes}")
+
   </action>
 
-  <ask>What's the topic or idea?
-  - Paste idea card title
-  - Or describe topic
+<ask>What's the topic or idea?
+
+- Paste idea card title
+- Or describe topic
   </ask>
   <action>Store as {{topic}}</action>
 
-  <ask>Platform?
-  1. LinkedIn (PAIPS formula, <300 words, professional)
-  2. Twitter (Thread format, Greg Isenberg questions, or single tweet)
-  3. Substack (Essay, Paul Graham style, 800-1500 words)
-  </ask>
-  <action>Store as {{platform}}</action>
+<ask>Platform?
+
+1. LinkedIn (PAIPS formula, <300 words, professional)
+2. Twitter (Thread format, Greg Isenberg questions, or single tweet)
+3. Substack (Essay, Paul Graham style, 800-1500 words)
+   </ask>
+   <action>Store as {{platform}}</action>
 
   <check if="platform == Twitter">
     <ask>Format?
@@ -51,8 +52,8 @@
     <action>Store as {{twitter_format}}</action>
   </check>
 
-  <ask>Load from idea card or research brief? (optional - paste file path or 'none')</ask>
-  <action>Store as {{reference_file}}</action>
+<ask>Load from idea card or research brief? (optional - paste file path or 'none')</ask>
+<action>Store as {{reference_file}}</action>
 
   <check if="reference_file != none">
     <action>Load reference file for context</action>
@@ -72,9 +73,10 @@
 
     Store selected mode as {{voice_mode}}
     Display: f"🎯 Voice mode: {voice_mode}"
+
   </action>
 
-  <action>**Select platform formula:**
+<action>**Select platform formula:**
 
     if platform == "LinkedIn":
       formula = "Justin Welsh PAIPS"
@@ -101,6 +103,7 @@
     Display: f"📋 Using: {formula}"
     Display: f"   Structure: {structure}"
     Display: f"   Target: {target_length}"
+
   </action>
 </step>
 
@@ -137,9 +140,10 @@
     **Skill will execute and return:** Platform-optimized post matching voice profile
 
     Store result as {{generated_post}}
+
   </action>
 
-  <action>Display generated post to user for review</action>
+<action>Display generated post to user for review</action>
 </step>
 
 <step n="4" goal="Validate voice consistency (triggers voice-matcher skill)">
@@ -171,10 +175,11 @@
     **Skill returns:** Confidence score + mismatch analysis
 
     Store as {{voice_validation}}
+
   </action>
 
-  <action>Display validation results:
-    Voice Confidence: {{voice_validation.score}}/10
+<action>Display validation results:
+Voice Confidence: {{voice_validation.score}}/10
 
     if score >= 9:
       display("🎉 EXCEPTIONAL voice match! Sounds exactly like you!")
@@ -195,6 +200,7 @@
         <ask>What specifically should I adjust?</ask>
         <goto step="3">Regenerate with adjustments</goto>
       end if
+
   </action>
 </step>
 
@@ -224,15 +230,16 @@
     **Skill returns:** Formatted post ready for platform
 
     Store as {{formatted_post}}
+
   </action>
 
-  <action>Display formatted version with stats:
-    Platform: {{platform}}
-    Character Count: {{char_count}}
-    Word Count: {{word_count}}
-    Hashtags: {{hashtag_count}}
-    Voice Confidence: {{voice_validation.score}}/10
-  </action>
+<action>Display formatted version with stats:
+Platform: {{platform}}
+Character Count: {{char_count}}
+Word Count: {{word_count}}
+Hashtags: {{hashtag_count}}
+Voice Confidence: {{voice_validation.score}}/10
+</action>
 </step>
 
 <step n="6" goal="Save post to outputs with platform structure">
@@ -273,6 +280,7 @@
       }
 
     Display: f"✅ Saved: 03-drafts/{platform.lower()}/post-v{version_num}.md"
+
   </action>
 </step>
 
@@ -280,7 +288,7 @@
   <action>Load {project-root}/.bmad-core/modules/notion-updates.md</action>
   <action>Load {project-root}/.bmad-core/modules/notion-relational-helpers.md</action>
 
-  <action>**Update Notion Content Tracker:**
+<action>**Update Notion Content Tracker:**
 
     metadata = read_json("00-session/metadata.json")
 
@@ -322,6 +330,7 @@
     else:
       display("ℹ️ No Notion page linked (local-only project)")
     end if
+
   </action>
 </step>
 
@@ -353,14 +362,16 @@
     2. Generate visuals: Invoke /zoe for thumbnail/graphics
     3. Publish: Invoke /zoro to schedule via Postiz
     4. Or iterate: Run *write-posts again with refinements
+
   </action>
 
-  <ask>What next?
-  1. Generate another post (same or different platform)
-  2. Generate variants (3 versions of same post)
-  3. Create thumbnail (hand to Zoe)
-  4. Done
-  </ask>
+<ask>What next?
+
+1. Generate another post (same or different platform)
+2. Generate variants (3 versions of same post)
+3. Create thumbnail (hand to Zoe)
+4. Done
+   </ask>
 
   <check if="option 1">
     <goto step="1">Start new post</goto>
@@ -378,7 +389,7 @@
     <action>Create handoff package: handoffs/jarvis-to-zoe.json with topic, platform, post location</action>
   </check>
 
-  <template-output>workflow_complete</template-output>
+<template-output>workflow_complete</template-output>
 </step>
 
 </workflow>

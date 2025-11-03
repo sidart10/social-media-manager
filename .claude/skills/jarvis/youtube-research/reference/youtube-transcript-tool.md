@@ -33,11 +33,11 @@ Input: {
 
 ### Input Parameters
 
-| Parameter | Type | Required | Default | Description |
-|-----------|------|----------|---------|-------------|
-| `youtubeUrl` | array of objects | Yes | - | YouTube video URLs as objects: `[{"url": "..."}]` |
-| `cleaningLevel` | string | No | "mild" | Transcript cleaning: "none", "mild", "aggressive" |
-| `includeTimestamps` | boolean | No | true | Include detailed timestamp data |
+| Parameter           | Type             | Required | Default | Description                                       |
+| ------------------- | ---------------- | -------- | ------- | ------------------------------------------------- |
+| `youtubeUrl`        | array of objects | Yes      | -       | YouTube video URLs as objects: `[{"url": "..."}]` |
+| `cleaningLevel`     | string           | No       | "mild"  | Transcript cleaning: "none", "mild", "aggressive" |
+| `includeTimestamps` | boolean          | No       | true    | Include detailed timestamp data                   |
 
 ### Output Format
 
@@ -76,10 +76,10 @@ Input: {
 
 ```javascript
 // Full URL format required
-const url = "https://youtube.com/watch?v=7xTGNNLPyMI"
+const url = 'https://youtube.com/watch?v=7xTGNNLPyMI';
 
 // Short URLs also work
-const url = "https://youtu.be/7xTGNNLPyMI"
+const url = 'https://youtu.be/7xTGNNLPyMI';
 ```
 
 ### Step 2: Call Apify Actor
@@ -99,12 +99,12 @@ mcp__apify__call-actor:
 
 ```javascript
 // Get results from dataset
-const result = await getActorOutput(datasetId)
+const result = await getActorOutput(datasetId);
 
-const fullTranscript = result.transcriptText  // Full text as single string
-const videoTitle = result.Video_title
-const channelName = result.channel.name
-const views = result.Views
+const fullTranscript = result.transcriptText; // Full text as single string
+const videoTitle = result.Video_title;
+const channelName = result.channel.name;
+const views = result.Views;
 ```
 
 ---
@@ -115,10 +115,10 @@ const views = result.Views
 
 ```javascript
 // Find all transcript entries in first 10 seconds
-const hook = transcript.filter(entry => entry.start < 10)
+const hook = transcript.filter((entry) => entry.start < 10);
 
 // Combine text
-const hookText = hook.map(e => e.text).join(' ')
+const hookText = hook.map((e) => e.text).join(' ');
 
 // Example: "Stop wasting 10 hours every week on tasks AI could do..."
 ```
@@ -127,16 +127,16 @@ const hookText = hook.map(e => e.text).join(' ')
 
 ```javascript
 // Find memorable quotes
-const quotes = []
+const quotes = [];
 
-transcript.forEach(entry => {
+transcript.forEach((entry) => {
   if (isMemorableQuote(entry.text)) {
     quotes.push({
       text: entry.text,
-      timestamp: formatTimestamp(entry.start) // "2:34"
-    })
+      timestamp: formatTimestamp(entry.start), // "2:34"
+    });
   }
-})
+});
 
 // Output: "The future is already here" - 2:34
 ```
@@ -145,10 +145,10 @@ transcript.forEach(entry => {
 
 ```javascript
 // Segment by timestamps
-const intro = getSegment(transcript, 0, 60)      // 0:00-1:00
-const problem = getSegment(transcript, 60, 180)  // 1:00-3:00
-const solution = getSegment(transcript, 180, 480) // 3:00-8:00
-const outro = getSegment(transcript, 480, 600)   // 8:00-10:00
+const intro = getSegment(transcript, 0, 60); // 0:00-1:00
+const problem = getSegment(transcript, 60, 180); // 1:00-3:00
+const solution = getSegment(transcript, 180, 480); // 3:00-8:00
+const outro = getSegment(transcript, 480, 600); // 8:00-10:00
 ```
 
 ---
@@ -156,11 +156,13 @@ const outro = getSegment(transcript, 480, 600)   // 8:00-10:00
 ## Cost & Performance
 
 ### Pricing
+
 - **Cost:** FREE (platform fee only ~$0.009)
 - **Model:** Platform usage fee only (not per-result)
 - **Tested:** Andrej Karpathy 3.5hr video cost $0.009
 
 ### Performance
+
 - **Speed:** 10-30 seconds per video (depends on length)
 - **Reliability:** 100% success rate (verified in testing)
 - **Limits:** No hard limits (scales with your usage)
@@ -168,12 +170,12 @@ const outro = getSegment(transcript, 480, 600)   // 8:00-10:00
 
 ### Comparison
 
-| Method | Cost | Reliability | Speed | Notes |
-|--------|------|-------------|-------|-------|
-| **dz_omar actor** ✅ | FREE | 100% (tested) | 10-30s | VERIFIED Nov 1, 2025 |
-| karamelo actor ⚠️ | ~$0.01/video | Unknown | Unknown | OUTDATED - not tested |
-| Broken MCP ❌ | FREE | 0% (broken) | N/A | Do not use |
-| YouTube Data API | FREE (quota) | Good | Fast | Requires API key setup |
+| Method               | Cost         | Reliability   | Speed   | Notes                  |
+| -------------------- | ------------ | ------------- | ------- | ---------------------- |
+| **dz_omar actor** ✅ | FREE         | 100% (tested) | 10-30s  | VERIFIED Nov 1, 2025   |
+| karamelo actor ⚠️    | ~$0.01/video | Unknown       | Unknown | OUTDATED - not tested  |
+| Broken MCP ❌        | FREE         | 0% (broken)   | N/A     | Do not use             |
+| YouTube Data API     | FREE (quota) | Good          | Fast    | Requires API key setup |
 
 ---
 
@@ -182,30 +184,36 @@ const outro = getSegment(transcript, 480, 600)   // 8:00-10:00
 ### Common Issues
 
 **1. Video has no transcript:**
+
 ```json
 {
   "success": false,
   "error": "No transcript available for video abc123"
 }
 ```
+
 **Solution:** Try another video or check if video has CC enabled
 
 **2. Private/deleted video:**
+
 ```json
 {
   "success": false,
   "error": "Video not accessible: abc123"
 }
 ```
+
 **Solution:** Verify video URL and accessibility
 
 **3. Rate limiting (rare):**
+
 ```json
 {
   "success": false,
   "error": "Rate limit exceeded"
 }
 ```
+
 **Solution:** Wait a few seconds and retry
 
 ---
@@ -279,12 +287,14 @@ transcript = YouTubeTranscriptApi.get_transcript("abc123")
 ## Why Not youtube-transcript MCP?
 
 **The youtube-transcript MCP server is broken:**
+
 - ❌ Fails to fetch transcripts
 - ❌ Community-maintained (unreliable updates)
 - ❌ Inconsistent results
 - ❌ No error handling
 
 **dz_omar Apify actor is superior:**
+
 - ✅ Professional maintenance (4.92/5 rating)
 - ✅ 100% reliability (verified Nov 1, 2025)
 - ✅ FREE (platform fee only ~$0.009)
@@ -300,6 +310,7 @@ transcript = YouTubeTranscriptApi.get_transcript("abc123")
 **Use Apify `dz_omar/youtube-transcript-metadata-extractor` for all YouTube transcript extraction.**
 
 **Simple workflow:**
+
 1. Format URL: `[{"url": "https://youtube.com/watch?v=VIDEO_ID"}]`
 2. Call actor with youtubeUrl parameter
 3. Receive transcript + full video metadata

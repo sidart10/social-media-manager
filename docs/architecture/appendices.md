@@ -3,6 +3,7 @@
 ## Appendix A: Complete MCP Tool Inventory
 
 **Notion MCP:**
+
 - notion-search (query, filters, teamspace scoping)
 - notion-fetch (page/database retrieval)
 - notion-create-pages (bulk page creation)
@@ -12,6 +13,7 @@
 - notion-update-database (schema updates)
 
 **Postiz MCP:**
+
 - integrationList (get connected accounts)
 - integrationSchema (platform-specific requirements)
 - integrationSchedulePostTool (queue future posts)
@@ -19,28 +21,34 @@
 - generateVideoTool (optional, we use Zoe instead)
 
 **Exa MCP:**
+
 - search (neural search, 10 auto + 5 similar results)
 
 **Firecrawl MCP:**
+
 - firecrawl_scrape (single URL scraping)
 - firecrawl_crawl (multi-page crawling)
 - firecrawl_map (sitemap discovery)
 
 **Apify MCP:**
+
 - fetch-actor-details (actor metadata)
 - search-actors (actor discovery)
 - call-actor (actor execution, two-step: info → call)
 
 **nanobanana MCP:**
+
 - generate_image (Gemini 2.5 Flash image generation)
 - upload_file (Gemini Files API for large images)
 - show_output_stats (usage statistics)
 
 **gpt-image-1 MCP:**
+
 - create_image (DALL-E 3 generation)
 - create_image_edit (DALL-E 3 editing)
 
 **veotools MCP:**
+
 - list_models (available Veo models)
 - generate_start (async video generation)
 - generate_get (check job status)
@@ -48,6 +56,7 @@
 - performance_start_trace (performance profiling)
 
 **fal-video MCP:**
+
 - luma_ray2 (Luma Dream Machine)
 - kling_master_text (Kling 2.1 text-to-video)
 - pixverse_text (Pixverse V4.5 text-to-video)
@@ -55,6 +64,7 @@
 - list_available_models (registry)
 
 **HeyGen MCP:**
+
 - get_remaining_credits (quota check)
 - get_voices (available voice options)
 - get_avatar_groups (avatar collections)
@@ -63,6 +73,7 @@
 - get_avatar_video_status (job status)
 
 **mcp-twitter MCP:**
+
 - create_twitter_post (25k char posts, Premium)
 - reply_twitter_tweet (threaded replies)
 - get_last_tweet (profile retrieval)
@@ -70,6 +81,7 @@
 - create_and_post_twitter_thread (auto-linked threads)
 
 **youtube-uploader-mcp:**
+
 - authenticate (OAuth2 flow)
 - accesstoken (token retrieval)
 - channels (list user channels)
@@ -77,6 +89,7 @@
 - upload_video (upload with metadata, auto-detect Shorts)
 
 **social-media-mcp:**
+
 - create_post (Brave + Perplexity, multi-platform scheduling)
 - get_trending_topics (platform trends)
 - research_topic (topic research with facts/news/hashtags)
@@ -120,10 +133,10 @@
 
 ## Appendix D: Revision History
 
-| Date | Version | Changes | Author |
-|------|---------|---------|--------|
-| 2025-10-31 | 1.0 | Initial architecture document created | Winston (Architect Agent) |
-| 2025-11-05 | 1.1 | **CRITICAL ALIGNMENT UPDATES:** (1) Updated lifecycle from 7 stages to 6 stages (merged 05-final/ and 06-published/ into 05-published/), (2) Added platform subfolders to 03-drafts/ and 05-published/ (linkedin/, twitter/, youtube/, instagram/, tiktok/, substack/, facebook/), (3) Added platform-agnostic media philosophy section explaining 04-media/ reusability across platforms with cost efficiency examples, (4) Updated all legacy output path references from outputs/{date}/{session}/ to outputs/projects/{YYYY-MM-DD}-{slug}/, (5) Updated metadata.json schema to reflect platform-specific file_inventory structure. All changes align with PRD v1.0 requirements (FR52-55, Epic 7 Story 7.6). | BMad Builder |
+| Date       | Version | Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Author                    |
+| ---------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| 2025-10-31 | 1.0     | Initial architecture document created                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Winston (Architect Agent) |
+| 2025-11-05 | 1.1     | **CRITICAL ALIGNMENT UPDATES:** (1) Updated lifecycle from 7 stages to 6 stages (merged 05-final/ and 06-published/ into 05-published/), (2) Added platform subfolders to 03-drafts/ and 05-published/ (linkedin/, twitter/, youtube/, instagram/, tiktok/, substack/, facebook/), (3) Added platform-agnostic media philosophy section explaining 04-media/ reusability across platforms with cost efficiency examples, (4) Updated all legacy output path references from outputs/{date}/{session}/ to outputs/projects/{YYYY-MM-DD}-{slug}/, (5) Updated metadata.json schema to reflect platform-specific file_inventory structure. All changes align with PRD v1.0 requirements (FR52-55, Epic 7 Story 7.6). | BMad Builder              |
 
 ---
 

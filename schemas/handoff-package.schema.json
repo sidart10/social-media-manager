@@ -1,0 +1,128 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://bmad.ai/schemas/handoff-package.json",
+  "title": "BMad Agent Handoff Package",
+  "description": "Schema for agent-to-agent coordination packages (Jarvis → Zoe → Zoro)",
+  "type": "object",
+  "required": ["handoff_id", "source_agent", "target_agent", "content_type"],
+  "properties": {
+    "handoff_id": {
+      "type": "string",
+      "description": "Unique handoff identifier",
+      "pattern": "^[a-z]+-to-[a-z]+-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}$",
+      "examples": ["jarvis-to-zoe-2025-11-02-13-45", "zoe-to-zoro-2025-11-02-14-30"]
+    },
+    "source_agent": {
+      "type": "string",
+      "description": "Agent creating the handoff",
+      "enum": ["jarvis", "zoe", "zoro"]
+    },
+    "target_agent": {
+      "type": "string",
+      "description": "Agent receiving the handoff",
+      "enum": ["jarvis", "zoe", "zoro"]
+    },
+    "content_type": {
+      "type": "string",
+      "description": "Type of content being handed off",
+      "examples": ["linkedin_post", "youtube_video", "twitter_thread", "instagram_carousel"]
+    },
+    "platform_specs": {
+      "type": "object",
+      "description": "Platform-specific requirements",
+      "properties": {
+        "platform": {
+          "type": "string",
+          "enum": ["LinkedIn", "Twitter", "YouTube", "Instagram", "TikTok", "Substack", "Facebook"]
+        },
+        "format": {
+          "type": "string",
+          "examples": ["single_image", "carousel", "video", "text_only"]
+        },
+        "aspect_ratio": {
+          "type": "string",
+          "examples": ["1200x627", "1280x720", "1080x1080", "16:9", "9:16", "1:1"]
+        },
+        "design_choice": {
+          "type": "string",
+          "examples": ["dark_tech_monochrome", "ctr_optimized", "vibrant_social"]
+        }
+      }
+    },
+    "file_paths": {
+      "type": "object",
+      "description": "Paths to relevant content files",
+      "properties": {
+        "post_content": {
+          "type": "string",
+          "description": "Path to post/script markdown file"
+        },
+        "research_brief": {
+          "type": "string",
+          "description": "Path to research brief"
+        },
+        "media_files": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Paths to images/videos generated"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Quality scores and tracking info",
+      "properties": {
+        "voice_version": {
+          "type": "string",
+          "examples": ["Enhanced Voice Profile v2.0"]
+        },
+        "voice_confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "description": "Voice consistency score (0-10)"
+        },
+        "voice_mode": {
+          "type": "string",
+          "examples": ["Analyst", "Storyteller", "Educator"]
+        },
+        "quality_scores": {
+          "type": "object",
+          "properties": {
+            "evidence_backing": { "type": "number", "minimum": 0, "maximum": 10 },
+            "platform_compliance": { "type": "number", "minimum": 0, "maximum": 10 },
+            "voice_consistency": { "type": "number", "minimum": 0, "maximum": 10 }
+          }
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "notion_context": {
+      "type": "object",
+      "description": "Notion Content Tracker integration",
+      "properties": {
+        "page_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Link to Notion content page"
+        },
+        "current_status": {
+          "type": "string",
+          "enum": ["Idea", "Research", "Next Up", "Writing", "Editing", "Posted", "Archived"]
+        },
+        "focus_keywords": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Keywords linked in Notion"
+        }
+      }
+    },
+    "suggested_next_step": {
+      "type": "string",
+      "description": "Recommended action for receiving agent"
+    }
+  }
+}

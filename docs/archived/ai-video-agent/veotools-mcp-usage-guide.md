@@ -10,30 +10,36 @@
 Based on the MCP server code, here are ALL the tools exposed:
 
 ### 🔧 System Tools:
+
 1. **`preflight()`** - Check environment & prerequisites
 2. **`version()`** - Package and dependency versions
 3. **`list_models(include_remote: bool)`** - Available Veo models
 
 ### 🎬 Generation Tools:
+
 4. **`generate_start(prompt, model, aspect_ratio, ...)`** - Start video generation
 5. **`generate_get(operation_name)`** - Get generation status/result
 6. **`continue_video(operation_name, prompt, ...)`** - Extend existing video
 
 ### 🎨 Scene Planning Tools:
+
 7. **`plan_scenes(...)`** - Generate Gemini scene plan
 8. **`execute_plan(plan_json, model, ...)`** - Render from plan
 
 ### 📦 Cache Tools:
+
 9. **`cache_create_from_files()`** - Create cached content
-10. **`cache_get()`, `cache_list()`, `cache_update()`, `cache_delete()`
+10. \*\*`cache_get()`, `cache_list()`, `cache_update()`, `cache_delete()`
 
 ### 📹 Media Tools:
+
 11. **`extract_frame(video_path, timestamp_sec)`** - Extract still frame
 12. **`extract_frames(video_path, count, ...)`** - Extract multiple frames
 13. **`get_video_info(video_path)`** - Video metadata
 14. **`stitch_videos(video_paths, ...)`** - Merge clips
 
 ### 📁 Job Management:
+
 15. **`job_list()`** - List all jobs
 16. **`job_get(job_id)`** - Get job details
 17. **`job_delete(job_id)`** - Delete job
@@ -47,6 +53,7 @@ Based on the MCP server code, here are ALL the tools exposed:
 ### `generate_start()` - For Image-to-Video
 
 **From the code:**
+
 ```python
 @app.tool()
 def generate_start(
@@ -71,6 +78,7 @@ def generate_start(
 ```
 
 **Then poll with:**
+
 ```python
 generate_get(operation_name=<name_from_start>)
 ```
@@ -80,6 +88,7 @@ generate_get(operation_name=<name_from_start>)
 ## 🚀 How to Use for Your Beach Frames
 
 ### Step 1: Start Generation
+
 ```
 Tool: mcp__veotools__generate_start
 
@@ -94,15 +103,17 @@ Parameters:
 ```
 
 **Returns:**
+
 ```json
 {
-    "operation_name": "operations/abc123",
-    "job_id": "job_xyz",
-    "status": "processing"
+  "operation_name": "operations/abc123",
+  "job_id": "job_xyz",
+  "status": "processing"
 }
 ```
 
 ### Step 2: Poll for Completion
+
 ```
 Tool: mcp__veotools__generate_get
 
@@ -113,11 +124,12 @@ Parameters:
 ```
 
 **Returns (when done):**
+
 ```json
 {
-    "status": "completed",
-    "video_path": "output/videos/video_*.mp4",
-    "duration": 8.0
+  "status": "completed",
+  "video_path": "output/videos/video_*.mp4",
+  "duration": 8.0
 }
 ```
 
@@ -126,6 +138,7 @@ Parameters:
 ## 💡 Key Parameters
 
 **For Image-to-Video:**
+
 - `prompt`: Motion description
 - `seed_image_path`: ⭐ Your image file path
 - `model`: "veo-3.0-generate-preview" or "veo-3.0-fast-generate-preview"
@@ -134,6 +147,7 @@ Parameters:
 - `person_generation`: "allow_adult" (default for image-seeded)
 
 **For Text-to-Video:**
+
 - Same but omit `seed_image_path`
 
 ---
@@ -188,6 +202,7 @@ final = stitch_videos(
 ## ✅ VeoTools MCP Server Start Command
 
 **Current MCP config should use:**
+
 ```bash
 claude mcp add veotools \
   -e GEMINI_API_KEY=AIzaSyCHgri7MU_iHJ7Q5ixovfdsJ0_1KWLN3u4 \
@@ -195,6 +210,7 @@ claude mcp add veotools \
 ```
 
 **Or with Python:**
+
 ```bash
 claude mcp add veotools \
   -e GEMINI_API_KEY=AIzaSyCHgri7MU_iHJ7Q5ixovfdsJ0_1KWLN3u4 \
@@ -206,6 +222,7 @@ claude mcp add veotools \
 ## 🎯 After Restart - Exact Usage
 
 **Test with your Frame 1:**
+
 ```
 mcp__veotools__generate_start({
     "prompt": "Windswept hair flowing in ocean breeze, hand through hair gesture, confident body sway, slow camera push-in focusing on face, golden hour warm glow",
@@ -217,6 +234,7 @@ mcp__veotools__generate_start({
 ```
 
 **Then poll:**
+
 ```
 mcp__veotools__generate_get({
     "operation_name": "<from_start_result>"
@@ -228,6 +246,7 @@ mcp__veotools__generate_get({
 ## 💰 Cost
 
 **VeoTools uses Google Gemini API:**
+
 - FREE tier available
 - Veo 3 generation included
 - No additional cost beyond Google quota

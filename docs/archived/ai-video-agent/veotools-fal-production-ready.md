@@ -8,6 +8,7 @@
 ## 🎯 ULTRATHINK SOLUTION - What Worked
 
 ### The Journey:
+
 1. ❌ mcp-veo3: 3 bugs, SDK mismatches
 2. ❌ sora2-mcp: Base64 size issues
 3. ❌ veotools PyPI: Package missing source code!
@@ -23,12 +24,14 @@
 **Why GitHub:** PyPI package was broken (missing source files!)
 
 **Installation Steps:**
+
 1. ✅ `pipx install "git+https://github.com/frontboat/veotools.git"`
 2. ✅ `pipx inject veotools fastmcp` (missing dependency)
 3. ✅ Added to MCP config with GEMINI_API_KEY
 4. ✅ Status: **✓ Connected!**
 
 **Features:**
+
 - `generate_from_image()` - Image-to-video with Veo
 - `generate_from_text()` - Text-to-video
 - `stitch_videos()` - FFmpeg merging
@@ -46,11 +49,13 @@
 **Status:** **✓ Connected!**
 
 **Configuration:**
+
 ```
 FAL_API_KEY=2470b2e9-655d-4acb-b5f0-54e04996884d:21549e7d164ebbb5aa1899ead6166076
 ```
 
 **Features:**
+
 - Multi-model support (Veo, Sora, others via fal.ai)
 - Automatic downloads
 - High-performance
@@ -63,6 +68,7 @@ FAL_API_KEY=2470b2e9-655d-4acb-b5f0-54e04996884d:21549e7d164ebbb5aa1899ead616607
 ## 🔧 Complete Configuration
 
 **MCP Servers Active:**
+
 ```
 veotools: /Users/sid/.local/bin/veo-mcp - ✓ Connected
   Env: GEMINI_API_KEY, VEO_OUTPUT_DIR
@@ -78,6 +84,7 @@ fal-video: npx fal-image-video-mcp - ✓ Connected
 ## 🚀 After Restart - What You'll Have
 
 **Available Tools (veotools):**
+
 - `mcp__veotools__generate_from_image` ⭐ IMAGE-TO-VIDEO
 - `mcp__veotools__generate_from_text`
 - `mcp__veotools__stitch_videos`
@@ -85,6 +92,7 @@ fal-video: npx fal-image-video-mcp - ✓ Connected
 - Others...
 
 **Available Tools (fal-video):**
+
 - `mcp__fal_video__<image_to_video>` ⭐ IMAGE-TO-VIDEO
 - Multi-model generation
 - Download tools
@@ -94,6 +102,7 @@ fal-video: npx fal-image-video-mcp - ✓ Connected
 ## 🎬 Testing Plan After Restart
 
 ### Test 1: VeoTools (Primary - FREE!)
+
 ```
 mcp__veotools__generate_from_image(
     image_path="beach-sequence/frame1-opening-confident-pose.png",
@@ -103,11 +112,13 @@ mcp__veotools__generate_from_image(
 ```
 
 **Expected:**
+
 - ✅ 8-second video with REAL MOTION
 - ✅ FREE (Gemini API)
 - ✅ Production-quality
 
 ### Test 2: fal-video (Backup)
+
 ```
 mcp__fal_video__<tool_name>(
     image="frame1.png",
@@ -129,6 +140,7 @@ mcp__fal_video__<tool_name>(
 **Text-to-Video:** veo3-fixed (works for text-only!)
 
 **This gives you:**
+
 - ✅ Reliable image-to-video
 - ✅ Cost-effective (FREE primary)
 - ✅ Fallback options
@@ -139,6 +151,7 @@ mcp__fal_video__<tool_name>(
 ## ✅ What We Fixed
 
 **VeoTools Issues:**
+
 1. ❌ PyPI package broken → ✅ Installed from GitHub
 2. ❌ Missing fastmcp → ✅ Injected dependency
 3. ✅ Now working and connected!
@@ -150,6 +163,7 @@ mcp__fal_video__<tool_name>(
 ## 🎯 RESTART CLAUDE CODE NOW!
 
 **After restart:**
+
 ```
 /ai-video-agent
 
@@ -157,6 +171,7 @@ mcp__fal_video__<tool_name>(
 ```
 
 **I'll:**
+
 1. ✅ Test veotools (primary)
 2. ✅ Test fal-video (backup)
 3. ✅ Show you which works best

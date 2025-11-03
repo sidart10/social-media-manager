@@ -1,0 +1,200 @@
+{
+  "project": "The Distance Between - Character References",
+  "style": "2D hand-drawn animation, watercolor-inspired, Ghibli aesthetic",
+  "tool": "nanobanana (artistic/painterly preferred over photorealistic)",
+  "format": "character turnaround reference sheets",
+
+  "father_young_front": {
+    "scene": {
+      "description": "character design reference turnaround clean presentation",
+      "mood": "warm gentle approachable fatherly",
+      "environment": "neutral background with subtle watercolor wash cream to pale gold gradient"
+    },
+    "subject": {
+      "type": "2D hand-drawn character design full body turnaround",
+      "character": "South Asian male in late 30s handsome with warm gentle expression",
+      "appearance": "soft kind brown eyes with subtle crow's feet smile lines, thick dark eyebrows, clean-shaven with light stubble, wavy black hair slightly messy, strong shoulders but gentle presence",
+      "wardrobe": "cream-colored kurta with rolled sleeves showing forearms, dark brown loose comfortable pants, worn leather chappals, simple silver watch on left wrist",
+      "hands": "carpenter's weathered hands visible calluses and strength but gentle, large capable hands",
+      "pose": "standing neutral front-facing pose, relaxed natural stance, slight smile, arms at sides with one hand visible showing detail",
+      "height_build": "approximately 5'10\" medium athletic build, strong but not bulky"
+    },
+    "composition": {
+      "framing": "full body head to feet centered on neutral background",
+      "aspect_ratio": "1:1",
+      "layout": "character centered with breathing room, clean reference sheet presentation"
+    },
+    "lighting": {
+      "source": "soft natural diffused lighting from above and front",
+      "quality": "gentle atmospheric no harsh shadows",
+      "direction": "even wraparound soft light",
+      "color_temp": "4800K warm natural daylight with slight golden cast"
+    },
+    "color_palette": {
+      "skin_tone": "#C9A36B",
+      "kurta_cream": "#E8D5A8",
+      "pants_brown": "#6B5541",
+      "hair_black": "#2C2416",
+      "background": "#FAF6E8",
+      "accent_silver": "#B8B8A8"
+    },
+    "look": {
+      "medium": "2D hand-drawn animation watercolor-inspired painting",
+      "line_work": "soft expressive variable-weight lines with confident brush strokes, open linework where forms suggested not completely outlined",
+      "rendering": "painterly aesthetic with visible organic brushwork, traditional animation cel style, soft color diffusion at boundaries",
+      "texture": "subtle watercolor granulation, gentle paper texture, visible brush direction, organic imperfections",
+      "sharpness": "soft edges throughout, NO hard digital borders, atmospheric softness",
+      "color_approach": "gentle pastel earth tones desaturated 30-40%, soft gradients, watercolor transparency, layered washes",
+      "effects": "subtle watercolor bleeding between colors, soft atmospheric glow, dust motes implied, hand-drawn warmth"
+    },
+    "technical_notes": {
+      "style_reference": "Traditional Japanese hand-drawn animation aesthetic in the spirit of classic animated films, watercolor background painting technique, simple expressive character design",
+      "art_direction": "Simple round gentle facial features, kind approachable eyes with concentric color variations, realistic body proportions 1:6 head-to-body ratio, age-appropriate features showing maturity and warmth",
+      "execution": "Traditional animation cel aesthetic, painted background with character cel layer, soft natural integration, atmospheric depth through color temperature shifts"
+    },
+    "negative_prompt": [
+      "3D rendering",
+      "CGI",
+      "clay figure",
+      "stop motion",
+      "photorealistic",
+      "hyper-detailed textures",
+      "hard edges",
+      "mechanical precision",
+      "oversaturated colors",
+      "pure black shadows",
+      "pure white highlights",
+      "commercial anime style",
+      "chibi proportions",
+      "overly detailed complexity",
+      "rendered 3D shadows",
+      "glossy surfaces",
+      "plastic appearance",
+      "digital smoothness",
+      "Love Death and Robots style",
+      "realistic CGI",
+      "angular features",
+      "harsh lighting"
+    ]
+  },
+
+  "father_young_3quarter": {
+    "scene": {
+      "description": "character design reference turnaround three-quarter view",
+      "mood": "warm gentle approachable fatherly",
+      "environment": "neutral background with subtle watercolor wash cream to pale gold gradient"
+    },
+    "subject": {
+      "type": "2D hand-drawn character design full body turnaround three-quarter angle",
+      "character": "Same South Asian male late 30s at three-quarter angle showing face and body structure",
+      "appearance": "soft kind brown eyes, thick dark eyebrows, stubble, wavy black hair, warm expression",
+      "wardrobe": "cream kurta with rolled sleeves, dark brown pants, worn chappals, silver watch",
+      "pose": "standing at three-quarter angle, natural relaxed stance, body language open and approachable",
+      "build": "medium athletic, strong shoulders visible from angle"
+    },
+    "composition": {
+      "framing": "full body three-quarter view, breathing room around figure",
+      "aspect_ratio": "1:1",
+      "layout": "character at slight angle showing depth and structure"
+    },
+    "lighting": {
+      "source": "soft natural diffused from front-left",
+      "quality": "gentle wraparound atmospheric",
+      "color_temp": "4800K warm natural"
+    },
+    "color_palette": {
+      "skin_tone": "#C9A36B",
+      "kurta_cream": "#E8D5A8",
+      "pants_brown": "#6B5541",
+      "hair_black": "#2C2416",
+      "background": "#FAF6E8"
+    },
+    "look": {
+      "medium": "2D hand-drawn animation watercolor-inspired",
+      "line_work": "soft expressive variable-weight lines",
+      "rendering": "painterly with visible brushwork, traditional cel style",
+      "texture": "watercolor granulation, paper texture, organic",
+      "sharpness": "soft edges, atmospheric",
+      "effects": "watercolor bleeding, soft glow, hand-drawn warmth"
+    },
+    "negative_prompt": [
+      "3D rendering",
+      "CGI",
+      "clay figure",
+      "stop motion",
+      "photorealistic",
+      "hard edges",
+      "oversaturated",
+      "pure black",
+      "pure white",
+      "commercial anime",
+      "chibi",
+      "rendered shadows",
+      "glossy",
+      "plastic",
+      "digital smooth",
+      "Love Death and Robots",
+      "angular"
+    ]
+  },
+
+  "father_young_profile": {
+    "scene": {
+      "description": "character design reference turnaround side profile view",
+      "mood": "warm gentle contemplative",
+      "environment": "neutral background with subtle watercolor wash"
+    },
+    "subject": {
+      "type": "2D hand-drawn character design full body side profile",
+      "character": "Same South Asian male late 30s in side profile view",
+      "appearance": "profile showing nose, jawline, forehead, wavy hair, gentle expression visible from side",
+      "wardrobe": "cream kurta, dark brown pants, chappals, watch visible on wrist",
+      "pose": "standing in side profile, natural posture, slight forward lean suggesting active gentle nature"
+    },
+    "composition": {
+      "framing": "full body side view head to feet",
+      "aspect_ratio": "1:1",
+      "layout": "profile centered showing character silhouette and proportions"
+    },
+    "lighting": {
+      "source": "soft natural from front creating gentle rim on profile",
+      "quality": "atmospheric soft no harsh",
+      "color_temp": "4800K warm"
+    },
+    "color_palette": {
+      "skin_tone": "#C9A36B",
+      "kurta_cream": "#E8D5A8",
+      "pants_brown": "#6B5541",
+      "background": "#FAF6E8"
+    },
+    "look": {
+      "medium": "2D hand-drawn watercolor-inspired",
+      "line_work": "soft expressive profile silhouette, variable weight",
+      "rendering": "painterly traditional cel",
+      "texture": "watercolor paper organic",
+      "sharpness": "soft atmospheric",
+      "effects": "gentle bleeding, hand-drawn warmth"
+    },
+    "negative_prompt": [
+      "3D",
+      "CGI",
+      "clay",
+      "photorealistic",
+      "hard edges",
+      "saturated",
+      "rendered",
+      "glossy",
+      "plastic",
+      "commercial anime",
+      "digital smooth"
+    ]
+  },
+
+  "generation_notes": {
+    "test_first": "Generate father_young_front ONLY, review for 2D hand-drawn quality before proceeding",
+    "validation": "Must look like it could appear in Spirited Away or Totoro - 2D, painterly, soft, warm",
+    "tool_choice": "Use Nano Banana (better for artistic/watercolor vs photorealistic)",
+    "batch_strategy": "If test approved, generate all 18 references in sequence: father young (3) → father middle (3) → father older (3) → son child (3) → son teenager (3) → son adult (3)",
+    "cloudinary_upload": "After all 18 generated, batch upload to Cloudinary and update character-references.json URLs"
+  }
+}

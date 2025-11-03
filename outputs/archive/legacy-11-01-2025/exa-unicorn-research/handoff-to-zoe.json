@@ -1,0 +1,105 @@
+{
+  "content_type": "video_script",
+  "ready_for_agent": "zoe",
+  "suggested_command": "/zoe then select talking head workflow",
+  "script": {
+    "platform": "instagram_reels",
+    "duration_seconds": 60,
+    "format": "9:16 vertical",
+    "title": "Exa's $700M Unicorn Path: The Peter Fenton Signal",
+    "full_script_path": "outputs/11-01-2025/exa-unicorn-research/posts/exa-60s-reels-script.md",
+    "key_segments": [
+      {
+        "timestamp": "0:00-0:03",
+        "type": "hook",
+        "text": "Benchmark partner just broke his firm's rules. $50 million reasons why.",
+        "visual_direction": "Tight talking head, direct camera, zoom in",
+        "text_overlay": "BENCHMARK BROKE THEIR RULES"
+      },
+      {
+        "timestamp": "0:03-0:15",
+        "type": "beat_1",
+        "text": "Peter Fenton. Seven IPOs. Early Twitter. Early Yelp. Benchmark partner. Benchmark's playbook? Early stage deals, fifteen million max.",
+        "visual_direction": "Text-heavy slides, rapid cuts",
+        "text_overlays": ["Peter Fenton", "7 IPOs", "Early Twitter, Yelp", "$15M max (their rule)"]
+      },
+      {
+        "timestamp": "0:15-0:30",
+        "type": "beat_2",
+        "text": "September 2025. Peter invests fifty million. Personally. In a late-stage deal. He joined the board. That's not the Benchmark playbook.",
+        "visual_direction": "Talking head, lean in, slow push-in",
+        "text_overlays": ["$50M PERSONAL BET", "Late-stage deal", "Joined Board ✓"]
+      },
+      {
+        "timestamp": "0:30-0:45",
+        "type": "beat_3",
+        "text": "The company? Exa. AI search engine. Built for AI agents, not humans. Google uses keywords. Exa uses neural networks to predict which links humans share. It's called Neural PageRank.",
+        "visual_direction": "Split screen - Google vs Exa comparison",
+        "text_overlays": ["Exa = AI Search", "Google = Keywords", "Exa = Semantic", "Neural PageRank"]
+      },
+      {
+        "timestamp": "0:45-0:55",
+        "type": "beat_4",
+        "text": "YC 2021. Seven hundred million valuation. Four years. Ninety percent on benchmarks. Highest in market. Customers? Cursor, Databricks, AWS, Vercel.",
+        "visual_direction": "Numbers montage, rapid stats",
+        "text_overlays": ["2021 → 2025", "$700M", "90% benchmark", "Cursor • Databricks • AWS"]
+      },
+      {
+        "timestamp": "0:55-1:00",
+        "type": "cta",
+        "text": "When top VCs break patterns, there's signal. Follow for more.",
+        "visual_direction": "Direct camera, point to follow button",
+        "text_overlay": "Follow @siddaniagi 👆"
+      }
+    ],
+    "production_notes": {
+      "total_cuts": "18-22",
+      "total_text_overlays": 12,
+      "energy_level": "HIGH (8/10)",
+      "speaking_pace": "180 words/minute (fast)",
+      "tone": "Confident insider knowledge, analytical",
+      "music": "120-140 BPM tech/corporate instrumental, 20% volume",
+      "complexity": "Medium (text animations, split-screen, rapid cuts)"
+    },
+    "delivery_guidance": {
+      "eye_contact": "Direct camera 80% of time",
+      "gestures": "Hand emphasis on '$50 million', counting on 'Seven IPOs', point up for CTA",
+      "energy_arc": "Intriguing hook → credibility build → reveal → validation → direct CTA",
+      "voice_tone": "Analyst Mode (sid's voice - proper caps, data-driven, strategic)"
+    }
+  },
+  "from_jarvis": {
+    "research_session": "11-01-2025/exa-unicorn-research",
+    "research_brief_path": "outputs/11-01-2025/exa-unicorn-research/research/exa-research-brief.md",
+    "angle_selected": "Peter Fenton Signal (VC breaks rules = market signal)",
+    "voice_profile_applied": true,
+    "evidence_sources": [
+      "https://exa.ai/blog/announcing-series-b",
+      "https://www.latent.space/p/exa",
+      "https://sacra.com/research/will-bryk-exa-search-engine-for-ai-agents/",
+      "https://www.ycombinator.com/companies/exa"
+    ],
+    "key_data_points": {
+      "valuation": "$700M (Sept 2025)",
+      "funding_total": "$107M",
+      "peter_fenton_investment": "$50M personal",
+      "timeline": "YC 2021 → $700M in 4 years",
+      "benchmark_score": "90.04% SimpleQA (highest)",
+      "latency": "Sub-350ms (fastest API)",
+      "customers": ["Cursor", "Databricks", "AWS", "Vercel"]
+    }
+  },
+  "requirements_for_zoe": {
+    "video_type": "talking_head",
+    "avatar_needed": true,
+    "avatar_specs": "Professional, tech-focused, direct camera presence",
+    "voice_specs": "sid's voice profile (confident, analytical, fast-paced)",
+    "aspect_ratio": "9:16 (vertical)",
+    "duration": "60 seconds exactly",
+    "text_overlays_required": true,
+    "text_overlay_count": 12,
+    "editing_complexity": "Medium (rapid cuts, split-screen section, motion graphics)",
+    "background_music": "120-140 BPM instrumental, 20% volume",
+    "output_format": "MP4, 1080x1920 minimum, 60fps preferred"
+  }
+}

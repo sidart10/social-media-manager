@@ -9,6 +9,7 @@
 ## 📍 Agent Location
 
 **Live Agent:**
+
 - Location: `bmad/agents/content-intelligence/`
 - Agent File: `bmad/agents/content-intelligence/jarvis.md`
 - Workflows: `bmad/agents/content-intelligence/jarvis-sidecar/workflows/`
@@ -25,6 +26,7 @@
 ### Live Agent Documentation
 
 All active agent documentation lives in the agent directory:
+
 - `bmad/agents/content-intelligence/README.md` - Agent overview
 - `bmad/agents/content-intelligence/jarvis-sidecar/` - Workflows and templates
 - `.claude/skills/jarvis/` - Reusable skills (research, content generation)
@@ -34,6 +36,7 @@ All active agent documentation lives in the agent directory:
 ## 🎯 What Jarvis Does
 
 Jarvis is the content intelligence agent responsible for:
+
 - Deep research using MCP tools (Exa, Firecrawl, Apify)
 - Content generation (posts, scripts, stories)
 - Competitive analysis and trend research
@@ -44,6 +47,7 @@ Jarvis is the content intelligence agent responsible for:
 ## 🔧 MCP Servers Used
 
 Jarvis integrates with these MCP servers:
+
 - **exa** - Semantic web search and research
 - **firecrawl** - Web scraping and content extraction
 - **apify** - Advanced web scraping (Instagram, Twitter, etc.)

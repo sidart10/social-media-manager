@@ -23,11 +23,13 @@
 ### **TEST 1: Agent Activation - Jarvis** (5 min)
 
 **Command:**
+
 ```bash
 /jarvis
 ```
 
 **Expected Behavior:**
+
 1. Loads config from `bmad/agents/content-intelligence/config.yaml`
 2. Loads `jarvis-sidecar/notion-helper.md`
 3. Queries Notion Content Tracker (should show items with Status=Idea/Research/Next Up)
@@ -35,6 +37,7 @@
 5. Shows menu with 7 workflows
 
 **Validation:**
+
 - [ ] Agent activates without errors
 - [ ] Notion query executes (may show "Found X items" or proceed if none)
 - [ ] Menu displays all 7 commands
@@ -47,17 +50,20 @@
 ### **TEST 2: Agent Activation - Zoe** (5 min)
 
 **Command:**
+
 ```bash
 /zoe
 ```
 
 **Expected Behavior:**
+
 1. Loads config from `bmad/agents/zoe/config.yaml`
 2. Loads `zoe-sidecar/notion-helper.md`
 3. Queries Notion for Status=Editing without media
 4. Shows unified menu with 13 workflows (images + videos merged!)
 
 **Validation:**
+
 - [ ] Agent activates without errors
 - [ ] Unified menu shows (not separate image/video agents)
 - [ ] Can see: *create-image, *create-carousel, *create-scene, *create-talking-head, etc.
@@ -70,19 +76,22 @@
 ### **TEST 3: Agent Activation - Zoro** (5 min)
 
 **Command:**
+
 ```bash
 /zoro
 ```
 
 **Expected Behavior:**
+
 1. Loads config from `bmad/agents/zoro/config.yaml`
 2. Loads `zoro-sidecar/notion-helper.md`
 3. Queries Notion for publish-ready content
 4. Shows menu with 11 workflows
 
 **Validation:**
+
 - [ ] Agent activates without errors
-- [ ] Menu shows *schedule-post as PRIMARY
+- [ ] Menu shows \*schedule-post as PRIMARY
 - [ ] Can see backup workflows: *publish-tweet-now, *publish-linkedin-now, etc.
 
 **If Fails:** Check zoro/ folder (renamed from social-posting-agent), check workflows/ folder structure
@@ -92,6 +101,7 @@
 ### **TEST 4: Skill Discovery - write-posts** (15 min)
 
 **Command:**
+
 ```bash
 /jarvis
 *write-post
@@ -103,6 +113,7 @@ Reference: none
 ```
 
 **Expected Behavior:**
+
 1. Workflow loads voice profile from memories.md
 2. Selects voice mode (probably Analyst for tech topic)
 3. **Claude discovers post-writer skill** (description matches "LinkedIn posts")
@@ -114,6 +125,7 @@ Reference: none
 9. Attempts Notion update (may succeed or gracefully fail if page not linked)
 
 **Validation:**
+
 - [ ] Post generated (any output is success - testing if workflow runs)
 - [ ] Voice profile mentioned (if exists in memories.md)
 - [ ] Platform formula applied (PAIPS structure visible)
@@ -127,6 +139,7 @@ Reference: none
 ### **TEST 5: Image Generation - create-single-image** (15 min)
 
 **Command:**
+
 ```bash
 /zoe
 *create-image
@@ -138,6 +151,7 @@ Upload to Cloudinary: skip (unless Cloudinary configured)
 ```
 
 **Expected Behavior:**
+
 1. **Claude discovers create-image skill** (Emily JSON methodology)
 2. **Claude discovers linkedin-design skill** (dark tech aesthetic)
 3. Skill constructs JSON prompt with 10+ sections
@@ -149,6 +163,7 @@ Upload to Cloudinary: skip (unless Cloudinary configured)
 9. (Notion update attempted)
 
 **Validation:**
+
 - [ ] Image generated successfully
 - [ ] Emily JSON methodology mentioned
 - [ ] 7-pillar evaluation shown
@@ -162,6 +177,7 @@ Upload to Cloudinary: skip (unless Cloudinary configured)
 ### **TEST 6: Integration Check - Notion** (10 min)
 
 **Already Validated:**
+
 - ✅ Notion MCP connection works
 - ✅ Query returned 14+ items
 - ✅ Performance: 2 seconds
@@ -183,6 +199,7 @@ Run generate-ideas and check if pages created in Notion (if you want full valida
 ```
 
 **If Cloudinary not configured:**
+
 - Workflows will skip upload
 - Local files still saved
 - System still functional (Cloudinary optional for now)
@@ -194,6 +211,7 @@ Run generate-ideas and check if pages created in Notion (if you want full valida
 ## 📊 MINIMAL VALIDATION (30 min - RECOMMENDED)
 
 **Quick tests to validate system works:**
+
 1. ✅ Test /jarvis activation (5 min)
 2. ✅ Test /zoe activation (5 min)
 3. ✅ Test /zoro activation (5 min)
@@ -206,6 +224,7 @@ Run generate-ideas and check if pages created in Notion (if you want full valida
 ## 🎯 FULL VALIDATION (2-3 hours)
 
 **If you want comprehensive testing:**
+
 1. All 3 agents (Test Suite 1)
 2. All critical workflows (Test Suite 2)
 3. Generate real content for your social media
@@ -221,6 +240,7 @@ Run generate-ideas and check if pages created in Notion (if you want full valida
 **Likely Scenarios:**
 
 **Best Case:** Everything works perfectly
+
 - All agents activate
 - All workflows run
 - Skills discovered
@@ -228,12 +248,14 @@ Run generate-ideas and check if pages created in Notion (if you want full valida
 - Files saved correctly
 
 **Most Likely:** Minor issues
+
 - Some skills not discovered (description needs tweaking)
 - Some Notion updates fail (graceful degradation working)
 - Some MCP integrations not configured (expected - can configure later)
 - Some workflow steps need adjustment
 
 **Worst Case:** Integration issues
+
 - MCP servers not accessible
 - Skills not loading
 - Workflows not finding files
@@ -250,11 +272,13 @@ Run generate-ideas and check if pages created in Notion (if you want full valida
 2. Test ONE workflow (write-posts) (15 min)
 
 **If tests pass:**
+
 - Mark Epics 4-6 as "functionally validated"
 - Update MVP to 70%
 - Document success
 
 **If tests reveal issues:**
+
 - Debug and fix (comprehensive docs help)
 - Iterate until working
 - Then mark complete
@@ -264,6 +288,7 @@ Run generate-ideas and check if pages created in Notion (if you want full valida
 🧙 **SHALL THE BUILDER GUIDE YOU THROUGH THE TESTS?**
 
 **Let's start with:**
+
 1. **Test Jarvis** (`/jarvis` command)?
 2. **Test all 3 agents** (systematic)?
 3. **Jump to workflow test** (test write-posts)?

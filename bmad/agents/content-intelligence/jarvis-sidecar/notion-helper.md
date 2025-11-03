@@ -11,17 +11,18 @@
 ## Status Query Logic
 
 **Jarvis monitors these statuses:**
+
 - **Idea** → Content idea exists, needs research
 - **Research** → Research complete, needs writing
 - **Next Up** → Scheduled for writing
 
 **Workflow Suggestions:**
 
-| Notion Status | Suggested Workflows | Reasoning |
-|---------------|---------------------|-----------|
-| Idea | `*research-topic` or `*generate-ideas` | Content idea exists but no research yet |
-| Research | `*write-post` or `*write-script` | Research complete, ready to create content |
-| Next Up | `*write-post` or `*write-script` | Scheduled content, ready to draft |
+| Notion Status | Suggested Workflows                    | Reasoning                                  |
+| ------------- | -------------------------------------- | ------------------------------------------ |
+| Idea          | `*research-topic` or `*generate-ideas` | Content idea exists but no research yet    |
+| Research      | `*write-post` or `*write-script`       | Research complete, ready to create content |
+| Next Up       | `*write-post` or `*write-script`       | Scheduled content, ready to draft          |
 
 ---
 
@@ -76,6 +77,7 @@ display_standard_menu()
 **Primary Tool:** `notion-search`
 
 **Query Parameters:**
+
 ```json
 {
   "data_source_url": "collection://956447a76e7b4b2eafb1e4c9adfcbcf3",
@@ -93,11 +95,13 @@ display_standard_menu()
 ## Error Handling
 
 **If Notion query fails:**
+
 1. Log error: "Notion query failed: {error_message}"
 2. Display: "⚠️ Couldn't check Notion (network/auth issue), showing standard menu"
 3. Proceed with standard menu (don't block agent activation)
 
 **If Notion query timeout (>5 seconds):**
+
 1. Cancel query
 2. Display: "⚠️ Notion query slow, showing standard menu"
 3. Proceed without suggestions

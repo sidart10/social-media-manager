@@ -19,15 +19,18 @@
 ## The Three Layers Explained
 
 ### Layer 1: AGENT (The Conductor)
+
 **Location:** `bmad/agents/content-intelligence/jarvis-sidecar/`
 
 **What it is:**
+
 - Persona (voice, communication style)
 - Menu of available workflows
 - Orchestration layer
 - User interaction layer
 
 **Example:** Jarvis Agent
+
 - Personality: Content intelligence strategist
 - Menu: /research-topic, /write-posts, /write-scripts, /generate-ideas
 - Job: Present options, take user input, invoke workflows
@@ -37,9 +40,11 @@
 ---
 
 ### Layer 2: WORKFLOW (The Recipe)
+
 **Location:** `bmad/agents/content-intelligence/jarvis-sidecar/workflows/*/`
 
 **What it is:**
+
 - Multi-step process
 - XML/YAML instructions
 - Calls skills for execution
@@ -47,6 +52,7 @@
 - Saves outputs to specific formats
 
 **7 Jarvis Workflows:**
+
 1. **analyze-profile** - Analyze content creator profiles
 2. **competitive-analysis** - Compare competitive channels
 3. **generate-ideas** - Create content idea cards
@@ -60,15 +66,18 @@
 ---
 
 ### Layer 3: SKILL (The Expert)
+
 **Location:** `.claude/skills/jarvis/*/`
 
 **What it is:**
+
 - Specialized knowledge
 - Proven methodologies
 - Direct prompts (NO autogen complexity)
 - Reusable components
 
 **12 Jarvis Skills:**
+
 1. **deep-web-research** - Multi-tool research orchestrator
 2. **evidence-tracker** - Track research sources
 3. **platform-formatter** - Format for specific platforms
@@ -208,6 +217,7 @@ RESULT: LinkedIn/Twitter post ready
    - **Used for:** Quick thumbnail concepts (not full design)
 
 **THE FIX:**
+
 - Skill #1 (ai-image-generator) NOW references Skill #2 (jarvis/thumbnail-mastery)
 - Workflow uses Skill #2 for strategy
 - Workflow uses Skill #1 for image generation
@@ -223,6 +233,7 @@ RESULT: LinkedIn/Twitter post ready
 2. **write-posts Workflow** - Platform formatting, voice loading, handoff creation
 
 **THEY DON'T OVERLAP:**
+
 - **Skill** = The content generation prompts
 - **Workflow** = The orchestration (load voice → call skill → format → save)
 
@@ -240,6 +251,7 @@ RESULT: LinkedIn/Twitter post ready
 4. **social-media-research Skill** - Platform research
 
 **THEY DON'T OVERLAP:**
+
 - **research-topic Workflow** = Manages research session, calls skills, synthesizes
 - **deep-web-research Skill** = Handles WEB research (Exa, Apify, WebSearch)
 - **youtube-research Skill** = YouTube-specific research methods
@@ -313,6 +325,7 @@ Need thumbnail?
 ## Skills vs Workflows - The Difference
 
 ### WORKFLOWS are Processes
+
 - Multi-step procedures
 - User interaction points
 - State management
@@ -321,6 +334,7 @@ Need thumbnail?
 - Platform-specific formatting
 
 **Example:** write-posts workflow
+
 - Loads voice profile
 - Loads idea card
 - CALLS post-writer skill
@@ -331,6 +345,7 @@ Need thumbnail?
 ---
 
 ### SKILLS are Expertise
+
 - Pure knowledge/methodology
 - Direct prompts
 - Reusable components
@@ -338,6 +353,7 @@ Need thumbnail?
 - Returns results
 
 **Example:** post-writer skill
+
 - Contains Justin Welsh formulas
 - Contains Greg Isenberg patterns
 - Contains viral engagement data
@@ -349,6 +365,7 @@ Need thumbnail?
 ## Current State Analysis
 
 ### Workflows (7 total)
+
 ```
 jarvis-sidecar/workflows/
 ├── analyze-profile/          - Analyze creator profiles
@@ -361,6 +378,7 @@ jarvis-sidecar/workflows/
 ```
 
 ### Skills (12 total)
+
 ```
 .claude/skills/jarvis/
 ├── deep-web-research/        ← Called by research-topic workflow
@@ -380,25 +398,30 @@ jarvis-sidecar/workflows/
 ### Mapping: Workflow → Skills Called
 
 **research-topic workflow calls:**
+
 - deep-web-research (web research)
 - social-media-research (trends)
 - youtube-research (if YouTube focus)
 
 **write-posts workflow calls:**
+
 - post-writer (content generation)
 - voice-matcher (voice adaptation)
 - platform-formatter (formatting)
 
 **write-scripts workflow calls:**
+
 - video-script-writer (script generation)
 - voice-matcher (voice adaptation)
 - youtube-thumbnail-mastery (thumbnail suggestions)
 
 **learn-voice workflow calls:**
+
 - voice-matcher (voice extraction)
 - evidence-tracker (track analyzed content)
 
 **generate-ideas workflow calls:**
+
 - research-synthesizer (organize research)
 - evidence-tracker (reference sources)
 
@@ -409,10 +432,12 @@ jarvis-sidecar/workflows/
 ### Confusion #1: "post-writer skill vs write-posts workflow"
 
 **They're NOT duplicates:**
+
 - **Workflow** = The process (load voice → call skill → format → save)
 - **Skill** = The content generator (Justin Welsh formulas)
 
 **Analogy:**
+
 - Workflow = Recipe (steps to make cake)
 - Skill = Master baker (knows HOW to bake)
 
@@ -421,11 +446,13 @@ jarvis-sidecar/workflows/
 ### Confusion #2: "Three thumbnail things"
 
 **They're DIFFERENT purposes:**
+
 - **jarvis/youtube-thumbnail-mastery** = Strategy & psychology (WHAT works)
 - **ai-image-generator/youtube-thumbnail-design** = Image generation (HOW to create)
 - **write-scripts workflow Step 4** = Quick suggestions (3 thumbnail ideas)
 
 **They work together:**
+
 1. Workflow suggests 3 concepts using mastery skill knowledge
 2. User picks one
 3. ai-image-generator creates the actual image using design skill
@@ -435,6 +462,7 @@ jarvis-sidecar/workflows/
 ### Confusion #3: "Multiple research skills"
 
 **They're SPECIALIZED:**
+
 - **deep-web-research** = Web scraping & neural search (Exa, Apify, WebSearch)
 - **youtube-research** = YouTube-specific (video analysis, retention)
 - **social-media-research** = Platform trends (Twitter, LinkedIn, Instagram)
@@ -484,6 +512,7 @@ jarvis-sidecar/workflows/
 ## Concrete Example: Creating LinkedIn Post About AI
 
 ### User Action
+
 ```bash
 /jarvis
 > Selects: write-posts
@@ -494,11 +523,13 @@ jarvis-sidecar/workflows/
 ### What Happens
 
 **Layer 1 - AGENT (Jarvis)**
+
 - Receives user selection
 - Invokes write-posts workflow
 - Passes parameters: topic, platform
 
 **Layer 2 - WORKFLOW (write-posts)**
+
 - **Step 0:** Checks for voice profile in `memories.md`
 - **Step 1:** Loads idea card (or uses topic directly)
 - **Step 2:** **CALLS post-writer SKILL** with:
@@ -509,6 +540,7 @@ jarvis-sidecar/workflows/
   - Voice: {loaded voice profile}
 
 **Layer 3 - SKILL (post-writer)**
+
 - Loads LinkedIn post prompts
 - Applies Justin Welsh PAIPS formula:
   - Problem: What's the challenge?
@@ -521,6 +553,7 @@ jarvis-sidecar/workflows/
 - Returns to workflow
 
 **WORKFLOW continues:**
+
 - **Step 3:** Shows post to user
 - **Step 4:** Formats for LinkedIn (hashtags, line breaks)
 - **Step 5:** Generates 3 hook variants
@@ -538,15 +571,18 @@ jarvis-sidecar/workflows/
 **Yes! But they're in DIFFERENT places:**
 
 ### 1. Workflow Instructions (Process Best Practices)
+
 **Location:** `workflows/*/instructions.md`
 
 **Contains:**
+
 - WHEN to use what format (LinkedIn < 300 words, Twitter thread vs long-form)
 - HOW to structure platform-specific content (hook first 125 chars for Instagram)
 - WHAT file formats to save (handoff JSON structure)
 - WHICH skills to call when
 
 **Example from write-posts:**
+
 ```xml
 Line 202-232: LinkedIn formatting guidelines
 Line 256-450: Twitter format decision tree
@@ -558,15 +594,18 @@ Line 453-543: Instagram caption structure
 ---
 
 ### 2. Skill Knowledge (Content Best Practices)
+
 **Location:** `.claude/skills/jarvis/*/SKILL.md`
 
 **Contains:**
+
 - Creator methodologies (Justin Welsh formulas, Ali Abdaal structures)
 - Proven engagement patterns (4.7M impressions data)
 - Platform algorithms (what performs best)
 - Voice matching techniques
 
 **Example from post-writer:**
+
 - Justin Welsh PAIPS formula (Problem → Agitate → Invalidate → Promise → Solve)
 - Top 5 list structure (hook + 5 points + CTA)
 - Greg Isenberg question format
@@ -581,14 +620,17 @@ Line 453-543: Instagram caption structure
 ### Separation of Concerns
 
 **AGENTS** = User interface & orchestration
+
 - Don't know HOW to write posts
 - Just know WHICH workflows to run
 
 **WORKFLOWS** = Process & state management
+
 - Don't know HOW to write posts either
 - Just know WHICH skills to call and WHEN
 
 **SKILLS** = Actual expertise
+
 - Know HOW to write posts
 - Contain proven methodologies
 - Reusable across workflows
@@ -596,14 +638,17 @@ Line 453-543: Instagram caption structure
 ### Benefits
 
 **Reusability:**
+
 - post-writer skill used by multiple workflows
 - deep-web-research used by research-topic AND competitive-analysis
 
 **Maintainability:**
+
 - Update Justin Welsh formula → Update post-writer skill
 - All workflows using it get update automatically
 
 **Clarity:**
+
 - Workflows = Steps
 - Skills = Expertise
 - Agent = Menu
@@ -613,6 +658,7 @@ Line 453-543: Instagram caption structure
 ## Where Things Live
 
 ### Content Generation Knowledge (Skills)
+
 ```
 .claude/skills/jarvis/
 ├── post-writer/SKILL.md
@@ -635,6 +681,7 @@ Line 453-543: Instagram caption structure
 ```
 
 ### Process Orchestration (Workflows)
+
 ```
 workflows/
 ├── write-posts/instructions.md
@@ -661,6 +708,7 @@ workflows/
 **Answer:** NO overlap - they're complementary layers!
 
 **Think of it like a restaurant:**
+
 - **Agent** = Waiter (takes your order, brings you food)
 - **Workflow** = Kitchen process (prep → cook → plate → serve)
 - **Skill** = Chef (knows HOW to cook the actual dish)
@@ -670,6 +718,7 @@ workflows/
 ## What Needs Updating
 
 ### ai-image-generator/youtube-thumbnail-design
+
 **Status:** ✅ FIXED - Now has reference/thumbnail-psychology.md linking to jarvis/youtube-thumbnail-mastery
 
 **Before:** Only technical specs
@@ -678,6 +727,7 @@ workflows/
 ---
 
 ### workflows/write-scripts (thumbnail suggestions)
+
 **Status:** ⚠️ COULD ENHANCE
 
 **Current:** Generates 3 quick thumbnail ideas in Step 4
@@ -692,16 +742,19 @@ workflows/
 **You were RIGHT to be confused** - it LOOKED like overlap but it's actually:
 
 **3-Layer Architecture:**
+
 1. **Agent** = Interface (shows menu)
 2. **Workflow** = Process (orchestrates steps)
 3. **Skill** = Expertise (does actual work)
 
 **No duplication:**
+
 - Workflows call skills
 - Skills contain knowledge
 - Agents invoke workflows
 
 **Clean separation:**
+
 - Strategy skills (what works) ← jarvis/youtube-thumbnail-mastery
 - Technical skills (how to generate) ← ai-image-generator/youtube-thumbnail-design
 - Process workflows (orchestration) ← workflows/write-scripts
@@ -711,6 +764,7 @@ workflows/
 ---
 
 **Files this doc references:**
+
 - `bmad/agents/content-intelligence/jarvis-sidecar/workflows/write-posts/instructions.md`
 - `bmad/agents/content-intelligence/jarvis-sidecar/workflows/write-scripts/instructions.md`
 - `.claude/skills/jarvis/post-writer/SKILL.md`

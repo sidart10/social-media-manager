@@ -19,6 +19,7 @@ Generate a complete, ready-to-publish Twitter/X thread optimized for maximum rea
 ## Input Parameters
 
 You will receive:
+
 - **Topic**: {topic}
 - **Thread Type**: {listicle | story | how_to | surprising_facts | contrarian}
 - **Target Audience**: {audience}
@@ -206,6 +207,7 @@ Line 3: What's coming in thread
 ```
 
 **Example**:
+
 ```
 Twitter threads are 2.5x more engaging.
 
@@ -226,6 +228,7 @@ Here's the exact formula (7 tweets):
 ## Individual Tweet Guidelines
 
 ### Character Limits
+
 - **Ideal**: <200 characters (more shares)
 - **Maximum**: <250 characters (still effective)
 - **Avoid**: >280 characters (use entire limit = less engagement)
@@ -235,6 +238,7 @@ Here's the exact formula (7 tweets):
 ### One Idea Per Tweet
 
 **Good** (one idea):
+
 ```
 Notion AI saves me 3 hours/week.
 
@@ -242,6 +246,7 @@ I use it to structure messy brainstorm notes automatically.
 ```
 
 **Bad** (multiple ideas):
+
 ```
 Notion AI and Descript both save time. One for notes, one for video. I also use Claude. Tools are great.
 ```
@@ -251,6 +256,7 @@ Notion AI and Descript both save time. One for notes, one for video. I also use 
 ### Cliffhangers (Keep Them Reading)
 
 **Place between tweets** to maintain tension:
+
 - "But here's where it gets interesting:"
 - "The surprising part?"
 - "Wait until you see this:"
@@ -262,6 +268,7 @@ Notion AI and Descript both save time. One for notes, one for video. I also use 
 ### Visual Breaks (45% Higher Completion)
 
 **Include image, GIF, or video every 3-4 tweets**:
+
 - Screenshot (proof, example)
 - Chart/graph (data visualization)
 - GIF (reaction, illustration)
@@ -272,17 +279,20 @@ Notion AI and Descript both save time. One for notes, one for video. I also use 
 ## Thread Progression
 
 ### Opening (Tweets 1-3)
+
 - Tweet 1: Hook
 - Tweet 2: Context/stakes (why it matters)
 - Tweet 3: Promise (what they'll learn)
 
 ### Middle (Tweets 4-9)
+
 - One idea per tweet
 - Build progressively (don't give best first)
 - Use cliffhangers between tweets
 - Visual breaks every 3-4 tweets
 
 ### Closing (Tweets 10-11/12)
+
 - Tweet 10: Summary/key lesson
 - Tweet 11: Soft CTA (value reminder)
 - Tweet 12: Hard CTA (follow + RT request)
@@ -290,16 +300,19 @@ Notion AI and Descript both save time. One for notes, one for video. I also use 
 ## CTA Strategy
 
 ### Soft CTA (Tweet before last)
+
 - "Bookmark this for later"
 - "Found this valuable? Keep reading."
 - "Want the template? Follow along."
 
 ### Hard CTA (Final tweet)
+
 - "Follow @handle for {topic} threads every week"
 - "RT tweet 1 to help others discover this"
 - "Like this? You'll love tomorrow's thread about {tease}"
 
 **Combo CTA** (works best):
+
 ```
 Follow @handle for weekly {topic} insights.
 
@@ -324,12 +337,14 @@ Enjoyed this? Retweet tweet 1 so others can learn too.
 ## Voice & Tone
 
 **Twitter voice characteristics**:
+
 - Conversational (write like you speak)
 - Confident (no hedging language)
 - Specific (concrete examples, not vague)
 - Authentic (personality shows through)
 
 **Avoid**:
+
 - Corporate speak
 - Overly formal language
 - Passive voice
@@ -376,12 +391,14 @@ Enjoyed this? Retweet tweet 1 so others can learn too.
 ## THREAD ANALYSIS
 
 **Hook Quality**:
+
 - Bold statement: ✓
 - Creates tension: ✓
 - Promises value: ✓
 - Thread indicator (🧵): ✓
 
 **Structure**:
+
 - Total tweets: {count}
 - Hook tweet: ✓
 - Context (why matters): ✓
@@ -393,6 +410,7 @@ Enjoyed this? Retweet tweet 1 so others can learn too.
 {List each tweet's character count, flag any >250}
 
 **Engagement Elements**:
+
 - Cliffhangers: {count} (every 1-2 tweets)
 - Visual break suggestions: {count} (every 3-4 tweets)
 - Questions: {count}
@@ -413,20 +431,24 @@ Enjoyed this? Retweet tweet 1 so others can learn too.
 ## POSTING STRATEGY
 
 **Best Times**:
+
 - Tuesday-Thursday
 - 9-11 AM or 1-3 PM EST
 
 **Engagement Plan** (First 60 Minutes):
+
 1. Reply to thread with bonus insight (extend reach)
 2. Like every reply (boost visibility)
 3. Reply to comments with questions (generate more engagement)
 4. Monitor for 60 minutes actively
 
 **24-Hour Plan**:
+
 - Quote tweet with additional insight
 - Reshare to different timezone
 
 **Long-Term**:
+
 - Pin if performance is strong (>100 likes in 24hrs)
 - Reference in future threads (AI callbacks)
 

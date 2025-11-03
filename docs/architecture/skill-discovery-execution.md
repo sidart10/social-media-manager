@@ -22,36 +22,43 @@ Skills are **autonomous expertise modules** containing methodologies, best pract
 ---
 name: skill-name
 description: Discovery-optimized description (what, when, keywords)
-version: "1.0"
+version: '1.0'
 owner: agent-name (primary, but cross-agent usage allowed)
-tools:                    # MCPs this skill uses
+tools: # MCPs this skill uses
   - exa
   - firecrawl
   - apify
-cost_range: "$0 - $0.50+"
+cost_range: '$0 - $0.50+'
 ---
 
 # Skill Name
 
 # Purpose
+
 [What this skill does, why it exists]
 
 # When to Use
+
 [Trigger conditions, context patterns that match]
 
 # Instructions
+
 [Step-by-step methodology for Claude to execute]
 
 # Tool Orchestration
+
 [How to select and route between tools based on parameters]
 
 # Quality Standards
+
 [Success criteria, validation checks]
 
 # Examples
+
 [Concrete usage examples with inputs/outputs]
 
 # Reference Documentation
+
 [Links to methodology docs in reference/ folder]
 ```
 
@@ -66,21 +73,27 @@ cost_range: "$0 - $0.50+"
 **Examples from Current System:**
 
 **post-writer skill:**
+
 ```yaml
 description: Generate platform-optimized social media posts using proven formulas (Justin Welsh PAIPS for LinkedIn, Greg Isenberg questions for Twitter, Paul Graham essays for Substack). Use when creating LinkedIn posts, Twitter threads, Substack essays, or any social media content requiring voice-matched writing.
 ```
+
 **Triggers:** "LinkedIn post", "Twitter thread", "social media content", "voice-matched"
 
 **deep-web-research skill:**
+
 ```yaml
 description: Multi-tool research orchestrator using Exa neural search, Apify platform scrapers, Firecrawl web scraping, and WebSearch. Intelligently routes between tools based on depth parameter (quick=free, comprehensive=paid). Use when researching topics, gathering web data, analyzing trends, or scraping social media platforms.
 ```
+
 **Triggers:** "research", "web data", "Exa", "Apify", "scraping", "trends"
 
 **veotools-mastery skill:**
+
 ```yaml
 description: Google Veo 2.0/3.0/3.1 video generation expertise for animating diagrams, creating b-roll scenes, and image-to-video conversion. Knows model selection (veo-3.1-fast for iteration, veo-3.1-standard for quality), aspect ratio optimization (16:9 YouTube, 9:16 Shorts), and async job management. Use when generating videos from images, animating diagrams, or creating b-roll footage.
 ```
+
 **Triggers:** "animate diagram", "video from image", "b-roll", "Veo"
 
 ## Avoiding Skill Conflicts
@@ -103,6 +116,7 @@ description: Platform trend analysis for Twitter, LinkedIn, Instagram using soci
 **When workflow step creates context:** "Research {topic} with depth=comprehensive"
 
 **Claude's discovery algorithm:**
+
 1. Analyzes context: task=research, depth=comprehensive, domain=web
 2. Scans available skills for description matches
 3. Finds: deep-web-research (description contains "research", "Exa", "Apify", "depth parameter")
@@ -111,6 +125,7 @@ description: Platform trend analysis for Twitter, LinkedIn, Instagram using soci
 6. Returns research results to workflow
 
 **Workflow authors optimize for discovery by:**
+
 - Using specific task terminology ("research" not "find stuff")
 - Including parameters mentioned in skill descriptions ("depth=comprehensive" matches deep-web-research's "depth parameter")
 - Providing rich context (topic, platform, format) that skills can match against
@@ -128,9 +143,9 @@ description: Platform trend analysis for Twitter, LinkedIn, Instagram using soci
 
 **Skills vs Direct MCP Calls:**
 
-| Approach | When to Use | Example |
-|----------|-------------|---------|
-| **Skill invocation** | Complex tool orchestration, intelligent routing, quality validation | deep-web-research (routes WebSearch → Exa → Apify based on depth) |
-| **Direct MCP call** | Simple single-tool operations, no routing logic needed | Zoro workflows: direct Postiz MCP for scheduling, direct Twitter API for posting |
+| Approach             | When to Use                                                         | Example                                                                          |
+| -------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| **Skill invocation** | Complex tool orchestration, intelligent routing, quality validation | deep-web-research (routes WebSearch → Exa → Apify based on depth)                |
+| **Direct MCP call**  | Simple single-tool operations, no routing logic needed              | Zoro workflows: direct Postiz MCP for scheduling, direct Twitter API for posting |
 
 ---

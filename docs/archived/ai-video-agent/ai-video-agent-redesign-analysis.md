@@ -56,7 +56,9 @@
 ## 🚨 What We're Missing (Huge Gaps!)
 
 ### 1. **Multi-Scene Orchestration**
+
 **VeoTools has:**
+
 ```python
 # Generate ENTIRE video story from one idea!
 plan = veo.generate_scene_plan(
@@ -83,6 +85,7 @@ result = veo.execute_scene_plan(
 ### 2. **Auto-Seed Workflows** ⭐ GAME CHANGER
 
 **VeoTools concept:**
+
 ```
 Frame 1 (image) → Generate 8s video
     ↓ Extract last frame
@@ -102,6 +105,7 @@ Result: SEAMLESS multi-scene video with perfect continuity!
 ### 3. **Job Management System**
 
 **VeoTools has:**
+
 - Background processing (non-blocking!)
 - Job persistence (`output/ops/`)
 - Progress tracking
@@ -115,6 +119,7 @@ Result: SEAMLESS multi-scene video with perfect continuity!
 ### 4. **Professional Stitching**
 
 **VeoTools:**
+
 ```python
 stitch_videos(
     [video1, video2, video3],
@@ -133,6 +138,7 @@ stitch_videos(
 ### Architecture Change #1: Make VeoTools PRIMARY
 
 **OLD ARCHITECTURE:**
+
 ```
 AI Video Agent
 ├── HeyGen (talking heads)
@@ -141,6 +147,7 @@ AI Video Agent
 ```
 
 **NEW ARCHITECTURE:**
+
 ```
 AI Video Agent
 ├── VeoTools (PRIMARY - orchestration engine!)
@@ -162,6 +169,7 @@ AI Video Agent
 **ADD THESE WORKFLOWS:**
 
 #### Workflow 1: **Multi-Scene Story Generator**
+
 ```yaml
 name: create-story
 description: Generate complete multi-scene video from idea
@@ -182,6 +190,7 @@ Example:
 ```
 
 #### Workflow 2: **Image Sequence Animator** ⭐ YOUR USE CASE!
+
 ```yaml
 name: animate-sequence
 description: Animate series of images into video
@@ -201,6 +210,7 @@ Example:
 ```
 
 #### Workflow 3: **Auto-Seed Continuation** ⭐ NEW CAPABILITY
+
 ```yaml
 name: extend-video
 description: Auto-extend video by seeding from previous frames
@@ -230,12 +240,13 @@ Example:
 ### Update config.yaml:
 
 **Add VeoTools provider:**
+
 ```yaml
 providers:
-  veotools:  # NEW PRIMARY
+  veotools: # NEW PRIMARY
     enabled: true
-    server_name: "veotools"
-    tool_prefix: "mcp__veotools__"
+    server_name: 'veotools'
+    tool_prefix: 'mcp__veotools__'
     capabilities:
       - image_to_video
       - text_to_video
@@ -282,6 +293,7 @@ providers:
 ### Update workflows:
 
 **NEW WORKFLOW: `create-multi-scene-story.yaml`**
+
 ```yaml
 name: create-multi-scene-story
 description: "Generate complete video from idea using VeoTools scene planning"
@@ -332,6 +344,7 @@ instructions:
 ```
 
 **NEW WORKFLOW: `animate-image-sequence.yaml`** ⭐ YOUR USE CASE
+
 ```yaml
 name: animate-image-sequence
 description: "Animate series of images with motion using VeoTools"
@@ -370,6 +383,7 @@ instructions:
 ```
 
 **NEW WORKFLOW: `auto-seed-continuation.yaml`** ⭐ ADVANCED
+
 ```yaml
 name: auto-seed-continuation
 description: "Create seamless multi-scene video with auto-seeding"
@@ -426,6 +440,7 @@ instructions:
 ### 1. **Async Job Model** ⭐ CRITICAL
 
 **VeoTools design:**
+
 ```python
 # Non-blocking!
 job = generate_start(params)  # Returns immediately
@@ -442,6 +457,7 @@ status = generate_get(job_id)  # Poll when ready
 ### 2. **Auto-Seed Workflow** ⭐ REVOLUTIONARY
 
 **VeoTools has THIS:**
+
 ```python
 execute_scene_plan(
     plan,
@@ -451,6 +467,7 @@ execute_scene_plan(
 ```
 
 **What it does:**
+
 - Scene 1 generates
 - Extracts frame at -0.25s (just before end)
 - Feeds that frame as seed to Scene 2
@@ -465,6 +482,7 @@ execute_scene_plan(
 ### 3. **Professional Stitching** ⭐ PRODUCTION-GRADE
 
 **VeoTools:**
+
 ```python
 stitch_videos(
     videos,
@@ -482,6 +500,7 @@ stitch_videos(
 ### 4. **Scene Planning with Gemini** ⭐ AI DIRECTOR
 
 **VeoTools:**
+
 ```python
 plan = plan_scenes(
     idea="Beach lifestyle video",
@@ -574,6 +593,7 @@ Platform commands (reels, tiktok, etc.) - Enhanced with VeoTools!
 ### How VeoTools SHOULD Handle It:
 
 **Option A: Image Sequence (Current Need)**
+
 ```python
 # Your 5 frames → 5 motion videos → stitched
 
@@ -595,6 +615,7 @@ final = stitch_videos(videos, overlap=0.5)
 ```
 
 **Option B: Auto-Seed from Frame 1** ⭐ BETTER!
+
 ```python
 # Start with Frame 1
 scene1 = generate_from_image(
@@ -625,21 +646,25 @@ scene3 = generate_from_image(seed3, "Playful splash")
 ## 💡 Strategic Recommendations
 
 ### Priority 1: Implement Image Sequence Workflow ⭐
+
 **Why:** Solves your immediate need
 **Effort:** Medium (new workflow file)
 **Impact:** Production image-to-video capability!
 
 ### Priority 2: Add Scene Planning Workflow
+
 **Why:** Revolutionary capability
 **Effort:** Medium-High
 **Impact:** AI Director for complete videos!
 
 ### Priority 3: Implement Auto-Seed Continuation
+
 **Why:** Seamless multi-scene videos
 **Effort:** High (complex logic)
 **Impact:** Professional-grade continuity!
 
 ### Priority 4: Upgrade Stitching
+
 **Why:** Better output quality
 **Effort:** Low (just use VeoTools stitch)
 **Impact:** Audio-preserving, smooth transitions
@@ -648,22 +673,23 @@ scene3 = generate_from_image(seed3, "Playful splash")
 
 ## 📊 Current vs Redesigned Agent
 
-| Feature | Current Agent | With VeoTools v2.0 |
-|---------|--------------|---------------------|
-| **Image-to-video** | ❌ Broken | ✅ Working! |
-| **Multi-image sequence** | ❌ Manual | ✅ Automated workflow |
-| **Scene planning** | ❌ None | ✅ Gemini AI Director |
-| **Auto-seed continuity** | ❌ None | ✅ Seamless scenes |
-| **Professional stitching** | Basic | ✅ FFmpeg audio-preserving |
-| **Job management** | Blocking | ✅ Async with progress |
-| **Frame extraction** | ❌ None | ✅ Built-in |
-| **Cost** | Mixed | ✅ FREE for Veo! |
+| Feature                    | Current Agent | With VeoTools v2.0         |
+| -------------------------- | ------------- | -------------------------- |
+| **Image-to-video**         | ❌ Broken     | ✅ Working!                |
+| **Multi-image sequence**   | ❌ Manual     | ✅ Automated workflow      |
+| **Scene planning**         | ❌ None       | ✅ Gemini AI Director      |
+| **Auto-seed continuity**   | ❌ None       | ✅ Seamless scenes         |
+| **Professional stitching** | Basic         | ✅ FFmpeg audio-preserving |
+| **Job management**         | Blocking      | ✅ Async with progress     |
+| **Frame extraction**       | ❌ None       | ✅ Built-in                |
+| **Cost**                   | Mixed         | ✅ FREE for Veo!           |
 
 ---
 
 ## 🚀 Implementation Plan
 
 ### Phase 1: Quick Win (This Week)
+
 1. ✅ Install VeoTools (DONE!)
 2. ✅ Test image-to-video with Frame 1
 3. Create `animate-image-sequence.yaml` workflow
@@ -671,12 +697,14 @@ scene3 = generate_from_image(seed3, "Playful splash")
 5. **Deliver working beach montage!**
 
 ### Phase 2: Core Redesign (Next Week)
+
 1. Restructure agent around VeoTools primary
 2. Implement scene planning workflow
 3. Add auto-seed continuation
 4. Update all platform commands to use VeoTools
 
 ### Phase 3: Advanced Features
+
 1. Gemini storyboard editing
 2. Character consistency system
 3. Multi-scene orchestration
@@ -687,6 +715,7 @@ scene3 = generate_from_image(seed3, "Playful splash")
 ## ✅ Immediate Next Steps
 
 **After restart:**
+
 1. **Test VeoTools image-to-video** with your Frame 1
 2. **If works** → Create `animate-images` workflow
 3. **Generate all 5 beach frames** with VeoTools

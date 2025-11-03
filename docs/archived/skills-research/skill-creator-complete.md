@@ -14,6 +14,7 @@
 **Location:** `.claude/skills/jarvis/skill-creator/`
 
 **Structure:**
+
 ```
 skill-creator/
 ├── SKILL.md (10.2 KB)          # Main instructions with research integration
@@ -42,6 +43,7 @@ skill-creator/
 ### 1. Model-Invoked (Auto-Loads)
 
 **No command needed!** Just say:
+
 ```
 "Create a skill for {purpose}"
 ```
@@ -53,11 +55,13 @@ skill-creator automatically loads and guides you!
 ### 2. Two Creation Modes
 
 **Template Mode (1 min):**
+
 - Fast creation
 - For simple utilities
 - User-provided knowledge
 
 **Research Mode (5 min):**
+
 - Exa neural search
 - Firecrawl scraping
 - Finds proven methodologies
@@ -68,11 +72,13 @@ skill-creator automatically loads and guides you!
 ### 3. Research Integration
 
 **Uses:**
+
 - `mcp__exa__search` - Find methodologies, frameworks
 - `mcp__firecrawl__firecrawl_scrape` - Scrape top 2-3 results
 - Synthesis - Combine into skill structure
 
 **Finds:**
+
 - Named frameworks (AIDA, PAIPS, etc.)
 - Best practices
 - Data & benchmarks
@@ -84,6 +90,7 @@ skill-creator automatically loads and guides you!
 ### 4. Anthropic Standards Enforcement
 
 **Every skill:**
+
 - ✅ Lowercase hyphenated name (gerund form)
 - ✅ Optimized description (what + when + triggers)
 - ✅ Valid YAML frontmatter
@@ -96,11 +103,13 @@ skill-creator automatically loads and guides you!
 ### 5. Validation Tool
 
 **Included Python script:**
+
 ```bash
 python scripts/validate-skill.py path/to/skill
 ```
 
 **Checks:**
+
 - YAML structure
 - Name conventions
 - Description quality
@@ -161,12 +170,14 @@ Skill includes:
 ### vs skill-seeker
 
 **skill-seeker:**
+
 - Purpose: Scrape documentation websites
 - Input: Config JSON
 - Time: Hours (slow!)
 - Output: Reference skills from docs
 
 **skill-creator:**
+
 - Purpose: Create custom skills
 - Input: Conversational (natural)
 - Time: Minutes (fast!)
@@ -179,6 +190,7 @@ Skill includes:
 ### vs Manual Skill Creation
 
 **Manual (before):**
+
 1. Create directory structure (5 min)
 2. Write SKILL.md (15-30 min)
 3. Format YAML correctly (trial and error)
@@ -189,6 +201,7 @@ Skill includes:
 **Total: 40-60 minutes per skill**
 
 **With skill-creator:**
+
 1. Ask to create skill (10 seconds)
 2. Answer questions (2-3 min)
 3. Review and approve (1 min)
@@ -202,11 +215,13 @@ Skill includes:
 ### vs Anthropic's skill-creator
 
 **Anthropic's (Claude.ai only):**
+
 - Available in Claude.ai
 - Interactive creation
 - Best practices enforced
 
 **Ours (Claude Code):**
+
 - ✅ Available in Claude Code
 - ✅ Interactive creation
 - ✅ Best practices enforced
@@ -223,18 +238,21 @@ Skill includes:
 ### What It Researches
 
 **For content creation skills:**
+
 - Creator methodologies (Justin Welsh, Ali Abdaal, etc.)
 - Platform algorithms
 - Viral patterns
 - Engagement data
 
 **For marketing skills:**
+
 - Copywriting frameworks
 - Conversion optimization
 - SEO best practices
 - A/B test results
 
 **For technical skills:**
+
 - Industry standards
 - Best practices
 - Common patterns
@@ -245,16 +263,19 @@ Skill includes:
 ### How It Researches
 
 **Exa neural search:**
+
 - 2-3 targeted queries
 - 10 results per query
 - Find methodologies & frameworks
 
 **Firecrawl scraping:**
+
 - Top 2-3 most relevant results
 - Clean markdown extraction
 - Detailed content
 
 **Synthesis:**
+
 - Combine findings
 - Organize by category
 - Cite sources
@@ -335,6 +356,7 @@ Skill includes:
 ## Validation Results
 
 **self-validation:**
+
 ```
 ✅ VALIDATED:
   ✓ Name: skill-creator (13/64 chars)
@@ -357,11 +379,13 @@ STATUS: ✅ VALIDATION PASSED
 ### After Restart
 
 **Start new conversation and say:**
+
 ```
 Create a skill for writing LinkedIn carousels with research
 ```
 
 **Expected:**
+
 ```
 Claude: "Using skill-creator skill in research mode...
 
@@ -380,6 +404,7 @@ Test with: 'Create a LinkedIn carousel about AI tools'"
 ### Validation
 
 **After creating any skill:**
+
 ```bash
 python ~/.claude/skills/jarvis/skill-creator/scripts/validate-skill.py path/to/new-skill
 ```
@@ -393,6 +418,7 @@ python ~/.claude/skills/jarvis/skill-creator/scripts/validate-skill.py path/to/n
 ### Before (Manual Skill Creation)
 
 **Problems:**
+
 - ❌ Took 40-60 minutes per skill
 - ❌ YAML errors common
 - ❌ Descriptions often too vague
@@ -405,6 +431,7 @@ python ~/.claude/skills/jarvis/skill-creator/scripts/validate-skill.py path/to/n
 ### After (With skill-creator)
 
 **Solutions:**
+
 - ✅ Takes 3-5 minutes per skill
 - ✅ YAML always valid
 - ✅ Descriptions optimized for discovery
@@ -413,6 +440,7 @@ python ~/.claude/skills/jarvis/skill-creator/scripts/validate-skill.py path/to/n
 - ✅ Consistent structure
 
 **Plus research mode:**
+
 - ✅ Finds proven methodologies
 - ✅ Incorporates expert insights
 - ✅ Data-backed recommendations
@@ -425,22 +453,26 @@ python ~/.claude/skills/jarvis/skill-creator/scripts/validate-skill.py path/to/n
 **With skill-creator, easily build:**
 
 **Content Creation:**
+
 - creating-linkedin-carousels
 - creating-twitter-threads
 - writing-instagram-captions
 - generating-youtube-titles
 
 **Analysis:**
+
 - analyzing-viral-content
 - analyzing-competitor-strategy
 - analyzing-engagement-metrics
 
 **Optimization:**
+
 - optimizing-seo-content
 - optimizing-video-retention
 - optimizing-email-campaigns
 
 **Formatting:**
+
 - formatting-platform-content
 - formatting-api-responses
 - formatting-markdown-docs
@@ -453,11 +485,13 @@ python ~/.claude/skills/jarvis/skill-creator/scripts/validate-skill.py path/to/n
 ## ROI Analysis
 
 **Investment:**
+
 - Build time: 3 hours (DONE!)
 - Validation: ✅ PASSED
 - Documentation: Complete
 
 **Savings per skill:**
+
 - Manual creation: 40-60 min
 - With skill-creator: 3-5 min
 - Time saved: 35-55 min per skill
@@ -486,6 +520,7 @@ python ~/.claude/skills/jarvis/skill-creator/scripts/validate-skill.py path/to/n
 ### Then Use It
 
 Create high-value skills:
+
 - creating-linkedin-posts (extract from write-posts workflow)
 - creating-twitter-threads (extract from write-posts workflow)
 - formatting-platform-content (extract platform specs)

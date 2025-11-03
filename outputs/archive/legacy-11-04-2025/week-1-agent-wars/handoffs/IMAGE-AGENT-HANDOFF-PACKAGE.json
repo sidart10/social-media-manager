@@ -1,0 +1,177 @@
+{
+  "handoff_type": "image_generation",
+  "ready_for_agent": "ai-image-generator",
+  "suggested_command": "/ai-image-generator *carousel",
+  "total_carousels": 2,
+  "session": "week-1-agent-wars",
+  "date_created": "2025-10-30",
+
+  "carousels": [
+    {
+      "carousel_id": "carousel_001_wednesday",
+      "title": "How to Choose an AI Agent Platform: PM Decision Framework",
+      "scheduled_date": "2025-11-06",
+      "scheduled_time": "09:00",
+      "platform": "linkedin",
+      "slide_count": 6,
+
+      "post_file": "outputs/11-04-2025/week-1-agent-wars/posts/WEDNESDAY-02-linkedin-pm-decision-framework.md",
+      "post_section": "CAROUSEL REQUIREMENTS",
+
+      "design_system": "linkedin-dark-monochrome",
+      "dimensions": "1080x1080",
+      "style": "minimalist_data_focused_professional",
+
+      "slides": [
+        {
+          "slide": 1,
+          "type": "title_card",
+          "title": "How to Choose Your AI Agent Platform",
+          "subtitle": "A PM's Decision Framework",
+          "author": "By sid | Lead AI PM at Samba TV",
+          "visual_style": "Bold typography, clean background, professional"
+        },
+        {
+          "slide": 2,
+          "type": "comparison",
+          "title": "The Wrong Question",
+          "content": {
+            "wrong": "Which has more features? ❌",
+            "right": "Which aligns with your product trajectory? ✓"
+          },
+          "visual_style": "Side-by-side with visual hierarchy"
+        },
+        {
+          "slide": 3,
+          "type": "list",
+          "title": "3 Core Decision Criteria",
+          "items": ["1. Control vs Speed", "2. Cost Structure", "3. Platform Stickiness"],
+          "visual_style": "Numbered list with icons"
+        },
+        {
+          "slide": 4,
+          "type": "table",
+          "title": "Platform Mapping",
+          "table": {
+            "headers": ["Platform", "Best For", "Tradeoff"],
+            "rows": [
+              ["AgentKit", "Validation", "Speed over control"],
+              ["Claude SDK", "Scaling", "Control over ease"],
+              ["Vertex AI", "Enterprise", "Integration over flexibility"]
+            ]
+          },
+          "visual_style": "Clean comparison table, color-coded rows"
+        },
+        {
+          "slide": 5,
+          "type": "data_visualization",
+          "title": "Cost Models",
+          "content": [
+            "AgentKit: Pay-per-token (variable)",
+            "Claude SDK: Flat API (predictable)",
+            "Vertex AI: Enterprise contracts (volume discounts)"
+          ],
+          "visual_element": "Three mini cost curve graphs",
+          "visual_style": "Data visualization, trend lines"
+        },
+        {
+          "slide": 6,
+          "type": "decision_tree",
+          "title": "Decision Framework",
+          "subtitle": "Pick ONE. Commit. Reassess at scale.",
+          "decision_flow": [
+            { "question": "Need speed?", "answer": "AgentKit ⚡" },
+            { "question": "Need control?", "answer": "Claude SDK 🛠️" },
+            { "question": "Need enterprise?", "answer": "Vertex AI ☁️" }
+          ],
+          "visual_style": "Simple decision tree with arrows and icons"
+        }
+      ],
+
+      "color_palette": {
+        "primary": "#1A1A1A",
+        "secondary": "#FFFFFF",
+        "accent": "#0A66C2",
+        "background": "dark_gradient"
+      },
+
+      "typography": {
+        "heading_font": "Sans-serif bold",
+        "body_font": "Sans-serif regular",
+        "data_font": "Monospace for numbers"
+      },
+
+      "estimated_generation_cost": 0.0,
+      "image_tool": "nanobanana_or_gpt-image-1"
+    },
+
+    {
+      "carousel_id": "carousel_002_monday_optional",
+      "title": "AI Agent Platforms: Strategic Implications for Product Leaders",
+      "scheduled_date": "2025-11-04",
+      "scheduled_time": "09:00",
+      "platform": "linkedin",
+      "slide_count": 5,
+      "status": "OPTIONAL",
+      "note": "Monday carousel not in original plan but could enhance LinkedIn post",
+
+      "slides": [
+        {
+          "slide": 1,
+          "title": "AI Agent Platform Comparison",
+          "subtitle": "AgentKit vs Claude SDK vs Vertex AI"
+        },
+        {
+          "slide": 2,
+          "title": "Abstraction Levels",
+          "content": "High Control ←→ Fast Prototyping"
+        },
+        {
+          "slide": 3,
+          "title": "Cost Models",
+          "content": "Pay-per-token vs Flat vs Enterprise"
+        },
+        {
+          "slide": 4,
+          "title": "Platform Lock-In",
+          "content": "Switching costs after commitment"
+        },
+        {
+          "slide": 5,
+          "title": "Decision Framework",
+          "content": "Validate → AgentKit | Scale → Claude | Enterprise → Vertex"
+        }
+      ],
+
+      "design_system": "linkedin-dark-monochrome",
+      "estimated_cost": 0.0
+    }
+  ],
+
+  "design_requirements": {
+    "consistent_branding": true,
+    "professional_aesthetic": "tech_focused_minimal",
+    "data_visualization_priority": "high",
+    "text_minimization": "max_20_words_per_slide",
+    "shareability": "optimize_for_saves_and_shares",
+    "accessibility": "high_contrast_readable_fonts"
+  },
+
+  "from_jarvis": {
+    "content_week": "Week 1: Agent Platform Wars",
+    "carousel_purpose": "Visual decision aids for PM audience",
+    "target_engagement": "3x normal LinkedIn post (carousel boost)",
+    "save_optimization": "Slides 4 and 6 designed for high saves",
+    "voice_mode": "Analyst",
+    "platform_validated": true
+  },
+
+  "instructions_for_ai_image_generator": {
+    "priority_carousel": "carousel_001_wednesday (PM Decision Framework)",
+    "skill_to_use": "linkedin-design skill (dark monochrome system)",
+    "generation_method": "Use nanobanana or gpt-image-1 based on slide complexity",
+    "output_location": "outputs/11-04-2025/week-1-agent-wars/images/",
+    "naming_convention": "wednesday-pm-framework-slide-{1-6}.png",
+    "quality_check": "Verify all text is readable, contrast is high, data is accurate"
+  }
+}

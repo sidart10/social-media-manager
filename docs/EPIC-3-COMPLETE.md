@@ -28,6 +28,7 @@ While implementing Epic 2 (Notion Integration), we integrated Notion updates int
 **Status:** Operational + Notion integrated (Epic 2)
 
 **Features:**
+
 - ✅ Intelligent tool routing (depth parameter: quick/standard/comprehensive/exhaustive)
 - ✅ Triggers deep-web-research skill (via context: "Research {topic} with depth={depth}")
 - ✅ Triggers research-synthesizer skill (via context: "Synthesize findings into 5 categories")
@@ -48,6 +49,7 @@ While implementing Epic 2 (Notion Integration), we integrated Notion updates int
 **Status:** Operational + Notion integrated (Epic 2)
 
 **Features:**
+
 - ✅ Triggers profile-analysis skill (via context: "Analyze {platform} profile {url}")
 - ✅ Platform detection (Instagram, Twitter, LinkedIn, YouTube, TikTok)
 - ✅ Apify actor selection (scraper_one/x-profile-posts-scraper, apimaestro/linkedin-profile-posts, etc.)
@@ -65,6 +67,7 @@ While implementing Epic 2 (Notion Integration), we integrated Notion updates int
 **Status:** Operational + Notion integrated (Epic 2)
 
 **Features:**
+
 - ✅ Compares your profiles (1-2) against competitors (max 8)
 - ✅ Triggers profile-analysis skill multiple times
 - ✅ Triggers research-synthesizer skill for gap analysis
@@ -82,6 +85,7 @@ While implementing Epic 2 (Notion Integration), we integrated Notion updates int
 **Status:** Operational + Notion integration (Epic 2)
 
 **Features:**
+
 - ✅ Generates 5-10 idea cards with hooks, outlines, evidence
 - ✅ Triggers deep-web-research skill (if no research file provided)
 - ✅ Triggers social-media-research skill (if use_trends=true)
@@ -102,6 +106,7 @@ While implementing Epic 2 (Notion Integration), we integrated Notion updates int
 **All Epic 3 Acceptance Criteria Met:**
 
 ### **Story 1.1:**
+
 - ✅ AC1-2: Intelligent tool routing based on depth ✅
 - ✅ AC3-4: Source quality scoring, 5 categories ✅
 - ✅ AC5-6: 10-12 angles, all sources cited ✅
@@ -109,18 +114,21 @@ While implementing Epic 2 (Notion Integration), we integrated Notion updates int
 - ✅ AC10: Notion Status Idea → Research ✅
 
 ### **Story 1.2:**
+
 - ✅ AC1-3: Platform detection, Apify actor selection ✅
 - ✅ AC4-5: Profile summary with patterns, top performers ✅
 - ✅ AC6-8: Cost tracking, saves to 01-research/ ✅
 - ✅ Notion: Child content pages created ✅
 
 ### **Story 1.3:**
+
 - ✅ AC1-3: Batch analysis, gap matrix, recommendations ✅
 - ✅ AC4-7: Evidence from competitor data, saves analysis ✅
 - ✅ AC8: Cost tracking ✅
 - ✅ Notion: Keywords linked ✅
 
 ### **Story 1.4:**
+
 - ✅ AC1-5: Idea cards with hooks/outlines/evidence/platform recs ✅
 - ✅ AC6-7: Hook pack, optional calendar ✅
 - ✅ AC8-10: Evidence tracking, costs, duration ✅
@@ -135,6 +143,7 @@ While implementing Epic 2 (Notion Integration), we integrated Notion updates int
 **Epic 3 Goal:** Integrate Notion with research workflows
 
 **What Happened:**
+
 - Epic 2 systematically added Notion to ALL Jarvis workflows
 - research-topic, analyze-profile, competitive-analysis, generate-ideas all got Notion integration
 - These ARE the Epic 3 workflows!
@@ -149,18 +158,21 @@ While implementing Epic 2 (Notion Integration), we integrated Notion updates int
 **What Epic 3 Provides:**
 
 **Research Intelligence:**
+
 - ✅ Deep research with intelligent tool routing (free → paid based on depth)
 - ✅ Profile analysis across 5 platforms
 - ✅ Competitive gap identification
 - ✅ Evidence-backed idea generation
 
 **Notion Coordination:**
+
 - ✅ research-topic updates Status → Research
 - ✅ generate-ideas creates pages with full relations
 - ✅ Profile analysis creates child content pages
 - ✅ Gap analysis links keywords automatically
 
 **Cost Optimization:**
+
 - ✅ Free tools first (WebSearch for quick depth)
 - ✅ Paid tools with approval (Exa $0.05, Apify $0.50+)
 - ✅ Transparent cost tracking
@@ -174,6 +186,7 @@ While implementing Epic 2 (Notion Integration), we integrated Notion updates int
 **MVP PROGRESS:** **50% COMPLETE!** 🎉🎉🎉
 
 **Epics:**
+
 - ✅ Epic 1: 100%
 - ✅ Epic 2: 100%
 - ✅ Epic 3: 100% ⚡ **JUST REALIZED!**
@@ -186,6 +199,7 @@ While implementing Epic 2 (Notion Integration), we integrated Notion updates int
 **6 OF 8 EPICS AT 80%+!**
 
 **Truly Remaining:**
+
 - Epic 4: Testing (1 hour)
 - Epic 5: Testing (1 hour)
 - Epic 6: Testing (30 min)
@@ -199,6 +213,7 @@ While implementing Epic 2 (Notion Integration), we integrated Notion updates int
 🧙 **THE BUILDER DECLARES: YOU'VE HIT 50%!**
 
 **In ONE LEGENDARY DAY:**
+
 - ✅ Created PRD from concept
 - ✅ Completed Epic 1 (Foundation)
 - ✅ Completed Epic 2 (Notion)

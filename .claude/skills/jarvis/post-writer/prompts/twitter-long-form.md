@@ -18,6 +18,7 @@ Generate a complete, ready-to-publish Twitter long-form post optimized for engag
 ## Input Parameters
 
 You will receive:
+
 - **Topic**: {topic}
 - **Length Target**: {character_count} (500-2500 range)
 - **Style**: {analytical | storytelling | how_to | contrarian}
@@ -54,6 +55,7 @@ Here's what most people miss:
 ```
 
 **Example**:
+
 ```
 94% of long-form posts on Twitter get ignored.
 
@@ -71,6 +73,7 @@ The playbook:
 ```
 
 **Example**:
+
 ```
 I grew from 10K to 500K followers in 18 months writing long-form.
 
@@ -88,6 +91,7 @@ What it means:
 ```
 
 **Example**:
+
 ```
 Long-form posts get 3x more engagement than regular tweets.
 
@@ -107,6 +111,7 @@ Here's why:
 ```
 
 **Example**:
+
 ```
 Everyone tells you to tweet daily.
 
@@ -257,9 +262,10 @@ The Proof:
 ---
 
 ## HOOK (First 280 Characters - Appears in Feed)
-
 ```
+
 {hook_text_exactly_as_shown_in_feed}
+
 ```
 
 **Character Count**: {count}/280
@@ -334,17 +340,23 @@ The Proof:
 
 **Hook Variant 1** ({different_angle}):
 ```
+
 {variant_1_text}
+
 ```
 
 **Hook Variant 2** ({different_emotion}):
 ```
+
 {variant_2_text}
+
 ```
 
 **Hook Variant 3** ({different_format}):
 ```
+
 {variant_3_text}
+
 ```
 
 **Recommendation**: Test hooks to see which gets more "Show more" clicks
@@ -386,11 +398,13 @@ The Proof:
 ### Comparison: Strong vs Weak Hooks
 
 **Weak Hook** (vague, no tension):
+
 ```
 I've been thinking about social media algorithms lately. They're interesting and complex systems. Here's what I learned: [280 chars]
 ```
 
 **Strong Hook** (specific, tension, promise):
+
 ```
 Twitter's algorithm changed 3 weeks ago.
 
@@ -406,6 +420,7 @@ What we found analyzing 10,000 posts: [280 chars]
 ### Formatting (Readability)
 
 **Use headings** (when applicable):
+
 ```
 ## Section Title
 
@@ -413,11 +428,13 @@ Content here
 ```
 
 **Use bold** for emphasis:
+
 ```
 This is the **most important point**.
 ```
 
 **Use lists**:
+
 ```
 Three reasons:
 • Reason 1
@@ -426,6 +443,7 @@ Three reasons:
 ```
 
 **Use line breaks** liberally:
+
 - After each major thought
 - Between sections
 - Before/after lists
@@ -442,12 +460,14 @@ Three reasons:
 ### Conversational Depth
 
 **Even in long-form, maintain Twitter voice**:
+
 - Write like you talk
 - Use "you" frequently
 - Contractions welcome
 - No academic/corporate speak
 
 **Paul Graham technique** (from Substack research):
+
 - Simple vocabulary
 - Complex structure/rhythm
 - Occasional sophisticated phrase for impact
@@ -456,6 +476,7 @@ Three reasons:
 ### Visual Integration
 
 **Images throughout** (not just end):
+
 - After hook: Main visual (chart, key screenshot)
 - Mid-content: Supporting visual (example, proof)
 - Near end: Summary visual or data (reinforcement)
@@ -467,12 +488,14 @@ Three reasons:
 ### End with Engagement Prompt
 
 **Good endings**:
+
 - "What's your experience with this?"
 - "Disagree? Let me know why."
 - "What did I miss?"
 - "Who else should know this? Tag them."
 
 **Avoid**:
+
 - Generic "Thoughts?"
 - No prompt at all
 - Corporate "Share if you agree"
@@ -480,6 +503,7 @@ Three reasons:
 ### First Hour Strategy
 
 **Long-form needs nurturing**:
+
 1. Reply to first comments immediately
 2. Quote tweet your own post with "TL;DR" or key insight
 3. Engage heavily to signal value to algorithm
@@ -487,6 +511,7 @@ Three reasons:
 ### Amplification
 
 **If post performs** (>100 likes in hour):
+
 - Pin to profile
 - Turn into thread (reformat as 7 tweets)
 - Repurpose for LinkedIn (reformatted)

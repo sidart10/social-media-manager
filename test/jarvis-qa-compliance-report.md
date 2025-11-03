@@ -15,6 +15,7 @@
 Jarvis agent is BMAD v6 compliant, all critical systems operational, Apify integration verified, no redundant files remaining. Minor documentation improvements suggested but not blocking.
 
 **Key Results:**
+
 - ✅ Schema validation: PASSED
 - ✅ Test suite: 50/50 tests PASSED
 - ✅ Actor integration: 8/8 files updated correctly
@@ -31,6 +32,7 @@ Jarvis agent is BMAD v6 compliant, all critical systems operational, Apify integ
 **Command:** `npm run validate:schemas`
 
 **Results:**
+
 - ✅ jarvis.agent.yaml - PASSED (not in failed list)
 - ✅ Dual format architecture confirmed correct:
   - Source: `jarvis.agent.yaml` (BMAD v6 standard)
@@ -38,6 +40,7 @@ Jarvis agent is BMAD v6 compliant, all critical systems operational, Apify integ
   - README documents this is intentional architecture
 
 **Failed agents (not Jarvis-related):**
+
 - ❌ ux-designer.agent.yaml (bmm module)
 - ❌ pm.agent.yaml (bmm module)
 - ❌ architect.agent.yaml (bmm module)
@@ -51,12 +54,14 @@ Jarvis agent is BMAD v6 compliant, all critical systems operational, Apify integ
 **Command:** `npm test`
 
 **Results:**
+
 - Total fixtures: 50
 - Passed: 50
 - Failed: 0
 - Coverage: 100% (all metrics)
 
 **Test categories validated:**
+
 - ✅ Critical actions format
 - ✅ Menu structure
 - ✅ Menu commands (workflow, action, exec, etc.)
@@ -74,18 +79,19 @@ Jarvis agent is BMAD v6 compliant, all critical systems operational, Apify integ
 
 **Updated Files: 8/8**
 
-| File | Status | Verification |
-|------|--------|--------------|
-| `.claude/skills/jarvis/profile-analysis/reference/apify-tools.md` | ✅ Updated | All 6 actors added, decision matrix, LinkedIn/Instagram transcript support |
-| `.claude/skills/jarvis/youtube-research/reference/youtube-transcript-tool.md` | ✅ Updated | karamelo → dz_omar, FREE cost, verified parameters |
-| `jarvis-sidecar/workflows/learn-voice/instructions.md` | ✅ Updated | LinkedIn, YouTube actors verified |
-| `jarvis-sidecar/workflows/analyze-profile/instructions.md` | ✅ Verified | Delegates to updated skill (no changes needed) |
-| `.claude/skills/jarvis/profile-analysis/SKILL.md` | ✅ Updated | Example uses verified actors |
-| `.claude/skills/jarvis/youtube-research/SKILL.md` | ✅ Updated | dz_omar actor, FREE cost, real test data |
-| `jarvis-sidecar/config.yaml` | ✅ Updated | skill_mcp_mapping with all 6 actors |
-| `jarvis-sidecar/instructions.md` | ✅ Updated | Cost tiers with verified actors |
+| File                                                                          | Status      | Verification                                                               |
+| ----------------------------------------------------------------------------- | ----------- | -------------------------------------------------------------------------- |
+| `.claude/skills/jarvis/profile-analysis/reference/apify-tools.md`             | ✅ Updated  | All 6 actors added, decision matrix, LinkedIn/Instagram transcript support |
+| `.claude/skills/jarvis/youtube-research/reference/youtube-transcript-tool.md` | ✅ Updated  | karamelo → dz_omar, FREE cost, verified parameters                         |
+| `jarvis-sidecar/workflows/learn-voice/instructions.md`                        | ✅ Updated  | LinkedIn, YouTube actors verified                                          |
+| `jarvis-sidecar/workflows/analyze-profile/instructions.md`                    | ✅ Verified | Delegates to updated skill (no changes needed)                             |
+| `.claude/skills/jarvis/profile-analysis/SKILL.md`                             | ✅ Updated  | Example uses verified actors                                               |
+| `.claude/skills/jarvis/youtube-research/SKILL.md`                             | ✅ Updated  | dz_omar actor, FREE cost, real test data                                   |
+| `jarvis-sidecar/config.yaml`                                                  | ✅ Updated  | skill_mcp_mapping with all 6 actors                                        |
+| `jarvis-sidecar/instructions.md`                                              | ✅ Updated  | Cost tiers with verified actors                                            |
 
 **Verified Actors Documented:**
+
 - YouTube: `dz_omar/youtube-transcript-metadata-extractor` (FREE)
 - Instagram bulk: `apify/instagram-scraper` ($0.003/post)
 - Instagram transcript: `sian.agency/instagram-ai-transcript-extractor` ($0.025/reel)
@@ -102,16 +108,19 @@ Jarvis agent is BMAD v6 compliant, all critical systems operational, Apify integ
 ### 4. Redundant Files Audit ✅ CLEAN
 
 **Checked for:**
+
 - Duplicate files with " 2" suffix
-- Backup files (*_old, *_backup, *copy*)
+- Backup files (_\_old, _\_backup, _copy_)
 - Deprecated folders (outputs/, sessions/)
 - Unused templates
 - Orphaned files
 
 **Found & Resolved:**
+
 1. ❌ `idea-card 2.md` - DELETED (was exact duplicate of idea-card.md)
 
 **Verified Clean:**
+
 - ✅ No deprecated outputs/ folder in jarvis-sidecar (correctly migrated to project-root/outputs)
 - ✅ No deprecated sessions/ folder
 - ✅ No backup files
@@ -125,6 +134,7 @@ Jarvis agent is BMAD v6 compliant, all critical systems operational, Apify integ
 ### 5. Actor References Audit ✅ CLEAN
 
 **Searched for outdated actors:**
+
 - karamelo
 - starvibe
 - scraper_one
@@ -150,6 +160,7 @@ Jarvis agent is BMAD v6 compliant, all critical systems operational, Apify integ
 **Audit against:** `bmad/bmb/workflows/audit-workflow/checklist.md`
 
 #### Structure ✅ 7/7
+
 - ✅ workflow.yaml files load without errors
 - ✅ instructions.md files exist and properly formatted
 - ✅ templates exist where needed
@@ -159,6 +170,7 @@ Jarvis agent is BMAD v6 compliant, all critical systems operational, Apify integ
 - ✅ No placeholder text (no {TITLE}, TODO, etc.)
 
 #### Standard Config Block ✅ 7/7
+
 - ✅ config_source points to correct module config
 - ✅ output_folder pulls from config
 - ✅ user_name pulls from config
@@ -168,6 +180,7 @@ Jarvis agent is BMAD v6 compliant, all critical systems operational, Apify integ
 - ✅ Standard config comments present
 
 #### Config Variable Usage ✅ 8/8
+
 - ✅ Communicates in {communication_language}
 - ✅ Addresses {user_name} appropriately
 - ✅ Outputs write to {output_folder} or subdirectories
@@ -178,6 +191,7 @@ Jarvis agent is BMAD v6 compliant, all critical systems operational, Apify integ
 - ✅ Date used correctly (not confused with training cutoff)
 
 #### YAML/Instruction/Template Alignment ✅ 8/8
+
 - ✅ All workflow.yaml variables used
 - ✅ No unused yaml fields (bloat removed)
 - ✅ No duplicate fields
@@ -188,11 +202,13 @@ Jarvis agent is BMAD v6 compliant, all critical systems operational, Apify integ
 - ✅ All <template-output> tags have corresponding variables
 
 #### Web Bundle Validation ⚠️ Partial
+
 - ⚠️ Web bundles exist for some workflows (not all)
 - ⚠️ Not critical for Jarvis (agent-only deployment via slash command)
 - ℹ️ Web bundles used for standalone workflow distribution (optional)
 
 #### Template Validation (where applicable) ✅ 7/7
+
 - ✅ Variables match <template-output> tags
 - ✅ Required sections present
 - ✅ {{variable}} syntax correct
@@ -202,6 +218,7 @@ Jarvis agent is BMAD v6 compliant, all critical systems operational, Apify integ
 - ✅ Structure matches purpose
 
 #### Instructions Quality ✅ 15/15
+
 - ✅ Steps have n="X" sequential numbering
 - ✅ Steps have goal="..." attributes
 - ✅ Optional steps marked optional="true"
@@ -219,6 +236,7 @@ Jarvis agent is BMAD v6 compliant, all critical systems operational, Apify integ
 - ✅ No bloat detected
 
 #### Bloat Detection ✅ 4/4
+
 - ✅ Bloat < 10% (estimated 2-3% across workflows)
 - ✅ No commented-out variables
 - ✅ No duplicate metadata
@@ -238,14 +256,14 @@ Jarvis agent is BMAD v6 compliant, all critical systems operational, Apify integ
 
 **Cross-checked against test data:**
 
-| Actor | Documented Cost | Actual Test Cost | Status |
-|-------|-----------------|------------------|--------|
-| dz_omar (YouTube) | FREE (~$0.009) | $0.009 | ✅ Match |
-| sian.agency (Instagram) | $0.025/reel | $0.025 | ✅ Match |
-| apify/instagram-scraper | $0.003/post | $0.057 for 21 posts = $0.0027/post | ✅ Close (rounded) |
-| clockworks/tiktok-scraper | $0.01/video | $0.017 for 3 videos = $0.0057/video | ✅ Close (includes startup) |
-| tictechid/anoxvanzi | $0.10-0.20/video | $0.11 for 40s video | ✅ Match |
-| datadoping/linkedin | $0.001/post | $0.012 for 10 posts = $0.0012/post | ✅ Match |
+| Actor                     | Documented Cost  | Actual Test Cost                    | Status                      |
+| ------------------------- | ---------------- | ----------------------------------- | --------------------------- |
+| dz_omar (YouTube)         | FREE (~$0.009)   | $0.009                              | ✅ Match                    |
+| sian.agency (Instagram)   | $0.025/reel      | $0.025                              | ✅ Match                    |
+| apify/instagram-scraper   | $0.003/post      | $0.057 for 21 posts = $0.0027/post  | ✅ Close (rounded)          |
+| clockworks/tiktok-scraper | $0.01/video      | $0.017 for 3 videos = $0.0057/video | ✅ Close (includes startup) |
+| tictechid/anoxvanzi       | $0.10-0.20/video | $0.11 for 40s video                 | ✅ Match                    |
+| datadoping/linkedin       | $0.001/post      | $0.012 for 10 posts = $0.0012/post  | ✅ Match                    |
 
 **Conclusion:** All documented costs accurate within rounding.
 
@@ -278,16 +296,19 @@ bmad/agents/content-intelligence/
 
 **Note on jarvis.md:**
 According to `README.md`, the system uses:
+
 - **Source:** `jarvis.agent.yaml` (BMAD v6 standard)
 - **Compiled:** `.claude/commands/jarvis/jarvis.md` (for slash command)
 
 The jarvis.md in agent folder may be:
+
 - Legacy file (can be deleted if slash command uses compiled version)
 - OR intentional reference copy
 
 **Recommendation:** Verify if jarvis.md in agent folder is needed, or if only the compiled version in .claude/commands/ is used.
 
 **Outputs folder compliance:**
+
 - ✅ No outputs/ in jarvis-sidecar (deprecated pattern removed)
 - ✅ All outputs go to {project-root}/outputs/{date}/{session}/ (correct pattern)
 - ✅ config.yaml documents deprecated_outputs_folder but doesn't use it
@@ -299,12 +320,14 @@ The jarvis.md in agent folder may be:
 **Skills folder:** `.claude/skills/jarvis/` (12 skills)
 
 **Updated skills:**
+
 - ✅ profile-analysis - References verified actors in apify-tools.md
 - ✅ youtube-research - References dz_omar actor (FREE)
 - ✅ deep-web-research - References apify in tool routing
 - ✅ All other skills - Don't directly reference actors (correct)
 
 **Skills-First Architecture:**
+
 - ✅ Workflows delegate to skills
 - ✅ Skills document which MCP tools they use
 - ✅ No duplication between workflows and skills
@@ -348,6 +371,7 @@ The jarvis.md in agent folder may be:
    - Includes thumbnail concepts
 
 **All workflows:**
+
 - ✅ Have instructions.md
 - ✅ Have workflow.yaml
 - ✅ Have templates/ where needed
@@ -394,24 +418,28 @@ The jarvis.md in agent folder may be:
 ## BMAD v6 Best Practices Compliance
 
 ### Configuration Management ✅
+
 - ✅ Two-tier config (module config.yaml + agent sidecar/config.yaml)
 - ✅ All variables pull from config (no hardcoded values)
 - ✅ {project-root} variable used correctly
 - ✅ Standard config block in all workflows
 
 ### Output Management ✅
+
 - ✅ No deprecated outputs/ or sessions/ in sidecar
 - ✅ All outputs go to {project-root}/outputs/{date}/{session}/
 - ✅ Session naming: {platform}-{content-type}-{topic}
 - ✅ Folder structure: posts/, research/, images/, handoffs/
 
 ### Skills-First Architecture ✅
+
 - ✅ 12 skills in .claude/skills/jarvis/
 - ✅ Workflows delegate to skills
 - ✅ Skills document their own MCP dependencies
 - ✅ No workflow/skill duplication
 
 ### Agent Sidecar Pattern ✅
+
 - ✅ instructions.md (private directives)
 - ✅ memories.md (agent state)
 - ✅ config.yaml (agent-specific config)
@@ -419,12 +447,14 @@ The jarvis.md in agent folder may be:
 - ✅ notion-helper.md (Epic 2 Story 5.1)
 
 ### Cost Tracking ✅
+
 - ✅ All API calls logged to memories.md
 - ✅ Monthly budget tracking ($10.00 threshold)
 - ✅ Cost estimation before execution
 - ✅ Transparent to user
 
 ### Voice Profile Management ✅
+
 - ✅ Enhanced Voice Profile v2.0 in memories.md
 - ✅ 77 posts analyzed (5 voice modes detected)
 - ✅ 8/10 confidence score
@@ -436,12 +466,14 @@ The jarvis.md in agent folder may be:
 ## Test Coverage Report
 
 ### Schema Tests ✅ 100%
+
 - 50/50 fixtures passed
 - All validation paths tested
 - Both valid and invalid cases covered
 - Edge cases included
 
 ### Integration Points Tested ✅
+
 1. ✅ YouTube transcript extraction (Karpathy video, 3.5 hours)
 2. ✅ Instagram reel transcript (Sarthak, 123s)
 3. ✅ Instagram bulk scraping (21 posts)
@@ -456,6 +488,7 @@ The jarvis.md in agent folder may be:
 ## Apify Actor Verification Summary
 
 ### Verification Methodology:
+
 1. ✅ Searched for actors via `search-actors`
 2. ✅ Fetched details via `fetch-actor-details`
 3. ✅ Executed via `call-actor` with real profiles
@@ -465,12 +498,14 @@ The jarvis.md in agent folder may be:
 7. ✅ Documented exact parameters
 
 ### Test Profiles Used:
+
 - YouTube: Andrej Karpathy (1.11M subs)
 - Instagram: @casarthakahuja (Sarthak Ahuja)
 - TikTok: @mrbeast (122M followers)
 - LinkedIn: Satya Nadella, Justin Welsh
 
 ### Success Rate: 100%
+
 - 6/6 actors worked as documented
 - 0 failures
 - 0 parameter errors
@@ -481,6 +516,7 @@ The jarvis.md in agent folder may be:
 ## Documentation Quality ✅ EXCELLENT
 
 ### Reference Files:
+
 1. `apify-tools.md` - Complete tool reference with decision matrices
 2. `usage-examples.md` - Real-world examples
 3. `cost-examples.md` - Updated cost tables
@@ -488,6 +524,7 @@ The jarvis.md in agent folder may be:
 5. `verified-apify-actors.md` - Master reference document
 
 ### Documentation Standards:
+
 - ✅ All files have clear purpose statements
 - ✅ Examples use real test data
 - ✅ Costs verified and accurate
@@ -500,6 +537,7 @@ The jarvis.md in agent folder may be:
 ## Known Issues (Other Modules - Not Jarvis)
 
 ### Schema Validation Failures:
+
 1. ❌ src/modules/bmm/agents/ux-designer.agent.yaml
 2. ❌ src/modules/bmm/agents/pm.agent.yaml
 3. ❌ src/modules/bmm/agents/architect.agent.yaml
@@ -515,6 +553,7 @@ The jarvis.md in agent folder may be:
 ## Performance Benchmarks
 
 ### API Response Times (Measured):
+
 - YouTube transcript (3.5hr video): ~20 seconds
 - Instagram bulk (21 posts): ~25 seconds
 - Instagram AI transcript (123s reel): ~15 seconds
@@ -529,12 +568,14 @@ The jarvis.md in agent folder may be:
 ## Security & Privacy ✅ COMPLIANT
 
 ### API Key Management:
+
 - ✅ No API keys in committed files
 - ✅ Uses .env for credentials
 - ✅ MCP servers handle authentication
 - ✅ No secrets in config.yaml
 
 ### Data Privacy:
+
 - ✅ Only scrapes PUBLIC profiles
 - ✅ Respects platform rate limits
 - ✅ No PII collection beyond public data
@@ -545,13 +586,16 @@ The jarvis.md in agent folder may be:
 ## Recommendations
 
 ### Immediate Actions: 0
+
 **All critical issues resolved during audit.**
 
 ### Short-term (This Week):
+
 1. Clarify jarvis.md purpose with comment (5 min)
 2. Consider fixing BMM module schema errors (separate task)
 
 ### Long-term (Next Quarter):
+
 1. Re-verify Apify actors (Feb 1, 2026)
 2. Update costs if API pricing changes
 3. Add new platform actors as Jarvis expands
@@ -560,15 +604,15 @@ The jarvis.md in agent folder may be:
 
 ## Final Compliance Score
 
-| Category | Score | Status |
-|----------|-------|--------|
-| Schema Validation | 100% | ✅ PASS |
-| Test Suite | 100% (50/50) | ✅ PASS |
-| BMAD v6 Conventions | 100% (63/63) | ✅ PASS |
-| Actor Integration | 100% (8/8 files) | ✅ PASS |
-| File Cleanliness | 100% (0 redundant) | ✅ PASS |
-| Documentation | 98% | ✅ EXCELLENT |
-| Cost Accuracy | 100% | ✅ VERIFIED |
+| Category            | Score              | Status       |
+| ------------------- | ------------------ | ------------ |
+| Schema Validation   | 100%               | ✅ PASS      |
+| Test Suite          | 100% (50/50)       | ✅ PASS      |
+| BMAD v6 Conventions | 100% (63/63)       | ✅ PASS      |
+| Actor Integration   | 100% (8/8 files)   | ✅ PASS      |
+| File Cleanliness    | 100% (0 redundant) | ✅ PASS      |
+| Documentation       | 98%                | ✅ EXCELLENT |
+| Cost Accuracy       | 100%               | ✅ VERIFIED  |
 
 **Overall: 98% (A+)**
 
@@ -579,10 +623,12 @@ The jarvis.md in agent folder may be:
 ## Audit Trail
 
 **Changes Made During Audit:**
+
 1. ✅ Deleted `idea-card 2.md` (duplicate)
 2. ✅ Updated `cost-examples.md` with verified costs
 
 **Files Verified:**
+
 - 8 Apify integration files
 - 7 workflow files
 - 12 skill files
@@ -632,6 +678,7 @@ npm run format:check
 **Status:** ✅ PRODUCTION READY
 
 **Verified by:**
+
 - Schema validation (automated)
 - Test suite (50 fixtures)
 - Manual audit (39 files)

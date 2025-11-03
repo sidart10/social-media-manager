@@ -25,16 +25,15 @@ Epic 2 transforms the AI-Powered Social Media Agent Team from **stateless execut
 **Implementation:**
 
 **Modules Created (3 files):**
+
 1. ✅ `jarvis-sidecar/notion-helper.md` - Queries for Status=Idea/Research/Next Up (7 items found in real database!)
 2. ✅ `zoe-sidecar/notion-helper.md` - Queries for Status=Editing without media (3 items found!)
 3. ✅ `zoro-sidecar/notion-helper.md` - Queries for Status=Editing with media ready
 
-**Agent Integrations (3 agents):**
-4. ✅ Jarvis activation step 10.5 - Loads notion-helper, displays suggestions
-5. ✅ AI Image Generator activation step 7.5 - Loads notion-helper
-6. ✅ Social Posting Agent activation step 17.5 - Loads notion-helper
+**Agent Integrations (3 agents):** 4. ✅ Jarvis activation step 10.5 - Loads notion-helper, displays suggestions 5. ✅ AI Image Generator activation step 7.5 - Loads notion-helper 6. ✅ Social Posting Agent activation step 17.5 - Loads notion-helper
 
 **Validation Results:**
+
 - ✅ Notion MCP connection working
 - ✅ Content Tracker query successful (14+ items retrieved in 2 seconds)
 - ✅ Status filtering works (found 1 "Idea", 7 "Next Up", 3 "Editing")
@@ -42,6 +41,7 @@ Epic 2 transforms the AI-Powered Social Media Agent Team from **stateless execut
 - ✅ Graveyard filter working (excludes archived content)
 
 **Acceptance Criteria Met:**
+
 - ✅ AC1-7: All agents check Notion, display suggestions, show menu
 - ✅ AC8: Query performance <5 seconds ✅ (2 seconds actual)
 
@@ -52,6 +52,7 @@ Epic 2 transforms the AI-Powered Social Media Agent Team from **stateless execut
 **Implementation:**
 
 **Core Modules (2 files):**
+
 1. ✅ `.bmad-core/modules/notion-updates.md` - 4 core functions:
    - `update_content_status()` - Status transitions with forward-only validation
    - `update_content_property()` - Any property update
@@ -62,29 +63,18 @@ Epic 2 transforms the AI-Powered Social Media Agent Team from **stateless execut
 
 **Workflows Integrated (9 of 10 critical):**
 
-**Jarvis (4/4 operational):**
-3. ✅ research-topic - Status: Idea → Research, add research brief to Notes
-4. ✅ generate-ideas - Create pages with Status=Idea, full relational linking
-5. ✅ analyze-profile - Create child content pages
-6. ✅ competitive-analysis - Link gap keywords
+**Jarvis (4/4 operational):** 3. ✅ research-topic - Status: Idea → Research, add research brief to Notes 4. ✅ generate-ideas - Create pages with Status=Idea, full relational linking 5. ✅ analyze-profile - Create child content pages 6. ✅ competitive-analysis - Link gap keywords
 
-**Zoe (4/4 operational):**
-7. ✅ create-single-image - Upload to Cloudinary (optional), add URL to Notion, Status=Editing
-8. ✅ create-carousel - Upload all slides to Cloudinary, add URLs to Notion
-9. ✅ create-scene - Upload video to Cloudinary, add URL to Notion
-10. ✅ create-talking-head - Upload video to Cloudinary, add URL to Notion
+**Zoe (4/4 operational):** 7. ✅ create-single-image - Upload to Cloudinary (optional), add URL to Notion, Status=Editing 8. ✅ create-carousel - Upload all slides to Cloudinary, add URLs to Notion 9. ✅ create-scene - Upload video to Cloudinary, add URL to Notion 10. ✅ create-talking-head - Upload video to Cloudinary, add URL to Notion
 
-**Zoro (1/1 critical):**
-11. ✅ **schedule-post** - **NEW WORKFLOW CREATED** with Cloudinary upload → Postiz scheduling → Notion updates (Publish Date, keep Status=Editing until published, link Channels)
+**Zoro (1/1 critical):** 11. ✅ **schedule-post** - **NEW WORKFLOW CREATED** with Cloudinary upload → Postiz scheduling → Notion updates (Publish Date, keep Status=Editing until published, link Channels)
 
-**Zoro Direct APIs (3 workflows - placeholders added):**
-12. 🔄 publish-tweet-now - Notion placeholder (full integration in Epic 8 during workflow standardization)
-13. 🔄 publish-linkedin-now - Notion placeholder (full integration in Epic 8)
-14. 🔄 publish-youtube-now - Notion placeholder (full integration in Epic 8)
+**Zoro Direct APIs (3 workflows - placeholders added):** 12. 🔄 publish-tweet-now - Notion placeholder (full integration in Epic 8 during workflow standardization) 13. 🔄 publish-linkedin-now - Notion placeholder (full integration in Epic 8) 14. 🔄 publish-youtube-now - Notion placeholder (full integration in Epic 8)
 
 **Note:** Zoro direct API workflows use embedded JavaScript (non-standard format). Full Notion integration deferred to Epic 8 when these migrate to external instructions.md. Placeholders remind users to update Notion manually for now. PRIMARY workflow (schedule-post) is fully integrated.
 
 **Acceptance Criteria Met:**
+
 - ✅ AC1-3: Jarvis, Zoe, Zoro workflows update status
 - ✅ AC4-5: Updates include agent name, timestamp, immediate (not batch)
 - ✅ AC6: Notion failures don't block (graceful degradation designed)
@@ -99,6 +89,7 @@ Epic 2 transforms the AI-Powered Social Media Agent Team from **stateless execut
 **Implementation:**
 
 **Helper Functions (1 file with 5 functions):**
+
 1. ✅ `.bmad-core/modules/notion-relational-helpers.md`:
    - `find_channel_by_platform()` - Maps LinkedIn → "LinkedIn & X" channel
    - `find_or_create_keyword()` - Search Keywords DB, create if not found
@@ -106,15 +97,12 @@ Epic 2 transforms the AI-Powered Social Media Agent Team from **stateless execut
    - `link_content_to_keywords()` - Link to multiple keywords (append, don't replace)
    - `extract_page_id()` - Utility for page ID extraction from URLs
 
-**Workflows Using Relational Linking (3 workflows):**
-2. ✅ generate-ideas - Creates pages, links to Channel + Keywords (find or create)
-3. ✅ competitive-analysis - Links gap keywords to Keywords DB
-4. ✅ schedule-post - Links content to multiple Channels (LinkedIn & X, Facebook, etc.)
+**Workflows Using Relational Linking (3 workflows):** 2. ✅ generate-ideas - Creates pages, links to Channel + Keywords (find or create) 3. ✅ competitive-analysis - Links gap keywords to Keywords DB 4. ✅ schedule-post - Links content to multiple Channels (LinkedIn & X, Facebook, etc.)
 
-**Analytics Tracking:**
-5. ✅ schedule-post step 9 - Prompts for Views/Likes/Comments, updates Notion, calculates Performance tier (Great/Good/Okay/Poor), saves analytics file
+**Analytics Tracking:** 5. ✅ schedule-post step 9 - Prompts for Views/Likes/Comments, updates Notion, calculates Performance tier (Great/Good/Okay/Poor), saves analytics file
 
 **Acceptance Criteria Met:**
+
 - ✅ AC1: generate-ideas creates relational links
 - ✅ AC2: Keywords searched/created automatically
 - ✅ AC3: Channels linked based on platform
@@ -143,6 +131,7 @@ Epic 2 transforms the AI-Powered Social Media Agent Team from **stateless execut
 ### **Notion MCP Connection:** ✅ TESTED
 
 **Live Test Executed:**
+
 - Queried Content Tracker database (collection://956447a76e7b4b2eafb1e4c9adfcbcf3)
 - Retrieved 14+ real content items
 - Performance: 2 seconds (target <5 seconds ✅)
@@ -152,6 +141,7 @@ Epic 2 transforms the AI-Powered Social Media Agent Team from **stateless execut
 ### **Data Structure Validation:** ✅ CONFIRMED
 
 **Notion Database Schema Matches Design:**
+
 - ✅ Status property exists with correct workflow (Idea → Research → Next Up → Writing → Editing → Posted)
 - ✅ Channel relations exist (points to My Channels DB)
 - ✅ Category select exists (Tech Insights, AI Products, Personal Efficiency, etc.)
@@ -169,17 +159,20 @@ Epic 2 transforms the AI-Powered Social Media Agent Team from **stateless execut
 ### **Before Epic 2:**
 
 **Agents:**
+
 - Stateless (no memory of what's in progress)
 - Manual coordination (user tracks everything)
 - Linear invocation (user decides next step)
 
 **Workflow:**
+
 - Local outputs only
 - No status tracking
 - No mobile access
 - Manual analytics spreadsheet
 
 **Publishing:**
+
 - Copy-paste between agents
 - No centralized queue
 - Local file paths (incompatible with Postiz)
@@ -189,17 +182,20 @@ Epic 2 transforms the AI-Powered Social Media Agent Team from **stateless execut
 ### **After Epic 2:**
 
 **Agents:**
+
 - ✅ **Status-aware** (suggest workflows based on Notion state)
 - ✅ **Collaborative** (shared workspace with user)
 - ✅ **Intelligent** (know what content exists, what's needed)
 
 **Workflow:**
+
 - ✅ **Dual storage** (local + Notion)
 - ✅ **Automatic status updates** (Idea → Research → Writing → Editing → Posted)
 - ✅ **Mobile access** (check status on phone)
 - ✅ **Unified analytics** (Views/Likes/Comments in Notion)
 
 **Publishing:**
+
 - ✅ **Cloudinary CDN** (public HTTPS URLs)
 - ✅ **Multi-platform scheduling** (Postiz integration)
 - ✅ **Notion tracking** (Publish Date, Channels, analytics)
@@ -282,6 +278,7 @@ Epic 2 transforms the AI-Powered Social Media Agent Team from **stateless execut
 - ✅ No blockers for Epic 3-6 (Notion coordination layer ready)
 
 **Additional:**
+
 - ✅ Error handling comprehensive (graceful degradation)
 - ✅ Performance validated (query <5 seconds)
 - ✅ Cloudinary integration working (critical for Postiz)
@@ -297,12 +294,14 @@ Epic 2 transforms the AI-Powered Social Media Agent Team from **stateless execut
 ### **MVP Overall Progress:** 35% → 40% Complete
 
 **Epics Status:**
+
 - ✅ **Epic 1:** 100% Complete (System Foundation) - 2 days
 - ✅ **Epic 2:** 100% Complete (Notion Integration) - 3 days
 - 🔄 **Epic 4:** 70% Complete (schedule-post created as byproduct!)
 - ⏳ **Epics 3, 5, 6, 7, 8:** Not started
 
 **Timeline:**
+
 - Days 1-2: Epic 1 ✅
 - Days 3-5: Epic 2 ✅
 - **Total:** 5 days elapsed
@@ -338,21 +337,11 @@ Epic 2 transforms the AI-Powered Social Media Agent Team from **stateless execut
 
 ### **Workflow Integration (9 workflows + 1 new)**
 
-**Jarvis:**
-10. ✅ research-topic (Notion status update)
-11. ✅ generate-ideas (page creation + relations)
-12. ✅ analyze-profile (child content pages)
-13. ✅ competitive-analysis (keyword linking)
+**Jarvis:** 10. ✅ research-topic (Notion status update) 11. ✅ generate-ideas (page creation + relations) 12. ✅ analyze-profile (child content pages) 13. ✅ competitive-analysis (keyword linking)
 
-**Zoe:**
-14. ✅ create-single-image (Cloudinary + Notion)
-15. ✅ create-carousel (multi-upload + Notion)
-16. ✅ create-scene (video upload + Notion)
-17. ✅ create-talking-head (video upload + Notion)
+**Zoe:** 14. ✅ create-single-image (Cloudinary + Notion) 15. ✅ create-carousel (multi-upload + Notion) 16. ✅ create-scene (video upload + Notion) 17. ✅ create-talking-head (video upload + Notion)
 
-**Zoro:**
-18. ✅ **schedule-post** - **NEW WORKFLOW** (Cloudinary → Postiz → Notion)
-19. 🔄 publish-*-now workflows (placeholders for Epic 8)
+**Zoro:** 18. ✅ **schedule-post** - **NEW WORKFLOW** (Cloudinary → Postiz → Notion) 19. 🔄 publish-\*-now workflows (placeholders for Epic 8)
 
 **Total:** 9 fully integrated, 1 created from scratch, 3 placeholders
 
@@ -376,16 +365,16 @@ Epic 2 transforms the AI-Powered Social Media Agent Team from **stateless execut
 
 ### **Story 5.1: Status-Aware Triggering**
 
-| Criterion | Status | Evidence |
-|-----------|--------|----------|
-| Agents check Notion before menu | ✅ PASS | 3 agents have notion-helper activation steps |
-| Jarvis suggests for Idea/Research/Next Up | ✅ PASS | Query found 1 Idea + 7 Next Up in real database |
-| Zoe suggests for Editing without media | ✅ PASS | Query found 3 Editing items, media detection implemented |
-| Zoro suggests for Editing with media | ✅ PASS | Logic implemented in notion-helper.md |
-| Query performance <5 seconds | ✅ PASS | Actual: 2 seconds (tested with real database) |
-| Graceful degradation on failures | ✅ PASS | Error handling in all helpers |
-| User can override suggestions | ✅ PASS | Menu always displays after suggestions |
-| Execution time <5 seconds | ✅ PASS | 2 seconds actual |
+| Criterion                                 | Status  | Evidence                                                 |
+| ----------------------------------------- | ------- | -------------------------------------------------------- |
+| Agents check Notion before menu           | ✅ PASS | 3 agents have notion-helper activation steps             |
+| Jarvis suggests for Idea/Research/Next Up | ✅ PASS | Query found 1 Idea + 7 Next Up in real database          |
+| Zoe suggests for Editing without media    | ✅ PASS | Query found 3 Editing items, media detection implemented |
+| Zoro suggests for Editing with media      | ✅ PASS | Logic implemented in notion-helper.md                    |
+| Query performance <5 seconds              | ✅ PASS | Actual: 2 seconds (tested with real database)            |
+| Graceful degradation on failures          | ✅ PASS | Error handling in all helpers                            |
+| User can override suggestions             | ✅ PASS | Menu always displays after suggestions                   |
+| Execution time <5 seconds                 | ✅ PASS | 2 seconds actual                                         |
 
 **Story 5.1:** ✅ **ALL CRITERIA MET**
 
@@ -393,20 +382,20 @@ Epic 2 transforms the AI-Powered Social Media Agent Team from **stateless execut
 
 ### **Story 5.2: Agent Status Updates**
 
-| Criterion | Status | Evidence |
-|-----------|--------|----------|
-| Jarvis workflows update status | ✅ PASS | 4 workflows integrated |
-| Zoe workflows update status | ✅ PASS | 4 workflows integrated |
-| Zoro PRIMARY workflow updates status | ✅ PASS | schedule-post integrated |
-| Each update includes agent name, timestamp | ✅ PASS | All patterns include logging |
-| Updates immediate (not batch) | ✅ PASS | update_content_status() called per workflow step |
-| Notion failures don't block workflows | ✅ PASS | try/catch in all patterns |
-| User manual overrides respected | ✅ PASS | Validation checks in update_content_status() |
-| Execution time 1-2 seconds | ✅ PASS | Single API call per update |
-| Transition rules enforced | ✅ PASS | Forward-only validation in notion-updates.md |
-| Logging works | ✅ PASS | session-log.md append in all workflows |
-| Invalid status handling | ✅ PASS | Error messages in update_content_status() |
-| Concurrent updates handled | ✅ PASS | Last-write-wins, atomic status |
+| Criterion                                  | Status  | Evidence                                         |
+| ------------------------------------------ | ------- | ------------------------------------------------ |
+| Jarvis workflows update status             | ✅ PASS | 4 workflows integrated                           |
+| Zoe workflows update status                | ✅ PASS | 4 workflows integrated                           |
+| Zoro PRIMARY workflow updates status       | ✅ PASS | schedule-post integrated                         |
+| Each update includes agent name, timestamp | ✅ PASS | All patterns include logging                     |
+| Updates immediate (not batch)              | ✅ PASS | update_content_status() called per workflow step |
+| Notion failures don't block workflows      | ✅ PASS | try/catch in all patterns                        |
+| User manual overrides respected            | ✅ PASS | Validation checks in update_content_status()     |
+| Execution time 1-2 seconds                 | ✅ PASS | Single API call per update                       |
+| Transition rules enforced                  | ✅ PASS | Forward-only validation in notion-updates.md     |
+| Logging works                              | ✅ PASS | session-log.md append in all workflows           |
+| Invalid status handling                    | ✅ PASS | Error messages in update_content_status()        |
+| Concurrent updates handled                 | ✅ PASS | Last-write-wins, atomic status                   |
 
 **Story 5.2:** ✅ **ALL CRITERIA MET**
 
@@ -414,15 +403,15 @@ Epic 2 transforms the AI-Powered Social Media Agent Team from **stateless execut
 
 ### **Story 5.3: Relational Data Management**
 
-| Criterion | Status | Evidence |
-|-----------|--------|----------|
-| generate-ideas creates links | ✅ PASS | Step 7.5 links Channel + Keywords |
-| Keywords linked automatically | ✅ PASS | find_or_create_keyword() implemented |
-| Channels linked automatically | ✅ PASS | find_channel_by_platform() implemented |
-| Analytics tracked post-publish | ✅ PASS | schedule-post step 9 analytics tracking |
-| Relations use page URLs | ✅ PASS | All helpers use URLs, extract_page_id() utility |
-| No orphan references | ✅ PASS | Validation before linking |
-| Linking failures don't block | ✅ PASS | Errors logged, workflows continue |
+| Criterion                      | Status  | Evidence                                        |
+| ------------------------------ | ------- | ----------------------------------------------- |
+| generate-ideas creates links   | ✅ PASS | Step 7.5 links Channel + Keywords               |
+| Keywords linked automatically  | ✅ PASS | find_or_create_keyword() implemented            |
+| Channels linked automatically  | ✅ PASS | find_channel_by_platform() implemented          |
+| Analytics tracked post-publish | ✅ PASS | schedule-post step 9 analytics tracking         |
+| Relations use page URLs        | ✅ PASS | All helpers use URLs, extract_page_id() utility |
+| No orphan references           | ✅ PASS | Validation before linking                       |
+| Linking failures don't block   | ✅ PASS | Errors logged, workflows continue               |
 
 **Story 5.3:** ✅ **ALL CRITERIA MET**
 
@@ -446,23 +435,28 @@ Epic 2 transforms the AI-Powered Social Media Agent Team from **stateless execut
 **Epics 3-6 Can Start in Parallel!**
 
 **Epic 3: Content Intelligence** (1-2 days)
+
 - Add Notion to any remaining workflows
 - Already mostly complete (research, generate-ideas working)
 
 **Epic 4: Voice Content** (2-3 days)
+
 - Create write-posts workflow
 - Create write-scripts workflow
 - Both save to 03-drafts/{platform}/, update Notion Status
 
 **Epic 5: Visual Production** (2-3 days)
+
 - Merge AI Image + AI Video into Zoe agent
 - Cloudinary integration already working!
 
 **Epic 6: Publishing** (0.5 days)
+
 - **schedule-post already created!**
 - Just needs testing and documentation
 
 **Epic 7: Pipeline Testing** (1-2 days)
+
 - Validate all routing paths
 - Notion coordination enables full testing
 
@@ -479,12 +473,14 @@ Epic 2 transforms the AI-Powered Social Media Agent Team from **stateless execut
 ## 🎉 CELEBRATION MOMENT
 
 **Epic 2 COMPLETE:**
+
 - ✅ Greenfield work (highest risk) CONQUERED
 - ✅ Notion coordination WORKING
 - ✅ schedule-post workflow CREATED
 - ✅ Foundation for all future epics ESTABLISHED
 
 **Total Progress:**
+
 - 5 days invested
 - 2 epics complete (Epic 1 + Epic 2)
 - MVP 40% complete
@@ -495,6 +491,7 @@ Epic 2 transforms the AI-Powered Social Media Agent Team from **stateless execut
 🧙 **THE BUILDER DECLARES: EPIC 2 IS COMPLETE!**
 
 **Shall we:**
+
 1. **Update PRD/Architecture** (mark Epic 2 complete officially - 30 min)?
 2. **Start Epic 3-6** (ride the momentum into parallel development)?
 3. **Rest and celebrate** (MASSIVE day, 2 epics in queue complete)?

@@ -5,6 +5,7 @@ Edit existing Claude Code skills while maintaining consistency across SKILL.md, 
 ## Purpose
 
 This workflow ensures skill edits propagate correctly to:
+
 - ✅ SKILL.md and supporting files (reference/, prompts/, examples/, scripts/)
 - ✅ skill-manifest.csv (name, description, category, path)
 - ✅ files-manifest.csv (regenerated hashes for modified files)
@@ -16,11 +17,13 @@ This workflow ensures skill edits propagate correctly to:
 ## How to Invoke
 
 **Via BMad Builder:**
+
 ```
 /bmad:bmb:workflows:edit-skill
 ```
 
 **Or directly:**
+
 ```
 workflow bmad/bmb/workflows/edit-skill
 ```
@@ -30,18 +33,21 @@ workflow bmad/bmb/workflows/edit-skill
 ### Step-by-Step Process
 
 **0. Load and Select Skill**
+
 - Dynamically loads all skills from skill-manifest.csv
 - Presents numbered list grouped by category
 - User selects skill to edit
 - Loads all skill files and metadata
 
 **0b. Discover Usage Locations** (CRITICAL!)
+
 - Searches entire codebase for skill references
 - Finds usage in: agents (.md, .yaml), workflows (instructions.md), docs (README.md), commands
 - Creates usage map with file paths and line numbers
 - Shows user: "This skill is referenced in {{count}} locations"
 
 **1. Determine Edit Scope**
+
 - User selects what to edit:
   1. Name or Description (metadata) - Updates {{usage_count}} locations
   2. Instructions/Content (SKILL.md body)
@@ -51,31 +57,37 @@ workflow bmad/bmb/workflows/edit-skill
   6. Multiple changes
 
 **2. Edit YAML Frontmatter** (if metadata change)
+
 - Update name (re-validates Anthropic conventions)
 - Update description (re-checks triggers, length)
 - Warns about breaking changes ({{usage_count}} files affected)
 
 **3. Edit SKILL.md Content** (if content change)
+
 - Select sections to edit (When to Use, Instructions, Examples)
 - Iterative refinement with approval
 - Maintains quality standards
 
 **4. Manage Supporting Files** (if structure change)
+
 - Add new files (reference/, prompts/, examples/, scripts/)
 - Edit existing supporting files
 - Remove files (with confirmation, updates links)
 
 **5. Optional Re-Research** (if updating knowledge)
+
 - Runs Exa + Firecrawl for updated methodologies
 - Merges with existing research (doesn't replace)
 - Updates reference/sources.md with new citations
 
 **6. Handle Category Move** (if agent_category changes)
+
 - Moves entire skill directory to new category
 - Updates all path references in manifests
 - Preserves file integrity
 
 **7. Update Usage Locations** (if name/category changed)
+
 - **Updates ALL files that reference the skill:**
   - Agent definitions (workflows they call)
   - Workflow instructions (skill invocations)
@@ -86,22 +98,26 @@ workflow bmad/bmb/workflows/edit-skill
 - Applies updates with Edit tool
 
 **8. Move Skill Files** (if category changed)
+
 - Creates new category directory if needed
 - Moves all files to new location
 - Verifies integrity, removes old directory
 
 **9. Re-Validate**
+
 - Runs same validation as create-skill
 - Checks YAML, name, description, file structure
 - Verifies all usage locations updated correctly
 
 **10. Update Manifests**
+
 - Updates skill-manifest.csv (name, description, category, path)
 - Regenerates SHA-256 hashes for modified files
 - Updates files-manifest.csv with new hashes
 - Adds new files, removes deleted files
 
 **11. Complete**
+
 - Shows comprehensive diff (skill changes + usage updates)
 - Lists all modified files
 - Provides updated test query
@@ -110,6 +126,7 @@ workflow bmad/bmb/workflows/edit-skill
 ## Expected Inputs
 
 **User Provides:**
+
 - Skill selection (from dynamic list)
 - Edit scope selection
 - Approval for metadata changes
@@ -118,6 +135,7 @@ workflow bmad/bmb/workflows/edit-skill
 - Approval for usage location updates
 
 **Workflow Loads Automatically:**
+
 - skill-manifest.csv (dynamic skill list)
 - agent-manifest.csv (for category selection)
 - All current skill files
@@ -128,37 +146,44 @@ workflow bmad/bmb/workflows/edit-skill
 ### Skill Changes
 
 **Metadata edits:**
+
 - Updated YAML frontmatter (name, description)
 - Re-validated against Anthropic standards
 
 **Content edits:**
+
 - Modified SKILL.md sections
 - Updated supporting files
 
 **Structure changes:**
+
 - New files added (reference/, prompts/, examples/)
 - Old files removed
 - Files reorganized
 
 **Category move:**
+
 - Skill relocated to new agent directory
 - All paths updated
 
 ### Usage Location Updates (CRITICAL!)
 
 **Workflow instructions updated:**
+
 ```
 Before: "Use post-writer skill to generate..."
 After:  "Use creating-social-posts skill to generate..."
 ```
 
 **Agent definitions updated:**
+
 ```
 Before: Triggers Skills: old-skill-name
 After:  Triggers Skills: new-skill-name
 ```
 
 **Path references updated:**
+
 ```
 Before: .claude/skills/jarvis/old-name/
 After:  .claude/skills/standalone/new-name/
@@ -167,10 +192,12 @@ After:  .claude/skills/standalone/new-name/
 ### Manifests Updated
 
 **skill-manifest.csv:**
+
 - Name, description, agent_category, path columns updated
 - research_enhanced updated if re-research performed
 
 **files-manifest.csv:**
+
 - Hashes regenerated for all modified files
 - New files added with hashes
 - Removed files deleted from manifest
@@ -243,6 +270,7 @@ Workflow: 🔍 Researching updated methodologies...
 ### Usage Impact Analysis
 
 Before any change, shows:
+
 ```
 Impact Analysis:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -258,6 +286,7 @@ Total: 6 files will be modified alongside the skill.
 ### Automatic Propagation
 
 When you change:
+
 - **Name:** All 6 usage locations updated automatically
 - **Category:** All path references updated
 - **Description:** Manifests updated, docs optionally updated
@@ -272,20 +301,24 @@ When you change:
 ## Tool Requirements
 
 **Required:**
+
 - File system access (Read, Write, Edit, Bash)
 - Grep (finding skill usage)
 
 **Optional (re-research only):**
+
 - Exa Search
 - Firecrawl
 
 ## Validation
 
 **Pre-Edit Validation:**
+
 - Skill exists and is loadable
 - Usage map complete and accurate
 
 **Post-Edit Validation:**
+
 - All Anthropic conventions maintained
 - Usage locations updated correctly
 - Manifests consistent with file state
@@ -294,15 +327,18 @@ When you change:
 ## Next Steps After Editing
 
 **If metadata changed (name/description):**
+
 1. Restart Claude Code - Required for new metadata to load
 2. Test with updated query - Verify new triggers work
 3. Check usage locations - Ensure workflows still work
 
 **If only content changed:**
+
 1. Optional restart - Changes work in current session
 2. Test improved behavior - Verify enhancements work
 
 **If category moved:**
+
 1. Restart required - New path must load
 2. Verify workflows - Check all usage locations work
 3. Test skill activation - Ensure discovery still works

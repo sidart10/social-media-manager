@@ -4,6 +4,38 @@
 <critical>This workflow orchestrates multiple analyze-profile workflows</critical>
 <critical>Track total cost across all profile analyses</critical>
 
+<step n="0" goal="Create project folder structure">
+  <action>Generate project ID:
+    DATE=$(date +"%Y-%m-%d")
+    PROJECT_ID="$DATE-competitive-analysis"
+    PROJECT_PATH="outputs/projects/$PROJECT_ID"
+  </action>
+
+<action>Create complete 6-stage structure:
+mkdir -p "$PROJECT_PATH"/{00-session,01-research,02-ideas,03-drafts,04-media,05-published,handoffs}
+    mkdir -p "$PROJECT_PATH"/03-drafts/{linkedin,twitter,youtube,instagram,tiktok,substack,facebook}
+mkdir -p "$PROJECT_PATH"/04-media/{images,videos}
+    mkdir -p "$PROJECT_PATH"/05-published/{linkedin,twitter,youtube,instagram,tiktok,substack,facebook}
+</action>
+
+<action>Create session metadata:
+cat > "$PROJECT_PATH/00-session/metadata.json" << 'EOF'
+{
+  "project_id": "$PROJECT_ID",
+"created_at": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
+"agent": "jarvis",
+"workflow": "competitive-analysis",
+"your_profiles": {your_profiles},
+"competitor_profiles": {competitor_profiles}
+}
+EOF
+</action>
+
+<action>Store PROJECT_PATH as environment variable for all subsequent steps</action>
+
+<template-output>project_folder_created</template-output>
+</step>
+
 <step n="1" goal="Validate inputs and estimate costs">
   <action>Validate inputs:
     - At least 1 your_profile provided
@@ -89,10 +121,16 @@ Analyze the competitor profile completely, extracting same data as your profiles
 </step>
 
 <step n="5" goal="Save and present outputs">
-  <action>Save comprehensive competitive analysis report to {default_output_file}</action>
+  <action>Save comprehensive competitive analysis report to: $PROJECT_PATH/01-research/competitive-analysis.md
 
-<action>Include in report: - All profile summaries (yours + competitors) - Side-by-side comparison tables - Gap analysis with evidence - Strategic recommendations - Cost breakdown
-</action>
+Include in report:
+
+- All profile summaries (yours + competitors)
+- Side-by-side comparison tables
+- Gap analysis with evidence
+- Strategic recommendations
+- Cost breakdown
+  </action>
 
 <action>Display to user:
 
@@ -128,7 +166,7 @@ Analyze the competitor profile completely, extracting same data as your profiles
 <step n="5.5" goal="Link Gap Keywords to Notion (Epic 2 Story 5.3)">
   <action>Load {project-root}/.bmad-core/modules/notion-relational-helpers.md</action>
 
-  <action>**Link identified gap keywords to Notion Keywords DB:**
+<action>**Link identified gap keywords to Notion Keywords DB:**
 
     **Step 1: Extract gap keywords from analysis**
     - Parse strategic recommendations for content gap themes
@@ -151,7 +189,7 @@ Analyze the competitor profile completely, extracting same data as your profiles
 
       **Step 4: Link to current content (if applicable)**
       - If analyzing competitors for specific content idea:
-        metadata = read_json("00-session/metadata.json")
+        metadata = read_json("$PROJECT_PATH/00-session/metadata.json")
         if metadata.notion.page_url exists:
           # Link gap keywords to the content being researched
           link_result = link_content_to_keywords(metadata.notion.page_url, gap_keywords)
@@ -171,9 +209,10 @@ Analyze the competitor profile completely, extracting same data as your profiles
     - Notion unavailable: Log error, skip keyword tracking
     - Keyword creation fails: Continue with remaining keywords (partial success OK)
     - Linking fails: Log warning, keywords still created (can link manually later)
+
   </action>
 
-  <template-output>keywords_linked</template-output>
+<template-output>keywords_linked</template-output>
 </step>
 
 </workflow>

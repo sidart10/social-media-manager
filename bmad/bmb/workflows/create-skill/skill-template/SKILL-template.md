@@ -1,6 +1,6 @@
 ---
-name: {{skill_name}}
-description: {{skill_description}}
+name: { { skill_name } }
+description: { { skill_description } }
 ---
 
 # {{Skill Title}} - {{One-line Purpose}}
@@ -10,10 +10,11 @@ description: {{skill_description}}
 ## When to Use This Skill
 
 This skill auto-loads when:
+
 - {{trigger_scenario_1}}
 - {{trigger_scenario_2}}
 - {{trigger_scenario_3}}
-{{additional_trigger_scenarios}}
+  {{additional_trigger_scenarios}}
 
 ## Instructions
 
@@ -25,6 +26,7 @@ Based on research of {{domain}} best practices from {{source_count}} credible so
 {{Methodology_1_explanation}}
 
 **Application:**
+
 1. {{Step_1}}
 2. {{Step_2}}
 3. {{Step_3}}
@@ -34,6 +36,7 @@ Based on research of {{domain}} best practices from {{source_count}} credible so
 {{Methodology_2_explanation}}
 
 **Application:**
+
 1. {{Step_1}}
 2. {{Step_2}}
 3. {{Step_3}}
@@ -43,6 +46,7 @@ Based on research of {{domain}} best practices from {{source_count}} credible so
 {{Synthesized_insights_combining_methodologies}}
 
 **Recommended Process:**
+
 1. {{Combined_step_1}}
 2. {{Combined_step_2}}
 3. {{Combined_step_3}}
@@ -59,6 +63,7 @@ When {{task_type}}:
 4. {{Output_step}}
 
 **Best Practices:**
+
 - {{Best_practice_1}}
 - {{Best_practice_2}}
 - {{Best_practice_3}}
@@ -118,6 +123,7 @@ When {{task_type}}:
 ## Quality Standards
 
 Every output from this skill should meet these criteria:
+
 - {{Quality_criterion_1}}
 - {{Quality_criterion_2}}
 - {{Quality_criterion_3}}
@@ -126,6 +132,7 @@ Every output from this skill should meet these criteria:
 ## Progressive Disclosure
 
 This skill follows progressive disclosure:
+
 - **Level 1:** Core instructions in this SKILL.md (always loaded when skill activates)
 - **Level 2:** Detailed methodologies in reference/ files (loaded on-demand)
 - **Level 3:** Templates and examples (loaded when referenced)

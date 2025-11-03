@@ -16,26 +16,28 @@
     - Voice-matched narration
     - 3 thumbnail concepts (MrBeast/Thomas Frank psychology)
     - YouTube metadata (title, description, tags)
+
   </action>
 
-  <action>Load voice profile from memories.md (same as write-posts)</action>
+<action>Load voice profile from memories.md (same as write-posts)</action>
 
-  <ask>Video topic or idea?</ask>
-  <action>Store as {{topic}}</action>
+<ask>Video topic or idea?</ask>
+<action>Store as {{topic}}</action>
 
-  <ask>Format?
-  1. Ali Abdaal Top 5 (Hook → Intro → 5 items → Outro)
-  2. MKBHD Tech Review (Cold open → Specs → Deep dive → Verdict)
-  3. Tutorial (Problem → Solution → Step-by-step → Result)
-  4. Short-form (Hook → Key point → CTA, <60 seconds)
-  </ask>
-  <action>Store as {{format}}</action>
+<ask>Format?
 
-  <ask>Target duration? (minutes)</ask>
-  <action>Store as {{duration}}</action>
+1. Ali Abdaal Top 5 (Hook → Intro → 5 items → Outro)
+2. MKBHD Tech Review (Cold open → Specs → Deep dive → Verdict)
+3. Tutorial (Problem → Solution → Step-by-step → Result)
+4. Short-form (Hook → Key point → CTA, <60 seconds)
+   </ask>
+   <action>Store as {{format}}</action>
 
-  <ask>Load from research brief or idea card? (path or 'none')</ask>
-  <action>Store as {{reference_file}}</action>
+<ask>Target duration? (minutes)</ask>
+<action>Store as {{duration}}</action>
+
+<ask>Load from research brief or idea card? (path or 'none')</ask>
+<action>Store as {{reference_file}}</action>
 </step>
 
 <step n="2" goal="Generate script (triggers video-script-writer skill)">
@@ -66,9 +68,10 @@
     **Skill returns:** Full script with timestamps + scenes
 
     Store as {{generated_script}}
+
   </action>
 
-  <action>Display script preview (first 500 chars + structure)</action>
+<action>Display script preview (first 500 chars + structure)</action>
 </step>
 
 <step n="3" goal="Generate thumbnail concepts (triggers youtube-thumbnail-mastery skill)">
@@ -95,9 +98,10 @@
     **Skill returns:** 3 thumbnail concepts with full design specs
 
     Store as {{thumbnail_concepts}}
+
   </action>
 
-  <action>Display all 3 concepts for selection</action>
+<action>Display all 3 concepts for selection</action>
 </step>
 
 <step n="4" goal="Generate YouTube metadata">
@@ -126,6 +130,7 @@
     - Example: Tech review → Category 28 (Science & Technology)
 
     Store as {{youtube_metadata}}
+
   </action>
 </step>
 
@@ -152,13 +157,14 @@
     - Content: Title, description, tags, category
 
     Display: f"✅ Saved script bundle to 03-drafts/youtube/"
+
   </action>
 </step>
 
 <step n="6" goal="Update Notion (Epic 2 Integration)">
   <action>Load notion-updates module</action>
 
-  <action>**Update Notion:**
+<action>**Update Notion:**
 
     if metadata.notion.page_url exists:
       **Step 1: Save script to Content Text**
@@ -187,6 +193,7 @@
     else:
       display("ℹ️ No Notion page linked")
     end if
+
   </action>
 </step>
 
@@ -221,9 +228,10 @@
     **Handoff Package:**
     - Created: handoffs/jarvis-to-zoe.json
     - Contains: Topic, selected thumbnail concept, script location
+
   </action>
 
-  <template-output>workflow_complete</template-output>
+<template-output>workflow_complete</template-output>
 </step>
 
 </workflow>

@@ -9,6 +9,7 @@
 ## 📋 Executive Summary
 
 ### Current State
+
 - **3 Platforms**: Twitter, LinkedIn, YouTube
 - **Success Rate**: Inconsistent (~70-80%)
 - **Architecture**: Custom modules + Unused MCP servers
@@ -17,6 +18,7 @@
 - **Error Recovery**: Minimal
 
 ### Critical Issues
+
 1. 🚨 **Rate limit failures** - Local file-based tracking breaks easily
 2. 🚨 **Authentication expiry** - Manual token refresh required
 3. 🚨 **No retry logic** - Single API failure = total failure
@@ -55,6 +57,7 @@ social-media-manager/
 ### Current Implementation Architecture
 
 **Pattern:**
+
 ```
 User Request
     ↓
@@ -78,6 +81,7 @@ Success/Failure Response
 ### 1. Rate Limiting Fragility
 
 **Current Implementation** (twitter-api-client/lib/rate-limiter.js:1-127):
+
 ```javascript
 // LOCAL FILE-BASED TRACKING
 const RATE_FILE = join(__dirname, '../.rate-limit-state.json');
@@ -94,6 +98,7 @@ saveState() {
 ```
 
 **Problems:**
+
 - ❌ File can be corrupted during write
 - ❌ No file locking (race conditions)
 - ❌ Process crash = lost state
@@ -105,6 +110,7 @@ saveState() {
 ### 2. Authentication Weaknesses
 
 **Twitter:**
+
 ```javascript
 // OAuth 1.0a - Static credentials from .env
 this.client = new TwitterApi({
@@ -114,26 +120,31 @@ this.client = new TwitterApi({
   accessSecret: credentials.accessSecret,
 });
 ```
+
 - ✅ Long-lived tokens (OK)
 - ❌ No rotation
 - ❌ No health checks
 
 **LinkedIn:**
+
 ```javascript
 // OAuth 2.0 - Token expires Dec 25, 2025
 const token = JSON.parse(readFileSync('linkedin-token.json'));
 ```
+
 - ❌ 60-day expiry (CRITICAL)
 - ❌ No automatic refresh
 - ❌ Manual re-auth required
 
 **YouTube:**
+
 - ✅ MCP server handles auth
 - ❌ Videos upload as Private (unverified app)
 
 ### 3. Error Handling Gaps
 
 **Current Pattern** (twitter-api-client/lib/client.js:45-93):
+
 ```javascript
 async createTweet(request) {
   const limitCheck = await this.rateLimiter.checkLimit();
@@ -151,6 +162,7 @@ async createTweet(request) {
 ```
 
 **Missing:**
+
 - ❌ No retry logic
 - ❌ No exponential backoff
 - ❌ No circuit breaker
@@ -159,6 +171,7 @@ async createTweet(request) {
 ### 4. No Scheduling Infrastructure
 
 **Current State:**
+
 - ✅ Workflows exist for immediate posting
 - ❌ No scheduling queue
 - ❌ No delayed execution
@@ -185,6 +198,7 @@ async createTweet(request) {
    - Tools: Instagram scraper, TikTok scraper, Twitter scraper
 
 **Why Not Used?**
+
 - Agent instructions hardcode custom modules
 - Workflows reference direct imports
 - No fallback/redundancy configured
@@ -198,6 +212,7 @@ async createTweet(request) {
 **Keep custom modules + Add enterprise resilience**
 
 #### Architecture
+
 ```
 User Request / Scheduled Job
     ↓
@@ -221,33 +236,39 @@ Status Tracking (MongoDB/PostgreSQL)
 #### Components to Add
 
 **1. Queue System (BullMQ)**
+
 ```javascript
 import Queue from 'bull';
 
 const postQueue = new Queue('social-posts', {
-  redis: { host: 'localhost', port: 6379 }
+  redis: { host: 'localhost', port: 6379 },
 });
 
 // Schedule post
-await postQueue.add('twitter-post', {
-  platform: 'twitter',
-  content: { text: 'Hello!' },
-  mediaUrls: [],
-}, {
-  delay: 60000,  // Post in 1 minute
-  attempts: 3,    // Retry 3 times
-  backoff: { type: 'exponential', delay: 2000 }
-});
+await postQueue.add(
+  'twitter-post',
+  {
+    platform: 'twitter',
+    content: { text: 'Hello!' },
+    mediaUrls: [],
+  },
+  {
+    delay: 60000, // Post in 1 minute
+    attempts: 3, // Retry 3 times
+    backoff: { type: 'exponential', delay: 2000 },
+  },
+);
 ```
 
 **2. Redis Rate Limiter**
+
 ```javascript
 import { RateLimiterRedis } from 'rate-limiter-flexible';
 
 const twitterLimiter = new RateLimiterRedis({
   storeClient: redisClient,
   keyPrefix: 'twitter',
-  points: 1500,     // Monthly limit
+  points: 1500, // Monthly limit
   duration: 2592000, // 30 days
 });
 
@@ -255,6 +276,7 @@ await twitterLimiter.consume('twitter_posts', 1);
 ```
 
 **3. Retry Wrapper**
+
 ```javascript
 import pRetry from 'p-retry';
 
@@ -264,15 +286,16 @@ async function postWithRetry(fn, options = {}) {
     factor: 2,
     minTimeout: 1000,
     maxTimeout: 10000,
-    onFailedAttempt: error => {
+    onFailedAttempt: (error) => {
       console.log(`Attempt ${error.attemptNumber} failed`);
     },
-    ...options
+    ...options,
   });
 }
 ```
 
 **4. Token Auto-Refresh**
+
 ```javascript
 class TokenManager {
   async getValidToken(platform) {
@@ -294,13 +317,14 @@ class TokenManager {
 ```
 
 **5. Circuit Breaker**
+
 ```javascript
 import CircuitBreaker from 'opossum';
 
 const breaker = new CircuitBreaker(postToTwitter, {
-  timeout: 30000,    // 30 seconds
+  timeout: 30000, // 30 seconds
   errorThresholdPercentage: 50,
-  resetTimeout: 60000 // Try again after 1 minute
+  resetTimeout: 60000, // Try again after 1 minute
 });
 
 breaker.on('open', () => {
@@ -311,18 +335,21 @@ breaker.on('open', () => {
 #### Implementation Steps
 
 **Phase 1: Core Resilience (Week 1)**
+
 1. Add Redis for rate limiting
 2. Implement retry wrapper around existing clients
 3. Add circuit breaker pattern
 4. Token auto-refresh for LinkedIn
 
 **Phase 2: Scheduling (Week 2)**
+
 1. Install BullMQ queue
 2. Create queue processors for each platform
 3. Add scheduling API/interface
 4. Integrate with existing workflows
 
 **Phase 3: Monitoring (Week 3)**
+
 1. Add health checks
 2. Implement status dashboard
 3. Alert system for failures
@@ -331,6 +358,7 @@ breaker.on('open', () => {
 #### Pros & Cons
 
 **Pros:**
+
 - ✅ Keep proven working code
 - ✅ Maintain full customization
 - ✅ Gradual migration (low risk)
@@ -338,6 +366,7 @@ breaker.on('open', () => {
 - ✅ Can add platforms easily
 
 **Cons:**
+
 - ⚠️ Requires Redis infrastructure
 - ⚠️ More complex architecture
 - ⚠️ 2-3 weeks development time
@@ -353,6 +382,7 @@ breaker.on('open', () => {
 **Replace custom modules with MCP servers**
 
 #### Architecture
+
 ```
 User Request / Scheduled Job
     ↓
@@ -366,29 +396,32 @@ Platform APIs
 ```
 
 #### Implementation
+
 ```javascript
 // Use mcp_twitter instead of custom module
 const result = await mcp__mcp_twitter__create_twitter_post({
-  post: "Hello from MCP!"
+  post: 'Hello from MCP!',
 });
 
 // Use social-media-mcp for multi-platform
 const result = await mcp__social_media_mcp__create_post({
-  instruction: "Post about AI developments",
-  platforms: ["twitter", "linkedin"],
-  postImmediately: true
+  instruction: 'Post about AI developments',
+  platforms: ['twitter', 'linkedin'],
+  postImmediately: true,
 });
 ```
 
 #### Pros & Cons
 
 **Pros:**
+
 - ✅ Less code to maintain
 - ✅ Leverage existing MCP ecosystem
 - ✅ Faster initial setup
 - ✅ Built-in retry (maybe)
 
 **Cons:**
+
 - ❌ Loss of control/customization
 - ❌ Unknown reliability
 - ❌ Limited documentation
@@ -409,6 +442,7 @@ const result = await mcp__social_media_mcp__create_post({
 #### Options to Evaluate:
 
 **A. Postiz (Open Source)**
+
 - https://github.com/gitroomhq/postiz-app
 - ✅ Self-hosted
 - ✅ Supports Twitter, LinkedIn, Facebook, Instagram
@@ -416,12 +450,14 @@ const result = await mcp__social_media_mcp__create_post({
 - ✅ Free
 
 **B. Build on Temporal.io**
+
 - ✅ Enterprise workflow orchestration
 - ✅ Built-in retries, timeouts
 - ✅ Visual workflow tracking
 - ⚠️ Complex learning curve
 
 **C. Commercial APIs (Buffer, Ayrshare)**
+
 - ✅ Turnkey solution
 - ❌ Monthly cost ($50-200+)
 - ❌ Less control
@@ -430,12 +466,14 @@ const result = await mcp__social_media_mcp__create_post({
 #### Pros & Cons
 
 **Pros:**
+
 - ✅ Proven solution
 - ✅ Full feature set
 - ✅ Maintained by community/company
 - ✅ Quick to integrate
 
 **Cons:**
+
 - ❌ External dependency
 - ❌ Potential cost
 - ❌ Less flexibility
@@ -460,6 +498,7 @@ const result = await mcp__social_media_mcp__create_post({
 ### Immediate Actions (This Week)
 
 **Priority 1: Stop the Bleeding**
+
 ```bash
 # 1. Install Redis (for rate limiting)
 brew install redis
@@ -470,6 +509,7 @@ npm install bull ioredis rate-limiter-flexible p-retry opossum
 ```
 
 **Priority 2: Quick Wins** (bmad/modules/twitter-api-client/lib/rate-limiter-redis.js)
+
 ```javascript
 import { RateLimiterRedis } from 'rate-limiter-flexible';
 import Redis from 'ioredis';
@@ -494,7 +534,7 @@ export class RedisRateLimiter {
       return {
         allowed: false,
         error: 'Rate limit exceeded',
-        resetIn: error.msBeforeNext
+        resetIn: error.msBeforeNext,
       };
     }
   }
@@ -502,6 +542,7 @@ export class RedisRateLimiter {
 ```
 
 **Priority 3: Retry Wrapper** (bmad/modules/common/retry-wrapper.js)
+
 ```javascript
 import pRetry from 'p-retry';
 
@@ -530,18 +571,18 @@ async createTweet(request) {
 
 ## 📊 Comparison Matrix
 
-| Feature | Current | Option 1 (Hybrid) | Option 2 (MCP) | Option 3 (Third-Party) |
-|---------|---------|-------------------|----------------|------------------------|
-| **Reliability** | 70-80% | 99%+ | 80-90% | 95%+ |
-| **Rate Limiting** | File-based ❌ | Redis ✅ | Unknown | Built-in ✅ |
-| **Retry Logic** | None ❌ | Exponential ✅ | Maybe | Built-in ✅ |
-| **Scheduling** | None ❌ | BullMQ ✅ | Custom ⚠️ | Built-in ✅ |
-| **Multi-Platform** | 3 platforms | Easy to add | Limited | Many platforms |
-| **Customization** | Full ✅ | Full ✅ | Limited ⚠️ | Minimal ❌ |
-| **Maintenance** | High | Medium | Low | Very Low |
-| **Cost** | $0 | $0 | $0 | $0-200/mo |
-| **Dev Time** | - | 2-3 weeks | 1-2 weeks | 1 week |
-| **Risk** | HIGH | LOW | MEDIUM | LOW-MEDIUM |
+| Feature            | Current       | Option 1 (Hybrid) | Option 2 (MCP) | Option 3 (Third-Party) |
+| ------------------ | ------------- | ----------------- | -------------- | ---------------------- |
+| **Reliability**    | 70-80%        | 99%+              | 80-90%         | 95%+                   |
+| **Rate Limiting**  | File-based ❌ | Redis ✅          | Unknown        | Built-in ✅            |
+| **Retry Logic**    | None ❌       | Exponential ✅    | Maybe          | Built-in ✅            |
+| **Scheduling**     | None ❌       | BullMQ ✅         | Custom ⚠️      | Built-in ✅            |
+| **Multi-Platform** | 3 platforms   | Easy to add       | Limited        | Many platforms         |
+| **Customization**  | Full ✅       | Full ✅           | Limited ⚠️     | Minimal ❌             |
+| **Maintenance**    | High          | Medium            | Low            | Very Low               |
+| **Cost**           | $0            | $0                | $0             | $0-200/mo              |
+| **Dev Time**       | -             | 2-3 weeks         | 1-2 weeks      | 1 week                 |
+| **Risk**           | HIGH          | LOW               | MEDIUM         | LOW-MEDIUM             |
 
 ---
 
@@ -556,7 +597,7 @@ import Queue from 'bull';
 export class PostScheduler {
   constructor() {
     this.queue = new Queue('scheduled-posts', {
-      redis: { host: 'localhost', port: 6379 }
+      redis: { host: 'localhost', port: 6379 },
     });
 
     this.setupProcessors();
@@ -564,23 +605,27 @@ export class PostScheduler {
 
   async schedulePost(options) {
     const {
-      platform,      // 'twitter' | 'linkedin' | 'youtube'
-      content,       // { text, media, etc }
-      scheduledFor,  // Date object or timestamp
-      recurring      // { interval: 'daily', time: '09:00' }
+      platform, // 'twitter' | 'linkedin' | 'youtube'
+      content, // { text, media, etc }
+      scheduledFor, // Date object or timestamp
+      recurring, // { interval: 'daily', time: '09:00' }
     } = options;
 
     const delay = scheduledFor.getTime() - Date.now();
 
-    const job = await this.queue.add('post', {
-      platform,
-      content,
-      scheduledFor,
-    }, {
-      delay: delay > 0 ? delay : 0,
-      attempts: 3,
-      backoff: { type: 'exponential', delay: 2000 }
-    });
+    const job = await this.queue.add(
+      'post',
+      {
+        platform,
+        content,
+        scheduledFor,
+      },
+      {
+        delay: delay > 0 ? delay : 0,
+        attempts: 3,
+        backoff: { type: 'exponential', delay: 2000 },
+      },
+    );
 
     if (recurring) {
       await this.setupRecurring(options);
@@ -593,7 +638,7 @@ export class PostScheduler {
     this.queue.process('post', async (job) => {
       const { platform, content } = job.data;
 
-      switch(platform) {
+      switch (platform) {
         case 'twitter':
           return await this.postToTwitter(content);
         case 'linkedin':
@@ -617,7 +662,7 @@ export class PostScheduler {
 
 ### Agent Integration
 
-```yaml
+````yaml
 # bmad/agents/social-posting-agent/workflows/schedule-post.yaml
 name: schedule-post
 description: Schedule a post for future publication
@@ -646,30 +691,32 @@ instructions: |
     console.log('Error: Schedule time must be in the future');
     return;
   }
-  ```
+````
 
-  ### 3. Schedule the Post
+### 3. Schedule the Post
 
-  ```javascript
-  const result = await scheduler.schedulePost({
-    platform: 'twitter',
-    content: { text: userInput.text, media: userInput.media },
-    scheduledFor: scheduledFor,
-    recurring: userInput.recurring || null
-  });
+```javascript
+const result = await scheduler.schedulePost({
+  platform: 'twitter',
+  content: { text: userInput.text, media: userInput.media },
+  scheduledFor: scheduledFor,
+  recurring: userInput.recurring || null,
+});
 
-  console.log(`✅ Post scheduled!`);
-  console.log(`   Job ID: ${result.jobId}`);
-  console.log(`   Will post at: ${result.scheduledFor.toLocaleString()}`);
-  ```
-
-  ### 4. Confirmation & Management
-
-  Provide user with:
-  - Job ID for tracking
-  - Scheduled time
-  - Option to view/cancel/edit scheduled posts
+console.log(`✅ Post scheduled!`);
+console.log(`   Job ID: ${result.jobId}`);
+console.log(`   Will post at: ${result.scheduledFor.toLocaleString()}`);
 ```
+
+### 4. Confirmation & Management
+
+Provide user with:
+
+- Job ID for tracking
+- Scheduled time
+- Option to view/cancel/edit scheduled posts
+
+````
 
 ---
 
@@ -697,7 +744,7 @@ async createTweet(request) {
     }
   });
 }
-```
+````
 
 ### 2. Rate Limiter File Lock (10 minutes)
 
@@ -737,6 +784,7 @@ function checkTokenExpiry() {
 ## 📅 Implementation Roadmap
 
 ### Week 1: Foundation
+
 - [ ] Install Redis locally
 - [ ] Implement Redis rate limiter
 - [ ] Add retry wrapper to all API calls
@@ -744,6 +792,7 @@ function checkTokenExpiry() {
 - [ ] LinkedIn token auto-refresh
 
 ### Week 2: Scheduling
+
 - [ ] Install BullMQ
 - [ ] Create queue processors
 - [ ] Build scheduling API
@@ -751,6 +800,7 @@ function checkTokenExpiry() {
 - [ ] Test scheduling workflows
 
 ### Week 3: Monitoring & Polish
+
 - [ ] Health check dashboard
 - [ ] Error alerting system
 - [ ] Analytics/reporting
@@ -758,6 +808,7 @@ function checkTokenExpiry() {
 - [ ] Load testing
 
 ### Week 4: Advanced Features
+
 - [ ] Bulk scheduling
 - [ ] Post templates
 - [ ] Analytics integration
@@ -769,12 +820,14 @@ function checkTokenExpiry() {
 ## 🎓 Key Learnings
 
 ### What's Working Well
+
 1. ✅ Custom API clients (Twitter/LinkedIn) are solid
 2. ✅ Agent workflow architecture is good
 3. ✅ YouTube MCP integration works
 4. ✅ New executor pattern (TwitterExecutor) is clean
 
 ### What Needs Fixing
+
 1. ❌ Rate limiting (file-based → Redis)
 2. ❌ Error recovery (add retries)
 3. ❌ Token management (auto-refresh)
@@ -782,6 +835,7 @@ function checkTokenExpiry() {
 5. ❌ Monitoring (add health checks)
 
 ### Why Current Implementation Fails
+
 1. **File-based state** - Not crash-safe, no locking, race conditions
 2. **No retry logic** - Single API hiccup = total failure
 3. **Manual token refresh** - LinkedIn expires every 60 days
@@ -793,17 +847,20 @@ function checkTokenExpiry() {
 ## 🚀 Next Steps
 
 ### For Immediate Stability (Today)
+
 1. Apply quick fixes (retry wrapper + file locks)
 2. Add LinkedIn token expiry warnings
 3. Document current rate limits
 
 ### For Long-Term Solution (This Month)
+
 1. Review and approve Option 1 (Hybrid Enhancement)
 2. Set up Redis infrastructure
 3. Begin Phase 1 implementation
 4. Schedule weekly check-ins
 
 ### For Scheduling Feature (Within 2 Weeks)
+
 1. Install BullMQ queue system
 2. Create scheduler module
 3. Build scheduling workflows

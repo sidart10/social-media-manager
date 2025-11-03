@@ -6,16 +6,17 @@
 
 ## 🎯 Two Patterns Available
 
-| Pattern | Use Case | Import |
-|---------|----------|--------|
-| **Direct Client** | Workflows, inline code | `TwitterClient` |
-| **Executor** | Standalone scripts, CLI, automation | `TwitterExecutor` |
+| Pattern           | Use Case                            | Import            |
+| ----------------- | ----------------------------------- | ----------------- |
+| **Direct Client** | Workflows, inline code              | `TwitterClient`   |
+| **Executor**      | Standalone scripts, CLI, automation | `TwitterExecutor` |
 
 ---
 
 ## Pattern 1: Direct Client (Workflows)
 
 ### Post Tweet
+
 ```javascript
 import { TwitterClient } from './bmad/modules/twitter-api-client/index.js';
 const client = new TwitterClient();
@@ -24,19 +25,17 @@ await client.createTweet({ text: 'Hello!' });
 ```
 
 ### Post Thread
+
 ```javascript
-await client.createThread([
-  { text: 'Tweet 1' },
-  { text: 'Tweet 2' },
-  { text: 'Tweet 3' }
-]);
+await client.createThread([{ text: 'Tweet 1' }, { text: 'Tweet 2' }, { text: 'Tweet 3' }]);
 ```
 
 ### With Media
+
 ```javascript
 await client.createTweet({
   text: 'Check this!',
-  media: [{ path: '/path/image.jpg', altText: 'Description' }]
+  media: [{ path: '/path/image.jpg', altText: 'Description' }],
 });
 ```
 
@@ -45,36 +44,36 @@ await client.createTweet({
 ## Pattern 2: Executor (Scripts & CLI)
 
 ### Post Tweet
+
 ```javascript
 import { TwitterExecutor } from './bmad/modules/twitter-api-client/executor.js';
 const executor = new TwitterExecutor();
 
 await executor.execute({
   type: 'tweet',
-  data: { text: 'Hello!' }
+  data: { text: 'Hello!' },
 });
 ```
 
 ### Post Thread
+
 ```javascript
 await executor.execute({
   type: 'thread',
   data: {
-    tweets: [
-      { text: 'Tweet 1' },
-      { text: 'Tweet 2' },
-      { text: 'Tweet 3' }
-    ]
-  }
+    tweets: [{ text: 'Tweet 1' }, { text: 'Tweet 2' }, { text: 'Tweet 3' }],
+  },
 });
 ```
 
 ### Check Rate Limits
+
 ```javascript
 await executor.execute({ type: 'rate-limits' });
 ```
 
 ### Verify Credentials
+
 ```javascript
 await executor.execute({ type: 'verify' });
 ```
@@ -104,27 +103,30 @@ node bmad/modules/twitter-api-client/cli/verify.js
 
 ## Rate Limits
 
-| Period | Limit | Type |
-|--------|-------|------|
-| Monthly | 1,500 | Hard (API) |
-| Daily | 50 | Recommended |
-| Hourly | 10 | Recommended |
+| Period  | Limit | Type        |
+| ------- | ----- | ----------- |
+| Monthly | 1,500 | Hard (API)  |
+| Daily   | 50    | Recommended |
+| Hourly  | 10    | Recommended |
 
 ---
 
 ## Media Constraints
 
 ### Images
+
 - Count: 1-4 per tweet
 - Formats: JPG, PNG, GIF, WEBP
 - Size: 5MB (15MB for GIFs)
 
 ### Videos
+
 - Count: 1 per tweet (cannot mix with images)
 - Formats: MP4, MOV
 - Size: 512MB max
 
 ### Text
+
 - Premium: 25,000 characters
 - Free: 280 characters
 
@@ -133,6 +135,7 @@ node bmad/modules/twitter-api-client/cli/verify.js
 ## Response Format (Executor)
 
 All executor actions return:
+
 ```javascript
 {
   action: 'action-type',
@@ -194,12 +197,14 @@ node bmad/modules/twitter-api-client/test-executor.js
 ## Common Tasks
 
 ### Check if I can post
+
 ```javascript
 const stats = client.getRateLimitStats();
 console.log(`Remaining: ${stats.remaining.monthly}`);
 ```
 
 ### Post with retry logic
+
 ```javascript
 const result = await client.createTweet({ text: 'Hello!' });
 if (!result.success && result.error.includes('429')) {
@@ -208,11 +213,12 @@ if (!result.success && result.error.includes('429')) {
 ```
 
 ### Thread with images
+
 ```javascript
 await client.createThread([
   { text: 'Tweet 1', media: [{ path: '/img1.jpg' }] },
   { text: 'Tweet 2' },
-  { text: 'Tweet 3', media: [{ path: '/img2.jpg' }] }
+  { text: 'Tweet 3', media: [{ path: '/img2.jpg' }] },
 ]);
 ```
 
@@ -221,6 +227,7 @@ await client.createThread([
 ## Error Handling
 
 ### Direct Client
+
 ```javascript
 const result = await client.createTweet({ text: 'Hello!' });
 if (!result.success) {
@@ -229,6 +236,7 @@ if (!result.success) {
 ```
 
 ### Executor
+
 ```javascript
 const result = await executor.execute({ type: 'tweet', data: { text: 'Hi' } });
 if (!result.success) {
@@ -253,11 +261,14 @@ if (!result.success) {
 ## Need Help?
 
 **Full Documentation:**
+
 - `bmad/modules/twitter-api-client/cli/README.md`
 - `bmad/agents/social-posting-agent/social-posting-agent-sidecar/instructions.md`
 
 **Test Suite:**
+
 - `bmad/modules/twitter-api-client/test-executor.js`
 
 **QA Report:**
+
 - `bmad/modules/twitter-api-client/QA-REPORT.md`

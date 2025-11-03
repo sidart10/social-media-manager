@@ -5,9 +5,8 @@ author: "Jarvis"
 # Variables
 config_source: "{agent-folder}/config.yaml"
 output_folder: "{config_source}:output_folder"
-sessions_folder: "{config_source}:sessions_folder"
-knowledge_folder: "{config_source}:knowledge_folder"
 user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
 date: system-generated
 
 # Workflow location
@@ -42,5 +41,6 @@ template: false
 instructions: "{installed_path}/instructions.md"
 
 # Output files
-default_output_file: "{sessions_folder}/research-{topic}-{date}.md"
-notes_file: "{sessions_folder}/research-{topic}-notes-{date}.md"
+# Note: Actual output path created dynamically in Step 0 of instructions.md
+# Pattern: outputs/projects/{YYYY-MM-DD}-{topic-slug}/01-research/research-brief.md
+default_output_file: "{project-root}/outputs/projects/{date}-{topic-slug}/01-research/research-brief.md"

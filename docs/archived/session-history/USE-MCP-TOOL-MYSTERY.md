@@ -9,6 +9,7 @@
 ## What I Found (or Didn't Find)
 
 **Searched:**
+
 - ✅ Official Claude Code MCP docs - NO mention of "use_mcp_tool"
 - ✅ Claude Code GitHub issues - NO results for this error
 - ✅ Our .claude/ folder - Only in docs I wrote ABOUT the error
@@ -43,11 +44,13 @@
 **FACT:** exa works, get_trending_topics works, but research_topic doesn't
 
 **This means:**
+
 - MCP invocation CAN work
 - Simple tools work
 - Complex tools (with multiple booleans) fail
 
 **Real issue might be:**
+
 - Parameter serialization bug (Issue #4192 mentions this!)
 - Boolean parameter handling issue
 - Complex parameter sets fail
@@ -59,6 +62,7 @@
 **Issue #4192:** "MCP Parameter Serialization Bug in Both Claude Code and Claude Desktop"
 
 **This could be it!**
+
 - research_topic has 5 parameters (1 string + 4 booleans)
 - Booleans might not serialize correctly
 - Claude Code bug with complex parameters
@@ -68,11 +72,13 @@
 ## Simple Test
 
 **Instead of:**
+
 ```
 research_topic(topic, includeHashtags=true, includeFacts=true, ...)
 ```
 
 **Try:**
+
 ```
 research_topic(topic)
 ```

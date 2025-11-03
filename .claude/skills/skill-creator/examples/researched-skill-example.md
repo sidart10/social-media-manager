@@ -408,6 +408,7 @@ Saving to .claude/skills/jarvis/creating-product-descriptions/...
 **Research-enhanced creation:** 4 minutes, expert-level
 
 **The difference:**
+
 - Template: "Here's how to write descriptions (generic)"
 - Researched: "Here's how Shopify, Copyblogger, and top e-commerce sites write descriptions that convert at 47% higher rates"
 

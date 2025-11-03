@@ -289,17 +289,25 @@ Every agent follows this sequence:
 
 ### Content Generation
 
-- `gpt-image-1` - OpenAI DALL-E
-- `nanobanana` - Gemini 2.5 Flash
-- `heygen` - Avatar talking head videos
-- `veotools` - Veo 3 scene generation
-- `fal-video` - Multi-model video generation
+**Images:**
+- `nanobanana` - Gemini 2.5 Flash (social media, fast)
+- `gpt-image-1` - OpenAI DALL-E 3 (professional, text rendering)
+
+**Videos:**
+- `fal-video` - **PRIMARY** for ALL video (22+ models: Veo 3, Luma Ray 2, Kling, Pixverse)
+  - Tool: `mcp__fal-video__execute_custom_model`
+  - Models: "fal-ai/veo-3", "fal-ai/luma-ray-2", etc.
+- `heygen` - **SPECIALIZED** for talking heads ONLY
+  - Tool: `mcp__heygen__generate_avatar_video`
+- `veotools` - **DEPRECATED** (use fal-video for Veo 3 access)
 
 ### Publishing
 
-- `mcp-twitter` - Twitter Premium API
-- `postiz` - Multi-platform scheduling
-- `youtube-uploader` - YouTube Data API v3
+- `postiz` - **PRIMARY for ALL platforms** (Twitter, LinkedIn, Instagram, Facebook, TikTok, YouTube, Pinterest, Reddit)
+  - Tool: `mcp__postiz__integrationSchedulePostTool`
+  - Requires: HTML content via `formatForPostiz()`, public URLs from Cloudinary
+- `mcp-twitter` - Twitter API backup (direct posting)
+  - Tool: `mcp__mcp_twitter__create_twitter_post`
 
 ### Infrastructure
 

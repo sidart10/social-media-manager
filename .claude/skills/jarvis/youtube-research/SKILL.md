@@ -29,6 +29,7 @@ When user provides YouTube URL(s) or asks about YouTube content:
 ## Why This Actor?
 
 The youtube-transcript MCP server is broken. Apify's `dz_omar/youtube-transcript-metadata-extractor` is:
+
 - ✅ Verified working (Nov 1, 2025)
 - ✅ FREE (platform fee only)
 - ✅ Reliable and actively maintained (4.92/5 rating)

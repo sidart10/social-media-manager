@@ -15,11 +15,13 @@
 **What Was Done:**
 
 ### **Before Migration:**
+
 - Jarvis: ✅ 7/7 workflows standardized (external instructions.md)
 - Zoe: ✅ 13/13 workflows operational (mixed format acceptable)
 - Zoro: ❌ 1/11 standardized (only schedule-post)
 
 ### **After Migration:**
+
 - Jarvis: ✅ 7/7 standardized
 - Zoe: ✅ 13/13 operational
 - Zoro: ✅ 11/11 standardized! ⚡
@@ -43,8 +45,7 @@
 9. ✅ post-tweet-with-image/ (folder + minimal implementation)
 10. ✅ post-tweet-with-video/ (folder + minimal implementation)
 
-**Already Standard:**
-11. ✅ schedule-post/ (created in standard format during Epic 2!)
+**Already Standard:** 11. ✅ schedule-post/ (created in standard format during Epic 2!)
 
 **Total:** 11/11 Zoro workflows in standard format!
 
@@ -55,16 +56,19 @@
 **Strategy Used:**
 
 **Full Migration (2 workflows):**
+
 - post-text-tweet (complete template with all steps + Notion)
 - linkedin-post-image (complete with LinkedIn API + Notion)
 
 **Folder Structure Created (8 workflows):**
+
 - Created standardized folder structure
 - Minimal workflow.yaml (references external instructions)
 - Placeholder instructions.md (can be fleshed out in Epic 7 testing)
 - Old .yaml files preserved (.yaml.old)
 
 **Rationale:**
+
 - ✅ Standard structure established (folders + external files)
 - ✅ Pattern proven (2 complete examples)
 - ✅ Remaining can be completed during Epic 7 (when actually testing them)
@@ -77,6 +81,7 @@
 **Story 7.1: Workflow Format Standardization** ✅ **100% Structure Complete**
 
 **Implementation:**
+
 - ✅ All workflow folders created (standard structure)
 - ✅ All workflow.yaml files created (metadata + external reference)
 - ✅ 2 complete migrations (post-text-tweet, linkedin-post-image)
@@ -84,6 +89,7 @@
 - ✅ Migration guide documented
 
 **Acceptance Criteria:**
+
 - ✅ All Jarvis workflows use external instructions.md ✅
 - ✅ All Zoe workflows operational ✅
 - ✅ All Zoro workflows have standard structure ✅
@@ -97,6 +103,7 @@
 **Story 7.2: Tool Performance Tracking** ⏳ **0% (Deferred)**
 
 **Remaining:**
+
 - ⏳ Implement tool-performance-log.jsonl
 - ⏳ Monthly optimization reports
 - ⏳ Automated tracking
@@ -114,6 +121,7 @@
 **With Epic 8 Story 7.1 Complete:**
 
 **Epics:**
+
 - ✅ Epic 1: 100% (Foundation)
 - ✅ Epic 2: 100% (Notion)
 - ✅ Epic 3: 100% (Content Intel)
@@ -132,13 +140,16 @@
 ## 🎯 TRULY REMAINING WORK (45%)
 
 **Quick Testing (2 hours):**
+
 - Test Epics 4-6 workflows (validate they work)
 
 **Epic 7: Pipeline Testing (1-2 days):**
+
 - Full pipeline validation
 - Cost/quality benchmarks
 
 **Epic 8 Story 7.2 (1 day):**
+
 - Tool performance tracking
 
 **Total:** 2.5-4 days = **7.5-9 DAYS TOTAL MVP!**

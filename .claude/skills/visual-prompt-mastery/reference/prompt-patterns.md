@@ -11,10 +11,12 @@
 ### 1. Social/Selfie Patterns (5 examples, 1,478-4,717 likes avg)
 
 #### Pattern 1A: Y2K Lo-Fi Mirror Selfie
+
 **Engagement:** 4,717 likes (highest)
 **Source:** 09-y2k-mirror-selfie-lo-fi-aesthetic.json
 
 **Core Structure:**
+
 ```json
 {
   "scene": "casual nostalgic phone selfie unintentional snapshot",
@@ -36,22 +38,26 @@
 ```
 
 **Reusable Elements:**
+
 - Full-body framing (critical for engagement)
 - Era-specific camera simulation (iPhone 4/5, flip phone, etc.)
 - Intentional imperfections (grain, blur, artifacts)
 - Environmental authenticity (clutter allowed, real spaces)
 
 **When to Use:**
+
 - Instagram casual content
 - Relatable personal branding
 - Nostalgic aesthetics
 - Authentic unpolished feel
 
 #### Pattern 1B: K-Beauty Studio Selfie
+
 **Engagement:** 3,229 likes
 **Source:** 12-winking-sofa-k-beauty-selfie.json
 
 **Core Structure:**
+
 ```json
 {
   "lighting": {
@@ -73,26 +79,24 @@
 ```
 
 **Reusable Elements:**
+
 - High-key studio lighting (flash, hard shadows)
 - Porcelain skin aesthetic (K-Beauty trend)
 - Direct flash with specular highlights
 - Stylized beauty retouching
 
 #### Pattern 1C: Themed Environment Selfie
+
 **Engagement:** 1,478 likes
 **Source:** 11-blue-pc-gaming-corner-selfie.json
 
 **Core Structure:**
+
 ```json
 {
   "environment": {
     "description": "themed corner seen in mirror",
-    "furnishings": [
-      "desk with monitor",
-      "themed decorations",
-      "color-coordinated elements",
-      "character figures/posters"
-    ],
+    "furnishings": ["desk with monitor", "themed decorations", "color-coordinated elements", "character figures/posters"],
     "color_theme": "single dominant color across room and wardrobe"
   },
   "camera": {
@@ -104,6 +108,7 @@
 ```
 
 **Reusable Elements:**
+
 - Themed environment (color-coordinated)
 - Mirror selfie composition
 - Wardrobe matching room theme
@@ -114,10 +119,12 @@
 ### 2. Professional/Editorial Patterns (6 examples, 294-1,472 likes avg)
 
 #### Pattern 2A: High-Fashion Editorial
+
 **Engagement:** 426 likes (but highly detailed/professional)
 **Source:** 02-glacial-couture-east-asian-editorial.json
 
 **Core Structure:**
+
 ```json
 {
   "camera": {
@@ -148,6 +155,7 @@
 ```
 
 **Reusable Elements:**
+
 - Complete professional camera specifications
 - Exposure strategy notes
 - Post-processing workflow
@@ -155,16 +163,19 @@
 - Technical precision throughout
 
 **When to Use:**
+
 - High-end editorial
 - Professional portfolio work
 - Commercial photography simulation
 - Maximum technical detail needed
 
 #### Pattern 2B: Studio Portrait Minimalist
+
 **Engagement:** 294 likes
 **Source:** 03-editorial-red-dress-studio-portrait.json
 
 **Core Structure:**
+
 ```json
 {
   "environment": {
@@ -186,16 +197,19 @@
 ```
 
 **Reusable Elements:**
+
 - Minimalist studio setup
 - Single-light philosophy
 - Chiaroscuro drama
 - Aesthetic reference system (name photographers)
 
 #### Pattern 2C: Urban Editorial Fashion
+
 **Engagement:** 1,472 likes
 **Source:** 13-gallery-hallway-olive-tank-manga.json
 
 **Core Structure:**
+
 ```json
 {
   "environment": {
@@ -216,6 +230,7 @@
 ```
 
 **Reusable Elements:**
+
 - Environmental storytelling (walls tell a story)
 - Three-point lighting with exact specifications
 - Floor treatment notes (anti-reflection)
@@ -226,10 +241,12 @@
 ### 3. Creative/Artistic Patterns (5 examples, 13-1,143 likes avg)
 
 #### Pattern 3A: Cultural Mashup Fantasy
+
 **Engagement:** 1,143 likes
 **Source:** 07-tokyo-rain-cat-bus-corgi-night.json
 
 **Core Structure:**
+
 ```json
 {
   "view": "POV from [unique perspective]",
@@ -253,6 +270,7 @@
 ```
 
 **Reusable Elements:**
+
 - Multiple subjects with IDs
 - Cultural style references (Ghibli, anime, etc.)
 - POV perspective framing
@@ -260,10 +278,12 @@
 - Stylized color grading (teal-orange, cyber-pink)
 
 #### Pattern 3B: Illustration/Diagram Style
+
 **Engagement:** 610 likes
 **Source:** 10-kawaii-cat-notebook-illustration.json
 
 **Core Structure:**
+
 ```json
 {
   "style": "hand-drawn illustration aesthetic",
@@ -287,6 +307,7 @@
 ```
 
 **Reusable Elements:**
+
 - Layer-based composition
 - Named color palette (descriptive names + hex)
 - Canvas specifications (ratio, resolution, background)
@@ -294,10 +315,12 @@
 - Typography/text integration
 
 #### Pattern 3C: Selective Color Technique
+
 **Engagement:** 2,986 likes
 **Source:** 15-black-white-blue-lingerie-backlight.json
 
 **Core Structure:**
+
 ```json
 {
   "color_grade": "BLACK & WHITE global grade with SELECTIVE COLOR",
@@ -312,6 +335,7 @@
 ```
 
 **Reusable Elements:**
+
 - Selective color isolation technique
 - Black & white base with color accent
 - Backlight + rim light setup
@@ -322,10 +346,12 @@
 ### 4. Cinematic/Video Patterns (13 examples, 134-1,245 likes avg)
 
 #### Pattern 4A: Static Observational (CCTV/Documentary)
+
 **Engagement:** 1,245 likes (highest video)
 **Source:** 13-cctv-donkey-baboon-gas-station.json
 
 **Core Structure:**
+
 ```json
 {
   "style": "specific aesthetic (night-vision, CCTV, documentary)",
@@ -336,9 +362,9 @@
     "resolution": "[specific simulation]"
   },
   "timeline": [
-    {"time": "0–2s", "action": "entrance/establish"},
-    {"time": "2–6s", "action": "main action with physics"},
-    {"time": "6–8s", "action": "exit and hold"}
+    { "time": "0–2s", "action": "entrance/establish" },
+    { "time": "2–6s", "action": "main action with physics" },
+    { "time": "6–8s", "action": "exit and hold" }
   ],
   "subject": {
     "character_name": {
@@ -354,6 +380,7 @@
 ```
 
 **Reusable Elements:**
+
 - Static camera position (no motion)
 - 3-beat timeline structure (establish, action, resolve)
 - Physics specifications for realism
@@ -361,10 +388,12 @@
 - Specific aesthetic style (CCTV, night-vision, etc.)
 
 #### Pattern 4B: Slow Dolly/Push-In
+
 **Engagement:** 416 likes
 **Source:** 08-blue-alpine-gentian-mountain-macro.json
 
 **Core Structure:**
+
 ```json
 {
   "shot": {
@@ -396,6 +425,7 @@
 ```
 
 **Reusable Elements:**
+
 - Single slow camera motion (dolly-in OR push-in, never both)
 - Timeline beats with focus changes
 - Motion path in meters
@@ -403,10 +433,12 @@
 - Final hold for impact
 
 #### Pattern 4C: Handheld Observational
+
 **Engagement:** 265 likes
 **Source:** 04-girls-night-stone-arcade-selfie.json
 
 **Core Structure:**
+
 ```json
 {
   "format": "selfie vlog style",
@@ -437,6 +469,7 @@
 ```
 
 **Reusable Elements:**
+
 - Handheld aesthetic (micro-bob preserved)
 - Dialogue integration (exact lines with character name)
 - Physics per beat (hair, jewelry, fabric)
@@ -449,9 +482,11 @@
 ### Universal Elements (Present in ALL 30 examples)
 
 #### 1. Negative Prompts (100% of examples)
+
 **Pattern:** Minimum 10 items, specific to aesthetic
 
 **Social/Casual negatives:**
+
 ```json
 [
   "professional photography",
@@ -468,6 +503,7 @@
 ```
 
 **Professional negatives:**
+
 ```json
 [
   "amateur",
@@ -486,6 +522,7 @@
 ```
 
 **Cinematic negatives:**
+
 ```json
 [
   "shaky camera",
@@ -504,6 +541,7 @@
 #### 2. Technical Precision (90% of examples)
 
 **Camera Specs Pattern:**
+
 - Focal length: Exact mm value (24, 35, 50, 85)
 - Aperture: Exact f-stop (f/1.8, f/2.8, f/3.5, f/5.6)
 - ISO: Exact value (100, 200, 400, 800, 1600)
@@ -511,6 +549,7 @@
 - Shutter: Exact fraction (1/125s, 1/200s, 1/1250s)
 
 **Color Precision Pattern:**
+
 - Always hex format: #RRGGBB
 - Name + hex: "teal": "#19897A", "pink": "#FF4FA3"
 - Include RGB when relevant: "(R: 25, G: 137, B: 122)"
@@ -518,6 +557,7 @@
 #### 3. Aspect Ratios (100% specify)
 
 **Image aspect ratios used:**
+
 - 4:5 - Instagram posts (most common)
 - 1:1 - Square (LinkedIn, profile pics)
 - 4:3 - Y2K aesthetic (iPhone era)
@@ -525,6 +565,7 @@
 - 16:9 - Landscape/YouTube
 
 **Video aspect ratios used:**
+
 - 16:9 - Cinematic horizontal (most common)
 - 9:16 - Vertical social (TikTok/Reels)
 - 1:1 - Square video (rare)
@@ -532,6 +573,7 @@
 #### 4. Lighting Patterns
 
 **Three-Point Lighting:**
+
 ```json
 {
   "key": "main light source with modifier and angle",
@@ -541,6 +583,7 @@
 ```
 
 **Natural Lighting:**
+
 ```json
 {
   "source": "window light OR outdoor sun",
@@ -551,6 +594,7 @@
 ```
 
 **Stylized Lighting:**
+
 ```json
 {
   "mood": "dramatic OR soft OR harsh",
@@ -565,9 +609,11 @@
 ## Structural Patterns by Complexity
 
 ### Simple Prompts (50-100 lines)
+
 **Examples:** 09-y2k-mirror-selfie, 04-90s-pool-deck
 
 **Structure:**
+
 - 6-8 sections (scene, subject, camera, look, background, negative)
 - Minimal nesting
 - Direct descriptions
@@ -576,9 +622,11 @@
 **Use For:** Quick social content, testing, iterations
 
 ### Medium Prompts (100-200 lines)
+
 **Examples:** 12-winking-sofa-k-beauty, 03-editorial-red-dress
 
 **Structure:**
+
 - 8-10 sections
 - Moderate nesting (subject has sub-objects)
 - Lighting has multiple sources
@@ -588,9 +636,11 @@
 **Use For:** Standard content creation, professional work
 
 ### Complex Prompts (200-400 lines)
+
 **Examples:** 02-glacial-couture, 13-gallery-hallway, 14-bedroom-reclining
 
 **Structure:**
+
 - 10-15 sections
 - Deep nesting (subject.face.eyes.details)
 - Complete lighting setup (key, fill, rim, ambient)
@@ -601,9 +651,11 @@
 **Use For:** Professional editorial, commercial work, portfolio
 
 ### Very Complex Prompts (400+ lines)
+
 **Examples:** Video prompts with detailed beats
 
 **Structure:**
+
 - 15+ sections
 - Timeline beats with physics per segment
 - Multiple subjects with IDs
@@ -620,11 +672,13 @@
 ### Scene Patterns
 
 **Minimalist:**
+
 ```json
 "scene": "clean simple background single focal point"
 ```
 
 **Environmental:**
+
 ```json
 "scene": {
   "environment": "detailed setting with specific elements",
@@ -634,6 +688,7 @@
 ```
 
 **Narrative:**
+
 ```json
 "scene": {
   "location": "specific place with context",
@@ -646,6 +701,7 @@
 ### Subject Patterns
 
 **Portrait:**
+
 ```json
 "subject": {
   "demographics": "age, ethnicity, build",
@@ -660,6 +716,7 @@
 ```
 
 **Object/Product:**
+
 ```json
 "subject": {
   "type": "what it is",
@@ -670,6 +727,7 @@
 ```
 
 **Multiple Subjects:**
+
 ```json
 "subjects": [
   {
@@ -687,6 +745,7 @@
 ### Composition Patterns
 
 **Rule of Thirds:**
+
 ```json
 "composition": {
   "framing": "subject on right third negative space left",
@@ -696,6 +755,7 @@
 ```
 
 **Centered Symmetry:**
+
 ```json
 "composition": {
   "layout": "centered symmetrical",
@@ -705,6 +765,7 @@
 ```
 
 **Environmental Portrait:**
+
 ```json
 "composition": {
   "subject_placement": "off-center to show environment",
@@ -751,6 +812,7 @@
 **Rule:** ONE camera motion only (never combine)
 
 **Static (No Motion):**
+
 ```json
 "shot": {
   "camera_motion": "none locked",
@@ -759,6 +821,7 @@
 ```
 
 **Push-In/Dolly-In:**
+
 ```json
 "primary_camera_motion": "slow dolly-in from [start] to [end]",
 "motion_path_meters": 0.5,
@@ -766,12 +829,14 @@
 ```
 
 **Handheld:**
+
 ```json
 "primary_camera_motion": "handheld [direction] with natural micro-bob",
 "stabilization": "natural handheld micro-bob retained < 2%"
 ```
 
 **Arc/Orbit:**
+
 ```json
 "primary_camera_motion": "slow arc-left around subject",
 "motion_path": "start [position] end [position]"
@@ -780,6 +845,7 @@
 ### Physics Specifications (Critical for Realism)
 
 **Natural Movement:**
+
 ```json
 "physics": [
   "hair shifts subtly with breeze",
@@ -792,6 +858,7 @@
 ```
 
 **Object Interaction:**
+
 ```json
 "physics": [
   "hand tremor minimal realistic",
@@ -1043,6 +1110,7 @@ Platform?
 ### When to Use Each Pattern
 
 **Use Social/Selfie when:**
+
 - Target audience is general public
 - Content is personal/relatable
 - Platform is Instagram/TikTok
@@ -1050,6 +1118,7 @@ Platform?
 - Goal is high engagement
 
 **Use Professional/Editorial when:**
+
 - Target audience is professionals
 - Content is corporate/commercial
 - Platform is LinkedIn
@@ -1057,6 +1126,7 @@ Platform?
 - Goal is credibility/trust
 
 **Use Creative/Artistic when:**
+
 - Target audience is creatives
 - Content is experimental/unique
 - Any platform (viral potential)
@@ -1064,6 +1134,7 @@ Platform?
 - Goal is attention/differentiation
 
 **Use Cinematic/Video when:**
+
 - Content is video (any platform)
 - Need narrative structure
 - Cinematic quality desired
@@ -1082,6 +1153,7 @@ Platform?
 6. **Validate completeness** (all required sections present)
 
 **Example Adaptation:**
+
 ```
 Base: 09-y2k-mirror-selfie (4,717 likes)
 Request: "Create Instagram post of my art studio"
@@ -1106,24 +1178,28 @@ Result: Art studio selfie with Y2K engagement formula
 ## Model-Specific Considerations
 
 ### Nano Banana (Gemini 2.5 Flash)
+
 **Prompt Style:** Structured JSON works best
 **Strengths:** Creative interpretation, editing, multi-image
 **Weaknesses:** Text rendering moderate
 **Optimization:** Use system_instruction for overall tone, detailed negative_prompts
 
 ### gpt-image-1 (OpenAI DALL-E 3)
+
 **Prompt Style:** Natural language or structured
 **Strengths:** Photorealism, text rendering, professional quality
 **Weaknesses:** Less creative freedom, more literal
 **Optimization:** Be explicit about text content, font sizes
 
 ### veotools (Google Veo 3)
+
 **Prompt Style:** Structured with timeline beats
 **Strengths:** Cinematic motion, audio sync, physics
 **Weaknesses:** 8-30s length limit, complex subjects challenging
 **Optimization:** Single camera motion, clear physics per beat
 
 ### fal-video (Multiple Models)
+
 **Prompt Style:** Model-dependent
 **Strengths:** Model variety, custom training support
 **Weaknesses:** Inconsistent across models
@@ -1136,6 +1212,7 @@ Result: Art studio selfie with Y2K engagement formula
 These are common prompt types Emily hasn't posted (opportunities for extension):
 
 **Missing:**
+
 - Product photography (e-commerce)
 - Food photography (culinary)
 - Architecture (buildings, interiors)
@@ -1146,6 +1223,7 @@ These are common prompt types Emily hasn't posted (opportunities for extension):
 
 **Future Template Expansion:**
 When these use cases arise, create new templates following Emily's methodology:
+
 - 10+ sections
 - Technical precision
 - Platform optimization

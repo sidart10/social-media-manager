@@ -26,11 +26,13 @@
 **Purpose:** Explicit user-facing entry points
 
 **Your slash commands:**
+
 - `/jarvis` → Invokes Jarvis agent
 - `/ai-video-agent` → Invokes AI Video agent
 - `/bmad` → Invokes BMad Master agent
 
 **How they work:**
+
 ```
 User types: /jarvis
   → Skill tool executes command="jarvis"
@@ -48,11 +50,13 @@ User types: /jarvis
 **Purpose:** Invisible knowledge base
 
 **Your skills:**
+
 - `post-writer` → Auto-loads for social posts
 - `video-script-writer` → Auto-loads for video scripts
 - `youtube-thumbnail-mastery` → Auto-loads for thumbnail strategy
 
 **How they work:**
+
 ```
 User: "Write a YouTube script"
   → Claude scans skill descriptions
@@ -102,20 +106,25 @@ Task matches description
 ### The Description is CRITICAL (Lines 93, 700, 1866)
 
 **From docs:**
+
 > "The `description` field is critical for Claude to discover when to use your Skill. It should include both what the Skill does and when Claude should use it."
 
 ### Good vs Bad Descriptions
 
 **❌ Too Vague:**
+
 ```yaml
 description: Helps with documents
 ```
+
 **Why bad:** Doesn't trigger on specific tasks
 
 **✅ Specific:**
+
 ```yaml
 description: Extract text and tables from PDF files, fill forms, merge documents. Use when working with PDF files or when the user mentions PDFs, forms, or document extraction.
 ```
+
 **Why good:** Includes what (PDF processing) AND when (PDF files, forms, document extraction)
 
 ---
@@ -123,6 +132,7 @@ description: Extract text and tables from PDF files, fill forms, merge documents
 ### Our Skills Descriptions Analysis
 
 **✅ GOOD - video-script-writer:**
+
 ```yaml
 description: Generate professional YouTube video scripts (10-20 min talking head) and short-form vertical videos (Shorts/Reels/TikTok) using proven strategies from Ali Abdaal, MKBHD, and 2025 retention best practices.
 ```
@@ -131,6 +141,7 @@ description: Generate professional YouTube video scripts (10-20 min talking head
 **When:** Writing video scripts
 
 **✅ GOOD - youtube-thumbnail-mastery:**
+
 ```yaml
 description: Complete YouTube thumbnail design guide combining MrBeast strategies, official YouTube guidelines, and expert creator insights for maximum CTR
 ```
@@ -139,6 +150,7 @@ description: Complete YouTube thumbnail design guide combining MrBeast strategie
 **When:** Thumbnail design, CTR optimization
 
 **✅ GOOD - post-writer:**
+
 ```yaml
 description: Generate professional social media posts using proven creator formulas...
 ```
@@ -187,12 +199,14 @@ description: Generate professional social media posts using proven creator formu
 ### Better Wording
 
 **Option A:**
+
 ```xml
 <action>The video-script-writer skill auto-loads for video script tasks.
 Apply its methodologies:</action>
 ```
 
 **Option B:**
+
 ```xml
 <action>Use video-script-writer skill (model-invoked):
   Claude has automatically loaded this skill. Apply Ali Abdaal and MKBHD
@@ -200,6 +214,7 @@ Apply its methodologies:</action>
 ```
 
 **Option C:**
+
 ```xml
 <action>Reference video-script-writer skill:
   - The skill is model-invoked (automatically loaded by Claude)
@@ -217,6 +232,7 @@ Apply its methodologies:</action>
 ### Test Queries (From Anthropic Docs Line 806)
 
 **From docs:**
+
 > "After creating a Skill, test it by asking questions that match your description."
 >
 > "Claude autonomously decides to use your Skill if it matches the request—you don't need to explicitly invoke it."
@@ -224,11 +240,13 @@ Apply its methodologies:</action>
 ### Test 1: Video Script
 
 **Query:**
+
 ```
 Write a 15-minute YouTube video script about AI automation tools using Ali Abdaal's Top 5 format
 ```
 
 **Expected behavior:**
+
 ```
 Claude: "Using video-script-writer skill with Ali Abdaal Top 5 methodology.
 
@@ -250,11 +268,13 @@ Generating script..."
 ### Test 2: LinkedIn Post
 
 **Query:**
+
 ```
 Write a LinkedIn post about AI agents using Justin Welsh's PAIPS formula
 ```
 
 **Expected:**
+
 ```
 Claude: "Using post-writer skill with Justin Welsh PAIPS structure.
 
@@ -275,11 +295,13 @@ Generating post..."
 ### Test 3: Thumbnail Strategy
 
 **Query:**
+
 ```
 Explain MrBeast's thumbnail psychology and how to get high CTR
 ```
 
 **Expected:**
+
 ```
 Claude: "Using youtube-thumbnail-mastery skill.
 
@@ -420,26 +442,31 @@ bmad/agents/content-intelligence/jarvis-sidecar/workflows/
 **Components:**
 
 **1. BMad Core Platform**
+
 - Agent orchestration system
 - Workflow execution engine
 - Multi-module architecture
 
 **2. Content Intelligence (Jarvis)**
+
 - Research workflows
 - Content generation (posts, scripts)
 - Voice matching
 - Platform optimization
 
 **3. AI Image Generator**
+
 - YouTube thumbnail generation
 - LinkedIn carousel design
 - Platform-specific image creation
 
 **4. AI Video Agent**
+
 - Video script generation
 - Production coordination
 
 **5. Social Posting Agent**
+
 - Multi-platform posting
 - Twitter, LinkedIn automation
 
@@ -450,6 +477,7 @@ bmad/agents/content-intelligence/jarvis-sidecar/workflows/
 ### Configuration
 
 **bmad/core/config.yaml** - Core settings
+
 - user_name: sid
 - communication_language: english
 - output_folder: '{project-root}/docs'
@@ -457,21 +485,25 @@ bmad/agents/content-intelligence/jarvis-sidecar/workflows/
 ### Agent Definitions
 
 **.claude/commands/** - Slash commands (user-invoked)
+
 - jarvis/, ai-video-agent/, bmad/, social-posting-agent/
 
 **.claude/skills/** - Skills (model-invoked, auto-load)
+
 - jarvis/: 12 content creation skills
 - ai-image-generator/: 7 image generation skills
 
 ### Workflows
 
 **bmad/agents/content-intelligence/jarvis-sidecar/workflows/**
+
 - 7 workflows orchestrating skill usage
 - Each references auto-loaded skills
 
 ### Documentation
 
 **docs/** - Comprehensive project documentation
+
 - agent-skills.md (official Anthropic docs - THIS FILE)
 - WHY-SKILLS-WERENT-USED.md (root cause analysis)
 - AGENT-WORKFLOW-SKILL-MAP.md (architecture)
@@ -482,10 +514,12 @@ bmad/agents/content-intelligence/jarvis-sidecar/workflows/
 ## Dependencies
 
 ### Core
+
 - Node.js v20+
 - npm packages (see package.json)
 
 ### MCP Servers (16 connected)
+
 - archon, serena, neon, vercel
 - chrome-devtools, gpt-image-1, nanobanana
 - heygen, mcp_twitter, youtube-uploader-mcp
@@ -500,6 +534,7 @@ bmad/agents/content-intelligence/jarvis-sidecar/workflows/
 ### 1. Skills Auto-Load (Lines 16, 203, 1789, 1976)
 
 **From docs (Line 203):**
+
 > "Claude autonomously decides to use your Skill if it matches the request—you don't need to explicitly invoke it. The Skill activates automatically based on the context of your question."
 
 **Implication:** When workflow says "invoke skill", it means "use the auto-loaded skill", NOT "call a tool"
@@ -509,9 +544,11 @@ bmad/agents/content-intelligence/jarvis-sidecar/workflows/
 ### 2. Description is King (Lines 93, 700, 1866)
 
 **From docs (Line 93):**
+
 > "The `description` field is critical for Claude to discover when to use your Skill. It should include both what the Skill does and when Claude should use it."
 
 **Best practice examples (Lines 350-360, 1125-1127):**
+
 ```yaml
 # GOOD
 description: Analyze Excel spreadsheets, create pivot tables, and generate charts. Use when working with Excel files, spreadsheets, or analyzing tabular data in .xlsx format.
@@ -527,9 +564,11 @@ description: For files
 ### 3. Progressive Disclosure Saves Tokens (Lines 1292, 1405, 1896)
 
 **From docs (Line 1292):**
+
 > "This API returns each Skill's metadata: its name and description. Claude loads this metadata at startup to know what Skills are available. This is the first level of **progressive disclosure**, where Claude discovers Skills without loading their full instructions yet."
 
 **Token efficiency:**
+
 - Level 1 (metadata): 50-100 tokens per skill
 - Level 2 (full content): 5000-10000 tokens per skill
 - Only loads Level 2 when relevant!
@@ -549,6 +588,7 @@ allowed-tools: Read, Grep, Glob
 ```
 
 **Use cases:**
+
 - Read-only skills
 - Security-sensitive workflows
 - Limited scope operations
@@ -560,9 +600,11 @@ allowed-tools: Read, Grep, Glob
 ### 5. Supporting Files Load on Demand (Lines 98-123, 707-731, 1870-1896)
 
 **From docs (Line 1896):**
+
 > "Claude reads these files only when needed, using progressive disclosure to manage context efficiently."
 
 **Structure:**
+
 ```
 video-script-writer/
 ├── SKILL.md (always loaded when skill activates)
@@ -582,11 +624,13 @@ video-script-writer/
 ### Workflow Instructions Use Confusing Language
 
 **Current pattern:**
+
 ```xml
 <action>Invoke video-script-writer Skill</action>
 ```
 
 **Why confusing:**
+
 1. "Invoke" suggests manual action
 2. Sounds like tool call
 3. Claude looks for Skill tool
@@ -595,11 +639,13 @@ video-script-writer/
 ### What It Actually Means
 
 **Translation:**
+
 ```
 "Invoke skill" = "Use the auto-loaded skill knowledge"
 ```
 
 **What Claude should do:**
+
 1. Recognize skill is relevant (already auto-loaded)
 2. Say: "Using video-script-writer skill..."
 3. Load skill's prompts/ or reference/ if needed
@@ -613,6 +659,7 @@ video-script-writer/
 ### write-posts/instructions.md (Line 88)
 
 **Current:**
+
 ```xml
 <step n="2" goal="Generate content using post-writer Skill">
   <action>**Invoke post-writer Skill:**
@@ -622,6 +669,7 @@ video-script-writer/
 ```
 
 **Updated:**
+
 ```xml
 <step n="2" goal="Generate content using post-writer skill (model-invoked)">
   <note>The post-writer skill auto-loads when Claude detects social media
@@ -646,12 +694,14 @@ video-script-writer/
 ### write-scripts/instructions.md (Line 62)
 
 **Current:**
+
 ```xml
 <step n="2" goal="Generate script using video-script-writer Skill">
   <action>**Invoke video-script-writer Skill:**
 ```
 
 **Updated:**
+
 ```xml
 <step n="2" goal="Generate script using video-script-writer skill (model-invoked)">
   <note>The video-script-writer skill auto-loads when Claude detects video
@@ -681,6 +731,7 @@ video-script-writer/
 **Two agent invocation methods:**
 
 **1. BMad Agents (Slash Commands)**
+
 ```
 /jarvis → Jarvis Content Intelligence
 /ai-video-agent → Video creation
@@ -690,6 +741,7 @@ video-script-writer/
 ```
 
 **2. Claude Skills (Auto-Loaded)**
+
 ```
 19 skills automatically available
 No manual invocation
@@ -697,6 +749,7 @@ Claude loads when task matches description
 ```
 
 **They work together:**
+
 - Slash command invokes agent
 - Agent runs workflow
 - Workflow references skills
@@ -738,6 +791,7 @@ Claude loads when task matches description
 ### 1. Update All Workflow Instructions
 
 **Files to update:**
+
 - write-posts/instructions.md
 - write-scripts/instructions.md
 - research-topic/instructions.md
@@ -752,6 +806,7 @@ Claude loads when task matches description
 ### 2. Train Claude (Me) to Reference Skills
 
 **When workflow mentions skill:**
+
 1. ✅ Say: "Using [skill-name] skill..."
 2. ✅ Explain which methodology applying
 3. ✅ Load skill's prompts/ or reference/ if needed
@@ -759,6 +814,7 @@ Claude loads when task matches description
 5. ✅ Generate output following skill guidance
 
 **Don't:**
+
 1. ❌ Try to use Skill tool
 2. ❌ Look for skill in available_skills
 3. ❌ Skip skill and write manually
@@ -769,11 +825,13 @@ Claude loads when task matches description
 ### 3. Verify Auto-Loading Works
 
 **Test with queries matching skill descriptions:**
+
 - Does Claude mention using the skill?
 - Does output follow skill methodologies?
 - Are skill patterns applied correctly?
 
 **If not working:**
+
 - Check skill description specificity
 - Verify YAML frontmatter valid
 - Confirm skill in correct directory
@@ -793,6 +851,7 @@ Claude loads when task matches description
 
 **Q:** "How are they working together?"
 **A:**
+
 ```
 Slash command (user-invoked) → Workflow (orchestration) → Skills (model-invoked, auto-loaded) → Output
 ```
@@ -823,14 +882,12 @@ Slash command (user-invoked) → Workflow (orchestration) → Skills (model-invo
 ### Action Items
 
 **Immediate:**
+
 1. Test automatic skill loading with example queries
 2. Verify skills mention themselves when used
 3. Update workflow instructions if needed
 
-**Short-term:**
-4. Create LinkedIn & Twitter multi-source skills
-5. Test full content creation pipeline
-6. Verify all 19 skills auto-load correctly
+**Short-term:** 4. Create LinkedIn & Twitter multi-source skills 5. Test full content creation pipeline 6. Verify all 19 skills auto-load correctly
 
 ---
 

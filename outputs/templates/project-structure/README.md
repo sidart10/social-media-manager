@@ -7,6 +7,7 @@ When a workflow creates a new project, it copies this entire folder structure to
 `outputs/projects/{YYYY-MM-DD}-{project-slug}/`
 
 **6 Lifecycle Stages:**
+
 - `00-session/` - Session metadata, logs, Notion linking
 - `01-research/` - Research outputs (shared across platforms)
 - `02-ideas/` - Content ideas (shared across platforms)
@@ -16,6 +17,7 @@ When a workflow creates a new project, it copies this entire folder structure to
 - `handoffs/` - Agent coordination packages
 
 **Key Design Principles:**
+
 - **Stages 01-02:** Shared research and ideas (platform-agnostic)
 - **Stage 03:** Platform-specific text (LinkedIn post differs from Twitter thread)
 - **Stage 04:** Platform-agnostic media (one thumbnail serves multiple platforms)
@@ -23,6 +25,7 @@ When a workflow creates a new project, it copies this entire folder structure to
 
 **Media Reusability:**
 Generate `thumbnail-main.png` once in 04-media/images/, reference from:
+
 - 05-published/linkedin/post.md
 - 05-published/twitter/thread.md
 - 05-published/facebook/post.md

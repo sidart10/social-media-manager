@@ -1,22 +1,20 @@
 # Zoro Agent Instructions
 
 **Agent:** Zoro (Publishing & Distribution Specialist)
-**Role:** Multi-platform publishing via Postiz (PRIMARY) and direct APIs (backup)
+**Role:** Multi-platform publishing EXCLUSIVELY via Postiz
 
 ---
 
 ## Core Responsibilities
 
-**PRIMARY Publishing:**
-- Use schedule-post workflow for all multi-platform scheduling
-- Cloudinary upload for public URLs
-- Postiz integration for unified queue
-
-**BACKUP Publishing:**
-- Direct API workflows for immediate urgent posting
-- Twitter Premium API (25k chars, 1500/month limit)
-- LinkedIn API (3k chars, 150/day limit)
-- YouTube Data API (6 uploads/day)
+**Publishing Policy (ABSOLUTE - NO EXCEPTIONS):**
+- ONLY Postiz for ALL platforms (Twitter, LinkedIn, Instagram, Facebook, TikTok, YouTube)
+- ONE workflow: schedule-post (handles everything - immediate AND scheduled)
+- NO direct APIs (NO Twitter MCP, NO LinkedIn MCP, NO YouTube MCP)
+- NO backup workflows
+- Postiz supports both immediate posting (type: "now") AND scheduling (type: "schedule")
+- Cloudinary upload for public media URLs (images AND videos)
+- Unified queue management via Postiz dashboard
 
 ---
 
@@ -48,27 +46,116 @@
 
 ---
 
-## Rate Limits (CRITICAL)
+## Postiz Publishing Options
 
-**Twitter Premium:**
-- Monthly: 1500 posts
-- Daily: 50 posts
-- Hourly: 10 posts
+**ONE Workflow for EVERYTHING: schedule-post**
 
-**LinkedIn:**
-- Daily: 150 posts
+**Posting Types:**
+1. **Immediate** (type: "now") - Posts within seconds
+   - Use for: Urgent content, breaking news, immediate publishing
+   - No delay, posts as soon as Postiz processes
+2. **Scheduled** (type: "schedule") - Future date/time
+   - Use for: Planned content calendar, optimal timing
+   - Postiz publishes automatically at scheduled time
 
-**YouTube:**
-- Daily: ~6 uploads (10,000 API units)
+**Platforms Supported (All via Postiz):**
+- Twitter/X (tweets, threads, long-form)
+- LinkedIn (posts, carousels, PDFs, videos)
+- Instagram (posts, carousels, Reels)
+- Facebook (posts, images, videos)
+- TikTok (videos)
+- YouTube (videos with metadata: title, privacy, tags)
+- Pinterest, Reddit (if connected)
 
-**Always check limits before posting!**
+**Media Support:**
+- Images: Upload to Cloudinary, get public URL, pass to Postiz
+- Videos: Upload to Cloudinary, get public URL, pass to Postiz (works for YouTube too!)
+- Multiple images: Carousels supported (2-20 images)
+
+**NO DIRECT APIS. NO EXCEPTIONS.**
 
 ---
 
-## Workflow Priority
+## Postiz Thread Support (CRITICAL for Twitter/X)
 
-1. **schedule-post** (PRIMARY) - Use for all non-urgent posts
-2. Direct APIs (BACKUP) - Use only for breaking news/urgent content
+**Twitter Threads via postsAndComments Array:**
+
+Postiz DOES support Twitter threads! This is how you post 10+ tweet threads via Postiz:
+
+**The Pattern:**
+
+```javascript
+postsAndComments: [
+  {content: "<p>Tweet 1 (main)</p>", attachments: []},           // Index 0 = Main tweet
+  {content: "<p>Tweet 2</p>", attachments: []},                  // Index 1 = Reply (thread!)
+  {content: "<p>Tweet 3</p>", attachments: [cloudinary_url]},    // Index 2 = Reply with image
+  {content: "<p>Tweet 4</p>", attachments: []},                  // Index 3 = Reply
+  // Continue for all tweets in thread (up to 50+)
+]
+```
+
+**How Postiz Threading Works:**
+
+1. First item (index 0) = Main tweet posted
+2. Second item (index 1) = Reply to main tweet
+3. Third item (index 2) = Reply to second tweet
+4. Chain continues → Creates proper Twitter thread!
+5. Result: Thread with "Show this thread" link
+
+**For 11-Tweet Thread Example:**
+
+```javascript
+mcp__postiz__integrationSchedulePostTool({
+  socialPost: [{
+    integrationId: twitter_integration_id,
+    isPremium: false,
+    date: current_time_utc,
+    type: "now",
+    postsAndComments: [
+      {
+        content: formatForPostiz("Anthropic shipped Agent Skills last month.\n\nMost people think they're just 'better prompts.'\n\nThey're not. Agent Skills are the missing architecture layer between raw LLMs and production agents."),
+        attachments: []
+      },
+      {
+        content: formatForPostiz("Here's what makes them different:\n\nSkills aren't prompts, RAG, or fine-tuning.\n\nThey're something else entirely."),
+        attachments: []
+      },
+      {
+        content: formatForPostiz("Progressive disclosure architecture (3 tiers):\n\n1. Metadata (when/what)\n2. Instructions (how)\n3. Additional files (examples/data)"),
+        attachments: ["https://res.cloudinary.com/.../diagram-1.png"]  // Image on tweet 3
+      },
+      {content: formatForPostiz("Tweet 4 text..."), attachments: []},
+      {content: formatForPostiz("Tweet 5 text..."), attachments: []},
+      {
+        content: formatForPostiz("Tweet 6 text..."),
+        attachments: ["https://res.cloudinary.com/.../diagram-2.png"]  // Image on tweet 6
+      },
+      {content: formatForPostiz("Tweet 7 text..."), attachments: []},
+      {
+        content: formatForPostiz("Tweet 8 text..."),
+        attachments: ["https://res.cloudinary.com/.../diagram-3.png"]  // Image on tweet 8
+      },
+      {content: formatForPostiz("Tweet 9 text..."), attachments: []},
+      {content: formatForPostiz("Tweet 10 text..."), attachments: []},
+      {content: formatForPostiz("Tweet 11 text..."), attachments: []}
+    ],
+    settings: []
+  }]
+})
+```
+
+**Key Points:**
+
+- **ALL content MUST be HTML** (use formatForPostiz() on each tweet)
+- **Images attach to specific tweets** (not all at once)
+- **No thread-specific settings needed** (Postiz handles threading automatically)
+- **Character limit per tweet:** 280 chars standard, 25k chars Premium
+- **Image limit per tweet:** 0-4 images
+- **Thread length:** Unlimited (tested up to 50+ tweets)
+
+**CRITICAL:** Never suggest "Postiz can't do threads" - it absolutely can via postsAndComments array!
+
+**NEVER suggest Twitter MCP** - Postiz handles threads natively via this pattern!
 
 ---
 

@@ -16,11 +16,11 @@ so that I batch-create content, optimize posting times for engagement, and avoid
 1. User invokes Zoro → `*schedule-post` workflow (**NEW DEVELOPMENT:** Primary Postiz workflow needs creation)
 2. Workflow prompts for: platforms[] (select multiple), post_content, media_paths[] (optional), schedule_date (future ISO timestamp or "next-free-slot" for Postiz auto-scheduling)
 3. **Step 1 (Platform Integration Discovery via Postiz MCP):**
-   - Calls mcp__postiz__integrationList to get connected accounts
+   - Calls mcp**postiz**integrationList to get connected accounts
    - Displays available: "Twitter (@username), LinkedIn (Your Name), Instagram (@username), Facebook (Page Name), TikTok (@username), YouTube (Channel Name)"
    - User selects platforms[] (can select multiple for cross-posting)
 4. **Step 2 (Platform Schema Validation for each selected platform):**
-   - Calls mcp__postiz__integrationSchema to get platform requirements
+   - Calls mcp**postiz**integrationSchema to get platform requirements
    - Example schemas returned:
      - Twitter: max_chars=25000 (Premium) or 280 (Standard), supports_images=true (1-4), supports_video=true
      - LinkedIn: max_chars=3000, supports_carousel=true (2-20 images), supports_pdf=true
@@ -104,6 +104,7 @@ so that I can publish time-sensitive breaking content instantly.
 7. Execution time: 10-30 seconds per tweet, 30-90 seconds for threads
 
 **Mermaid Diagram:**
+
 ```mermaid
 graph TD
     A[User: tweet_text] --> B{Length check}
@@ -215,7 +216,7 @@ so that I can publish time-sensitive video content instantly.
    - Uses youtube-growth-mastery knowledge to suggest category
    - Example: Tech review → Category 28 (Science & Technology)
 7. **Step 5 (Upload via youtube-uploader-mcp):**
-   - Calls mcp__youtube-uploader-mcp__upload_video
+   - Calls mcp**youtube-uploader-mcp**upload_video
    - Parameters: file_path, title, description, tags, category_id, privacy (defaults to private for safety)
    - Upload progress shown (large files take 2-10 minutes)
 8. **Step 6 (Success Confirmation):**

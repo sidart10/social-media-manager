@@ -34,14 +34,15 @@ System
 
 **CRITICAL:** This system uses custom terminology that differs from Claude Code native concepts.
 
-| Our Term | Claude Code Term | Invocation Model | Description |
-|----------|------------------|------------------|-------------|
-| **Agent** | Slash Command | User-invoked | Persona-driven menu interface presenting workflow options |
-| **Workflow** | (Custom) | User-selected | YAML+XML multi-step process orchestrator with state management |
-| **Skill** | Agent Skill | Model-invoked | Autonomous expertise module Claude discovers via description |
-| **MCP** | MCP Server | Tool-invoked | External API/service integration (Notion, Exa, Apify, etc.) |
+| Our Term     | Claude Code Term | Invocation Model | Description                                                    |
+| ------------ | ---------------- | ---------------- | -------------------------------------------------------------- |
+| **Agent**    | Slash Command    | User-invoked     | Persona-driven menu interface presenting workflow options      |
+| **Workflow** | (Custom)         | User-selected    | YAML+XML multi-step process orchestrator with state management |
+| **Skill**    | Agent Skill      | Model-invoked    | Autonomous expertise module Claude discovers via description   |
+| **MCP**      | MCP Server       | Tool-invoked     | External API/service integration (Notion, Exa, Apify, etc.)    |
 
 **Invocation Flow:**
+
 1. User invokes Agent (`/jarvis`) → User-driven
 2. Agent presents menu of Workflows → User selects
 3. Workflow executes steps creating context → Process-driven

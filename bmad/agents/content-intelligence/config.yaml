@@ -51,6 +51,5 @@ mcp_tools:
 # Skills Configuration
 skills_folder: "{project-root}/.claude/skills/jarvis"
 skills_enabled: true
-
 # Note: API keys and advanced settings are stored in sidecar_config
 # This separation keeps sensitive data isolated and module config clean

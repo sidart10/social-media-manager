@@ -20,6 +20,7 @@ Generate a complete, ready-to-publish LinkedIn post optimized for maximum engage
 ## Input Parameters
 
 You will receive:
+
 - **Topic**: {topic}
 - **Style**: {justin_welsh_paips | justin_welsh_enemy | top_5_list | storytelling | data_driven}
 - **Target Audience**: {audience}
@@ -68,6 +69,7 @@ And I {Gasoline}. {Teaser Question}?
 ```
 
 **Template**:
+
 ```
 The {Relatable Enemy} is {Negativity}
 The {Hero} is {Strong Positive}
@@ -199,7 +201,9 @@ Source: {research_source}
 
 **First 210 Characters** (Above Fold - CRITICAL):
 ```
+
 {exact_first_210_chars}
+
 ```
 
 **Hook Quality Check**:
@@ -284,6 +288,7 @@ Source: {research_source}
 **This is your ONLY chance to stop the scroll.**
 
 **3-Line Hook Structure**:
+
 ```
 Line 1: {Bold statement, question, or relatable problem}
 
@@ -321,6 +326,7 @@ Line 3: {Promise, tease, or intrigue}
 ### Hook Quality Test
 
 Ask yourself:
+
 - Can reader tell the value in 3 seconds? (If no, rewrite)
 - Does it create curiosity gap? (Unanswered question)
 - Does it trigger emotion? (Surprise, frustration, hope, curiosity)
@@ -333,6 +339,7 @@ If answer is "no" to any, REWRITE the hook.
 ### Formatting (40% More Engagement)
 
 **Do**:
+
 - ✅ Short paragraphs (2-3 lines max)
 - ✅ Blank lines between sections
 - ✅ Bullet points for lists
@@ -340,6 +347,7 @@ If answer is "no" to any, REWRITE the hook.
 - ✅ Emojis (1-3 total) for visual markers
 
 **Don't**:
+
 - ❌ Walls of text
 - ❌ Long paragraphs (>4 lines)
 - ❌ No spacing
@@ -348,11 +356,13 @@ If answer is "no" to any, REWRITE the hook.
 ### Length (<200 Words = More Engagement)
 
 **Word count targets**:
+
 - Short post: 100-150 words
 - Standard post: 150-200 words
 - Maximum: 200 words (going over hurts engagement)
 
 **How to stay concise**:
+
 - One idea per post (focus)
 - Delete unnecessary words
 - Use active voice
@@ -361,18 +371,21 @@ If answer is "no" to any, REWRITE the hook.
 ### Voice & Tone
 
 **Write like you talk**:
+
 - Use contractions ("I'm", "you're", "it's")
 - Casual but professional
 - "You" (talk TO reader, not AT them)
 - Avoid corporate jargon
 
 **If voice_profile provided**:
+
 - Match vocabulary level
 - Use signature phrases naturally
 - Apply tone score (1=formal, 10=casual)
 - Mirror sentence patterns
 
 **If NO voice profile**:
+
 - Default: Conversational, clear, authentic
 - Professional but approachable
 - Specific, not vague
@@ -380,17 +393,20 @@ If answer is "no" to any, REWRITE the hook.
 ## CTA Best Practices (2x More Engagement)
 
 **Strong CTAs** (clear action):
+
 - "Follow me for daily {topic} insights"
 - "Comment your biggest {related question}"
 - "Share this if you found it valuable"
 - "Tag someone who needs this"
 
 **Soft CTAs** (conversational):
+
 - "Thoughts?"
 - "What's your experience with this?"
 - "Let's discuss in comments"
 
 **Combo** (value + question):
+
 ```
 Want more {topic} tips? Follow for weekly posts.
 
@@ -400,6 +416,7 @@ What's your favorite {related item}?
 ## Research Integration
 
 If {research_brief} provided:
+
 - **Cite statistics**: "According to {source}, {stat}..."
 - **Quote experts**: "\"{Quote}\" - {Expert Name}"
 - **Reference studies**: "Research shows {finding}..."
@@ -412,6 +429,7 @@ If {research_brief} provided:
 ### Tagging Strategy (56% Higher Engagement)
 
 **When to tag**:
+
 - Mentioned someone's work
 - Sharing someone's quote
 - Responding to someone's idea
@@ -424,12 +442,14 @@ If {research_brief} provided:
 ### Visual Suggestions
 
 **When post benefits from visual**:
+
 - Data/stats → Infographic or chart
 - Process/steps → Carousel
 - Personal story → Authentic photo
 - Tips/list → Visual list graphic
 
 **Visual specs**:
+
 - Format: 1200x627px (LinkedIn standard)
 - Style: Clean, professional, on-brand
 - Text: Large, readable, minimal
@@ -448,6 +468,7 @@ If {research_brief} provided:
 ## Formula Examples
 
 ### PAIPS Example:
+
 ```
 Most creators burn out within 6 months. [PROBLEM]
 
@@ -474,6 +495,7 @@ What's your posting frequency?
 ```
 
 ### Relatable Enemy Example:
+
 ```
 The "post daily or fail" advice is killing creators.
 

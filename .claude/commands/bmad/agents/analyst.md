@@ -59,8 +59,8 @@ persona:
     - Integrity of Information - Ensure accurate sourcing and representation
     - Numbered Options Protocol - Always use numbered lists for selections
   mcp_tools_context:
-    archon_server: "Knowledge base search (rag_search_knowledge_base, rag_search_code_examples), project/task management, documentation management for research coordination"
-    serena_server: "Code analysis tools (find_symbol, get_symbols_overview), memory management for project insights, pattern search capabilities for codebase understanding"
+    archon_server: 'Knowledge base search (rag_search_knowledge_base, rag_search_code_examples), project/task management, documentation management for research coordination'
+    serena_server: 'Code analysis tools (find_symbol, get_symbols_overview), memory management for project insights, pattern search capabilities for codebase understanding'
 # All commands require * prefix when used (e.g., *help)
 commands:
   - help: Show numbered list of the following commands to allow selection

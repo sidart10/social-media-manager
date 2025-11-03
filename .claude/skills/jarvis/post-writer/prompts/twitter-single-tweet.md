@@ -18,6 +18,7 @@ Generate a complete, ready-to-publish single tweet optimized for maximum engagem
 ## Input Parameters
 
 You will receive:
+
 - **Topic**: {topic}
 - **Style**: {greg_isenberg_question | deedydas_data | quote_punch | image_commentary | bold_claim}
 - **Target Audience**: {audience}
@@ -41,6 +42,7 @@ You will receive:
 ```
 
 **Example (2,862 likes)**:
+
 ```
 how do kids even learn at school anymore now that AI exists?
 
@@ -52,6 +54,7 @@ why isn't anyone talking about
 ```
 
 **Characteristics**:
+
 - All lowercase (casual, accessible)
 - Multi-line (readability)
 - Ends mid-thought (curiosity gap)
@@ -71,6 +74,7 @@ why isn't anyone talking about
 ```
 
 **Example (1,407 likes)**:
+
 ```
 Here's every single product OpenAI is working on.
 
@@ -80,6 +84,7 @@ And who better to run that playbook than the ex-boss of Y Combinator!
 ```
 
 **Characteristics**:
+
 - Proper grammar and capitalization
 - Specific data/facts
 - Tech/business analysis
@@ -99,6 +104,7 @@ And who better to run that playbook than the ex-boss of Y Combinator!
 ```
 
 **Example (678 likes)**:
+
 ```
 A kid applying to college told me:
 
@@ -108,6 +114,7 @@ Narrative is everything."
 ```
 
 **Characteristics**:
+
 - Real conversation/quote
 - Quotation marks for attribution
 - Punch line ties it together
@@ -122,18 +129,21 @@ Narrative is everything."
 ```
 
 **Examples**:
+
 - "yeah" (6,323 likes - MOST VIRAL)
 - "this."
 - "exactly"
 - "look at this"
 
 **Critical**: Image MUST be:
+
 - Self-explanatory
 - Surprising or insightful
 - High quality
 - Relevant to audience
 
 **Characteristics**:
+
 - Ultra-minimal text
 - Casual, authentic
 - Image does the work
@@ -152,6 +162,7 @@ Narrative is everything."
 ```
 
 **Template**:
+
 ```
 {Industry/trend} is {strong verb}.
 
@@ -184,21 +195,25 @@ Narrative is everything."
 **Character Count**: {count} ({percentage}% of limit)
 
 **Line Structure**:
+
 - Lines: {number_of_lines}
 - Avg chars per line: {average}
 - Readability: {good/excellent}
 
 **Hook Strength**:
+
 - First line grabs attention: ✓
 - Creates curiosity: ✓
 - Clear or intriguing: ✓
 
 **Style Elements**:
+
 - Capitalization: {lowercase | proper | mixed}
 - Punctuation: {minimal | standard}
 - Tone: {casual | professional | conversational}
 
 **Engagement Potential**:
+
 - Question format: {yes/no} (invites replies)
 - Controversial angle: {yes/no} (generates discussion)
 - Data/proof: {yes/no} (shareability)
@@ -210,6 +225,7 @@ Narrative is everything."
 
 {#if visual_available}
 **Image Strategy**:
+
 - Type: {chart | screenshot | photo | meme}
 - Purpose: {proof | illustration | humor | data visualization}
 - Placement: Attached to tweet
@@ -220,6 +236,7 @@ Narrative is everything."
 
 {#if no_visual}
 **Consider adding**:
+
 - {Visual type that would boost engagement}
 - Why: {Reason}
 
@@ -234,6 +251,7 @@ Narrative is everything."
 
 {#if use_hashtags}
 **Suggested** (1-2 max for 21% boost):
+
 - #{hashtag_1} (broad reach)
 - #{hashtag_2} (niche targeted)
 
@@ -249,16 +267,19 @@ Narrative is everything."
 ## POSTING STRATEGY
 
 **Best Time**:
+
 - Tuesday-Thursday
 - 9-11 AM or 1-3 PM EST
 
 **Engagement Plan** (First Hour):
+
 1. Monitor replies actively
 2. Like thoughtful responses
 3. Reply with questions to extend discussion
 4. Retweet high-quality replies
 
 **24-Hour Strategy**:
+
 - If performing well (>100 likes), pin it
 - Quote tweet yourself with additional insight
 - Engage with quote tweets
@@ -295,6 +316,7 @@ Narrative is everything."
 ### Character Economy
 
 **Every character counts at 280 limit**:
+
 - Cut unnecessary words
 - Use contractions ("I'm" vs "I am")
 - Remove filler ("I think", "In my opinion")
@@ -305,6 +327,7 @@ Narrative is everything."
 ### Line Break Strategy
 
 **Greg Isenberg style** (multi-line):
+
 ```
 line 1: hook
 
@@ -316,6 +339,7 @@ line 4: question
 ```
 
 **Benefits**:
+
 - Scannable
 - Creates rhythm
 - Prevents wall of text
@@ -326,12 +350,14 @@ line 4: question
 ### Single Line vs Multi-Line
 
 **Single line** (good for):
+
 - One clear idea
 - Quick reaction
 - Quote tweets
 - Image commentary
 
 **Multi-line** (good for):
+
 - Progressive thought
 - Question + answer
 - Setup + punch line
@@ -340,12 +366,14 @@ line 4: question
 ### Capitalization Strategy
 
 **Lowercase** (Greg style):
+
 - More casual
 - Accessible
 - "One of us" vibe
 - Good for: Philosophical, thought-provoking
 
 **Proper case** (Deedy style):
+
 - Professional
 - Credible
 - Polished
@@ -356,6 +384,7 @@ line 4: question
 ### Ending Strategy
 
 **Options**:
+
 1. **Period** (.) - Complete thought
 2. **No punctuation** - Casual, ongoing
 3. **Question mark** (?) - Invites response
@@ -367,12 +396,14 @@ line 4: question
 ## Voice Adaptation
 
 If {voice_profile} provided:
+
 - Match capitalization preference
 - Use signature phrases
 - Mirror tone (1=formal, 10=casual)
 - Apply vocabulary level
 
 If NO voice profile:
+
 - Default: Conversational, authentic
 - Match style to topic (data = professional, opinion = casual)
 - Write how you'd text a friend
@@ -382,16 +413,19 @@ If NO voice profile:
 ### When Image Available
 
 **Minimal text works** (Greg's "yeah" = 6.3K likes):
+
 - 1-3 words
 - Let image tell story
 - Ultra-casual commentary
 
 **Image + Analysis** (Deedy's OpenAI = 1.4K likes):
+
 - Describe what image shows
 - Add your analysis
 - Image proves your point
 
 **Image as proof**:
+
 - Charts support data claims
 - Screenshots validate statements
 - Photos humanize content
@@ -399,6 +433,7 @@ If NO voice profile:
 ### When NO Image
 
 **Text must work alone**:
+
 - Hook stronger
 - More context needed
 - Can still go viral (Greg's education tweet = 2.8K likes, no image)
@@ -406,18 +441,21 @@ If NO voice profile:
 ## Engagement Triggers
 
 **Elements that drive replies**:
+
 - ✅ Questions (especially trailing)
 - ✅ Controversial takes
 - ✅ "Fill in the blank" prompts
 - ✅ "Agree or disagree?"
 
 **Elements that drive retweets**:
+
 - ✅ Data/insights (shareable value)
 - ✅ Bold claims (people want to amplify)
 - ✅ Quotes (attributable wisdom)
 - ✅ Visuals (eye-catching in feed)
 
 **Elements that drive likes**:
+
 - ✅ Relatable observations
 - ✅ Humor
 - ✅ Truth-telling

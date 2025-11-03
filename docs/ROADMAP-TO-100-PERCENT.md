@@ -22,6 +22,7 @@
 **⏳ Epic 8:** 40% - Standardization (Jarvis done, Zoro needs migration)
 
 **True Remaining Work:**
+
 - Testing Epics 4-6: 2-3 hours
 - Epic 7 (Testing): 1-2 days
 - Epic 8 (Standardization): 1-2 days
@@ -37,6 +38,7 @@
 **Morning Session (2-3 hours): Validate Built Features**
 
 **Test Epic 4 Workflows:**
+
 1. Test write-posts (30 min)
    - Generate LinkedIn post
    - Verify post-writer skill triggers
@@ -51,11 +53,11 @@
    - Verify YouTube metadata created
    - Verify Notion integration
 
-**Test Epic 5 (Zoe Agent):**
-3. Test Zoe activation (15 min)
-   - Invoke `/zoe`
-   - Verify notion-helper works
-   - Verify unified menu displays (8 workflows)
+**Test Epic 5 (Zoe Agent):** 3. Test Zoe activation (15 min)
+
+- Invoke `/zoe`
+- Verify notion-helper works
+- Verify unified menu displays (8 workflows)
 
 4. Test create-single-image from Zoe (30 min)
    - Generate LinkedIn image
@@ -63,12 +65,12 @@
    - Verify Notion update
    - Verify paths still work after merge
 
-**Test Epic 6 (schedule-post):**
-5. Test schedule-post workflow (1 hour)
-   - Full workflow: Upload to Cloudinary → Schedule via Postiz
-   - Verify multi-platform validation
-   - Verify Notion updates
-   - Verify saves to 05-published/{platform}/
+**Test Epic 6 (schedule-post):** 5. Test schedule-post workflow (1 hour)
+
+- Full workflow: Upload to Cloudinary → Schedule via Postiz
+- Verify multi-platform validation
+- Verify Notion updates
+- Verify saves to 05-published/{platform}/
 
 **Result:** Epics 4, 5, 6 validated → All at 100%!
 **MVP Progress:** 50% → 55%
@@ -80,20 +82,14 @@
 **Epic 7: Pipeline Testing**
 
 **Test Scenario 1: Text-Only Pipeline** (Jarvis→Zoro)
+
 1. Create test content in Notion with Status="Idea"
 2. Run research-topic → Verify Status → Research
 3. Run write-posts (LinkedIn) → Verify Status → Editing
 4. Run schedule-post (text-only) → Verify scheduled
 5. Measure: Time (target <10 min), Cost (target <$0.10)
 
-**Test Scenario 2: Full Visual Pipeline** (Jarvis→Zoe→Zoro)
-6. Create test content Status="Idea"
-7. Run research-topic → Status Research
-8. Run generate-ideas → Creates pages
-9. Run write-posts (LinkedIn) → Status Editing
-10. Run create-single-image → Uploads to Cloudinary, adds URL to Notion
-11. Run schedule-post (with image) → Schedules with Cloudinary URL
-12. Measure: Time (target <15 min), Cost (target <$0.25)
+**Test Scenario 2: Full Visual Pipeline** (Jarvis→Zoe→Zoro) 6. Create test content Status="Idea" 7. Run research-topic → Status Research 8. Run generate-ideas → Creates pages 9. Run write-posts (LinkedIn) → Status Editing 10. Run create-single-image → Uploads to Cloudinary, adds URL to Notion 11. Run schedule-post (with image) → Schedules with Cloudinary URL 12. Measure: Time (target <15 min), Cost (target <$0.25)
 
 **Result:** 2 of 3 routing paths validated
 **MVP Progress:** 55% → 65%
@@ -105,6 +101,7 @@
 **Morning: Final Pipeline Test**
 
 **Test Scenario 3: Video Production Pipeline** (Jarvis→Zoe→Zoro)
+
 1. Run write-scripts (YouTube) → Generates script + thumbnail concepts
 2. Run create-single-image (YouTube thumbnail) → From concept #2
 3. Run create-scene (optional b-roll) → 8s animated diagram
@@ -113,6 +110,7 @@
 6. Measure: Time, Cost
 
 **Acceptance Criteria Validation:**
+
 - [ ] All 3 routing paths work reliably
 - [ ] 95% success rate (if run 20 times, ≤1 failure)
 - [ ] Time targets met (text <10 min, visuals <15 min, video <20 min)
@@ -131,11 +129,13 @@
 **Epic 8: Workflow Standardization**
 
 **Story 8.1: Migrate Zoro Workflows** (2-3 hours)
+
 - Zoro has 10+ workflows with embedded JavaScript
 - Migrate to external instructions.md format
 - Pattern: post-text-tweet.yaml (embedded) → post-text-tweet/workflow.yaml + instructions.md
 
 **Priority Workflows:**
+
 1. publish-tweet-now
 2. publish-linkedin-now
 3. publish-youtube-now
@@ -143,6 +143,7 @@
 5. linkedin-post-multiimage
 
 **Process per workflow:**
+
 - Extract embedded instructions to instructions.md
 - Convert JavaScript examples to XML/markdown
 - Add Notion integration (currently placeholders)
@@ -158,6 +159,7 @@
 **Morning: Finish Workflow Migration**
 
 Migrate remaining Zoro workflows (5+ more)
+
 - linkedin-post-pdf
 - linkedin-post-text
 - check-rate-limits
@@ -171,11 +173,13 @@ Migrate remaining Zoro workflows (5+ more)
 **Afternoon: Tool Performance Tracking**
 
 **Story 8.2: Tool Performance Tracking** (Epic 7 Story 7.2)
+
 - Set up tool-performance-log.jsonl
 - Create logging wrapper for all tool calls
 - Generate initial performance report
 
 **Final Documentation:**
+
 - Update ARCHITECTURE.md with all completions
 - Update workflow-registry.yaml with all migrations
 - Create final validation report
@@ -188,12 +192,14 @@ Migrate remaining Zoro workflows (5+ more)
 ### **DAY 9: Final Validation & Polish** (2-4 hours)
 
 **Morning: Comprehensive Validation**
+
 - Run full pipeline tests (all 3 routing paths)
 - Verify all acceptance criteria met
 - Handle any edge cases discovered
 - Cost/quality benchmarking
 
 **Afternoon: Documentation & Handoff**
+
 - Create MVP completion summary
 - Document known limitations
 - Create user guide / onboarding
@@ -206,18 +212,21 @@ Migrate remaining Zoro workflows (5+ more)
 ## 🎯 TIMELINE SCENARIOS
 
 ### **Optimistic (9 days total):**
+
 - Day 6: Testing (Epics 4-6) ✅
 - Day 7: Epic 7 complete + Epic 8 start
 - Day 8: Epic 8 complete
 - Day 9: Final validation
 
 ### **Realistic (10-11 days):**
+
 - Day 6: Testing
 - Days 7-8: Epic 7 (2 days)
 - Days 9-10: Epic 8 (2 days)
 - Day 11: Final validation
 
 ### **Conservative (13 days):**
+
 - Day 6: Testing
 - Days 7-9: Epic 7 (2 days)
 - Days 10-12: Epic 8 (2 days)
@@ -232,6 +241,7 @@ Migrate remaining Zoro workflows (5+ more)
 **Why 10-11 Days is Realistic:**
 
 **High Confidence Items (90%+ certainty):**
+
 - ✅ Foundation is solid (no rework needed)
 - ✅ Patterns proven (tested with real Notion)
 - ✅ Most workflows operational (just need testing)
@@ -239,11 +249,13 @@ Migrate remaining Zoro workflows (5+ more)
 - ✅ Epic 8 is tedious but low-risk (workflow migration)
 
 **Medium Confidence Items (70-80% certainty):**
+
 - Testing might discover edge cases (2-4 hours extra)
 - Postiz integration might have quirks (1-2 hours)
 - Zoro workflow migration might reveal dependencies (2-3 hours)
 
 **Low Risk Items:**
+
 - No greenfield work remaining
 - All tools validated (Notion, Cloudinary, fal-video)
 - Architecture proven
@@ -257,18 +269,15 @@ Migrate remaining Zoro workflows (5+ more)
 ### **Critical Path Items (Must Do):**
 
 **Day 6:**
+
 1. ✅ Test write-posts (Epic 4 validation)
 2. ✅ Test Zoe agent (Epic 5 validation)
 3. ✅ Test schedule-post (Epic 6 validation)
 4. ✅ Begin Epic 7 (pipeline testing)
 
-**Days 7-8:**
-5. ✅ Complete Epic 7 (all routing paths tested)
-6. ✅ Migrate Zoro workflows (Epic 8)
+**Days 7-8:** 5. ✅ Complete Epic 7 (all routing paths tested) 6. ✅ Migrate Zoro workflows (Epic 8)
 
-**Days 9-10:**
-7. ✅ Final validation
-8. ✅ Documentation
+**Days 9-10:** 7. ✅ Final validation 8. ✅ Documentation
 
 ---
 
@@ -287,23 +296,27 @@ Migrate remaining Zoro workflows (5+ more)
 ## 📋 SUCCESS CRITERIA (MVP Complete)
 
 **System Operational:**
+
 - ✅ All 3 agents functional (Jarvis, Zoe, Zoro)
 - ✅ Notion coordination working
 - ✅ Cloudinary integration reliable
 - ✅ Postiz scheduling operational
 
 **Pipelines Working:**
+
 - ✅ Text-only: research → write → publish (95% success)
 - ✅ With visuals: research → write → image → publish (95% success)
 - ✅ With video: research → script → video → publish (95% success)
 
 **Quality Targets:**
+
 - ✅ Voice confidence ≥8/10
 - ✅ Image quality ≥7/10 (7-pillar)
 - ✅ Cost <$50/month for 30 posts
 - ✅ Time 10-15 min per post (vs 75-135 min)
 
 **Documentation:**
+
 - ✅ PRD complete
 - ✅ Architecture complete
 - ✅ All workflows documented

@@ -26,6 +26,7 @@ You're RIGHT - the old configs look "empty" with just ONE URL!
 ```
 
 **What it scrapes:**
+
 - ❌ Only Google's YouTube Help Center
 - ❌ Misses MrBeast strategies
 - ❌ Misses expert creator insights
@@ -81,6 +82,7 @@ You're RIGHT - the old configs look "empty" with just ONE URL!
 ```
 
 **What it scrapes:**
+
 - ✅ 6 different authoritative sources
 - ✅ MrBeast strategies (3 sources!)
 - ✅ Expert creator insights (Thomas Frank)
@@ -214,11 +216,13 @@ youtube-creator-best-practices.json ❌
 The single-source configs ARE "empty" in terms of comprehensive knowledge because they only scrape ONE website.
 
 **What The Master created:**
+
 - 3 new unified configs with MULTIPLE sources
 - Much richer, more comprehensive skills
 - Combines expert perspectives
 
 **What needs to happen:**
+
 1. Scrape the 3 new unified configs ✅ (in progress)
 2. Compare quality vs old single-source
 3. Decide: replace old or keep both
@@ -241,11 +245,13 @@ The single-source configs ARE "empty" in terms of comprehensive knowledge becaus
 **Your Question:** "Are configs supposed to be empty with just one URL?"
 
 **Answer:**
+
 - ❌ NO - that's the OLD way (single-source)
 - ✅ YES - NEW way is multi-source unified configs
 - ✅ Your instinct was right - single URL is too narrow!
 
 **What We Did:**
+
 1. Found the problem (single sources)
 2. Created better configs (6 sources for thumbnails!)
 3. Now scraping comprehensive multi-source skills

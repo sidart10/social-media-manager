@@ -3,6 +3,7 @@
 **Question:** How should we implement write-posts and write-scripts workflows?
 
 **Options:**
+
 1. social-media-mcp create_post (interactive, GPT-5/Sonnet 4.5)
 2. AutoGen multi-agent system (proven, deterministic)
 3. AutoGen as a Claude Skill (hybrid approach)
@@ -13,12 +14,14 @@
 ## Option 1: social-media-mcp create_post
 
 **What it is:**
+
 - MCP tool in social-media-mcp
 - Uses GPT-5 or Claude Sonnet 4.5
 - Interactive Q&A mode
 - Platform-specific formatting
 
 **Observed Behavior:**
+
 ```
 User: "Write LinkedIn post about X"
 ↓
@@ -35,12 +38,14 @@ create_post generates content
 ```
 
 **Pros:**
+
 - ✅ Already exists
 - ✅ Uses latest models
 - ✅ Platform formatting built-in
 - ✅ postImmediately: false (preview mode)
 
 **Cons:**
+
 - ❌ Q&A mode (3-4 questions before generating)
 - ❌ Conversational overhead
 - ❌ "require is not defined" errors appearing
@@ -54,12 +59,14 @@ create_post generates content
 ## Option 2: AutoGen Multi-Agent System (What You Showed Me)
 
 **What it is:**
+
 - Python multi-agent system using AutoGen
 - 8+ specialized agents (Research, Title, Hook, Content, Tone, Outro, Reviewer, etc.)
 - RoundRobinGroupChat orchestration
 - Each agent has specific role/prompt
 
 **How it works:**
+
 ```
 topic → Research_Agent (gathers info)
       → Title_Agent (creates title)
@@ -72,6 +79,7 @@ topic → Research_Agent (gathers info)
 ```
 
 **Agents:**
+
 - Master_Agent: Determines if reel vs video
 - Research_Agent: Uses search_tool (Tavily)
 - Title_Agent: Clickbait titles
@@ -83,6 +91,7 @@ topic → Research_Agent (gathers info)
 - Reviewer_Agent: Fact checking
 
 **Pros:**
+
 - ✅ Specialized agents for each aspect
 - ✅ Deterministic (no Q&A)
 - ✅ Proven system (you built this)
@@ -91,6 +100,7 @@ topic → Research_Agent (gathers info)
 - ✅ Style consistency (MKBHD tone)
 
 **Cons:**
+
 - ❌ Requires Python execution
 - ❌ Needs AutoGen library
 - ❌ More complex
@@ -103,12 +113,14 @@ topic → Research_Agent (gathers info)
 ## Option 3: AutoGen as Claude Skill ⭐ RECOMMENDED
 
 **What it is:**
+
 - Package AutoGen multi-agent code as a Claude Skill
 - Skill contains Python scripts (like slack-gif-creator)
 - Skill invokes AutoGen, gets result
 - Follows official Skills pattern
 
 **Structure:**
+
 ```
 .claude/skills/jarvis/autogen-script-generator/
 ├── SKILL.md (when to invoke, how to use)
@@ -122,6 +134,7 @@ topic → Research_Agent (gathers info)
 ```
 
 **SKILL.md:**
+
 ```markdown
 ---
 name: autogen-script-generator
@@ -154,6 +167,7 @@ See reference/agent-roles.md for details on each agent.
 ```
 
 **How it works:**
+
 ```
 Workflow: "Generate YouTube script about {topic}"
 ↓
@@ -169,6 +183,7 @@ Workflow saves script, presents to user
 ```
 
 **Pros:**
+
 - ✅ Follows official Skills pattern (slack-gif-creator has Python)
 - ✅ Uses your proven AutoGen system
 - ✅ Deterministic (no Q&A)
@@ -177,6 +192,7 @@ Workflow saves script, presents to user
 - ✅ MKBHD style built-in
 
 **Cons:**
+
 - ⚠️ Requires AutoGen installation (~10 min)
 - ⚠️ Python execution overhead
 - ⚠️ Initial setup time (~1 hour)
@@ -200,11 +216,13 @@ Workflow saves script, presents to user
 ```
 
 **Pros:**
+
 - ✅ Simple
 - ✅ No dependencies
 - ✅ Works immediately
 
 **Cons:**
+
 - ❌ Less specialized than AutoGen
 - ❌ No multi-agent collaboration
 - ❌ Generic output
@@ -216,6 +234,7 @@ Workflow saves script, presents to user
 **Use Option 3: AutoGen Multi-Agent as a Skill**
 
 **Why:**
+
 1. **You already have the code** - the AutoGen system is proven
 2. **Skills CAN execute Python** - slack-gif-creator pattern proves this
 3. **Solves create_post issues** - no Q&A, no "require" errors
@@ -223,6 +242,7 @@ Workflow saves script, presents to user
 5. **Reusable** - one Skill, used by write-posts AND write-scripts
 
 **Implementation:**
+
 1. Create autogen-script-generator/ Skill folder
 2. Copy your AutoGen code to scripts/
 3. Write SKILL.md to invoke it

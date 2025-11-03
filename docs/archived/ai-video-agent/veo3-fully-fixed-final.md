@@ -11,6 +11,7 @@
 
 **Location:** Line 111
 **Fix Applied:**
+
 ```python
 # BEFORE:
 image_file = gemini_client.files.upload(path=image_path)  ❌
@@ -26,6 +27,7 @@ image_file = gemini_client.files.upload(file=image_path)  ✅
 ## 🐛 Bug #2: FIXED ✅
 
 **Error:**
+
 ```
 Input instance with `image` should contain both `bytesBase64Encoded` and `mimeType` in underlying struct value.
 ```
@@ -78,6 +80,7 @@ operation = gemini_client.models.generate_videos(
 **File:** `/Users/sid/.cache/uv/archive-v0/iwKsAJM0RPoBJdJCmq9SU/lib/python3.13/site-packages/mcp_veo3.py`
 
 **Lines Changed:**
+
 - Line 111: Fixed `Files.upload()` parameter
 - Lines 111-135: Complete rewrite of image handling
 - Now properly formats image for Google Veo API
@@ -89,6 +92,7 @@ operation = gemini_client.models.generate_videos(
 ## 🚀 Why Full Restart is REQUIRED
 
 **Current Status:**
+
 ```
 veo3-fixed MCP: ✓ Connected
 Code fixes: ✅ Applied
@@ -96,6 +100,7 @@ Tools available: ❌ NOT YET
 ```
 
 **Problem:** Claude Code's tool registry is loaded at session start. Even though:
+
 - The MCP server IS connected
 - The fixes ARE applied
 - The server IS running with fixed code
@@ -109,6 +114,7 @@ The tools (`mcp__veo3_fixed__generate_video_from_image`) aren't registered in TH
 ## 🧪 After Restart - Exact Test
 
 ### Test Command:
+
 ```
 mcp__veo3_fixed__generate_video_from_image(
     image_path="/Users/sid/Desktop/4. Coding Projects/social-media-manager/bmad/agents/ai-image-generator/ai-image-generator-sidecar/outputs/beach-sequence/frame1-opening-confident-pose.png",
@@ -118,6 +124,7 @@ mcp__veo3_fixed__generate_video_from_image(
 ```
 
 ### Expected Result:
+
 ```
 ✅ NO "Files.upload() error" (Bug #1 fixed)
 ✅ NO "bytesBase64Encoded error" (Bug #2 fixed)
@@ -134,12 +141,15 @@ mcp__veo3_fixed__generate_video_from_image(
 ## 🎬 Complete Testing Plan
 
 ### Phase 1: Test Single Frame
+
 1. Generate Frame 1 with Veo3
 2. Verify REAL MOTION (not just fades)
 3. Check quality
 
 ### Phase 2: Generate All 5 Frames
+
 If Frame 1 works:
+
 - Frame 1: Confident pose (8s)
 - Frame 2: Walking water's edge (8s)
 - Frame 3: Playful splash (8s)
@@ -149,6 +159,7 @@ If Frame 1 works:
 **Total:** 40 seconds of content
 
 ### Phase 3: Merge into 30s Montage
+
 - Trim clips or use 6s each
 - Add transitions
 - Export final video
@@ -158,6 +169,7 @@ If Frame 1 works:
 ## 💰 Cost Estimate
 
 **Veo3 (FREE Gemini):**
+
 - Frame 1 test: $0
 - All 5 frames: $0-0.50
 - **TOTAL: ~$0.50 or FREE!**
@@ -169,11 +181,13 @@ If Frame 1 works:
 ## 🔧 What Was Fixed
 
 **Bug #1 (Files.upload):**
+
 - **Problem:** Wrong parameter name
 - **Fix:** Changed `path=` to `file=`
 - **Impact:** File upload now works
 
 **Bug #2 (Image Format):**
+
 - **Problem:** Image passed as file object, not structured format
 - **Fix:** Convert to base64, add mimeType, create proper dict
 - **Impact:** Google API accepts image correctly now
@@ -202,6 +216,7 @@ Need: 🔄 FULL CLAUDE CODE RESTART
 ## 🚀 FINAL ACTION
 
 **EXIT Claude Code COMPLETELY:**
+
 ```bash
 exit
 # or Ctrl+C to kill session
@@ -210,6 +225,7 @@ exit
 **Restart fresh session**
 
 **Then run:**
+
 ```
 /ai-video-agent
 
@@ -223,6 +239,7 @@ Say: "test veo3 image-to-video with frame 1"
 ## 🎉 After This Works
 
 You'll have:
+
 - ✅ FREE image-to-video with real motion
 - ✅ Your exact Gemini model animated
 - ✅ 5 stunning 8-second clips

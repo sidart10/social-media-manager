@@ -58,6 +58,7 @@ This document analyzes the relationship between your skill configs, skill-seeker
 Your `.claude/skills/` directory contains **17 custom skills** organized into:
 
 #### 🤖 Jarvis Category (10 skills)
+
 - deep-web-research
 - evidence-tracker
 - platform-formatter
@@ -70,6 +71,7 @@ Your `.claude/skills/` directory contains **17 custom skills** organized into:
 - youtube-research
 
 #### 🎨 AI Image Generator Category (7 skills)
+
 - blend-images
 - create-image
 - edit-image
@@ -106,6 +108,7 @@ Your `.claude/skills/` directory contains **17 custom skills** organized into:
 ## How Skill-Seeker Works
 
 ### Create Config
+
 ```bash
 # Option 1: Interactive
 mcp__skill-seeker__generate_config
@@ -118,11 +121,13 @@ skill-seeker generate_config \
 ```
 
 ### Scrape Documentation
+
 ```bash
 skill-seeker scrape_docs --config_path "configs/youtube-creator-best-practices.json"
 ```
 
 ### Output Structure
+
 ```
 output/youtube-creator-best-practices/
 ├── SKILL.md                    # Main skill file
@@ -134,6 +139,7 @@ output/youtube-creator-best-practices/
 ```
 
 ### Package & Upload (Optional)
+
 ```bash
 # Package skill as .zip
 skill-seeker package_skill --skill_dir "output/youtube-creator-best-practices/"
@@ -149,6 +155,7 @@ skill-seeker upload_skill --skill_zip "output/youtube-creator-best-practices.zip
 ### Immediate Actions
 
 1. **Scrape Missing Configs**
+
    ```bash
    # Scrape youtube-creator-best-practices
    skill-seeker scrape_docs --config_path "configs/youtube-creator-best-practices.json"
@@ -180,6 +187,7 @@ skill-seeker upload_skill --skill_zip "output/youtube-creator-best-practices.zip
    - Platform-Specific → Create platform-specific skills
 
 2. **Establish Naming Convention**
+
    ```
    .claude/skills/
    ├── jarvis/              # Content intelligence
@@ -198,11 +206,13 @@ skill-seeker upload_skill --skill_zip "output/youtube-creator-best-practices.zip
 ## Usage Examples
 
 ### Current Manual Skills
+
 ```
 Use jarvis video-script-writer skill to write YouTube script about AI agents
 ```
 
 ### Potential with Scraped Skills (Not Yet Integrated)
+
 ```
 Use youtube-script-strategies-2025 skill for 2025 retention tactics
 Use linkedin-viral-formulas skill to analyze post structure

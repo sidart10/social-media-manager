@@ -9,9 +9,11 @@
 ## The Problem
 
 **You reported:**
+
 > "AI agent isn't able to call them properly when asked and doesn't use the JSON prompting or best practices"
 
 **This means:**
+
 - ❌ Skills not auto-loading when they should
 - ❌ Agent doing things manually instead of using skills
 - ❌ Emily JSON methodology not being applied
@@ -24,9 +26,11 @@
 ## From Anthropic Docs (Critical)
 
 **Line 93 (agent-skills.md):**
+
 > "The `description` field is **critical** for Claude to discover when to use your Skill. It should include **both what the Skill does and when Claude should use it.**"
 
 **Line 203:**
+
 > "Claude **autonomously decides** to use your Skill if it matches the request—you don't need to explicitly invoke it."
 
 **The key:** Description must have **trigger keywords** that match user requests!
@@ -38,6 +42,7 @@
 ### create-image Skill (Most Important)
 
 **Current description:**
+
 ```yaml
 description: Generate brand new images from text prompts using Emily's proven JSON methodology. Applies 7-pillar quality framework, intelligent tool selection (nanobanana or gpt-image-1), and professional standards. Use when workflow needs to create images from scratch for any platform.
 ```
@@ -45,11 +50,13 @@ description: Generate brand new images from text prompts using Emily's proven JS
 **Analysis:**
 
 **✅ Good parts:**
+
 - Mentions "Emily's JSON methodology"
 - Mentions "7-pillar quality framework"
 - Says "Use when workflow needs"
 
 **❌ Missing critical triggers:**
+
 - Doesn't say "generate image"
 - Doesn't say "create visual"
 - Doesn't say "make picture"
@@ -65,11 +72,13 @@ description: Generate brand new images from text prompts using Emily's proven JS
 ### The Fix for create-image
 
 **Updated description:**
+
 ```yaml
 description: Generate images from text prompts using Emily's JSON methodology and 7-pillar quality framework. Use when creating images, generating visuals, making graphics, designing social media posts (Instagram, LinkedIn, Twitter), YouTube thumbnails, or any image generation task. Applies proven prompting, intelligent tool selection (nanobanana/gpt-image-1), and professional quality standards.
 ```
 
 **Changes:**
+
 - ✅ Added: "creating images, generating visuals, making graphics"
 - ✅ Added: Specific platforms (Instagram, LinkedIn, Twitter)
 - ✅ Added: "image generation task"
@@ -85,6 +94,7 @@ description: Generate images from text prompts using Emily's JSON methodology an
 ### Other Skill Diagnosis
 
 **edit-image:**
+
 ```yaml
 description: Edit and refine existing images with pixel-perfect precision using nanobanana (Gemini). Best-in-class for targeted transformations (blur background, color correct, remove objects, enhance). Use when workflow needs to refine, correct, or transform existing generated or uploaded images.
 ```
@@ -92,6 +102,7 @@ description: Edit and refine existing images with pixel-perfect precision using 
 **Problem:** "workflow needs" (too indirect!)
 
 **Fix:**
+
 ```yaml
 description: Edit and refine existing images with pixel-perfect precision using nanobanana. Use when editing images, refining visuals, correcting colors, blurring backgrounds, removing objects, enhancing photos, or transforming existing images. Best for targeted modifications without full regeneration.
 ```
@@ -99,6 +110,7 @@ description: Edit and refine existing images with pixel-perfect precision using 
 ---
 
 **blend-images:**
+
 ```yaml
 description: Compose and blend 2-3 images into unified scene using nanobanana's multi-image composition. Best for photo blending, scene reconstruction, creative mashups. Use when workflow needs to combine multiple source images into one cohesive output.
 ```
@@ -106,6 +118,7 @@ description: Compose and blend 2-3 images into unified scene using nanobanana's 
 **Problem:** "workflow needs" again!
 
 **Fix:**
+
 ```yaml
 description: Compose and blend 2-3 images into unified scene using nanobanana. Use when combining images, blending photos, merging multiple pictures, creating photo mashups, compositing scenes, or fusing multiple visuals into one cohesive image.
 ```
@@ -117,12 +130,14 @@ description: Compose and blend 2-3 images into unified scene using nanobanana. U
 **Problem:** User doesn't say "workflow needs"!
 
 **User says:**
+
 - "Create an image"
 - "Generate a thumbnail"
 - "Edit this photo"
 - "Blend these images"
 
 **Skills trigger on:**
+
 - "workflow needs to create"
 - "workflow needs to generate"
 - "workflow needs to refine"
@@ -139,6 +154,7 @@ description: Compose and blend 2-3 images into unified scene using nanobanana. U
 **Add:** Direct action verbs users actually say
 
 **Pattern:**
+
 ```yaml
 # BAD
 description: ... Use when workflow needs to {action} ...
@@ -156,10 +172,12 @@ description: ... Use when {action}ing, {synonym}ing, {variant}ing, or {related t
 **This section helps Claude understand triggers better!**
 
 **Add to ALL skills:**
+
 ```markdown
 ## When to Use This Skill
 
 Use this skill when:
+
 - {User says this}
 - {Or this}
 - {Or this}
@@ -176,15 +194,18 @@ Triggers: {keyword}, {keyword}, {keyword}
 **File:** `.claude/skills/ai-image-generator/create-image/SKILL.md`
 
 **Fix description:**
+
 ```yaml
 description: Generate images from text prompts using Emily's JSON methodology and 7-pillar quality framework. Use when creating images, generating visuals, making graphics, designing social media content, or any image generation task. Supports Instagram, LinkedIn, Twitter, YouTube thumbnails. Applies intelligent tool selection (nanobanana/gpt-image-1) and professional quality standards.
 ```
 
 **Add section after line 10:**
+
 ```markdown
 ## When to Use This Skill
 
 Use this skill when:
+
 - Creating images from scratch
 - Generating social media visuals
 - Making graphics or illustrations
@@ -195,6 +216,7 @@ Use this skill when:
 Triggers: create image, generate image, make image, design graphic, create visual, generate thumbnail
 
 **Don't use for:**
+
 - Editing existing images (use edit-image skill)
 - Blending multiple images (use blend-images skill)
 - Sid-specific images (use sid-ai-images skill)
@@ -205,6 +227,7 @@ Triggers: create image, generate image, make image, design graphic, create visua
 ### Priority 2: All Other AI Image Skills
 
 **Apply same pattern to:**
+
 - edit-image
 - blend-images
 - youtube-thumbnail-design
@@ -214,6 +237,7 @@ Triggers: create image, generate image, make image, design graphic, create visua
 - sid-ai-images
 
 **Changes for each:**
+
 1. Remove "workflow needs" from description
 2. Add direct action triggers
 3. Add "## When to Use" section
@@ -230,6 +254,7 @@ Triggers: create image, generate image, make image, design graphic, create visua
 **User:** "Create an Instagram post image"
 
 **Claude thinks:**
+
 - Scans skill descriptions
 - Looks for "create" + "Instagram" + "image"
 - Doesn't find match (skills say "workflow needs")
@@ -245,6 +270,7 @@ Triggers: create image, generate image, make image, design graphic, create visua
 **User:** "Create an Instagram post image"
 
 **Claude thinks:**
+
 - Scans skill descriptions
 - Finds create-image: "creating images... Instagram posts"
 - **MATCH!** Auto-loads create-image skill
@@ -262,11 +288,13 @@ Triggers: create image, generate image, make image, design graphic, create visua
 ### Before Fix (Current State)
 
 **Test query:**
+
 ```
 Create a professional Instagram post image about AI automation
 ```
 
 **Expected current behavior:**
+
 ```
 Claude: "I'll create an Instagram post image...
 
@@ -282,11 +310,13 @@ Claude: "I'll create an Instagram post image...
 ### After Fix (With Updated Descriptions)
 
 **Same test query:**
+
 ```
 Create a professional Instagram post image about AI automation
 ```
 
 **Expected fixed behavior:**
+
 ```
 Claude: "Using create-image skill with Emily's JSON methodology...
 
@@ -321,16 +351,19 @@ Overall: 8.5/10 - Professional quality!
 **For each skill:**
 
 **1. Update description (remove "workflow needs", add triggers):**
+
 ```yaml
 # Pattern
 description: {what-it-does}. Use when {action1}, {action2}, {action3}, {specific-platforms}. {key-capabilities}.
 ```
 
 **2. Add "When to Use" section:**
+
 ```markdown
 ## When to Use This Skill
 
 Use this skill when:
+
 - {Direct user request 1}
 - {Direct user request 2}
 - {Direct user request 3}
@@ -339,15 +372,18 @@ Use this skill when:
 Triggers: {keyword}, {keyword}, {keyword}
 
 **Don't use for:**
+
 - {When other skill is better}
 ```
 
 **3. Validate:**
+
 ```bash
 node test/validate-skills.js --skill={skill-name}
 ```
 
 **4. Test auto-loading:**
+
 ```
 Say: "{test query}"
 Expect: "Using {skill-name} skill..."
@@ -362,11 +398,13 @@ Expect: "Using {skill-name} skill..."
 **From sidecar/instructions.md (710 lines):**
 
 The agent instructions contain ALL the knowledge:
+
 - Emily JSON methodology (lines 1-100)
 - MCP tool selection (lines 12-65)
 - Quality framework (lines 101-200)
 
 **When agent runs:**
+
 1. Loads sidecar/instructions.md (710 lines of knowledge)
 2. Uses that knowledge directly
 3. Never needs to load skills!
@@ -381,6 +419,7 @@ The agent instructions contain ALL the knowledge:
 ### Fix 1: Improve Skill Descriptions (80 min)
 
 **Make skills discoverable:**
+
 - Better trigger keywords
 - Direct action verbs
 - Platform mentions
@@ -393,11 +432,13 @@ The agent instructions contain ALL the knowledge:
 ### Fix 2: Thin Agent Instructions (2 hours)
 
 **Remove knowledge from instructions.md:**
+
 - Delete Emily methodology (in create-image skill!)
 - Delete tool selection logic (in mcp-tool-selection skill!)
 - Delete quality framework (in create-image/reference!)
 
 **Force agent to use skills:**
+
 - "For image generation, use create-image skill"
 - "For editing, use edit-image skill"
 - "Skills contain all knowledge"
@@ -411,6 +452,7 @@ The agent instructions contain ALL the knowledge:
 ### Phase 1: Fix Skill Descriptions (Now - 80 min)
 
 **Update all 8 AI Image Generator skills:**
+
 1. create-image - Add triggers, "When to Use"
 2. edit-image - Same
 3. blend-images - Same
@@ -427,20 +469,23 @@ The agent instructions contain ALL the knowledge:
 ### Phase 2: Thin Agent Instructions (Next - 2 hours)
 
 **Remove from sidecar/instructions.md:**
+
 - Emily JSON methodology (lines 1-100)
 - MCP tool guides (lines 12-65)
 - Quality framework (lines 101-200)
 - Platform specs (lines 201-400)
 
 **Add:**
+
 ```markdown
 ## Skills Architecture
 
 All knowledge in auto-loaded skills:
+
 - create-image: Use for all image generation
 - edit-image: Use for image editing
 - blend-images: Use for composition
-[... etc ...]
+  [... etc ...]
 
 Reference skills, don't duplicate knowledge!
 ```
@@ -452,6 +497,7 @@ Reference skills, don't duplicate knowledge!
 ### Phase 3: Test (30 min)
 
 **Test queries:**
+
 ```
 "Create an Instagram post image about AI"
 → Should auto-load create-image skill
@@ -475,12 +521,14 @@ Reference skills, don't duplicate knowledge!
 **Your problem:** Skills not auto-loading properly
 
 **Causes:**
+
 1. ❌ Descriptions say "workflow needs" (users don't!)
 2. ❌ Missing "When to Use" sections (poor discovery)
 3. ❌ Agent instructions have ALL knowledge (doesn't need skills!)
 4. ❌ Missing trigger keywords
 
 **Solution:**
+
 1. ✅ Fix skill descriptions (80 min)
 2. ✅ Thin agent instructions (2 hours)
 3. ✅ Test auto-loading (30 min)

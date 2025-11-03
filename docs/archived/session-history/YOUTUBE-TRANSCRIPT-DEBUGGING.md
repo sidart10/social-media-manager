@@ -10,6 +10,7 @@
 **"No transcripts found"** is a CLEAR, specific error from the youtube-transcript tool itself.
 
 **It means:**
+
 - ✅ MCP is connected
 - ✅ Tool is being called successfully
 - ✅ Communication works
@@ -32,11 +33,13 @@
 **Test with a video that DEFINITELY has captions:**
 
 Try these (popular tech videos with guaranteed captions):
+
 - Fireship videos (always have captions)
 - ThePrimeagen (tech content, captions)
 - Any video with the **CC** icon visible on YouTube
 
 **Example URLs to test:**
+
 - https://www.youtube.com/watch?v=jPhJbKBuNnA (Fireship - usually has captions)
 - Search "AI agents tutorial" and pick a video with CC icon
 
@@ -60,6 +63,7 @@ Try these (popular tech videos with guaranteed captions):
 **The issue:** Just need videos that have captions enabled.
 
 **Test again with:**
+
 - A tech tutorial video
 - Something educational
 - Check for CC icon first

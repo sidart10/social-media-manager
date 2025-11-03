@@ -19,6 +19,7 @@ This is a phone that was marketed entirely around AI features called Apple Intel
 Let's talk about what that actually means.
 
 **Visual Direction**:
+
 - Close-up of iPhone 16 Pro
 - Slow pan across device
 - Dramatic lighting
@@ -34,6 +35,7 @@ Let's talk about what that actually means.
 I've been using the iPhone 16 Pro for about two weeks now. Testing the camera, the battery, the new A18 Pro chip, and yes, what little AI features are actually available.
 
 In this review, we're going to cover:
+
 - Design and build quality
 - Performance and that new chip
 - Camera system upgrades
@@ -44,6 +46,7 @@ In this review, we're going to cover:
 What would I want to know if I were considering buying this phone? That's what we're covering.
 
 **Visual Direction**:
+
 - iPhone in hand, rotating to show angles
 - Quick cuts of camera, chip, features
 - You setting up the review structure
@@ -63,6 +66,7 @@ And here's an interesting detail most people won't notice: The titanium finish h
 Build quality is excellent, as expected. This is still the premium flagship.
 
 **Visual Direction**:
+
 - Macro shots of design details
 - Side-by-side with iPhone 15 Pro
 - Close-ups of titanium texture
@@ -85,6 +89,7 @@ And theoretically, this chip was designed specifically to handle on-device AI pr
 Benchmark scores are great if you care about that. Real-world performance: It's an iPhone Pro. It's fast.
 
 **Visual Direction**:
+
 - Screen recordings of intensive apps
 - Benchmark comparisons (quick, not dwelling)
 - You using the phone actively
@@ -110,6 +115,7 @@ Video recording: Still the best in the industry. 4K 120fps, ProRes, LOG— all t
 One note: The new Camera Control button on the side. I thought I'd love it. In practice, I barely use it. Maybe that changes with a software update, but right now, it's not a game-changer for me.
 
 **Visual Direction**:
+
 - Photo comparisons (iPhone 16 Pro vs competitors)
 - Video footage samples
 - Photographic Styles demonstration
@@ -137,6 +143,7 @@ If you're a lighter user, you're probably getting into day 2 easily.
 Fast charging works, MagSafe works, nothing revolutionary but nothing broken.
 
 **Visual Direction**:
+
 - Battery stats from Settings
 - Real-world usage demonstration
 - Charging test
@@ -161,6 +168,7 @@ So you're buying a phone marketed as the AI phone, but the AI largely isn't here
 Now, will these features come? Probably. Should you buy this phone banking on future AI? That's up to you. I generally don't recommend buying hardware for promised software updates.
 
 **Visual Direction**:
+
 - Apple's AI marketing materials
 - Show what IS available (limited)
 - Show what's MISSING (the promised features)
@@ -187,6 +195,7 @@ If you're considering switching from Android: The camera and ecosystem are the d
 For me, it's a solid phone. Great camera, excellent battery, familiar design. But it launched incomplete. The AI phone that shipped without its AI.
 
 **Visual Direction**:
+
 - You delivering verdict directly to camera
 - B-roll compilation of key features
 - Final thoughts, calm energy
@@ -206,6 +215,7 @@ Next week, I'm reviewing the new Pixel 9 Pro, which has a completely different t
 Thanks for watching.
 
 **Visual Direction**:
+
 - You at desk, friendly tone
 - Hand gesture toward subscribe button
 - End screen elements:
@@ -214,6 +224,7 @@ Thanks for watching.
   - Channel icon (right)
 
 **CTA Elements**:
+
 - Subscribe reminder (natural)
 - Next video tease (Pixel 9 Pro - creates anticipation)
 - Gratitude (professional close)
@@ -226,6 +237,7 @@ Thanks for watching.
 **Speaking Pace**: 150 words/minute = ~6:10 content time + pauses/emphasis = ~15 minutes total
 
 **Retention Tactics Used**:
+
 - ✓ Hook with contradiction ("AI phone without AI")
 - ✓ Central motif maintained throughout
 - ✓ Pattern interrupts: 6 instances
@@ -235,6 +247,7 @@ Thanks for watching.
 - ✓ Returns to opening theme at end (creates closure)
 
 **B-roll Needed**:
+
 - iPhone design details (macro shots)
 - Camera samples (photos + video)
 - Performance demonstrations
@@ -243,6 +256,7 @@ Thanks for watching.
 - Feature comparisons
 
 **On-Screen Graphics**:
+
 - Spec comparison charts
 - Camera sample labels
 - Battery life stats
@@ -255,6 +269,7 @@ Thanks for watching.
 ## METADATA
 
 **Title Options**:
+
 1. "iPhone 16 Pro Review: The AI Phone That Launched Without AI"
 2. "iPhone 16 Pro - The Most Interesting iPhone in Years?"
 3. "iPhone 16 Pro Review - Should You Upgrade?"
@@ -265,6 +280,7 @@ Thanks for watching.
 **Tags**: iPhone 16 Pro, iPhone 16 Pro review, MKBHD, Apple, Apple Intelligence, A18 Pro, iPhone camera, tech review, smartphone review 2025, iPhone vs Android, should you upgrade
 
 **Thumbnail Ideas**:
+
 1. iPhone 16 Pro centered + your face (thoughtful expression) + "AI?" text overlay
 2. iPhone with "INCOMPLETE" label (eye-catching, honest)
 3. Split: iPhone + "Marketed" vs "Reality" comparison
@@ -297,6 +313,7 @@ Thanks for watching.
 ---
 
 **Why This Works**:
+
 - Central theme creates narrative coherence
 - Comprehensive without being exhausting
 - Honest assessment builds trust

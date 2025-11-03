@@ -10,15 +10,18 @@
 ### Veo3 MCP (mcp-veo3) - 3 BUGS FOUND
 
 **Bug #1:** ✅ FIXED
+
 - Error: `Files.upload() got unexpected keyword 'path'`
 - Fix: Changed `path=` to `file=`
 - Status: Fixed in cache
 
 **Bug #2:** ✅ FIXED
+
 - Error: Tried `bytesBase64Encoded` format
 - Fix: Realized SDK uses different format
 
 **Bug #3:** ❌ STILL BROKEN
+
 - Error: `Extra inputs not permitted`
 - Issue: My fix used `image_bytes` + `mime_type` dict
 - **REAL ISSUE:** SDK might not accept dict at all - needs Image object!
@@ -26,11 +29,13 @@
 ### Sora2 MCP (sora2-mcp) - PARAMETER BUG
 
 **Bug Found:**
+
 - **MCP uses:** `input_reference` parameter
 - **OpenAI API actually uses:** `image_url` parameter!
 - **Result:** API rejects the request
 
 **Evidence:**
+
 - AI/ML API docs show: "image_url parameter accepts URL or Base64"
 - Sora2 MCP code: `formData.input_reference = input_reference`
 - **MISMATCH!** ❌
@@ -57,6 +62,7 @@ Your PNG file:
 **It's NOT nonsense - it's REQUIRED!** ✅
 
 All image APIs need either:
+
 1. Base64 string (text representation)
 2. URL to image file
 3. Raw bytes (in some cases)
@@ -66,11 +72,13 @@ All image APIs need either:
 ## 🎯 Why Both Servers Failed
 
 ### Veo3:
+
 - Fixed Files.upload ✅
 - But Google SDK Image type is more complex than just a dict
 - Needs actual Image class instantiation or file object
 
 ### Sora2:
+
 - Code looks clean
 - BUT uses wrong parameter name (`input_reference` vs `image_url`)
 - OpenAI API rejects it
@@ -82,6 +90,7 @@ All image APIs need either:
 ### Option A: Use Text-to-Video (WORKS NOW!) ⭐ RECOMMENDED
 
 **Generate 5 NEW beach videos** with Veo3 text-to-video:
+
 - Similar ultra-realistic Asian model
 - Same black bikini, golden hour, beach setting
 - REAL AI MOTION (hair, water, camera)
@@ -93,6 +102,7 @@ All image APIs need either:
 ### Option B: Professional Video Editor (CapCut)
 
 Use your existing 5 static images:
+
 - Import to CapCut
 - Add Ken Burns effects (zoom/pan)
 - 6 seconds each = 30 seconds
@@ -117,6 +127,7 @@ Use your existing 5 static images:
 Generate 5 NEW ultra-realistic beach videos with Veo3 text-to-video:
 
 **Prompts I'll use:**
+
 1. **Frame 1:** Ultra-photorealistic Asian model, black bikini, beach, hand through hair, confident pose, golden hour
 2. **Frame 2:** Same model walking along water's edge, foot splashing, side profile, graceful movement
 3. **Frame 3:** Same model playfully splashing water, joyful smile, water droplets catching light
@@ -124,6 +135,7 @@ Generate 5 NEW ultra-realistic beach videos with Veo3 text-to-video:
 5. **Frame 5:** Close-up portrait, warm smile, direct eye contact, golden hour glow
 
 **Result:**
+
 - 5 videos with REAL MOTION
 - Similar quality to your images
 - Different but equally stunning
@@ -135,12 +147,14 @@ Generate 5 NEW ultra-realistic beach videos with Veo3 text-to-video:
 ## ✅ What's Better About Option A
 
 **Your Images + Motion (If it worked):**
+
 - ✅ Exact model
 - ❌ Both MCPs broken
 - ❌ Hours of debugging
 - ❌ Still might not work
 
 **Text-to-Video NEW Videos (Works NOW):**
+
 - ✅ REAL AI motion
 - ✅ Veo3 text-to-video WORKS
 - ✅ Similar stunning quality
@@ -153,6 +167,7 @@ Generate 5 NEW ultra-realistic beach videos with Veo3 text-to-video:
 ## 🎬 Ready to Proceed?
 
 **Say:**
+
 - **"yes"** - Generate 5 NEW beach videos with text-to-video NOW!
 - **"capcut"** - Guide me through manual editing
 - **"keep fixing"** - Continue debugging MCP servers

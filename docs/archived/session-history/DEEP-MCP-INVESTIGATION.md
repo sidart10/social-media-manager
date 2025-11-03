@@ -1,6 +1,7 @@
 # Deep Investigation: Why research_topic Fails
 
 **Facts:**
+
 1. ✅ social-media-mcp MCP is ✓ Connected
 2. ✅ get_trending_topics WORKS perfectly
 3. ❌ research_topic FAILS with "use_mcp_tool is not defined"
@@ -12,10 +13,12 @@
 ## Key Observation
 
 **Same MCP server, different tools, different results:**
+
 - get_trending_topics: 3 parameters → WORKS
 - research_topic: 5 parameters (4 booleans) → FAILS
 
 **This tells us:**
+
 - Server connection: GOOD
 - Server functionality: GOOD
 - Simple tools: WORK
@@ -28,6 +31,7 @@
 **This error comes from CLAUDE CODE**, not from the MCP server.
 
 **It means:**
+
 - Claude Code tried to invoke the tool
 - Used an internal function "use_mcp_tool" to do it
 - That function failed or doesn't exist
@@ -38,6 +42,7 @@
 ## Hypothesis: Parameter Complexity Issue
 
 **get_trending_topics parameters:**
+
 ```json
 {
   "platform": "twitter",
@@ -45,9 +50,11 @@
   "count": 10
 }
 ```
+
 **Simple types: string, string, number**
 
 **research_topic parameters:**
+
 ```json
 {
   "topic": "...",
@@ -57,6 +64,7 @@
   "includeNews": true
 }
 ```
+
 **Complex: string + 4 booleans**
 
 **Possible issue:** Claude Code might have trouble passing multiple boolean parameters to MCP tools.
@@ -66,6 +74,7 @@
 ## Test This Hypothesis
 
 **Try calling research_topic with JUST the topic:**
+
 ```
 social-media-mcp/research_topic(topic: "test")
 ```

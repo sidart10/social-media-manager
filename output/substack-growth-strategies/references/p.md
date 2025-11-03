@@ -15,16 +15,17 @@
 **URL:** https://landonpoburan.substack.com/p/how-id-teach-substack-growth-in-2025?utm_source=substack&utm_medium=email&utm_content=share&action=share
 
 **Contents:**
+
 - How I’d Teach Substack Growth In 2025 (Step-by-Step Plan)
   - The Substack Growth Guide I Wish I Had When I Started (2025 Edition)
 - Growing on Substack Is Like Leveling Up in a Video Game
 - The 5 Levels of Substack Growth (Where Are You?)
-    - Level 1: Beginner Mode (Getting Started)
-    - Level 2: Intermediate Mode (Boosting Visibility)
-    - Level 3: Advanced Mode (Expanding Your Reach)
-    - Level 4: Expert Mode (Becoming Known)
-    - Level 5: Hardcore Mode (Serious Growth)
-    - Power-Ups.
+  - Level 1: Beginner Mode (Getting Started)
+  - Level 2: Intermediate Mode (Boosting Visibility)
+  - Level 3: Advanced Mode (Expanding Your Reach)
+  - Level 4: Expert Mode (Becoming Known)
+  - Level 5: Hardcore Mode (Serious Growth)
+  - Power-Ups.
 
 Imagine starting over on Substack today.
 
@@ -523,16 +524,17 @@ PS: If you found this helpful, would you do me a quick favor and restack it? Sha
 **URL:** https://landonpoburan.substack.com/p/how-id-teach-substack-growth-in-2025
 
 **Contents:**
+
 - How I’d Teach Substack Growth In 2025 (Step-by-Step Plan)
   - The Substack Growth Guide I Wish I Had When I Started (2025 Edition)
 - Growing on Substack Is Like Leveling Up in a Video Game
 - The 5 Levels of Substack Growth (Where Are You?)
-    - Level 1: Beginner Mode (Getting Started)
-    - Level 2: Intermediate Mode (Boosting Visibility)
-    - Level 3: Advanced Mode (Expanding Your Reach)
-    - Level 4: Expert Mode (Becoming Known)
-    - Level 5: Hardcore Mode (Serious Growth)
-    - Power-Ups.
+  - Level 1: Beginner Mode (Getting Started)
+  - Level 2: Intermediate Mode (Boosting Visibility)
+  - Level 3: Advanced Mode (Expanding Your Reach)
+  - Level 4: Expert Mode (Becoming Known)
+  - Level 5: Hardcore Mode (Serious Growth)
+  - Power-Ups.
 
 Imagine starting over on Substack today.
 

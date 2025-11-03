@@ -139,7 +139,5 @@
     }
   ],
   "patterns": [],
-  "links": [
-    "https://www.promptingguide.ai/agents/context-engineering-deep-dive"
-  ]
+  "links": ["https://www.promptingguide.ai/agents/context-engineering-deep-dive"]
 }

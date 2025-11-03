@@ -9,6 +9,7 @@
 **URL:** https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
 
 **Contents:**
+
 - Context engineering vs. prompt engineering
 - Why context engineering is important to building capable agents
 - The anatomy of effective context

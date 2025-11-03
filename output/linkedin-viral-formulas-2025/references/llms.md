@@ -7,6 +7,7 @@ The XML sitemap of this website can by found by following [this link](https://me
 > Save time scheduling, analyzing, and managing your social media and ad content\. Create your FREE account and grow your business presence\.
 
 ## Pages
+
 - [Newsroom](https://metricool.com/newsroom/)
 - [Contact](https://metricool.com/contact/)
 - [Metricool Legal Terms \& Conditions](https://metricool.com/legal-terms/)
@@ -14,13 +15,15 @@ The XML sitemap of this website can by found by following [this link](https://me
 - [Social Media Blog](https://metricool.com/social-media-blog/)
 
 ## Posts
+
 - [Tout savoir sur les Impressions Pinterest \[DÃ©finition, analyse et conseils\]](https://metricool.com/fr/impression-pinterest/): Les impressions Pinterest mesurent la visibilitÃ© de vos Ã©pingles\. Apprenez Ã  les comprendre, les suivre et les optimiser grÃ¢ce Ã  nos conseils pratiques et Ã  des outils simples pour booster votre prÃ©sence sur Pinterest\.
 - [Scaricare video e reel da Instagram: tutti i metodi disponibili nel 2025](https://metricool.com/it/scaricare-video-da-instagram/)
 - [LinkedIn veut vos donnÃ©es pour son IA : voici comment dire non \!](https://metricool.com/fr/empecher-linkedin-utiliser-donnees-personnelles/): Vous voulez garder le contrÃ´le de votre profil ? Apprenez Ã  empÃªcher LinkedIn dâutiliser vos donnÃ©es personnelles pour entraÃ®ner son IA et Ã  renforcer votre confidentialitÃ© LinkedIn en quelques clics\.
 - [Top 10 Trending TikTok Songs This Week \| October 22, 2025](https://metricool.com/tiktok-songs/): Here's a look at the top 10 trending songs on TikTok and how you might use them for your brand's content\.
-- [What is the Best Time to Post on YouTube?Â ](https://metricool.com/best-time-to-post-on-youtube/): Posting at the optimal times on YouTube can boost your channel's engagement\. After analyzing over 600,00 YouTube videos, we have suggestions on when to best reach viewers\. 
+- [What is the Best Time to Post on YouTube?Â ](https://metricool.com/best-time-to-post-on-youtube/): Posting at the optimal times on YouTube can boost your channel's engagement\. After analyzing over 600,00 YouTube videos, we have suggestions on when to best reach viewers\.
 
 ## Popup Themes
+
 - [Default Theme](https://metricool.com/?post_type=popup_theme&p=197099)
 - [Light Box](https://metricool.com/?post_type=popup_theme&p=197100)
 - [Enterprise Blue](https://metricool.com/?post_type=popup_theme&p=197101)
@@ -28,6 +31,7 @@ The XML sitemap of this website can by found by following [this link](https://me
 - [Cutting Edge](https://metricool.com/?post_type=popup_theme&p=197103)
 
 ## Categories
+
 - [Instagram](https://metricool.com/es/redes-sociales/instagram/)
 - [Instagram](https://metricool.com/social-media/instagram/)
 - [Social Media](https://metricool.com/social-media/)
@@ -35,6 +39,7 @@ The XML sitemap of this website can by found by following [this link](https://me
 - [Redes sociales](https://metricool.com/es/redes-sociales/)
 
 ## Tags
+
 - [Recursos para redes sociales](https://metricool.com/es/tag/recursos/)
 - [Social Media Resources](https://metricool.com/tag/social-media-resources/)
 - [Telegram](https://metricool.com/de/tag/telegram/)

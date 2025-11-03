@@ -37,9 +37,9 @@ The system is already partially operational with 24+ skills, 20+ workflows, and 
 
 ### Change Log
 
-| Date | Version | Description | Author |
-|------|---------|-------------|---------|
-| 2025-10-31 | 1.0 | Initial PRD draft created from Project Brief | PM Agent |
+| Date       | Version | Description                                  | Author   |
+| ---------- | ------- | -------------------------------------------- | -------- |
+| 2025-10-31 | 1.0     | Initial PRD draft created from Project Brief | PM Agent |
 
 ---
 
@@ -198,6 +198,7 @@ The user experience centers on **conversational orchestration through 3 speciali
 The experience feels like delegating to a professional team with shared project board: User creates content idea in Notion (Status: Idea) → Jarvis researches and writes (updates Status: Research → Writing → Editing, saves draft to Notion page) → User decides routing: text-only goes to Zoro, visuals needed goes to Zoe → Zoe generates images/videos (Status stays Editing, adds media URLs to Notion) → Zoro publishes (updates Status: Posted, tracks metrics in Notion) → All agents aware of status, can pick up work asynchronously. The system hides technical complexity (MCP selection, API authentication, rate limiting, tool routing) while exposing creative control (voice modes, platform targeting, quality thresholds, scheduling vs immediate publish).
 
 **Key UX Principles:**
+
 - **Guided autonomy** - Agents lead the process, users provide creative direction
 - **Transparent orchestration** - User sees which agent/workflow is active, what step is executing, what decisions are being made
 - **Fail-safe defaults** - Sensible defaults for all options (primary voice mode, standard research depth, platform specs) with ability to override
@@ -207,12 +208,14 @@ The experience feels like delegating to a professional team with shared project 
 ### Key Interaction Paradigms
 
 **1. Menu-Driven Agent Invocation**
+
 - Users invoke agents via slash commands: `/jarvis` (content intelligence), `/zoe` (visual production), `/zoro` (publishing)
 - Each agent responds with numbered menu of available workflows
 - Users select by number or type workflow command (e.g., `*research-topic` for Jarvis, `*create-image` for Zoe, `*publish-tweet` for Zoro)
 - Agents can also auto-suggest workflows based on Notion status (e.g., Zoe checks for content in "Editing" status and offers to create visuals)
 
 **2. Workflow-Guided Progression with Skill Invocation**
+
 - Selected commands trigger workflows that orchestrate multi-step processes
 - Each workflow step presents: current goal, required inputs, available options, and which skills will be invoked
 - Workflows call skills via natural language ("Use deep-web-research skill with depth=comprehensive")
@@ -222,12 +225,14 @@ The experience feels like delegating to a professional team with shared project 
 - Progress saved incrementally to both local outputs/ and Notion (status updates, content drafts, metadata)
 
 **3. Elicitation-Based Refinement** (for workflows with `elicit: true`)
+
 - Workflow presents drafted content with detailed rationale
 - User chooses from 1-9 numbered options: proceed, or select elicitation method (expand/contract, critique, identify risks, challenge assumptions, etc.)
 - Selected method executes, insights presented, user applies changes or returns to menu
 - Never yes/no questions—always structured numbered options
 
 **4. Flexible Agent Routing with Notion Coordination**
+
 - Agents coordinate through Notion status updates AND local JSON handoff packages
 - **Text-only path:** Jarvis writes → updates Notion status to "Posted" → suggests Zoro for publishing → Zoro reads from Notion, publishes
 - **With visuals path:** Jarvis writes → status "Editing" → suggests Zoe for images → Zoe generates → adds media URLs to Notion → suggests Zoro → Zoro publishes
@@ -236,6 +241,7 @@ The experience feels like delegating to a professional team with shared project 
 - Both JSON packages (outputs/) and Notion pages provide coordination—JSON for session artifacts, Notion for shared state
 
 **5. Skill Discovery & Model-Invoked Execution** (autonomous, transparent to user)
+
 - **Critical:** Skills are MODEL-INVOKED—Claude autonomously decides when to use them based on description matching, workflows don't explicitly call skills
 - **How it works:** Workflow step creates rich context (e.g., "Generate LinkedIn post about {topic} using {voice_profile}"), Claude analyzes context (LinkedIn + post generation + voice matching) and autonomously discovers post-writer skill (description contains "LinkedIn posts", "social media", "voice-matched content")
 - **Discovery examples:**
@@ -249,6 +255,7 @@ The experience feels like delegating to a professional team with shared project 
 - Tool choices within skills are documented but evolvable (skill can update from apify/instagram-scraper to better actor; workflows unaffected by tool changes)
 
 **6. Notion Status-Aware Collaboration**
+
 - All agents check Notion Content Tracker for content status before suggesting workflows
 - Jarvis sees Status="Idea" → suggests research-topic workflow
 - Jarvis sees Status="Research" → suggests write-post workflow
@@ -262,37 +269,44 @@ The experience feels like delegating to a professional team with shared project 
 **Note:** Since this is a Claude Code CLI-based system, "screens" are really interaction states and output locations. Here are the critical views:
 
 **1. Agent Menu View** - Landing interface when agent invoked
+
 - Agent name and role displayed (e.g., "Jarvis - Content Intelligence Lead")
 - Numbered list of available commands with descriptions
 - Current session context if resuming (e.g., "Resuming session: linkedin-post-ai-agents")
 
 **2. Workflow Execution View** - Active state during workflow
+
 - Current step indicator (e.g., "Step 2/5: Generate post content")
 - Step goal and instructions
 - Input prompts with examples
 - Progress indicators for long-running operations
 
 **3. Elicitation Menu View** - Review and refinement state
+
 - Drafted content presented with detailed rationale
 - Numbered options 1-9 (proceed or select elicitation method)
 - Clear prompt: "Select 1-9 or just type your question/feedback:"
 
 **4. Handoff Package View** - Transition between agents
+
 - Summary of created content (file paths, quality scores, metadata)
 - Suggested next command for pipeline continuation
 - Handoff JSON file location for reference
 
 **5. Output Directory View** - Results and artifacts
+
 - Session-organized outputs: `outputs/{date}/{session}/`
 - Subdirectories: posts/, research/, images/, videos/, handoffs/
 - Metadata files: session.json, handoff-to-{agent}.json
 
 **6. Agent Memory View** - Persistent state and preferences
+
 - User preferences (name, voice version, cost tracking)
 - API usage statistics (monthly spend by service)
 - Voice profile metadata (confidence score, modes, last updated)
 
 **7. Notion Dashboard View** - Shared collaborative workspace
+
 - Content Tracker database with status columns (Idea, Research, Next Up, Writing, Editing, Posted)
 - Content Calendar views (Next Actions, Published Calendar)
 - Channel performance analytics (Views, Likes, Comments by channel)
@@ -301,6 +315,7 @@ The experience feels like delegating to a professional team with shared project 
 ### Accessibility
 
 **Platform Accessibility:** Claude Code desktop application (MacOS, Windows, Linux)
+
 - **Text-based interaction** - All agent menus, workflow prompts, and outputs use markdown-formatted text
 - **No visual UI accessibility requirements** - CLI-based, inherently screen-reader compatible
 - **Keyboard-only navigation** - No mouse required, all interactions via typing
@@ -308,6 +323,7 @@ The experience feels like delegating to a professional team with shared project 
 - **Structured output formats** - Markdown headers, lists, tables for easy scanning
 
 **Ease of Use Requirements:**
+
 - **Minimal learning curve** - Agent menus self-explanatory, no documentation required for basic usage
 - **Discoverable features** - Help commands (`*help`) list all available workflows
 - **Forgiving input** - Natural language accepted, no strict command syntax required
@@ -316,16 +332,19 @@ The experience feels like delegating to a professional team with shared project 
 ### Branding
 
 **Agent Personas (Voice & Personality):**
+
 - **Jarvis (Content Intelligence Lead)** - Professional strategist with analytical depth, collaborative tone, evidence-driven recommendations, research-obsessed, voice consistency guardian
 - **Zoe (Visual Production Specialist)** - Creative and detail-oriented, design-obsessed using Emily 7-pillar framework, platform-aware (9:16 vs 16:9 vs square), quality-focused for both images and videos, consent-conscious for avatar usage, understands visual storytelling across formats
 - **Zoro (Publishing & Distribution Specialist)** - Operational and precise, rate-limit aware, validation-obsessed, multi-platform expert, scheduling-savvy with Postiz integration, analytics-focused (tracks Views/Likes/Comments in Notion)
 
 **Content Voice (User's Brand):**
+
 - **Primary Mode:** Lowercase Builder-Philosopher (learned from 77+ historical posts, 8/10 confidence)
 - **Alternate Modes:** Professional Analyst, Critical Thinker, Excited Hype (context-dependent)
 - **Consistency:** All generated content must feel "authentically me" per user validation
 
 **Output Aesthetics:**
+
 - **LinkedIn Images:** Dark monochrome tech design system (black/charcoal backgrounds, white/cyan text, minimal accent colors)
 - **YouTube Thumbnails:** CTR-optimized (MrBeast 6 pillars, Thomas Frank AIDA, bold text, expressive faces, high contrast)
 - **Twitter/Instagram:** Platform-native aesthetics (not overly designed, feels organic)
@@ -333,16 +352,19 @@ The experience feels like delegating to a professional team with shared project 
 ### Target Device and Platforms
 
 **Development & Execution Platform:** Claude Code Desktop Application
+
 - **Supported OS:** MacOS, Windows, Linux (wherever Claude Code runs)
 - **Interface:** CLI/Terminal-based interaction within IDE
 - **No web/mobile interface required for MVP** - Desktop-only, IDE-based workflow
 
 **Content Target Platforms:** Multi-platform social media distribution
+
 - **Primary Platforms:** LinkedIn (professional content), Twitter (short-form + threads), YouTube (videos + Shorts)
 - **Secondary Platforms:** Instagram (Reels, Posts), TikTok (Short-form video), Substack (long-form essays)
 - **Scheduling Platforms:** Postiz MCP (multi-platform queuing), Typefully (Twitter-specific)
 
 **Platform Optimization:**
+
 - **Responsive Design N/A** - Content formats adapt to platform specs, not screen sizes
 - **Cross-Platform Consistency** - Same content strategy, different formatting per platform (LinkedIn <300 words PAIPS, Twitter Greg Isenberg questions)
 
@@ -355,22 +377,26 @@ The experience feels like delegating to a professional team with shared project 
 **This PRD uses custom terminology that differs from standard Claude Code concepts. Understanding this distinction is essential:**
 
 **OUR SYSTEM:**
+
 - **"Agents"** = Custom persona-driven menu interfaces (bmad/agents/) that present numbered workflow options to users. These are slash command handlers with personality. Example: `/jarvis` shows Jarvis persona + menu of 7 workflows.
 - **"Workflows"** = Custom YAML+XML process orchestrators (workflow.yaml + instructions.md) that manage multi-step processes, state management, file I/O, user interaction, and Notion updates. These are user-invoked via agent menus.
 - **"Skills"** = Claude Code Agent Skills (.claude/skills/) - model-invoked autonomous expertise that Claude discovers based on description matching. These contain methodologies, not processes.
 
 **STANDARD CLAUDE CODE:**
+
 - **Slash Commands** = User-invoked commands (type `/command` to trigger)
 - **Agent Skills** = Model-invoked capabilities (Claude autonomously uses when relevant)
 - **"Agents"** = Not a native concept (our custom orchestration layer)
 - **"Workflows"** = Not a native concept (our custom YAML+XML system)
 
 **KEY DIFFERENCE:**
+
 - **Slash Commands** (Claude Code) ≈ **Our Agents** (user explicitly invokes)
 - **Agent Skills** (Claude Code) = **Our Skills** (model autonomously discovers)
 - **Our Workflows** = Custom orchestration layer between agents and skills
 
 **INVOCATION MODEL:**
+
 - User invokes Agent (`/jarvis`) → User-driven
 - Agent presents menu of Workflows → User selects
 - Workflow executes steps creating context → Process-driven
@@ -387,6 +413,7 @@ The experience feels like delegating to a professional team with shared project 
 
 **Role:** Research, strategy, content creation, voice consistency
 **Workflows Owned:**
+
 1. `research-topic` - Deep research on any topic
    - **Triggers Skills:** deep-web-research (via context: "research {topic}" + depth parameter), research-synthesizer (via context: "synthesize findings into categories")
    - **Updates Notion:** Status Idea→Research, adds research URL to Notes relation
@@ -416,6 +443,7 @@ The experience feels like delegating to a professional team with shared project 
    - **Updates Notion:** Saves script to Content Text, thumbnail concepts to "Thumbnail ideas" property
 
 **Jarvis Skill Dependencies:**
+
 - deep-web-research, post-writer, video-script-writer, profile-analysis, voice-matcher, platform-formatter, research-synthesizer, evidence-tracker, youtube-growth-mastery, youtube-thumbnail-mastery, social-media-research, youtube-research
 
 ---
@@ -424,6 +452,7 @@ The experience feels like delegating to a professional team with shared project 
 
 **Role:** All visual content creation (images, videos, graphics, animations)
 **Workflows Owned:**
+
 1. `create-single-image` - Generate single optimized image
    - **Triggers Skills:** create-image (via context: "generate {design_choice} image for {platform}"), platform-specs (via context loading platform requirements), linkedin-design or youtube-thumbnail-design (via design choice context)
    - **Updates Notion:** Adds image URL to page, keeps Status="Editing"
@@ -453,6 +482,7 @@ The experience feels like delegating to a professional team with shared project 
    - **Updates Notion:** Adds final video URL
 
 **Zoe Skill Dependencies:**
+
 - create-image, edit-image, blend-images, veotools-mastery, platform-specs, linkedin-design, youtube-thumbnail-design, mcp-tool-selection, generating-sid-images
 
 ---
@@ -488,6 +518,7 @@ The experience feels like delegating to a professional team with shared project 
    - **Updates Notion:** N/A (informational only)
 
 **Zoro Skill Dependencies:**
+
 - None (Zoro is pure API/MCP integration layer, no autonomous skills needed—validation and formatting logic embedded in workflow steps)
 
 ---
@@ -495,62 +526,75 @@ The experience feels like delegating to a professional team with shared project 
 ### Skill → Tool Mapping
 
 **deep-web-research Skill:**
+
 - **Tools Used:** WebSearch (free), Exa (neural search, $0.05-0.15), Firecrawl (web scraping with caching), Apify (platform scrapers)
 - **Apify Actors:** apify/instagram-scraper, clockworks/tiktok-scraper, apidojo/twitter-scraper-lite, apify/youtube-scraper
 - **Routing Logic:** depth=quick→WebSearch only, depth=standard→Exa, depth=comprehensive→Exa+Firecrawl, depth=exhaustive→Exa+Firecrawl+Apify (user approval required)
 - **Tool Evolution:** Current Apify actors documented as best practice (Oct 2025). If better scrapers emerge or current ones become unreliable, skill will update tool selection. Workflows calling this skill unaffected by tool changes.
 
 **post-writer Skill:**
+
 - **Tools Used:** None (pure Claude generation using learned voice + platform formulas)
 - **Methodologies:** Justin Welsh PAIPS (LinkedIn), Greg Isenberg questions (Twitter), Paul Graham essays (Substack)
 - **Tool Evolution:** May add MCP tools for grammar checking, SEO optimization, or A/B testing in future iterations
 
 **video-script-writer Skill:**
+
 - **Tools Used:** None (pure Claude generation using scriptwriting methodologies)
 - **Methodologies:** Ali Abdaal storytelling, MKBHD review structure, YouTube chapter timestamps
 - **Tool Evolution:** May integrate youtube-research skill for trending format analysis
 
 **profile-analysis Skill:**
+
 - **Tools Used:** Apify (platform scrapers), social-media-mcp (Brave + Perplexity for trends)
 - **Apify Actors:** apify/instagram-scraper (profile + posts + metrics), clockworks/tiktok-scraper (profile + videos), apidojo/twitter-scraper-lite (tweets + profile)
 - **Tool Evolution:** May add direct platform APIs (Instagram Graph API, TikTok Research API) if access granted. Current scrapers work but may need replacement as platforms change anti-bot measures.
 
 **voice-matcher Skill:**
+
 - **Tools Used:** None (pure Claude analysis of historical content)
 - **Data Source:** User's 77+ historical posts analyzed for patterns
 - **Tool Evolution:** May integrate sentiment analysis MCP or stylometry tools for deeper voice profiling
 
 **create-image Skill:**
+
 - **Tools Used:** nanobanana (Gemini 2.5 Flash, $0.002-0.004/image), gpt-image-1 (DALL-E 3, $0.04-0.08/image)
 - **Tool Selection:** Default to nanobanana for cost efficiency, use gpt-image-1 when quality >cost priority or when specific DALL-E features needed
 - **Tool Evolution:** Monitor new models (Imagen 4, Midjourney API if released, FLUX Kontext Pro via fal-video). Update based on quality/cost benchmarks.
 
 **edit-image Skill:**
+
 - **Tools Used:** nanobanana (edit mode), gpt-image-1 (edit mode)
 - **Tool Evolution:** May add Cloudinary transformation API for programmatic edits (crop, resize, filters)
 
 **blend-images Skill:**
+
 - **Tools Used:** nanobanana (multi-image input mode)
 - **Tool Evolution:** May add custom compositing if nanobanana blending quality insufficient
 
 **veotools-mastery Skill:**
+
 - **Tools Used:** veotools (Veo 3 via Google AI Studio), fal-video (Veo 3, Luma Ray 2, Kling 2.1, Pixverse V4.5, Sora 2 via Fal.ai), heygen (talking head avatars)
 - **Model Selection:** HeyGen for avatars ($0.20-0.50/min, high quality faces), Veo 3 for fast b-roll ($0.30-0.60/8sec), Fal-Video Luma/Kling for cinematic ($1-3/video)
 - **Tool Evolution:** Video generation rapidly improving. Currently Veo 3 best quality/cost for b-roll, but Sora 2, Kling 3, and others launching. Skill will benchmark and update model preferences quarterly based on quality/cost/speed.
 
 **youtube-thumbnail-mastery Skill:**
+
 - **Tools Used:** None (strategic knowledge: MrBeast 6 pillars, Thomas Frank AIDA, CTR psychology)
 - **Tool Evolution:** May integrate CTR prediction API or A/B testing data if available
 
 **linkedin-design Skill:**
+
 - **Tools Used:** None (design system knowledge: dark monochrome palette, typography rules, layout templates)
 - **Tool Evolution:** May formalize into Figma templates or Cloudinary transformation presets
 
 **research-synthesizer Skill:**
+
 - **Tools Used:** None (pure Claude synthesis of research findings)
 - **Tool Evolution:** May integrate citation management or fact-checking MCPs
 
 **platform-formatter Skill:**
+
 - **Tools Used:** None (formatting rules per platform)
 - **Tool Evolution:** May add HTML-to-markdown converters or platform-specific preview generators
 
@@ -565,6 +609,7 @@ Skills are **model-invoked**—Claude autonomously decides when to use them by m
 **Description Best Practices:**
 
 Each skill must have discovery-optimized description including:
+
 1. **What the skill does** (capabilities)
 2. **When to use it** (trigger conditions)
 3. **Key terms users/workflows mention** (discovery keywords)
@@ -572,30 +617,36 @@ Each skill must have discovery-optimized description including:
 **Examples from Current System:**
 
 **post-writer skill:**
+
 ```yaml
 ---
 name: post-writer
 description: Generate platform-optimized social media posts using proven formulas (Justin Welsh PAIPS for LinkedIn, Greg Isenberg questions for Twitter, Paul Graham essays for Substack). Use when creating LinkedIn posts, Twitter threads, Substack essays, or any social media content requiring voice-matched writing.
 ---
 ```
+
 **Triggers:** "LinkedIn post", "Twitter thread", "social media content", "voice-matched"
 
 **deep-web-research skill:**
+
 ```yaml
 ---
 name: deep-web-research
 description: Multi-tool research orchestrator using Exa neural search, Apify platform scrapers, Firecrawl web scraping, and WebSearch. Intelligently routes between tools based on depth parameter (quick=free, comprehensive=paid). Use when researching topics, gathering web data, analyzing trends, or scraping social media platforms.
 ---
 ```
+
 **Triggers:** "research", "web data", "Exa", "Apify", "scraping", "trends"
 
 **veotools-mastery skill:**
+
 ```yaml
 ---
 name: veotools-mastery
 description: Google Veo 2.0/3.0/3.1 video generation expertise for animating diagrams, creating b-roll scenes, and image-to-video conversion. Knows model selection (veo-3.1-fast for iteration, veo-3.1-standard for quality), aspect ratio optimization (16:9 YouTube, 9:16 Shorts), and async job management. Use when generating videos from images, animating diagrams, or creating b-roll footage.
 ---
 ```
+
 **Triggers:** "animate diagram", "video from image", "b-roll", "Veo"
 
 **Avoiding Skill Conflicts:**
@@ -621,6 +672,7 @@ description: Platform trend analysis for Twitter, LinkedIn, Instagram using soci
 When workflow step says: "Research {topic} with depth=comprehensive"
 
 Claude's discovery process:
+
 1. Analyzes context: task=research, depth=comprehensive, domain=web
 2. Scans available skills for description matches
 3. Finds: deep-web-research (description contains "research", "Exa", "Apify", "depth parameter")
@@ -629,6 +681,7 @@ Claude's discovery process:
 6. Returns research results to workflow
 
 **Workflow authors optimize for discovery by:**
+
 - Using specific task terminology ("research" not "find stuff")
 - Including parameters mentioned in skill descriptions ("depth=comprehensive" matches deep-web-research's "depth parameter")
 - Providing rich context (topic, platform, format) that skills can match against
@@ -638,6 +691,7 @@ Claude's discovery process:
 ### Notion Integration Architecture
 
 **Content Tracker Database:**
+
 - **Data Source URL:** `collection://956447a76e7b4b2eafb1e4c9adfcbcf3`
 - **Purpose:** Central hub for all content ideas, workflow status, and metadata
 - **Status Workflow:** Idea → Research → Next Up → Writing → Editing → Posted → Archived
@@ -647,6 +701,7 @@ Claude's discovery process:
   - Zoro: Reads from Posted (ready to publish), updates to Posted with Publish Date
 
 **Key Properties Used by Agents:**
+
 - **Name** (title) - Content title (Jarvis creates)
 - **Status** (status) - Workflow stage (all agents update)
 - **Channel** (relation) - Target platform(s) (Jarvis links, Zoro validates)
@@ -660,7 +715,8 @@ Claude's discovery process:
 - **Notes** (relation) - Research sources (Jarvis links research brief pages)
 
 **MCP Server:** Notion MCP (`@notionhq/notion-mcp-server`)
-- **Authentication:** Integration token (ntn_***) stored in Claude Code MCP settings
+
+- **Authentication:** Integration token (ntn\_\*\*\*) stored in Claude Code MCP settings
 - **Permissions:** Read content, Update content, Insert content
 - **Shared With:** Content Dashboard page + all child databases
 
@@ -672,12 +728,14 @@ Claude's discovery process:
 **Strategic Decision:** Use Postiz MCP as the unified publishing interface for all platforms (Twitter, LinkedIn, Instagram, Facebook, TikTok, YouTube), with direct APIs available only for urgent immediate posting when scheduling not appropriate.
 
 **Primary Use Cases:**
+
 1. **Schedule posts for future dates** (recommended default) - Queue content with optimal posting times
 2. **Multi-platform distribution** - Post to multiple platforms simultaneously from single interface
 3. **Unified queue management** - View all scheduled content in Postiz dashboard
 4. **Analytics tracking** - Centralized performance metrics (Views/Likes/Comments) across platforms
 
 **Integration Points:**
+
 - **Primary Workflow:** `schedule-post` workflow (Zoro's main publishing interface)
   - Handles: Twitter, LinkedIn, Instagram, Facebook, TikTok, YouTube
   - User specifies: platforms[], post_content, media_paths[], schedule_date (future timestamp or "next-free-slot")
@@ -688,6 +746,7 @@ Claude's discovery process:
   - Advantage: Full API feature access (Twitter Premium 25k chars, LinkedIn carousels), lower latency
 
 **Why Postiz Primary:**
+
 - **Consistency:** All platforms use same publishing interface (no switching between Twitter API, LinkedIn API, YouTube API)
 - **Batch efficiency:** Queue multiple posts across platforms in single session
 - **Optimal timing:** Schedule for best engagement times without manual posting
@@ -695,6 +754,7 @@ Claude's discovery process:
 - **Less complexity:** One integration to maintain vs 3+ separate APIs
 
 **MCP Server:** Postiz MCP (`mcp__postiz`)
+
 - **Tools Available:**
   - integrationList: Get connected platform accounts
   - integrationSchema: Get platform-specific requirements (char limits, media formats)
@@ -711,6 +771,7 @@ Claude's discovery process:
 
 **Repository Type:** Modular Monorepo
 **Structure:**
+
 ```
 /
 ├── .claude/
@@ -789,6 +850,7 @@ Claude's discovery process:
 ```
 
 **Design Principles:**
+
 - **Loose coupling:** Each agent folder is self-contained, can be added/removed independently
 - **No central registry:** Agents discovered via .claude/commands/, skills via .claude/skills/, no manifest files to update
 - **Dual location pattern:** Agent definitions in both .claude/commands/ (Claude Code reads) and bmad/agents/ (source of truth with workflows/config)
@@ -806,6 +868,7 @@ Claude's discovery process:
 **Testing Strategy:** Manual validation during MVP, automated testing in Phase 2
 
 **MVP Testing Approach:**
+
 1. **Unit testing:** Individual skill invocations (does post-writer generate content with voice >8/10?)
 2. **Workflow testing:** End-to-end workflow execution (does research-topic complete all steps without errors?)
 3. **Integration testing:** Agent handoffs (does Jarvis→Zoe→Zoro pipeline work with Notion status updates?)
@@ -813,11 +876,13 @@ Claude's discovery process:
 5. **Cost tracking:** Monitor actual vs estimated costs per workflow execution
 
 **Test Artifacts:**
+
 - Test session outputs in outputs/testing/{date}/
 - Tool performance log (cost, speed, quality scores)
 - Workflow success rate tracking (95% target)
 
 **Testing Cadence:**
+
 - **Daily:** Run 1-2 end-to-end pipelines with real content
 - **Weekly:** Review cost data, update tool selection if needed
 - **Monthly:** Audit workflow standardization compliance
@@ -827,12 +892,14 @@ Claude's discovery process:
 ### Additional Technical Assumptions
 
 **Data Persistence Strategy:**
+
 - **Transient (session):** outputs/{date}/{session}/ - cleared after 30 days or manually
 - **Persistent (config):** agent memories.md, voice profiles, preferences - version controlled in git
 - **Collaborative (Notion):** Content Tracker, channels, keywords, tasks - authoritative source, agents sync to it
 - **Hybrid (handoffs):** JSON packages saved to outputs/ AND summarized in Notion page properties
 
 **Tool Choice Philosophy:**
+
 - **Free-first:** Always try WebSearch, WebFetch before paid APIs
 - **Cost-conscious:** nanobanana ($0.002/image) before gpt-image-1 ($0.04/image) unless quality demands it
 - **User-approved:** Operations >$1 require explicit confirmation (video generation, exhaustive research)
@@ -840,6 +907,7 @@ Claude's discovery process:
 - **Abstracted in skills:** Workflows don't call tools directly, skills handle tool orchestration and can optimize over time
 
 **Notion vs Local Outputs Trade-off:**
+
 - **Notion advantages:** Shared workspace, status-driven collaboration, mobile access (check status on phone), analytics (Views/Likes), relational data (Keywords, Channels)
 - **Local outputs/ advantages:** Full artifacts (research briefs, multi-page content), version history (git tracked), no API dependencies, faster access
 - **MVP Approach:** Use both—Notion for status/metadata/coordination, local for complete artifacts. Notion pages link to local files via URLs when needed.
@@ -853,6 +921,7 @@ The following epics represent the major product capabilities for the AI-Powered 
 **Note:** The current system already has partial implementations of most epics. The MVP work focuses on standardizing, completing, and optimizing these capabilities.
 
 **Sequencing Rationale:**
+
 1. **Foundation first** (Epic 1: Documentation) - Enables all other work, low-risk
 2. **De-risk greenfield early** (Epic 2: Notion) - Highest uncertainty, provides coordination layer for Epics 3-6
 3. **Parallelize features** (Epics 3-6) - Voice, Visual, Publishing, Intelligence can develop simultaneously using Notion coordination
@@ -992,14 +1061,17 @@ The following epics represent the major product capabilities for the AI-Powered 
 **Sequential Phases:**
 
 **Phase 1: Foundation (Days 1-3)**
+
 - Epic 1: Documentation + Registries + Output Structure
 - **Deliverable:** ARCHITECTURE.md, tool-registry.yaml, workflow-registry.yaml, outputs/templates/
 
 **Phase 2: Coordination Layer (Days 4-8)**
+
 - Epic 2: Notion Integration (greenfield, de-risked early)
 - **Deliverable:** Status-aware agents, Notion property updates, relational linking
 
 **Phase 3: Feature Development (Days 9-15)** ⚡ **PARALLELIZABLE**
+
 - Epic 3: Content Intelligence (1-2 days) 🔄
 - Epic 4: Voice Content (2-3 days) 🔄
 - Epic 5: Visual Production (2-3 days) 🔄
@@ -1008,10 +1080,12 @@ The following epics represent the major product capabilities for the AI-Powered 
 - **Can assign different epics to different sessions/days**
 
 **Phase 4: Validation (Days 16-17)**
+
 - Epic 7: Pipeline Testing
 - **Deliverable:** 95% success rate validated, cost/quality benchmarks established
 
 **Phase 5: Polish (Days 18-19)**
+
 - Epic 8: Workflow Standardization
 - **Deliverable:** 100% workflows use external instructions.md
 
@@ -1056,6 +1130,7 @@ so that I get high-quality research briefs with cited sources while optimizing c
 10. Execution time: quick (30-60s), standard (2-3 min), comprehensive (3-5 min), exhaustive (5-10 min)
 
 **Mermaid Diagram:**
+
 ```mermaid
 graph TD
     A[User: topic + depth] --> B{depth level?}
@@ -1176,6 +1251,7 @@ so that every idea has evidence support and I'm not guessing what will resonate.
 10. Execution time: 3-7 minutes depending on intelligence steps
 
 **Mermaid Diagram:**
+
 ```mermaid
 graph TD
     A[User: seed_topic + options] --> B{Research file provided?}
@@ -1452,6 +1528,7 @@ so that I get publication-ready visuals in 30-60 seconds instead of 15-30 minute
 15. Execution time: 30-60 seconds including quality evaluation
 
 **Mermaid Diagram:**
+
 ```mermaid
 graph TD
     A[User: prompt + design choice] --> B{Design choice?}
@@ -1599,6 +1676,7 @@ so that I create engaging explainer content showing processes step-by-step.
 11. Execution time: 2-4 minutes (60-180s generation + 30s setup)
 
 **Mermaid Diagram:**
+
 ```mermaid
 graph TD
     A[User: diagram image + animation style] --> B[veotools-mastery skill:<br/>Select optimal model]
@@ -1695,11 +1773,11 @@ so that I create presenter-style content without recording myself.
    - Provides list of available HeyGen voices
    - User selects voice_id matching desired tone
 5. **Step 3 (Generate via HeyGen MCP):**
-   - Calls mcp__heygen__generate_avatar_video with: avatar_id, input_text (script), voice_id
+   - Calls mcp**heygen**generate_avatar_video with: avatar_id, input_text (script), voice_id
    - Returns video_id for status checking
 6. **Step 4 (Poll for Completion):**
    - HeyGen videos take 2-5 minutes to generate
-   - Polls mcp__heygen__get_avatar_video_status every 30 seconds
+   - Polls mcp**heygen**get_avatar_video_status every 30 seconds
    - Shows progress to user ("Generating... 45% complete")
 7. **Step 5 (Download & Optimize):**
    - Downloads completed video
@@ -1730,11 +1808,11 @@ so that I batch-create content, optimize posting times for engagement, and avoid
 1. User invokes Zoro → `*schedule-post` workflow (**NEW DEVELOPMENT:** Primary Postiz workflow needs creation)
 2. Workflow prompts for: platforms[] (select multiple), post_content, media_paths[] (optional), schedule_date (future ISO timestamp or "next-free-slot" for Postiz auto-scheduling)
 3. **Step 1 (Platform Integration Discovery via Postiz MCP):**
-   - Calls mcp__postiz__integrationList to get connected accounts
+   - Calls mcp**postiz**integrationList to get connected accounts
    - Displays available: "Twitter (@username), LinkedIn (Your Name), Instagram (@username), Facebook (Page Name), TikTok (@username), YouTube (Channel Name)"
    - User selects platforms[] (can select multiple for cross-posting)
 4. **Step 2 (Platform Schema Validation for each selected platform):**
-   - Calls mcp__postiz__integrationSchema to get platform requirements
+   - Calls mcp**postiz**integrationSchema to get platform requirements
    - Example schemas returned:
      - Twitter: max_chars=25000 (Premium) or 280 (Standard), supports_images=true (1-4), supports_video=true
      - LinkedIn: max_chars=3000, supports_carousel=true (2-20 images), supports_pdf=true
@@ -1818,6 +1896,7 @@ so that I can publish time-sensitive breaking content instantly.
 7. Execution time: 10-30 seconds per tweet, 30-90 seconds for threads
 
 **Mermaid Diagram:**
+
 ```mermaid
 graph TD
     A[User: tweet_text] --> B{Length check}
@@ -1929,7 +2008,7 @@ so that I can publish time-sensitive video content instantly.
    - Uses youtube-growth-mastery knowledge to suggest category
    - Example: Tech review → Category 28 (Science & Technology)
 7. **Step 5 (Upload via youtube-uploader-mcp):**
-   - Calls mcp__youtube-uploader-mcp__upload_video
+   - Calls mcp**youtube-uploader-mcp**upload_video
    - Parameters: file_path, title, description, tags, category_id, privacy (defaults to private for safety)
    - Upload progress shown (large files take 2-10 minutes)
 8. **Step 6 (Success Confirmation):**
@@ -1963,17 +2042,17 @@ so that I don't manually coordinate which agent to invoke at which stage.
    - Queries Notion for content with Status = "Idea" or "Research" or "Next Up"
    - If found: Suggests workflows based on status
      - Status="Idea" → "Found 3 content ideas. Suggest: *research-topic for research, *generate-ideas for more ideas"
-     - Status="Research" → "Found 2 content items researched. Suggest: *write-post to create posts"
-     - Status="Next Up" → "Found 1 item scheduled. Suggest: *write-post to draft"
+     - Status="Research" → "Found 2 content items researched. Suggest: \*write-post to create posts"
+     - Status="Next Up" → "Found 1 item scheduled. Suggest: \*write-post to draft"
    - If none found: Shows standard menu
 3. **Zoe status awareness:**
    - Queries for content with Status = "Editing" AND no media URLs in properties
-   - If found: "Found 4 posts ready for visuals. Suggest: *create-single-image for thumbnails"
-   - Can also check for specific needs: "Post marked 'needs carousel' → Suggest *create-carousel"
+   - If found: "Found 4 posts ready for visuals. Suggest: \*create-single-image for thumbnails"
+   - Can also check for specific needs: "Post marked 'needs carousel' → Suggest \*create-carousel"
 4. **Zoro status awareness:**
    - Queries for content with Status = "Posted" (content complete, ready to publish)
    - If found: "Found 2 posts ready to publish. Suggest: *publish-tweet or *linkedin-post-image"
-   - Also checks for future scheduled: Status="Editing" + Publish Date set → Suggest *schedule-via-postiz
+   - Also checks for future scheduled: Status="Editing" + Publish Date set → Suggest \*schedule-via-postiz
 5. Notion query uses filters: `Status IN ('Idea', 'Research', 'Next Up') AND Graveyard = false` for active content only
 6. Agent displays: Count of items per status, top 3 titles as examples, suggested workflows
 7. User can override suggestions and select different workflow from menu
@@ -2250,6 +2329,7 @@ so that I continuously optimize cost/quality without breaking workflows or requi
 **Acceptance Criteria:**
 
 1. Create `.bmad-core/data/tool-registry.yaml` with complete tool inventory and performance tracking:
+
    ```yaml
    tools:
      apify_actors:
@@ -2259,7 +2339,7 @@ so that I continuously optimize cost/quality without breaking workflows or requi
          used_by_workflows: [learn-voice, analyze-profile]
          current_since: 2025-10-31
          cost_per_use: $0.02-0.04
-         typical_usage: "100 tweets per execution"
+         typical_usage: '100 tweets per execution'
          success_rate: 95%
          quality_score: 8.5/10
          avg_runtime: 30-45 seconds
@@ -2268,9 +2348,9 @@ so that I continuously optimize cost/quality without breaking workflows or requi
              cost_per_use: $0.01
              success_rate: 88%
              quality_score: 7.5/10
-             decision: "Keep current - reliability more important than 50% cost savings"
+             decision: 'Keep current - reliability more important than 50% cost savings'
          next_review_date: 2025-12-31
-         notes: "Proven reliable across 50+ executions, consistent data quality"
+         notes: 'Proven reliable across 50+ executions, consistent data quality'
 
      image_models:
        - name: nanobanana (Gemini 2.5 Flash)
@@ -2286,9 +2366,9 @@ so that I continuously optimize cost/quality without breaking workflows or requi
            - name: gpt-image-1 (DALL-E 3)
              cost_per_image: $0.04-0.08
              quality_score: 9.5/10
-             decision: "Use both - nanobanana for volume, gpt-image-1 for professional"
+             decision: 'Use both - nanobanana for volume, gpt-image-1 for professional'
          next_review_date: 2025-11-30
-         notes: "Monitor new models: Imagen 4, FLUX Kontext Pro, Midjourney API if released"
+         notes: 'Monitor new models: Imagen 4, FLUX Kontext Pro, Midjourney API if released'
    ```
 
 2. **Monthly tool review process:**
@@ -2308,15 +2388,16 @@ so that I continuously optimize cost/quality without breaking workflows or requi
    - Step 6: Update tool-registry.yaml with change log
 
 4. **Changelog tracking in tool-registry.yaml:**
+
    ```yaml
    changelog:
      - date: 2025-12-15
        tool: scraper_one/x-profile-posts-scraper
-       change: "Switched from apify/twitter-scraper to scraper_one"
-       reason: "Original actor deprecated by Apify, scraper_one more reliable (95% vs 78% success)"
+       change: 'Switched from apify/twitter-scraper to scraper_one'
+       reason: 'Original actor deprecated by Apify, scraper_one more reliable (95% vs 78% success)'
        affected_skills: [profile-analysis, deep-web-research]
        affected_workflows: [learn-voice, analyze-profile]
-       validation: "Tested with 10 profiles, success rate 95%, quality maintained"
+       validation: 'Tested with 10 profiles, success rate 95%, quality maintained'
    ```
 
 5. **Performance metrics tracked per tool usage:**
@@ -2352,57 +2433,58 @@ so that I can understand what workflows exist, which skills they trigger, and ho
 **Acceptance Criteria:**
 
 1. Create `.bmad-core/data/workflow-registry.yaml` with comprehensive workflow inventory:
+
    ```yaml
    workflows:
      research-topic:
        agent_owner: jarvis
        file_path: bmad/agents/content-intelligence/jarvis-sidecar/workflows/research-topic/
-       purpose: "Deep research on any topic with intelligent tool routing based on depth parameter"
+       purpose: 'Deep research on any topic with intelligent tool routing based on depth parameter'
        skills_triggered:
          - deep-web-research: "Triggered by step context 'research {topic} with depth={depth}'"
          - research-synthesizer: "Triggered by step context 'synthesize findings into 5 categories'"
-         - youtube-research: "Conditionally triggered if focus_areas includes YouTube"
+         - youtube-research: 'Conditionally triggered if focus_areas includes YouTube'
        tools_used: [Exa, WebSearch, Firecrawl, Apify]
        inputs:
-         - topic: "Research topic (string, required)"
-         - depth: "quick/standard/comprehensive/exhaustive (string, default: standard)"
-         - focus_areas: "Optional focus areas (array of strings)"
+         - topic: 'Research topic (string, required)'
+         - depth: 'quick/standard/comprehensive/exhaustive (string, default: standard)'
+         - focus_areas: 'Optional focus areas (array of strings)'
        outputs:
-         - research_brief: "outputs/{date}/{session}/research/{topic-slug}.md"
-         - content_angles: "10-12 specific angles embedded in brief"
+         - research_brief: 'outputs/{date}/{session}/research/{topic-slug}.md'
+         - content_angles: '10-12 specific angles embedded in brief'
        notion_updates:
-         - status: "Idea→Research"
-         - properties: "Adds research brief URL to Notes relation"
-       cost_range: "$0 (quick) to $0.50+ (exhaustive)"
-       avg_duration: "2-5 minutes"
+         - status: 'Idea→Research'
+         - properties: 'Adds research brief URL to Notes relation'
+       cost_range: '$0 (quick) to $0.50+ (exhaustive)'
+       avg_duration: '2-5 minutes'
        success_rate: 98%
-       example_use_case: "User wants data-backed research before creating content on trending AI topic"
-       dependencies: "Requires Exa MCP configured, Apify optional for exhaustive depth"
+       example_use_case: 'User wants data-backed research before creating content on trending AI topic'
+       dependencies: 'Requires Exa MCP configured, Apify optional for exhaustive depth'
 
      write-post:
        agent_owner: jarvis
        file_path: bmad/agents/content-intelligence/jarvis-sidecar/workflows/write-post/
-       purpose: "Generate platform-optimized social media posts with voice matching and quality validation"
+       purpose: 'Generate platform-optimized social media posts with voice matching and quality validation'
        skills_triggered:
          - post-writer: "Triggered by 'generate {platform} post about {topic}'"
          - voice-matcher: "Triggered by 'validate voice consistency against profile'"
          - platform-formatter: "Triggered by 'format for {platform} specifications'"
-       tools_used: []  # Pure Claude generation, no external tools
+       tools_used: [] # Pure Claude generation, no external tools
        inputs:
-         - topic: "Post topic or idea card reference"
-         - platform: "LinkedIn/Twitter/Substack"
-         - style: "Optional formula override (PAIPS/Top5/Thread)"
+         - topic: 'Post topic or idea card reference'
+         - platform: 'LinkedIn/Twitter/Substack'
+         - style: 'Optional formula override (PAIPS/Top5/Thread)'
        outputs:
-         - post_file: "outputs/{date}/{session}/posts/{platform}-{topic}.md"
-         - metadata: "Voice confidence score, word count, platform specs"
+         - post_file: 'outputs/{date}/{session}/posts/{platform}-{topic}.md'
+         - metadata: 'Voice confidence score, word count, platform specs'
        notion_updates:
-         - status: "Research→Writing→Editing"
-         - properties: "Saves post to Content Text, sets Publish Date estimate"
-       cost_range: "$0"
-       avg_duration: "1-3 minutes"
+         - status: 'Research→Writing→Editing'
+         - properties: 'Saves post to Content Text, sets Publish Date estimate'
+       cost_range: '$0'
+       avg_duration: '1-3 minutes'
        success_rate: 92%
-       example_use_case: "User has idea card from generate-ideas, wants LinkedIn post in their voice"
-       dependencies: "Requires voice profile in memories.md (run learn-voice first)"
+       example_use_case: 'User has idea card from generate-ideas, wants LinkedIn post in their voice'
+       dependencies: 'Requires voice profile in memories.md (run learn-voice first)'
    ```
 
 2. **Registry maintenance:**
@@ -2444,6 +2526,7 @@ so that I can find any artifact (research, drafts, media, published content) qui
 **Acceptance Criteria:**
 
 1. **Create template structure:** `outputs/templates/project-structure/` ✅ **CREATED**
+
    ```
    project-structure/
    ├── 00-session/
@@ -2472,6 +2555,7 @@ so that I can find any artifact (research, drafts, media, published content) qui
    │   └── facebook/
    └── handoffs/
    ```
+
    **Total Stages:** 6 (00-session through 05-published), not 7
    **Key Design:** Media in 04 is platform-agnostic (one thumbnail used for LinkedIn AND Twitter), drafts/published are platform-specific
 
@@ -2499,6 +2583,7 @@ so that I can find any artifact (research, drafts, media, published content) qui
      - Confirmation saves to: `{project}/05-published/{platform}/publish-confirmation.json` (IDs, timestamps)
 
 4. **Implement project slug generation logic:**
+
    ```python
    def generate_project_slug(notion_page_title=None, user_prompt=None):
        # Priority: Use Notion page title if available
@@ -2549,6 +2634,7 @@ so that I can find any artifact (research, drafts, media, published content) qui
 
 8. **Session log tracking with platform context:**
    - Append to `00-session/session-log.md` at each major step:
+
      ```markdown
      ## Session: 2025-11-05 - Multi-Platform AI Agents Post
 
@@ -2571,22 +2657,22 @@ so that I can find any artifact (research, drafts, media, published content) qui
      **14:28:45** - Session complete. Total cost: $0.23, Total time: 14 minutes, Platforms: 2
      ```
 
-8. **Bidirectional Notion linking:**
+9. **Bidirectional Notion linking:**
    - Local metadata.json includes: `"notion_page_url": "https://notion.so/..."`
    - Notion page includes property: `local_files_path` = "outputs/projects/2025-11-05-linkedin-post-ai-agents"
    - Enables: Click Notion link → opens local folder, Read metadata.json → get Notion page URL
 
-9. **Archive strategy:**
-   - Projects >90 days old moved to: `outputs/archive/YYYY-MM/`
-   - Organized by month for manageable archival
-   - Metadata.json includes `archived: true` flag
+10. **Archive strategy:**
+    - Projects >90 days old moved to: `outputs/archive/YYYY-MM/`
+    - Organized by month for manageable archival
+    - Metadata.json includes `archived: true` flag
 
-10. **Migration of existing outputs/{date}/ folders:**
+11. **Migration of existing outputs/{date}/ folders:**
     - Optional: Can migrate existing 10-28 through 11-05 folders
     - Or: Leave as legacy, new projects use new structure (recommended for MVP)
     - Future: Write migration script if needed
 
-11. **Multi-platform publishing workflow:**
+12. **Multi-platform publishing workflow:**
     - **Scenario:** Single research → LinkedIn post + Twitter thread + YouTube Short
     - **Process:**
       1. Jarvis research-topic → Saves to 01-research/research-brief.md
@@ -2602,15 +2688,15 @@ so that I can find any artifact (research, drafts, media, published content) qui
          - Saves url.md to each platform folder after Postiz publishes
     - **Result:** ONE research, ONE thumbnail, ONE video → THREE platform publications efficiently organized
 
-12. **Validation rules:**
+13. **Validation rules:**
     - Project slug must match: `^[a-z0-9-]{1,50}$` (lowercase, hyphens only, max 50 chars)
     - All 6 lifecycle stage folders present (00-session through 05-published) even if empty
     - All 7 platform subfolders present in 03-drafts/ and 05-published/ (linkedin, twitter, youtube, instagram, tiktok, substack, facebook)
     - metadata.json validates against schema with platform-specific file_inventory
     - All file names lowercase kebab-case with descriptive (not platform-specific) media names
 
-13. Estimated effort: 2-3 days to create template + update all workflows + test multi-platform scenarios
-14. Success criteria: 100% of new projects use standardized structure, zero orphaned files, all Notion pages linked to local folders, media reuse works across platforms (verified by metadata.json tracking)
+14. Estimated effort: 2-3 days to create template + update all workflows + test multi-platform scenarios
+15. Success criteria: 100% of new projects use standardized structure, zero orphaned files, all Notion pages linked to local folders, media reuse works across platforms (verified by metadata.json tracking)
 
 ---
 
@@ -2622,6 +2708,7 @@ so that I can find any artifact (research, drafts, media, published content) qui
 **MVP Scope Appropriateness:** Just Right (focused on standardization + completion + strategic new development)
 **Readiness for Architecture Phase:** Ready (all critical clarifications added)
 **Most Critical Gaps:**
+
 1. Epic 5 (Notion Integration) - greenfield development (3-5 days)
 2. Epic 2 (write-posts, write-scripts workflows) - need creation (2-3 days)
 3. Epic 7 (Stories 7.4, 7.5) - tool/workflow registries need creation (2-3 days)
@@ -2630,17 +2717,17 @@ so that I can find any artifact (research, drafts, media, published content) qui
 
 ### Category Analysis
 
-| Category                         | Status    | Critical Issues |
-| -------------------------------- | --------- | --------------- |
-| 1. Problem Definition & Context  | **PASS** (95%) | None - problem clearly articulated with quantified impact |
-| 2. MVP Scope Definition          | **PASS** (90%) | Epic 5 (Notion) is greenfield, may extend timeline beyond 8-13 days |
-| 3. User Experience Requirements  | **PASS** (95%) | Excellent - 6 interaction paradigms with Notion collaboration, 7 views documented |
-| 4. Functional Requirements       | **PASS** (98%) | 51 FRs comprehensive, includes workflow/skill/tool hierarchy (FR34-42), Notion integration (FR43-46), skill discovery model corrected (FR35) |
-| 5. Non-Functional Requirements   | **PASS** (92%) | 23 NFRs cover all areas, strong extensibility focus (NFR20-23) |
+| Category                         | Status          | Critical Issues                                                                                                                                      |
+| -------------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. Problem Definition & Context  | **PASS** (95%)  | None - problem clearly articulated with quantified impact                                                                                            |
+| 2. MVP Scope Definition          | **PASS** (90%)  | Epic 5 (Notion) is greenfield, may extend timeline beyond 8-13 days                                                                                  |
+| 3. User Experience Requirements  | **PASS** (95%)  | Excellent - 6 interaction paradigms with Notion collaboration, 7 views documented                                                                    |
+| 4. Functional Requirements       | **PASS** (98%)  | 51 FRs comprehensive, includes workflow/skill/tool hierarchy (FR34-42), Notion integration (FR43-46), skill discovery model corrected (FR35)         |
+| 5. Non-Functional Requirements   | **PASS** (92%)  | 23 NFRs cover all areas, strong extensibility focus (NFR20-23)                                                                                       |
 | 6. Epic & Story Structure        | **PASS** (100%) | 7 epics with 26 detailed stories (added 7.4, 7.5), mermaid diagrams, actual implementation details, verified workflow existence, cost/time estimates |
-| 7. Technical Guidance            | **PASS** (100%) | Exceptional - complete agent→workflow→skill→tool hierarchy documented with specific Apify actors, models, APIs |
-| 8. Cross-Functional Requirements | **PASS** (90%) | Notion schema documented, Postiz integration detailed, tool evolution process defined |
-| 9. Clarity & Communication       | **PASS** (95%) | Mermaid diagrams included, technical details accurate from investigation, consistent terminology |
+| 7. Technical Guidance            | **PASS** (100%) | Exceptional - complete agent→workflow→skill→tool hierarchy documented with specific Apify actors, models, APIs                                       |
+| 8. Cross-Functional Requirements | **PASS** (90%)  | Notion schema documented, Postiz integration detailed, tool evolution process defined                                                                |
+| 9. Clarity & Communication       | **PASS** (95%)  | Mermaid diagrams included, technical details accurate from investigation, consistent terminology                                                     |
 
 **Overall Assessment: PASS** - PRD is comprehensive, well-structured, and ready for implementation
 
@@ -2714,18 +2801,19 @@ so that I can find any artifact (research, drafts, media, published content) qui
 - **With strategic sequencing: 11-15 days** (parallelization optimized)
 
 **Optimized Breakdown:**
-  - **Phase 1:** Epic 1 (System Foundation) - 2-3 days
-    - Stories 7.3-7.6: ARCHITECTURE.md + tool-registry + workflow-registry + output management
-  - **Phase 2:** Epic 2 (Notion Integration) - 3-5 days ⚡ **GREENFIELD DE-RISKED EARLY**
-    - Provides coordination layer enabling Phase 3 parallelization
-  - **Phase 3: PARALLELIZABLE** (Days 9-15, longest epic determines phase duration)
-    - Epic 3 (Content Intelligence): 1-2 days 🔄
-    - Epic 4 (Voice Content): 2-3 days 🔄 **NEW workflows**
-    - Epic 5 (Visual Production): 2-3 days 🔄
-    - Epic 6 (Publishing): 2-3 days 🔄 **NEW Postiz workflow**
-    - **Max parallel duration:** 3 days (longest epic), not 9 days sequential!
-  - **Phase 4:** Epic 7 (Pipeline Testing) - 1-2 days
-  - **Phase 5:** Epic 8 (Workflow Standardization) - 1-2 days
+
+- **Phase 1:** Epic 1 (System Foundation) - 2-3 days
+  - Stories 7.3-7.6: ARCHITECTURE.md + tool-registry + workflow-registry + output management
+- **Phase 2:** Epic 2 (Notion Integration) - 3-5 days ⚡ **GREENFIELD DE-RISKED EARLY**
+  - Provides coordination layer enabling Phase 3 parallelization
+- **Phase 3: PARALLELIZABLE** (Days 9-15, longest epic determines phase duration)
+  - Epic 3 (Content Intelligence): 1-2 days 🔄
+  - Epic 4 (Voice Content): 2-3 days 🔄 **NEW workflows**
+  - Epic 5 (Visual Production): 2-3 days 🔄
+  - Epic 6 (Publishing): 2-3 days 🔄 **NEW Postiz workflow**
+  - **Max parallel duration:** 3 days (longest epic), not 9 days sequential!
+- **Phase 4:** Epic 7 (Pipeline Testing) - 1-2 days
+- **Phase 5:** Epic 8 (Workflow Standardization) - 1-2 days
 
 **Critical Path:** 3 + 5 + 3 + 2 + 2 = **15 days maximum** (if no parallelization)
 **Optimized Path:** 3 + 5 + 3 (parallel) + 2 + 2 = **15 days** (parallelization doesn't reduce critical path but reduces risk)
@@ -2793,6 +2881,7 @@ so that I can find any artifact (research, drafts, media, published content) qui
 ✅ **READY FOR ARCHITECT** - The PRD and epics are comprehensive, properly structured, and ready for architectural design and implementation.
 
 **Strengths:**
+
 - Exceptional technical detail from actual workflow investigation (verified via filesystem checks)
 - Complete agent→workflow→skill→tool hierarchy with specific Apify actors, models, costs
 - **Model-invoked skill discovery model properly documented** (workflows create context, Claude discovers skills—not explicit invocation)
@@ -2806,6 +2895,7 @@ so that I can find any artifact (research, drafts, media, published content) qui
 - **Notion status transition rules established** (Story 5.2: forward-only transitions, validation logging, concurrent coordination)
 
 **Verified Gaps Acknowledged:**
+
 - write-posts and write-scripts workflows confirmed non-existent (need creation in Epic 2)
 - Epic 5 (Notion) greenfield scope validated
 - Timeline revised 8-13 → 12-17 days reflecting verified scope
@@ -2851,6 +2941,7 @@ You are receiving this PRD for the **AI-Powered Social Media Agent Team** system
    - Rationale: De-risk greenfield Notion work early, documentation enables all other work
 
 **Key Context:**
+
 - Target timeline: 10-15 days for MVP
 - Budget: <$50/month for 30+ posts
 - Platform: Claude Code (desktop IDE, not web app)
@@ -2858,6 +2949,7 @@ You are receiving this PRD for the **AI-Powered Social Media Agent Team** system
 - Extensibility is core value: System must support organic growth beyond 3 current agents
 
 **Documents to reference:**
+
 - Project Brief: docs/brief.md
 - This PRD: docs/prd.md
 - Notion schema: docs/notion-content-dashboard.md
@@ -2906,6 +2998,7 @@ This PRD defines a modular, extensible AI-powered social media agent team built 
 - **Flexible Routing:** Not rigid Jarvis→Zoe→Zoro pipeline, but dynamic (text-only skips Zoe, standalone visuals skip Jarvis)
 
 **Quality Gates:**
+
 - Research: ≥3 credible sources with reliability scores
 - Content: Voice confidence ≥8/10 validated by voice-matcher skill
 - Images: 7-pillar framework ≥7/10 required for publication

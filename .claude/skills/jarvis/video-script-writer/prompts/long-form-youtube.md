@@ -15,6 +15,7 @@ Generate a complete, production-ready script for a YouTube video.
 ## Input Parameters
 
 You will receive:
+
 - **Topic**: {topic}
 - **Duration**: {duration} minutes (10, 15, or 20 typically)
 - **Style**: {style} (ali_abdaal_top5 | mkbhd_review | retention_optimized)
@@ -128,6 +129,7 @@ AI-optimized callback (reference past content)
 ```
 
 **Key Principles**:
+
 - Micro-loops create multiple engagement points
 - Emotional oscillation prevents monotony
 - Strategic surprise at drop-off point
@@ -152,6 +154,7 @@ Generate script in this format:
 {Hook script text - written for speaking, not reading}
 
 **Visual Direction**:
+
 - {Camera angle/framing}
 - {Any specific visual needed}
 
@@ -164,6 +167,7 @@ Generate script in this format:
 {Script text}
 
 **Visual Direction**:
+
 - {B-roll suggestions if needed}
 - {On-screen text suggestions}
 
@@ -181,6 +185,7 @@ Generate script in this format:
 **Speaking Pace**: ~150 words/minute = {calculated} minutes
 
 **Retention Tactics Used**:
+
 - ✓ Hook with curiosity gap
 - ✓ Pattern interrupts at: {timestamps}
 - ✓ Surprise element at: {50-60% timestamp}
@@ -198,6 +203,7 @@ Generate script in this format:
 ## METADATA
 
 **Title Options** (3 variants for testing):
+
 1. {title_1}
 2. {title_2}
 3. {title_3}
@@ -208,6 +214,7 @@ Generate script in this format:
 **Tags**: {suggested_tags}
 
 **Thumbnail Ideas**:
+
 1. {thumbnail_1}
 2. {thumbnail_2}
 
@@ -230,12 +237,14 @@ Generate script in this format:
 ### Hook (First 30 Seconds) - MOST CRITICAL
 
 **Must accomplish**:
+
 1. Stop the scroll immediately
 2. Create curiosity gap
 3. Promise clear value
 4. NO "Hey guys", NO long intros, NO fluff
 
 **Examples of effective hooks**:
+
 - "85% of you are making this mistake right now" (bold statement)
 - "This changed everything I thought I knew about {topic}" (transformation)
 - "In the next {duration} minutes, you'll learn exactly how to..." (clear promise)
@@ -246,6 +255,7 @@ Generate script in this format:
 ### Pattern Interrupts
 
 Place every 45-60 seconds to reset attention:
+
 - "Wait, what?"
 - "Here's something no one tells you..."
 - "But here's the thing..."
@@ -255,11 +265,13 @@ Place every 45-60 seconds to reset attention:
 ### The 50-60% Surprise Rule
 
 **CRITICAL FOR RETENTION**:
+
 - Most viewers drop at video midpoint
 - Place your MOST surprising/unexpected/valuable insight at 50-60% mark
 - This re-engages viewers who were about to leave
 
 **How to identify the surprise**:
+
 - The insight that made YOU go "wow"
 - The counterintuitive finding
 - The unexpected result
@@ -268,6 +280,7 @@ Place every 45-60 seconds to reset attention:
 ### Emotional Pacing
 
 **Vary energy throughout**:
+
 - High energy: Introductions, surprises, reveals
 - Moderate energy: Explanations, main content
 - Low energy: Transitions, setup for next point
@@ -278,6 +291,7 @@ Place every 45-60 seconds to reset attention:
 ### Scripting Philosophy
 
 **How much to script**:
+
 - ✅ Script precisely: Hooks (word-for-word), CTAs (word-for-word), Transitions
 - ✅ Outline: Main content points (allows natural delivery)
 - ❌ Don't script: Every single word if you want conversational tone
@@ -289,6 +303,7 @@ Place every 45-60 seconds to reset attention:
 ### Voice Adaptation
 
 If {voice_profile} is provided:
+
 - Match vocabulary level (simple, moderate, advanced)
 - Match sentence patterns (short/punchy, varied, complex)
 - Use signature phrases naturally
@@ -296,6 +311,7 @@ If {voice_profile} is provided:
 - Adapt emoji/enthusiasm level
 
 If NO voice profile:
+
 - Default to conversational, clear, moderate vocabulary
 - Speak TO viewer, not AT them
 - Use "you" frequently
@@ -303,6 +319,7 @@ If NO voice profile:
 ### Research Integration
 
 If {research_brief} is provided:
+
 - Incorporate facts and statistics naturally
 - Use quotes as social proof
 - Cite sources casually ("According to...", "Research shows...")
@@ -322,6 +339,7 @@ If {research_brief} is provided:
 ## Platform-Specific Notes
 
 ### YouTube Long-Form (10-20 min)
+
 - Moderate pace, conversational
 - SEO matters (title, description, tags)
 - Timestamps in description
@@ -329,6 +347,7 @@ If {research_brief} is provided:
 - Audience: Intentional learners seeking depth
 
 ### YouTube Shorts (15-90s)
+
 - Fast pace, punchy
 - 3-second hook (absolute max)
 - Vertical format (9:16)
@@ -338,6 +357,7 @@ If {research_brief} is provided:
 ## Success Metrics
 
 Your script should enable:
+
 - **Retention**: >50% at 30 seconds (beat the 85% drop-off stat)
 - **Watch time**: Average view duration >40% (YouTube's sweet spot)
 - **Engagement**: Natural moments for likes, comments, shares

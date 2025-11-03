@@ -11,9 +11,11 @@
 ### Skills Can Do Interactive Q&A!
 
 **Key discovery from Anthropic:**
+
 > "The 'skill-creator' skill provides **interactive guidance**: Claude **asks** about your workflow, generates the folder structure, formats the SKILL.md file, and bundles the resources you need."
 
 **Skills CAN:**
+
 - ✅ Ask questions during execution
 - ✅ Get user responses
 - ✅ Make decisions based on answers
@@ -28,6 +30,7 @@
 ### From Official Docs & Engineering Blog
 
 **Skills support:**
+
 - Interactive guidance (asking questions)
 - Code execution (running scripts)
 - File creation (generating outputs)
@@ -43,16 +46,19 @@
 ### Skills CANNOT Do:
 
 **Multi-SESSION state:**
+
 - ❌ "Remember user preferences across sessions"
 - ❌ "Track what we did yesterday"
 - ❌ "Maintain conversation history"
 
 **Workflow orchestration:**
+
 - ❌ "Run workflow A, then workflow B, then workflow C"
 - ❌ "Call this agent, wait, call that agent"
 - ❌ "Pause this process, resume later"
 
 **Complex file organization:**
+
 - ❌ "Save to this specific nested directory structure based on date/project/type"
 - ❌ "Create handoff packages for 3 different agents"
 - ❌ "Populate templates in 5 different locations"
@@ -62,6 +68,7 @@
 ### Skills CAN Do:
 
 **Single-TASK interaction:**
+
 - ✅ "What type of skill? [simple/medium/complex]"
 - ✅ Get answer, generate accordingly
 - ✅ "Where to save? [personal/project]"
@@ -76,6 +83,7 @@
 ### As a SKILL
 
 **User experience:**
+
 ```
 User: "Create a skill for analyzing Instagram engagement"
 
@@ -116,6 +124,7 @@ Test with: 'Analyze this Instagram post's engagement'"
 ### As an AGENT
 
 **User experience:**
+
 ```
 User: /skill-creator
 
@@ -151,18 +160,18 @@ Step 6: Present results
 
 ## The Decision Matrix
 
-| Factor | Skill | Agent |
-|--------|-------|-------|
-| **Invocation** | Auto (say "create skill") | Manual (/skill-creator) |
-| **Complexity** | Low (one file + refs) | High (manifest, menu, workflows) |
-| **Build time** | 3 hours | 12+ hours |
-| **Maintenance** | Low | High |
-| **User friction** | Zero (auto-loads) | Some (must remember command) |
-| **Interactive?** | ✅ Yes (within task) | ✅ Yes (across workflows) |
-| **File creation?** | ✅ Yes | ✅ Yes |
-| **Validation?** | ✅ Yes (include script) | ✅ Yes (separate workflow) |
-| **Follows Anthropic pattern?** | ✅ Yes (they use skill!) | ❌ No |
-| **Overkill?** | ❌ No (right-sized) | ✅ Yes (too complex) |
+| Factor                         | Skill                     | Agent                            |
+| ------------------------------ | ------------------------- | -------------------------------- |
+| **Invocation**                 | Auto (say "create skill") | Manual (/skill-creator)          |
+| **Complexity**                 | Low (one file + refs)     | High (manifest, menu, workflows) |
+| **Build time**                 | 3 hours                   | 12+ hours                        |
+| **Maintenance**                | Low                       | High                             |
+| **User friction**              | Zero (auto-loads)         | Some (must remember command)     |
+| **Interactive?**               | ✅ Yes (within task)      | ✅ Yes (across workflows)        |
+| **File creation?**             | ✅ Yes                    | ✅ Yes                           |
+| **Validation?**                | ✅ Yes (include script)   | ✅ Yes (separate workflow)       |
+| **Follows Anthropic pattern?** | ✅ Yes (they use skill!)  | ❌ No                            |
+| **Overkill?**                  | ❌ No (right-sized)       | ✅ Yes (too complex)             |
 
 **Winner:** SKILL (4x faster to build, easier to use, follows Anthropic pattern)
 
@@ -175,6 +184,7 @@ Step 6: Present results
 **I thought:** Skills can't ask questions or interact
 
 **From workflows analysis:**
+
 - Workflows ask questions: `<ask>Select: [1/2/3]</ask>`
 - I concluded: Only workflows can interact
 
@@ -185,15 +195,18 @@ Step 6: Present results
 ### Corrected Understanding
 
 **From Anthropic:**
+
 > "Claude **asks** about your workflow, generates the folder structure..."
 
 **Skills CAN ask questions during task execution!**
 
 **The difference:**
+
 - Skills: Interaction WITHIN single task
 - Workflows: Interaction ACROSS multi-step process with state
 
 **For skill creation:**
+
 - One task = "create a skill"
 - Within that task, ask questions
 - Generate, validate, save
@@ -212,12 +225,14 @@ Step 6: Present results
 **skill-creator skill (auto-loads):**
 
 **Interactive Q&A within task:**
+
 1. "What should the skill do?" → User describes
 2. "Need code execution?" → User: yes
 3. "What file structure?" → Suggests complex
 4. "Where to save?" → User: project
 
 **Generation:**
+
 - Creates SKILL.md with YAML
 - Creates scripts/ with form-filler.py
 - Creates reference/ with PDF best practices
@@ -235,6 +250,7 @@ Step 6: Present results
 ### What Agent Adds:
 
 **Menu system:**
+
 ```
 /skill-creator
 
@@ -248,6 +264,7 @@ Step 6: Present results
 ```
 
 **Multiple workflows:**
+
 - create-skill/
 - validate-skill/
 - update-skill/
@@ -262,6 +279,7 @@ Step 6: Present results
 **Just ONE thing:** Create well-formed skills
 
 **Don't need:**
+
 - ❌ Menu system (one task = create skill)
 - ❌ Multiple workflows (creation is one process)
 - ❌ Slash command (auto-load is better!)
@@ -276,6 +294,7 @@ Step 6: Present results
 ### Build skill-creator as a SKILL
 
 **Why:**
+
 1. ✅ **Follows Anthropic pattern** (they use skill!)
 2. ✅ **Model-invoked** (auto-loads, no command needed)
 3. ✅ **Can interact** (ask questions within task)
@@ -286,6 +305,7 @@ Step 6: Present results
 8. ✅ **Better UX** (just ask, it loads)
 
 **Implementation:**
+
 ```
 .claude/skills/jarvis/skill-creator/
 ├── SKILL.md (interactive creation guide)
@@ -313,6 +333,7 @@ Step 6: Present results
 **Don't use for:** Custom skill authoring
 
 **Two different tools:**
+
 - skill-seeker: Documentation → Skills
 - skill-creator: User needs → Skills
 
@@ -327,6 +348,7 @@ Step 6: Present results
 🧙 **The Master's Vote: Build skill-creator SKILL!**
 
 **Benefits:**
+
 - Auto-loads when you need it
 - Creates good skills fast
 - Follows Anthropic pattern

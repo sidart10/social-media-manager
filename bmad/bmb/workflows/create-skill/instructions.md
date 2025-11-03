@@ -11,18 +11,21 @@
 <action>Engage in collaborative discovery to understand what skill they want to create:
 
 Ask open-ended questions to explore:
+
 - What should this skill do? What problem does it solve?
 - What tasks should trigger this skill?
 - Is this a simple utility or complex domain expertise?
 - Do they have existing methodologies in mind, or should we research?
 
 Listen for clues about:
+
 - Domain complexity (file operations vs content creation vs specialized knowledge)
 - Whether proven methodologies exist (research-worthy domains)
 - User's familiarity with the domain (novice needs more research)
 - Scope (focused single task vs multi-capability skill)
 
 Based on responses, assess:
+
 - Simple utility: File operations, data formatting, basic transformations
 - Complex domain: Content creation, marketing, creative processes, specialized expertise
 
@@ -34,10 +37,10 @@ Store assessment as {{skill_complexity}} (simple/complex)
 <action>Based on the {{skill_complexity}} assessment, present research options:
 
 If skill is COMPLEX (content creation, marketing, specialized domains):
-  Explain: "This is a {domain} skill. I can find proven methodologies and best practices before building it."
+Explain: "This is a {domain} skill. I can find proven methodologies and best practices before building it."
 
 If skill is SIMPLE (utilities, formatting, basic operations):
-  Explain: "This is a straightforward skill. Template-based creation will be sufficient."
+Explain: "This is a straightforward skill. Template-based creation will be sufficient."
 </action>
 
 <ask>Choose creation mode:
@@ -57,18 +60,19 @@ Select mode [1/2]:
 <action>Execute comprehensive research using Exa and Firecrawl:
 
 **Research Strategy:**
+
 1. Generate smart research queries from skill purpose
    - Primary query: "{domain} best practices proven methodologies"
    - Secondary query: "{domain} frameworks strategies techniques"
    - Tertiary query: "{domain} expert insights real-world examples"
 
 2. Execute Exa neural search:
-   - Use mcp__exa__search with numResults=10
+   - Use mcp**exa**search with numResults=10
    - Target: High-quality sources (blogs, documentation, case studies)
    - Focus: Proven methodologies, frameworks, expert insights
 
 3. Scrape top 3-5 sources with Firecrawl:
-   - Use mcp__firecrawl__firecrawl_scrape for detailed content
+   - Use mcp**firecrawl**firecrawl_scrape for detailed content
    - Extract: Methodologies, best practices, frameworks, examples
    - Clean and structure findings
 
@@ -79,6 +83,7 @@ Select mode [1/2]:
    - Note credible sources for citations
 
 Present research summary:
+
 - Methodologies found: {{methodology_1}}, {{methodology_2}}, etc.
 - Best practices: {{practice_1}}, {{practice_2}}, etc.
 - Sources: {{source_count}} credible sources analyzed
@@ -94,6 +99,7 @@ Store all findings for incorporation into skill
 <action>Generate skill name following Anthropic conventions:
 
 **Naming Rules (from Anthropic):**
+
 - Lowercase letters, numbers, hyphens only (no underscores, no spaces)
 - Max 64 characters
 - Use gerund form (verb+ing) for action skills: "analyzing-data", "creating-images", "generating-reports"
@@ -101,6 +107,7 @@ Store all findings for incorporation into skill
 - Descriptive and clear: Name should hint at purpose
 
 Based on skill purpose, generate 2-3 name options:
+
 - Option 1: {{name_option_1}} (recommended)
 - Option 2: {{name_option_2}} (alternative)
 - Option 3: {{name_option_3}} (alternative)
@@ -112,8 +119,7 @@ Show rationale for recommendation
 
 Recommended: {{name_option_1}}
 
-[accept / suggest alternative]:
-</ask>
+[accept / suggest alternative]: /ask
 
 <action>Store final {{skill_name}} (validated against Anthropic rules)</action>
 
@@ -123,18 +129,20 @@ Load agent manifest from {agent_manifest}
 Parse CSV to extract agent names (column: name)
 
 Present numbered list to user:
+
 1. {{agent_1}} (e.g., "jarvis" - content intelligence skills)
 2. {{agent_2}} (e.g., "ai-image-generator" - visual creation skills)
 3. {{agent_3}} (e.g., "ai-video-agent" - video production skills)
-... (all agents from manifest)
-N. **standalone** (not tied to specific agent, general-purpose skill)
+   ... (all agents from manifest)
+   N. **standalone** (not tied to specific agent, general-purpose skill)
 
 Explain: Skills are organized by agent category in .claude/skills/{category}/
+
 - Jarvis skills: Content research, writing, voice matching
 - AI Image skills: Image generation, design, visual production
 - AI Video skills: Video generation, script production
 - Standalone: General utilities, cross-agent capabilities
-</action>
+  </action>
 
 <ask>Which agent category should this skill belong to?
 
@@ -146,6 +154,7 @@ Enter number (1-N):
 <action>Craft optimized description for Claude discovery:
 
 **Description Requirements (Anthropic):**
+
 - Max 1024 characters
 - Must include WHAT the skill does
 - Must include WHEN Claude should use it
@@ -163,6 +172,7 @@ Include discovered methodologies and frameworks:
 "Create engaging Instagram captions with hooks, storytelling, and CTAs using proven engagement patterns from viral content analysis. Use when writing Instagram posts, captions, or social media content. Includes hook formulas, optimal caption length (600-1200 chars), hashtag strategies (5-10 tags), and call-to-action frameworks."
 
 Generate description with:
+
 - Clear what (primary capability)
 - Specific when triggers (3-5 scenarios)
 - Methodologies if researched
@@ -170,10 +180,11 @@ Generate description with:
 - Under 1024 characters
 
 Present draft description with:
+
 - Character count: {{char_count}}/1024
 - Trigger keywords: {{extracted_keywords}}
 - Rationale for phrasing choices
-</action>
+  </action>
 
 <ask>Review generated description:
 
@@ -192,12 +203,14 @@ Good to proceed? [yes / edit / regenerate]:
 <action>Based on skill complexity and research results, recommend file structure:
 
 **Simple skills (no research, basic functionality):**
+
 ```
 {skill_name}/
 └── SKILL.md
 ```
 
 **Medium skills (some research or examples needed):**
+
 ```
 {skill_name}/
 ├── SKILL.md
@@ -208,6 +221,7 @@ Good to proceed? [yes / edit / regenerate]:
 ```
 
 **Complex skills (deep research, multiple methodologies):**
+
 ```
 {skill_name}/
 ├── SKILL.md
@@ -224,6 +238,7 @@ Good to proceed? [yes / edit / regenerate]:
 ```
 
 Recommend structure based on:
+
 - {{creation_mode}} (quick → simple, research → complex)
 - Research findings (if any methodologies found → reference/ needed)
 - Domain needs (content creation → prompts/ + examples/)
@@ -249,8 +264,8 @@ Proceed with this structure? [yes / customize]:
 
 ```markdown
 ---
-name: {{skill_name}}
-description: {{skill_description}}
+name: { { skill_name } }
+description: { { skill_description } }
 ---
 
 # {{Skill Title}} - {{One-line purpose}}
@@ -260,10 +275,11 @@ description: {{skill_description}}
 ## When to Use This Skill
 
 Use this skill when:
+
 - {{trigger_scenario_1}}
 - {{trigger_scenario_2}}
 - {{trigger_scenario_3}}
-{{additional scenarios based on description}}
+  {{additional scenarios based on description}}
 
 ## Instructions
 
@@ -271,12 +287,15 @@ Use this skill when:
 Based on research of {{domain}} best practices from {{source_count}} sources:
 
 ### {{Methodology_1_Name}} (from {{source}})
+
 {{Methodology explanation}}
 
 ### {{Methodology_2_Name}} (from {{source}})
+
 {{Methodology explanation}}
 
 ### Application Process
+
 1. {{Step using methodologies}}
 2. {{Step with best practices}}
 3. {{Synthesis or output step}}
@@ -289,7 +308,7 @@ When {{task_type}}:
 1. {{Step 1 - based on user input}}
 2. {{Step 2}}
 3. {{Step 3}}
-{{/if}}
+   {{/if}}
 
 {{Additional instructions based on skill purpose}}
 
@@ -302,22 +321,25 @@ When {{task_type}}:
 {{Example output or walkthrough}}
 
 {{#if file_structure includes 'reference/'}}
+
 ## Reference Files
 
 - **[reference/methodology.md](reference/methodology.md)** - Detailed {{framework}} explanations
 - **[reference/best-practices.md](reference/best-practices.md)** - Synthesized insights from research
 - **[reference/sources.md](reference/sources.md)** - Research citations and credibility notes
-{{/if}}
+  {{/if}}
 
 {{#if file_structure includes 'prompts/'}}
+
 ## Prompt Templates
 
 - **[prompts/templates.md](prompts/templates.md)** - Generation templates based on {{methodologies}}
-{{/if}}
+  {{/if}}
 
 ## Quality Standards
 
 Every output from this skill should:
+
 - {{Quality criterion 1 based on domain}}
 - {{Quality criterion 2}}
 - {{Quality criterion 3}}
@@ -385,12 +407,14 @@ Create scripts/helper.py (or .js based on need):
 <action>Perform comprehensive validation following Anthropic requirements:
 
 **YAML Frontmatter Validation:**
+
 - ✓ Opens with `---` on line 1
 - ✓ Closes with `---` before content
 - ✓ Contains `name` field
 - ✓ Contains `description` field
 
 **Name Validation:**
+
 - ✓ Lowercase letters, numbers, hyphens only (no underscores, no uppercase)
 - ✓ Length <= 64 characters
 - ✓ Follows gerund convention for action skills (verb+ing)
@@ -398,6 +422,7 @@ Create scripts/helper.py (or .js based on need):
 - ✓ Matches regex: ^[a-z0-9-]+$
 
 **Description Validation:**
+
 - ✓ Length <= 1024 characters
 - ✓ Includes "use when" or "when" clause
 - ✓ Contains trigger keywords
@@ -405,12 +430,14 @@ Create scripts/helper.py (or .js based on need):
 - ✓ Includes what + when + examples/capabilities
 
 **File Structure Validation:**
+
 - ✓ SKILL.md exists and properly formatted
 - ✓ All referenced files exist (check markdown links)
 - ✓ Relative paths use forward slashes (Unix-style)
 - ✓ No broken links to reference/, prompts/, examples/, scripts/
 
 **Content Quality Validation:**
+
 - ✓ "When to Use This Skill" section present
 - ✓ "Instructions" section clear and actionable
 - ✓ "Examples" section with concrete scenarios
@@ -445,6 +472,7 @@ Skill Validation Results:
 Ready to save!
 {{/if}}
 ```
+
 </action>
 
 <check if="errors exist">
@@ -464,17 +492,19 @@ Explain: "Saving skill to .claude/skills/{{agent_category}}/{{skill_name}}/"
 </action>
 
 <action>Create skill directory structure:
+
 - Create main directory: .claude/skills/{{agent_category}}/{{skill_name}}/
 - Create subdirectories based on {{file_structure}}
-</action>
+  </action>
 
 <action>Write all skill files:
+
 - SKILL.md (main file with YAML frontmatter + content)
 - reference/ files (if research mode)
 - prompts/ files (if applicable)
 - examples/ files (always include)
 - scripts/ files (if needed)
-</action>
+  </action>
 
 <action>Now update project manifests following the same pattern as workflows and agents:
 
@@ -483,34 +513,40 @@ Explain: "Saving skill to .claude/skills/{{agent_category}}/{{skill_name}}/"
 File: {skill_manifest}
 
 CSV Format:
+
 ```
 name,description,agent_category,path,research_enhanced
 ```
 
 Add new row:
+
 ```
 "{{skill_name}}","{{skill_description}}","{{agent_category}}",".claude/skills/{{agent_category}}/{{skill_name}}/SKILL.md","{{creation_mode == 'research'}}"
 ```
 
 **If skill-manifest.csv doesn't exist:**
+
 - Create it with header row first
 - Then add skill entry
 
 **If it exists:**
+
 - Append new row (ensure no duplicates)
 - Maintain CSV formatting
-</action>
+  </action>
 
 <action>Update files-manifest.csv to track all created files:
 
 File: {files_manifest}
 
 For each file created, add row:
+
 ```
 "md","{{file_name_without_extension}}","{{agent_category}}",".claude/skills/{{agent_category}}/{{skill_name}}/{{file_path}}","{{file_hash}}"
 ```
 
 Files to register:
+
 - SKILL.md (type: md)
 - All reference/ files (type: md)
 - All prompts/ files (type: md)
@@ -538,6 +574,7 @@ Manifests updated:
 Agent category: {{agent_category}}
 Research mode: {{creation_mode == 'research' ? 'Yes' : 'No'}}
 ```
+
 </action>
 </step>
 
@@ -545,11 +582,13 @@ Research mode: {{creation_mode == 'research' ? 'Yes' : 'No'}}
 <action>Generate test query that should trigger the skill:
 
 Based on {{skill_description}} trigger keywords, create a query that:
+
 - Matches the "use when" scenarios
 - Includes trigger keywords
 - Represents realistic user request
 
 Example generation:
+
 - Skill about Instagram captions → "Write an Instagram caption for a photo of sunset at the beach"
 - Skill about data analysis → "Analyze this CSV file and find trends"
 - Skill about commit messages → "Generate commit message from these code changes"
@@ -610,6 +649,7 @@ Present test query with explanation of why it should trigger
 
 Skill is ready to use! 🎉
 ```
+
 </action>
 </step>
 

@@ -15,11 +15,11 @@ Frequently asked questions about Websets
 <Accordion title="Who is Websets for?">
   Websets is a tool meant to solve sourcing for knowledge workers. Here are a few major use cases:
 
-* **Recruiters**: source potential candidates for any role (we all know Linkedin search is broken after all)
-  * **Sales teams**: source companies and points of contact that match your ICP. Watch hours of outbound research be done in minutes
-  * **Investors**: whether you're looking for your next target or doing diligence, Websets can be a powerful tool. Find companies, financial statements, reports and news.
-  * **Researchers**: find research papers, reports, news and more. No matter what you're researching.
-  * **Founder**: find competitors, tweet ideas, candidates, potential customers, potential investors and more.
+- **Recruiters**: source potential candidates for any role (we all know Linkedin search is broken after all)
+  - **Sales teams**: source companies and points of contact that match your ICP. Watch hours of outbound research be done in minutes
+  - **Investors**: whether you're looking for your next target or doing diligence, Websets can be a powerful tool. Find companies, financial statements, reports and news.
+  - **Researchers**: find research papers, reports, news and more. No matter what you're researching.
+  - **Founder**: find competitors, tweet ideas, candidates, potential customers, potential investors and more.
 
 And more! We've seen thousands of different use cases.
 </Accordion>
@@ -115,6 +115,7 @@ result = exa.get_contents(urls, livecrawl="always")
 **URL:** llms-txt#structured-outputs-with-instructor
 
 **Contents:**
+
 - What this doc covers
 - Guide
 - 1. Pre-requisites and installation
@@ -127,8 +128,8 @@ Using Exa with instructor to generate structured outputs from web content.
 
 ## What this doc covers
 
-* Setting up Exa to use [Instructor](https://python.useinstructor.com/) for structured output generation
-* Practical examples of using Exa and Instructor together
+- Setting up Exa to use [Instructor](https://python.useinstructor.com/) for structured output generation
+- Practical examples of using Exa and Instructor together
 
 ## 1. Pre-requisites and installation
 
@@ -152,7 +153,7 @@ Instead of doing this, we can use Instructor. Instructor is powered by [pydantic
 
 Let's set up Exa and Instructor:
 
-```python Python theme={null}
+````python Python theme={null}
 import os
 
 import instructor
@@ -190,7 +191,7 @@ Instead of doing this, we can use Instructor. Instructor is powered by [pydantic
 ## 3. Setup and Basic Usage
 
 Let's set up Exa and Instructor:
-```
+````
 
 ---
 
@@ -199,6 +200,7 @@ Let's set up Exa and Instructor:
 **URL:** llms-txt#quickstart
 
 **Contents:**
+
 - Create and setup your API key
 - Create a .env file
 - Make an API request
@@ -285,6 +287,7 @@ Once you've installed the SDK, create a file called `exa.ts` and add the code be
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 <br />
 
@@ -300,6 +303,7 @@ Use our python or javascript SDKs, or call the API directly with cURL.
 ```
 
 Example 2 (unknown):
+
 ```unknown
 Once you've installed the SDKs, create a file called `exa.py` and add the code below.
 
@@ -309,6 +313,7 @@ Once you've installed the SDKs, create a file called `exa.py` and add the code b
 ```
 
 Example 3 (unknown):
+
 ```unknown
 </Tab>
 
@@ -317,6 +322,7 @@ Example 3 (unknown):
 ```
 
 Example 4 (unknown):
+
 ```unknown
 </Tab>
 
@@ -352,6 +358,7 @@ By default, it automatically chooses between traditional keyword search and Exa'
 **URL:** llms-txt#contents-endpoint-status-changes
 
 **Contents:**
+
 - What Changed
 - Response Structure
   - Status Fields Explained
@@ -379,21 +386,21 @@ The new response structure includes:
 
 ### Status Fields Explained
 
-* **id**: The URL that was requested
-* **status**: Either `"success"` or `"error"`
-* **error** (optional): Only present when status is `"error"`
-  * **tag**: Specific error type
-    * `CRAWL_NOT_FOUND`: Content not found (404)
-    * `CRAWL_TIMEOUT`: Request timed out (408)
-    * `SOURCE_NOT_AVAILABLE`: Access forbidden or source unavailable (403)
-    * `CRAWL_UNKNOWN_ERROR`: Other errors (500+)
-  * **httpStatusCode**: The corresponding HTTP status code
+- **id**: The URL that was requested
+- **status**: Either `"success"` or `"error"`
+- **error** (optional): Only present when status is `"error"`
+  - **tag**: Specific error type
+    - `CRAWL_NOT_FOUND`: Content not found (404)
+    - `CRAWL_TIMEOUT`: Request timed out (408)
+    - `SOURCE_NOT_AVAILABLE`: Access forbidden or source unavailable (403)
+    - `CRAWL_UNKNOWN_ERROR`: Other errors (500+)
+  - **httpStatusCode**: The corresponding HTTP status code
 
 ## How to Update Your Code
 
 Instead of catching HTTP errors, you should now check the `statuses` field:
 
-```python Python theme={null}
+````python Python theme={null}
 
 **Examples:**
 
@@ -414,7 +421,7 @@ Example 1 (unknown):
 ## How to Update Your Code
 
 Instead of catching HTTP errors, you should now check the `statuses` field:
-```
+````
 
 ---
 
@@ -423,10 +430,11 @@ Instead of catching HTTP errors, you should now check the `statuses` field:
 **URL:** llms-txt#if-you-want-the-full-text-of-the-citations-in-the-response:
 
 **Contents:**
-  - Input Parameters:
-  - Returns Example:
-  - Return Parameters:
-  - `AnswerResult` object
+
+- Input Parameters:
+- Returns Example:
+- Return Parameters:
+- `AnswerResult` object
 - `stream_answer` Method
   - Input Example:
   - Input Parameters:
@@ -435,33 +443,33 @@ Instead of catching HTTP errors, you should now check the `statuses` field:
 - `research.create_task` Method
 
 response_with_text = exa.answer(
-    "What is the capital of France?",
-    text=True
+"What is the capital of France?",
+text=True
 )
-print(response_with_text.citations[0].text)  # Full page text
+print(response_with_text.citations[0].text) # Full page text
 JSON JSON theme={null}
 {
-  "answer": "The capital of France is Paris.",
-  "citations": [
-    {
-      "id": "https://www.example.com/france",
-      "url": "https://www.example.com/france",
-      "title": "France - Wikipedia",
-      "publishedDate": "2023-01-01",
-      "author": null,
-      "text": "France, officially the French Republic, is a country in... [truncated for brevity]"
-    }
-  ]
+"answer": "The capital of France is Paris.",
+"citations": [
+{
+"id": "https://www.example.com/france",
+"url": "https://www.example.com/france",
+"title": "France - Wikipedia",
+"publishedDate": "2023-01-01",
+"author": null,
+"text": "France, officially the French Republic, is a country in... [truncated for brevity]"
+}
+]
 }
 Python Python theme={null}
 stream = exa.stream_answer("What is the capital of France?", text=True)
 
 for chunk in stream:
-    if chunk.content:
-        print("Partial answer:", chunk.content)
-    if chunk.citations:
-        for citation in chunk.citations:
-            print("Citation found:", citation.url)
+if chunk.content:
+print("Partial answer:", chunk.content)
+if chunk.citations:
+for citation in chunk.citations:
+print("Citation found:", citation.url)
 Python Python theme={null}
 from exa_py import Exa
 import os
@@ -471,6 +479,7 @@ exa = Exa(os.environ["EXA_API_KEY"])
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 ### Input Parameters:
 
@@ -484,6 +493,7 @@ Example 1 (unknown):
 ```
 
 Example 2 (unknown):
+
 ```unknown
 ### Return Parameters:
 
@@ -515,6 +525,7 @@ Generate a streaming answer to a query with Exa's LLM capabilities. Instead of r
 ```
 
 Example 3 (unknown):
+
 ```unknown
 ### Input Parameters:
 
@@ -603,7 +614,7 @@ Lists all monitors for the Webset.
 **URL:** llms-txt#https://docs.exa.ai/reference/python-sdk-specification#search_and_contents-method
 
 def exa_search(query: str) -> Dict[str, Any]:
-    return exa.search_and_contents(query=query, type='auto', highlights=True)
+return exa.search_and_contents(query=query, type='auto', highlights=True)
 
 ---
 
@@ -631,21 +642,21 @@ This Python implementation of Exa Researcher demonstrates how to leverage Exa's 
 **URL:** llms-txt#todo:-add-your-own-candidates
 
 sample_data = {
-    "Name": [
-        "Kristy Choi", "Jiaming Song", "Brice Huang", "Andi Peng",
-        "Athiya Deviyani", "Hao Zhu", "Zana Bucinca", "Usha Bhalla",
-        "Kia Rahmani", "Jingyan Wang", "Jun-Kun Wang", "Sanmi Koyejo",
-        "Erik Jenner"
-    ],
-    "Email": [
-        "[[email protected]](/cdn-cgi/l/email-protection)", "[[email protected]](/cdn-cgi/l/email-protection)",
-        "[[email protected]](/cdn-cgi/l/email-protection)", "[[email protected]](/cdn-cgi/l/email-protection)",
-        "[[email protected]](/cdn-cgi/l/email-protection)", "[[email protected]](/cdn-cgi/l/email-protection)",
-        "[[email protected]](/cdn-cgi/l/email-protection)", "[[email protected]](/cdn-cgi/l/email-protection)",
-        "[[email protected]](/cdn-cgi/l/email-protection)", "[[email protected]](/cdn-cgi/l/email-protection)",
-        "[[email protected]](/cdn-cgi/l/email-protection)", "[[email protected]](/cdn-cgi/l/email-protection)",
-        "[[email protected]](/cdn-cgi/l/email-protection)"
-    ]
+"Name": [
+"Kristy Choi", "Jiaming Song", "Brice Huang", "Andi Peng",
+"Athiya Deviyani", "Hao Zhu", "Zana Bucinca", "Usha Bhalla",
+"Kia Rahmani", "Jingyan Wang", "Jun-Kun Wang", "Sanmi Koyejo",
+"Erik Jenner"
+],
+"Email": [
+"[[email protected]](/cdn-cgi/l/email-protection)", "[[email protected]](/cdn-cgi/l/email-protection)",
+"[[email protected]](/cdn-cgi/l/email-protection)", "[[email protected]](/cdn-cgi/l/email-protection)",
+"[[email protected]](/cdn-cgi/l/email-protection)", "[[email protected]](/cdn-cgi/l/email-protection)",
+"[[email protected]](/cdn-cgi/l/email-protection)", "[[email protected]](/cdn-cgi/l/email-protection)",
+"[[email protected]](/cdn-cgi/l/email-protection)", "[[email protected]](/cdn-cgi/l/email-protection)",
+"[[email protected]](/cdn-cgi/l/email-protection)", "[[email protected]](/cdn-cgi/l/email-protection)",
+"[[email protected]](/cdn-cgi/l/email-protection)"
+]
 }
 
 ---
@@ -660,7 +671,7 @@ Exa takes data security and privacy seriously. We are proud to be SOC 2 Type I c
 
 Contact us at [sales@exa.ai](mailto:sales@exa.ai) to discuss an Enterprise plan if you are interested in Zero Data Retention or other customized data security solutions.
 
-[Click here](https://exa-public.s3.us-east-1.amazonaws.com/%5B20250529%5D%2BAuthorized%2BSubprocessors%2B\(Subcontractors\).pdf) to see a list of our Authorized Subcontractors per our standard Enterprise Data Processing Agreement (DPA).
+[Click here](<https://exa-public.s3.us-east-1.amazonaws.com/%5B20250529%5D%2BAuthorized%2BSubprocessors%2B(Subcontractors).pdf>) to see a list of our Authorized Subcontractors per our standard Enterprise Data Processing Agreement (DPA).
 
 [Click here](https://exa-public.s3.us-east-1.amazonaws.com/Exa+Labs+Inc.+SOC2+Type+I+Report+-+Final.pdf) to view our SOC2 Type I Report
 
@@ -2911,6 +2922,7 @@ from ..types import \*
 **URL:** llms-txt#exa-researcher---javascript
 
 **Contents:**
+
 - What this doc covers
 - Setup
 - Exa Auto search
@@ -2946,8 +2958,8 @@ The first thing our researcher has to do is decide what kind of search to do for
 
 Exa offers two kinds of search: **neural** and **keyword** search. Here's how we decide:
 
-* Neural search is preferred when the query is broad and complex because it lets us retrieve high quality, semantically relevant data. Neural search is especially suitable when a topic is well-known and popularly discussed on the Internet, allowing the machine learning model to retrieve contents which are more likely recommended by real humans.
-* Keyword search is useful when the topic is specific, local or obscure. If the query is a specific person's name, and identifier, or acronym, such that relevant results will contain the query itself, keyword search may do well. And if the machine learning model doesn't know about the topic, but relevant documents can be found by directly matching the search query, keyword search may be necessary.
+- Neural search is preferred when the query is broad and complex because it lets us retrieve high quality, semantically relevant data. Neural search is especially suitable when a topic is well-known and popularly discussed on the Internet, allowing the machine learning model to retrieve contents which are more likely recommended by real humans.
+- Keyword search is useful when the topic is specific, local or obscure. If the query is a specific person's name, and identifier, or acronym, such that relevant results will contain the query itself, keyword search may do well. And if the machine learning model doesn't know about the topic, but relevant documents can be found by directly matching the search query, keyword search may be necessary.
 
 Conveniently, Exa's autosearch feature (on by default) will automatically decide whether to use `keyword` or `neural` search for each query. For example, if a query is a specific person's name, Exa would decide to use keyword search.
 
@@ -2968,11 +2980,13 @@ For a link to a complete, cleaned up version of this project that you can execut
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 Since we'll be making several calls to the OpenAI API to get a completion from GPT-3.5 Turbo, let's make a simple utility function so we can pass in the system and user messages directly, and get the LLM's response back as a string.
 ```
 
 Example 2 (unknown):
+
 ```unknown
 Okay, great! Now let's starting building Exa Researcher.
 
@@ -2982,6 +2996,7 @@ The researcher should be able to automatically generate research reports for all
 ```
 
 Example 3 (unknown):
+
 ```unknown
 The first thing our researcher has to do is decide what kind of search to do for the given topic.
 
@@ -2996,6 +3011,7 @@ Now, we'll create a helper function to generate search queries for our topic.
 ```
 
 Example 4 (unknown):
+
 ```unknown
 Next, let's write another function that actually calls the Exa API to perform searches using Auto search.
 ```
@@ -3007,6 +3023,7 @@ Next, let's write another function that actually calls the Exa API to perform se
 **URL:** llms-txt#job-search-with-exa
 
 **Contents:**
+
 - What This Doc Covers
 - More than just jobs
 
@@ -3016,9 +3033,9 @@ Tutorial for simple Exa searches on our front-end.
 
 ## What This Doc Covers
 
-* The problem with traditional job search tools
-* How to use Exa, an AI-powered search engine, for job hunting
-* Other cool ways to use Exa beyond job searching
+- The problem with traditional job search tools
+- How to use Exa, an AI-powered search engine, for job hunting
+- Other cool ways to use Exa beyond job searching
 
 Finding a job is way harder than it should be. Tools like LinkedIn, Handshake, or Google are supposed to solve this problem, but they're filled with too many noisy results to actually be useful.
 
@@ -3040,9 +3057,9 @@ Job search is really just one use case of Exa. Exa is a search engine built usin
 
 For example, Exa excels at finding similar things.
 
-* **Shopping**: if you want a similar (but cheaper) shirt, paste a link to your shirt and it'll give you hundreds like it
-* **Research**: paste a link to a research paper to find hundreds of other relevant papers
-* **Startups**: if you're building a startup, find your competitors by searching a link to your startup
+- **Shopping**: if you want a similar (but cheaper) shirt, paste a link to your shirt and it'll give you hundreds like it
+- **Research**: paste a link to a research paper to find hundreds of other relevant papers
+- **Startups**: if you're building a startup, find your competitors by searching a link to your startup
 
 ---
 
@@ -3104,6 +3121,7 @@ test_secret = "your_webhook_secret"
 **URL:** llms-txt#integrations
 
 **Contents:**
+
 - Overview
 - Supported integrations
 - Managing integrations
@@ -3125,14 +3143,14 @@ Websets integrates seamlessly with your favorite CRM, email sequencing, and data
 
 We've built support for leading platforms across sales, marketing, and data enrichment:
 
-* [Salesforce](https://www.salesforce.com/) - Export People entities as Leads
-* [HubSpot](https://www.hubspot.com/) - Export People entities as Contacts
+- [Salesforce](https://www.salesforce.com/) - Export People entities as Leads
+- [HubSpot](https://www.hubspot.com/) - Export People entities as Contacts
 
-* [Instantly](https://instantly.ai/) - Export People entities as Leads
-* [Smartlead](https://www.smartlead.ai/) - Export People entities as Leads
-* [Lemlist](https://www.lemlist.com/) - Export People entities as Leads
+- [Instantly](https://instantly.ai/) - Export People entities as Leads
+- [Smartlead](https://www.smartlead.ai/) - Export People entities as Leads
+- [Lemlist](https://www.lemlist.com/) - Export People entities as Leads
 
-* [Clay](https://www.clay.com/) - Export any entity type via webhook
+- [Clay](https://www.clay.com/) - Export any entity type via webhook
 
 ## Managing integrations
 
@@ -3235,6 +3253,7 @@ Your Webset rows will populate your Clay table within moments.
 **URL:** llms-txt#how-exa-search-works
 
 **Contents:**
+
 - Neural search via 'next-link prediction'
 - Auto search combines keyword and neural
 - Fast search is the world's fastest search API
@@ -3245,10 +3264,10 @@ Exa is a novel search engine that utilizes the latest advancements in AI languag
 
 We offer four search types:
 
-* **Auto (Default)** - Our best search, intelligently combines keyword and neural
-* **Fast** - A streamlined implementation of keyword and neural search for faster results
-* **Keyword** - Uses google-like search to find results with matching keywords
-* **Neural** - Our AI search model, predicts relevant links based on query meaning
+- **Auto (Default)** - Our best search, intelligently combines keyword and neural
+- **Fast** - A streamlined implementation of keyword and neural search for faster results
+- **Keyword** - Uses google-like search to find results with matching keywords
+- **Neural** - Our AI search model, predicts relevant links based on query meaning
 
 ## Neural search via 'next-link prediction'
 
@@ -3283,6 +3302,7 @@ We achieved these latency improvements by making streamlined versions of our key
 **URL:** llms-txt#exa
 
 **Contents:**
+
 - Full Example
 
 Source: https://docs.exa.ai/integrations/agentops
@@ -3307,7 +3327,7 @@ Use Exa's semantic search and contents endpoints to give your agents access to u
 <Step title="Create Your Search Tool">
     Create a tool that uses Exa's search capabilities:
 
-```python  theme={null}
+````python theme={null}
 import agentops
 from crewai_tools import tool
 from exa_py import Exa
@@ -3321,9 +3341,10 @@ Example 1 (unknown):
 </Step>
 
   <Step title="Install the Exa SDK">
-```
+````
 
 Example 2 (unknown):
+
 ```unknown
 </Step>
 
@@ -3332,6 +3353,7 @@ Example 2 (unknown):
 ```
 
 Example 3 (unknown):
+
 ```unknown
 </Step>
 
@@ -3340,6 +3362,7 @@ Example 3 (unknown):
 ```
 
 Example 4 (unknown):
+
 ```unknown
 </Step>
 
@@ -3354,6 +3377,7 @@ Example 4 (unknown):
 **URL:** llms-txt#import-from-csv
 
 **Contents:**
+
 - Overview
 - How it works
 - CSV preparation
@@ -3376,9 +3400,9 @@ The Import from CSV feature allows you to transform your existing CSV files cont
 
 Ensure your CSV file has a URL column
 
-* For People searches: URLs must be LinkedIn profile URLs (e.g., [https://linkedin.com/in/username](https://linkedin.com/in/username))
-* For Company search: URLs must be company homepage URLs (e.g., [https://example.com](https://example.com))
-* For other searches: use any type of URL
+- For People searches: URLs must be LinkedIn profile URLs (e.g., [https://linkedin.com/in/username](https://linkedin.com/in/username))
+- For Company search: URLs must be company homepage URLs (e.g., [https://example.com](https://example.com))
+- For other searches: use any type of URL
 
 If you do not have URLs, Websets will attempt to infer URLs based on the information in each CSV row and any extra info you provide.
 
@@ -3392,19 +3416,19 @@ Once imported, your CSV becomes a full Webset where you can:
 
 Add any information you want about each URL:
 
-* Contact information (emails, phone numbers)
-* Company metrics (revenue, employee count)
-* Content analysis (sentiment, topics, summaries)
-* Custom data specific to your use case
+- Contact information (emails, phone numbers)
+- Company metrics (revenue, employee count)
+- Content analysis (sentiment, topics, summaries)
+- Custom data specific to your use case
 
 ### Apply search criteria
 
 Filter your imported URLs based on specific criteria:
 
-* Company stage or size
-* Industry or sector
-* Geographic location
-* Content type or topic
+- Company stage or size
+- Industry or sector
+- Geographic location
+- Content type or topic
 
 ---
 
@@ -3426,6 +3450,7 @@ Use this to help users understand how their search will be interpreted before co
 **URL:** llms-txt#migrating-from-bing
 
 **Contents:**
+
 - Overview
 - Quick Start
   - Get your API key
@@ -3475,11 +3500,13 @@ Exa provides integrated content extraction, eliminating the need for separate AP
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 
 ```
 
 Example 2 (unknown):
+
 ```unknown
 </CodeGroup>
 
@@ -3491,11 +3518,13 @@ Example 2 (unknown):
 ```
 
 Example 3 (unknown):
+
 ```unknown
 
 ```
 
 Example 4 (unknown):
+
 ```unknown
 
 ```
@@ -3517,9 +3546,9 @@ import hashlib
 
 signed_payload = f"{test_timestamp}.{test_payload}"
 test_signature = hmac.new(
-    test_secret.encode('utf-8'),
-    signed_payload.encode('utf-8'),
-    hashlib.sha256
+test_secret.encode('utf-8'),
+signed_payload.encode('utf-8'),
+hashlib.sha256
 ).hexdigest()
 
 test_header = f"t={test_timestamp},v1={test_signature}"
@@ -3571,6 +3600,7 @@ Returns instant results from our cache, with automatic live crawling as fallback
 **URL:** llms-txt#welcome-to-websets
 
 **Contents:**
+
 - Get Started
 
 Source: https://docs.exa.ai/websets/overview
@@ -3588,8 +3618,9 @@ You can use Websets in two ways:
   </Card>
 
 <Card title={<div className="card-title">API</div>} icon="magnifying-glass" href="./api">
-    <div className="text-lg">Use Websets programatically through our API.</div>
-  </Card>
+
+<div className="text-lg">Use Websets programatically through our API.</div>
+</Card>
 </CardGroup>
 
 ---
@@ -3599,6 +3630,7 @@ You can use Websets in two ways:
 **URL:** llms-txt#error-codes
 
 **Contents:**
+
 - API errors
 - Error Response Structure
 - Getting Help
@@ -3639,13 +3671,14 @@ When using the `/contents` endpoint, specific errors are returned in the `status
 
 If you encounter persistent errors or need clarification on error codes:
 
-* Check the [Rate Limits](/reference/rate-limits) page for current limits
-* Review the [API Reference](/reference/search) for parameter requirements
-* Contact support at [hello@exa.ai](mailto:hello@exa.ai) with error details and request IDs
+- Check the [Rate Limits](/reference/rate-limits) page for current limits
+- Review the [API Reference](/reference/search) for parameter requirements
+- Contact support at [hello@exa.ai](mailto:hello@exa.ai) with error details and request IDs
 
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 <Note>
   Include the `requestId` when contacting support for faster troubleshooting.
@@ -3661,6 +3694,7 @@ When using the `/contents` endpoint, specific errors are returned in the `status
 **URL:** llms-txt#install-dependencies
 
 **Contents:**
+
 - Initial Candidates
 
 !pip install exa_py openai matplotlib tqdm
@@ -3679,6 +3713,7 @@ Python Python theme={null}
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 ## Initial Candidates
 
@@ -3726,15 +3761,15 @@ You can paginate through the results using the `cursor` parameter.
 **URL:** llms-txt#create-and-poll-a-task-until-completion
 
 task = exa.research.create_task(
-    instructions="Get information about Paris, France",
-    output_schema={
-        "type": "object",
-        "properties": {
-            "name": {"type": "string"},
-            "population": {"type": "string"},
-            "founded_date": {"type": "string"}
-        }
-    }
+instructions="Get information about Paris, France",
+output_schema={
+"type": "object",
+"properties": {
+"name": {"type": "string"},
+"population": {"type": "string"},
+"founded_date": {"type": "string"}
+}
+}
 )
 
 ---
@@ -3765,8 +3800,8 @@ You can subscribe to Events by creating a Webhook.
 **URL:** llms-txt#define-the-system-message-(primer)-of-your-agent
 
 SYSTEM_MESSAGE = {
-    "role": "system",
-    "content": "You are the world's most advanced search engine. Please provide the user with the information they are looking for by using the tools provided.",
+"role": "system",
+"content": "You are the world's most advanced search engine. Please provide the user with the information they are looking for by using the tools provided.",
 }
 
 ---
@@ -3776,6 +3811,7 @@ SYSTEM_MESSAGE = {
 **URL:** llms-txt#python-sdk-specification
 
 **Contents:**
+
 - Getting started
 - `search` Method
   - Input Example:
@@ -3802,21 +3838,21 @@ Perform an Exa search given an input query and retrieve a list of relevant resul
 
 ### Input Parameters:
 
-| Parameter              | Type                                           | Description                                                                                                                                                                                                                                                  | Default  |
-| ---------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
-| query                  | str                                            | The input query string.                                                                                                                                                                                                                                      | Required |
-| num\_results           | Optional\[int]                                 | Number of search results to return. Limits vary by search type: with "keyword": max 10, with "neural": max 100. If you want to increase the num results, contact sales ([hello@exa.ai](mailto:hello@exa.ai))                                                 | 10       |
-| include\_domains       | Optional\[List\[str]]                          | List of domains to include in the search.                                                                                                                                                                                                                    | None     |
-| exclude\_domains       | Optional\[List\[str]]                          | List of domains to exclude in the search.                                                                                                                                                                                                                    | None     |
-| start\_crawl\_date     | Optional\[str]                                 | Results will only include links **crawled** after this date.                                                                                                                                                                                                 | None     |
-| end\_crawl\_date       | Optional\[str]                                 | Results will only include links **crawled** before this date.                                                                                                                                                                                                | None     |
-| start\_published\_date | Optional\[str]                                 | Results will only include links with a **published** date after this date.                                                                                                                                                                                   | None     |
-| end\_published\_date   | Optional\[str]                                 | Results will only include links with a **published** date before this date.                                                                                                                                                                                  | None     |
-| type                   | Optional\[str]                                 | [The type of search](#), keyword or neural.                                                                                                                                                                                                                  | "auto"   |
-| category               | Optional\[str]                                 | A data category to focus on when searching, with higher comprehensivity and data cleanliness. Currently, the available categories are: company, research paper, news, linkedin profile, github, tweet, movie, song, personal site, pdf and financial report. | None     |
-| include\_text          | Optional\[List\[str]]                          | List of strings that must be present in webpage text of results. Currently, only 1 string is supported, of up to 5 words.                                                                                                                                    | None     |
-| exclude\_text          | Optional\[List\[str]]                          | List of strings that must not be present in webpage text of results. Currently, only 1 string is supported, of up to 5 words. Checks from the first 1000 words of the webpage text.                                                                          | None     |
-| context                | Union\[ContextContentsOptions, Literal\[True]] | If true, concatentates results into a context string.                                                                                                                                                                                                        | None     |
+| Parameter            | Type                                           | Description                                                                                                                                                                                                                                                  | Default  |
+| -------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
+| query                | str                                            | The input query string.                                                                                                                                                                                                                                      | Required |
+| num_results          | Optional\[int]                                 | Number of search results to return. Limits vary by search type: with "keyword": max 10, with "neural": max 100. If you want to increase the num results, contact sales ([hello@exa.ai](mailto:hello@exa.ai))                                                 | 10       |
+| include_domains      | Optional\[List\[str]]                          | List of domains to include in the search.                                                                                                                                                                                                                    | None     |
+| exclude_domains      | Optional\[List\[str]]                          | List of domains to exclude in the search.                                                                                                                                                                                                                    | None     |
+| start_crawl_date     | Optional\[str]                                 | Results will only include links **crawled** after this date.                                                                                                                                                                                                 | None     |
+| end_crawl_date       | Optional\[str]                                 | Results will only include links **crawled** before this date.                                                                                                                                                                                                | None     |
+| start_published_date | Optional\[str]                                 | Results will only include links with a **published** date after this date.                                                                                                                                                                                   | None     |
+| end_published_date   | Optional\[str]                                 | Results will only include links with a **published** date before this date.                                                                                                                                                                                  | None     |
+| type                 | Optional\[str]                                 | [The type of search](#), keyword or neural.                                                                                                                                                                                                                  | "auto"   |
+| category             | Optional\[str]                                 | A data category to focus on when searching, with higher comprehensivity and data cleanliness. Currently, the available categories are: company, research paper, news, linkedin profile, github, tweet, movie, song, personal site, pdf and financial report. | None     |
+| include_text         | Optional\[List\[str]]                          | List of strings that must be present in webpage text of results. Currently, only 1 string is supported, of up to 5 words.                                                                                                                                    | None     |
+| exclude_text         | Optional\[List\[str]]                          | List of strings that must not be present in webpage text of results. Currently, only 1 string is supported, of up to 5 words. Checks from the first 1000 words of the webpage text.                                                                          | None     |
+| context              | Union\[ContextContentsOptions, Literal\[True]] | If true, concatentates results into a context string.                                                                                                                                                                                                        | None     |
 
 ### Return Parameters:
 
@@ -3833,14 +3869,14 @@ Perform an Exa search given an input query and retrieve a list of relevant resul
 | id    | str            | Temporary ID for the document |
 | title | Optional\[str] | Title of the search result    |
 
-\| published\_date | Optional\[str]   | Estimated creation date                       |
-\| author         | Optional\[str]   | Author of the content, if available           |
+\| published_date | Optional\[str] | Estimated creation date |
+\| author | Optional\[str] | Author of the content, if available |
 
 ## `search_and_contents` Method
 
 Perform an Exa search given an input query and retrieve a list of relevant results as links, optionally including the full text and/or highlights of the content.
 
-```Python Python theme={null}
+````Python Python theme={null}
 `# Search with full text content
 result_with_text = exa.search_and_contents(
     "AI in healthcare",
@@ -3853,9 +3889,10 @@ result_with_text = exa.search_and_contents(
 Example 1 (unknown):
 ```unknown
 and then instantiate an Exa client
-```
+````
 
 Example 2 (unknown):
+
 ```unknown
 <Card title="Get API Key" icon="key" horizontal href="https://dashboard.exa.ai/login?redirect=/docs?path=/reference/python-sdk-specification">
   Follow this link to get your API key
@@ -3869,6 +3906,7 @@ Perform an Exa search given an input query and retrieve a list of relevant resul
 ```
 
 Example 3 (unknown):
+
 ```unknown
 ### Input Parameters:
 
@@ -3892,6 +3930,7 @@ Example 3 (unknown):
 ```
 
 Example 4 (unknown):
+
 ```unknown
 ### Return Parameters:
 
@@ -3927,6 +3966,7 @@ Perform an Exa search given an input query and retrieve a list of relevant resul
 **URL:** llms-txt#context-(exa-code)
 
 **Contents:**
+
 - Overview
 - Example Use Cases
 - Response Format
@@ -3947,17 +3987,17 @@ This endpoint helps eliminate hallucinations in coding agents by providing real,
 
 The Context API excels at finding practical code examples for:
 
-* **Framework usage**: "use Exa search in python and make sure content is always livecrawled"
-* **API syntax**: "use correct syntax for vercel ai sdk to call gpt-5 nano asking it how are you"
-* **Development setup**: "how to set up a reproducible Nix Rust development environment"
-* **Library implementation**: "React hooks for state management examples"
-* **Best practices**: "authentication patterns in NextJS applications"
+- **Framework usage**: "use Exa search in python and make sure content is always livecrawled"
+- **API syntax**: "use correct syntax for vercel ai sdk to call gpt-5 nano asking it how are you"
+- **Development setup**: "how to set up a reproducible Nix Rust development environment"
+- **Library implementation**: "React hooks for state management examples"
+- **Best practices**: "authentication patterns in NextJS applications"
 
 **Basic Code Search**
 
 **Example Response:**
 
-\nimport React, {\n  useState\n} from 'react';\n\nfunction InputField() {\n  const [name, setName] = useState('');\n\n  const handleChange = (event) => {\n    setName(event.target.value);\n  }\n\n  return (\n    <div>\n      Name:\n      <input onChange={handleChange} />\n      Entered name: {name}\n    </div>\n  );\n}\n\nexport default InputField;\n\nimport { useState } from 'react';\n\nfunction Example() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div>\n      <p>You clicked {count} times</p>\n      <button onClick={() => setCount(count + 1)}>\n        Click me\n      </button>\n    </div>\n  );\n}\n\nimport { useState } from \"react\";\n\nconst useCounter = () => {\n  const [count, setCount] = useState(0);\n\n  const increment = () => {\n    setCount((prevCount) => prevCount + 1);\n  };\n\n  const decrement = () => {\n    setCount((prevCount) => prevCount - 1);\n  };\n\n  return { count, increment, decrement };\n};\n\nexport default useCounter;\n`
+\nimport React, {\n useState\n} from 'react';\n\nfunction InputField() {\n const [name, setName] = useState('');\n\n const handleChange = (event) => {\n setName(event.target.value);\n }\n\n return (\n <div>\n Name:\n <input onChange={handleChange} />\n Entered name: {name}\n </div>\n );\n}\n\nexport default InputField;\n\nimport { useState } from 'react';\n\nfunction Example() {\n const [count, setCount] = useState(0);\n\n return (\n <div>\n <p>You clicked {count} times</p>\n <button onClick={() => setCount(count + 1)}>\n Click me\n </button>\n </div>\n );\n}\n\nimport { useState } from \"react\";\n\nconst useCounter = () => {\n const [count, setCount] = useState(0);\n\n const increment = () => {\n setCount((prevCount) => prevCount + 1);\n };\n\n const decrement = () => {\n setCount((prevCount) => prevCount - 1);\n };\n\n return { count, increment, decrement };\n};\n\nexport default useCounter;\n`
 
 **Library Usage Examples**
 
@@ -3967,30 +4007,30 @@ The API returns a JSON response with the following structure:
 
 ### `query` (required)
 
-* **Type**: `string`
-* **Description**: Search query to find relevant code snippets
-* **Example**: `"how to use React hooks for state management"`
-* **Min Length**: 1 character
-* **Max Length**: 2000 characters
+- **Type**: `string`
+- **Description**: Search query to find relevant code snippets
+- **Example**: `"how to use React hooks for state management"`
+- **Min Length**: 1 character
+- **Max Length**: 2000 characters
 
 ### `tokensNum` (optional)
 
-* **Type**: `string | integer`
-* **Default**: `"dynamic"`
-* **Description**: Token limit for the response
-* **Options**:
-  * `"dynamic"`: Automatically determine optimal response length
-  * `50-100000`: Specific number of tokens to return (5000 is good default for most queries, and use 10000 when 5k doesn't provide enough context)
+- **Type**: `string | integer`
+- **Default**: `"dynamic"`
+- **Description**: Token limit for the response
+- **Options**:
+  - `"dynamic"`: Automatically determine optimal response length
+  - `50-100000`: Specific number of tokens to return (5000 is good default for most queries, and use 10000 when 5k doesn't provide enough context)
 
-* Use `"dynamic"` for most queries to get optimal, token-efficient responses
-* Specify exact token counts when you need precise output length control
-* Higher token counts return more comprehensive examples but cost more
+- Use `"dynamic"` for most queries to get optimal, token-efficient responses
+- Specify exact token counts when you need precise output length control
+- Higher token counts return more comprehensive examples but cost more
 
 ## Integration Examples
 
 **Using with Python**
 
-```python  theme={null}
+````python theme={null}
 import requests
 
 def get_code_context(query, tokens="dynamic"):
@@ -4005,7 +4045,7 @@ def get_code_context(query, tokens="dynamic"):
             "tokensNum": tokens
         }
     )
-    
+
     result = response.json()
     return result["response"]
 
@@ -4014,19 +4054,22 @@ def get_code_context(query, tokens="dynamic"):
 Example 1 (unknown):
 ```unknown
 **Example Response:**
-```
+````
 
 Example 2 (unknown):
+
 ```unknown
 **Library Usage Examples**
 ```
 
 Example 3 (unknown):
+
 ```unknown
 **Framework Setup and Configuration**
 ```
 
 Example 4 (unknown):
+
 ```unknown
 ## Response Format
 
@@ -4040,33 +4083,35 @@ The API returns a JSON response with the following structure:
 **URL:** llms-txt#list-with-pagination
 
 **Contents:**
-  - Input Parameters:
-  - Returns:
-  - Return Example:
+
+- Input Parameters:
+- Returns:
+- Return Example:
 
 response = exa.research.list_tasks(limit=10)
 if response['hasMore']:
-    next_page = exa.research.list_tasks(cursor=response['nextCursor'])
+next_page = exa.research.list_tasks(cursor=response['nextCursor'])
 JSON JSON theme={null}
 {
-  "data": [
-    {
-      "id": "task-1",
-      "status": "completed",
-      "instructions": "Research SpaceX valuation",
-      ...
-    },
-    {
-      "id": "task-2",
-      "status": "running",
-      "instructions": "Compare GPU specifications",
-      ...
-    }
-  ],
-  "hasMore": true,
-  "nextCursor": "eyJjcmVhdGVkQXQiOiIyMDI0LTAxLTE1VDE4OjMwOjAwWiIsImlkIjoidGFzay0yIn0="
+"data": [
+{
+"id": "task-1",
+"status": "completed",
+"instructions": "Research SpaceX valuation",
+...
+},
+{
+"id": "task-2",
+"status": "running",
+"instructions": "Compare GPU specifications",
+...
 }
-```
+],
+"hasMore": true,
+"nextCursor": "eyJjcmVhdGVkQXQiOiIyMDI0LTAxLTE1VDE4OjMwOjAwWiIsImlkIjoidGFzay0yIn0="
+}
+
+````
 
 **Examples:**
 
@@ -4090,7 +4135,7 @@ Returns a dictionary with:
 | nextCursor | Optional\[str]             | Cursor for the next page (if hasMore is true) |
 
 ### Return Example:
-```
+````
 
 ---
 
@@ -4119,6 +4164,7 @@ The results come in pages. Use `limit` to set how many webhooks to get per page 
 **URL:** llms-txt#get-api-key
 
 **Contents:**
+
 - Overview
 - Path Parameters
 - Response
@@ -4132,15 +4178,15 @@ Retrieve details of a specific API key by its ID.
 
 The Get API Key endpoint allows you to retrieve detailed information about a specific API key using its unique identifier.
 
-* **id**: The unique identifier of the API key to retrieve
+- **id**: The unique identifier of the API key to retrieve
 
 Returns detailed information about the API key including:
 
-* **id**: Unique identifier
-* **name**: Descriptive name
-* **rateLimit**: Rate limit in requests per minute (if set)
-* **teamId**: Team ID this key belongs to
-* **createdAt**: When the key was created
+- **id**: Unique identifier
+- **name**: Descriptive name
+- **rateLimit**: Rate limit in requests per minute (if set)
+- **teamId**: Team ID this key belongs to
+- **createdAt**: When the key was created
 
 ---
 
@@ -4183,9 +4229,9 @@ get /v0/websets/{webset}/enrichments/{id}
 **URL:** llms-txt#search-with-highlights
 
 result_with_highlights = exa.search_and_contents(
-    "AI in healthcare",
-    highlights=True,
-    num_results=2
+"AI in healthcare",
+highlights=True,
+num_results=2
 )
 
 ---
@@ -4209,27 +4255,29 @@ result = exa.search_and_contents("hottest AI startups", type="neural")
 **URL:** llms-txt#or-even-simpler---let-the-model-infer-the-schema
 
 **Contents:**
-  - Input Parameters:
-  - Returns:
-  - Return Example:
+
+- Input Parameters:
+- Returns:
+- Return Example:
 - `research.get_task` Method
   - Input Example:
 
 simple_task = exa.research.create_task(
-    instructions="What are the main benefits of meditation?",
-    infer_schema=True
+instructions="What are the main benefits of meditation?",
+infer_schema=True
 )
 
 print(f"Task created with ID: {task.id}")
 JSON JSON theme={null}
 {
-  "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+"id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
 }
 Python Python theme={null}
 
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 ### Input Parameters:
 
@@ -4252,6 +4300,7 @@ Returns a `ResearchTask` object:
 ```
 
 Example 2 (unknown):
+
 ```unknown
 ## `research.get_task` Method
 
@@ -4269,15 +4318,16 @@ Get the current status and results of a research task by its ID.
 app = workflow.compile(checkpointer=checkpointer)
 
 final_state = app.invoke(
-    {
-        "messages": [
-            HumanMessage(content="Latest research papers on climate technology")
-        ]
-    },
-    config={"configurable": {"thread_id": 44}},
+{
+"messages": [
+HumanMessage(content="Latest research papers on climate technology")
+]
+},
+config={"configurable": {"thread_id": 44}},
 )
 print(final_state["messages"][-1].content)
-```
+
+````
 
 Full code in Google Colab [here](https://docs.exa.ai/reference/getting-started-with-rag-in-langgraph)
 
@@ -4378,9 +4428,10 @@ If you have any questions about domain filtering or need help with your specific
 Example 1 (unknown):
 ```unknown
 
-```
+````
 
 Example 2 (unknown):
+
 ```unknown
 
 ```
@@ -4406,6 +4457,7 @@ ModelT = TypeVar('ModelT', bound='ExaBaseModel')
 **URL:** llms-txt#hacker-news-clone
 
 **Contents:**
+
 - What this doc covers:
 - Getting Started
 - How Exa works
@@ -4419,11 +4471,11 @@ Make your very own Hacker News powered by Exa
 
 ## What this doc covers:
 
-* How to create a personalized Hacker News clone using Exa's API.
-* Steps to set up and run your own news site with custom prompts.
-* Customization options for the site's content, appearance, and deployment.
+- How to create a personalized Hacker News clone using Exa's API.
+- Steps to set up and run your own news site with custom prompts.
+- Customization options for the site's content, appearance, and deployment.
 
-*Estimated time to complete: 20 minutes*
+_Estimated time to complete: 20 minutes_
 
 Built by Silicon Valley legend Paul Graham in 2007, [Hacker News](https://news.ycombinator.com/) is a popular website where users post interesting tech-adjacent content. The most interesting content often comes from small blogs and personal sites. However, these gems can be really hard to find.
 
@@ -4443,7 +4495,7 @@ Once you've forked the template, go to the lower left corner of the screen and s
 
 <img src="https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/0screenshot_2024-05-15_at_11.12.21___pm.png?fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=b4061cc26caf64dc549bf28cbbcd2bf4" alt="Click on Secrets" data-og-width="564" width="564" data-og-height="630" height="630" data-path="images/0screenshot_2024-05-15_at_11.12.21___pm.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/0screenshot_2024-05-15_at_11.12.21___pm.png?w=280&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=8bb288bb1d0c6cfd3d0d0ab6c0607424 280w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/0screenshot_2024-05-15_at_11.12.21___pm.png?w=560&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=0e0dfa9044ac34835cad242f161700a0 560w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/0screenshot_2024-05-15_at_11.12.21___pm.png?w=840&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=ebf831af4bab7e97ba9f6ce90ff44f20 840w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/0screenshot_2024-05-15_at_11.12.21___pm.png?w=1100&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=40e564b1c0b2fafa1796269e46a284d1 1100w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/0screenshot_2024-05-15_at_11.12.21___pm.png?w=1650&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=c432997fe9ebf08a9c41fca9d9bc3f08 1650w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/0screenshot_2024-05-15_at_11.12.21___pm.png?w=2500&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=fb53358e7af3ea5b4723b738135054fc 2500w" />
 
-Add your Exa API key as a secret named "EXA\_API\_KEY" (original, we know).
+Add your Exa API key as a secret named "EXA_API_KEY" (original, we know).
 
 <img src="https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/0screenshot_2024-05-15_at_11.13.34___pm.png?fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=70ea666e2e4c6565a99bbe38c29308ee" alt="Add your API key!" data-og-width="1226" width="1226" data-og-height="418" height="418" data-path="images/0screenshot_2024-05-15_at_11.13.34___pm.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/0screenshot_2024-05-15_at_11.13.34___pm.png?w=280&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=e6d3b1aba0f495da874a6759b3998347 280w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/0screenshot_2024-05-15_at_11.13.34___pm.png?w=560&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=785423515dd5b3fbca06e011450654a4 560w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/0screenshot_2024-05-15_at_11.13.34___pm.png?w=840&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=ddcc1c933ab3dc0c292390dc54adc8cf 840w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/0screenshot_2024-05-15_at_11.13.34___pm.png?w=1100&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=4debe043c21eb195fbb81eccc4d8b2fe 1100w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/0screenshot_2024-05-15_at_11.13.34___pm.png?w=1650&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=a491a79ccbc9912e009cda0b6dab72e6 1650w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/0screenshot_2024-05-15_at_11.13.34___pm.png?w=2500&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=3bc3d077a97530b44c1dac2277ae1e36 2500w" />
 
@@ -4459,22 +4511,22 @@ In the index.js file (should be open by default), scroll to **line 19**. This is
 
 The prompt is set to "here is a really interesting tech article:". This is because of how Exa works behind the scenes. Exa uses embeddings to help predict which links would naturally follow a query. For example, on the Internet, you'll frequently see people recommend great content like this: "this tutorial really helped me understand linked lists: linkedlisttutorial.com". When you prompt Exa, you pretend to be someone recommending what you're looking for. In this case, our prompt nudges Exa to find links that someone would share when discussing a "really interesting tech article".
 
-Check out the [results](https://exa.ai/search?q=here%20is%20a%20really%20interesting%20tech%20article%3A\&filters=%7B%22numResults%22%3A30%2C%22useAutoprompt%22%3Afalse%2C%22domainFilterType%22%3A%22include%22%7D) Exa returns for our prompt. Aren't they nice?
+Check out the [results](https://exa.ai/search?q=here%20is%20a%20really%20interesting%20tech%20article%3A&filters=%7B%22numResults%22%3A30%2C%22useAutoprompt%22%3Afalse%2C%22domainFilterType%22%3A%22include%22%7D) Exa returns for our prompt. Aren't they nice?
 
 More example prompts to help you get a sense of prompting with Exa:
 
-* [this gadget saves me so much time:](https://exa.ai/search?c=all\&q=this%20gadget%20saves%20me%20so%20much%20time%3A\&filters=%7B%22domainFilterType%22%3A%22include%22%2C%22timeFilterOption%22%3A%22any%5Ftime%22%2C%22activeTabFilter%22%3A%22all%22%7D)
-* [i loved my wedding dress from this boutique:](https://exa.ai/search?c=all\&q=i%20loved%20my%20wedding%20dress%20from%20this%20boutique%3A\&filters=%7B%22domainFilterType%22%3A%22include%22%2C%22timeFilterOption%22%3A%22any%5Ftime%22%2C%22activeTabFilter%22%3A%22all%22%7D)
-* [this video helped me understand attention mechanisms:](https://exa.ai/search?c=all\&q=this%20video%20helped%20me%20understand%20attention%20mechanisms%3A\&filters=%7B%22domainFilterType%22%3A%22include%22%2C%22timeFilterOption%22%3A%22any%5Ftime%22%2C%22activeTabFilter%22%3A%22all%22%7D)
+- [this gadget saves me so much time:](https://exa.ai/search?c=all&q=this%20gadget%20saves%20me%20so%20much%20time%3A&filters=%7B%22domainFilterType%22%3A%22include%22%2C%22timeFilterOption%22%3A%22any%5Ftime%22%2C%22activeTabFilter%22%3A%22all%22%7D)
+- [i loved my wedding dress from this boutique:](https://exa.ai/search?c=all&q=i%20loved%20my%20wedding%20dress%20from%20this%20boutique%3A&filters=%7B%22domainFilterType%22%3A%22include%22%2C%22timeFilterOption%22%3A%22any%5Ftime%22%2C%22activeTabFilter%22%3A%22all%22%7D)
+- [this video helped me understand attention mechanisms:](https://exa.ai/search?c=all&q=this%20video%20helped%20me%20understand%20attention%20mechanisms%3A&filters=%7B%22domainFilterType%22%3A%22include%22%2C%22timeFilterOption%22%3A%22any%5Ftime%22%2C%22activeTabFilter%22%3A%22all%22%7D)
 
 More examples in the Exa [docs](/reference/the-exa-index).
 
 At this point, please craft your own Exa prompt for your Hacker News site. It can be about anything you find interesting.
 
-* [this is a really exciting machine learning paper:](https://exa.ai/search?c=all\&q=this%20is%20a%20really%20exciting%20machine%20learning%20paper%3A\&filters=%7B%22domainFilterType%22%3A%22include%22%2C%22timeFilterOption%22%3A%22past%5Fday%22%2C%22activeTabFilter%22%3A%22all%22%7D)
-* [here's a delicious new recipe:](https://exa.ai/search?c=all\&q=here%27s%20a%20delicious%20new%20recipe%3A\&filters=%7B%22domainFilterType%22%3A%22include%22%2C%22timeFilterOption%22%3A%22any%5Ftime%22%2C%22activeTabFilter%22%3A%22all%22%7D)
-* [this company just got acquired:](https://exa.ai/search?c=all\&q=this%20company%20just%20got%20acquired%3A\&filters=%7B%22domainFilterType%22%3A%22include%22%2C%22timeFilterOption%22%3A%22past%5Fday%22%2C%22activeTabFilter%22%3A%22all%22%7D)
-* [here's how the basketball game went:](https://exa.ai/search?c=all\&q=here%27s%20how%20the%20basketball%20game%20went%3A\&filters=%7B%22domainFilterType%22%3A%22include%22%2C%22timeFilterOption%22%3A%22past%5Fday%22%2C%22activeTabFilter%22%3A%22all%22%7D)
+- [this is a really exciting machine learning paper:](https://exa.ai/search?c=all&q=this%20is%20a%20really%20exciting%20machine%20learning%20paper%3A&filters=%7B%22domainFilterType%22%3A%22include%22%2C%22timeFilterOption%22%3A%22past%5Fday%22%2C%22activeTabFilter%22%3A%22all%22%7D)
+- [here's a delicious new recipe:](https://exa.ai/search?c=all&q=here%27s%20a%20delicious%20new%20recipe%3A&filters=%7B%22domainFilterType%22%3A%22include%22%2C%22timeFilterOption%22%3A%22any%5Ftime%22%2C%22activeTabFilter%22%3A%22all%22%7D)
+- [this company just got acquired:](https://exa.ai/search?c=all&q=this%20company%20just%20got%20acquired%3A&filters=%7B%22domainFilterType%22%3A%22include%22%2C%22timeFilterOption%22%3A%22past%5Fday%22%2C%22activeTabFilter%22%3A%22all%22%7D)
+- [here's how the basketball game went:](https://exa.ai/search?c=all&q=here%27s%20how%20the%20basketball%20game%20went%3A&filters=%7B%22domainFilterType%22%3A%22include%22%2C%22timeFilterOption%22%3A%22past%5Fday%22%2C%22activeTabFilter%22%3A%22all%22%7D)
 
 Once you have your prompt, replace the old one (line 28 of index.js). Hit the Stop button (where the Run button was) and hit Run again to restart your site with the new prompt.
 
@@ -4484,7 +4536,7 @@ Feel free to keep tweaking your prompt until you get results you like.
 
 Now, other things you can modify in the site template include the time window to search over, the number of results to return, the text on the site (title, description, footer), and styling (colors, fonts, etc.).
 
-By default, the site asks the Exa API to get the ten most relevant results from the last 24 hours every time you visit the site. On the free plan, you can only get up to ten results, so you'll have to sign up for an Exa plan to increase this. You *can* tweak the time window though. Lines 12 to 17 in index.js is where we set the time window. You can adjust this as you like to get results from the last week, month, year, etc. Note that you don't have to search starting from the current date. You can search between any arbitrary dates, like October 31, 2015 and January 1, 2018.
+By default, the site asks the Exa API to get the ten most relevant results from the last 24 hours every time you visit the site. On the free plan, you can only get up to ten results, so you'll have to sign up for an Exa plan to increase this. You _can_ tweak the time window though. Lines 12 to 17 in index.js is where we set the time window. You can adjust this as you like to get results from the last week, month, year, etc. Note that you don't have to search starting from the current date. You can search between any arbitrary dates, like October 31, 2015 and January 1, 2018.
 
 To adjust the site title and other text, go to line 51 in index.js where the dynamic HTML starts. You can Ctrl-F "change" to find all the places where you can edit the text.
 
@@ -4497,6 +4549,7 @@ Well, there you have it! You just made your very own Hacker News-style site usin
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 const response = await fetch('https://api.exa.ai/search', {
   method: 'POST',
@@ -4525,6 +4578,7 @@ const response = await fetch('https://api.exa.ai/search', {
 **URL:** llms-txt#building-a-hallucination-checker
 
 **Contents:**
+
 - Get Started
 
 Source: https://docs.exa.ai/examples/identifying-hallucinations-with-exa
@@ -4553,7 +4607,7 @@ Set up your API keys:
     First, we'll create functions to extract factual claims from the text:
 
 <Note> We include a regex-based fallback method in case the LLM response isn't properly formatted. This ensures our system remains robust even if the LLM output is unexpected. </Note>
-  </Step>
+</Step>
 
 <Step title="Set up Exa search">
     Create a function to search for evidence using Exa:
@@ -4578,12 +4632,13 @@ Set up your API keys:
     Let's try it with a sample text about the Eiffel Tower:
 
 Through this combination of Exa's search capabilities and LangGraph's workflow management, we've created a powerful system for identifying and verifying claims in any text. The system successfully identified both true claims (structure and location) and false claims (construction date and purpose) about the Eiffel Tower.
-  </Step>
+</Step>
 </Steps>
 
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 <Note> You'll need both an Exa API key and an Anthropic API key to run this example. You can get your Anthropic API key [here](https://console.anthropic.com/). </Note>
 
@@ -4593,6 +4648,7 @@ Example 1 (unknown):
 ```
 
 Example 2 (unknown):
+
 ```unknown
 </Step>
 
@@ -4601,6 +4657,7 @@ Example 2 (unknown):
 ```
 
 Example 3 (unknown):
+
 ```unknown
 <Note> We include a regex-based fallback method in case the LLM response isn't properly formatted. This ensures our system remains robust even if the LLM output is unexpected. </Note>
   </Step>
@@ -4610,6 +4667,7 @@ Example 3 (unknown):
 ```
 
 Example 4 (unknown):
+
 ```unknown
 <Note>
       We format each source with its URL and content for easy reference in the verification step. The print statements help with debugging and understanding the search process.
@@ -4654,6 +4712,7 @@ Some common code you might want to use - don't miss the TypeScript tab below!
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 </Tab>
 
@@ -4667,14 +4726,14 @@ Example 1 (unknown):
 **URL:** llms-txt#we-can-already-get-things-like-role-and-education,-but-we-need-to-get-the-name-and-email-this-time
 
 def get_name_from_contents(contents):
-    content = f"""I'm going to give you some information I found online about a person. Based on the provided information, figure out their full name.
-    Some examples are \"Sarah Chieng\" or \"Will Bryk.\" You should answer only in the example format, or return \"not sure\" if you're not sure. Do not return any other text. Here is the information I have scraped: {contents}."""
-    return get_openai_response(content)
+content = f"""I'm going to give you some information I found online about a person. Based on the provided information, figure out their full name.
+Some examples are \"Sarah Chieng\" or \"Will Bryk.\" You should answer only in the example format, or return \"not sure\" if you're not sure. Do not return any other text. Here is the information I have scraped: {contents}."""
+return get_openai_response(content)
 
 def get_email_from_contents(contents):
-    content = f"""I'm going to give you some information I found online about a person. Based on the provided information, figure out their email.
-    Some examples are \"[[email protected]](/cdn-cgi/l/email-protection)\" or \"[[email protected]](/cdn-cgi/l/email-protection).\" You should answer only in the example format, or return \"not sure\" if you're not sure. Do not return any other text. Here is the information I have scraped: {contents}."""
-    return get_openai_response(content)
+content = f"""I'm going to give you some information I found online about a person. Based on the provided information, figure out their email.
+Some examples are \"[[email protected]](/cdn-cgi/l/email-protection)\" or \"[[email protected]](/cdn-cgi/l/email-protection).\" You should answer only in the example format, or return \"not sure\" if you're not sure. Do not return any other text. Here is the information I have scraped: {contents}."""
+return get_openai_response(content)
 
 ---
 
@@ -4683,6 +4742,7 @@ def get_email_from_contents(contents):
 **URL:** llms-txt#score-deprecation-in-auto-and-keyword-search
 
 **Contents:**
+
 - What Changed
 - What This Means for You
 - How to Update Your Code
@@ -4717,7 +4777,7 @@ If you currently use scores from Auto or Keyword search, here is what you can do
 
 ### Remove Score Dependencies
 
-```python Python theme={null}
+````python Python theme={null}
 
 ---
 
@@ -4878,9 +4938,10 @@ Returns a `ResearchTaskDetails` object:
 | citations    | Optional\[Dict\[str, List]] | Citations grouped by root field (when completed) |
 
 ### Return Example:
-```
+````
 
 Example 2 (unknown):
+
 ```unknown
 ## `research.poll_task` Method
 
@@ -4901,11 +4962,11 @@ Here's how to manage your team.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fveEzbgR5X4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" />
 
-* Click on the top right-hand side icon. Go to team settings.
+- Click on the top right-hand side icon. Go to team settings.
 
-* Edit permissions per team member or add emails at the bottom.
+- Edit permissions per team member or add emails at the bottom.
 
-* Your team member will receive an email confirmation to be added.
+- Your team member will receive an email confirmation to be added.
 
 ---
 
@@ -4914,6 +4975,7 @@ Here's how to manage your team.
 **URL:** llms-txt#ibm-watsonx
 
 **Contents:**
+
 - What it does
 - Try Notebook
 - Resources
@@ -4932,17 +4994,17 @@ Combine IBM WatsonX's AI with Exa's web search to build a smart assistant that c
 
 This integration connects IBM WatsonX with Exa to create an AI that can:
 
-* Search the web to get information
-* Give answers with links to sources
-* Handle both simple and complex questions
+- Search the web to get information
+- Give answers with links to sources
+- Handle both simple and complex questions
 
 Want to see it in action? [Try notebook here.](https://github.com/exa-labs/ibm-exa/blob/main/ibm_exa_integration.ipynb)
 
 Make sure to add your API keys to the notebook.
 
-* [IBM WatsonX](https://www.ibm.com/products/watsonx-ai)
-* [Exa API Playground](https://dashboard.exa.ai/)
-* [Github Repository for this integration](https://github.com/exa-labs/ibm-exa)
+- [IBM WatsonX](https://www.ibm.com/products/watsonx-ai)
+- [Exa API Playground](https://dashboard.exa.ai/)
+- [Github Repository for this integration](https://github.com/exa-labs/ibm-exa)
 
 ---
 
@@ -4951,7 +5013,8 @@ Make sure to add your API keys to the notebook.
 **URL:** llms-txt#rag-q&a
 
 **Contents:**
-  - What this doc covers
+
+- What this doc covers
 - Answer your questions with context
 
 Source: https://docs.exa.ai/examples/exa-rag
@@ -4960,7 +5023,7 @@ Using Exa to enable retrieval-augmented generation.
 
 ### What this doc covers
 
-1. Using Exa search\_and\_contents to find relevant webpages for a query and get their contents
+1. Using Exa search_and_contents to find relevant webpages for a query and get their contents
 2. Performing Exa search based on text similarity rather than a search query
 
 The Jupyter notebook for this tutorial is available on [Colab](https://colab.research.google.com/drive/1iXfXg9%5F-MEmhwW1a0WRHHbMl21jSxjO7?usp=sharing) for easy experimentation.
@@ -4969,18 +5032,18 @@ The Jupyter notebook for this tutorial is available on [Colab](https://colab.res
 
 LLMs are powerful because they compress large amounts of data into a format that allows convenient access, but this compressions isn't lossless. LLMs are prone to hallucination, corrupting facts and details from training data.
 
-To get around this fundamental issue with LLM reliability, we can use Exa to bring the most relevant data into context—a fancy way of saying: put the info in the LLM prompt directly. This lets us combine the compressed data and *reasoning abilities* of the LLM with a curated selection of uncompressed, accurate data for the problem at hand for the best answers possible.
+To get around this fundamental issue with LLM reliability, we can use Exa to bring the most relevant data into context—a fancy way of saying: put the info in the LLM prompt directly. This lets us combine the compressed data and _reasoning abilities_ of the LLM with a curated selection of uncompressed, accurate data for the problem at hand for the best answers possible.
 
 Exa's SDKs make incorporating quality data into your LLM pipelines quick and painless. Install the SDK by running this command in your terminal:
 
-```Python Python theme={null}
+````Python Python theme={null}
 
 **Examples:**
 
 Example 1 (unknown):
 ```unknown
 
-```
+````
 
 ---
 
@@ -4989,6 +5052,7 @@ Example 1 (unknown):
 **URL:** llms-txt#livecrawling-contents
 
 **Contents:**
+
 - LiveCrawl Options
 - When LiveCrawl Isn't Necessary
 - Examples
@@ -5029,16 +5093,19 @@ This will try to get the freshest content available, but if live crawling fails 
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 
 ```
 
 Example 2 (unknown):
+
 ```unknown
 
 ```
 
 Example 3 (unknown):
+
 ```unknown
 </CodeGroup>
 
@@ -5046,6 +5113,7 @@ Output without LiveCrawl: Results here are slightly dated, mentioning a fall rel
 ```
 
 Example 4 (unknown):
+
 ```unknown
 Output with LiveCrawl (as at Oct 30 2024): Now we see contents talking about Apple's upcoming specific release on November 11th
 ```
@@ -5077,6 +5145,7 @@ sorted_results = sorted(result.results, key=lambda x: x.score, reverse=True)
 **URL:** llms-txt#geolocation-filter-support
 
 **Contents:**
+
 - When to Use Geolocation Filter
 - How To Use Geolocation Filter
 - Response Structure Changes
@@ -5115,11 +5184,13 @@ If you have any questions about location filtering or need help with your specif
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 
 ```
 
 Example 2 (unknown):
+
 ```unknown
 
 ```
@@ -5141,7 +5212,7 @@ Source: https://docs.exa.ai/reference/faqs
     Traditional search engines like Google that are optimized for clicks and ads. Because nearly every search API wrap Google, they all have a similar problem.
 
 In contrast, Exa is optimized to return the highest quality information for LLM applications. We do not make money from ads, so we are fully incentivized to return the highest quality results to our customers. Because we've built our own search engine from scratch, we're able to provide all sorts of customized features that other providers can't.
-  </Accordion>
+</Accordion>
 
 <Accordion title="How is Exa different from LLMs?">
     Exa is a new search engine built from the ground up. LLMs are models built to predict the next piece of text. Exa predicts specific links on the web given their relevance to a query. LLMs have intelligence, and are getting smarter over time as new models are trained. Exa connects these intelligences to the web.
@@ -5154,14 +5225,14 @@ In contrast, Exa is optimized to return the highest quality information for LLM 
 <Accordion title="How does Exa compare to other search APIs?">
     Exa.ai offers unique capabilities:
 
-* Embedding Search Technology: Uses transformers for semantic understanding, handling complex queries based on meaning.
-    * Natural Language Queries: Processes and understands natural language queries for more accurate results.
-    * Instant Content Retrieval: Instantly returns clean and parsed content for any page in its index.
-    * Large-scale searches: Capable of returning thousands of results for automatic processing, ideal for batch use cases.
-    * Content Highlights: Extracts relevant excerpts or highlights from retrieved content for targeted information.
-    * Optimized for AI Applications: Specifically designed for enhancing AI models, chatbots, and research automation.
-    * Auto search: Automatically selects the best search type (neural or keyword) based on the query for optimal results.
-  </Accordion>
+- Embedding Search Technology: Uses transformers for semantic understanding, handling complex queries based on meaning.
+  - Natural Language Queries: Processes and understands natural language queries for more accurate results.
+  - Instant Content Retrieval: Instantly returns clean and parsed content for any page in its index.
+  - Large-scale searches: Capable of returning thousands of results for automatic processing, ideal for batch use cases.
+  - Content Highlights: Extracts relevant excerpts or highlights from retrieved content for targeted information.
+  - Optimized for AI Applications: Specifically designed for enhancing AI models, chatbots, and research automation.
+  - Auto search: Automatically selects the best search type (neural or keyword) based on the query for optimal results.
+    </Accordion>
 
 <Accordion title="How often is the index updated?">
     We update our index every hour, and are constantly adding batches of new links. We target the highest quality web pages. Our clients oftentimes request specific domains to be more deeply covered - if there is a use-case we can unlock by additional domain coverage in our index, please contact us.
@@ -5173,7 +5244,7 @@ In contrast, Exa is optimized to return the highest quality information for LLM 
 The model chooses webpages which it predicts are talked about in similar ways to the prompt URL. That means the model considers a range of factors about the page, including the text style, the domain, and the main ideas inside the text.
 
 Similarity search is natural extension for a neural search engine like Exa, and something that's difficult with keyword search engines like google
-  </Accordion>
+</Accordion>
 
 <Accordion title="What security measures does Exa take?">
     We have robust policies and everything we do is either in standard cloud services, or built in house (e.g., we have our own vector database that we serve in house, our own GPU cluster, our own query model and our own SERP solution). In addition to this, we can offer unique security arrangements like zero data retention as part of a custom enterprise agreement. [Learn more](./security).
@@ -5208,26 +5279,28 @@ Returns a Webset Item.
 **URL:** llms-txt#find-similar-with-both-text-and-highlights
 
 **Contents:**
-  - Input Parameters:
-  - Returns:
+
+- Input Parameters:
+- Returns:
 - `answer` Method
   - Input Example:
 
 similar_with_text_and_highlights = exa.find_similar_and_contents(
-    "https://example.com/article",
-    text=True,
-    highlights=True,
-    num_results=2
+"https://example.com/article",
+text=True,
+highlights=True,
+num_results=2
 )
 Python Python theme={null}
 response = exa.answer("What is the capital of France?")
 
-print(response.answer)       # e.g. "Paris"
-print(response.citations)    # list of citations used
+print(response.answer) # e.g. "Paris"
+print(response.citations) # list of citations used
 
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 ### Input Parameters:
 
@@ -5273,6 +5346,7 @@ Generate an answer to a query using Exa's search and LLM capabilities. This meth
 **URL:** llms-txt#typescript-sdk-specification
 
 **Contents:**
+
 - Getting started
 - `search` Method
   - Input Example
@@ -5333,8 +5407,8 @@ Perform an Exa search given an input query and retrieve a list of relevant resul
 | id    | string         | Temporary ID for the document |
 | title | string \| null | Title of the search result    |
 
-\| publishedDate? | string         | Estimated creation date                       |
-\| author?        | string         | Author of the content, if available           |
+\| publishedDate? | string | Estimated creation date |
+\| author? | string | Author of the content, if available |
 
 ## `searchAndContents` Method
 
@@ -5403,8 +5477,8 @@ Find a list of similar results based on a webpage's URL.
 | id    | string         | Temporary ID for the document |
 | title | string \| null | Title of the search result    |
 
-\| publishedDate? | string         | Estimated creation date                       |
-\| author?        | string         | Author of the content, if available           |
+\| publishedDate? | string | Estimated creation date |
+\| author? | string | Author of the content, if available |
 
 ## `findSimilarAndContents` Method
 
@@ -5439,11 +5513,11 @@ Extends the `Result` object with additional fields based on the requested conten
 | id    | string   | Temporary ID for the document |                            |
 | title | \`string | null\`                        | Title of the search result |
 
-\| publishedDate?   | string     | Estimated creation date                        |                            |
-\| author?          | string     | Author of the content, if available            |                            |
-\| text?            | string     | Text of the search result page (if requested)  |                            |
-\| highlights?      | string\[] | Highlights of the search result (if requested) |                            |
-\| highlightScores? | number\[] | Scores of the highlights (if requested)        |
+\| publishedDate? | string | Estimated creation date | |
+\| author? | string | Author of the content, if available | |
+\| text? | string | Text of the search result page (if requested) | |
+\| highlights? | string\[] | Highlights of the search result (if requested) | |
+\| highlightScores? | number\[] | Scores of the highlights (if requested) |
 
 Note: The actual fields present in the `SearchResult<T>` object depend on the options provided in the `findSimilarAndContents` call.
 
@@ -5508,8 +5582,8 @@ Generate a streaming answer to a query with Exa's LLM capabilities. This returns
 
 An async generator of objects with the type:
 
-* `content` is the partial text content of the answer so far (streamed in chunks).
-* `citations` is an array of citation objects that appear at this chunk in the response.
+- `content` is the partial text content of the answer so far (streamed in chunks).
+- `citations` is an array of citation objects that appear at this chunk in the response.
 
 You can end iteration by using a break or by letting the loop finish naturally.
 
@@ -5517,11 +5591,11 @@ You can end iteration by using a break or by letting the loop finish naturally.
 
 Create an asynchronous research task that performs multi-step web research and returns structured JSON results with citations.
 
-| Parameter    | Type          | Description                                                                                       | Default       |
-| ------------ | ------------- | ------------------------------------------------------------------------------------------------- | ------------- |
-| instructions | string        | Natural language instructions describing what the research task should accomplish.                | Required      |
-| model        | ResearchModel | The research model to use. Options: ResearchModel.exa\_research, ResearchModel.exa\_research\_pro | exa\_research |
-| outputSchema | object        | Optional JSON schema for structured output. If not provided, schema will be inferred.             | undefined     |
+| Parameter    | Type          | Description                                                                                    | Default      |
+| ------------ | ------------- | ---------------------------------------------------------------------------------------------- | ------------ |
+| instructions | string        | Natural language instructions describing what the research task should accomplish.             | Required     |
+| model        | ResearchModel | The research model to use. Options: ResearchModel.exa_research, ResearchModel.exa_research_pro | exa_research |
+| outputSchema | object        | Optional JSON schema for structured output. If not provided, schema will be inferred.          | undefined    |
 
 | Field      | Type   | Description                        |
 | ---------- | ------ | ---------------------------------- |
@@ -5574,6 +5648,7 @@ List all research tasks with optional pagination.
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 </Tab>
 
@@ -5581,6 +5656,7 @@ Example 1 (unknown):
 ```
 
 Example 2 (unknown):
+
 ```unknown
 </Tab>
 </Tabs>
@@ -5589,6 +5665,7 @@ and then instantiate an Exa client
 ```
 
 Example 3 (unknown):
+
 ```unknown
 <Card title="Get API Key" icon="key" horizontal href="https://dashboard.exa.ai/login?redirect=/docs?path=/reference/typescript-sdk-specification">
   Follow this link to get your API key
@@ -5608,6 +5685,7 @@ Perform an Exa search given an input query and retrieve a list of relevant resul
 ```
 
 Example 4 (unknown):
+
 ```unknown
 <br />
 
@@ -5640,9 +5718,9 @@ Example 4 (unknown):
 **URL:** llms-txt#old-approach-(no-longer-recommended)
 
 try:
-    result = exa.get_contents(["https://example.com"])
+result = exa.get_contents(["https://example.com"])
 except HTTPError as e:
-    print(f"Error: {e.status_code}")
+print(f"Error: {e.status_code}")
 
 ---
 
@@ -5651,6 +5729,7 @@ except HTTPError as e:
 **URL:** llms-txt#hallucination-detector
 
 **Contents:**
+
 - Function breakdown
 
 Source: https://docs.exa.ai/examples/demo-hallucination-detector
@@ -5698,6 +5777,7 @@ Using LLMs to extract claims and verify them against Exa search sources is a sim
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 </Step>
 
@@ -5706,6 +5786,7 @@ Example 1 (unknown):
 ```
 
 Example 2 (unknown):
+
 ```unknown
 </Step>
 
@@ -5720,11 +5801,11 @@ Example 2 (unknown):
 **URL:** llms-txt#define-the-function-that-will-process-the-tool-call-and-perform-the-exa-search
 
 def process_tool_calls(tool_calls, messages):
-    
+
     for tool_call in tool_calls:
         function_name = tool_call.function.name
         function_args = json.loads(tool_call.function.arguments)
-        
+
         if function_name == "exa_search":
             search_results = exa_search(**function_args)
             messages.append(
@@ -5739,12 +5820,12 @@ def process_tool_calls(tool_calls, messages):
                 f"[bold green]exa_search ({function_args.get('mode')})[/bold green]: ",
                 function_args.get("query"),
             )
-            
+
     return messages
 
 def main():
-    messages = [SYSTEM_MESSAGE]
-    
+messages = [SYSTEM_MESSAGE]
+
     while True:
         try:
             # create the user input prompt using rich
@@ -5752,7 +5833,7 @@ def main():
                 "[bold yellow]What do you want to search for?[/bold yellow]",
             )
             messages.append({"role": "user", "content": user_query})
-            
+
             # call openai llm by creating a completion which calls the defined exa tool
             completion = openai.chat.completions.create(
                 model="gpt-4o",
@@ -5760,16 +5841,17 @@ def main():
                 tools=TOOLS,
                 tool_choice="auto",
             )
-            
+
             # completion will contain the object needed to invoke your tool and perform the search
             message = completion.choices[0].message
             tool_calls = message.tool_calls
-            
+
             if tool_calls:
 
 messages.append(message)
 
 # process the tool object created by OpenAI llm and store the search results
+
                 messages = process_tool_calls(tool_calls, messages)
                 messages.append(
                     {
@@ -5777,24 +5859,24 @@ messages.append(message)
                         "content": "Answer my previous query based on the search results.",
                     }
                 )
-                
+
                 # call OpenAI llm again to process the search results and yield the final answer
                 completion = openai.chat.completions.create(
                     model="gpt-4o",
                     messages=messages,
                 )
-                
+
                 # parse the agents final answer and print it
                 console.print(Markdown(completion.choices[0].message.content))
             else:
                 console.print(Markdown(message.content))
         except Exception as e:
             console.print(f"[bold red]An error occurred:[/bold red] {str(e)}")
-            
-            
-if __name__ == "__main__":
-    main()
-```
+
+if **name** == "**main**":
+main()
+
+````
 
 ---
 
@@ -5909,7 +5991,7 @@ Example 1 (unknown):
 Now that we know how to research candidates, let's find some more! We'll take each of the top candidates (score 7-10), and use Exa to find similar profiles.
 
 Exa's `find_similar`,allows us to search a URL and find semantically similar URLs. For example, I could search 'hinge.co' and it'll return the homepages of similar dating apps. In this case, we'll pass in the homepages of our top candidates to find similar profiles.
-```
+````
 
 ---
 
@@ -5918,7 +6000,8 @@ Exa's `find_similar`,allows us to search a URL and find semantically similar URL
 **URL:** llms-txt#exa-mcp
 
 **Contents:**
-  - `exa-code`: fast and efficient web context for coding agents
+
+- `exa-code`: fast and efficient web context for coding agents
 - Remote Exa MCP
   - Claude Desktop Configuration for Remote MCP
   - Cursor and Claude Code Configuration for Remote MCP
@@ -5939,12 +6022,12 @@ When your coding agent makes a search query, `exa-code` searches over billions o
 
 Examples of queries you can make with `exa-code`:
 
-* use Exa search in python and make sure content is always livecrawled
-* use correct syntax for vercel ai sdk to call gpt-5 nano asking it how are you
+- use Exa search in python and make sure content is always livecrawled
+- use correct syntax for vercel ai sdk to call gpt-5 nano asking it how are you
 
 **Works with Cursor and Claude Code!** Use the HTTP-based configuration format:
 
-Installing Exa MCP like below will install Exa web search as well as `exa-code`. To maximize performance, be sure to leave *only* `exa-code` turned on in your MCP client.
+Installing Exa MCP like below will install Exa web search as well as `exa-code`. To maximize performance, be sure to leave _only_ `exa-code` turned on in your MCP client.
 
 You can also use `exa-code` through [Smithery](https://smithery.ai/server/exa) without an Exa API key.
 
@@ -5976,20 +6059,20 @@ Once configured, you can ask Claude to perform searches:
 
 ### Code Search Examples
 
-* "Show me how to use React hooks with TypeScript"
-* "Find examples of how to implement authentication with NextJS"
-* "Get documentation and examples for the pandas library"
+- "Show me how to use React hooks with TypeScript"
+- "Find examples of how to implement authentication with NextJS"
+- "Get documentation and examples for the pandas library"
 
 ### Other Search Examples
 
-* "Research the company exa.ai and find information about their pricing"
-* "Start a deep research project on the impact of artificial intelligence on healthcare, then check when it's complete to get a comprehensive report"
+- "Research the company exa.ai and find information about their pricing"
+- "Start a deep research project on the impact of artificial intelligence on healthcare, then check when it's complete to get a comprehensive report"
 
 ## Local Installation
 
-* [Node.js](https://nodejs.org/) v18 or higher.
-* [Claude Desktop](https://claude.ai/download) installed (optional). Exa MCP also works with other MCP-compatible clients like Cursor, Windsurf, and more).
-* An Exa API key (see above).
+- [Node.js](https://nodejs.org/) v18 or higher.
+- [Claude Desktop](https://claude.ai/download) installed (optional). Exa MCP also works with other MCP-compatible clients like Cursor, Windsurf, and more).
+- An Exa API key (see above).
 
 ### Using Claude Code
 
@@ -5999,7 +6082,7 @@ Replace `YOUR_API_KEY` with your Exa API key from above.
 
 The simplest way to install and run Exa MCP is via NPX:
 
-```bash  theme={null}
+````bash theme={null}
 
 **Examples:**
 
@@ -6016,9 +6099,10 @@ Exa MCP Server enables AI assistants like Claude to perform real-time web search
 ## Remote Exa MCP
 
 Connect directly to Exa's hosted MCP server using this URL:
-```
+````
 
 Example 2 (unknown):
+
 ```unknown
 ### Claude Desktop Configuration for Remote MCP
 
@@ -6026,6 +6110,7 @@ Add this to your Claude Desktop configuration file:
 ```
 
 Example 3 (unknown):
+
 ```unknown
 ### Cursor and Claude Code Configuration for Remote MCP
 
@@ -6033,6 +6118,7 @@ For Cursor and Claude Code, use this HTTP-based configuration format:
 ```
 
 Example 4 (unknown):
+
 ```unknown
 ## Available Tools
 
@@ -6083,6 +6169,7 @@ The quickest way to set up Exa MCP is using Claude Code:
 **URL:** llms-txt#exa-research
 
 **Contents:**
+
 - How It Works
 - Best Practices
 - Models
@@ -6097,7 +6184,7 @@ Source: https://docs.exa.ai/reference/exa-research
 
 Automate in-depth web research with structured output support.
 
-The Research API is an **asynchronous, multi-step pipeline** that transforms open-ended questions into grounded reports. You provide natural-language instructions (e.g. *"Compare the hardware roadmaps of the top GPU manufacturers"*) and an optional JSON Schema describing the output you want.
+The Research API is an **asynchronous, multi-step pipeline** that transforms open-ended questions into grounded reports. You provide natural-language instructions (e.g. _"Compare the hardware roadmaps of the top GPU manufacturers"_) and an optional JSON Schema describing the output you want.
 
 Under the hood, Exa agents perform multiple steps:
 
@@ -6109,14 +6196,14 @@ Under the hood, Exa agents perform multiple steps:
 
 Because tasks are **asynchronous**, you submit a request and immediately receive a `researchId`. You can [poll the request](/reference/research/get-a-task) until it is complete or failed, or [list all tasks](/reference/research/list-tasks) to monitor progress in bulk.
 
-* **Be explicit** – Clear, scoped instructions lead to faster tasks and higher-quality answers. You should describe (1) what information you want (2) how the agent should find that information and (3) how the agent should compose it's final report.
-* **Keep schemas small** – 1-5 root fields is the sweet spot. If you need more, create multiple tasks.
-* **Use enums** – Tight schema constraints improve accuracy and reduce hallucinations.
+- **Be explicit** – Clear, scoped instructions lead to faster tasks and higher-quality answers. You should describe (1) what information you want (2) how the agent should find that information and (3) how the agent should compose it's final report.
+- **Keep schemas small** – 1-5 root fields is the sweet spot. If you need more, create multiple tasks.
+- **Use enums** – Tight schema constraints improve accuracy and reduce hallucinations.
 
 The Research API offers two advanced agentic researcher models that break down your instructions, search the web, extract and reason over facts, and return structured answers with citations.
 
-* **exa-research** (default) adapts to the difficulty of the task, using more or less compute for individual steps. Recommended for most use cases.
-* **exa-research-pro** maximizes quality by using the highest reasoning capability for every step. Recommended for the most complex, multi-step research tasks.
+- **exa-research** (default) adapts to the difficulty of the task, using more or less compute for individual steps. Recommended for most use cases.
+- **exa-research-pro** maximizes quality by using the highest reasoning capability for every step. Recommended for the most complex, multi-step research tasks.
 
 Here are typical completion times for each model:
 
@@ -6209,16 +6296,19 @@ Build a timeline of major OpenAI product releases from 2015 – 2023.
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 
 ```
 
 Example 2 (unknown):
+
 ```unknown
 
 ```
 
 Example 3 (unknown):
+
 ```unknown
 </CodeGroup>
 
@@ -6230,6 +6320,7 @@ Estimate the total global market size (USD) for battery recycling in 2030 with a
 ```
 
 Example 4 (unknown):
+
 ```unknown
 
 ```
@@ -6254,6 +6345,7 @@ The default behavior is to reuse the previous Search results and evaluate them a
 **URL:** llms-txt#update-api-key
 
 **Contents:**
+
 - Overview
 - Path Parameters
 - Optional Parameters
@@ -6267,12 +6359,12 @@ Update the name and rate limit of an existing API key.
 
 The Update API Key endpoint allows you to modify an existing API key
 
-* **id**: The unique identifier of the API key to update (UUID format)
+- **id**: The unique identifier of the API key to update (UUID format)
 
 ## Optional Parameters
 
-* **name**: New descriptive name for the API key
-* **rateLimit**: New rate limit in requests per minute
+- **name**: New descriptive name for the API key
+- **rateLimit**: New rate limit in requests per minute
 
 ---
 
@@ -6284,8 +6376,8 @@ Source: https://docs.exa.ai/reference/openapi-spec
 
 You can view up-to-date versions of our OpenAPI specs here:
 
-* [Search API Spec](https://raw.githubusercontent.com/exa-labs/openapi-spec/refs/heads/master/exa-openapi-spec.yaml)
-* [Websets API Spec](https://raw.githubusercontent.com/exa-labs/openapi-spec/refs/heads/master/exa-websets-spec.yaml)
+- [Search API Spec](https://raw.githubusercontent.com/exa-labs/openapi-spec/refs/heads/master/exa-openapi-spec.yaml)
+- [Websets API Spec](https://raw.githubusercontent.com/exa-labs/openapi-spec/refs/heads/master/exa-websets-spec.yaml)
 
 ---
 
@@ -6294,6 +6386,7 @@ You can view up-to-date versions of our OpenAPI specs here:
 **URL:** llms-txt#printing-the-information-using-f-string-formatting
 
 **Contents:**
+
 - Candidate Evaluation
 
 print(f"Personal Site: {personal_website_url}")
@@ -6306,6 +6399,7 @@ Python Python theme={null}
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 ## Candidate Evaluation
 
@@ -6319,6 +6413,7 @@ Next, we use GPT-4 to score candidates 1-10 based on fit. This way, we can use E
 **URL:** llms-txt#recruiting-agent
 
 **Contents:**
+
 - What this doc covers
 - Introduction
 
@@ -6341,7 +6436,7 @@ Here's what we're going to do:
 
 This project requires an [Exa API key](https://dashboard.exa.ai/api-keys) and an [OpenAI API key](https://platform.openai.com/api-keys). Get 1000 Exa searches per month free just for [signing up](https://dashboard.exa.ai/overview)!
 
-```Python Python theme={null}
+````Python Python theme={null}
 
 ---
 
@@ -6360,7 +6455,7 @@ You can see all of the criteria used in the demo [here](https://github.com/exa-l
 Example 1 (unknown):
 ```unknown
 Article published in a top 20 tech publication (TechCrunch, The Verge, Wired, etc.)
-```
+````
 
 ---
 
@@ -6369,6 +6464,7 @@ Article published in a top 20 tech publication (TechCrunch, The Verge, Wired, et
 **URL:** llms-txt#anthropic-tool-calling
 
 **Contents:**
+
 - Get Started
 
 Source: https://docs.exa.ai/reference/anthropic-tool-calling
@@ -6387,14 +6483,14 @@ This guide will show you how to properly set up and use Anthropic's and Exa's AP
 
 For the purpose of this guide we will need to install:
 
-* `anthropic` library to perform Claude API calls and completions
-    * `exa_py` library to perform Exa search
-    * `rich` library to make the output more readable
+- `anthropic` library to perform Claude API calls and completions
+  - `exa_py` library to perform Exa search
+  - `rich` library to make the output more readable
 
 Install the libraries.
 
 To successfully use the Exa search client and Anthropic client you will need to have your `ANTHROPIC_API_KEY` and `EXA_API_KEY`\
-    set as environment variables.
+ set as environment variables.
 
 To get an Anthropic API key, you will first need an Anthropic account, visit the [Anthropic console](https://console.anthropic.com/settings/keys) to generate your API key.
 
@@ -6407,15 +6503,15 @@ Similarly, to get the Exa API key, you will first need an Exa account, visit the
 You can create an `.env` file in the root of your project and add the following to it:
 
 Make sure to add your `.env` file to your `.gitignore` file if you have one.
-  </Step>
+</Step>
 
 <Step title="Understanding Claude's Tool Use Feature">
     Claude LLMs can call a function you have defined in your code; this is called [tool use](https://docs.anthropic.com/en/docs/build-with-claude/tool-use). To do this, you first need to describe the function you want to call to Claude's LLM. You can do this by defining a description object of the format:
 
-When this description is sent to Claude's LLM, it returns an object with a string, which is the function name defined in *your* code, and the arguments that the function takes. This does not execute or *call* functions on Anthropic's side; it only returns the function name and arguments which you will have to parse and call yourself in your code.
+When this description is sent to Claude's LLM, it returns an object with a string, which is the function name defined in _your_ code, and the arguments that the function takes. This does not execute or _call_ functions on Anthropic's side; it only returns the function name and arguments which you will have to parse and call yourself in your code.
 
 We will use the object of this format to call the `exa_search` function we define.
-  </Step>
+</Step>
 
 <Step title="Use Exa Search as Claude tool">
     First, we import and initialise the Anthropic and Exa libraries and load the stored API keys.
@@ -6433,12 +6529,12 @@ Lastly, we'll create a `main` function to bring it all together, and handle the 
 The implementation creates a loop that continually prompts the user for search queries, uses Claude's tool use feature to determine when to perform a search, and then uses the Exa search results to provide an informed response to the user's query.
 
 We also use the rich library to provide a more visually appealing console interface, including coloured output and markdown rendering for the responses.
-  </Step>
+</Step>
 
 <Step title="Full code">
 
 We have now written an advanced search tool that combines the power of Claude's language models with Exa's semantic search capabilities, providing users with informative and context-aware responses to their queries.
-  </Step>
+</Step>
 
 <Step title="Running the code">
     Save the code in a file, e.g. `claude_search.py`, and make sure the `.env` file containing the API keys we previously created is in the same directory as the script.
@@ -6448,12 +6544,13 @@ Then run the script using the following command from your terminal:
 You should see a prompt:
 
 That's it, enjoy your search agent!
-  </Step>
+</Step>
 </Steps>
 
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 To successfully use the Exa search client and Anthropic client you will need to have your `ANTHROPIC_API_KEY` and `EXA_API_KEY`\
     set as environment variables.
@@ -6470,6 +6567,7 @@ To successfully use the Exa search client and Anthropic client you will need to 
 ```
 
 Example 2 (unknown):
+
 ```unknown
 Make sure to add your `.env` file to your `.gitignore` file if you have one.
   </Step>
@@ -6479,11 +6577,13 @@ Make sure to add your `.env` file to your `.gitignore` file if you have one.
 ```
 
 Example 3 (unknown):
+
 ```unknown
 When this description is sent to Claude's LLM, it returns an object with a string, which is the function name defined in *your* code, and the arguments that the function takes. This does not execute or *call* functions on Anthropic's side; it only returns the function name and arguments which you will have to parse and call yourself in your code.
 ```
 
 Example 4 (unknown):
+
 ```unknown
 We will use the object of this format to call the `exa_search` function we define.
   </Step>
@@ -6538,7 +6638,8 @@ The webhook secret is not shown here for security - you only get it when you fir
 **URL:** llms-txt#after---more-resilient-with-cache-fallback
 
 result = exa.get_contents(urls, livecrawl="preferred")
-```
+
+````
 
 This change maintains your preference for fresh content while improving reliability.
 
@@ -6626,9 +6727,10 @@ Example 1 (unknown):
 
   <Step title="Use Exa Search to power a LangChain Tool">
     Set up a Retriever tool using `ExaSearchRetriever`. This is a retriever that connects to Exa Search to find relevant documents via semantic search. First import the relevant libraries and instantiate the ExaSearchRetriever.
-```
+````
 
 Example 2 (unknown):
+
 ```unknown
 </Step>
 
@@ -6637,6 +6739,7 @@ Example 2 (unknown):
 ```
 
 Example 3 (unknown):
+
 ```unknown
 </Step>
 
@@ -6645,6 +6748,7 @@ Example 3 (unknown):
 ```
 
 Example 4 (unknown):
+
 ```unknown
 </Step>
 
@@ -6703,10 +6807,10 @@ You can cancel all searches at once by using the `websets/:webset/cancel` endpoi
 **URL:** llms-txt#search-with-both-text-and-highlights
 
 result_with_text_and_highlights = exa.search_and_contents(
-    "AI in healthcare",
-    text=True,
-    highlights=True,
-    num_results=2
+"AI in healthcare",
+text=True,
+highlights=True,
+num_results=2
 )
 
 ---
@@ -6716,7 +6820,8 @@ result_with_text_and_highlights = exa.search_and_contents(
 **URL:** llms-txt#use-keyword-search
 
 result = exa.search_and_contents("hottest AI startups", type="keyword")
-```
+
+````
 
 We're confident this update will significantly improve your search experience. If you have any questions or want to chat about how this might impact your specific use case, please reach out to [hello@exa.ai](mailto:hello@exa.ai).
 
@@ -6970,7 +7075,7 @@ Set your update frequency with:
 * **Timezone**: Any IANA timezone (defaults to `Etc/UTC`)
 
 ### Example: Weekly Monitor for Series A Funded Companies
-```
+````
 
 ---
 
@@ -6979,6 +7084,7 @@ Set your update frequency with:
 **URL:** llms-txt#ai-sdk-by-vercel
 
 **Contents:**
+
 - Web Search Tool Implementation
 
 Source: https://docs.exa.ai/reference/vercel
@@ -7000,6 +7106,7 @@ For detailed instructions on building web agents with AI SDK and Exa, visit the 
 **URL:** llms-txt#welcome-to-exa
 
 **Contents:**
+
 - Get Started
 
 Source: https://docs.exa.ai/reference/getting-started
@@ -7031,22 +7138,25 @@ Automate in-depth web research and receive structured JSON results with citation
   </Card>
 
 <Card title={<div className="card-title">QuickStart</div>} icon="bolt-lightning" href="./quickstart">
-    <div className="text-lg">
-      Use our SDKs to do your first Exa search.
-    </div>
-  </Card>
+
+<div className="text-lg">
+Use our SDKs to do your first Exa search.
+</div>
+</Card>
 
 <Card title={<div className="card-title">Tool Calling with Exa</div>} icon="magnifying-glass" href="./rag-quickstart">
-    <div className="text-lg">
-      Give LLMs the ability to search the web with Exa.
-    </div>
-  </Card>
+
+<div className="text-lg">
+Give LLMs the ability to search the web with Exa.
+</div>
+</Card>
 
 <Card title={<div className="card-title">Examples</div>} icon="lightbulb" href="../examples">
-    <div className="text-lg">
-      Learn from our pre-built tutorials and live demos.
-    </div>
-  </Card>
+
+<div className="text-lg">
+Learn from our pre-built tutorials and live demos.
+</div>
+</Card>
 </CardGroup>
 
 <img src="https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/be0cab3-blue-wanderer.png?fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=ad0d68efd38e9f5e794474adea0f3a68" alt="" data-og-width="1024" width="1024" data-og-height="615" height="615" data-path="images/be0cab3-blue-wanderer.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/be0cab3-blue-wanderer.png?w=280&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=7967dfd3cb9bb98a2bffc66d763cfa2e 280w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/be0cab3-blue-wanderer.png?w=560&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=6cdcf27e4cda9ab1641c4c4c4f85333c 560w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/be0cab3-blue-wanderer.png?w=840&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=8c58fce20e785b7bd2f205b0531dc2c1 840w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/be0cab3-blue-wanderer.png?w=1100&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=463a5f8e5596df3fcd82c9803c4e1a94 1100w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/be0cab3-blue-wanderer.png?w=1650&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=aadd8fde4f54f9ebe68b3f64785110c6 1650w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/be0cab3-blue-wanderer.png?w=2500&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=6de1508a386d4206b6f6af84bf2361a1 2500w" />
@@ -7058,17 +7168,18 @@ Automate in-depth web research and receive structured JSON results with citation
 **URL:** llms-txt#todo:-change-these-to-fit-your-own-criteria
 
 def calculate_score(info, undergrad, year, researchTopics, AI):
-    contents = f"""I'm going to provide some information about an individual, and I want you to rate on a scale of 1 to 10 how good of a hiring candidate they are. I am hiring for AI researchers.
-    A 10 is someone who went to an incredible college, is graduating soon (final year PhD ideally) or is already graduated, is definitely an AI researcher, has a lot of experience and seems really smart, and a nice bonus is if their research is related to retrieval, search, databases. Only return an integer from 0 to 10. Do not return anything else. This candidate did undergrad at {undergrad} and their current role is {year}. Are they an AI researcher? {AI}. They do research in {researchTopics}. Here are some other things I know about them: {info}"""
-    try:
-        return int(get_openai_response(contents))
-    except:
-        return None
+contents = f"""I'm going to provide some information about an individual, and I want you to rate on a scale of 1 to 10 how good of a hiring candidate they are. I am hiring for AI researchers.
+A 10 is someone who went to an incredible college, is graduating soon (final year PhD ideally) or is already graduated, is definitely an AI researcher, has a lot of experience and seems really smart, and a nice bonus is if their research is related to retrieval, search, databases. Only return an integer from 0 to 10. Do not return anything else. This candidate did undergrad at {undergrad} and their current role is {year}. Are they an AI researcher? {AI}. They do research in {researchTopics}. Here are some other things I know about them: {info}"""
+try:
+return int(get_openai_response(contents))
+except:
+return None
 Python Python theme={null}
 
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 Finally, let's enrich our dataframe of people. We define a function `enrich_row` that uses all the functions we defined to learn more about a candidate,and sort by score to get the most promising candidates.
 ```
@@ -7080,7 +7191,7 @@ Finally, let's enrich our dataframe of people. We define a function `enrich_row`
 **URL:** llms-txt#define-and-bind-the-ai-model
 
 model = ChatAnthropic(model="claude-3-5-sonnet-20240620", temperature=0).bind_tools(
-    [retrieve_web_content]
+[retrieve_web_content]
 )
 
 ---
@@ -7093,24 +7204,24 @@ agentops.init(os.getenv('AGENTOPS_API_KEY'))
 
 @tool("Exa search and get contents")
 def search_and_contents(question: str) -> str:
-    """
-    Tool using Exa's Python SDK to run semantic search and return result highlights.
-    """
-    exa = Exa(api_key=os.getenv('EXA_API_KEY'))
+"""
+Tool using Exa's Python SDK to run semantic search and return result highlights.
+"""
+exa = Exa(api_key=os.getenv('EXA_API_KEY'))
 
 response = exa.search_and_contents(
-        query,
-        type="auto",
-        num_results=3,
-        highlights=True
-    )
+query,
+type="auto",
+num_results=3,
+highlights=True
+)
 
 parsedResult = ''.join([
-        f'<Title id={idx}>{eachResult.title}</Title>'
-        f'<URL id={idx}>{eachResult.url}</URL>'
-        f'<Highlight id={idx}>{"".join(eachResult.highlights)}</Highlight>' 
-        for (idx, eachResult) in enumerate(response.results)
-    ])
+f'<Title id={idx}>{eachResult.title}</Title>'
+f'<URL id={idx}>{eachResult.url}</URL>'
+f'<Highlight id={idx}>{"".join(eachResult.highlights)}</Highlight>'
+for (idx, eachResult) in enumerate(response.results)
+])
 
 ---
 
@@ -7122,6 +7233,7 @@ Source: https://docs.exa.ai/reference/answer
 
 post /answer
 Get an LLM answer to a question informed by Exa search results. `/answer` performs an Exa search and uses an LLM to generate either:
+
 1. A direct answer for specific queries. (i.e. "What is the capital of France?" would return "Paris")
 2. A detailed summary with citations for open-ended queries (i.e. "What is the state of ai in healthcare?" would return a summary with citations to relevant sources)
 
@@ -7138,6 +7250,7 @@ Alternatively, you can use the OpenAI compatible [chat completions interface](ht
 **URL:** llms-txt#new-livecrawl-option:-preferred
 
 **Contents:**
+
 - What's New
 - How It Differs from "Always"
 - When to Use "Preferred"
@@ -7158,10 +7271,10 @@ We've added a new `livecrawl` option called `"preferred"` that provides a more r
 
 The new `livecrawl: "preferred"` option provides intelligent fallback behavior:
 
-* **First**: Attempts to crawl fresh content from the live webpage
-* **If crawling succeeds**: Returns the fresh, up-to-date content
-* **If crawling fails but cached content exists**: Returns cached content instead of failing
-* **If crawling fails and no cached content exists**: Returns the crawl error
+- **First**: Attempts to crawl fresh content from the live webpage
+- **If crawling succeeds**: Returns the fresh, up-to-date content
+- **If crawling fails but cached content exists**: Returns cached content instead of failing
+- **If crawling fails and no cached content exists**: Returns the crawl error
 
 ## How It Differs from "Always"
 
@@ -7180,10 +7293,10 @@ If content freshness is critical and you want nothing else, then using `"always"
 
 The `"preferred"` option is ideal when:
 
-* You want the freshest content available but need reliability
-* Building production applications that can't afford to fail on crawl errors
-* Content freshness is important but not critical enough to fail the request
-* You're crawling websites that might be occasionally unavailable
+- You want the freshest content available but need reliability
+- Building production applications that can't afford to fail on crawl errors
+- Content freshness is important but not critical enough to fail the request
+- You're crawling websites that might be occasionally unavailable
 
 ## Complete Livecrawl Options Overview
 
@@ -7198,7 +7311,7 @@ Here are all four livecrawl options and their behaviors:
 
 If you're currently using `livecrawl: "always"` but experiencing reliability issues:
 
-```python  theme={null}
+````python theme={null}
 
 ---
 
@@ -7324,9 +7437,10 @@ Example 1 (unknown):
     <br />
 
     <Card title="Get your Exa API key" icon="key" horizontal href="https://dashboard.exa.ai/api-keys" />
-```
+````
 
 Example 2 (unknown):
+
 ```unknown
 </Step>
 
@@ -7335,11 +7449,13 @@ Example 2 (unknown):
 ```
 
 Example 3 (unknown):
+
 ```unknown
 When this description is sent to OpenAI's LLM, it returns an object with a string, which is the function name defined in *your* code, and the arguments that the function takes. This does not execute or *call* functions on OpenAI's side; it only returns the function name and arguments which you will have to parse and call yourself in your code.
 ```
 
 Example 4 (unknown):
+
 ```unknown
 We will use this object to - in this case - call the `exa_search` function we define with the arguments provided.
   </Step>
@@ -7365,34 +7481,35 @@ print(f"Name:{name}")
 print(f"Email: {email}")
 
 Python Python theme={null}
-def new_candidates_df(df):
-    # get the websites of our top candidates
-    top_candidates_df = df[df['Score'] > 7]
-    websites_list = top_candidates_df['ExaWebsite'].tolist()
+def new_candidates_df(df): # get the websites of our top candidates
+top_candidates_df = df[df['Score'] > 7]
+websites_list = top_candidates_df['ExaWebsite'].tolist()
 
 # use those top candidates to find new candidates
+
     new_candidates = set()
     for url in websites_list:
       new_candidates.update(get_more_candidates(url))
 
 #for each new candidate, get their information and add them to the dataframe
-    names = []
-    emails = []
-    urls = []
-    for url, content in tqdm(new_candidates):
-      names.append(get_name_from_contents(content))
-      emails.append(get_email_from_contents(content))
-      urls.append(url)
+names = []
+emails = []
+urls = []
+for url, content in tqdm(new_candidates):
+names.append(get_name_from_contents(content))
+emails.append(get_email_from_contents(content))
+urls.append(url)
 
 new_df = pd.DataFrame({
-        'Name': names,
-        'Email': emails,
-        'ExaWebsite': urls,
-    })
+'Name': names,
+'Email': emails,
+'ExaWebsite': urls,
+})
 
 new_df = new_candidates_df(sorted_df)
 new_df
-```
+
+````
 
 Alrighty, that's it! We've just built an automated way of finding, researching, and evaluating candidates. You can use this for recruiting, or tailor this to find customers, companies, etc.
 
@@ -7405,7 +7522,7 @@ Hope this tutorial was helpful and don't forget, you can get started with [Exa f
 Example 1 (unknown):
 ```unknown
 Final stretch -- let's put it all together. Let's find and add our new candidates to our original dataframe.
-```
+````
 
 ---
 
@@ -7419,23 +7536,23 @@ We spend a lot of time and energy creating a high quality, curated index.
 
 There are many types of content, and we're constantly discovering new things to search for as well. If there's anything you want to be more highly covered, just reach out to [hello@exa.ai](mailto:hello@exa.ai). See the following table for a high level overview of what is available in our index:
 
-|                      Category                     | Availability in Exa Index |                                                           Description                                                           |                                                                                                                                                                                                                                     Example prompt link                                                                                                                                                                                                                                    |
-| :-----------------------------------------------: | :-----------------------: | :-----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|                  Research papers                  |         Very High         | Offer semantic search over a very vast index of papers, enabling sophisticated, multi-layer and complex filtering for use cases |            [If you're looking for the most helpful academic paper on "embeddings for document retrieval", check this out (pdf:](https://search.exa.ai/search?q=If+you%27re+looking+for+the+most+helpful+academic+paper+on+%22embeddings+for+document+retrieval%22\&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22resolvedSearchType%22%3A%22neural%22%2C%22useAutoprompt%22%3Afalse%7D\&resolvedSearchType=neural)            |
-|                   Personal pages                  |         Very High         |           Excels at finding personal pages, which are often extremely hard/impossible to find on services like Google           |                                                                           [Here is a link to the best life coach for when you're unhappy at work:](https://exa.ai/search?q=Here%20is%20a%20link%20to%20the%20best%20life%20coach%20for%20when%20you%27re%20unhappy%20at%20work%3A\&c=personal%20site\&filters=%7B%22numResults%22%3A30%2C%22useAutoprompt%22%3Afalse%2C%22domainFilterType%22%3A%22include%22%7D)                                                                          |
-|                     Wikipedia                     |         Very High         |             Covers all of Wikipedia, providing comprehensive access to this vast knowledge base via semantic search             |                                                                      [Here is a Wikipedia page about a Roman emperor:](https://search.exa.ai/search?q=Here+is+a+Wikipedia+page+about+a+Roman+emperor%3A\&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22useAutoprompt%22%3Afalse%2C%22resolvedSearchType%22%3A%22neural%22%7D\&resolvedSearchType=neurall)                                                                     |
-|                        News                       |         Very High         |                     Includes a wide, robust index of web news sources, providing coverage of current events                     |                                       [Here is news about war in the Middle East:](https://exa.ai/search?q=Here+is+news+about+war+in+the+Middle+East%3A\&c=personal+site\&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22auto%22%2C%22useAutoprompt%22%3Afalse%2C%22resolvedSearchType%22%3A%22neural%22%2C%22startPublishedDate%22%3A%222024-10-29T01%3A45%3A46.055Z%22%7D\&resolvedSearchType=keyword)                                      |
-|                 LinkedIn  profiles                |    *Very High (US+EU)*    |      Will provide extensive coverage of LinkedIn personal profiles, allowing for detailed professional information searches     |                         [best theoretical computer scientist at uc berkeley](https://exa.ai/search?q=best+theoretical+computer+scientist+at+uc+berkeley\&c=linkedin+profile\&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22useAutoprompt%22%3Atrue%2C%22resolvedSearchType%22%3A%22neural%22%7D\&autopromptString=A+leading+theoretical+computer+scientist+at+UC+Berkeley.\&resolvedSearchType=neural)                        |
-|               LinkedIn company pages              |       *Coming Soon*       |       Will offer comprehensive access to LinkedIn company pages, enabling in-depth research on businesses and organization      |                                                                                                                                                                                                                                 (Best-practice example TBC)                                                                                                                                                                                                                                |
-|                 Company home-pages                |         Very High         |        Wide index of companies covered; also available are curated, customized company datasets - reach out to learn more       |                                            [Here is the homepage of a company working on making space travel cheaper:](https://search.exa.ai/search?q=Here+is+the+homepage+of+a+company+working+on+making+space+travel+cheaper%3A\&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22useAutoprompt%22%3Afalse%2C%22resolvedSearchType%22%3A%22neural%22%7D\&resolvedSearchType=neural)                                            |
-|                 Financial Reports                 |         Very High         |                Includes SEC 10k financial reports and information from other finance sources like Yahoo Finance.                |                    [Here is a source on Apple's revenue growth rate over the past years:](https://exa.ai/search?q=Here+is+a+source+on+Apple%27s+revenue+growth+rate+over+the+past+years%3A\&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22startPublishedDate%22%3A%222023-11-18T22%3A35%3A50.022Z%22%2C%22useAutoprompt%22%3Afalse%2C%22resolvedSearchType%22%3A%22neural%22%7D\&resolvedSearchType=neural)                   |
-|                    GitHub repos                   |            High           |                                  Indexes open source code (which the Exa team use frequently!)                                  |                                                 [Here's a Github repo if you want to convert OpenAPI specs to Rust code:](https://exa.ai/search?q=Here%27s+a+Github+repo+if+you+want+to+convert+OpenAPI+specs+to+Rust+code%3A\&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22useAutoprompt%22%3Afalse%2C%22resolvedSearchType%22%3A%22neural%22%7D\&resolvedSearchType=neural)                                                |
-|                       Blogs                       |            High           |                      Excels at finding high quality reading material, particularly useful for niche topics                      |                                                          [If you're a huge fan of Japandi decor, you'd love this blog:](https://exa.ai/search?q=If+you%27re+a+huge+fan+of+Japandi+decor%2C+you%27d+love+this+blog%3A\&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22useAutoprompt%22%3Afalse%2C%22resolvedSearchType%22%3A%22neural%22%7D\&resolvedSearchType=neural)                                                         |
-|                 Places and things                 |            High           |              Covers a wide range of entities including hospitals, schools, restaurants, appliances, and electronics             |                                                             [Here is a high-rated Italian restaurant in downtown Chicago:](https://exa.ai/search?q=Here+is+a+high-rated+Italian+restaurant+in+downtown+Chicago%3A\&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22useAutoprompt%22%3Afalse%2C%22resolvedSearchType%22%3A%22neural%22%7D\&resolvedSearchType=neural)                                                            |
-|              Legal and policy sources             |            High           |           Strong coverage of legal and policy information, (e.g., including sources like CPUC, Justia, Findlaw, etc.)           |                        [Here is a common law case in california on marital property rights:](https://search.exa.ai/search?q=Here+is+a+common+law+case+in+california+on+marital+property+rights%3A\&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22useAutoprompt%22%3Afalse%2C%22includeDomains%22%3A%5B%22law.justia.com%22%5D%2C%22resolvedSearchType%22%3A%22neural%22%7D\&resolvedSearchType=neural)                        |
-| Government and international organization sources |            High           |                                Includes content from sources like the IMF and CDC amongst others                                |             [Here is a recent World Health Organization site on global vaccination rates:](https://exa.ai/search?q=Here+is+a+recent+World+Health+Organization+site+on+global+vaccination+rates%3A\&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22startPublishedDate%22%3A%222023-11-18T22%3A35%3A50.022Z%22%2C%22useAutoprompt%22%3Afalse%2C%22resolvedSearchType%22%3A%22neural%22%7D\&resolvedSearchType=neural)            |
-|                       Events                      |          Moderate         |                      Reasonable coverage of events in major municipalities, suggesting room for improvement                     | [Here is an AI hackathon in SF:](https://search.exa.ai/search?q=Here+is+an+AI+hackathon+in+SF\&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22exclude%22%2C%22type%22%3A%22neural%22%2C%22startPublishedDate%22%3A%222024-07-02T23%3A36%3A15.511Z%22%2C%22useAutoprompt%22%3Afalse%2C%22endPublishedDate%22%3A%222024-07-09T23%3A36%3A15.511Z%22%2C%22excludeDomains%22%3A%5B%22twitter.com%22%5D%2C%22resolvedSearchType%22%3A%22neural%22%7D\&resolvedSearchType=neural) |
-|                        Jobs                       |          Moderate         |                                                    Can find some job listings                                                   |      [If you're looking for a software engineering job at a small startup working on an important mission, check out](https://search.exa.ai/search?q=If+you%27re+looking+for+a+software+engineering+job+at+a+small+startup+working+on+an+important+mission%2C+check+out\&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22useAutoprompt%22%3Afalse%2C%22resolvedSearchType%22%3A%22neural%22%7D\&resolvedSearchType=neural)      |
+|                     Category                      | Availability in Exa Index |                                                           Description                                                           |                                                                                                                                                                                                                                   Example prompt link                                                                                                                                                                                                                                    |
+| :-----------------------------------------------: | :-----------------------: | :-----------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                  Research papers                  |         Very High         | Offer semantic search over a very vast index of papers, enabling sophisticated, multi-layer and complex filtering for use cases |            [If you're looking for the most helpful academic paper on "embeddings for document retrieval", check this out (pdf:](https://search.exa.ai/search?q=If+you%27re+looking+for+the+most+helpful+academic+paper+on+%22embeddings+for+document+retrieval%22&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22resolvedSearchType%22%3A%22neural%22%2C%22useAutoprompt%22%3Afalse%7D&resolvedSearchType=neural)            |
+|                  Personal pages                   |         Very High         |           Excels at finding personal pages, which are often extremely hard/impossible to find on services like Google           |                                                                          [Here is a link to the best life coach for when you're unhappy at work:](https://exa.ai/search?q=Here%20is%20a%20link%20to%20the%20best%20life%20coach%20for%20when%20you%27re%20unhappy%20at%20work%3A&c=personal%20site&filters=%7B%22numResults%22%3A30%2C%22useAutoprompt%22%3Afalse%2C%22domainFilterType%22%3A%22include%22%7D)                                                                           |
+|                     Wikipedia                     |         Very High         |             Covers all of Wikipedia, providing comprehensive access to this vast knowledge base via semantic search             |                                                                     [Here is a Wikipedia page about a Roman emperor:](https://search.exa.ai/search?q=Here+is+a+Wikipedia+page+about+a+Roman+emperor%3A&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22useAutoprompt%22%3Afalse%2C%22resolvedSearchType%22%3A%22neural%22%7D&resolvedSearchType=neurall)                                                                      |
+|                       News                        |         Very High         |                     Includes a wide, robust index of web news sources, providing coverage of current events                     |                                       [Here is news about war in the Middle East:](https://exa.ai/search?q=Here+is+news+about+war+in+the+Middle+East%3A&c=personal+site&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22auto%22%2C%22useAutoprompt%22%3Afalse%2C%22resolvedSearchType%22%3A%22neural%22%2C%22startPublishedDate%22%3A%222024-10-29T01%3A45%3A46.055Z%22%7D&resolvedSearchType=keyword)                                       |
+|                 LinkedIn profiles                 |    _Very High (US+EU)_    |     Will provide extensive coverage of LinkedIn personal profiles, allowing for detailed professional information searches      |                         [best theoretical computer scientist at uc berkeley](https://exa.ai/search?q=best+theoretical+computer+scientist+at+uc+berkeley&c=linkedin+profile&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22useAutoprompt%22%3Atrue%2C%22resolvedSearchType%22%3A%22neural%22%7D&autopromptString=A+leading+theoretical+computer+scientist+at+UC+Berkeley.&resolvedSearchType=neural)                          |
+|              LinkedIn company pages               |       _Coming Soon_       |      Will offer comprehensive access to LinkedIn company pages, enabling in-depth research on businesses and organization       |                                                                                                                                                                                                                               (Best-practice example TBC)                                                                                                                                                                                                                                |
+|                Company home-pages                 |         Very High         |       Wide index of companies covered; also available are curated, customized company datasets - reach out to learn more        |                                            [Here is the homepage of a company working on making space travel cheaper:](https://search.exa.ai/search?q=Here+is+the+homepage+of+a+company+working+on+making+space+travel+cheaper%3A&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22useAutoprompt%22%3Afalse%2C%22resolvedSearchType%22%3A%22neural%22%7D&resolvedSearchType=neural)                                            |
+|                 Financial Reports                 |         Very High         |                Includes SEC 10k financial reports and information from other finance sources like Yahoo Finance.                |                   [Here is a source on Apple's revenue growth rate over the past years:](https://exa.ai/search?q=Here+is+a+source+on+Apple%27s+revenue+growth+rate+over+the+past+years%3A&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22startPublishedDate%22%3A%222023-11-18T22%3A35%3A50.022Z%22%2C%22useAutoprompt%22%3Afalse%2C%22resolvedSearchType%22%3A%22neural%22%7D&resolvedSearchType=neural)                    |
+|                   GitHub repos                    |           High            |                                  Indexes open source code (which the Exa team use frequently!)                                  |                                                [Here's a Github repo if you want to convert OpenAPI specs to Rust code:](https://exa.ai/search?q=Here%27s+a+Github+repo+if+you+want+to+convert+OpenAPI+specs+to+Rust+code%3A&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22useAutoprompt%22%3Afalse%2C%22resolvedSearchType%22%3A%22neural%22%7D&resolvedSearchType=neural)                                                 |
+|                       Blogs                       |           High            |                      Excels at finding high quality reading material, particularly useful for niche topics                      |                                                         [If you're a huge fan of Japandi decor, you'd love this blog:](https://exa.ai/search?q=If+you%27re+a+huge+fan+of+Japandi+decor%2C+you%27d+love+this+blog%3A&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22useAutoprompt%22%3Afalse%2C%22resolvedSearchType%22%3A%22neural%22%7D&resolvedSearchType=neural)                                                          |
+|                 Places and things                 |           High            |             Covers a wide range of entities including hospitals, schools, restaurants, appliances, and electronics              |                                                            [Here is a high-rated Italian restaurant in downtown Chicago:](https://exa.ai/search?q=Here+is+a+high-rated+Italian+restaurant+in+downtown+Chicago%3A&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22useAutoprompt%22%3Afalse%2C%22resolvedSearchType%22%3A%22neural%22%7D&resolvedSearchType=neural)                                                             |
+|             Legal and policy sources              |           High            |           Strong coverage of legal and policy information, (e.g., including sources like CPUC, Justia, Findlaw, etc.)           |                        [Here is a common law case in california on marital property rights:](https://search.exa.ai/search?q=Here+is+a+common+law+case+in+california+on+marital+property+rights%3A&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22useAutoprompt%22%3Afalse%2C%22includeDomains%22%3A%5B%22law.justia.com%22%5D%2C%22resolvedSearchType%22%3A%22neural%22%7D&resolvedSearchType=neural)                        |
+| Government and international organization sources |           High            |                                Includes content from sources like the IMF and CDC amongst others                                |            [Here is a recent World Health Organization site on global vaccination rates:](https://exa.ai/search?q=Here+is+a+recent+World+Health+Organization+site+on+global+vaccination+rates%3A&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22startPublishedDate%22%3A%222023-11-18T22%3A35%3A50.022Z%22%2C%22useAutoprompt%22%3Afalse%2C%22resolvedSearchType%22%3A%22neural%22%7D&resolvedSearchType=neural)             |
+|                      Events                       |         Moderate          |                     Reasonable coverage of events in major municipalities, suggesting room for improvement                      | [Here is an AI hackathon in SF:](https://search.exa.ai/search?q=Here+is+an+AI+hackathon+in+SF&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22exclude%22%2C%22type%22%3A%22neural%22%2C%22startPublishedDate%22%3A%222024-07-02T23%3A36%3A15.511Z%22%2C%22useAutoprompt%22%3Afalse%2C%22endPublishedDate%22%3A%222024-07-09T23%3A36%3A15.511Z%22%2C%22excludeDomains%22%3A%5B%22twitter.com%22%5D%2C%22resolvedSearchType%22%3A%22neural%22%7D&resolvedSearchType=neural) |
+|                       Jobs                        |         Moderate          |                                                   Can find some job listings                                                    |      [If you're looking for a software engineering job at a small startup working on an important mission, check out](https://search.exa.ai/search?q=If+you%27re+looking+for+a+software+engineering+job+at+a+small+startup+working+on+an+important+mission%2C+check+out&filters=%7B%22numResults%22%3A30%2C%22domainFilterType%22%3A%22include%22%2C%22type%22%3A%22neural%22%2C%22useAutoprompt%22%3Afalse%2C%22resolvedSearchType%22%3A%22neural%22%7D&resolvedSearchType=neural)      |
 
 ---
 
@@ -7444,6 +7561,7 @@ There are many types of content, and we're constantly discovering new things to 
 **URL:** llms-txt#crawling-subpages
 
 **Contents:**
+
 - Using Subpage Crawling
 - Parameters
 - Best Practices
@@ -7463,8 +7581,8 @@ Here's how to use Exa's subpage crawling feature:
 
 This will search through up to 5 subpages of the given website, and prioritize pages that contain the keywords "about" or "products" in their contents.
 
-* `subpages`: Maximum number of subpages to crawl (integer)
-* `subpage_target`: List of query keywords to target (e.g., \["about", "products", "news"])
+- `subpages`: Maximum number of subpages to crawl (integer)
+- `subpage_target`: List of query keywords to target (e.g., \["about", "products", "news"])
 
 1. **Limit Depth**: Start with a smaller `subpages` value (5-10) and increase if needed
 2. **Consider Caching**: Use `livecrawl='always'` only when you need the most recent content
@@ -7491,16 +7609,19 @@ Gather recent blog posts:
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 
 ```
 
 Example 2 (unknown):
+
 ```unknown
 
 ```
 
 Example 3 (unknown):
+
 ```unknown
 </CodeGroup>
 
@@ -7525,6 +7646,7 @@ For the most up-to-date and comprehensive results, combine subpage crawling with
 ```
 
 Example 4 (unknown):
+
 ```unknown
 
 ```
@@ -7536,6 +7658,7 @@ Example 4 (unknown):
 **URL:** llms-txt#verifying-signatures
 
 **Contents:**
+
 - How Webhook Signatures Work
 - Verification Process
 - Security Best Practices
@@ -7553,8 +7676,8 @@ When you receive a webhook from Exa, you should verify that it came from us to e
 
 Exa uses HMAC SHA256 to sign webhook payloads. The signature is included in the `Exa-Signature` header, which contains:
 
-* A timestamp (`t=`) indicating when the webhook was sent
-* One or more signatures (`v1=`) computed using the timestamp and payload
+- A timestamp (`t=`) indicating when the webhook was sent
+- One or more signatures (`v1=`) computed using the timestamp and payload
 
 The signature format looks like this:
 
@@ -7585,15 +7708,15 @@ To verify a webhook signature:
 
 Following these practices will help ensure your webhook implementation is secure and robust:
 
-* **Always Verify Signatures** - Never process webhook data without first verifying the signature. This prevents attackers from sending fake webhooks to your endpoint.
+- **Always Verify Signatures** - Never process webhook data without first verifying the signature. This prevents attackers from sending fake webhooks to your endpoint.
 
-* **Use Timing-Safe Comparison** - When comparing signatures, use functions like `hmac.compare_digest()` in Python or `crypto.timingSafeEqual()` in Node.js to prevent timing attacks.
+- **Use Timing-Safe Comparison** - When comparing signatures, use functions like `hmac.compare_digest()` in Python or `crypto.timingSafeEqual()` in Node.js to prevent timing attacks.
 
-* **Check Timestamp Freshness** - Consider rejecting webhooks with timestamps that are too old (e.g., older than 5 minutes) to prevent replay attacks.
+- **Check Timestamp Freshness** - Consider rejecting webhooks with timestamps that are too old (e.g., older than 5 minutes) to prevent replay attacks.
 
-* **Store Secrets Securely** - Store your webhook secrets in environment variables or a secure secret management system. Never hardcode them in your application. **Important**: The webhook secret is only returned when you [create a webhook](https://docs.exa.ai/websets/api/webhooks/create-a-webhook) - make sure to save it securely as it cannot be retrieved later.
+- **Store Secrets Securely** - Store your webhook secrets in environment variables or a secure secret management system. Never hardcode them in your application. **Important**: The webhook secret is only returned when you [create a webhook](https://docs.exa.ai/websets/api/webhooks/create-a-webhook) - make sure to save it securely as it cannot be retrieved later.
 
-* **Use HTTPS** - Always use HTTPS endpoints for your webhooks to ensure the data is encrypted in transit.
+- **Use HTTPS** - Always use HTTPS endpoints for your webhooks to ensure the data is encrypted in transit.
 
 ### Invalid Signature Errors
 
@@ -7608,16 +7731,17 @@ If you're getting signature verification failures:
 
 You can test your signature verification logic using the webhook secret and a sample payload:
 
-```python python theme={null}
+````python python theme={null}
 
 **Examples:**
 
 Example 1 (unknown):
 ```unknown
 Exa-Signature: t=1234567890,v1=5257a869e7ecebeda32affa62cdca3fa51cad7e77a0e56ff536d0ce8e108d8bd
-```
+````
 
 Example 2 (unknown):
+
 ```unknown
 </Tab>
 
@@ -7625,6 +7749,7 @@ Example 2 (unknown):
 ```
 
 Example 3 (unknown):
+
 ```unknown
 </Tab>
 
@@ -7632,6 +7757,7 @@ Example 3 (unknown):
 ```
 
 Example 4 (unknown):
+
 ```unknown
 </Tab>
 </Tabs>
@@ -7681,40 +7807,42 @@ You can test your signature verification logic using the webhook secret and a sa
 **URL:** llms-txt#results-are-already-ranked-by-relevance,-no-need-to-sort-by-score
 
 **Contents:**
+
 - Response Structure Changes
   - Auto and Keyword Search (New)
   - Neural Search (Unchanged)
 - Need Help with Migration?
 
 for item in result.results:
-    print(f"Title: {item.title}")
-json  theme={null}
+print(f"Title: {item.title}")
+json theme={null}
 {
-  "results": [
-    {
-      "title": "Example AI Startup",
-      "url": "https://example-startup.com",
-      "id": "abc123",
-      "publishedDate": "2024-01-15",
-      "author": "John Doe"
-      // Note: No 'score' field
-    }
-  ]
+"results": [
+{
+"title": "Example AI Startup",
+"url": "https://example-startup.com",
+"id": "abc123",
+"publishedDate": "2024-01-15",
+"author": "John Doe"
+// Note: No 'score' field
 }
-json  theme={null}
+]
+}
+json theme={null}
 {
-  "results": [
-    {
+"results": [
+{
 
-"title": "Example AI Startup", 
-      "url": "https://example-startup.com",
-      "id": "abc123",
-      "publishedDate": "2024-01-15",
-      "author": "John Doe"
-    }
-  ]
+"title": "Example AI Startup",
+"url": "https://example-startup.com",
+"id": "abc123",
+"publishedDate": "2024-01-15",
+"author": "John Doe"
 }
-```
+]
+}
+
+````
 
 ## Need Help with Migration?
 
@@ -7727,9 +7855,10 @@ Example 1 (unknown):
 ## Response Structure Changes
 
 ### Auto and Keyword Search (New)
-```
+````
 
 Example 2 (unknown):
+
 ```unknown
 ### Neural Search (Unchanged)
 ```
@@ -7741,15 +7870,15 @@ Example 2 (unknown):
 **URL:** llms-txt#given-a-homepage,-get-homepages-of-similar-candidates
 
 def get_more_candidates(homepageURL):
-  new_homepages = []
-  if not homepageURL:
-    return None
-  similarity_search = exa.find_similar_and_contents(homepageURL, num_results=3, text={"include_html_tags": False}, exclude_domains=['linkedin.com', 'github.com', 'twitter.com'])
+new_homepages = []
+if not homepageURL:
+return None
+similarity_search = exa.find_similar_and_contents(homepageURL, num_results=3, text={"include_html_tags": False}, exclude_domains=['linkedin.com', 'github.com', 'twitter.com'])
 
 #return a list of emails
-  for res in similarity_search.results:
-    new_homepages.append((res.url, res.text))
-  return new_homepages
+for res in similarity_search.results:
+new_homepages.append((res.url, res.text))
+return new_homepages
 
 ---
 
@@ -7758,6 +7887,7 @@ def get_more_candidates(homepageURL):
 **URL:** llms-txt#crewai
 
 **Contents:**
+
 - Get Started
 
 Source: https://docs.exa.ai/reference/crewai
@@ -7788,8 +7918,8 @@ In this guide, we'll create a crew of two agents that generate a newsletter base
 
 We then set up[ two agents](https://docs.crewai.com/concepts/Agents/) and place them in a [crew together](https://docs.crewai.com/concepts/Crews/):
 
-* One to research with Exa (providing the custom tool defined above)
-    * Another to write a newsletter as an output (using an LLM)
+- One to research with Exa (providing the custom tool defined above)
+  - Another to write a newsletter as an output (using an LLM)
 
 <Step title="Defining tasks for the agents">
     Next, we'll define [tasks](https://docs.crewai.com/concepts/Tasks/) for each agent and create the crew overall using all of the components we've set up above.
@@ -7803,6 +7933,7 @@ We then set up[ two agents](https://docs.crewai.com/concepts/Agents/) and place 
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 </Step>
 
@@ -7811,6 +7942,7 @@ Example 1 (unknown):
 ```
 
 Example 2 (unknown):
+
 ```unknown
 <Note> Make sure your API keys are initialized properly. For this demonstration, the environment variable names are `OPENAI_API_KEY` and `EXA_API_KEY` for OpenAI and Exa keys respectively. </Note>
 
@@ -7822,6 +7954,7 @@ Example 2 (unknown):
 ```
 
 Example 3 (unknown):
+
 ```unknown
 We then set up[ two agents](https://docs.crewai.com/concepts/Agents/) and place them in a [crew together](https://docs.crewai.com/concepts/Crews/):
 
@@ -7830,6 +7963,7 @@ We then set up[ two agents](https://docs.crewai.com/concepts/Agents/) and place 
 ```
 
 Example 4 (unknown):
+
 ```unknown
 </Step>
 
@@ -7844,9 +7978,9 @@ Example 4 (unknown):
 **URL:** llms-txt#find-similar-with-full-text-content
 
 similar_with_text = exa.find_similar_and_contents(
-    "https://example.com/article",
-    text=True,
-    num_results=2
+"https://example.com/article",
+text=True,
+num_results=2
 )
 
 ---
@@ -7856,6 +7990,7 @@ similar_with_text = exa.find_similar_and_contents(
 **URL:** llms-txt#managing-your-team
 
 **Contents:**
+
 - Seeing your teams
 - Topping up a Team's balance
 - Inviting people to your team
@@ -7925,6 +8060,7 @@ Source: https://docs.exa.ai/websets/api/webhooks/update-a-webhook
 
 patch /v0/webhooks/{id}
 Change a webhook's settings. You can update:
+
 - Events: Add or remove which events you want to hear about - URL: Change where notifications are sent - Metadata: Update custom data linked to the webhook
 
 Changes happen right away. If you change the events list, the webhook will start or stop getting notifications for those events immediately.
@@ -7938,6 +8074,7 @@ The webhook keeps its current status (`active` or `inactive`) when you update it
 **URL:** llms-txt#exa-researcher---python
 
 **Contents:**
+
 - What this doc covers
 - Setup
 - Exa Auto search
@@ -7949,7 +8086,7 @@ Source: https://docs.exa.ai/examples/exa-researcher-python
 ## What this doc covers
 
 1. Using Exa's Auto search to pick the best search setting for each query (keyword or neural)
-2. Using search\_and\_contents() through Exa's Python SDK
+2. Using search_and_contents() through Exa's Python SDK
 
 In this example, we will build Exa Researcher, a Python app that, given a research topic, automatically searches for relevant sources with Exa's [auto search](../reference/how-exa-search-works#auto-search-combines-keyword-and-neural) and synthesizes the information into a reliable research report.
 
@@ -7969,8 +8106,8 @@ The first thing our researcher has to do is decide what kind of search to do for
 
 Exa offers two kinds of search: **neural** and **keyword** search. Here's how we decide:
 
-* Neural search is preferred when the query is broad and complex because it lets us retrieve high quality, semantically relevant data. Neural search is especially suitable when a topic is well-known and popularly discussed on the Internet, allowing the machine learning model to retrieve contents which are more likely recommended by real humans.
-* Keyword search is useful when the topic is specific, local or obscure. If the query is a specific person's name, and identifier, or acronym, such that relevant results will contain the query itself, keyword search may do well. And if the machine learning model doesn't know about the topic, but relevant documents can be found by directly matching the search query, keyword search may be necessary.
+- Neural search is preferred when the query is broad and complex because it lets us retrieve high quality, semantically relevant data. Neural search is especially suitable when a topic is well-known and popularly discussed on the Internet, allowing the machine learning model to retrieve contents which are more likely recommended by real humans.
+- Keyword search is useful when the topic is specific, local or obscure. If the query is a specific person's name, and identifier, or acronym, such that relevant results will contain the query itself, keyword search may do well. And if the machine learning model doesn't know about the topic, but relevant documents can be found by directly matching the search query, keyword search may be necessary.
 
 Conveniently, Exa's [auto search](../reference/how-exa-search-works#auto-search-combines-keyword-and-neural) feature (on by default) will automatically decide whether to use `keyword` or `neural` search for each query. For example, if a query is a specific person's name, Exa would decide to use keyword search.
 
@@ -7986,7 +8123,7 @@ Now, let's just wrap everything into one Researcher function that strings togeth
 
 In just a couple lines of code, we've used Exa to go from a research topic to a valuable essay with up-to-date sources.
 
-```Python Python theme={null}
+````Python Python theme={null}
 def run_examples():
     print("Researching Sam Altman:")
     sama_report = researcher(SAMA_TOPIC)
@@ -8001,9 +8138,10 @@ print("\n\nResearching Renaissance Art:")
 Example 1 (unknown):
 ```unknown
 Since we'll be making several calls to the OpenAI API to get a completion from GPT-3.5 Turbo, let's make a simple utility function so we can pass in the system and user messages directly, and get the LLM's response back as a string.
-```
+````
 
 Example 2 (unknown):
+
 ```unknown
 Okay, great! Now let's start building Exa Researcher.
 
@@ -8013,6 +8151,7 @@ The researcher should be able to automatically generate research reports for all
 ```
 
 Example 3 (unknown):
+
 ```unknown
 The first thing our researcher has to do is decide what kind of search to do for the given topic.
 
@@ -8027,6 +8166,7 @@ Now, we'll create a helper function to generate search queries for our topic.
 ```
 
 Example 4 (unknown):
+
 ```unknown
 Next, let's write another function that actually calls the Exa API to perform searches using Auto search.
 ```
@@ -8057,23 +8197,23 @@ Source: https://docs.exa.ai/websets/api/websets/get-a-webset
 **URL:** llms-txt#define-the-tools-available-to-the-agent---we're-defining-a-single-tool,-exa_search
 
 TOOLS = [
-    {
-        "type": "function",
-        "function": {
-            "name": "exa_search",
-            "description": "Perform a search query on the web, and retrieve the world's most relevant information.",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "query": {
-                        "type": "string",
-                        "description": "The search query to perform.",
-                    },
-                },
-                "required": ["query"],
-            },
-        },
-    }
+{
+"type": "function",
+"function": {
+"name": "exa_search",
+"description": "Perform a search query on the web, and retrieve the world's most relevant information.",
+"parameters": {
+"type": "object",
+"properties": {
+"query": {
+"type": "string",
+"description": "The search query to perform.",
+},
+},
+"required": ["query"],
+},
+},
+}
 ]
 
 ---
@@ -8083,9 +8223,9 @@ TOOLS = [
 **URL:** llms-txt#determine-whether-to-continue-or-end
 
 def should_continue(state: MessagesState) -> Literal["tools", END]:
-    messages = state["messages"]
-    last_message = messages[-1]
-    return "tools" if last_message.tool_calls else END
+messages = state["messages"]
+last_message = messages[-1]
+return "tools" if last_message.tool_calls else END
 
 ---
 
@@ -8097,6 +8237,7 @@ Source: https://docs.exa.ai/reference/research/create-a-task
 
 post /research/v1
 Create an asynchronous research task that explores the web, gathers sources, synthesizes findings, and returns results with citations. Can be used to generate:
+
 1. Structured JSON matching an `outputSchema` you provide.
 2. A detailed markdown report when no schema is provided.
 
@@ -8113,10 +8254,10 @@ Alternatively, you can use the OpenAI compatible [chat completions interface](/r
 **URL:** llms-txt#search-for-recent-ai-ethics-research-papers
 
 search_results = exa.search_and_contents(
-    "Recent AI ethics research papers",
-    type="neural",
-    text=True,
-    num_results=5,  # Limit to 5 papers for this example
+"Recent AI ethics research papers",
+type="neural",
+text=True,
+num_results=5, # Limit to 5 papers for this example
 )
 
 ---
@@ -8126,47 +8267,47 @@ search_results = exa.search_and_contents(
 **URL:** llms-txt#search-with-structured-summary-schema
 
 company_schema = {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "Company Information",
-    "type": "object",
-    "properties": {
-        "name": {
-            "type": "string",
-            "description": "The name of the company"
-        },
-        "industry": {
-            "type": "string",
-            "description": "The industry the company operates in"
-        },
-        "foundedYear": {
-            "type": "number",
-            "description": "The year the company was founded"
-        },
-        "keyProducts": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of key products or services offered by the company"
-        },
-        "competitors": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "List of main competitors"
-        }
-    },
-    "required": ["name", "industry"]
+"$schema": "http://json-schema.org/draft-07/schema#",
+"title": "Company Information",
+"type": "object",
+"properties": {
+"name": {
+"type": "string",
+"description": "The name of the company"
+},
+"industry": {
+"type": "string",
+"description": "The industry the company operates in"
+},
+"foundedYear": {
+"type": "number",
+"description": "The year the company was founded"
+},
+"keyProducts": {
+"type": "array",
+"items": {
+"type": "string"
+},
+"description": "List of key products or services offered by the company"
+},
+"competitors": {
+"type": "array",
+"items": {
+"type": "string"
+},
+"description": "List of main competitors"
+}
+},
+"required": ["name", "industry"]
 }
 
 result_with_structured_summary = exa.search_and_contents(
-    "OpenAI company information",
-    summary={
-        "schema": company_schema
-    },
-    category="company",
-    num_results=3
+"OpenAI company information",
+summary={
+"schema": company_schema
+},
+category="company",
+num_results=3
 )
 
 ---
@@ -8176,9 +8317,9 @@ result_with_structured_summary = exa.search_and_contents(
 **URL:** llms-txt#find-similar-with-highlights
 
 similar_with_highlights = exa.find_similar_and_contents(
-    "https://example.com/article",
-    highlights=True,
-    num_results=2
+"https://example.com/article",
+highlights=True,
+num_results=2
 )
 
 ---
@@ -8199,11 +8340,12 @@ Deletes a monitor.
 **URL:** llms-txt#or-run-directly-with-npx
 
 npx exa-mcp-server
-bash  theme={null}
+bash theme={null}
 
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 To specify which tools to enable:
 ```
@@ -8215,6 +8357,7 @@ To specify which tools to enable:
 **URL:** llms-txt#llamaindex
 
 **Contents:**
+
 - Get Started
 
 Source: https://docs.exa.ai/reference/llamaindex
@@ -8252,12 +8395,13 @@ We can then use the chat method to interact with the agent.
 Output 2: Agent response
 
 As you can see, the output generation is enriched with the context of our Exa Search query result!
-  </Step>
+</Step>
 </Steps>
 
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 Also ensure API keys are initialized properly. The following code uses the `EXA_API_KEY` as the relevant environment variable name.
 
@@ -8269,6 +8413,7 @@ Also ensure API keys are initialized properly. The following code uses the `EXA_
 ```
 
 Example 2 (unknown):
+
 ```unknown
 </Step>
 
@@ -8277,6 +8422,7 @@ Example 2 (unknown):
 ```
 
 Example 3 (unknown):
+
 ```unknown
 </Step>
 
@@ -8285,6 +8431,7 @@ Example 3 (unknown):
 ```
 
 Example 4 (unknown):
+
 ```unknown
 We can then use the chat method to interact with the agent.
 ```
@@ -8296,111 +8443,113 @@ We can then use the chat method to interact with the agent.
 **URL:** llms-txt#list-all-available-tools
 
 **Contents:**
+
 - Configuring Claude Desktop
 - Troubleshooting
   - Common Issues
 - Additional Resources
 
 npx exa-mcp-server --list-tools
-bash  theme={null}
-   code ~/Library/Application\ Support/Claude/claude_desktop_config.json
-   powershell  theme={null}
-   code %APPDATA%\Claude\claude_desktop_config.json
-   json  theme={null}
-   {
-     "mcpServers": {
-       "exa": {
-         "command": "npx",
-         "args": [
-           "-y",
-          "exa-mcp-server"
-          ],
-         "env": {
-           "EXA_API_KEY": "your-api-key-here"
-         }
-       }
-     }
-   }
-   json  theme={null}
-   {
-     "mcpServers": {
-       "exa": {
-         "command": "npx",
-         "args": [
-           "-y",
-           "exa-mcp-server",
-           "--tools=get_code_context_exa"
-         ],
-         "env": {
-           "EXA_API_KEY": "your-api-key-here"
-         }
-       }
-     }
-   }
-   json  theme={null}
-   {
-     "mcpServers": {
-       "exa": {
-         "command": "npx",
-         "args": [
-           "-y",
-           "exa-mcp-server",
-           "--tools=get_code_context_exa,web_search_exa"
-         ],
-         "env": {
-           "EXA_API_KEY": "your-api-key-here"
-         }
-       }
-     }
-   }
-   json  theme={null}
-   {
-     "mcpServers": {
-       "exa": {
-         "command": "npx",
-         "args": [
-           "-y",
-           "exa-mcp-server",
-           "--tools=web_search_exa"
-         ],
-         "env": {
-           "EXA_API_KEY": "your-api-key-here"
-         }
-       }
-     }
-   }
-   json  theme={null}
-   {
-     "mcpServers": {
-       "exa": {
-         "command": "npx",
-         "args": [
-           "-y",
-           "exa-mcp-server",
-           "--tools=deep_researcher_start,deep_researcher_check"
-         ],
-         "env": {
-           "EXA_API_KEY": "your-api-key-here"
-         }
-       }
-     }
-   }
-   ```
+bash theme={null}
+code ~/Library/Application\ Support/Claude/claude_desktop_config.json
+powershell theme={null}
+code %APPDATA%\Claude\claude_desktop_config.json
+json theme={null}
+{
+"mcpServers": {
+"exa": {
+"command": "npx",
+"args": [
+"-y",
+"exa-mcp-server"
+],
+"env": {
+"EXA_API_KEY": "your-api-key-here"
+}
+}
+}
+}
+json theme={null}
+{
+"mcpServers": {
+"exa": {
+"command": "npx",
+"args": [
+"-y",
+"exa-mcp-server",
+"--tools=get_code_context_exa"
+],
+"env": {
+"EXA_API_KEY": "your-api-key-here"
+}
+}
+}
+}
+json theme={null}
+{
+"mcpServers": {
+"exa": {
+"command": "npx",
+"args": [
+"-y",
+"exa-mcp-server",
+"--tools=get_code_context_exa,web_search_exa"
+],
+"env": {
+"EXA_API_KEY": "your-api-key-here"
+}
+}
+}
+}
+json theme={null}
+{
+"mcpServers": {
+"exa": {
+"command": "npx",
+"args": [
+"-y",
+"exa-mcp-server",
+"--tools=web_search_exa"
+],
+"env": {
+"EXA_API_KEY": "your-api-key-here"
+}
+}
+}
+}
+json theme={null}
+{
+"mcpServers": {
+"exa": {
+"command": "npx",
+"args": [
+"-y",
+"exa-mcp-server",
+"--tools=deep_researcher_start,deep_researcher_check"
+],
+"env": {
+"EXA_API_KEY": "your-api-key-here"
+}
+}
+}
+}
+
+````
 
 5. **Restart Claude Desktop**
-   * Completely quit Claude Desktop (not just close the window)
-   * Start Claude Desktop again
-   * Look for the 🔌 icon to verify the Exa server is connected
+* Completely quit Claude Desktop (not just close the window)
+* Start Claude Desktop again
+* Look for the 🔌 icon to verify the Exa server is connected
 
 1. **Server Not Found**
-   * Ensure the npm package is correctly installed
+* Ensure the npm package is correctly installed
 
 2. **API Key Issues**
-   * Confirm your EXA\_API\_KEY is valid
-   * Make sure there are no spaces or quotes around the API key
+* Confirm your EXA\_API\_KEY is valid
+* Make sure there are no spaces or quotes around the API key
 
 3. **Connection Problems**
-   * Restart Claude Desktop completely
+* Restart Claude Desktop completely
 
 ## Additional Resources
 
@@ -8415,27 +8564,29 @@ Example 1 (unknown):
 To configure Claude Desktop to use Exa MCP:
 
 1. **Enable Developer Mode in Claude Desktop**
-   * Open Claude Desktop
-   * Click on the top-left menu
-   * Enable Developer Mode
+* Open Claude Desktop
+* Click on the top-left menu
+* Enable Developer Mode
 
 2. **Open the Configuration File**
 
-   * After enabling Developer Mode, go to Settings
-   * Navigate to the Developer Option
-   * Click "Edit Config" to open the configuration file
+* After enabling Developer Mode, go to Settings
+* Navigate to the Developer Option
+* Click "Edit Config" to open the configuration file
 
-   Alternatively, you can open it directly:
+Alternatively, you can open it directly:
 
-   **macOS:**
-```
+**macOS:**
+````
 
 Example 2 (unknown):
+
 ```unknown
 **Windows:**
 ```
 
 Example 3 (unknown):
+
 ```unknown
 3. **Add Exa MCP Configuration**
 
@@ -8443,6 +8594,7 @@ Example 3 (unknown):
 ```
 
 Example 4 (unknown):
+
 ```unknown
 Replace `your-api-key-here` with your actual Exa API key.
 
@@ -8458,6 +8610,7 @@ Replace `your-api-key-here` with your actual Exa API key.
 **URL:** llms-txt#markdown-contents-as-default
 
 **Contents:**
+
 - What Changed
 - Content Processing Behavior
 - Benefits of Markdown Default
@@ -8480,8 +8633,8 @@ Previously, our endpoints returned content in various formats depending on the s
 
 The `includeHtmlTags` parameter now controls how we process webpage content:
 
-* **`includeHtmlTags=false` (default)**: We process webpage content into clean markdown format
-* **`includeHtmlTags=true`**: We return content as HTML without processing to markdown
+- **`includeHtmlTags=false` (default)**: We process webpage content into clean markdown format
+- **`includeHtmlTags=true`**: We return content as HTML without processing to markdown
 
 In all cases, we remove extraneous data, advertisements, navigation elements, and other boilerplate content, keeping only what we detect as the main content of the page.
 
@@ -8523,14 +8676,15 @@ All running enrichments will be canceled. You can not resume an Enrichment after
 **URL:** llms-txt#write-insights-to-csv
 
 write_to_csv(insights)
-csv  theme={null}
+csv theme={null}
 Topic,Description,Ethical Implications
 Algorithmic Bias,"This research challenges the assumption that algorithms can replace human decision-making and remain unbiased. It identifies three forms of outrage-intellectual, moral, and political-when reacting to algorithmic bias and suggests practical approaches like clarifying language around bias, developing new auditing methods, and building certain capabilities in AI systems.",Potential perpetuation of existing biases if not addressed; Necessity for transparency in AI system development; Impact on fairness and justice in societal decision-making processes; Importance of inclusive stakeholder engagement in AI design and implementation
 Algorithmic Bias and Ethical Interview,"Artificial intelligence and machine learning are used to offload decision making from humans, with a misconception that machines can be unbiased. This paper critiques this assumption and discusses forms of outrage towards algorithmic biases, identifying three types: intellectual, moral, and political outrage. It suggests practical approaches such as clarifying language around bias, auditing methods, and building specific capabilities to address biases. The overall discussion urges for greater insight into conversations around algorithmic bias and its implications.","Algorithms can perpetuate and even amplify existing biases in data.; There can be a misleading assumption that machines are inherently fair and unbiased.; Algorithmic biases can trigger intellectual, moral, and political outrage, affecting societal trust in AI systems."
 Algorithmic Bias and Human Decision Making,"This research delves into the misconceptions surrounding the belief that algorithms can replace human decision-making because they are inherently fair and unbiased. The study highlights the flaws in this rationale by showing that algorithms are not free from bias. It explores three types of outrage—intellectual, moral, and political—that arise when people confront algorithmic bias. The paper recommends addressing algorithmic bias through clearer language, better auditing methods, and enhanced system capabilities.","Algorithms can perpetuate and exacerbate existing biases rather than eliminate them.; The misconception that algorithms are unbiased may lead to a false sense of security in their use.; There is a need for the AI community to adopt clearer language and terms when discussing bias to prevent misunderstanding and misuse.; Enhancing auditing methods and system capabilities can help identify and address biases.; Decisions made through biased algorithms can have unjust outcomes, affecting public trust and leading to social and ethical implications."
 Algorithmic Bias in AI,"Artificial intelligence and machine learning are increasingly used to offload decision making from people. In the past, one of the rationales for this replacement was that machines, unlike people, can be fair and unbiased. Evidence suggests otherwise, indicating that algorithms can be biased. The study investigates how bias is perceived in algorithmic decision-making, proposing clarity in the language around bias and suggesting new auditing methods for intelligent systems to address this concern.",Algorithms may inherit or exacerbate existing biases.; Misleading assumptions about AI's objectivity can lead to unfair outcomes.; Need for transparent language and robust auditing to mitigate bias.
 Algorithmic Bias in AI Systems,"This research explores the misconception that algorithms can replace humans in decision-making without bias. It sheds light on the absurdity of assuming that algorithms are inherently unbiased and discusses emotional responses to algorithmic bias. The study suggests clarity in language about bias, new auditing methods, and capacity-building in AI systems to address bias concerns.",Misleading perception of unbiased AI leading to potential unfairness in decision-making.; Emotional and ethical concerns due to algorithmic bias perceived unfairness.; Need for consistent auditing methods to ensure fairness in AI systems.
-```
+
+````
 
 Instructor has enabled the creation of structured data that can as such be stored in tabular format, e.g.in a CRM or similar.
 
@@ -8541,7 +8695,7 @@ By combining Exa’s powerful search capabilities with Instructor’s predictabl
 Example 1 (unknown):
 ```unknown
 After running the code, you'll have a CSV file named "ai\_ethics\_insights.csv". Here's an example of what the contents might look like:
-```
+````
 
 ---
 
@@ -8552,17 +8706,17 @@ After running the code, you'll have a CSV file named "ai\_ethics\_insights.csv".
 combined_results = "\n\n".join([result.text for result in search_results.results])
 
 def write_to_csv(insights: List[AIEthicsInsight], filename: str = "ai_ethics_insights.csv"):
-    with open(filename, mode='w', newline='', encoding='utf-8') as file:
-        writer = csv.writer(file)
-        writer.writerow(['Topic', 'Description', 'Ethical Implications'])
-        
+with open(filename, mode='w', newline='', encoding='utf-8') as file:
+writer = csv.writer(file)
+writer.writerow(['Topic', 'Description', 'Ethical Implications'])
+
         for insight in insights:
             writer.writerow([
                 insight.topic,
                 insight.description,
                 '; '.join(insight.ethical_implications)
             ])
-    
+
     print(f"Results written to {filename}")
 
 ---
@@ -8572,13 +8726,14 @@ def write_to_csv(insights: List[AIEthicsInsight], filename: str = "ai_ethics_ins
 **URL:** llms-txt#let-the-magic-happen!
 
 **Contents:**
+
 - Beyond Question Answering: Text Similarity Search
 
 info_for_llm = []
 for question in questions:
-    search_response = exa.search_and_contents(question, highlights=highlights_options, num_results=3)
-    info = [sr.highlights[0] for sr in search_response.results]
-    info_for_llm.append(info)
+search_response = exa.search_and_contents(question, highlights=highlights_options, num_results=3)
+info = [sr.highlights[0] for sr in search_response.results]
+info_for_llm.append(info)
 Python Python theme={null}
 info_for_llm
 [['As the only mammals with powered flight, the evolutionary\xa0history of their wings has been poorly understood. However, research published Monday in Nature and PLoS Genetics has provided the first comprehensive look at the genetic origins of their incredible wings.But to appreciate the genetics of their wing development, it’s important to know how crazy a bat in flight truly\xa0looks.Try a little experiment: Stick your arms out to the side, palms facing forward, thumbs pointing up toward the ceiling. Now imagine that your fingers are\xa0long, arching down toward the floor like impossibly unkempt fingernails — but still made of bone, sturdy and spread apart. Picture the sides of your body connecting to your hands, a rubbery membrane attaching your leg and torso to those long fingers, binding you with strong, stretchy skin. Then, finally, imagine using your muscles to flap those enormous hands.Bats, man.As marvelous as bat flight is to behold, the genetic origins of their storied wings has remained murky. However, new findings from an international team of researchers led by Nadav Ahituv, PhD, of the University of California at San Francisco, Nicola Illing, PhD, of the University of Cape Town\xa0in\xa0South Africa\xa0and Katie Pollard, PhD of the UCSF-affiliated Gladstone Institutes has shed new light on how, 50 million years ago, bats took a tetrapod blueprint for arms and legs and went up into the sky.Using a sophisticated set of genetic tools, researchers approached the question of how bats evolved flight by looking not only at which genes were used in the embryonic development of wings, but at what point during development the genes were turned on and off, and — critically — what elements in the genome were regulating the expression of these genes. Genes do not just turn themselves on without input; genetic switches, called enhancers, act to regulate the timing and levels of gene expression in the body.', theme={null}
@@ -8590,70 +8745,70 @@ info_for_llm
 Python Python theme={null}
 responses = []
 for question, info in zip(questions, info_for_llm):
-  system_prompt = "You are RAG researcher. Read the provided contexts and, if relevant, use them to answer the user's question."
-  user_prompt = f"""Sources: {info}
+system_prompt = "You are RAG researcher. Read the provided contexts and, if relevant, use them to answer the user's question."
+user_prompt = f"""Sources: {info}
 
 Question: {question}"""
 
 completion = openai_client.chat.completions.create(
-    model="gpt-3.5-turbo",
-    messages=[
-      {"role": "system", "content": system_prompt},
-      {"role": "user", "content": user_prompt},
-    ]
-  )
-  response = f"""
-  Question: {question}
-  Answer: {completion.choices[0].message.content}
-  """
-  responses.append(response)
+model="gpt-3.5-turbo",
+messages=[
+{"role": "system", "content": system_prompt},
+{"role": "user", "content": user_prompt},
+]
+)
+response = f"""
+Question: {question}
+Answer: {completion.choices[0].message.content}
+"""
+responses.append(response)
 Python Python theme={null}
 from pprint import pprint # pretty print
 pprint(responses)
-['\n'  theme={null}
- '  Question: How did bats evolve their wings?\n'
- '  Answer: Recent research has shed new light on how bats evolved their '
- 'wings. An international team of researchers used genetic tools to study the '
- 'embryonic development of bat wings and the genes involved in their '
- 'formation. They also investigated the regulatory elements in the genome that '
- 'control the expression of these genes. By analyzing these factors, the '
- 'researchers discovered that bats took a tetrapod blueprint for arms and legs '
- 'and adapted it to develop wings, allowing them to fly. This research '
- 'provides a comprehensive understanding of the genetic origins of bat wings '
- 'and how they evolved over 50 million years ago.\n'
- '  ',
- '\n'
- '  Question: How did Rome defend Italy from Hannibal?\n'
- '  Answer: Rome defended Italy from Hannibal by using various strategies. One '
- 'of the main defenses relied on the Roman manpower base, which consisted of a '
- 'large army made up of Roman citizens and Italian allies who were obligated '
- "to render military service. Rome's strategic manpower base was a cornerstone "
- 'of their power, as it could produce a significant number of infantry and '
- 'cavalry. This posed a challenge for Hannibal, as Carthage relied heavily on '
- "mercenaries and could not match Rome's manpower.\n"
- '\n'
- 'Hannibal realized that in order to defeat Rome, he needed to fight them in '
- 'Italy itself. His plan was to win battles on Italian soil and demonstrate '
- "Rome's inability to protect their Italian allies, with the intention of "
- "encouraging them to break free from Rome. This would erode Rome's manpower "
- 'base to a sizeable proportion. However, Hannibal faced several obstacles. '
- 'Rome ruled the seas, making it difficult for him to transport troops and '
- 'supplies by sea. Additionally, the coastal route to Italy would be blocked '
- 'by Roman forces and their ally, the walled city of Massalia.\n'
- '\n'
- 'To overcome these challenges, Hannibal devised a daring plan. He decided to '
- 'lead his troops on a treacherous journey through the Pyrenees mountains, '
- 'inhabited by fierce Gauls, and then through the Alps mountains to invade '
- 'Italy. He sent embassies to Gallic tribes in the Po valley, securing '
- 'alliances and establishing a safe place for his army to enter the Po valley '
- 'from the Alps.\n'
- '\n'
- 'Overall, Rome defended Italy from Hannibal by leveraging their manpower '
- 'base, their control of the seas, and their strategic alliances with Italian '
- 'allies. They also had the advantage of better infrastructure and control '
- 'over resources within Italy itself. These factors ultimately played a '
- "significant role in Rome's defense against Hannibal's invasion.\n"
- '  ']
+['\n' theme={null}
+' Question: How did bats evolve their wings?\n'
+' Answer: Recent research has shed new light on how bats evolved their '
+'wings. An international team of researchers used genetic tools to study the '
+'embryonic development of bat wings and the genes involved in their '
+'formation. They also investigated the regulatory elements in the genome that '
+'control the expression of these genes. By analyzing these factors, the '
+'researchers discovered that bats took a tetrapod blueprint for arms and legs '
+'and adapted it to develop wings, allowing them to fly. This research '
+'provides a comprehensive understanding of the genetic origins of bat wings '
+'and how they evolved over 50 million years ago.\n'
+' ',
+'\n'
+' Question: How did Rome defend Italy from Hannibal?\n'
+' Answer: Rome defended Italy from Hannibal by using various strategies. One '
+'of the main defenses relied on the Roman manpower base, which consisted of a '
+'large army made up of Roman citizens and Italian allies who were obligated '
+"to render military service. Rome's strategic manpower base was a cornerstone "
+'of their power, as it could produce a significant number of infantry and '
+'cavalry. This posed a challenge for Hannibal, as Carthage relied heavily on '
+"mercenaries and could not match Rome's manpower.\n"
+'\n'
+'Hannibal realized that in order to defeat Rome, he needed to fight them in '
+'Italy itself. His plan was to win battles on Italian soil and demonstrate '
+"Rome's inability to protect their Italian allies, with the intention of "
+"encouraging them to break free from Rome. This would erode Rome's manpower "
+'base to a sizeable proportion. However, Hannibal faced several obstacles. '
+'Rome ruled the seas, making it difficult for him to transport troops and '
+'supplies by sea. Additionally, the coastal route to Italy would be blocked '
+'by Roman forces and their ally, the walled city of Massalia.\n'
+'\n'
+'To overcome these challenges, Hannibal devised a daring plan. He decided to '
+'lead his troops on a treacherous journey through the Pyrenees mountains, '
+'inhabited by fierce Gauls, and then through the Alps mountains to invade '
+'Italy. He sent embassies to Gallic tribes in the Po valley, securing '
+'alliances and establishing a safe place for his army to enter the Po valley '
+'from the Alps.\n'
+'\n'
+'Overall, Rome defended Italy from Hannibal by leveraging their manpower '
+'base, their control of the seas, and their strategic alliances with Italian '
+'allies. They also had the advantage of better infrastructure and control '
+'over resources within Italy itself. These factors ultimately played a '
+"significant role in Rome's defense against Hannibal's invasion.\n"
+' ']
 Python Python theme={null}
 paragraph = """
 Georgism, also known as Geoism, is an economic philosophy and ideology named after the American
@@ -8669,92 +8824,93 @@ query = f"The best academic source about {paragraph} is (paper: "
 georgism_search_response = exa.search_and_contents(paragraph, highlights=highlights_options, num_results=5)
 Python Python theme={null}
 for result in georgism_search_response.results:
-    print(result.title)
-    print(result.url)
-    pprint(result.highlights)
+print(result.title)
+print(result.url)
+pprint(result.highlights)
 Henry George theme={null}
 https://www.newworldencyclopedia.org/entry/Henry_George
 ["George's theory of interest is nowadays dismissed even by some otherwise "
- 'Georgist authors, who see it as mistaken and irrelevant to his ideas about '
- 'land and free trade. The separation of the value of land into improved and '
- "unimproved is problematic in George's theory. Once construction has taken "
- 'place, not only the land on which such improvements were made is affected, '
- 'the value of neighboring, as yet unimproved, land is impacted. Thus, while '
- 'the construction of a major attraction nearby may increase the value of '
- 'land, the construction of factories or nuclear power plants decreases its '
- 'value. Indeed, location is the single most important asset in real estate. '
- 'George intended to propose a tax that would have the least negative impact '
- 'on productive activity. However, even unimproved land turns out to be '
- 'affected in value by productive activity in the neighborhood.']
+'Georgist authors, who see it as mistaken and irrelevant to his ideas about '
+'land and free trade. The separation of the value of land into improved and '
+"unimproved is problematic in George's theory. Once construction has taken "
+'place, not only the land on which such improvements were made is affected, '
+'the value of neighboring, as yet unimproved, land is impacted. Thus, while '
+'the construction of a major attraction nearby may increase the value of '
+'land, the construction of factories or nuclear power plants decreases its '
+'value. Indeed, location is the single most important asset in real estate. '
+'George intended to propose a tax that would have the least negative impact '
+'on productive activity. However, even unimproved land turns out to be '
+'affected in value by productive activity in the neighborhood.']
 Wikiwand
 https://www.wikiwand.com/en/Georgism
 ['Georgism is concerned with the distribution of economic rent caused by land '
- 'ownership, natural monopolies, pollution rights, and control of the commons, '
- 'including title of ownership for natural resources and other contrived '
- 'privileges (e.g. intellectual property). Any natural resource which is '
- 'inherently limited in supply can generate economic rent, but the classical '
- 'and most significant example of land monopoly involves the extraction of '
- 'common ground rent from valuable urban locations. Georgists argue that '
- 'taxing economic rent is efficient, fair and equitable. The main Georgist '
- 'policy recommendation is a tax assessed on land value, arguing that revenues '
- 'from a land value tax (LVT) can be used to reduce or eliminate existing '
- 'taxes (such as on income, trade, or purchases) that are unfair and '
- 'inefficient. Some Georgists also advocate for the return of surplus public '
- "revenue to the people by means of a basic income or citizen's dividend. The "
- 'concept of gaining public revenues mainly from land and natural resource '
- 'privileges was widely popularized by Henry George through his first book, '
- 'Progress and Poverty (1879).']
+'ownership, natural monopolies, pollution rights, and control of the commons, '
+'including title of ownership for natural resources and other contrived '
+'privileges (e.g. intellectual property). Any natural resource which is '
+'inherently limited in supply can generate economic rent, but the classical '
+'and most significant example of land monopoly involves the extraction of '
+'common ground rent from valuable urban locations. Georgists argue that '
+'taxing economic rent is efficient, fair and equitable. The main Georgist '
+'policy recommendation is a tax assessed on land value, arguing that revenues '
+'from a land value tax (LVT) can be used to reduce or eliminate existing '
+'taxes (such as on income, trade, or purchases) that are unfair and '
+'inefficient. Some Georgists also advocate for the return of surplus public '
+"revenue to the people by means of a basic income or citizen's dividend. The "
+'concept of gaining public revenues mainly from land and natural resource '
+'privileges was widely popularized by Henry George through his first book, '
+'Progress and Poverty (1879).']
 Henry George
 https://www.conservapedia.com/Henry_George
 ['He argued that land, unlike other factors of production, is supplied by '
- 'nature and that rent is unearned surplus. The landless deserve their share '
- 'of this surplus as a birthright, according to George. Henry George was born '
- 'in Philadelphia, Pennsylvania, on the 2nd of September 1839. He settled in '
- 'California in 1858; then later removed to New York in 1880; was first a '
- 'printer, then an editor, but finally devoted all his life to economic and '
- 'social questions. In 1860, George met Annie Corsina Fox. Her family was very '
- 'opposed to the relationship, and in 1861 they eloped. In 1871 he published '
- 'Our Land Policy, which, as further developed in 1879 under the title of '
- 'Progress and Poverty, speedily attracted the widest attention both in '
- 'America and in Europe.']
+'nature and that rent is unearned surplus. The landless deserve their share '
+'of this surplus as a birthright, according to George. Henry George was born '
+'in Philadelphia, Pennsylvania, on the 2nd of September 1839. He settled in '
+'California in 1858; then later removed to New York in 1880; was first a '
+'printer, then an editor, but finally devoted all his life to economic and '
+'social questions. In 1860, George met Annie Corsina Fox. Her family was very '
+'opposed to the relationship, and in 1861 they eloped. In 1871 he published '
+'Our Land Policy, which, as further developed in 1879 under the title of '
+'Progress and Poverty, speedily attracted the widest attention both in '
+'America and in Europe.']
 Georgism - Wikipedia
 https://en.wikipedia.org/wiki/Georgism
 ['A key issue to the popular adoption of Georgism is that homes are illiquid '
- 'yet governments need cash every year. Some economists have proposed other '
- 'ways of extracting value from land such as building government housing and '
- 'selling homes to new buyers in areas of fast-rising land value. The '
- 'government would theoretically collect revenue from home sales without much '
- 'cost to current homeowners while slowing down land value appreciation in '
- 'high-demand areas. Henry George, whose writings and advocacy form the basis '
- 'for Georgism Georgist ideas heavily influenced the politics of the early '
- '20th century. Political parties that were formed based on Georgist ideas '
- 'include the Commonwealth Land Party in the United States, the Henry George '
- 'Justice Party in Victoria, the Single Tax League in South Australia, and the '
- "Justice Party in Denmark. In the United Kingdom, George's writings were "
- 'praised by emerging socialist groups in 1890s such as the Independent Labour '
- 'Party and the Fabian Society, which would each go on to help form the '
- 'modern-day Labour Party.']
+'yet governments need cash every year. Some economists have proposed other '
+'ways of extracting value from land such as building government housing and '
+'selling homes to new buyers in areas of fast-rising land value. The '
+'government would theoretically collect revenue from home sales without much '
+'cost to current homeowners while slowing down land value appreciation in '
+'high-demand areas. Henry George, whose writings and advocacy form the basis '
+'for Georgism Georgist ideas heavily influenced the politics of the early '
+'20th century. Political parties that were formed based on Georgist ideas '
+'include the Commonwealth Land Party in the United States, the Henry George '
+'Justice Party in Victoria, the Single Tax League in South Australia, and the '
+"Justice Party in Denmark. In the United Kingdom, George's writings were "
+'praised by emerging socialist groups in 1890s such as the Independent Labour '
+'Party and the Fabian Society, which would each go on to help form the '
+'modern-day Labour Party.']
 Georgism
 https://rationalwiki.org/wiki/Georgism
 ['Even with mostly primitive methods, land values are already assessed around '
- 'the world wherever property/council taxes exist, and some municipalities '
- 'even collect all their revenue from land values. Though these are '
- 'market-based measures, they can still prove difficult and require upfront '
- 'investment. Georgists believe that the potential value of land is greater '
- 'than the current sum of government spending, since the abolition of taxes on '
- 'labor and investment would further increase the value of land. Conversely, '
- 'the libertarian strain in Georgism is evident in the notion that their land '
- 'tax utopia also entails reducing or eliminating the need for many of the '
- 'things governments currently supply, such as welfare, infrastructure to '
- 'support urban sprawl, and military & foreign aid spending to secure '
- "resources abroad. Therefore, many Georgists propose a citizen's dividend. "
- 'This is a similar concept to basic income but its proponents project its '
- 'potential to be much larger due to supposedly huge takings from the land '
- 'tax, combined with lowered government spending. It has been recognized since '
- 'Adam Smith and David Ricardo that a tax on land value itself cannot be '
- 'passed on to tenants, but instead would be paid for by the owners of the '
- 'land:']
-```
+'the world wherever property/council taxes exist, and some municipalities '
+'even collect all their revenue from land values. Though these are '
+'market-based measures, they can still prove difficult and require upfront '
+'investment. Georgists believe that the potential value of land is greater '
+'than the current sum of government spending, since the abolition of taxes on '
+'labor and investment would further increase the value of land. Conversely, '
+'the libertarian strain in Georgism is evident in the notion that their land '
+'tax utopia also entails reducing or eliminating the need for many of the '
+'things governments currently supply, such as welfare, infrastructure to '
+'support urban sprawl, and military & foreign aid spending to secure '
+"resources abroad. Therefore, many Georgists propose a citizen's dividend. "
+'This is a similar concept to basic income but its proponents project its '
+'potential to be much larger due to supposedly huge takings from the land '
+'tax, combined with lowered government spending. It has been recognized since '
+'Adam Smith and David Ricardo that a tax on land value itself cannot be '
+'passed on to tenants, but instead would be paid for by the owners of the '
+'land:']
+
+````
 
 Using Exa, we can easily find related papers, either for further research or to provide a source for our claims. This is just a brief intro into what Exa can do. For a look at how you can leverage getting full contents, check out [Contents Retrieval](/reference/contents-retrieval).
 
@@ -8763,19 +8919,22 @@ Using Exa, we can easily find related papers, either for further research or to 
 Example 1 (unknown):
 ```unknown
 
-```
+````
 
 Example 2 (unknown):
+
 ```unknown
 
 ```
 
 Example 3 (unknown):
+
 ```unknown
 Now, let's give the context we got to our LLM so it can answer our questions with solid sources backing them up!
 ```
 
 Example 4 (unknown):
+
 ```unknown
 
 ```
@@ -8787,6 +8946,7 @@ Example 4 (unknown):
 **URL:** llms-txt#company-analyst
 
 **Contents:**
+
 - What this doc covers
 - Shortcomings of Google
 - What is neural search?
@@ -8799,7 +8959,7 @@ Example project using the Exa Python SDK.
 ## What this doc covers
 
 1. Using Exa's link similarity search to find related links
-2. Using the keyword search setting with Exa search\_and\_contents
+2. Using the keyword search setting with Exa search_and_contents
 
 In this example, we'll build a company analyst tool that researches companies relevant to what you're interested in. If you just want to see the code, check out the [Colab notebook](https://colab.research.google.com/drive/1VROD6zsaDh%5FrSmogSpSn9FJCwmJO8TSi?here).
 
@@ -8829,16 +8989,17 @@ This is an example of the full first result:
 
 And here are the 10 titles and URLs I got:
 
-```Python Python theme={null}
+````Python Python theme={null}
 
 **Examples:**
 
 Example 1 (unknown):
 ```unknown
 This is an example of the full first result:
-```
+````
 
 Example 2 (unknown):
+
 ```unknown
 And here are the 10 titles and URLs I got:
 ```
@@ -8850,18 +9011,19 @@ And here are the 10 titles and URLs I got:
 **URL:** llms-txt#doing-an-example-with-the-first-companies
 
 **Contents:**
+
 - Creating a report with LLMs
 
 c = companies[0]
 all_contents = ""
 search_response = exa.search_and_contents(
-  c.url, # input the company's URL
-  type="keyword",
-  num_results=5
+c.url, # input the company's URL
+type="keyword",
+num_results=5
 )
 research_response = search_response.results
 for r in research_response:
-  all_contents += r.text
+all_contents += r.text
 
 <div><div><div><div><p><a href="https://www.rumieapp.com/"></a></p></div><div><p>The <strong>key</strong> to <strong>your</strong> college experience. </p><p><br/>Access the largest college exclusive marketplace to buy, sell, and rent with other students.</p></div></div><div><h2>320,000+</h2><p>Users in Our Network</p></div><div><div><p><h2>Selling is just a away.</h2></p><p>Snap a pic, post a listing, and message buyers all from one intuitive app.</p><div><p></p><p>Quick setup and .edu verification</p></div><div><p></p><p>Sell locally or ship to other campuses</p></div><div><p></p><p>Trade with other students like you</p></div></div><div><p><h2>. From local businesses around your campus</h2></p><h4>Get access to student exclusive discounts</h4><p>rumie students get access to student exclusive discounts from local and national businesses around their campus.</p></div></div><div><p><h2>Rent dresses from   </h2></p><p>Wear a new dress every weekend! Just rent it directly from a student on your campus.</p><div><p></p><p>Make money off of the dresses you've already worn</p></div><div><p></p><p>rumie rental guarantee ensures your dress won't be damaged</p></div><div><p></p><p>Find a new dress every weekend and save money</p></div></div><div><p><h2>. The only place to buy student tickets at student prices</h2></p><h4>Buy or Sell students Football and Basketball tickets with your campus</h4><p>rumie students get access to the first-ever student ticket marketplace. No more getting scammed trying to buy tickets from strangers on the internet.</p></div><div><div><div><p></p><h4>Secure</h4><p>.edu authentication and buyer protection on purchases.</p></div><div><p></p><h4>Lightning-fast</h4><p>Post your first listing in under a minute.</p></div><div><p></p><h4>Verified Students</h4><p>Trade with other students, not strangers.</p></div><div><p></p><h4>Intuitive</h4><p>List an item in a few simple steps. Message sellers with ease.</p></div></div><p><a href="https://apps.apple.com/us/app/rumie-college-marketplace/id1602465206">Download the app now</a></p></div><div><p><h2>Trusted by students.</h2></p><div><div><p></p><p>Saves me money</p><p>Facebook Marketplace and Amazon are great but often times you have to drive a long way to meet up or pay for shipping. rumie let’s me know what is available at my school… literally at walking distance. </p></div><div><p></p><p>5 stars!</p><p>Having this app as a freshman is great! It makes buying and selling things so safe and easy! Much more efficient than other buy/sell platforms!</p></div><div><p></p><p>Amazing!</p><p>5 stars for being simple, organized, safe, and a great way to buy and sell in your college community.. much more effective than posting on Facebook or Instagram!</p></div><div><p></p><p>The BEST marketplace for college students!!!</p><p>Once rumie got to my campus, I was excited to see what is has to offer! Not only is it safe for students like me, but the app just has a great feel and is really easy to use. The ONLY place I’ll be buying and selling while I’m a student.</p></div></div></div><div><p><h2>Easier to than GroupMe or Instagram.</h2></p><p>Forget clothing instas, selling groupme's, and stress when buying and selling. Do it all from the rumie app.</p></div></div></div>
 Python python theme={null}
@@ -8873,11 +9035,11 @@ SYSTEM_MESSAGE = "You are a helpful assistant writing a research report about a 
 openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 completion = openai.chat.completions.create(
-    model="gpt-4",
-    messages=[
-        {"role": "system", "content": SYSTEM_MESSAGE},
-        {"role": "user", "content": all_contents},
-    ],
+model="gpt-4",
+messages=[
+{"role": "system", "content": SYSTEM_MESSAGE},
+{"role": "user", "content": all_contents},
+],
 )
 
 summary = completion.choices[0].message.content
@@ -8910,7 +9072,8 @@ students. Additionally, incorporating features such as improved search filters
 and a rating/review system for buyers and sellers could enhance the user
 experience. Continual updates and improvements to the app's interface and
 functionality can also ensure that it remains user-friendly and efficient.
-```
+
+````
 
 And we’re done! We’ve built an app that takes in a company webpage and uses Exa to
 
@@ -8925,9 +9088,10 @@ Hopefully you found this tutorial helpful and are ready to start building your v
 Example 1 (unknown):
 ```unknown
 Here's an example of the first result for the first company, Rumie App. You can see the first result is the actual link contents itself.
-```
+````
 
 Example 2 (unknown):
+
 ```unknown
 ## Creating a report with LLMs
 
@@ -8935,6 +9099,7 @@ Finally, let's create a summarized report that lists our 10 companies and gives 
 ```
 
 Example 3 (unknown):
+
 ```unknown
 
 ```
@@ -8951,105 +9116,106 @@ my_exa_api_key = "YOUR_API_KEY_HERE"
 exa = Exa(my_exa_api_key)
 Python Python theme={null}
 result = exa.search_and_contents(
-  "Here is an innovative climate technology company",
-  type="neural",
-  num_results=10,
-  text=True,
-	include_text=["GmbH"]
+"Here is an innovative climate technology company",
+type="neural",
+num_results=10,
+text=True,
+include_text=["GmbH"]
 )
 
 "title": "Sorption Technologies |",
-			"id": "https://sorption-technologies.com/",
-			"url": "https://sorption-technologies.com/",
-			"publishedDate": "2024-02-10",
-			"author": null,
-			"text": ""
-		},
-		{
+"id": "https://sorption-technologies.com/",
+"url": "https://sorption-technologies.com/",
+"publishedDate": "2024-02-10",
+"author": null,
+"text": ""
+},
+{
 
 "title": "FenX | VentureRadar",
-			"id": "https://www.ventureradar.com/organisation/FenX/364b6fb7-0033-4c88-a4e9-9c3b1f530d72",
-			"url": "https://www.ventureradar.com/organisation/FenX/364b6fb7-0033-4c88-a4e9-9c3b1f530d72",
-			"publishedDate": "2023-03-28",
-			"author": null,
-			"text": "Follow\n\nFollowing\n\nLocation: Switzerland\n\nFounded in 2019\n\nPrivate Company\n\n\"FenX is a Spinoff of ETH Zurich tackling the world’s energy and greenhouse gas challenges by disrupting the building insulation market. Based on a innovative foaming technique, the company produces high-performance insulation foams made from abandoned waste materials such as fly ash from coal power stations. The final products are fully recyclable, emit low CO2 emissions and are economically competitive.\"\n Description Source: VentureRadar Research / Company Website\n\nExport Similar Companies Similar Companies\n\nCompany \n Country\n Status\n Description\n\nVecor Australia Australia n/a Every year the world’s coal-fired power stations produce approximately 1 billion tonnes of a very fine ash called fly ash. This nuisance ash, which resembles smoke, can be... MCC Technologies USA Private MCC Technologies builds, owns and operates processing plants utilizing coal fly ash waste from landfills and ash ponds. The company processes large volumes of low-quality Class F... Climeworks GmbH Switzerland Private Climeworks has developed an ecologically and economically attractive method to extract CO2 from ambient air. Our goal is to deliver CO2 for the production of synthetic liquid... Errcive Inc USA Private The company is involved in developing a novel fly ash based material to mitigate exhaust pollution. The commercial impact of the work is to allow: the reduction of exhaust fumes... 4 Envi Denmark n/a Danish 4 Envi develops a system for the cleaning and re-use of biomass-fuelled plant’s fly ash. After cleaning, the ash and some of its components can be reused as fertilizers,... Neolithe France n/a Néolithe wants to reduce global greenhouse gas emissions by 5% by tackling a problem that concerns us all: waste treatment! They transform non-recyclable waste into aggregates...\n\nShow all\n\nWebsite Archive\n\nInternet Archive snapshots for |\n\nhttps://fenx.ch/\n\nThe archive allows you to go back in time and view historical versions of the company website\n\nThe site\n\nhttps://fenx.ch/\n\nwas first archived on\n\n4th Jul 2019\n\nIs this your company? Claim this profile andupdate details for free\n\nSub-Scores\n\nPopularity on VentureRadar\n\nWebsite Popularity\n\nLow Traffic Sites\n Low\n\nHigh Traffic Sites\n High\n\nAlexa Global Rank:\n\n3,478,846 | \n fenx.ch\n\nAuto Analyst Score\n\n68\n\nAuto Analyst Score:\n 68 | \n fenx.ch\n\nVentureRadar Popularity\n\nHigh\n\nVentureRadar Popularity:\n High The popularity score combines profile views, clicks and the number of times the company appears in search results.\n\nor\n\nTo continue, please confirm you\n are not a robot"
-		},
-		{
+"id": "https://www.ventureradar.com/organisation/FenX/364b6fb7-0033-4c88-a4e9-9c3b1f530d72",
+"url": "https://www.ventureradar.com/organisation/FenX/364b6fb7-0033-4c88-a4e9-9c3b1f530d72",
+"publishedDate": "2023-03-28",
+"author": null,
+"text": "Follow\n\nFollowing\n\nLocation: Switzerland\n\nFounded in 2019\n\nPrivate Company\n\n\"FenX is a Spinoff of ETH Zurich tackling the world’s energy and greenhouse gas challenges by disrupting the building insulation market. Based on a innovative foaming technique, the company produces high-performance insulation foams made from abandoned waste materials such as fly ash from coal power stations. The final products are fully recyclable, emit low CO2 emissions and are economically competitive.\"\n Description Source: VentureRadar Research / Company Website\n\nExport Similar Companies Similar Companies\n\nCompany \n Country\n Status\n Description\n\nVecor Australia Australia n/a Every year the world’s coal-fired power stations produce approximately 1 billion tonnes of a very fine ash called fly ash. This nuisance ash, which resembles smoke, can be... MCC Technologies USA Private MCC Technologies builds, owns and operates processing plants utilizing coal fly ash waste from landfills and ash ponds. The company processes large volumes of low-quality Class F... Climeworks GmbH Switzerland Private Climeworks has developed an ecologically and economically attractive method to extract CO2 from ambient air. Our goal is to deliver CO2 for the production of synthetic liquid... Errcive Inc USA Private The company is involved in developing a novel fly ash based material to mitigate exhaust pollution. The commercial impact of the work is to allow: the reduction of exhaust fumes... 4 Envi Denmark n/a Danish 4 Envi develops a system for the cleaning and re-use of biomass-fuelled plant’s fly ash. After cleaning, the ash and some of its components can be reused as fertilizers,... Neolithe France n/a Néolithe wants to reduce global greenhouse gas emissions by 5% by tackling a problem that concerns us all: waste treatment! They transform non-recyclable waste into aggregates...\n\nShow all\n\nWebsite Archive\n\nInternet Archive snapshots for |\n\nhttps://fenx.ch/\n\nThe archive allows you to go back in time and view historical versions of the company website\n\nThe site\n\nhttps://fenx.ch/\n\nwas first archived on\n\n4th Jul 2019\n\nIs this your company? Claim this profile andupdate details for free\n\nSub-Scores\n\nPopularity on VentureRadar\n\nWebsite Popularity\n\nLow Traffic Sites\n Low\n\nHigh Traffic Sites\n High\n\nAlexa Global Rank:\n\n3,478,846 | \n fenx.ch\n\nAuto Analyst Score\n\n68\n\nAuto Analyst Score:\n 68 | \n fenx.ch\n\nVentureRadar Popularity\n\nHigh\n\nVentureRadar Popularity:\n High The popularity score combines profile views, clicks and the number of times the company appears in search results.\n\nor\n\nTo continue, please confirm you\n are not a robot"
+},
+{
 
 "title": "intelligent fluids | LinkedIn",
-			"id": "https://www.linkedin.com/company/intelligentfluids",
-			"url": "https://www.linkedin.com/company/intelligentfluids",
-			"publishedDate": "2023-06-08",
-			"author": null,
-			"text": "Sign in to see who you already know at intelligent fluids GmbH (SMARTCHEM)\n\nWelcome back\n\nEmail or phone\n\nPassword\n\nForgot password?\n\nor\n\nNew to LinkedIn? Join now\n\nor\n\nNew to LinkedIn? Join now"
-		},
-		{
+"id": "https://www.linkedin.com/company/intelligentfluids",
+"url": "https://www.linkedin.com/company/intelligentfluids",
+"publishedDate": "2023-06-08",
+"author": null,
+"text": "Sign in to see who you already know at intelligent fluids GmbH (SMARTCHEM)\n\nWelcome back\n\nEmail or phone\n\nPassword\n\nForgot password?\n\nor\n\nNew to LinkedIn? Join now\n\nor\n\nNew to LinkedIn? Join now"
+},
+{
 
 "title": "justairtech GmbH – Umweltfreundliche Kühlsysteme mit Luft als Kältemittel",
-			"id": "https://www.justairtech.de/",
-			"url": "https://www.justairtech.de/",
-			"publishedDate": "2024-06-13",
-			"author": null,
-			"text": "decouple cooling from climate change with air as refrigerant.\n\nWir entwickeln eine hocheffziente Kühlanlage, die Luft als Kältemittel verwendet. Wieso? Die Welt verändert sich tiefgreifender und schneller als in allen Generationen vor uns. Wir sehen darin nicht nur eine Bedrohung, sondern begreifen dies auch als Chance, Prozesse nachhaltig zu gestalten.\n\nUnsere Arbeit konzentriert sich auf die Revolutio­nie­rung der Kühlung für Ziel­tempera­turen von 0–40 °C bei beliebiger Umwelt­temperatur. Dabei verwenden wir Luft als Kältemittel.\n\nzielgruppe\n\nDer globale Kühlbedarf macht aktuell 10% des weltweiten Strom­bedarfs aus und steigt rasant an. Es werden zwischen 2020 und 2070 knapp 10 Klima­anlagen pro Sekunde verkauft (viele weitere Zahlen und Statistiken rund um das Thema Kühlung findest Du bei der International Energy Agency ) . Mit unserer Technologie können wir verhindern, dass der Strom­verbrauch und die CO2-Emissionen propor­tional mit der Anzahl der verkauften Anlagen wächst.\n\nWir entwickeln eine Technologie, die 4–5 mal so effizient wie konventio­nelle Kühlanlagen arbeitet. Außerdem verwendet sie Luft als Kühlmittel. Luft ist ein natürliches Kältemittel, ist unbegrenzt frei verfügbar und hat ein Global Warming Potential von 0 (mehr zu natürlichen Kältemittel bei der Green Cooling Initiative) . Der Einsatz von Luft als Kältemittel ist nicht neu, aber mit konventio­nellen Anlagen im Ziel­temperatur­bereich nicht wettbewerbs­fähig umsetzbar. Unser erstes Produkt wird für die Kühlung von Rechen­zentren ausgelegt. Weitere Produkte im Bereich der gewerblichen und industriellen Kälte­erzeugung werden folgen.\n\nroadmap\n\n06/2020 \n Q4 2020 erste Seed-Finanzierungsrunde Q4 2020 \n 10/2020 erste Patentanmeldungen 10/2020 \n Q4 2021 zweite Seed-Finanzierungsrunde Q4 2021 \n Q4 2021 erste Patenterteilungen beantragt Q4 2021 \n 05/2022 Prototyp des fraktalen Wärmetauschers 05/2022 \n Q3 2022 Start-Up-Finanzierungsrunde Q3 2022\n\nQ4 2023 per CCS ausgeblendet Q4 2023 \n Q4 2023 physischer Anlagenprototyp Q4 2023 \n Q3 2024 Serienüberleitung und Beta-Tests Q3 2024 \n Q3 2025 \n ab 2025\n\nour core values\n\nWe love innovation. And disruption is even better! Failing is part of the game, but we are curious and continuous learners. \n We help and enable each other. Cooperative interaction with our clients, our partners and our colleagues is central. \n We are pragmatic. Our goals always remain our focus. We are dedicated team players. \n We interact respectfully. With each other and our environment.\n\nteam\n\nGerrit Barth Product Development & Technology \n Anna Herzog Head of Sales & Marketing, PR \n Bikbulat Khabibullin Product Development & Technology\n\nJohannes Lampl Product Development & Technology \n Anne Murmann Product Development & Technology \n Jens Schäfer Co-Founder and CEO\n\nHolger Sedlak Inventor, Co-Founder and CTO \n Adrian Zajac Product Development & Technology\n\nstellenangebote\n\npartner & förderungen"
-		},
-		{
+"id": "https://www.justairtech.de/",
+"url": "https://www.justairtech.de/",
+"publishedDate": "2024-06-13",
+"author": null,
+"text": "decouple cooling from climate change with air as refrigerant.\n\nWir entwickeln eine hocheffziente Kühlanlage, die Luft als Kältemittel verwendet. Wieso? Die Welt verändert sich tiefgreifender und schneller als in allen Generationen vor uns. Wir sehen darin nicht nur eine Bedrohung, sondern begreifen dies auch als Chance, Prozesse nachhaltig zu gestalten.\n\nUnsere Arbeit konzentriert sich auf die Revolutio­nie­rung der Kühlung für Ziel­tempera­turen von 0–40 °C bei beliebiger Umwelt­temperatur. Dabei verwenden wir Luft als Kältemittel.\n\nzielgruppe\n\nDer globale Kühlbedarf macht aktuell 10% des weltweiten Strom­bedarfs aus und steigt rasant an. Es werden zwischen 2020 und 2070 knapp 10 Klima­anlagen pro Sekunde verkauft (viele weitere Zahlen und Statistiken rund um das Thema Kühlung findest Du bei der International Energy Agency ) . Mit unserer Technologie können wir verhindern, dass der Strom­verbrauch und die CO2-Emissionen propor­tional mit der Anzahl der verkauften Anlagen wächst.\n\nWir entwickeln eine Technologie, die 4–5 mal so effizient wie konventio­nelle Kühlanlagen arbeitet. Außerdem verwendet sie Luft als Kühlmittel. Luft ist ein natürliches Kältemittel, ist unbegrenzt frei verfügbar und hat ein Global Warming Potential von 0 (mehr zu natürlichen Kältemittel bei der Green Cooling Initiative) . Der Einsatz von Luft als Kältemittel ist nicht neu, aber mit konventio­nellen Anlagen im Ziel­temperatur­bereich nicht wettbewerbs­fähig umsetzbar. Unser erstes Produkt wird für die Kühlung von Rechen­zentren ausgelegt. Weitere Produkte im Bereich der gewerblichen und industriellen Kälte­erzeugung werden folgen.\n\nroadmap\n\n06/2020 \n Q4 2020 erste Seed-Finanzierungsrunde Q4 2020 \n 10/2020 erste Patentanmeldungen 10/2020 \n Q4 2021 zweite Seed-Finanzierungsrunde Q4 2021 \n Q4 2021 erste Patenterteilungen beantragt Q4 2021 \n 05/2022 Prototyp des fraktalen Wärmetauschers 05/2022 \n Q3 2022 Start-Up-Finanzierungsrunde Q3 2022\n\nQ4 2023 per CCS ausgeblendet Q4 2023 \n Q4 2023 physischer Anlagenprototyp Q4 2023 \n Q3 2024 Serienüberleitung und Beta-Tests Q3 2024 \n Q3 2025 \n ab 2025\n\nour core values\n\nWe love innovation. And disruption is even better! Failing is part of the game, but we are curious and continuous learners. \n We help and enable each other. Cooperative interaction with our clients, our partners and our colleagues is central. \n We are pragmatic. Our goals always remain our focus. We are dedicated team players. \n We interact respectfully. With each other and our environment.\n\nteam\n\nGerrit Barth Product Development & Technology \n Anna Herzog Head of Sales & Marketing, PR \n Bikbulat Khabibullin Product Development & Technology\n\nJohannes Lampl Product Development & Technology \n Anne Murmann Product Development & Technology \n Jens Schäfer Co-Founder and CEO\n\nHolger Sedlak Inventor, Co-Founder and CTO \n Adrian Zajac Product Development & Technology\n\nstellenangebote\n\npartner & förderungen"
+},
+{
 
 "title": "Let’s capture CO2 and tackle climate change",
-			"id": "https://blancair.com/",
-			"url": "https://blancair.com/",
-			"publishedDate": "2023-03-01",
-			"author": null,
-			"text": "Let’s capture CO2 and tackle climate change\n\nWe need to keep global warming below 1.5°C. This requires a deployment of Negative Emission Technologies (NETs) of around 8 Gt of CO2 in 2050. Natural Climate solutions cannot do it alone.Technology has to give support. BLANCAIR can turn back human-emitted carbon dioxide from our atmosphere by capturing it and sequestering it back into the planet.\n\nGet to know us, our Hamburg team, partnerships and network\n\nTake a look at the BLANCAIR technology, our milestones & our next goals\n\nJoin our BLANCAIR team & help us to fight climate change!"
-		},
-		{
+"id": "https://blancair.com/",
+"url": "https://blancair.com/",
+"publishedDate": "2023-03-01",
+"author": null,
+"text": "Let’s capture CO2 and tackle climate change\n\nWe need to keep global warming below 1.5°C. This requires a deployment of Negative Emission Technologies (NETs) of around 8 Gt of CO2 in 2050. Natural Climate solutions cannot do it alone.Technology has to give support. BLANCAIR can turn back human-emitted carbon dioxide from our atmosphere by capturing it and sequestering it back into the planet.\n\nGet to know us, our Hamburg team, partnerships and network\n\nTake a look at the BLANCAIR technology, our milestones & our next goals\n\nJoin our BLANCAIR team & help us to fight climate change!"
+},
+{
 
 "title": "bionero - Der Erde zuliebe. Carbon Removal | Terra Preta",
-			"id": "https://www.bionero.de/",
-			"url": "https://www.bionero.de/",
-			"publishedDate": "2023-10-28",
-			"author": null,
-			"text": "Mehr Wachstum. Echter Klimaschutz. bionero ist eines der ersten Unternehmen weltweit, das zertifiziert klimapositiv arbeitet. Das Familienunternehmen, das in der Nähe von Bayreuth beheimatet ist, stellt qualitativ höchstwertige Erden und Substrate her, die durch das einzigartige Produktionsverfahren aktiv CO2 aus der Atmosphäre entziehen und gleichzeitig enorm fruchtbar sind. Aus Liebe und der Ehrfurcht zur Natur entwickelte bionero ein hochmodernes, industrialisiertes Verfahren, das aus biogenen Reststoffen eine höchstwertige Pflanzenkohle herstellt und zu fruchtbaren Schwarzerden made in Germany verwandelt. Hier kannst du bionero im Einzelhandel finden Wir liefern Gutes aus der Natur, für die Natur. Terra Preta (portugiesisch für \"Schwarze Erde\") gilt als \"wiederentdeckte Wundererde\". Sie wurde vor circa 40 Jahren in den Tiefen des Amazonasgebiets entdeckt und intensiv erforscht. Das Besondere an ihr ist ihre Fruchtbarkeit. Tatsächlich gilt dieser Boden als der fruchtbarste unseres Planeten. bionero hat gemeinsam mit Professor Bruno Glaser, einem weltweit anerkannten Experten für Terra Preta, das Herstellungsverfahren dieser besonderen Erde transformiert, optimiert und industrialisiert. Der wesentliche Wirk- und Inhaltsstoff ist eine sog. Pflanzenkohle. Sie sorgt dank ihrer enorm großen spezifischen Oberfläche für optimale Nährstoff- und Wasserspeicherfähigkeiten im Boden und bietet zusätzlich Lebensraum für wertvolle Mikroorganismen. Das Ergebnis ist ein stetiger Humusaufbau und eine dauerhafte Bodenfruchtbarkeit. Das Einzigartige an bionero? Die bionero Wertschöpfungskette ist vollständig klimapositiv! bioneros Produkte bieten einer Branche, die stark in die Kritik geraten ist, einen Weg in eine nachhaltige Zukunft. Während der Herstellung unserer hochwertigen Terra Preta leisten wir einen aktiven Beitrag zum Klimaschutz. Durch die Produktion unserer wichtigsten Zutat, der Pflanzenkohle, wird dem atmosphärischen Kohlenstoffkreislauf aktiv Kohlenstoff entzogen. Der Kohlenstoff, welcher anfangs in den biogenen Reststoffen gespeichert war, wird während des Pyrolyseprozesses für mehrere Jahrtausende in der Pflanzenkohle fixiert und gelangt somit nicht als Kohlenstoffdioxid zurück in unsere Atmosphäre. Das Erstaunliche: Die Pflanzenkohle entzieht der Atmosphäre das bis zu dreieinhalbfache ihres Eigengewichts an CO2! Die entstandenen Kohlenstoffsenken sind dabei transparent quantifizierbar und zertifiziert. Tatsächlich vereint bionero als erstes Unternehmen weltweit alle notwendigen Verfahrensschritte zu einer echten Kohlenstoffsenke gemäß EBC. Der Kohlenstoff ist am Ende der bionero Wertschöpfungskette in einer stabilen Matrix fixiert. Torf ist bis heute der meistgenutzte Rohstoff bei der Herstellung von Pflanzsubstraten. Schon beim Abbau werden Unmengen an CO2 freigesetzt. Moore sind einer der wichtigsten Kohlenstoff-Speicher unseres Planeten. Moore speichern 700 Tonnen Kohlenstoff je Hektar, sechsmal mehr als ein Hektar Wald! Durch die Trockenlegung und den Abbau für die Gewinnung von Torf können diese gewaltigen Mengen Kohlenstoff wieder zu CO2-reagieren und gelangen in die Atmosphäre. Hinzu kommen enorm weite Transportwege. Der Torfabbau findet zu großen Teilen in Osteuropa statt. Um einerseits die natürlichen Ökosysteme zu schützen und andererseits lange Transportwege zu vermeiden, setzen wir auf regional anfallende Roh- und Reststoffe. In langen Reifeprozessen verarbeiten wir natürliche Reststoffe zu hochwertigen Ausgangsstoffen für unsere Produkte. Bei der Auswahl aller Inputstoffe schauen wir genau hin und arbeiten nach dem Prinzip “regional, nachhaltig, umwelt- und klimaschonend“. Nur, wenn diese Voraussetzungen ausnahmslos gewährleistet sind, findet ein Rohstoff letztlich seinen Weg in unsere Produkte. bionero - Mehr Wachstum. Echter Klimaschutz. Erhalte spannende Einblicke in die Abläufe unseres Start-Ups und unsere hochmodernen Verfahren. Hier gibt es die neuesten Trends, aktuelle Tipps, hilfreiche Pflanz- und Pflegeanleitungen und interessante Videos."
-		},
-		{
+"id": "https://www.bionero.de/",
+"url": "https://www.bionero.de/",
+"publishedDate": "2023-10-28",
+"author": null,
+"text": "Mehr Wachstum. Echter Klimaschutz. bionero ist eines der ersten Unternehmen weltweit, das zertifiziert klimapositiv arbeitet. Das Familienunternehmen, das in der Nähe von Bayreuth beheimatet ist, stellt qualitativ höchstwertige Erden und Substrate her, die durch das einzigartige Produktionsverfahren aktiv CO2 aus der Atmosphäre entziehen und gleichzeitig enorm fruchtbar sind. Aus Liebe und der Ehrfurcht zur Natur entwickelte bionero ein hochmodernes, industrialisiertes Verfahren, das aus biogenen Reststoffen eine höchstwertige Pflanzenkohle herstellt und zu fruchtbaren Schwarzerden made in Germany verwandelt. Hier kannst du bionero im Einzelhandel finden Wir liefern Gutes aus der Natur, für die Natur. Terra Preta (portugiesisch für \"Schwarze Erde\") gilt als \"wiederentdeckte Wundererde\". Sie wurde vor circa 40 Jahren in den Tiefen des Amazonasgebiets entdeckt und intensiv erforscht. Das Besondere an ihr ist ihre Fruchtbarkeit. Tatsächlich gilt dieser Boden als der fruchtbarste unseres Planeten. bionero hat gemeinsam mit Professor Bruno Glaser, einem weltweit anerkannten Experten für Terra Preta, das Herstellungsverfahren dieser besonderen Erde transformiert, optimiert und industrialisiert. Der wesentliche Wirk- und Inhaltsstoff ist eine sog. Pflanzenkohle. Sie sorgt dank ihrer enorm großen spezifischen Oberfläche für optimale Nährstoff- und Wasserspeicherfähigkeiten im Boden und bietet zusätzlich Lebensraum für wertvolle Mikroorganismen. Das Ergebnis ist ein stetiger Humusaufbau und eine dauerhafte Bodenfruchtbarkeit. Das Einzigartige an bionero? Die bionero Wertschöpfungskette ist vollständig klimapositiv! bioneros Produkte bieten einer Branche, die stark in die Kritik geraten ist, einen Weg in eine nachhaltige Zukunft. Während der Herstellung unserer hochwertigen Terra Preta leisten wir einen aktiven Beitrag zum Klimaschutz. Durch die Produktion unserer wichtigsten Zutat, der Pflanzenkohle, wird dem atmosphärischen Kohlenstoffkreislauf aktiv Kohlenstoff entzogen. Der Kohlenstoff, welcher anfangs in den biogenen Reststoffen gespeichert war, wird während des Pyrolyseprozesses für mehrere Jahrtausende in der Pflanzenkohle fixiert und gelangt somit nicht als Kohlenstoffdioxid zurück in unsere Atmosphäre. Das Erstaunliche: Die Pflanzenkohle entzieht der Atmosphäre das bis zu dreieinhalbfache ihres Eigengewichts an CO2! Die entstandenen Kohlenstoffsenken sind dabei transparent quantifizierbar und zertifiziert. Tatsächlich vereint bionero als erstes Unternehmen weltweit alle notwendigen Verfahrensschritte zu einer echten Kohlenstoffsenke gemäß EBC. Der Kohlenstoff ist am Ende der bionero Wertschöpfungskette in einer stabilen Matrix fixiert. Torf ist bis heute der meistgenutzte Rohstoff bei der Herstellung von Pflanzsubstraten. Schon beim Abbau werden Unmengen an CO2 freigesetzt. Moore sind einer der wichtigsten Kohlenstoff-Speicher unseres Planeten. Moore speichern 700 Tonnen Kohlenstoff je Hektar, sechsmal mehr als ein Hektar Wald! Durch die Trockenlegung und den Abbau für die Gewinnung von Torf können diese gewaltigen Mengen Kohlenstoff wieder zu CO2-reagieren und gelangen in die Atmosphäre. Hinzu kommen enorm weite Transportwege. Der Torfabbau findet zu großen Teilen in Osteuropa statt. Um einerseits die natürlichen Ökosysteme zu schützen und andererseits lange Transportwege zu vermeiden, setzen wir auf regional anfallende Roh- und Reststoffe. In langen Reifeprozessen verarbeiten wir natürliche Reststoffe zu hochwertigen Ausgangsstoffen für unsere Produkte. Bei der Auswahl aller Inputstoffe schauen wir genau hin und arbeiten nach dem Prinzip “regional, nachhaltig, umwelt- und klimaschonend“. Nur, wenn diese Voraussetzungen ausnahmslos gewährleistet sind, findet ein Rohstoff letztlich seinen Weg in unsere Produkte. bionero - Mehr Wachstum. Echter Klimaschutz. Erhalte spannende Einblicke in die Abläufe unseres Start-Ups und unsere hochmodernen Verfahren. Hier gibt es die neuesten Trends, aktuelle Tipps, hilfreiche Pflanz- und Pflegeanleitungen und interessante Videos."
+},
+{
 
 "title": "Green City Solutions",
-			"id": "https://www.greentalents.de/green-city-solutions.php",
-			"url": "https://www.greentalents.de/green-city-solutions.php",
-			"publishedDate": "2022-04-12",
-			"author": null,
-			"text": "In their devices, called CityTrees, they combine the natural ability of moss to clean and cool the air with Internet of Things technology to control irrigation and ventilation. In March 2014, Green City Solutions GmbH was founded by Peter Sänger and his friend Liang Wu in Dresden. They set up a team of young experts from the fields of horticulture/biology, computer science, architecture, and mechanical engineering. The knowledge of the individuals was bundled to realise a device that combines nature and technology: the CityTree.\n\nThe living heart of CityTrees is moss cultivated on hanging textile mats. The moss mats are hidden behind wooden bars that provide sufficient shade for these plants, which naturally grow mainly in forests. Sensors are measuring various parameters such as temperature, humidity, and concentration of particulates. This data is used to regulate ventilation and irrigation. Behind the moss mats are large vents that create an airflow through the moss. In this way, the amount of air cleaned by the device can be increased when pollution levels are high, such as during rush hours.\n\nGreen City Solutions collaborates with several partners in Germany and abroad. Scientific partners include the Leibniz Institute for Tropospheric Research (TROPOS) and the Dresden University of Applied Sciences (HTW Dresden), both located in Germany. Green City Solutions has been awarded the Seal of Excellence by the European Commission. This is a European Union quality label for outstanding ideas worthy of funding.\n\nThe work of Green City Solutions mainly contributes to the Sustainable Development Goals 3, 11, 13, and 15:"
-		},
-		{
+"id": "https://www.greentalents.de/green-city-solutions.php",
+"url": "https://www.greentalents.de/green-city-solutions.php",
+"publishedDate": "2022-04-12",
+"author": null,
+"text": "In their devices, called CityTrees, they combine the natural ability of moss to clean and cool the air with Internet of Things technology to control irrigation and ventilation. In March 2014, Green City Solutions GmbH was founded by Peter Sänger and his friend Liang Wu in Dresden. They set up a team of young experts from the fields of horticulture/biology, computer science, architecture, and mechanical engineering. The knowledge of the individuals was bundled to realise a device that combines nature and technology: the CityTree.\n\nThe living heart of CityTrees is moss cultivated on hanging textile mats. The moss mats are hidden behind wooden bars that provide sufficient shade for these plants, which naturally grow mainly in forests. Sensors are measuring various parameters such as temperature, humidity, and concentration of particulates. This data is used to regulate ventilation and irrigation. Behind the moss mats are large vents that create an airflow through the moss. In this way, the amount of air cleaned by the device can be increased when pollution levels are high, such as during rush hours.\n\nGreen City Solutions collaborates with several partners in Germany and abroad. Scientific partners include the Leibniz Institute for Tropospheric Research (TROPOS) and the Dresden University of Applied Sciences (HTW Dresden), both located in Germany. Green City Solutions has been awarded the Seal of Excellence by the European Commission. This is a European Union quality label for outstanding ideas worthy of funding.\n\nThe work of Green City Solutions mainly contributes to the Sustainable Development Goals 3, 11, 13, and 15:"
+},
+{
 
 "title": "No.1 DAC manufacturer from Germany - DACMA GmbH",
-			"id": "https://dacma.com/",
-			"url": "https://dacma.com/",
-			"publishedDate": "2024-03-02",
-			"author": null,
-			"text": "Reach net zero goal with BLANCAIR by DACMA – a proven direct air capture technology with maximum CO2 uptake and minimal energy demand.\n\nDACMA GmbH, headquartered in Hamburg, Germany, is a pioneering DAC manufacturer with cutting-edge technology. With a proven track record, our first machines were delivered in 2023. Our scalable design reaches gigaton capacities, ensuring high CO2 uptake with minimal energy demand.\n\nGet to know us, our team, partnerships and network\n\nLearn more about the status quo of DAC technologies and our BLANCAIR solution\n\nJoin our DACMA team – help us to reach net zero and fight climate change!\n\nWhy BLANCAIR by DACMA:\n\nNo.1 DAC manufacturer from Germany – leveraging decades of aerospace – innovation\n\nDeliverable: proven technology in the market\n\nInterchangeable adsorbents for continuous performance improvement\n\nPatented reactor design with optimized air flow\n\nUniversal application for different climate conditions\n\n“In just one year, DACMA GmbH have achieved an exponential progress in the atmospheric carbon capture journey. The strategic alliance with Repsol (both in Venturing Capital and projects) will boost the pace of this highly focused group of outstanding engineers that are persistently looking for every angle of the technology improvement. Take the time to celebrate, acknowledge your success and keep going!!!”\n\n“One of the most relevant projects related to the development of technologies with a negative CO2 effect, the ONLY project in Brazil on Direct Air Capture multi-country Spain, Brazil Germany in Open Innovation. Repsol Sinopec Brazil Corporation, Start Up DACMA and PUC Rio Grande do Sul University. A disruptive commitment to a more decarbonized world. Being part of this project is a privilege and a unique opportunity to add value to society.”\n\n“In collaboration with Phoenix Contact, DACMA has developed an application that contributes to CO2 decarbonization. This technology makes a significant contribution to sector coupling in the All Electric Society and to the sustainable use of energy. I am delighted that two technology-driven companies are working together so efficiently.”\n\n“The DACMA GmbH with Jörg Spitzner and his team are not only valuable partners in our network, but also key initiators and innovators who, with BLANCAIR, are driving forward DAC system engineering in the Hamburg metropolitan region – an essential future climate change mitigation technology.”\n\n“Together with our partner DACMA GmbH, we are delighted to be building the first DAC machine on the HAMBURG BLUE HUB site in the Port of Hamburg. The 30-60 tons output of CO2 annually of the BLANCAIR machine can later be used to produce e-methanol for the Port of Hamburg, for example. This is a joint milestone, as it fits in with the plan to purchase large volumes of synthetic fuels from Power-to-X plants in Africa and South America for Germany through the HAMBURG BLUE HUB”.\n\nBacked by strong investors & partners:\n\nassociations & supporters:"
-		},
-		{
+"id": "https://dacma.com/",
+"url": "https://dacma.com/",
+"publishedDate": "2024-03-02",
+"author": null,
+"text": "Reach net zero goal with BLANCAIR by DACMA – a proven direct air capture technology with maximum CO2 uptake and minimal energy demand.\n\nDACMA GmbH, headquartered in Hamburg, Germany, is a pioneering DAC manufacturer with cutting-edge technology. With a proven track record, our first machines were delivered in 2023. Our scalable design reaches gigaton capacities, ensuring high CO2 uptake with minimal energy demand.\n\nGet to know us, our team, partnerships and network\n\nLearn more about the status quo of DAC technologies and our BLANCAIR solution\n\nJoin our DACMA team – help us to reach net zero and fight climate change!\n\nWhy BLANCAIR by DACMA:\n\nNo.1 DAC manufacturer from Germany – leveraging decades of aerospace – innovation\n\nDeliverable: proven technology in the market\n\nInterchangeable adsorbents for continuous performance improvement\n\nPatented reactor design with optimized air flow\n\nUniversal application for different climate conditions\n\n“In just one year, DACMA GmbH have achieved an exponential progress in the atmospheric carbon capture journey. The strategic alliance with Repsol (both in Venturing Capital and projects) will boost the pace of this highly focused group of outstanding engineers that are persistently looking for every angle of the technology improvement. Take the time to celebrate, acknowledge your success and keep going!!!”\n\n“One of the most relevant projects related to the development of technologies with a negative CO2 effect, the ONLY project in Brazil on Direct Air Capture multi-country Spain, Brazil Germany in Open Innovation. Repsol Sinopec Brazil Corporation, Start Up DACMA and PUC Rio Grande do Sul University. A disruptive commitment to a more decarbonized world. Being part of this project is a privilege and a unique opportunity to add value to society.”\n\n“In collaboration with Phoenix Contact, DACMA has developed an application that contributes to CO2 decarbonization. This technology makes a significant contribution to sector coupling in the All Electric Society and to the sustainable use of energy. I am delighted that two technology-driven companies are working together so efficiently.”\n\n“The DACMA GmbH with Jörg Spitzner and his team are not only valuable partners in our network, but also key initiators and innovators who, with BLANCAIR, are driving forward DAC system engineering in the Hamburg metropolitan region – an essential future climate change mitigation technology.”\n\n“Together with our partner DACMA GmbH, we are delighted to be building the first DAC machine on the HAMBURG BLUE HUB site in the Port of Hamburg. The 30-60 tons output of CO2 annually of the BLANCAIR machine can later be used to produce e-methanol for the Port of Hamburg, for example. This is a joint milestone, as it fits in with the plan to purchase large volumes of synthetic fuels from Power-to-X plants in Africa and South America for Germany through the HAMBURG BLUE HUB”.\n\nBacked by strong investors & partners:\n\nassociations & supporters:"
+},
+{
 
 "title": "Heatrix GmbH Decarbonizing Industry – We decarbonize high temperature industrial heat.",
-			"id": "https://heatrix.de/",
-			"url": "https://heatrix.de/",
-			"publishedDate": "2024-02-28",
-			"author": null,
-			"text": "Our mission\n\nis to competitively replace fossil fuels in energy intensive industriesby converting renewable electricity into storable, high-temperature process heat.\n\n11% of global CO2 emissions is caused byhigh-temperature industrial heat.\n\nNo carbon-neutral, cost-competitive and easy\nto\nintegrate solution exists yet.\n\n11%\nof global CO2 emissions is caused by\nhigh-temperature industrial heat.\n\nNo carbon-neutral, cost-competitive and easy\nto integrate solution exists yet.\n\nOur solution\n\nThe Heatrix system combines an electric heater, utilizing off-grid solar or wind \nelectricity, with a thermal energy storage to provide continuous high-temperature \nprocess heat. With an outlet temperature of up to 1500 °C, Heatrix has the potential to \ndecarbonize the majority of high emission industries.\n\nHeatrix technology perfectly fulfils customers' \nrequirements – CO2 free continuous and easily integrated process heat at competitive cost.\n\nCarbon-free green heat, \nreducing CO2 emissions \n up to 100%\n\nProcess heat (hot air) \nup to 1500 °C\n\nThermal storage up\n to 20 hours to \ndeliver green heat 24/7\n\nHigh efficiency up \nto 90% based on \nresistance heating\n\nCost competitive vs. \nfossil fuels and substantially \ncheaper than green hydrogen\n\nModular container\nsystem enables \neasy scalability\n\nEasy integration \nwith minimal \nretrofitting needs\n\nApplications for Heatrix\n\nCalcination\n\nReplacing fossil fuel burners and reducing fuel consumption in calcination processes by integrating Heatrix heat to shaft calciners or precalciners of rotary kilns.\n\nHeat Treatment\n\nInducing required process temperatures via hot air flow from Heatrix replacing fossil fuel burners in heat treatment ovens.\n\nSintering & Pelletization\n\nReduced fuel gas & coke usage by providing Heatrix heat to sintering or pelletization plants.\n\nPreheating\n\nCombined with existing burner system, Heatrix technology can be used to preheat materials and reduce fuel consumption in the actual process.\n\nThis is us\n\nStrategy & Operations\n\nInnovator / Inventor / Sold first tech start-up in 2021 / Ph.D. from RWTH Aachen\n\nTechnology & Product\n\nTech Lead / Fluid dynamics expert / Energy technologies / Ph.D. from University Bremen\n\nBusiness & Finance\n\n2nd-time Founder / former VC-Investor / MBA from Tsinghua, MIT & HEC Paris\n\nContact us\n\nLooking for more information about Heatrix and our technology? We’d love to get in touch!\n\nHeatrix ensures defensibility through modular product, ease of integration, technological advantages and compelling business model.\n\nModular Product\n\n• Avoids individual design process – fits in standard containers• Industry-agnostic solution• Modular configuration to meet customer needs\n\nEasy Interaction\n\n• Rapid deployment• Focus on minimal plant downtime• Compatible to back-up for guaranteed production\n\nBusiness Model\n\n• Ongoing customer relationship and revenue \n• Large growth potential\n• Maximal impact on CO2\nreduction\n\nTechnical Advantage\n\n• Unique system design integrating electric heater and thermal storage \n• IP application in preparation for unique heater and storage design"
-		},
-		{
+"id": "https://heatrix.de/",
+"url": "https://heatrix.de/",
+"publishedDate": "2024-02-28",
+"author": null,
+"text": "Our mission\n\nis to competitively replace fossil fuels in energy intensive industriesby converting renewable electricity into storable, high-temperature process heat.\n\n11% of global CO2 emissions is caused byhigh-temperature industrial heat.\n\nNo carbon-neutral, cost-competitive and easy\nto\nintegrate solution exists yet.\n\n11%\nof global CO2 emissions is caused by\nhigh-temperature industrial heat.\n\nNo carbon-neutral, cost-competitive and easy\nto integrate solution exists yet.\n\nOur solution\n\nThe Heatrix system combines an electric heater, utilizing off-grid solar or wind \nelectricity, with a thermal energy storage to provide continuous high-temperature \nprocess heat. With an outlet temperature of up to 1500 °C, Heatrix has the potential to \ndecarbonize the majority of high emission industries.\n\nHeatrix technology perfectly fulfils customers' \nrequirements – CO2 free continuous and easily integrated process heat at competitive cost.\n\nCarbon-free green heat, \nreducing CO2 emissions \n up to 100%\n\nProcess heat (hot air) \nup to 1500 °C\n\nThermal storage up\n to 20 hours to \ndeliver green heat 24/7\n\nHigh efficiency up \nto 90% based on \nresistance heating\n\nCost competitive vs. \nfossil fuels and substantially \ncheaper than green hydrogen\n\nModular container\nsystem enables \neasy scalability\n\nEasy integration \nwith minimal \nretrofitting needs\n\nApplications for Heatrix\n\nCalcination\n\nReplacing fossil fuel burners and reducing fuel consumption in calcination processes by integrating Heatrix heat to shaft calciners or precalciners of rotary kilns.\n\nHeat Treatment\n\nInducing required process temperatures via hot air flow from Heatrix replacing fossil fuel burners in heat treatment ovens.\n\nSintering & Pelletization\n\nReduced fuel gas & coke usage by providing Heatrix heat to sintering or pelletization plants.\n\nPreheating\n\nCombined with existing burner system, Heatrix technology can be used to preheat materials and reduce fuel consumption in the actual process.\n\nThis is us\n\nStrategy & Operations\n\nInnovator / Inventor / Sold first tech start-up in 2021 / Ph.D. from RWTH Aachen\n\nTechnology & Product\n\nTech Lead / Fluid dynamics expert / Energy technologies / Ph.D. from University Bremen\n\nBusiness & Finance\n\n2nd-time Founder / former VC-Investor / MBA from Tsinghua, MIT & HEC Paris\n\nContact us\n\nLooking for more information about Heatrix and our technology? We’d love to get in touch!\n\nHeatrix ensures defensibility through modular product, ease of integration, technological advantages and compelling business model.\n\nModular Product\n\n• Avoids individual design process – fits in standard containers• Industry-agnostic solution• Modular configuration to meet customer needs\n\nEasy Interaction\n\n• Rapid deployment• Focus on minimal plant downtime• Compatible to back-up for guaranteed production\n\nBusiness Model\n\n• Ongoing customer relationship and revenue \n• Large growth potential\n• Maximal impact on CO2\nreduction\n\nTechnical Advantage\n\n• Unique system design integrating electric heater and thermal storage \n• IP application in preparation for unique heater and storage design"
+},
+{
 
 "title": "vabeck® GmbH - Grüne Prozesstechnik für den Umweltschutz",
-			"id": "https://www.vabeck.com/en",
-			"url": "https://www.vabeck.com/en",
-			"publishedDate": "2022-01-01",
-			"author": null,
-			"text": ""
-		}
-	],
-	"requestId": "a02fd414d9ca16454089e8720cd6ed2b"
+"id": "https://www.vabeck.com/en",
+"url": "https://www.vabeck.com/en",
+"publishedDate": "2022-01-01",
+"author": null,
+"text": ""
 }
-```
+],
+"requestId": "a02fd414d9ca16454089e8720cd6ed2b"
+}
+
+````
 
 Nice! On inspection, these results include companies located in Hamburg, Munich and other close by European locations. This example can be extended to any key phrase - have a play with filtering via [other company suffixes - ](https://en.wikipedia.org/wiki/List%5Fof%5Flegal%5Fentity%5Ftypes%5Fby%5Fcountry) and see what interesting results you get back!
 
@@ -9058,9 +9224,10 @@ Nice! On inspection, these results include companies located in Hamburg, Munich 
 Example 1 (unknown):
 ```unknown
 Make a query, in this example searching for the most innovative climate tech companies. To use Phrase Filters, specify a string corresponding to the `includeText` input parameter
-```
+````
 
 Example 2 (unknown):
+
 ```unknown
 Which outputs:
 ```
@@ -9086,19 +9253,21 @@ openai_client = OpenAI(api_key=openai_api_key)
 Python Python theme={null}
 
 questions = [
-    "How did bats evolve their wings?",
-    "How did Rome defend Italy from Hannibal?",
+"How did bats evolve their wings?",
+"How did Rome defend Italy from Hannibal?",
 ]
 Python Python theme={null}
 
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 Now, we just need some questions to answer!
 ```
 
 Example 2 (unknown):
+
 ```unknown
 While LLMs can answer some questions on their own, they have limitations:
 
@@ -9116,13 +9285,15 @@ Robust retrieval helps solve all of these issues by providing quality sources of
 **URL:** llms-txt#new-approach
 
 **Contents:**
+
 - Need More Information?
 
 result = exa.get_contents(["https://example.com"])
 for status in result.statuses:
-    if status.status == "error":
-        print(f"Error for {status.id}: {status.error.tag} ({status.error.httpStatusCode})")
-```
+if status.status == "error":
+print(f"Error for {status.id}: {status.error.tag} ({status.error.httpStatusCode})")
+
+````
 
 ## Need More Information?
 
@@ -9313,9 +9484,10 @@ Example 1 (unknown):
 Now, let's add more information about the candidates: current school, LinkedIn, and personal website.
 
 First, we'll define a helper function to call OpenAI -- we'll use this for many of our later functions.
-```
+````
 
 Example 2 (unknown):
+
 ```unknown
 We'll ask GPT to extract the candidate's school from their email address.
 ```
@@ -9327,6 +9499,7 @@ We'll ask GPT to extract the candidate's school from their email address.
 **URL:** llms-txt#contents-retrieval
 
 **Contents:**
+
 - Text (text=True)
 - Summary (summary=True)
   - Structured Summaries
@@ -9360,18 +9533,17 @@ You can configure highlights in two ways:
 1. **Simple boolean** (`highlights=True`): Returns default highlights based on the search query
 
 2. **Detailed configuration** (pass as an object):
-   
-   * `query`: The specific query to use for generating highlights (if different from search query)
-   * `numSentences`: Number of sentences per highlight (minimum: 1)
-   * `highlightsPerUrl`: Maximum number of highlights to return per URL (minimum: 1)
+   - `query`: The specific query to use for generating highlights (if different from search query)
+   - `numSentences`: Number of sentences per highlight (minimum: 1)
+   - `highlightsPerUrl`: Maximum number of highlights to return per URL (minimum: 1)
 
 Returns page contents as a single combined string ready for LLM RAG applications. When you set `context=True`, all result contents are joined together into one text block.
 
 **Performance Note**: Context strings often perform better than highlights for RAG applications because they provide more complete information from each page.
 
-* If you have 5 results and set a 1000 character limit, each result gets about 200 characters
-* We recommend using 10000+ characters for best results
-* No character limit works best when possible
+- If you have 5 results and set a 1000 character limit, each result gets about 200 characters
+- We recommend using 10000+ characters for best results
+- No character limit works best when possible
 
 1. **Simple boolean** (`context=True`): Returns all content combined with no character limit
 2. **With character limit** (pass as an object):
@@ -9386,11 +9558,11 @@ Each response includes a `statuses` array with status information for each reque
 
 The error tags correspond to different failure scenarios:
 
-* `CRAWL_NOT_FOUND`: Content not found (HTTP 404)
-* `CRAWL_TIMEOUT`: The target page returned a timeout error (HTTP 408)
-* `CRAWL_LIVECRAWL_TIMEOUT`: The `livecrawlTimeout` parameter limit was reached during crawling
-* `SOURCE_NOT_AVAILABLE`: Access forbidden or source unavailable (HTTP 403)
-* `CRAWL_UNKNOWN_ERROR`: Other errors (HTTP 500+)
+- `CRAWL_NOT_FOUND`: Content not found (HTTP 404)
+- `CRAWL_TIMEOUT`: The target page returned a timeout error (HTTP 408)
+- `CRAWL_LIVECRAWL_TIMEOUT`: The `livecrawlTimeout` parameter limit was reached during crawling
+- `SOURCE_NOT_AVAILABLE`: Access forbidden or source unavailable (HTTP 403)
+- `CRAWL_UNKNOWN_ERROR`: Other errors (HTTP 500+)
 
 To handle errors, check the `statuses` field for each URL:
 
@@ -9399,6 +9571,7 @@ This allows you to handle different failure scenarios appropriately for each URL
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 The API will return the summary as a JSON string that matches your schema structure, which you can parse to access the structured data.
 
@@ -9414,6 +9587,7 @@ You can configure highlights in two ways:
 ```
 
 Example 2 (unknown):
+
 ```unknown
 * `query`: The specific query to use for generating highlights (if different from search query)
    * `numSentences`: Number of sentences per highlight (minimum: 1)
@@ -9438,6 +9612,7 @@ Returns page contents as a single combined string ready for LLM RAG applications
 ```
 
 Example 3 (unknown):
+
 ```unknown
 ## Images and favicons
 
@@ -9451,6 +9626,7 @@ Each response includes a `statuses` array with status information for each reque
 ```
 
 Example 4 (unknown):
+
 ```unknown
 The error tags correspond to different failure scenarios:
 
@@ -9470,6 +9646,7 @@ To handle errors, check the `statuses` field for each URL:
 **URL:** llms-txt#new-fast-search-type
 
 **Contents:**
+
 - What's New
 - When to Use Fast Search
 - How to Use Fast Search
@@ -9489,9 +9666,9 @@ We're excited to introduce **Exa Fast** - the fastest search API in the world. E
 
 The Fast search type provides:
 
-* **Speed**: p50 latency below 425ms - that's 30% faster than Brave and Google Serp
-* **Exa Index**: Uses the same index of high quality content as our neural search
-* **Customization**: Full compatibility with all the same parameters as our other search types
+- **Speed**: p50 latency below 425ms - that's 30% faster than Brave and Google Serp
+- **Exa Index**: Uses the same index of high quality content as our neural search
+- **Customization**: Full compatibility with all the same parameters as our other search types
 
 ## When to Use Fast Search
 
@@ -9509,22 +9686,24 @@ Using Fast search is simple - just add `type="fast"` to your search requests:
 
 While Fast search is optimized for speed, certain options can increase response times:
 
-* **Live crawling**: Fetching content live requires real-time web requests. Set `livecrawl="never"` to use cached content and maintain optimal speed.
-* **AI summaries**: Requesting AI-generated summaries requires LLM processing, which adds significant latency to your requests.
-* **Complex date filters**: Using wide date ranges or multiple date constraints requires additional filtering that can slow down results.
-* **Include/exclude text**: Text-based content filtering requires scanning through results, which impacts response times.
-* **Subpages**: Including subpages in your search requires additional processing and can significantly increase latency.
+- **Live crawling**: Fetching content live requires real-time web requests. Set `livecrawl="never"` to use cached content and maintain optimal speed.
+- **AI summaries**: Requesting AI-generated summaries requires LLM processing, which adds significant latency to your requests.
+- **Complex date filters**: Using wide date ranges or multiple date constraints requires additional filtering that can slow down results.
+- **Include/exclude text**: Text-based content filtering requires scanning through results, which impacts response times.
+- **Subpages**: Including subpages in your search requires additional processing and can significantly increase latency.
 
 For the fastest possible performance, use Fast search with minimal parameters and rely on cached content.
 
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 
 ```
 
 Example 2 (unknown):
+
 ```unknown
 
 ```
@@ -9536,8 +9715,9 @@ Example 2 (unknown):
 **URL:** llms-txt#poll-until-completion
 
 **Contents:**
-  - Input Parameters:
-  - Returns:
+
+- Input Parameters:
+- Returns:
 - `research.list_tasks` Method
   - Input Example:
 
@@ -9548,6 +9728,7 @@ Python Python theme={null}
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 ### Input Parameters:
 
@@ -9580,6 +9761,7 @@ post /v0/webhooks
 Webhooks let you get notifications when things happen in your Websets. When you create a webhook, you choose which events you want to know about and where to send the notifications.
 
 When an event happens, Exa sends an HTTP POST request to your webhook URL with:
+
 - Event details (type, time, ID)
 - Full data of what triggered the event
 - A signature to verify the request came from Exa
@@ -9613,6 +9795,7 @@ Explore your Websets matched results, view summaries, criteria justification
 **URL:** llms-txt#writing-assistant
 
 **Contents:**
+
 - What this doc covers
 - Demo overview
 - High-level overview
@@ -9628,9 +9811,9 @@ Source: https://docs.exa.ai/examples/demo-exa-powered-writing-assistant
 
 ## What this doc covers
 
-* Live demo link for hands-on experience (above!)
-* Overview of a real-time writing assistant using Exa and Claude
-* Breakdown of Exa query prompt engineering and generative AI system prompt
+- Live demo link for hands-on experience (above!)
+- Overview of a real-time writing assistant using Exa and Claude
+- Breakdown of Exa query prompt engineering and generative AI system prompt
 
 ## High-level overview
 
@@ -9646,11 +9829,11 @@ The Exa search is performed using a unique query style that appends the user's i
 
 **Key aspects of this query style:**
 
-* **Continuation prompt:** The crucial post-pend "A helpful source to read so you can continue writing the above:"
-  * This prompt is designed to find sources that can logically continue the user's writing when passed to an LLM to generate content.
-  * It leverages Exa's ability to understand context and find semantically relevant results.
-  * By framing the query as a request for continuation, it aligns with how people naturally share helpful links.
-* **Length limitation:** It caps the query at 1000 characters to maintain relevance and continue writing just based on the last section of the text.
+- **Continuation prompt:** The crucial post-pend "A helpful source to read so you can continue writing the above:"
+  - This prompt is designed to find sources that can logically continue the user's writing when passed to an LLM to generate content.
+  - It leverages Exa's ability to understand context and find semantically relevant results.
+  - By framing the query as a request for continuation, it aligns with how people naturally share helpful links.
+- **Length limitation:** It caps the query at 1000 characters to maintain relevance and continue writing just based on the last section of the text.
 
 Note this prompt is not a hard and fast rule for this use-case - we encourage experimentation with query styles to get the best results for your specific use case. For instance, you could further constrain down to just research papers.
 
@@ -9660,8 +9843,8 @@ The Claude AI model is prompted with a carefully crafted system message and pass
 
 This prompt ensures that:
 
-* Claude will only do completions, not parrot back the user query like in a typical chat based scenario. Note the inclusion of multiple examples that demonstrate Claude should not reply back with the stub even if there are errors, like spelling or grammar, in the input text (which we found to be a common issue)
-* We define the citation style and formatting. We also tell the bot went to collapse authors into 'et al' style citations, as some webpages have many authors
+- Claude will only do completions, not parrot back the user query like in a typical chat based scenario. Note the inclusion of multiple examples that demonstrate Claude should not reply back with the stub even if there are errors, like spelling or grammar, in the input text (which we found to be a common issue)
+- We define the citation style and formatting. We also tell the bot went to collapse authors into 'et al' style citations, as some webpages have many authors
 
 Once again, experimenting with this prompt is crucial to getting best results for your particular use case.
 
@@ -9674,6 +9857,7 @@ This approach showcases how Exa can be integrated into AI-powered applications t
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 **Key aspects of this query style:**
 
@@ -9697,9 +9881,9 @@ The Claude AI model is prompted with a carefully crafted system message and pass
 **URL:** llms-txt#function-to-generate-model-responses
 
 def call_model(state: MessagesState):
-    messages = state["messages"]
-    response = model.invoke(messages)
-    return {"messages": [response]}
+messages = state["messages"]
+response = model.invoke(messages)
+return {"messages": [response]}
 
 ---
 
@@ -9737,6 +9921,7 @@ Create an Enrichment for a Webset.
 **URL:** llms-txt#exa's-capabilities-explained
 
 **Contents:**
+
 - Search Types
 - Auto search (prev. Magic Search)
 - Neural Search
@@ -9780,7 +9965,7 @@ This page explains some of the available feature functionalities of Exa and some
 | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | Exa searches that return a large number of search results. | When desiring comprehensive, semantically relevant data for batch use cases, e.g., for enrichment of CRMs or full topic scraping. |
 
-Note high return results cost more and higher result caps (e.g., 1000 returns) are restricted to Enterprise/Custom plans only. [Get in touch ](https://cal.com/team/exa/exa-intro-chat?date=2024-11-14\&month=2024-11)if you are interested in learning more.
+Note high return results cost more and higher result caps (e.g., 1000 returns) are restricted to Enterprise/Custom plans only. [Get in touch ](https://cal.com/team/exa/exa-intro-chat?date=2024-11-14&month=2024-11)if you are interested in learning more.
 
 ## Contents Retrieval
 
@@ -9809,6 +9994,7 @@ Prompt engineering is crucial for getting the most out of Exa's capabilities. Th
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 ## Neural Search
 
@@ -9818,6 +10004,7 @@ Example 1 (unknown):
 ```
 
 Example 2 (unknown):
+
 ```unknown
 ## Keyword Search
 
@@ -9827,6 +10014,7 @@ Example 2 (unknown):
 ```
 
 Example 3 (unknown):
+
 ```unknown
 ## Phrase Filter Search
 
@@ -9836,6 +10024,7 @@ Example 3 (unknown):
 ```
 
 Example 4 (unknown):
+
 ```unknown
 [See a worked example here](/examples/niche-company-finder-with-phrase-filters)
 
@@ -9875,11 +10064,12 @@ Gets a Search by id
 **URL:** llms-txt#to-just-see-the-10-titles-and-urls
 
 **Contents:**
+
 - Finding additional info for each company
 
 urls = {}
 for c in companies:
-  print(c.title + ':' + c.url)
+print(c.title + ':' + c.url)
 rumie - College Marketplace:https://www.rumieapp.com/ theme={null}
 The Airbnb of Storage:https://www.mystorestash.com/
 Bunction.net:https://bunction.net/
@@ -9895,11 +10085,13 @@ python Python theme={null}
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 
 ```
 
 Example 2 (unknown):
+
 ```unknown
 Looks pretty darn good! As a bonus specifically for companies data, specifying `category="company"` in the SDK will search across a curated, larger companies dataset - if you're interested in this, let us know at [hello@exa.ai](mailto:hello@exa.ai)!
 
@@ -9917,8 +10109,9 @@ Now let's get more information by finding additional webpages about each company
 **URL:** llms-txt#downloading-and-sharing-your-results
 
 **Contents:**
-  - Share
-  - Download
+
+- Share
+- Download
 
 Source: https://docs.exa.ai/websets/dashboard/walkthroughs/Sharing-and-Downloading-Your-Results
 
@@ -9941,6 +10134,7 @@ Download a CSV by clicking the "Download" button. You can easily upload the CSV 
 **URL:** llms-txt#exclude-results
 
 **Contents:**
+
 - Overview
 - How it works
 - When to use exclusions
@@ -9962,9 +10156,9 @@ The maximum number of results you can exclude is determined by your plan.
 
 ## When to use exclusions
 
-* Finding leads that aren't already in your CRM
-* Following up on previous searches with refined criteria
-* Excluding results you already know about
+- Finding leads that aren't already in your CRM
+- Following up on previous searches with refined criteria
+- Excluding results you already know about
 
 ---
 
@@ -9999,20 +10193,20 @@ Here's how to create enrichments (also known as Adding Columns).
 <Tip>
   Cool examples of enrichments:&#x20;
 
-* "Find me this candidate's contact information" - Contact
+- "Find me this candidate's contact information" - Contact
 
-* "Do a sentiment analysis on each article" - Text or Options
+- "Do a sentiment analysis on each article" - Text or Options
 
-* "Categorize these companies by B2B or B2C" - Options
+- "Categorize these companies by B2B or B2C" - Options
 
-* "Create a custom email based on this company's main product"- Text
+- "Create a custom email based on this company's main product"- Text
 
-* "Give me this candidate's years of experience" - Number
+- "Give me this candidate's years of experience" - Number
 
-* "Find any public data on this company's revenue or valuation" - Text
+- "Find any public data on this company's revenue or valuation" - Text
 
-* "What is the most powerful data point mentioned in each research paper?" - Text
-</Tip>
+- "What is the most powerful data point mentioned in each research paper?" - Text
+  </Tip>
 
 ---
 
@@ -10021,6 +10215,7 @@ Here's how to create enrichments (also known as Adding Columns).
 **URL:** llms-txt#building-a-news-summarizer
 
 **Contents:**
+
 - Get Started
 
 Source: https://docs.exa.ai/examples/recent-news-summarizer
@@ -10075,12 +10270,13 @@ Set up your API keys:
 And we're done! We've built an app that translates a question into a search query, uses Exa to search for useful links and their contents, and summarizes the content to effortlessly answer questions about the latest news.
 
 **Through Exa, we have given our LLM access to the entire Internet.** The possibilities are endless.
-  </Step>
+</Step>
 </Steps>
 
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 <Note> You'll need both an Exa API key and an OpenAI API key to run this example. You can get your OpenAI API key [here](https://platform.openai.com/api-keys).</Note>
 
@@ -10090,6 +10286,7 @@ Example 1 (unknown):
 ```
 
 Example 2 (unknown):
+
 ```unknown
 </Step>
 
@@ -10098,6 +10295,7 @@ Example 2 (unknown):
 ```
 
 Example 3 (unknown):
+
 ```unknown
 </Step>
 
@@ -10106,6 +10304,7 @@ Example 3 (unknown):
 ```
 
 Example 4 (unknown):
+
 ```unknown
 </Step>
 
@@ -10120,31 +10319,32 @@ Example 4 (unknown):
 **URL:** llms-txt#limit-search_results-to-a-maximum-of-20,000-characters
 
 **Contents:**
+
 - 4. Advanced Example: Analyzing Multiple Research Papers
 
 search_results = search_results.results[:20000]
 
 class QuantumComputingAdvancement(BaseModel):
-    technology: str
-    description: str
-    potential_impact: str
+technology: str
+description: str
+potential_impact: str
 
-def __str__(self):
-        return (
-            f"Technology: {self.technology}\n"
-            f"Description: {self.description}\n"
-            f"Potential Impact: {self.potential_impact}"
-        )
+def **str**(self):
+return (
+f"Technology: {self.technology}\n"
+f"Description: {self.description}\n"
+f"Potential Impact: {self.potential_impact}"
+)
 
 structured_output = client.chat.completions.create(
-    model="gpt-3.5-turbo",
-    response_model=QuantumComputingAdvancement,
-    messages=[
-        {
-            "role": "user",
-            "content": f"Based on the provided context, describe a recent advancement in quantum computing.\n\n{search_results}",
-        }
-    ],
+model="gpt-3.5-turbo",
+response_model=QuantumComputingAdvancement,
+messages=[
+{
+"role": "user",
+"content": f"Based on the provided context, describe a recent advancement in quantum computing.\n\n{search_results}",
+}
+],
 )
 
 print(structured_output)
@@ -10161,41 +10361,42 @@ exa = Exa(os.environ["EXA_API_KEY"])
 client = instructor.from_openai(OpenAI())
 
 class ResearchPaper(BaseModel):
-    title: str
-    authors: List[str]
-    key_findings: List[str]
-    methodology: str
+title: str
+authors: List[str]
+key_findings: List[str]
+methodology: str
 
 @field_validator("title")
-    @classmethod
-    def validate_title(cls, v):
-        if v.upper() != v:
-            raise ValueError("Title must be in uppercase.")
-        return v
+@classmethod
+def validate_title(cls, v):
+if v.upper() != v:
+raise ValueError("Title must be in uppercase.")
+return v
 
-def __str__(self):
-        return (
-            f"Title: {self.title}\n"
-            f"Authors: {', '.join(self.authors)}\n"
-            f"Key Findings: {', '.join(self.key_findings)}\n"
-            f"Methodology: {self.methodology}"
-        )
+def **str**(self):
+return (
+f"Title: {self.title}\n"
+f"Authors: {', '.join(self.authors)}\n"
+f"Key Findings: {', '.join(self.key_findings)}\n"
+f"Methodology: {self.methodology}"
+)
 
 class ResearchAnalysis(BaseModel):
-    papers: List[ResearchPaper]
-    common_themes: List[str]
-    future_directions: str
+papers: List[ResearchPaper]
+common_themes: List[str]
+future_directions: str
 
-def __str__(self):
-        return (
-            f"Common Themes:\n- {', '.join(self.common_themes)}\n"
-            f"Future Directions: {self.future_directions}\n"
-            f"Analyzed Papers:\n" + "\n".join(str(paper) for paper in self.papers)
-        )
+def **str**(self):
+return (
+f"Common Themes:\n- {', '.join(self.common_themes)}\n"
+f"Future Directions: {self.future_directions}\n"
+f"Analyzed Papers:\n" + "\n".join(str(paper) for paper in self.papers)
+)
 
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 Here we define a `QuantumComputingAdvancement` class that inherits from `BaseModel` from Pydantic. This class will be used by Instructor to validate the output from the LLM and for the LLM as a response model. We also implement the `__str__()` method for easy printing of the output. We then initialize `OpenAI()` and wrap instructor on top of it with `instructor.from_openai` to create a client that will return structured outputs. If the output is not structured as our class, Instructor makes the LLM retry until max\_retries is reached. You can read more about how Instructor retries [here](https://python.useinstructor.com/why/#retries).
 
@@ -10221,6 +10422,7 @@ Source: https://docs.exa.ai/websets/api/websets/overview
 **URL:** llms-txt#openai-exa-wrapper
 
 **Contents:**
+
 - Get Started
 - Further configuration options and advanced usage
 - Option to include Exa results
@@ -10234,7 +10436,7 @@ Enhance your OpenAI chat completetions with a simple Exa wrapper that handles se
 
 Exa is designed from the ground up to enable seamless, accurate, and performant RAG (Retrieval-Augmented Generation). Exa provides factual, up to date information needed to ground LLM generations.
 
-But good RAG requires more than just great search. The client needs to decide *when* to use RAG, with *what* queries. They need to handle chunking, prompting, and chaining LLM calls. We provide the Exa OpenAI wrapper that, **with one line of code**, does all that and turns any OpenAI chat completion into an Exa-powered RAG system.
+But good RAG requires more than just great search. The client needs to decide _when_ to use RAG, with _what_ queries. They need to handle chunking, prompting, and chaining LLM calls. We provide the Exa OpenAI wrapper that, **with one line of code**, does all that and turns any OpenAI chat completion into an Exa-powered RAG system.
 
 First, create an account and grab a free API key.
 
@@ -10276,9 +10478,9 @@ While the default settings work well for most use cases, the Exa OpenAI wrapper'
 
 `use_exa` specifies whether to include Exa results for a given request:
 
-* `auto` Exa will intelligently determine whether to include results
-* `required` Exa results will always be included
-* `none` Exa results will never be included
+- `auto` Exa will intelligently determine whether to include results
+- `required` Exa results will always be included
+- `none` Exa results will never be included
 
 `num_results` specifies how many search results Exa should retrieve (defaults to 3 results). Limits vary by search type: with "keyword": max 10, with "neural": max 100. If you want to increase the num results, contact sales ([hello@exa.ai](mailto:hello@exa.ai))
 
@@ -10293,6 +10495,7 @@ The Exa OpenAI wrapper supports any parameters that the `exa.search()` function 
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 </Step>
 
@@ -10303,6 +10506,7 @@ Example 1 (unknown):
 ```
 
 Example 2 (unknown):
+
 ```unknown
 </Step>
 
@@ -10311,6 +10515,7 @@ Example 2 (unknown):
 ```
 
 Example 3 (unknown):
+
 ```unknown
 </Step>
 
@@ -10321,6 +10526,7 @@ Example 3 (unknown):
 ```
 
 Example 4 (unknown):
+
 ```unknown
 </Step>
 
@@ -10346,6 +10552,7 @@ For detailed instructions on using Exa with CrewAI, visit the [CrewAI documentat
 **URL:** llms-txt#build-a-retrieval-agent-with-langgraph
 
 **Contents:**
+
 - What this doc covers
 - Guide
 - Brief Intro to LangGraph
@@ -10359,8 +10566,8 @@ Source: https://docs.exa.ai/examples/getting-started-with-rag-in-langgraph
 
 ## What this doc covers
 
-* Brief intro to LangGraph
-* How to set up an agent in LangGraph with Exa search as a tool
+- Brief intro to LangGraph
+- How to set up an agent in LangGraph with Exa search as a tool
 
 This guide will show you how you can define and use Exa search within the LangGraph framework. This framework provides a straightforward way for you to define an AI agent and for it to retrieve high-quality, semantically matched content via Exa search.
 
@@ -10423,7 +10630,7 @@ After all of this we start the retrieval and processing chain and store the resu
 
 Now let's set up the complete toolchain using LangGraph.
 
-```python  theme={null}
+````python theme={null}
 from typing import Literal
 from langchain_anthropic import ChatAnthropic
 from langchain_core.messages import HumanMessage
@@ -10438,9 +10645,10 @@ Example 1 (unknown):
 Make sure to set up your API keys. For LangChain libraries, the environment variables should be named `ANTHROPIC_API_KEY` and `EXA_API_KEY` for Anthropic and Exa keys respectively.
 
 <Card title="Get your Exa API key" icon="key" horizontal href="https://dashboard.exa.ai/api-keys" />
-```
+````
 
 Example 2 (unknown):
+
 ```unknown
 ## 2. Set Up Exa Search as a LangChain Tool
 
@@ -10450,6 +10658,7 @@ First we need to import the required libraries:
 ```
 
 Example 3 (unknown):
+
 ```unknown
 After we have imported the necessary libraries, we need to define and register a tool so that the agent know what tools it can use.
 
@@ -10459,6 +10668,7 @@ The `retriever` is where we initialize the Exa search retriever and configure it
 ```
 
 Example 4 (unknown):
+
 ```unknown
 Here, `ExaSearchRetriever` is set to fetch 3 documents.
 
@@ -10525,7 +10735,7 @@ client: The parent Exa client.
 
 self.\_client = client
 
-def _prepare_data(self, data: Union[Dict[str, Any], ExaBaseModel, str], model_class: Optional[Type[ModelT]] = None) -\> Union[Dict[str, Any], str]:
+def \_prepare_data(self, data: Union[Dict[str, Any], ExaBaseModel, str], model_class: Optional[Type[ModelT]] = None) -\> Union[Dict[str, Any], str]:
 
 """Prepare data for API request, converting dict to model if needed.
 
@@ -10940,7 +11150,8 @@ from .client import WebsetWebhooksClient
 from exa_py import Exa
 
 exa = Exa(os.environ.get("EXA_API_KEY"))
-```
+
+````
 
 where websets is accessed via exa.websets….
 
@@ -10951,7 +11162,7 @@ Example 1 (unknown):
 \--END--
 
 Help me answer anything about Exa Websets API using Python. If is first user’s message, begin with python instructions to import
-```
+````
 
 ---
 
@@ -10960,33 +11171,35 @@ Help me answer anything about Exa Websets API using Python. If is first user’s
 **URL:** llms-txt#example-usage
 
 **Contents:**
+
 - About Exa Code
 - Use with MCP
 
 context = get_code_context("Express.js middleware for authentication")
 print(context)
-javascript  theme={null}
+javascript theme={null}
 async function getCodeContext(query, tokensNum = "dynamic") {
-  const response = await fetch("https://api.exa.ai/context", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-key": "YOUR_API_KEY"
-    },
-    body: JSON.stringify({
-      query,
-      tokensNum
-    })
-  });
-  
-  const result = await response.json();
-  return result.response;
+const response = await fetch("https://api.exa.ai/context", {
+method: "POST",
+headers: {
+"Content-Type": "application/json",
+"x-api-key": "YOUR_API_KEY"
+},
+body: JSON.stringify({
+query,
+tokensNum
+})
+});
+
+const result = await response.json();
+return result.response;
 }
 
 // Example usage
 const context = await getCodeContext("Svelte component lifecycle methods");
 console.log(context);
-```
+
+````
 
 Vibe coding should never have a bad vibe. `exa-code` is a huge step towards coding agents that never hallucinate.
 
@@ -11001,7 +11214,7 @@ The MCP integration provides the same powerful code context search capabilities 
 Example 1 (unknown):
 ```unknown
 **Using with JavaScript/Node.js**
-```
+````
 
 ---
 
@@ -11010,11 +11223,12 @@ Example 1 (unknown):
 **URL:** llms-txt#parse-the-structured-summary-(returned-as-a-json-string)
 
 **Contents:**
-  - Input Parameters:
-  - Returns Example:
-  - Return Parameters:
-  - `SearchResponse[ResultWithTextAndHighlights]`
-  - `ResultWithTextAndHighlights` Object
+
+- Input Parameters:
+- Returns Example:
+- Return Parameters:
+- `SearchResponse[ResultWithTextAndHighlights]`
+- `ResultWithTextAndHighlights` Object
 - `find_similar` Method
   - Input Example:
   - Input Parameters:
@@ -11023,80 +11237,81 @@ Example 1 (unknown):
 
 first_result = result_with_structured_summary.results[0]
 if first_result.summary:
-    import json
-    structured_data = json.loads(first_result.summary)
-    print(structured_data["name"])        # e.g. "OpenAI"
-    print(structured_data["industry"])    # e.g. "Artificial Intelligence"
-    print(structured_data["keyProducts"]) # e.g. ["GPT-4", "DALL-E", "ChatGPT"]
+import json
+structured_data = json.loads(first_result.summary)
+print(structured_data["name"]) # e.g. "OpenAI"
+print(structured_data["industry"]) # e.g. "Artificial Intelligence"
+print(structured_data["keyProducts"]) # e.g. ["GPT-4", "DALL-E", "ChatGPT"]
 JSON JSON theme={null}
 `{
-  "results": [
-    {
+"results": [
+{
 
 "title": "2023 AI Trends in Health Care",
-      "id": "https://aibusiness.com/verticals/2023-ai-trends-in-health-care-",
-      "url": "https://aibusiness.com/verticals/2023-ai-trends-in-health-care-",
-      "publishedDate": "2022-12-29",
-      "author": "Wylie Wong",
-      "text": "While the health care industry was initially slow to [... TRUNCATED IN THESE DOCS FOR BREVITY ...]",
-      "highlights": [
-        "But to do so, many health care institutions would like to share data, so they can build a more comprehensive dataset to use to train an AI model. Traditionally, they would have to move the data to one central repository. However, with federated or swarm learning, the data does not have to move. Instead, the AI model goes to each individual health care facility and trains on the data, he said. This way, health care providers can maintain security and governance over their data."
-      ],
-      "highlightScores": [
-        0.5566554069519043
-      ]
-    },
-    {
+"id": "https://aibusiness.com/verticals/2023-ai-trends-in-health-care-",
+"url": "https://aibusiness.com/verticals/2023-ai-trends-in-health-care-",
+"publishedDate": "2022-12-29",
+"author": "Wylie Wong",
+"text": "While the health care industry was initially slow to [... TRUNCATED IN THESE DOCS FOR BREVITY ...]",
+"highlights": [
+"But to do so, many health care institutions would like to share data, so they can build a more comprehensive dataset to use to train an AI model. Traditionally, they would have to move the data to one central repository. However, with federated or swarm learning, the data does not have to move. Instead, the AI model goes to each individual health care facility and trains on the data, he said. This way, health care providers can maintain security and governance over their data."
+],
+"highlightScores": [
+0.5566554069519043
+]
+},
+{
 
 "title": "AI in healthcare: Innovative use cases and applications",
-      "id": "https://www.leewayhertz.com/ai-use-cases-in-healthcare",
-      "url": "https://www.leewayhertz.com/ai-use-cases-in-healthcare",
-      "publishedDate": "2023-02-13",
-      "author": "Akash Takyar",
-      "text": "The integration of AI in healthcare is not [... TRUNCATED IN THESE DOCS FOR BREVITY ...]",
-      "highlights": [
-        "The ability of AI to analyze large amounts of medical data and identify patterns has led to more accurate and timely diagnoses. This has been especially helpful in identifying complex medical conditions, which may be difficult to detect using traditional methods. Here are some examples of successful implementation of AI in healthcare. IBM Watson Health: IBM Watson Health is an AI-powered system used in healthcare to improve patient care and outcomes. The system uses natural language processing and machine learning to analyze large amounts of data and provide personalized treatment plans for patients."
-      ],
-      "highlightScores": [
-        0.6563674807548523
-      ]
-    }
-  ],
-  "requestId": "d8fd59c78d34afc9da173f1fe5aa8965"
+"id": "https://www.leewayhertz.com/ai-use-cases-in-healthcare",
+"url": "https://www.leewayhertz.com/ai-use-cases-in-healthcare",
+"publishedDate": "2023-02-13",
+"author": "Akash Takyar",
+"text": "The integration of AI in healthcare is not [... TRUNCATED IN THESE DOCS FOR BREVITY ...]",
+"highlights": [
+"The ability of AI to analyze large amounts of medical data and identify patterns has led to more accurate and timely diagnoses. This has been especially helpful in identifying complex medical conditions, which may be difficult to detect using traditional methods. Here are some examples of successful implementation of AI in healthcare. IBM Watson Health: IBM Watson Health is an AI-powered system used in healthcare to improve patient care and outcomes. The system uses natural language processing and machine learning to analyze large amounts of data and provide personalized treatment plans for patients."
+],
+"highlightScores": [
+0.6563674807548523
+]
+}
+],
+"requestId": "d8fd59c78d34afc9da173f1fe5aa8965"
 }
 Python Python theme={null}
 similar_results = exa.find_similar(
-    "miniclip.com",
-    num_results=2,
-    exclude_source_domain=True
+"miniclip.com",
+num_results=2,
+exclude_source_domain=True
 )
 JSON JSON theme={null}
 {
-  "results": [
-    {
+"results": [
+{
 
 "title": "Play New Free Online Games Every Day",
-      "id": "https://www.minigames.com/new-games",
-      "url": "https://www.minigames.com/new-games",
-      "publishedDate": "2000-01-01",
-      "author": null
-    },
-    {
+"id": "https://www.minigames.com/new-games",
+"url": "https://www.minigames.com/new-games",
+"publishedDate": "2000-01-01",
+"author": null
+},
+{
 
 "title": "Play The best Online Games",
-      "id": "https://www.minigames.com/",
-      "url": "https://www.minigames.com/",
-      "publishedDate": "2000-01-01",
-      "author": null
-    }
-  ],
-  "requestId": "08fdc6f20e9f3ea87f860af3f6ccc30f"
+"id": "https://www.minigames.com/",
+"url": "https://www.minigames.com/",
+"publishedDate": "2000-01-01",
+"author": null
+}
+],
+"requestId": "08fdc6f20e9f3ea87f860af3f6ccc30f"
 }
 Python Python theme={null}
 
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 ### Input Parameters:
 
@@ -11122,6 +11337,7 @@ Example 1 (unknown):
 ```
 
 Example 2 (unknown):
+
 ```unknown
 ### Return Parameters:
 
@@ -11162,6 +11378,7 @@ Find a list of similar results based on a webpage's URL.
 ```
 
 Example 3 (unknown):
+
 ```unknown
 ### Input Parameters:
 
@@ -11183,6 +11400,7 @@ Example 3 (unknown):
 ```
 
 Example 4 (unknown):
+
 ```unknown
 ### Return Parameters:
 
@@ -11231,11 +11449,13 @@ When deleting an Enrichment, any running enrichments will be canceled and all ex
 **URL:** llms-txt#verify-it-works
 
 **Contents:**
+
 - What's Next?
 
 is_valid = verify_webhook_signature(test_payload, test_header, test_secret)
-print(f"Test signature valid: {is_valid}")  # Should print True
-```
+print(f"Test signature valid: {is_valid}") # Should print True
+
+````
 
 * Learn about [webhook events](/websets/api/events) and their payloads
 * Set up [webhook retries and monitoring](/websets/api/webhooks/attempts/list-webhook-attempts)
@@ -11330,9 +11550,10 @@ Choose the right approach for your use case:
 Example 1 (unknown):
 ```unknown
 
-```
+````
 
 Example 2 (unknown):
+
 ```unknown
 </CodeGroup>
 
@@ -11354,6 +11575,7 @@ Let's break down how the Exa web search tool works with OpenAI's Response API:
 ```
 
 Example 3 (unknown):
+
 ```unknown
 2. **Initial Request**: When you send a message to OpenAI, the API looks at your message and decides if it needs to search the web. If it does, instead of giving a direct answer, it will return a "function call" in its output.
 
@@ -11361,6 +11583,7 @@ Example 3 (unknown):
 ```
 
 Example 4 (unknown):
+
 ```unknown
 4. **Search Execution**: Your code then:
 
@@ -11408,6 +11631,7 @@ You can view the complete deduplication implementation [here](https://github.com
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 </Step>
 
@@ -11416,6 +11640,7 @@ Example 1 (unknown):
 ```
 
 Example 2 (unknown):
+
 ```unknown
 </Step>
 
@@ -11449,6 +11674,7 @@ Important notes: - The webhook stops working as soon as you delete it - You cann
 **URL:** llms-txt#overview
 
 **Contents:**
+
 - Key Features
 - Core Objects
 - Next Steps
@@ -11463,22 +11689,22 @@ Whether you're looking for companies, people, or research papers, each result be
 
 At its core, the API is:
 
-* **Asynchronous**: It's an async-first API. Searches (`Webset Search`) can take from seconds to minutes, depending on the complexity.
+- **Asynchronous**: It's an async-first API. Searches (`Webset Search`) can take from seconds to minutes, depending on the complexity.
 
-* **Structured**: Every result (`Webset Item`) includes structured properties, webpage content, and verification against your criteria, with reasoning and references explaining why it matches.
+- **Structured**: Every result (`Webset Item`) includes structured properties, webpage content, and verification against your criteria, with reasoning and references explaining why it matches.
 
-* **Event-Driven**: Events are published and delivered through webhooks to notify when items are found and when enrichments complete, allowing you to process data as it arrives.
+- **Event-Driven**: Events are published and delivered through webhooks to notify when items are found and when enrichments complete, allowing you to process data as it arrives.
 
 <img src="https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/api/core.png?fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=265cc07c934104d780743b8a5d7bb17e" alt="Core concepts diagram showing relationships between Webset, Search, Item and Enrichment objects" data-og-width="1178" width="1178" data-og-height="324" height="324" data-path="images/websets/api/core.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/api/core.png?w=280&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=4b97e35beadbc0a94efe7213ee1c5983 280w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/api/core.png?w=560&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=1af211849acd9d2f782e61b838e40fe6 560w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/api/core.png?w=840&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=e75ecf072cd81585e14fcce486b19289 840w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/api/core.png?w=1100&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=341874ad3c08788afe8f972f17134f39 1100w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/api/core.png?w=1650&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=60373085f9f70ff2dc0e5d319c1fb405 1650w, https://mintcdn.com/exa-52/tmzyKnsgpKLGddKC/images/websets/api/core.png?w=2500&fit=max&auto=format&n=tmzyKnsgpKLGddKC&q=85&s=5ea7a3540b5358338b1ea676fddc26b4 2500w" />
 
-* **Webset**: Container that organizes your unique collection of web content and its related searches
-* **Search**: An agent that searches and crawls the web to find precise entities matching your criteria, adding them to your Webset as structured WebsetItems
-* **Item**: A structured result with source content, verification status, and type-specific fields (company, person, research paper, etc.)
-* **Enrichment**: An agent that searches the web to enhance existing WebsetItems with additional structured data
+- **Webset**: Container that organizes your unique collection of web content and its related searches
+- **Search**: An agent that searches and crawls the web to find precise entities matching your criteria, adding them to your Webset as structured WebsetItems
+- **Item**: A structured result with source content, verification status, and type-specific fields (company, person, research paper, etc.)
+- **Enrichment**: An agent that searches the web to enhance existing WebsetItems with additional structured data
 
-* Follow our [quickstart guide](/websets/api/get-started)
-* Learn more about [how it works](/websets/api/how-it-works)
-* Browse the [API reference](/websets/api/websets/create-a-webset)
+- Follow our [quickstart guide](/websets/api/get-started)
+- Learn more about [how it works](/websets/api/how-it-works)
+- Browse the [API reference](/websets/api/websets/create-a-webset)
 
 ---
 
@@ -11487,6 +11713,7 @@ At its core, the API is:
 **URL:** llms-txt#example-queries
 
 **Contents:**
+
 - Sales
 - Recruiting
 - Market Research/Investing
@@ -11503,11 +11730,11 @@ Here are some examples for things to search for, to get you started!
 4. Engineering managers at fortune 500 companies in traditional (non tech focused) industries
 5. Startups that raised a series B in 2024 and have a head of people
 
-1. Engineers with startup experience, that have contributed to open source projects
-2. Candidate with strong analytical and operational skills, that has worked at a startup before
-3. SDR, with experience selling healthcare products, based in the East Coast
-4. ML Software engineers or computer science PhD students that went to a top 20 US university.
-5. Investment banker or consultant, attended an Ivy League, has been at their role for over 2 years.
+6. Engineers with startup experience, that have contributed to open source projects
+7. Candidate with strong analytical and operational skills, that has worked at a startup before
+8. SDR, with experience selling healthcare products, based in the East Coast
+9. ML Software engineers or computer science PhD students that went to a top 20 US university.
+10. Investment banker or consultant, attended an Ivy League, has been at their role for over 2 years.
 
 ## Market Research/Investing
 
@@ -11516,14 +11743,14 @@ Here are some examples for things to search for, to get you started!
 3. Financial reports of food & beverage companies that mention team downsizing
 4. Fintech startups that raised a series A in 2024 from a major US based VC fund
 
-1. Hydrochlorous acid manufacturers that have sustainability angles
-2. High end clothing, low minimum order quantity manufacturers in Asia or Europe
-3. Software solutions for fleet management automation
-4. Cool agentic AI tools to help with productivity
+5. Hydrochlorous acid manufacturers that have sustainability angles
+6. High end clothing, low minimum order quantity manufacturers in Asia or Europe
+7. Software solutions for fleet management automation
+8. Cool agentic AI tools to help with productivity
 
-1. Research papers, published in a major US journal, focused on cell generation technology
-2. Research papers that disagree with transformer based model methodology for AI training
-3. Research papers written by someone with a phd, focused on astrophysics.
+9. Research papers, published in a major US journal, focused on cell generation technology
+10. Research papers that disagree with transformer based model methodology for AI training
+11. Research papers written by someone with a phd, focused on astrophysics.
 
 ---
 
@@ -11533,17 +11760,17 @@ Here are some examples for things to search for, to get you started!
 
 instructions = "What is the latest valuation of SpaceX?"
 schema = {
-    "type": "object",
-    "properties": {
-        "valuation": {"type": "string"},
-        "date": {"type": "string"},
-        "source": {"type": "string"}
-    }
+"type": "object",
+"properties": {
+"valuation": {"type": "string"},
+"date": {"type": "string"},
+"source": {"type": "string"}
+}
 }
 
 task = exa.research.create_task(
-    instructions=instructions,
-    output_schema=schema
+instructions=instructions,
+output_schema=schema
 )
 
 ---
@@ -11562,9 +11789,9 @@ Websets is a web research agent designed to find a perfect list of results that 
   **How not to prompt Websets:** Websets is not an answer engine, so it's not meant for queries like "How your I think about xyz" or "Give me a report on abc".&#x20;
 </Note>
 
-* Type in your query, thinking of the type of thing you're trying to find (e.g. Companies, People, Research Papers, Articles, Reports, etc.)&#x20;
+- Type in your query, thinking of the type of thing you're trying to find (e.g. Companies, People, Research Papers, Articles, Reports, etc.)&#x20;
 
-* Describing in detail the type of results you'd like. Common descriptors include location, size, theme, industry, qualifiers (e.g. have ISO certification, know rust), past experience etc.
+- Describing in detail the type of results you'd like. Common descriptors include location, size, theme, industry, qualifiers (e.g. have ISO certification, know rust), past experience etc.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rkXVtvVkqGs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" />
 
@@ -11586,6 +11813,7 @@ Lists all imports for the Webset.
 **URL:** llms-txt#get-started
 
 **Contents:**
+
 - 1. Sign up
 - 2. Get started
 - 3. Inside your Webset
@@ -11653,13 +11881,13 @@ You can manually delete results, to clean up your Webset before exporting it.
 
 1. **Add enrichments:** You can create custom enrichment columns, asking for any information you want. Think contact information (email & phone number), revenue, employee count, sentiment analysis, summary of the paper, etc. Fill in:
 
-* The name of the column (e.g. 'Revenue')
+- The name of the column (e.g. 'Revenue')
 
-* The column type (e.g. 'Number')
+- The column type (e.g. 'Number')
 
-* Instructions for Websets to find the data (e.g. 'Find the annual revenue of the company')
+- Instructions for Websets to find the data (e.g. 'Find the annual revenue of the company')
 
-* Or click "fill in for me" for the instructions to be generated automatically by our agent
+- Or click "fill in for me" for the instructions to be generated automatically by our agent
 
 ## 6. Share and export your Webset
 
@@ -11676,6 +11904,7 @@ If you click on the sidebar icon in the top left, you'll see your full history w
 **URL:** llms-txt#openai-sdk-compatibility
 
 **Contents:**
+
 - Overview
 - Answer
 - Research
@@ -11694,7 +11923,7 @@ Exa provides OpenAI-compatible endpoints that work seamlessly with the OpenAI SD
 | `/responses`        | Responses API        | `exa-research`, `exa-research-pro`        | Modern, simplified interface |
 
 Exa will parse through your messages and send only the last message to `/answer`
-  or `/research`.
+or `/research`.
 </Info>
 
 To use Exa's `/answer` endpoint via the chat completions interface:
@@ -11739,16 +11968,19 @@ The wrapper supports any parameters from the `exa.search()` function.
 **Examples:**
 
 Example 1 (unknown):
+
 ```unknown
 
 ```
 
 Example 2 (unknown):
+
 ```unknown
 
 ```
 
 Example 3 (unknown):
+
 ```unknown
 </CodeGroup>
 
@@ -11770,6 +12002,7 @@ To use Exa's research models via the chat completions interface:
 ```
 
 Example 4 (unknown):
+
 ```unknown
 
 ```

@@ -35,6 +35,7 @@ You are receiving this PRD for the **AI-Powered Social Media Agent Team** system
    - Rationale: De-risk greenfield Notion work early, documentation enables all other work
 
 **Key Context:**
+
 - Target timeline: 10-15 days for MVP
 - Budget: <$50/month for 30+ posts
 - Platform: Claude Code (desktop IDE, not web app)
@@ -42,6 +43,7 @@ You are receiving this PRD for the **AI-Powered Social Media Agent Team** system
 - Extensibility is core value: System must support organic growth beyond 3 current agents
 
 **Documents to reference:**
+
 - Project Brief: docs/brief.md
 - This PRD: docs/prd.md
 - Notion schema: docs/notion-content-dashboard.md
@@ -90,6 +92,7 @@ This PRD defines a modular, extensible AI-powered social media agent team built 
 - **Flexible Routing:** Not rigid Jarvis→Zoe→Zoro pipeline, but dynamic (text-only skips Zoe, standalone visuals skip Jarvis)
 
 **Quality Gates:**
+
 - Research: ≥3 credible sources with reliability scores
 - Content: Voice confidence ≥8/10 validated by voice-matcher skill
 - Images: 7-pillar framework ≥7/10 required for publication

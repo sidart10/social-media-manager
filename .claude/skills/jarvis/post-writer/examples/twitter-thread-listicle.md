@@ -3,9 +3,11 @@
 **Generated using post-writer skill with listicle thread type**
 
 ## Topic
+
 "5 AI tools that save 10 hours/week"
 
 ## Thread Type
+
 Listicle (7 tweets)
 
 ---
@@ -77,12 +79,14 @@ Liked this? RT tweet 1 to help others save time.
 ## Why This Works
 
 **Thread Structure**:
+
 - Tweet 1: Hook with curiosity ("Most people don't know about #4")
 - Tweet 2: Stakes (tested 47 tools, only 5 worth it)
 - Tweets 3-7: One tool per tweet with specific value
 - Tweet 7: Clear CTA (follow + RT)
 
 **Engagement Tactics**:
+
 - Specific numbers ("10+ hours", "47 tools tested")
 - Curiosity gap (#4 teaser)
 - One idea per tweet (scannable)
@@ -90,6 +94,7 @@ Liked this? RT tweet 1 to help others save time.
 - Personality ("criminally underrated", "PowerPoint hell")
 
 **Performance indicators**:
+
 - <250 chars per tweet ✓
 - 7 tweets (optimal length) ✓
 - Visual breaks suggested (screenshots of tools)

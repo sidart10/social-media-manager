@@ -4,6 +4,39 @@
 <critical>Load {project-root}/bmad/core/tasks/workflow.xml engine first</critical>
 <critical>Load workflow.yaml from bmad/agents/content-intelligence/jarvis-sidecar/workflows/research-topic/</critical>
 
+<step n="0" goal="Create project folder structure">
+  <action>Generate project ID:
+    DATE=$(date +"%Y-%m-%d")
+    TOPIC_SLUG=$(echo "{topic}" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g' | sed 's/[^a-z0-9-]//g')
+    PROJECT_ID="$DATE-$TOPIC_SLUG"
+    PROJECT_PATH="outputs/projects/$PROJECT_ID"
+  </action>
+
+<action>Create complete 6-stage structure:
+mkdir -p "$PROJECT_PATH"/{00-session,01-research,02-ideas,03-drafts,04-media,05-published,handoffs}
+    mkdir -p "$PROJECT_PATH"/03-drafts/{linkedin,twitter,youtube,instagram,tiktok,substack,facebook}
+mkdir -p "$PROJECT_PATH"/04-media/{images,videos}
+    mkdir -p "$PROJECT_PATH"/05-published/{linkedin,twitter,youtube,instagram,tiktok,substack,facebook}
+</action>
+
+<action>Create session metadata:
+cat > "$PROJECT_PATH/00-session/metadata.json" << 'EOF'
+{
+  "project_id": "$PROJECT_ID",
+"topic": "{topic}",
+"depth": "{depth}",
+"created_at": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
+"agent": "jarvis",
+"workflow": "research-topic"
+}
+EOF
+</action>
+
+<action>Store PROJECT_PATH as environment variable for all subsequent steps</action>
+
+<template-output>project_folder_created</template-output>
+</step>
+
 <step n="1" goal="Initialize research session">
   <action>Display to user:
     🔍 Research Session Started
@@ -13,9 +46,10 @@
     Focus: {focus_areas}
 
     Using: Exa (deep research), social-media-mcp (trending topics only), apify (profile analysis if needed)
+
   </action>
 
-  <template-output>session_initialized</template-output>
+<template-output>session_initialized</template-output>
 </step>
 
 <step n="2" goal="Gather trending signals (Working Tool)">
@@ -24,13 +58,13 @@
     <!-- Uses social-media-mcp/get_trending_topics - WORKS -->
   </check>
 
-  <template-output>trends_gathered</template-output>
+<template-output>trends_gathered</template-output>
 </step>
 
 <step n="3" goal="Deep web research using deep-web-research skill">
   <action>Load and follow {project-root}/.claude/skills/jarvis/deep-web-research/SKILL.md</action>
 
-  <action>**Execute research per skill instructions:**
+<action>**Execute research per skill instructions:**
 
     **Parameters to provide**:
     - Topic: {topic}
@@ -50,23 +84,18 @@
     - Source quality assessment
     - Data extraction patterns
     - Synthesis methods
+
   </action>
 
-  <action>**Expected research output** (per skill specification):
-    - Key insights with source URLs
-    - Data & statistics with citations
-    - Expert quotes with attribution
-    - Case studies and examples
-    - Source quality scores (high/medium/low)
-    - Cost tracking
-  </action>
+<action>**Expected research output** (per skill specification): - Key insights with source URLs - Data & statistics with citations - Expert quotes with attribution - Case studies and examples - Source quality scores (high/medium/low) - Cost tracking
+</action>
 
-  <note>Skills-first model: Load deep-web-research/SKILL.md as expert knowledge.
-    The skill contains complete instructions for intelligent research orchestration.
-    This workflow provides parameters; skill determines execution strategy.
-  </note>
+<note>Skills-first model: Load deep-web-research/SKILL.md as expert knowledge.
+The skill contains complete instructions for intelligent research orchestration.
+This workflow provides parameters; skill determines execution strategy.
+</note>
 
-  <template-output>web_research_complete</template-output>
+<template-output>web_research_complete</template-output>
 </step>
 
 <step n="4" goal="Find real-world examples (If videos provided)">
@@ -87,15 +116,16 @@
     <check if="user skips YouTube">
       <action>Continue without YouTube examples. Focus on web research findings.</action>
     </check>
+
   </check>
 
-  <template-output>examples_gathered</template-output>
+<template-output>examples_gathered</template-output>
 </step>
 
 <step n="5" goal="Synthesize findings using research-synthesizer skill">
   <action>Load and follow {project-root}/.claude/skills/jarvis/research-synthesizer/SKILL.md</action>
 
-  <action>**Synthesize research per skill instructions:**
+<action>**Synthesize research per skill instructions:**
 
     **Input data**:
     - Deep web research results (from step 3)
@@ -114,60 +144,47 @@
     - Sources organized by quality (high/medium/low)
     - Duplicates removed
     - Related findings grouped
+
   </action>
 
-  <note>Skills-first model: research-synthesizer/SKILL.md contains complete instructions
-    for organizing multi-source research into structured output format.
-  </note>
+<note>Skills-first model: research-synthesizer/SKILL.md contains complete instructions
+for organizing multi-source research into structured output format.
+</note>
 
-  <template-output>findings_organized</template-output>
+<template-output>findings_organized</template-output>
 </step>
 
 <step n="6" goal="Generate content angles">
   <action>Based on all research, generate 10-12 ways to approach {topic}:</action>
 
-  <action>Consider these angle types:
-    1. Tutorial: "How to [topic]"
-    2. Beginner: "[Topic] explained simply"
-    3. Advanced: "Deep dive: [subtopic]"
-    4. Teardown: "Breaking down [example]"
-    5. Comparison: "[A] vs [B]"
-    6. Data: "X stats about [topic]"
-    7. Opinion: "Why [hot take]"
-    8. Controversy: "The [topic] debate"
-    9. Prediction: "Future of [topic]"
-    10. Story: "When I tried [topic]"
-    11. Mistakes: "X common mistakes"
-    12. Trend: "Why everyone's talking about [topic]"
-  </action>
+<action>Consider these angle types: 1. Tutorial: "How to [topic]" 2. Beginner: "[Topic] explained simply" 3. Advanced: "Deep dive: [subtopic]" 4. Teardown: "Breaking down [example]" 5. Comparison: "[A] vs [B]" 6. Data: "X stats about [topic]" 7. Opinion: "Why [hot take]" 8. Controversy: "The [topic] debate" 9. Prediction: "Future of [topic]" 10. Story: "When I tried [topic]" 11. Mistakes: "X common mistakes" 12. Trend: "Why everyone's talking about [topic]"
+</action>
 
-  <action>For each angle provide:
-    - Title (specific, compelling)
-    - Description (1-2 sentences)
-    - Best platform (YouTube/LinkedIn/Twitter/Reels)
-    - Target audience (beginner/intermediate/advanced)
-    - Supporting research (which findings back this)
-    - Confidence score
-  </action>
+<action>For each angle provide: - Title (specific, compelling) - Description (1-2 sentences) - Best platform (YouTube/LinkedIn/Twitter/Reels) - Target audience (beginner/intermediate/advanced) - Supporting research (which findings back this) - Confidence score
+</action>
 
-  <template-output>content_angles</template-output>
+<template-output>content_angles</template-output>
 </step>
 
 <step n="7" goal="Create and save research brief">
   <action>Load template: bmad/agents/content-intelligence/jarvis-sidecar/workflows/research-topic/templates/research-brief.md</action>
 
-  <action>Fill template with all gathered data:
-    - Topic, depth, source count
-    - Executive summary (3-5 key takeaways)
-    - All 5 finding categories
-    - 10-12 content angles
-    - Complete evidence log
-    - Overall confidence score
+<action>Fill template with all gathered data: - Topic, depth, source count - Executive summary (3-5 key takeaways) - All 5 finding categories - 10-12 content angles - Complete evidence log - Overall confidence score
+</action>
+
+<action>Save complete research brief to: $PROJECT_PATH/01-research/research-brief.md
+
+Include:
+
+- Topic and depth level
+- Research sources with URLs
+- Key findings organized by 5 categories
+- Content angles (10+)
+- Cost breakdown
+- Timestamps
   </action>
 
-  <action>Save to: bmad/agents/content-intelligence/jarvis-sidecar/sessions/research-{topic}-{date}.md</action>
-
-  <template-output>brief_saved</template-output>
+<template-output>brief_saved</template-output>
 </step>
 
 <step n="8" goal="Present results">
@@ -201,18 +218,19 @@
     - Pick content angle(s) that resonate
     - Use /generate-ideas to develop into Idea Cards
     - Use /write-posts or /write-scripts to create content
+
   </action>
 
-  <template-output>workflow_complete</template-output>
+<template-output>workflow_complete</template-output>
 </step>
 
 <step n="8.5" goal="Update Notion Status (Epic 2 Story 5.2)">
   <action>Load {project-root}/.bmad-core/modules/notion-updates.md</action>
 
-  <action>**Update Notion Content Tracker status:**
+<action>**Update Notion Content Tracker status:**
 
     **Step 1: Load project metadata**
-    - Read: outputs/{date}/{session}/metadata.json (or outputs/projects/{YYYY-MM-DD}-{slug}/00-session/metadata.json if new structure)
+    - Read: $PROJECT_PATH/00-session/metadata.json (v2.0 structure)
     - Extract: notion_page_url from metadata.notion.page_url
 
     **Step 2: Check if Notion page linked**
@@ -241,9 +259,10 @@
     - Notion API timeout: Log error, continue workflow
     - Invalid transition: Log warning (e.g., already at "Research" status)
     - Network failure: Graceful degradation, local outputs unaffected
+
   </action>
 
-  <template-output>notion_updated</template-output>
+<template-output>notion_updated</template-output>
 </step>
 
 </workflow>

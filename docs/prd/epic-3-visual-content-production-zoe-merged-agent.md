@@ -72,6 +72,7 @@ so that I get publication-ready visuals in 30-60 seconds instead of 15-30 minute
 15. Execution time: 30-60 seconds including quality evaluation
 
 **Mermaid Diagram:**
+
 ```mermaid
 graph TD
     A[User: prompt + design choice] --> B{Design choice?}
@@ -219,6 +220,7 @@ so that I create engaging explainer content showing processes step-by-step.
 11. Execution time: 2-4 minutes (60-180s generation + 30s setup)
 
 **Mermaid Diagram:**
+
 ```mermaid
 graph TD
     A[User: diagram image + animation style] --> B[veotools-mastery skill:<br/>Select optimal model]
@@ -315,11 +317,11 @@ so that I create presenter-style content without recording myself.
    - Provides list of available HeyGen voices
    - User selects voice_id matching desired tone
 5. **Step 3 (Generate via HeyGen MCP):**
-   - Calls mcp__heygen__generate_avatar_video with: avatar_id, input_text (script), voice_id
+   - Calls mcp**heygen**generate_avatar_video with: avatar_id, input_text (script), voice_id
    - Returns video_id for status checking
 6. **Step 4 (Poll for Completion):**
    - HeyGen videos take 2-5 minutes to generate
-   - Polls mcp__heygen__get_avatar_video_status every 30 seconds
+   - Polls mcp**heygen**get_avatar_video_status every 30 seconds
    - Shows progress to user ("Generating... 45% complete")
 7. **Step 5 (Download & Optimize):**
    - Downloads completed video

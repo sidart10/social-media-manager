@@ -105,12 +105,15 @@
 ## Issues Found During Validation
 
 ### Critical Issues (Must Fix)
+
 <!-- List any blocking issues found -->
 
 ### Warnings (Should Address)
+
 <!-- List any non-blocking concerns -->
 
 ### Recommendations
+
 <!-- List any improvement suggestions -->
 
 ---

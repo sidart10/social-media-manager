@@ -116,6 +116,7 @@ so that I continuously optimize cost/quality without breaking workflows or requi
 **Acceptance Criteria:**
 
 1. Create `.bmad-core/data/tool-registry.yaml` with complete tool inventory and performance tracking:
+
    ```yaml
    tools:
      apify_actors:
@@ -125,7 +126,7 @@ so that I continuously optimize cost/quality without breaking workflows or requi
          used_by_workflows: [learn-voice, analyze-profile]
          current_since: 2025-10-31
          cost_per_use: $0.02-0.04
-         typical_usage: "100 tweets per execution"
+         typical_usage: '100 tweets per execution'
          success_rate: 95%
          quality_score: 8.5/10
          avg_runtime: 30-45 seconds
@@ -134,9 +135,9 @@ so that I continuously optimize cost/quality without breaking workflows or requi
              cost_per_use: $0.01
              success_rate: 88%
              quality_score: 7.5/10
-             decision: "Keep current - reliability more important than 50% cost savings"
+             decision: 'Keep current - reliability more important than 50% cost savings'
          next_review_date: 2025-12-31
-         notes: "Proven reliable across 50+ executions, consistent data quality"
+         notes: 'Proven reliable across 50+ executions, consistent data quality'
 
      image_models:
        - name: nanobanana (Gemini 2.5 Flash)
@@ -152,9 +153,9 @@ so that I continuously optimize cost/quality without breaking workflows or requi
            - name: gpt-image-1 (DALL-E 3)
              cost_per_image: $0.04-0.08
              quality_score: 9.5/10
-             decision: "Use both - nanobanana for volume, gpt-image-1 for professional"
+             decision: 'Use both - nanobanana for volume, gpt-image-1 for professional'
          next_review_date: 2025-11-30
-         notes: "Monitor new models: Imagen 4, FLUX Kontext Pro, Midjourney API if released"
+         notes: 'Monitor new models: Imagen 4, FLUX Kontext Pro, Midjourney API if released'
    ```
 
 2. **Monthly tool review process:**
@@ -174,15 +175,16 @@ so that I continuously optimize cost/quality without breaking workflows or requi
    - Step 6: Update tool-registry.yaml with change log
 
 4. **Changelog tracking in tool-registry.yaml:**
+
    ```yaml
    changelog:
      - date: 2025-12-15
        tool: scraper_one/x-profile-posts-scraper
-       change: "Switched from apify/twitter-scraper to scraper_one"
-       reason: "Original actor deprecated by Apify, scraper_one more reliable (95% vs 78% success)"
+       change: 'Switched from apify/twitter-scraper to scraper_one'
+       reason: 'Original actor deprecated by Apify, scraper_one more reliable (95% vs 78% success)'
        affected_skills: [profile-analysis, deep-web-research]
        affected_workflows: [learn-voice, analyze-profile]
-       validation: "Tested with 10 profiles, success rate 95%, quality maintained"
+       validation: 'Tested with 10 profiles, success rate 95%, quality maintained'
    ```
 
 5. **Performance metrics tracked per tool usage:**
@@ -218,57 +220,58 @@ so that I can understand what workflows exist, which skills they trigger, and ho
 **Acceptance Criteria:**
 
 1. Create `.bmad-core/data/workflow-registry.yaml` with comprehensive workflow inventory:
+
    ```yaml
    workflows:
      research-topic:
        agent_owner: jarvis
        file_path: bmad/agents/content-intelligence/jarvis-sidecar/workflows/research-topic/
-       purpose: "Deep research on any topic with intelligent tool routing based on depth parameter"
+       purpose: 'Deep research on any topic with intelligent tool routing based on depth parameter'
        skills_triggered:
          - deep-web-research: "Triggered by step context 'research {topic} with depth={depth}'"
          - research-synthesizer: "Triggered by step context 'synthesize findings into 5 categories'"
-         - youtube-research: "Conditionally triggered if focus_areas includes YouTube"
+         - youtube-research: 'Conditionally triggered if focus_areas includes YouTube'
        tools_used: [Exa, WebSearch, Firecrawl, Apify]
        inputs:
-         - topic: "Research topic (string, required)"
-         - depth: "quick/standard/comprehensive/exhaustive (string, default: standard)"
-         - focus_areas: "Optional focus areas (array of strings)"
+         - topic: 'Research topic (string, required)'
+         - depth: 'quick/standard/comprehensive/exhaustive (string, default: standard)'
+         - focus_areas: 'Optional focus areas (array of strings)'
        outputs:
-         - research_brief: "outputs/{date}/{session}/research/{topic-slug}.md"
-         - content_angles: "10-12 specific angles embedded in brief"
+         - research_brief: 'outputs/{date}/{session}/research/{topic-slug}.md'
+         - content_angles: '10-12 specific angles embedded in brief'
        notion_updates:
-         - status: "Idea→Research"
-         - properties: "Adds research brief URL to Notes relation"
-       cost_range: "$0 (quick) to $0.50+ (exhaustive)"
-       avg_duration: "2-5 minutes"
+         - status: 'Idea→Research'
+         - properties: 'Adds research brief URL to Notes relation'
+       cost_range: '$0 (quick) to $0.50+ (exhaustive)'
+       avg_duration: '2-5 minutes'
        success_rate: 98%
-       example_use_case: "User wants data-backed research before creating content on trending AI topic"
-       dependencies: "Requires Exa MCP configured, Apify optional for exhaustive depth"
+       example_use_case: 'User wants data-backed research before creating content on trending AI topic'
+       dependencies: 'Requires Exa MCP configured, Apify optional for exhaustive depth'
 
      write-post:
        agent_owner: jarvis
        file_path: bmad/agents/content-intelligence/jarvis-sidecar/workflows/write-post/
-       purpose: "Generate platform-optimized social media posts with voice matching and quality validation"
+       purpose: 'Generate platform-optimized social media posts with voice matching and quality validation'
        skills_triggered:
          - post-writer: "Triggered by 'generate {platform} post about {topic}'"
          - voice-matcher: "Triggered by 'validate voice consistency against profile'"
          - platform-formatter: "Triggered by 'format for {platform} specifications'"
-       tools_used: []  # Pure Claude generation, no external tools
+       tools_used: [] # Pure Claude generation, no external tools
        inputs:
-         - topic: "Post topic or idea card reference"
-         - platform: "LinkedIn/Twitter/Substack"
-         - style: "Optional formula override (PAIPS/Top5/Thread)"
+         - topic: 'Post topic or idea card reference'
+         - platform: 'LinkedIn/Twitter/Substack'
+         - style: 'Optional formula override (PAIPS/Top5/Thread)'
        outputs:
-         - post_file: "outputs/{date}/{session}/posts/{platform}-{topic}.md"
-         - metadata: "Voice confidence score, word count, platform specs"
+         - post_file: 'outputs/{date}/{session}/posts/{platform}-{topic}.md'
+         - metadata: 'Voice confidence score, word count, platform specs'
        notion_updates:
-         - status: "Research→Writing→Editing"
-         - properties: "Saves post to Content Text, sets Publish Date estimate"
-       cost_range: "$0"
-       avg_duration: "1-3 minutes"
+         - status: 'Research→Writing→Editing'
+         - properties: 'Saves post to Content Text, sets Publish Date estimate'
+       cost_range: '$0'
+       avg_duration: '1-3 minutes'
        success_rate: 92%
-       example_use_case: "User has idea card from generate-ideas, wants LinkedIn post in their voice"
-       dependencies: "Requires voice profile in memories.md (run learn-voice first)"
+       example_use_case: 'User has idea card from generate-ideas, wants LinkedIn post in their voice'
+       dependencies: 'Requires voice profile in memories.md (run learn-voice first)'
    ```
 
 2. **Registry maintenance:**
@@ -310,6 +313,7 @@ so that I can find any artifact (research, drafts, media, published content) qui
 **Acceptance Criteria:**
 
 1. **Create template structure:** `outputs/templates/project-structure/` ✅ **CREATED**
+
    ```
    project-structure/
    ├── 00-session/
@@ -338,6 +342,7 @@ so that I can find any artifact (research, drafts, media, published content) qui
    │   └── facebook/
    └── handoffs/
    ```
+
    **Total Stages:** 6 (00-session through 05-published), not 7
    **Key Design:** Media in 04 is platform-agnostic (one thumbnail used for LinkedIn AND Twitter), drafts/published are platform-specific
 
@@ -365,6 +370,7 @@ so that I can find any artifact (research, drafts, media, published content) qui
      - Confirmation saves to: `{project}/05-published/{platform}/publish-confirmation.json` (IDs, timestamps)
 
 4. **Implement project slug generation logic:**
+
    ```python
    def generate_project_slug(notion_page_title=None, user_prompt=None):
        # Priority: Use Notion page title if available
@@ -415,6 +421,7 @@ so that I can find any artifact (research, drafts, media, published content) qui
 
 8. **Session log tracking with platform context:**
    - Append to `00-session/session-log.md` at each major step:
+
      ```markdown
      ## Session: 2025-11-05 - Multi-Platform AI Agents Post
 
@@ -437,22 +444,22 @@ so that I can find any artifact (research, drafts, media, published content) qui
      **14:28:45** - Session complete. Total cost: $0.23, Total time: 14 minutes, Platforms: 2
      ```
 
-8. **Bidirectional Notion linking:**
+9. **Bidirectional Notion linking:**
    - Local metadata.json includes: `"notion_page_url": "https://notion.so/..."`
    - Notion page includes property: `local_files_path` = "outputs/projects/2025-11-05-linkedin-post-ai-agents"
    - Enables: Click Notion link → opens local folder, Read metadata.json → get Notion page URL
 
-9. **Archive strategy:**
-   - Projects >90 days old moved to: `outputs/archive/YYYY-MM/`
-   - Organized by month for manageable archival
-   - Metadata.json includes `archived: true` flag
+10. **Archive strategy:**
+    - Projects >90 days old moved to: `outputs/archive/YYYY-MM/`
+    - Organized by month for manageable archival
+    - Metadata.json includes `archived: true` flag
 
-10. **Migration of existing outputs/{date}/ folders:**
+11. **Migration of existing outputs/{date}/ folders:**
     - Optional: Can migrate existing 10-28 through 11-05 folders
     - Or: Leave as legacy, new projects use new structure (recommended for MVP)
     - Future: Write migration script if needed
 
-11. **Multi-platform publishing workflow:**
+12. **Multi-platform publishing workflow:**
     - **Scenario:** Single research → LinkedIn post + Twitter thread + YouTube Short
     - **Process:**
       1. Jarvis research-topic → Saves to 01-research/research-brief.md
@@ -468,14 +475,14 @@ so that I can find any artifact (research, drafts, media, published content) qui
          - Saves url.md to each platform folder after Postiz publishes
     - **Result:** ONE research, ONE thumbnail, ONE video → THREE platform publications efficiently organized
 
-12. **Validation rules:**
+13. **Validation rules:**
     - Project slug must match: `^[a-z0-9-]{1,50}$` (lowercase, hyphens only, max 50 chars)
     - All 6 lifecycle stage folders present (00-session through 05-published) even if empty
     - All 7 platform subfolders present in 03-drafts/ and 05-published/ (linkedin, twitter, youtube, instagram, tiktok, substack, facebook)
     - metadata.json validates against schema with platform-specific file_inventory
     - All file names lowercase kebab-case with descriptive (not platform-specific) media names
 
-13. Estimated effort: 2-3 days to create template + update all workflows + test multi-platform scenarios
-14. Success criteria: 100% of new projects use standardized structure, zero orphaned files, all Notion pages linked to local folders, media reuse works across platforms (verified by metadata.json tracking)
+14. Estimated effort: 2-3 days to create template + update all workflows + test multi-platform scenarios
+15. Success criteria: 100% of new projects use standardized structure, zero orphaned files, all Notion pages linked to local folders, media reuse works across platforms (verified by metadata.json tracking)
 
 ---

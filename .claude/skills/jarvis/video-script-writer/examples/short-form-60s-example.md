@@ -14,6 +14,7 @@
 "These 3 AI tools saved me 15 hours this week."
 
 **VISUAL**:
+
 - Shot: Direct to camera, close-up
 - Text Overlay: "SAVED 15 HOURS" (LARGE, bold, yellow text, center screen)
 - Opening: You enter frame with confident energy
@@ -29,6 +30,7 @@ Number 1: Notion AI for cleaning up messy notes.
 Record your thoughts, and it structures everything automatically. I use this after every brainstorm session.
 
 **VISUAL**:
+
 - Shot: Screen recording of Notion AI
 - Text Overlay: "1. NOTION AI" (top of screen)
 - Show: Messy notes → AI → Clean structured output
@@ -44,6 +46,7 @@ Number 2: Descript for editing videos like you're editing a doc.
 Delete words from the transcript, and the video edits itself. This cut my editing time in half.
 
 **VISUAL**:
+
 - Shot: Screen recording of Descript
 - Text Overlay: "2. DESCRIPT" (top of screen)
 - Show: Transcript editing → Video changing
@@ -59,6 +62,7 @@ Number 3: Claude for synthesizing research.
 Better than ChatGPT at connecting ideas and building frameworks. I use it before writing any script.
 
 **VISUAL**:
+
 - Shot: Split screen - ChatGPT vs Claude outputs
 - Text Overlay: "3. CLAUDE AI" (top of screen)
 - Show: Quality difference highlighted
@@ -74,6 +78,7 @@ Put these together, and you're saving minimum 10-15 hours every week.
 I've been using this system for 3 months. It works.
 
 **VISUAL**:
+
 - Shot: You talking to camera
 - Text Overlay: "10-15 HOURS SAVED" (center, large)
 - Confident, proven delivery
@@ -87,6 +92,7 @@ I've been using this system for 3 months. It works.
 Follow for more AI productivity tools that actually work.
 
 **VISUAL**:
+
 - Shot: You pointing toward follow button
 - OR Large text: "FOLLOW @{handle}"
 - Friendly smile, hand gesture
@@ -106,6 +112,7 @@ Follow for more AI productivity tools that actually work.
 **Estimated Cuts**: 15-18 cuts (every 3-4 seconds)
 
 **Text Overlays**: 7 total
+
 - "SAVED 15 HOURS" (0:00-0:03)
 - "1. NOTION AI" (0:03-0:14)
 - "2. DESCRIPT" (0:14-0:28)
@@ -150,16 +157,19 @@ Claude - Better research synthesis than ChatGPT
 ## PLATFORM-SPECIFIC NOTES
 
 **Instagram Reels**:
+
 - Post time: 12pm or 7pm
 - Share to Feed: Yes
 - Cover: First frame (you + "SAVED 15 HOURS" text)
 
 **TikTok**:
+
 - Trending sound: Optional but recommended (use trending productivity/tech sound)
 - Duets: Enable
 - Best times: 7-9am, 7-9pm
 
 **YouTube Shorts**:
+
 - Link to full video about AI tools (if exists)
 - Playlist: Add to "AI Tools" playlist
 
@@ -168,10 +178,12 @@ Claude - Better research synthesis than ChatGPT
 ## HASHTAG STRATEGY
 
 **Broad Reach** (2):
+
 - #AItools (3.2M posts)
 - #productivity (45M posts)
 
 **Niche Targeted** (3):
+
 - #NotionAI (85K posts)
 - #Descript (12K posts)
 - #ClaudeAI (8K posts)
@@ -183,11 +195,13 @@ Claude - Better research synthesis than ChatGPT
 ## PRODUCTION TIPS
 
 **Camera Work**:
+
 - Primary: Talking head (40%)
 - Screen recordings (50%)
 - Transition shots (10%)
 
 **Editing**:
+
 - Hard cuts: 90% (keeps energy high)
 - Quick zoom transitions: 10% (emphasizes key moments)
 - NO slow fades

@@ -1,0 +1,442 @@
+{
+  "handoff_id": "jarvis-to-zoe-2025-11-02-16-58",
+  "source_agent": "jarvis",
+  "target_agent": "zoe",
+  "content_type": "visual_request",
+  "suggested_command": "/zoe → Select appropriate workflow based on diagram complexity",
+  "project_context": {
+    "project_id": "2025-11-02-agent-skills-research",
+    "topic": "Agent Skills Architecture Twitter Thread",
+    "content_file": "03-drafts/twitter/thread-agent-skills-architecture-v2.md",
+    "research_brief": "01-research/research-brief.md"
+  },
+  "visual_requirements": {
+    "total_diagrams_needed": 6,
+    "priority_breakdown": {
+      "must_have": 2,
+      "should_have": 2,
+      "nice_to_have": 2
+    },
+    "anthropic_diagrams_available": 6,
+    "custom_diagrams_needed": 6
+  },
+  "diagrams": [
+    {
+      "diagram_id": "custom-01-token-comparison",
+      "priority": "MUST-HAVE",
+      "for_tweet": 4,
+      "tweet_text": "Tier 2: Full instructions... Tier 3: Additional resources... ~100 tokens vs 2000 tokens",
+      "diagram_type": "side-by-side comparison",
+      "concept": "Visual efficiency comparison showing token savings",
+      "layout": {
+        "format": "two-column split",
+        "left_column": {
+          "title": "OLD APPROACH",
+          "subtitle": "System Prompt Every Call",
+          "main_stat": "2000 tokens",
+          "visual_indicator": "❌ Bloated",
+          "description": "Full context every request"
+        },
+        "right_column": {
+          "title": "WITH SKILLS",
+          "subtitle": "Metadata At Startup",
+          "main_stat": "~100 tokens",
+          "visual_indicator": "✅ Efficient",
+          "description": "Load on-demand only when needed"
+        },
+        "bottom_banner": "SAVINGS: 95% reduction in repetitive context"
+      },
+      "style_specs": {
+        "background": "#0E0E0E",
+        "text_primary": "#FFFFFF",
+        "text_secondary": "#E5E5E5",
+        "accent_old": "#FF4444 or dark red tint",
+        "accent_new": "#4CAF50 or green tint",
+        "accent_highlight": "#D4A27F",
+        "typography": "Clean sans-serif (Inter or SF Pro)",
+        "visual_weight": "Left side heavier/darker, right side lighter/cleaner"
+      },
+      "dimensions": {
+        "aspect_ratio": "16:9",
+        "width": 1200,
+        "height": 675,
+        "mobile_readable": true
+      },
+      "additional_notes": "Big contrast between old vs new. Numbers should be the hero elements. Visual metaphor: bloated vs lean."
+    },
+    {
+      "diagram_id": "custom-02-comparison-table",
+      "priority": "MUST-HAVE",
+      "for_tweet": 5,
+      "tweet_text": "What sets Agent Skills apart: RAG retrieves facts. Skills encode procedures. Fine-tuning locks behavior...",
+      "diagram_type": "comparison matrix/table",
+      "concept": "4-way comparison of AI customization approaches",
+      "table_structure": {
+        "columns": ["", "SKILLS", "RAG", "FINE-TUNING", "PROMPTS"],
+        "rows": [
+          {
+            "label": "Knowledge Type",
+            "skills": "Procedures (how to)",
+            "rag": "Facts (what is true)",
+            "fine_tuning": "Behavior (patterns)",
+            "prompts": "Tone (guidelines)"
+          },
+          {
+            "label": "Update Speed",
+            "skills": "Instant (edit file)",
+            "rag": "Instant (update index)",
+            "fine_tuning": "Weeks (retrain)",
+            "prompts": "Instant (edit)"
+          },
+          {
+            "label": "Capacity",
+            "skills": "Unbounded (filesystem)",
+            "rag": "Limited (vector DB)",
+            "fine_tuning": "Fixed (weights)",
+            "prompts": "Limited (context)"
+          },
+          {
+            "label": "Composable",
+            "skills": "✅",
+            "rag": "⚠️",
+            "fine_tuning": "❌",
+            "prompts": "❌"
+          }
+        ]
+      },
+      "style_specs": {
+        "background": "#0E0E0E",
+        "grid_color": "#333333",
+        "text_headers": "#FFFFFF",
+        "text_body": "#E5E5E5",
+        "highlight_column": "SKILLS column slightly emphasized with orange accent",
+        "checkmarks": "✅ green, ⚠️ orange, ❌ red",
+        "typography": "Monospace for labels, sans-serif for content"
+      },
+      "dimensions": {
+        "aspect_ratio": "16:9 or 1:1",
+        "width": 1200,
+        "height": "675 or 1200",
+        "mobile_readable": true,
+        "note": "Text must be large enough to read on mobile"
+      },
+      "additional_notes": "This is the CORE educational graphic. Must be crystal clear. Consider making it 1:1 square for better mobile visibility."
+    },
+    {
+      "diagram_id": "custom-03-skills-mcp-relationship",
+      "priority": "SHOULD-HAVE",
+      "for_tweet": 6,
+      "tweet_text": "Agent Skills and MCP are complementary... MCP = External world, Skills = Internal knowledge",
+      "diagram_type": "relationship diagram (Venn or workflow)",
+      "concept": "Show how Skills and MCP work together, not compete",
+      "layout": {
+        "left_section": {
+          "title": "MCP",
+          "subtitle": "External World",
+          "items": ["GitHub", "Databases", "APIs", "External Tools"]
+        },
+        "right_section": {
+          "title": "SKILLS",
+          "subtitle": "Internal Knowledge",
+          "items": ["Procedures", "Workflows", "Best Practices", "How-Tos"]
+        },
+        "connection": {
+          "visual": "Arrows or lines showing they work together",
+          "label": "COMPLEMENTARY"
+        },
+        "example_box": {
+          "title": "WORKING TOGETHER",
+          "content": "MCP: Database access | Skills: Query optimization | Result: Efficient queries following your patterns"
+        }
+      },
+      "style_specs": {
+        "background": "#0E0E0E",
+        "section_boxes": "#1a1a1a with subtle border",
+        "text": "#FFFFFF",
+        "accent": "#D4A27F for connection lines",
+        "typography": "Clean, technical"
+      },
+      "dimensions": {
+        "aspect_ratio": "16:9",
+        "width": 1200,
+        "height": 675
+      },
+      "additional_notes": "Clear visual separation between MCP and Skills, then show connection. Example box makes it concrete."
+    },
+    {
+      "diagram_id": "custom-04-personal-skills-ecosystem",
+      "priority": "SHOULD-HAVE",
+      "for_tweet": 9,
+      "tweet_text": "I built 12 skills... deep-web-research, post-writer, voice-matcher (77 posts, 8/10 confidence)",
+      "diagram_type": "system architecture diagram",
+      "concept": "Show sid's actual 12-skill agent system",
+      "layout": {
+        "top": {
+          "title": "JARVIS AGENT",
+          "subtitle": "(12 Skills)"
+        },
+        "three_columns": {
+          "column_1": {
+            "title": "RESEARCH",
+            "skills": ["deep-web-research", "youtube-research", "profile-analysis", "social-media-research"]
+          },
+          "column_2": {
+            "title": "STRATEGY",
+            "skills": ["research-synthesizer", "evidence-tracker"]
+          },
+          "column_3": {
+            "title": "CREATION",
+            "skills": [
+              "post-writer",
+              "video-script-writer",
+              "voice-matcher (77 posts, 8/10)",
+              "platform-formatter",
+              "youtube-thumbnail-mastery",
+              "youtube-growth-mastery"
+            ]
+          }
+        },
+        "bottom": {
+          "text": "Result: Generic LLM → Domain Expert"
+        }
+      },
+      "style_specs": {
+        "background": "#0E0E0E",
+        "column_boxes": "#1a1a1a",
+        "text": "#FFFFFF",
+        "accent": "#D4A27F for connecting lines",
+        "highlight": "voice-matcher stats in orange",
+        "typography": "Monospace for skill names, clean hierarchy"
+      },
+      "dimensions": {
+        "aspect_ratio": "16:9",
+        "width": 1200,
+        "height": 675
+      },
+      "additional_notes": "Make it personal - these are sid's actual skills. Highlight voice-matcher stats (makes it credible). Clean hierarchy showing workflow."
+    },
+    {
+      "diagram_id": "custom-05-production-stats",
+      "priority": "NICE-TO-HAVE",
+      "for_tweet": 8,
+      "tweet_text": "Production numbers... ~100 tokens... 73% reduction... $7B → $26B",
+      "diagram_type": "data visualization / stat cards",
+      "concept": "Big number display highlighting key metrics",
+      "layout": {
+        "style": "Stacked stat cards or grid",
+        "stats": [
+          {
+            "main": "~100 tokens",
+            "vs": "vs 2000 tokens",
+            "label": "Metadata cost reduction"
+          },
+          {
+            "main": "73%",
+            "label": "Reduction in dev prompt engineering time"
+          },
+          {
+            "main": "80-95%",
+            "label": "Savings on repetitive context costs"
+          },
+          {
+            "main": "$7B → $26B",
+            "label": "Revenue trajectory (2025-2026)"
+          }
+        ]
+      },
+      "style_specs": {
+        "background": "#0E0E0E",
+        "stat_boxes": "#1a1a1a with subtle glow",
+        "numbers": "#FFFFFF (very large, bold)",
+        "labels": "#E5E5E5 (smaller, secondary)",
+        "accent": "#D4A27F for arrows or highlights",
+        "typography": "Bold numbers, clean labels"
+      },
+      "dimensions": {
+        "aspect_ratio": "1:1 (square for better mobile)",
+        "width": 1200,
+        "height": 1200
+      },
+      "additional_notes": "Numbers are the hero. Clean, minimal, high-impact. Could skip if time-constrained (data is in tweet text)."
+    },
+    {
+      "diagram_id": "custom-06-evolution-timeline",
+      "priority": "NICE-TO-HAVE",
+      "for_tweet": 11,
+      "tweet_text": "Phase 1: Raw prompts... Phase 2: MCP... Phase 3: Agent Skills... Next: Self-modifying",
+      "diagram_type": "timeline/roadmap",
+      "concept": "Evolution of AI agent architecture (past → present → future)",
+      "layout": {
+        "horizontal_timeline": true,
+        "phases": [
+          {
+            "number": "PHASE 1",
+            "period": "2020-2024",
+            "title": "Raw Prompts",
+            "description": "Artisanal, Fragile",
+            "visual_weight": "Faded (past)"
+          },
+          {
+            "number": "PHASE 2",
+            "period": "2024-2025",
+            "title": "MCP",
+            "description": "Tool Connectivity",
+            "visual_weight": "Normal"
+          },
+          {
+            "number": "PHASE 3",
+            "period": "2025-NOW",
+            "title": "Agent Skills",
+            "description": "Procedural Knowledge",
+            "visual_weight": "Highlighted (YOU ARE HERE marker)",
+            "marker": "◄─── YOU ARE HERE"
+          },
+          {
+            "number": "FUTURE",
+            "period": "2026+",
+            "title": "Self-Modifying Skills",
+            "description": "Autonomous Learning",
+            "visual_weight": "Slightly faded (speculative)"
+          }
+        ],
+        "arrow": "Left-to-right progression arrow connecting all phases"
+      },
+      "style_specs": {
+        "background": "#0E0E0E",
+        "phase_boxes": "#1a1a1a",
+        "text": "#FFFFFF",
+        "accent_current": "#D4A27F (Phase 3 highlighted)",
+        "accent_future": "#666666 (faded)",
+        "arrow": "#D4A27F gradient",
+        "typography": "Clean, timeline-appropriate"
+      },
+      "dimensions": {
+        "aspect_ratio": "16:9 (wide for timeline)",
+        "width": 1200,
+        "height": 675
+      },
+      "additional_notes": "Clear left-to-right progression. Phase 3 is the star (highlighted). Future faded to show it's speculative. Clean, forward-looking visual."
+    }
+  ],
+  "anthropic_diagrams_captured": [
+    {
+      "file": "01-skills-intro-banner.png",
+      "description": "Skills intro hero image - SKILL.md with custom guidance",
+      "use_for": "General reference or backup",
+      "file_size": "265KB"
+    },
+    {
+      "file": "02-skill-md-anatomy.png",
+      "description": "SKILL.md file anatomy showing YAML frontmatter structure",
+      "use_for": "Tweet 3 or technical explanation",
+      "file_size": "182KB"
+    },
+    {
+      "file": "03-bundle-additional-files.png",
+      "description": "How to bundle additional files (forms.md, reference.md)",
+      "use_for": "Technical deep-dive or backup",
+      "file_size": "395KB"
+    },
+    {
+      "file": "04-progressive-disclosure-tiers.png",
+      "description": "3-tier progressive disclosure architecture (THE KEY DIAGRAM)",
+      "use_for": "Tweet 3 - DEFINITELY USE THIS",
+      "file_size": "77KB",
+      "priority": "PRIMARY - This explains the core architecture"
+    },
+    {
+      "file": "05-context-window-trigger.png",
+      "description": "Context window sequence showing skill loading (4-step process)",
+      "use_for": "Tweet 4 alternative or technical explanation",
+      "file_size": "259KB"
+    },
+    {
+      "file": "06-code-execution-hybrid.png",
+      "description": "Skills + code execution hybrid intelligence",
+      "use_for": "Tweet 7 - Use this for hybrid execution explanation",
+      "file_size": "256KB",
+      "priority": "PRIMARY - Shows code + LLM combination"
+    }
+  ],
+  "recommended_approach": {
+    "option": "Hybrid (3-4 custom diagrams)",
+    "rationale": "Balance quality vs effort. Focus on must-haves + should-haves.",
+    "create_custom": [
+      "custom-01-token-comparison (Tweet 4)",
+      "custom-02-comparison-table (Tweet 5)",
+      "custom-03-skills-mcp-relationship (Tweet 6)",
+      "custom-04-personal-skills-ecosystem (Tweet 9)"
+    ],
+    "use_anthropic": ["04-progressive-disclosure-tiers.png (Tweet 3)", "06-code-execution-hybrid.png (Tweet 7)"],
+    "skip_for_now": ["custom-05-production-stats (data in text already)", "custom-06-evolution-timeline (nice but not essential)"],
+    "total_visuals_in_thread": "6 images across 11 tweets",
+    "estimated_time": "45-60 minutes for 4 custom diagrams"
+  },
+  "visual_flow_in_thread": {
+    "tweet_1": "Text only (hook)",
+    "tweet_2": "Text only (context)",
+    "tweet_3": "📸 Anthropic diagram (progressive disclosure)",
+    "tweet_4": "🎨 Custom (token comparison)",
+    "tweet_5": "🎨 Custom (comparison table)",
+    "tweet_6": "🎨 Custom (Skills + MCP)",
+    "tweet_7": "📸 Anthropic diagram (code execution)",
+    "tweet_8": "Text only (stats in text)",
+    "tweet_9": "🎨 Custom (sid's 12 skills)",
+    "tweet_10": "Text only",
+    "tweet_11": "Text only (strong text close)"
+  },
+  "brand_style_guidelines": {
+    "color_palette": {
+      "background": "#0E0E0E",
+      "background_secondary": "#1a1a1a",
+      "text_primary": "#FFFFFF",
+      "text_secondary": "#E5E5E5",
+      "accent_primary": "#D4A27F",
+      "accent_success": "#4CAF50",
+      "accent_warning": "#FF9800",
+      "accent_error": "#FF4444"
+    },
+    "typography": {
+      "primary_font": "Inter, SF Pro, or similar clean sans-serif",
+      "heading_weight": "Bold (700)",
+      "body_weight": "Regular (400)",
+      "code_font": "JetBrains Mono or similar monospace"
+    },
+    "design_principles": {
+      "aesthetic": "Dark tech minimalism",
+      "mood": "Professional, technical, authoritative",
+      "avoid": "Playful colors, decorative elements, consumer-y feel",
+      "emphasis": "Data-focused, clean, high-contrast",
+      "readability": "Must be readable on mobile (text not too small)"
+    },
+    "reference_style": "LinkedIn carousel dark aesthetic, developer documentation diagrams, technical architecture visuals"
+  },
+  "deliverables": {
+    "format": "PNG (high quality, web-optimized)",
+    "naming": "custom-{number}-{description}.png",
+    "save_location": "outputs/projects/2025-11-02-agent-skills-research/04-media/images/",
+    "include_source_files": false,
+    "optimization": "Optimize for web (under 500KB per image if possible)"
+  },
+  "context_from_jarvis": {
+    "research_complete": true,
+    "thread_written": true,
+    "voice_profile_applied": true,
+    "screenshots_captured": true,
+    "ready_for_visual_production": true
+  },
+  "next_steps_after_visuals": {
+    "step_1": "Zoe creates custom diagrams (4 graphics)",
+    "step_2": "Jarvis maps diagrams to specific tweets",
+    "step_3": "Create final thread document with image placements",
+    "step_4": "Handoff to Zoro for scheduling/publishing",
+    "step_5": "Track performance and engagement"
+  },
+  "success_criteria": {
+    "all_custom_diagrams_created": true,
+    "brand_style_matched": true,
+    "mobile_readable": true,
+    "file_sizes_optimized": true,
+    "saved_to_correct_location": true
+  }
+}

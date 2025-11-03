@@ -1,4 +1,5 @@
 # CONTENT AUDIT - Visual & Graphics Opportunities
+
 **Auditing:** Nov 1-4 content (Nov 1-2 already scheduled, Nov 3-4 pending)
 **Purpose:** Identify where visuals would significantly improve engagement
 **Based on:** Platform research (LinkedIn carousels = 278% boost, visuals = 3x engagement)
@@ -8,16 +9,20 @@
 ## FRIDAY NOV 1 - VISUAL ANALYSIS
 
 ### ✅ PIECE 1: "The 70% Problem" Thread
+
 **Current:** Text-only thread (8 tweets)
 **Visual Opportunity:**
+
 - **Tweet 3-4:** Diagram showing "AI generates → Looks right → Edge cases break → Debug hell"
 - **Type:** Flow chart or process diagram
 - **Impact:** Medium (helps visualization but not critical)
 - **Decision:** Skip for now, text is strong enough
 
 ### ⭐ PIECE 2: "What PMs Get Wrong" LinkedIn
+
 **Current:** Text-only (1,897 chars)
 **Visual Opportunity:**
+
 - **CAROUSEL NEEDED:** 6 slides
   - Slide 1: "3 Mistakes PMs Make with AI"
   - Slide 2: Mistake 1 - Features vs Products (visual comparison)
@@ -30,14 +35,17 @@
 - **Decision:** **CREATE THIS**
 
 ### PIECE 3: "Anthropic Confident" Long-Form
+
 **Current:** Text-only (1,197 chars)
 **Visual Opportunity:**
+
 - **Single image:** Timeline showing Era 1 → Era 2 → Era 3
 - **Type:** Minimal timeline graphic
 - **Impact:** Medium (helps but not essential)
 - **Decision:** Optional
 
 ### PIECES 4-7: Substack Notes + Shorts
+
 **Visual Opportunity:** None (too short, text is fine)
 
 ---
@@ -45,16 +53,20 @@
 ## SATURDAY NOV 2 - VISUAL ANALYSIS
 
 ### PIECE 1: "Cursor vs Claude Code" Thread
+
 **Current:** Text-only (7 tweets)
 **Visual Opportunity:**
+
 - **Tweet 3:** Token comparison graphic (33K vs 188K visual bar chart)
 - **Type:** Simple comparison chart
 - **Impact:** HIGH (5.5x difference is striking visually)
 - **Decision:** **CREATE THIS** (simple chart, big impact)
 
 ### ⭐ PIECE 2: "Craft vs Delivery" LinkedIn
+
 **Current:** Text-only (1,876 chars)
 **Visual Opportunity:**
+
 - **CAROUSEL NEEDED:** 5 slides
   - Slide 1: "The Developer Divide"
   - Slide 2: Craft-Focused characteristics (visual profile)
@@ -66,6 +78,7 @@
 - **Decision:** **CREATE THIS**
 
 ### PIECES 3-6: Long-form + shorts
+
 **Visual Opportunity:** Text is fine
 
 ---
@@ -73,14 +86,17 @@
 ## SUNDAY NOV 3 - VISUAL ANALYSIS
 
 ### ⭐ PIECE 1: Substack Newsletter (HUB CONTENT)
+
 **Current:** 900 words, text-only
 **MAJOR PROBLEMS:**
+
 1. ❌ No visual thinking (Substack newsletters need images!)
 2. ❌ Generic structure (doesn't use post-writer skill examples)
 3. ❌ Lacks depth (feels like blog post, not newsletter)
 4. ❌ No personality (too corporate for Substack)
 
 **Visual Opportunities (CRITICAL):**
+
 - **Header image:** "AgentKit vs Claude SDK" title graphic
 - **Section 1:** AgentKit component diagram (visual breakdown)
 - **Section 2:** Claude SDK architecture (computer access illustration)
@@ -97,24 +113,28 @@
 ## MONDAY NOV 4 - VISUAL ANALYSIS
 
 ### PIECE 1: "AgentKit First Impressions" Thread
+
 **Current:** Text-only
 **Visual Opportunity:**
+
 - **Tweet 2:** Screenshot of Agent Builder canvas
 - **Tweet 3:** Enterprise results data visualization (75% reduction bar chart)
 - **Impact:** HIGH (proof + data visualization)
 - **Decision:** **CREATE 2 GRAPHICS**
 
 ### ⭐ PIECE 2: "Strategic Implications" LinkedIn
+
 **Current:** Text-only (1,978 chars)
 **From my earlier work:** I actually created carousel handoff package for this!
 **CAROUSEL NEEDED:** 5 slides (already specified)
+
 - Slide 1: Title
 - Slide 2: Centralized vs Decentralized comparison
 - Slide 3: Cost structures
 - Slide 4: Enterprise control paradox
 - Slide 5: Decision framework
-**Impact:** HIGH (278% boost)
-**Decision:** **CREATE THIS** (handoff package exists)
+  **Impact:** HIGH (278% boost)
+  **Decision:** **CREATE THIS** (handoff package exists)
 
 ---
 
@@ -144,12 +164,14 @@
 **I'm not thinking visually at all.**
 
 Every LinkedIn post needs visual thinking:
+
 - Frameworks → Diagrams
 - Comparisons → Tables/Charts
 - Data → Visualizations
 - Processes → Flow charts
 
 **I'm treating this like text-only Twitter when:**
+
 - LinkedIn carousels = 278% more engagement
 - Substack with images = 3x engagement
 - Platform research explicitly shows visuals dominate
@@ -159,6 +181,7 @@ Every LinkedIn post needs visual thinking:
 ## WHAT I NEED TO DO
 
 **Option A: Regenerate Everything Properly**
+
 - Restart Nov 1-4
 - Think visuals FIRST
 - Design carousel concepts
@@ -166,12 +189,14 @@ Every LinkedIn post needs visual thinking:
 - Use post-writer skill examples as templates
 
 **Option B: Keep Text, Add Visuals**
+
 - Text is factually accurate
 - Create the 4 critical carousels
 - Add inline images to Substack
 - Enhance with graphics
 
 **Option C: Pause Everything**
+
 - You have Oct 31-Nov 2 scheduled (15 posts)
 - Execute those 3 days first
 - See what you actually need

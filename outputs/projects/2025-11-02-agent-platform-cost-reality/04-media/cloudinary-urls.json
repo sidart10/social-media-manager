@@ -1,0 +1,73 @@
+{
+  "uploaded_at": "2025-11-03T02:28:00Z",
+  "folder": "agent-platform-cost-reality-2025-11-02",
+  "total_images": 11,
+  "images": [
+    {
+      "local_file": "screenshots/01-swarm-important-warning-cropped.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762136865/agent-platform-cost-reality-2025-11-02/gwj4ae5qdqhfhxvt3qcx.png",
+      "use_in_tweet": 3,
+      "purpose": "Swarm deprecation warning proof"
+    },
+    {
+      "local_file": "diagram-01-stateless-failure.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762136866/agent-platform-cost-reality-2025-11-02/uwyiwiftwmydyuvu6oh8.png",
+      "use_in_tweet": 4,
+      "purpose": "Stateless failure mode diagram"
+    },
+    {
+      "local_file": "screenshots/02-agents-sdk-api-key-cropped.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762136868/agent-platform-cost-reality-2025-11-02/edcawn0pjdmakiupojqi.png",
+      "use_in_tweet": 5,
+      "purpose": "Agents SDK OpenAI lock-in proof"
+    },
+    {
+      "local_file": "screenshots/06-agentkit-overview-cropped.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762136869/agent-platform-cost-reality-2025-11-02/lgkjrj5zorgxkzosszhi.png",
+      "use_in_tweet": 7,
+      "purpose": "AgentKit platform architecture"
+    },
+    {
+      "local_file": "screenshots/05-mcp-announcement-cropped.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762136870/agent-platform-cost-reality-2025-11-02/fc2iedtvn1htmrb5gxcv.png",
+      "use_in_tweet": 9,
+      "purpose": "Anthropic MCP launch announcement"
+    },
+    {
+      "local_file": "screenshots/03-mcp-architecture-cropped.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762136872/agent-platform-cost-reality-2025-11-02/kahxduizhkzoxisu6mgu.png",
+      "use_in_tweet": 10,
+      "purpose": "MCP protocol specification"
+    },
+    {
+      "local_file": "screenshots/04-mcp-sdks-cropped.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762136892/agent-platform-cost-reality-2025-11-02/wghqowck67yyagesihlh.png",
+      "use_in_tweet": 11,
+      "purpose": "MCP 10 SDKs ecosystem"
+    },
+    {
+      "local_file": "diagram-02-tool-latency.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762136894/agent-platform-cost-reality-2025-11-02/wnbtlipgbrfuvnghqnbi.png",
+      "use_in_tweet": 12,
+      "purpose": "Tool execution latency comparison"
+    },
+    {
+      "local_file": "diagram-03-state-persistence.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762136895/agent-platform-cost-reality-2025-11-02/xxw7pfykqhol4yxakve0.png",
+      "use_in_tweet": 13,
+      "purpose": "State persistence architecture"
+    },
+    {
+      "local_file": "diagram-04-deployment-topology.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762136896/agent-platform-cost-reality-2025-11-02/wlse7vwxqcuwcxqvg30b.png",
+      "use_in_tweet": 14,
+      "purpose": "Multi-region deployment topology"
+    },
+    {
+      "local_file": "diagram-05-launch-timeline.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762136898/agent-platform-cost-reality-2025-11-02/kysbqxajn0nl4nscxngu.png",
+      "use_in_tweet": 18,
+      "purpose": "Strategic launch pattern timeline"
+    }
+  ]
+}

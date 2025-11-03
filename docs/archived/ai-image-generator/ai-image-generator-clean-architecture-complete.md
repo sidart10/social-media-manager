@@ -27,6 +27,7 @@
 ```
 
 **Each workflow ASKS for design:**
+
 - "Which design? LinkedIn / Instagram / Twitter / Photorealistic / Custom"
 - Design skill auto-loads based on choice
 - Clean separation: Action (workflow) vs Aesthetic (skill)
@@ -36,6 +37,7 @@
 ### ✅ SKILLS (6 Total)
 
 **Universal Skills (Actions):**
+
 ```
 create-image/
   - Emily's JSON methodology
@@ -59,6 +61,7 @@ mcp-tool-selection/
 ```
 
 **Design System Skills (Aesthetics):**
+
 ```
 linkedin-design/ ⭐ COMPLETE
   - Dark monochrome tech aesthetic
@@ -73,6 +76,7 @@ custom-design/ 🔜 COMING SOON
 ```
 
 **Utility Skills:**
+
 ```
 platform-specs/
   - Generic platform requirements (until full design skills built)
@@ -84,6 +88,7 @@ platform-specs/
 ## 🔥 Why This is BRILLIANT
 
 ### OLD (Confusing):
+
 ```
 Commands:
 - create-carousel (generic)
@@ -94,6 +99,7 @@ User thinks: "Wait, do I use create-carousel or linkedin for LinkedIn carousel?"
 ```
 
 ### NEW (Clear):
+
 ```
 Commands:
 - carousel (asks: which design?)
@@ -169,6 +175,7 @@ Carousel Best Practices:
 ```
 
 **Files:**
+
 - SKILL.md (main skill file)
 - reference/design-system.md (visual specs)
 - reference/content-strategy.md (captions, hashtags, posting)
@@ -183,18 +190,21 @@ Carousel Best Practices:
 ### Workflows Updated:
 
 **generate-carousel.yaml:**
+
 - ✅ Step 1: Now asks "Which design?" (not "which platform?")
 - ✅ Maps design choice to platform
 - ✅ Notes when skills will auto-load
 - ✅ LinkedIn option #1 (with ⭐)
 
 **generate-single.yaml:**
+
 - ✅ Step 1: Now asks "Which design?" (consolidated from platform + style)
 - ✅ 5 design options (LinkedIn, Photorealistic, Instagram, Twitter, Custom)
 - ✅ Maps to appropriate systems
 - ✅ LinkedIn option #1 (with ⭐)
 
 **generate-linkedin.yaml:**
+
 - ⚠️ **DEPRECATED** - Marked as deprecated with explanation
 - ℹ️ Kept for reference
 - ℹ️ Users redirected to carousel/single with LinkedIn design
@@ -204,6 +214,7 @@ Carousel Best Practices:
 ### Agent Files Updated:
 
 **agent.yaml menu:**
+
 ```yaml
 # Clean 4-command structure
 - carousel (with design choice)
@@ -213,10 +224,12 @@ Carousel Best Practices:
 - help
 - exit
 ```
+
 ✅ No more "linkedin" command (redundant)
 ✅ Each command notes it asks for design
 
 **slash command greeting:**
+
 ```
 🎨 AI Image Generator v2.0 Ready!
 
@@ -227,6 +240,7 @@ Design Styles:
 
 Choose: carousel, single, edit, or blend
 ```
+
 ✅ Clean, focused
 ✅ Explains design approach
 ✅ Sets expectations (LinkedIn complete, others coming)
@@ -236,20 +250,22 @@ Choose: carousel, single, edit, or blend
 ## 📋 Final File Count
 
 **Skills**: 6 total
-  - create-image (universal)
-  - edit-image (universal)
-  - blend-images (universal)
-  - linkedin-design ⭐ (NEW!)
-  - mcp-tool-selection (utility)
-  - platform-specs (fallback for non-LinkedIn)
+
+- create-image (universal)
+- edit-image (universal)
+- blend-images (universal)
+- linkedin-design ⭐ (NEW!)
+- mcp-tool-selection (utility)
+- platform-specs (fallback for non-LinkedIn)
 
 **Reference Files**: 25 total (added 3 for linkedin-design)
 
 **Workflows**: 4 active
-  - generate-carousel.yaml v2.0 (updated)
-  - generate-single.yaml v2.0 (updated)
-  - generate-edit-image.yaml
-  - generate-linkedin.yaml (deprecated)
+
+- generate-carousel.yaml v2.0 (updated)
+- generate-single.yaml v2.0 (updated)
+- generate-edit-image.yaml
+- generate-linkedin.yaml (deprecated)
 
 **Agent Files**: All updated with clean 4-command structure
 
@@ -258,6 +274,7 @@ Choose: carousel, single, edit, or blend
 ## ✨ What This Achieves
 
 ### Clear Mental Model
+
 ```
 "I need a carousel" → carousel workflow
   → "What design?" → LinkedIn
@@ -266,10 +283,12 @@ Choose: carousel, single, edit, or blend
 ```
 
 ### No Redundancy
+
 - ❌ No more "create-carousel vs linkedin" confusion
 - ✅ One carousel workflow, multiple designs via skills
 
 ### Scalable
+
 ```
 Future additions:
 - instagram-design skill → Just add skill, workflows already support it!
@@ -280,6 +299,7 @@ Future additions:
 **Add new designs = Add new skills** (workflows don't change!)
 
 ### Like Slack Pattern
+
 ```
 Slack:
 - create-gif workflow
@@ -321,6 +341,7 @@ When you're ready to add Instagram and Twitter:
 ## ✅ Validation Complete
 
 ### Architecture:
+
 - ✅ 4 clean workflows (actions)
 - ✅ 6 skills (3 universal + 1 design + 2 utility)
 - ✅ linkedin-design complete with 3 reference files
@@ -328,18 +349,21 @@ When you're ready to add Instagram and Twitter:
 - ✅ Scalable for future designs
 
 ### Integration:
+
 - ✅ Workflows ask for design choice
 - ✅ Skills auto-load based on context
 - ✅ LinkedIn fully supported
 - ✅ Instagram/Twitter use generic (skills coming)
 
 ### User Experience:
+
 - ✅ Simple: "carousel", "single", "edit", "blend"
 - ✅ Clear design selection
 - ✅ LinkedIn prioritized (⭐)
 - ✅ Expectations set (others coming soon)
 
 ### Code Quality:
+
 - ✅ No skill "invocation" statements
 - ✅ Clean executable actions
 - ✅ Proper # comments for skill context
@@ -351,6 +375,7 @@ When you're ready to add Instagram and Twitter:
 ## 🎉 TRIUMPHANT SUCCESS
 
 **Your Vision:**
+
 > "LinkedIn design should be a skill, not a workflow... like Slack's GIF creators"
 
 **What We Built:** ✅ **EXACTLY THIS!**

@@ -11,6 +11,7 @@
 **Location:** `/Users/sid/.mcp-servers/social-media-mcp/src/content/`
 
 **Components:**
+
 1. **Content Generator** (index.ts)
    - Orchestrates content generation
    - Strategy pattern (tries multiple AI providers)
@@ -32,6 +33,7 @@
 **Tool:** social-media-mcp/create_post
 
 **What it does:**
+
 1. Takes natural language instruction
 2. Optionally does research (Brave + Perplexity)
 3. Generates content using OpenAI/Anthropic
@@ -48,7 +50,7 @@
 {
   "instruction": "Write a LinkedIn post about AI automation tools",
   "platforms": ["twitter", "linkedin"],
-  "postImmediately": false,  // Preview mode
+  "postImmediately": false, // Preview mode
   "conversationId": "optional",
   "ignoreHistory": false,
   "actionableInsights": true
@@ -56,6 +58,7 @@
 ```
 
 **Returns:**
+
 ```json
 {
   "content": {
@@ -73,6 +76,7 @@
 ## Content Generation Strategies
 
 ### OpenAI Strategy (Priority 2)
+
 - Model: gpt-4o
 - Available: ✅ (we have OPENAI_API_KEY)
 - Creates prompts based on:
@@ -82,6 +86,7 @@
   - Content type
 
 ### Anthropic Strategy (Priority 3)
+
 - Model: claude-3-opus
 - Available: ✅ (we have ANTHROPIC_API_KEY)
 - Fallback if OpenAI fails
@@ -93,16 +98,19 @@
 ## Platform Support
 
 **Twitter:**
+
 - Has Twitter API integration
 - Can post directly
 - Format for 280 chars or threads
 
 **LinkedIn:**
+
 - Has LinkedIn client
 - Can post (needs LinkedIn access token - we don't have)
 - Formats for LinkedIn specs
 
 **Mastodon:**
+
 - Has Mastodon client
 - We don't use this
 
@@ -117,6 +125,7 @@
 **Set:** `postImmediately: false`
 
 **Result:**
+
 - Generates content using OpenAI/Anthropic
 - Researches if needed
 - Formats for platform
@@ -128,10 +137,12 @@
 ## How It Could Work for write-posts
 
 **Current write-posts workflow:**
+
 - References fictional script_generation_mcp
 - Needs content generation
 
 **Could use create_post instead:**
+
 ```
 social-media-mcp/create_post({
   instruction: "Write LinkedIn post about {topic} based on {idea_card}",
@@ -142,6 +153,7 @@ social-media-mcp/create_post({
 ```
 
 **Benefits:**
+
 - ✅ Uses OpenAI/Anthropic (we have keys)
 - ✅ Platform-specific formatting
 - ✅ Actually exists (not fictional!)
@@ -155,6 +167,7 @@ social-media-mcp/create_post({
 **Want me to test if create_post works?**
 
 Try:
+
 ```
 social-media-mcp/create_post({
   instruction: "Write a short LinkedIn post about AI agents",

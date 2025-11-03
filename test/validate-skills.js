@@ -137,11 +137,22 @@ class SkillValidator {
     }
 
     // Gerund form recommendation
-    const gerundWords = ['analyzing', 'creating', 'generating', 'formatting',
-                         'extracting', 'optimizing', 'validating', 'processing',
-                         'building', 'designing', 'writing', 'managing'];
+    const gerundWords = [
+      'analyzing',
+      'creating',
+      'generating',
+      'formatting',
+      'extracting',
+      'optimizing',
+      'validating',
+      'processing',
+      'building',
+      'designing',
+      'writing',
+      'managing',
+    ];
 
-    const hasGerund = gerundWords.some(word => name.includes(word));
+    const hasGerund = gerundWords.some((word) => name.includes(word));
 
     if (!hasGerund && !name.includes('mastery') && !name.includes('guide')) {
       this.warnings.push(`Consider gerund form (verb+ing) for action skills: ${gerundWords.join(', ')}`);
@@ -199,8 +210,8 @@ class SkillValidator {
     // Recommended sections
     const sections = {
       'When to Use': /## When to Use/i,
-      'Instructions': /## Instructions/i,
-      'Examples': /## Example/i,
+      Instructions: /## Instructions/i,
+      Examples: /## Example/i,
     };
 
     for (const [name, regex] of Object.entries(sections)) {
@@ -265,8 +276,7 @@ class SkillValidator {
       return; // Scripts optional
     }
 
-    const scriptFiles = fs.readdirSync(scriptsDir)
-      .filter(f => f.endsWith('.py') || f.endsWith('.js') || f.endsWith('.sh'));
+    const scriptFiles = fs.readdirSync(scriptsDir).filter((f) => f.endsWith('.py') || f.endsWith('.js') || f.endsWith('.sh'));
 
     if (scriptFiles.length === 0) {
       return;
@@ -347,7 +357,9 @@ class SkillValidator {
     if (results.passed && results.warnings.length === 0) {
       console.log(`${colors.green}✅ ${skillName}: PERFECT - Quality score: ${results.quality}/100${colors.reset}`);
     } else if (results.passed) {
-      console.log(`${colors.yellow}⚠️  ${skillName}: PASSED WITH ${results.warnings.length} WARNINGS - Score: ${results.quality}/100${colors.reset}`);
+      console.log(
+        `${colors.yellow}⚠️  ${skillName}: PASSED WITH ${results.warnings.length} WARNINGS - Score: ${results.quality}/100${colors.reset}`,
+      );
     } else {
       console.log(`${colors.red}❌ ${skillName}: FAILED - ${results.errors.length} error(s)${colors.reset}`);
     }
@@ -395,7 +407,7 @@ function findSkills(baseDir) {
  */
 async function main() {
   const args = process.argv.slice(2);
-  const specificSkill = args.find(a => a.startsWith('--skill='))?.split('=')[1];
+  const specificSkill = args.find((a) => a.startsWith('--skill='))?.split('=')[1];
   const strict = args.includes('--strict');
 
   console.log(`${colors.cyan}${'='.repeat(70)}${colors.reset}`);
@@ -423,7 +435,7 @@ async function main() {
 
   // Filter for specific skill if requested
   if (specificSkill) {
-    allSkills = allSkills.filter(s => s.name === specificSkill);
+    allSkills = allSkills.filter((s) => s.name === specificSkill);
     if (allSkills.length === 0) {
       console.log(`${colors.red}❌ Skill not found: ${specificSkill}${colors.reset}`);
       process.exit(1);
@@ -431,17 +443,15 @@ async function main() {
   }
 
   console.log(`\n${colors.blue}Found ${allSkills.length} skill(s)${colors.reset}`);
-  console.log(`Project skills: ${allSkills.filter(s => s.location === 'project').length}`);
-  console.log(`Personal skills: ${allSkills.filter(s => s.location === 'personal').length}`);
+  console.log(`Project skills: ${allSkills.filter((s) => s.location === 'project').length}`);
+  console.log(`Personal skills: ${allSkills.filter((s) => s.location === 'personal').length}`);
 
   // Validate each skill
   const validator = new SkillValidator({ strict });
   const results = [];
 
   for (const skill of allSkills) {
-    const displayName = skill.category === 'root'
-      ? skill.name
-      : `${skill.category}/${skill.name}`;
+    const displayName = skill.category === 'root' ? skill.name : `${skill.category}/${skill.name}`;
 
     const result = validator.validateSkill(skill.path, displayName);
     validator.printResults(result, displayName);
@@ -458,10 +468,10 @@ async function main() {
   console.log(`${colors.cyan}SUMMARY REPORT${colors.reset}`);
   console.log(`${colors.cyan}${'='.repeat(70)}${colors.reset}\n`);
 
-  const perfect = results.filter(r => r.quality === 100);
-  const good = results.filter(r => r.quality >= 75 && r.quality < 100);
-  const needsWork = results.filter(r => r.quality >= 50 && r.quality < 75);
-  const failed = results.filter(r => r.quality === 0);
+  const perfect = results.filter((r) => r.quality === 100);
+  const good = results.filter((r) => r.quality >= 75 && r.quality < 100);
+  const needsWork = results.filter((r) => r.quality >= 50 && r.quality < 75);
+  const failed = results.filter((r) => r.quality === 0);
 
   console.log(`${colors.green}✅ Perfect (100):${colors.reset} ${perfect.length}`);
   if (perfect.length > 0) {
@@ -502,7 +512,7 @@ async function main() {
 
   // Exit code
   const hasCriticalIssues = failed.length > 0;
-  const hasWarnings = results.some(r => r.warnings.length > 0);
+  const hasWarnings = results.some((r) => r.warnings.length > 0);
 
   if (hasCriticalIssues) {
     process.exit(1); // Fail on errors
@@ -514,7 +524,7 @@ async function main() {
 }
 
 // Run
-main().catch(error => {
+main().catch((error) => {
   console.error(`${colors.red}Fatal error:${colors.reset}`, error);
   process.exit(1);
 });

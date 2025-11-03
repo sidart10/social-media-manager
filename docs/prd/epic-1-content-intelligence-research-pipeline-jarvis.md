@@ -33,6 +33,7 @@ so that I get high-quality research briefs with cited sources while optimizing c
 10. Execution time: quick (30-60s), standard (2-3 min), comprehensive (3-5 min), exhaustive (5-10 min)
 
 **Mermaid Diagram:**
+
 ```mermaid
 graph TD
     A[User: topic + depth] --> B{depth level?}
@@ -153,6 +154,7 @@ so that every idea has evidence support and I'm not guessing what will resonate.
 10. Execution time: 3-7 minutes depending on intelligence steps
 
 **Mermaid Diagram:**
+
 ```mermaid
 graph TD
     A[User: seed_topic + options] --> B{Research file provided?}

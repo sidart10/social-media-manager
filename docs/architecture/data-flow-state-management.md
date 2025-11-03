@@ -121,22 +121,26 @@ outputs/
 **Stage Breakdown:**
 
 **00-session/** - Project Tracking & Coordination
+
 - `metadata.json` - Complete project history (costs, duration, files, Notion linking)
 - `session-log.md` - Timestamped execution log of all agent actions
 - **When Created:** Automatically when project starts
 - **Populated By:** All agents (append to log, update metadata)
 
 **01-research/** - Shared Research (Platform-Agnostic)
+
 - Research briefs, competitive analysis, sources
 - **Philosophy:** Research is platform-agnostic—same research used for LinkedIn post, Twitter thread, YouTube video
 - **Populated By:** Jarvis (research-topic, analyze-profile, competitive-analysis workflows)
 
 **02-ideas/** - Shared Ideas (Platform-Agnostic)
+
 - Idea cards, hook packs, content calendars
 - **Philosophy:** Ideas are platform-agnostic—same idea adapted for different platforms in 03-drafts/
 - **Populated By:** Jarvis (generate-ideas workflow)
 
 **03-drafts/** - Platform-Specific Text Content
+
 - **7 Platform Subfolders:** linkedin/, twitter/, youtube/, instagram/, tiktok/, substack/, facebook/
 - Each platform folder contains iterative drafts: post-v1.md, post-v2.md, thread-v1.md, script-v1.md
 - **Why Platform-Specific:** LinkedIn post (PAIPS, <300 words) differs from Twitter thread (questions, numbered tweets) differs from YouTube script (timestamps, scenes)
@@ -144,6 +148,7 @@ outputs/
 - **Populated By:** Jarvis (write-post, write-script workflows when created)
 
 **04-media/** - Platform-Agnostic REUSABLE Media ⚡ **CRITICAL DESIGN**
+
 - **2 Simple Subfolders:** images/, videos/
 - **Philosophy:** Media is REUSABLE across platforms—generate once, reference from multiple platform folders
 - **Naming Convention:**
@@ -156,6 +161,7 @@ outputs/
 - **Populated By:** Zoe (create-single-image, create-carousel, create-scene workflows)
 
 **05-published/** - Published Content (MERGED Final + Published, Per Platform)
+
 - **7 Platform Subfolders:** linkedin/, twitter/, youtube/, instagram/, tiktok/, substack/, facebook/
 - Each platform folder contains:
   - `post.md` or `thread.md` or `script.md` (final published version)
@@ -168,9 +174,10 @@ outputs/
   - Notion "Editing" ↔ Local has content in 03-drafts/ and 04-media/
   - Notion "Posted" ↔ Local has content in 05-published/ with URLs
 - **Independent Lifecycles:** LinkedIn published, YouTube still drafting (each platform at different stage)
-- **Populated By:** Zoro (schedule-post, publish-*-now workflows)
+- **Populated By:** Zoro (schedule-post, publish-\*-now workflows)
 
 **handoffs/** - Agent Coordination Packages
+
 - JSON packages for agent handoffs (jarvis-to-zoe.json, zoe-to-zoro.json)
 - handoff-log.md with timeline
 - **Populated By:** All agents when creating handoffs
@@ -253,6 +260,7 @@ outputs/
 ```
 
 **Naming Conventions:**
+
 - **Folders:** lowercase-kebab-case (e.g., `linkedin-post-ai-agents`)
 - **Files:** lowercase-kebab-case (e.g., `research-brief.md`, `animated-diagram.mp4`)
 - **No mixed case, underscores, or spaces** (cross-platform consistency)
@@ -264,23 +272,23 @@ outputs/
 
 **Properties Used by Agents:**
 
-| Property | Type | Agent Usage | Example |
-|----------|------|-------------|---------|
-| **Name** | Title | Jarvis creates, all read | "AI Agents: The Future of Work" |
-| **Status** | Status | All update | Idea → Research → Writing → Editing → Posted |
-| **Channel** | Relation (My Channels DB) | Jarvis links, Zoro validates | LinkedIn, Twitter, YouTube |
-| **Category** | Select | Jarvis sets based on topic | AI & Tech, Career Growth, Personal |
-| **Priority** | Select | Jarvis sets, user overrides | High, Medium, Low |
-| **Publish Date** | Date | Jarvis estimates, Zoro confirms actual | 2025-11-05 |
-| **Content Text** | Long Text | Jarvis populates full post/script | Full post body or video script |
-| **Thumbnail ideas** | Text | Jarvis (write-script) generates | "3 CTR-optimized concepts with MrBeast pillars" |
-| **YouTube Title ideas** | Text | Jarvis (write-script) generates | "60-70 char keyword-rich titles" |
-| **Views** | Number | Zoro prompts user to add post-publish | 1250 |
-| **Likes** | Number | Zoro prompts user to add post-publish | 87 |
-| **Comments** | Number | Zoro prompts user to add post-publish | 12 |
-| **Focus Keywords** | Relation (Keywords DB) | Jarvis links from research | "AI agents", "automation", "productivity" |
-| **Notes** | Relation (Action Items DB) | Jarvis links research briefs | Research brief page URL |
-| **local_files** | URL | All agents add | Link to outputs/projects/{slug}/ |
+| Property                | Type                       | Agent Usage                            | Example                                         |
+| ----------------------- | -------------------------- | -------------------------------------- | ----------------------------------------------- |
+| **Name**                | Title                      | Jarvis creates, all read               | "AI Agents: The Future of Work"                 |
+| **Status**              | Status                     | All update                             | Idea → Research → Writing → Editing → Posted    |
+| **Channel**             | Relation (My Channels DB)  | Jarvis links, Zoro validates           | LinkedIn, Twitter, YouTube                      |
+| **Category**            | Select                     | Jarvis sets based on topic             | AI & Tech, Career Growth, Personal              |
+| **Priority**            | Select                     | Jarvis sets, user overrides            | High, Medium, Low                               |
+| **Publish Date**        | Date                       | Jarvis estimates, Zoro confirms actual | 2025-11-05                                      |
+| **Content Text**        | Long Text                  | Jarvis populates full post/script      | Full post body or video script                  |
+| **Thumbnail ideas**     | Text                       | Jarvis (write-script) generates        | "3 CTR-optimized concepts with MrBeast pillars" |
+| **YouTube Title ideas** | Text                       | Jarvis (write-script) generates        | "60-70 char keyword-rich titles"                |
+| **Views**               | Number                     | Zoro prompts user to add post-publish  | 1250                                            |
+| **Likes**               | Number                     | Zoro prompts user to add post-publish  | 87                                              |
+| **Comments**            | Number                     | Zoro prompts user to add post-publish  | 12                                              |
+| **Focus Keywords**      | Relation (Keywords DB)     | Jarvis links from research             | "AI agents", "automation", "productivity"       |
+| **Notes**               | Relation (Action Items DB) | Jarvis links research briefs           | Research brief page URL                         |
+| **local_files**         | URL                        | All agents add                         | Link to outputs/projects/{slug}/                |
 
 **Status Workflow Transitions:**
 

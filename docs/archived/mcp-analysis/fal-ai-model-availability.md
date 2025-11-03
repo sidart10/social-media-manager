@@ -10,6 +10,7 @@
 **fal.ai is a MODEL AGGREGATOR** - they host multiple AI models from different providers!
 
 **Available on fal.ai:**
+
 - ✅ **Veo 3.1** (Google's model)
 - ✅ **Sora 2** (OpenAI's model)
 - ✅ **Kling** (Kuaishou)
@@ -22,6 +23,7 @@
 ## 🎯 How fal.ai Works
 
 **fal.ai = Unified API Gateway:**
+
 ```
 Your Code
     ↓
@@ -34,6 +36,7 @@ fal.ai API (one key!)
 ```
 
 **Benefits:**
+
 - ONE API key for ALL models
 - Unified interface
 - Pay-as-you-go
@@ -45,6 +48,7 @@ fal.ai API (one key!)
 ## 🔑 API Key Situation
 
 **You have FAL_API_KEY in .env:**
+
 ```
 FAL_API_KEY=2470b2e9-655d-4acb-b5f0-54e04996884d:21549e7d164ebbb5aa1899ead6166076
 ```
@@ -58,12 +62,14 @@ FAL_API_KEY=2470b2e9-655d-4acb-b5f0-54e04996884d:21549e7d164ebbb5aa1899ead616607
 ## 🎬 How to Access Veo 3 on fal.ai
 
 **Through fal-video MCP:**
+
 ```
 Tool: mcp__fal_video__veo3_image_to_video (or similar)
 Model: fal-ai/veo-3 or fal-ai/veo-3-fast
 ```
 
 **Through direct fal.ai:**
+
 - Model ID: `fal-ai/veo-3-i2v` (image-to-video)
 - Model ID: `fal-ai/veo-3-t2v` (text-to-video)
 
@@ -72,10 +78,12 @@ Model: fal-ai/veo-3 or fal-ai/veo-3-fast
 ## 💡 Why Use fal.ai vs Direct APIs?
 
 **Direct Veo 3 (Google):**
+
 - Pros: Free tier, direct access
 - Cons: Complex SDK, bugs in MCPs
 
 **Veo 3 via fal.ai:**
+
 - Pros: Simplified API, proven stable, unified billing
 - Cons: Small cost per generation
 
@@ -102,11 +110,13 @@ All configured for Veo 3 access!
 **For your agents:**
 
 **Primary:** fal-video (access Veo 3 + Sora 2 + others)
+
 - More reliable
 - Unified API
 - Multiple model options
 
 **Backup:** veotools (direct Google access)
+
 - FREE Gemini
 - If fal.ai has issues
 

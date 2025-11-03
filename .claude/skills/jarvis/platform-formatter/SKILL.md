@@ -32,12 +32,14 @@ Invoke when:
 ## Supported Platforms & Content Types
 
 ### LinkedIn
+
 - **Content Types**: text | image | multi_image | document | video
 - **Special Handling**: little Text Format escaping (15 reserved chars)
 - **Key Feature**: Escapes `| { } @ [ ] ( ) < > # \ * _ ~` with backslash
 - **Implementation**: `scripts/platforms/linkedin.py`
 
 ### Twitter/X
+
 - **Content Types**: tweet | long_form | media_tweet | thread
 - **Char Limits**: 280 (regular), 25,000 (long-form/Premium)
 - **Key Feature**: Content type routing, Premium detection
@@ -45,6 +47,7 @@ Invoke when:
 - **Implementation**: `scripts/platforms/twitter.py`
 
 ### Instagram
+
 - **Content Types**: feed | reels | carousel
 - **Char Limit**: 2,200 (all types)
 - **Key Feature**: media_product_type differentiation
@@ -121,7 +124,7 @@ print(result['api_payload_template'])  # Has media_type: "REELS"
 
 ```javascript
 // In bmad/modules/linkedin-api-client/lib/client.js
-const formatted = formatPostText(rawText);  // Uses linkedin.py logic
+const formatted = formatPostText(rawText); // Uses linkedin.py logic
 await createTextPost(accessToken, personUrn, formatted.formatted);
 ```
 
@@ -129,7 +132,7 @@ await createTextPost(accessToken, personUrn, formatted.formatted);
 
 ```javascript
 // In bmad/modules/twitter-api-client/lib/client.js
-const payload = {text: formattedText};  // No escaping needed
+const payload = { text: formattedText }; // No escaping needed
 await rwClient.v2.tweet(payload);
 ```
 
@@ -138,9 +141,9 @@ await rwClient.v2.tweet(payload);
 ```javascript
 // For Reels
 const payload = {
-    caption: formattedCaption,
-    media_type: "REELS",  // From api_payload_template
-    video_url: videoUrl
+  caption: formattedCaption,
+  media_type: 'REELS', // From api_payload_template
+  video_url: videoUrl,
 };
 ```
 

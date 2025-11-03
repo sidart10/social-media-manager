@@ -3,13 +3,15 @@
 ## Prerequisites
 
 **Required Software:**
+
 - Claude Code Desktop Application (MacOS, Windows, or Linux)
 - Node.js v18+ (for twitter-api-client, linkedin-api-client modules)
 - Git (for version control)
 
 **Required API Keys (stored in .env):**
+
 - `ANTHROPIC_API_KEY` - Claude Code
-- `NOTION_API_KEY` - Notion integration token (ntn_***)
+- `NOTION_API_KEY` - Notion integration token (ntn\_\*\*\*)
 - `POSTIZ_API_KEY` - Postiz self-hosted instance
 - `EXA_API_KEY` - Exa neural search
 - `FIRECRAWL_API_KEY` - Firecrawl web scraping
@@ -102,18 +104,19 @@
 
 **Cost Breakdown (estimated):**
 
-| Service | Use Case | Monthly Cost |
-|---------|----------|--------------|
-| Exa | Research (standard depth, 30 posts) | $1.50 (30 × $0.05) |
-| Apify | Profile analysis (4 per month) | $0.60 (4 × $0.15) |
-| nanobanana | Images (30 posts × 1 image avg) | $1.17 (30 × $0.039) |
-| gpt-image-1 | LinkedIn images (10 posts) | $0.60 (10 × $0.06) |
-| veotools | Videos (8 posts × 1 video) | $2.40 (8 × $0.30) |
-| HeyGen | Talking heads (4 videos × 1 min) | $1.40 (4 × $0.35) |
-| Twitter Premium API | Account access | $8.00 (monthly subscription) |
-| **Total** | | **~$15.67 + $8 = $23.67** |
+| Service             | Use Case                            | Monthly Cost                 |
+| ------------------- | ----------------------------------- | ---------------------------- |
+| Exa                 | Research (standard depth, 30 posts) | $1.50 (30 × $0.05)           |
+| Apify               | Profile analysis (4 per month)      | $0.60 (4 × $0.15)            |
+| nanobanana          | Images (30 posts × 1 image avg)     | $1.17 (30 × $0.039)          |
+| gpt-image-1         | LinkedIn images (10 posts)          | $0.60 (10 × $0.06)           |
+| veotools            | Videos (8 posts × 1 video)          | $2.40 (8 × $0.30)            |
+| HeyGen              | Talking heads (4 videos × 1 min)    | $1.40 (4 × $0.35)            |
+| Twitter Premium API | Account access                      | $8.00 (monthly subscription) |
+| **Total**           |                                     | **~$15.67 + $8 = $23.67**    |
 
 **Buffer:** $26.33 remaining for:
+
 - Comprehensive research (Firecrawl, exhaustive Apify)
 - High-quality images when needed (more gpt-image-1)
 - Cinematic videos (Fal-Video Luma/Kling)
@@ -148,11 +151,13 @@
 **Manual validation during MVP, automated testing in Phase 2**
 
 **Testing Cadence:**
+
 - **Daily:** Run 1-2 end-to-end pipelines with real content (Jarvis → Zoe → Zoro)
 - **Weekly:** Review cost data, update tool-registry.yaml if needed
 - **Monthly:** Audit workflow standardization compliance (all using external instructions.md?)
 
 **Test Artifacts:**
+
 - Test session outputs in `outputs/projects/testing-{date}/`
 - Tool performance log (cost, speed, quality scores)
 - Workflow success rate tracking (target: 95%)

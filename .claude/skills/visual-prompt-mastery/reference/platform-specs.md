@@ -7,6 +7,7 @@ Complete platform requirements for visual content optimization.
 ## Instagram
 
 ### Posts (Feed)
+
 - **Aspect Ratio:** 4:5 (portrait) OR 1:1 (square)
 - **Resolution:** 1080x1350 (4:5) OR 1080x1080 (1:1)
 - **File Size:** Max 30MB
@@ -16,11 +17,13 @@ Complete platform requirements for visual content optimization.
 - **Recommended Tool:** nanobanana (creative + cost)
 
 **Emily's Instagram Examples:**
+
 - Y2K Mirror Selfie (4,717 likes) - 4:3 nostalgic
 - K-Beauty Winking (3,229 likes) - Studio aesthetic
 - PC Gaming Corner (1,478 likes) - Themed environment
 
 ### Reels (Video)
+
 - **Aspect Ratio:** 9:16 (vertical)
 - **Duration:** 15-90 seconds (8-30s optimal for AI generation)
 - **Resolution:** 1080x1920
@@ -33,6 +36,7 @@ Complete platform requirements for visual content optimization.
 ## LinkedIn
 
 ### Posts
+
 - **Aspect Ratio:** 1:1 (square) preferred OR 1.91:1 (landscape)
 - **Resolution:** 1200x1200 (square) OR 1200x628 (landscape)
 - **File Size:** Max 5MB
@@ -42,6 +46,7 @@ Complete platform requirements for visual content optimization.
 - **Recommended Tool:** gpt-image-1 (professional + text)
 
 **Design Guidelines:**
+
 - Clean backgrounds (neutral, gradient, minimal)
 - Professional typography (Inter, Arial, Helvetica)
 - Data-driven (charts, stats, infographics)
@@ -49,6 +54,7 @@ Complete platform requirements for visual content optimization.
 - Avoid: Overly casual, memes, low-quality aesthetics
 
 **Emily's LinkedIn-Style Examples:**
+
 - Glacial Couture (426 likes) - Professional editorial precision
 - Editorial Red Dress (294 likes) - Studio minimalism
 - Gallery Hallway (1,472 likes) - Urban professional
@@ -58,6 +64,7 @@ Complete platform requirements for visual content optimization.
 ## Twitter/X
 
 ### Posts
+
 - **Aspect Ratio:** 16:9 (landscape) OR 1:1 (square)
 - **Resolution:** 1200x675 (16:9) OR 1200x1200 (1:1)
 - **File Size:** Max 5MB
@@ -67,6 +74,7 @@ Complete platform requirements for visual content optimization.
 - **Recommended Tool:** nanobanana (speed + volume for threads)
 
 **Optimization:**
+
 - High contrast for small preview
 - Bold colors or monochrome
 - Clear focal point
@@ -77,6 +85,7 @@ Complete platform requirements for visual content optimization.
 ## YouTube
 
 ### Thumbnails
+
 - **Aspect Ratio:** 16:9 (required)
 - **Resolution:** 1280x720 (minimum) OR 1920x1080 (recommended)
 - **File Size:** Max 2MB
@@ -86,6 +95,7 @@ Complete platform requirements for visual content optimization.
 - **Recommended Tool:** gpt-image-1 (text rendering critical)
 
 **Thumbnail Psychology:**
+
 - Face close-up with emotion (surprise, shock, excitement)
 - High contrast background
 - 3-5 word text overlay (if any)
@@ -94,6 +104,7 @@ Complete platform requirements for visual content optimization.
 - Readable at 200px wide
 
 ### Videos
+
 - **Aspect Ratio:** 16:9 (horizontal)
 - **Resolution:** 1920x1080 OR 3840x2160 (4K)
 - **Duration:** AI generation 8-30s (for hooks, intros)
@@ -105,6 +116,7 @@ Complete platform requirements for visual content optimization.
 ## TikTok
 
 ### Videos
+
 - **Aspect Ratio:** 9:16 (vertical, required)
 - **Duration:** 15-60 seconds (8-30s for AI generation)
 - **Resolution:** 1080x1920
@@ -114,6 +126,7 @@ Complete platform requirements for visual content optimization.
 - **Recommended Tool:** veotools or fal-video
 
 **Optimization:**
+
 - Vertical framing (vertical subjects, full-body)
 - Hook techniques (question, surprise, contrast)
 - Trend integration (sounds, formats, aesthetics)
@@ -124,6 +137,7 @@ Complete platform requirements for visual content optimization.
 ## Pinterest
 
 ### Pins
+
 - **Aspect Ratio:** 2:3 (preferred) OR 1:1
 - **Resolution:** 1000x1500 (2:3) OR 1000x1000 (1:1)
 - **File Size:** Max 20MB
@@ -133,6 +147,7 @@ Complete platform requirements for visual content optimization.
 - **Recommended Tool:** nanobanana (volume + creative)
 
 **Optimization:**
+
 - Vertical orientation preferred
 - Text overlays (titles, descriptions)
 - Bright, colorful, high-quality
@@ -143,31 +158,34 @@ Complete platform requirements for visual content optimization.
 
 ## Platform Aspect Ratio Quick Reference
 
-| Platform | Primary | Alternative | Vertical Video |
-|----------|---------|-------------|----------------|
-| Instagram | 4:5 | 1:1 | 9:16 (Reels) |
-| LinkedIn | 1:1 | 1.91:1 | N/A |
-| Twitter | 16:9 | 1:1 | 9:16 |
-| YouTube | 16:9 | N/A | 9:16 (Shorts) |
-| TikTok | 9:16 | N/A | 9:16 |
-| Pinterest | 2:3 | 1:1 | 2:3 |
+| Platform  | Primary | Alternative | Vertical Video |
+| --------- | ------- | ----------- | -------------- |
+| Instagram | 4:5     | 1:1         | 9:16 (Reels)   |
+| LinkedIn  | 1:1     | 1.91:1      | N/A            |
+| Twitter   | 16:9    | 1:1         | 9:16           |
+| YouTube   | 16:9    | N/A         | 9:16 (Shorts)  |
+| TikTok    | 9:16    | N/A         | 9:16           |
+| Pinterest | 2:3     | 1:1         | 2:3            |
 
 ---
 
 ## Resolution Standards by Use Case
 
 ### Social Media (Standard Quality)
+
 - Instagram: 1080x1350 (4:5), 1080x1080 (1:1)
 - LinkedIn: 1200x1200 (1:1)
 - Twitter: 1200x675 (16:9)
 - TikTok: 1080x1920 (9:16)
 
 ### Professional/Print (High Quality)
+
 - Editorial: 2400x3000 (4:5) or higher
 - Corporate: 2400x2400 (1:1) minimum
 - Print-ready: 300 DPI at intended size
 
 ### Web/Digital (Optimized)
+
 - Blog headers: 1200x630
 - Website banners: 1920x600
 - Email headers: 600x200
@@ -179,6 +197,7 @@ Complete platform requirements for visual content optimization.
 ### Instagram Aesthetics
 
 **Trending Styles:**
+
 - Clean minimalism (white backgrounds, single subject)
 - Y2K nostalgia (2000s-2010s phone aesthetics)
 - K-Beauty (porcelain skin, soft lighting)
@@ -192,6 +211,7 @@ Complete platform requirements for visual content optimization.
 ### LinkedIn Aesthetics
 
 **Professional Standards:**
+
 - Clean backgrounds (white, light gray, subtle gradients)
 - Corporate color palettes (blues, grays, professional accents)
 - Minimal design (less is more)
@@ -205,6 +225,7 @@ Complete platform requirements for visual content optimization.
 ### YouTube Thumbnail Aesthetics
 
 **CTR Optimization:**
+
 - High contrast (visible in sidebar)
 - Bold colors or complementary pairs
 - Faces with clear emotions (surprise, excitement, curiosity)
@@ -219,6 +240,7 @@ Complete platform requirements for visual content optimization.
 ### TikTok/Reels Aesthetics
 
 **Engagement Patterns:**
+
 - Vertical framing (9:16 required)
 - Hook in 1-3 seconds (question, surprise, pattern interrupt)
 - On-screen text overlays (large, bold, meme fonts)
@@ -236,6 +258,7 @@ Complete platform requirements for visual content optimization.
 ### Instagram Color Palettes
 
 **Minimalist:**
+
 ```json
 {
   "background": "#FFFFFF",
@@ -245,6 +268,7 @@ Complete platform requirements for visual content optimization.
 ```
 
 **Vibrant:**
+
 ```json
 {
   "primary": "#FF6B6B",
@@ -255,6 +279,7 @@ Complete platform requirements for visual content optimization.
 ```
 
 **Y2K:**
+
 ```json
 {
   "primary": "#FF10F0",
@@ -267,6 +292,7 @@ Complete platform requirements for visual content optimization.
 ### LinkedIn Color Palettes
 
 **Corporate Blue:**
+
 ```json
 {
   "primary": "#1E3A8A",
@@ -277,6 +303,7 @@ Complete platform requirements for visual content optimization.
 ```
 
 **Professional Neutral:**
+
 ```json
 {
   "primary": "#2C3E50",
@@ -289,6 +316,7 @@ Complete platform requirements for visual content optimization.
 ### YouTube Thumbnail Palettes
 
 **High Contrast:**
+
 ```json
 {
   "background": "#FF0000",
@@ -299,6 +327,7 @@ Complete platform requirements for visual content optimization.
 ```
 
 **Complementary:**
+
 ```json
 {
   "warm": "#FF6B35",
@@ -313,12 +342,14 @@ Complete platform requirements for visual content optimization.
 ## Typography Guidelines by Platform
 
 ### Instagram
+
 - **Body Text:** 14-16pt (if any)
 - **Headers:** 24-32pt
 - **Fonts:** San Francisco, Helvetica, custom brand fonts
 - **Rule:** Minimal text, use captions instead
 
 ### LinkedIn
+
 - **Quote Text:** 48-72pt bold
 - **Attribution:** 18-24pt regular
 - **Body:** 16-18pt
@@ -326,12 +357,14 @@ Complete platform requirements for visual content optimization.
 - **Rule:** Clear hierarchy, readable at mobile size
 
 ### YouTube Thumbnails
+
 - **Main Text:** 72-120pt extra bold
 - **Secondary:** 36-48pt
 - **Fonts:** Impact, Bebas Neue, Anton, or thick custom
 - **Rule:** 3-7 words maximum, thick stroke (#000000), high contrast
 
 ### TikTok
+
 - **On-Screen Text:** 48-72pt bold
 - **Fonts:** Impact, meme fonts, trend-specific
 - **Rule:** Large, bold, move with video, meme aesthetic
@@ -342,40 +375,43 @@ Complete platform requirements for visual content optimization.
 
 ### Images
 
-| Platform | Format | Quality | Notes |
-|----------|--------|---------|-------|
-| Instagram | JPG | 90-95% | PNG for graphics with transparency |
-| LinkedIn | PNG | 95-100% | Professional quality critical |
-| Twitter | JPG | 85-90% | Optimize for speed |
-| YouTube | PNG | 95-100% | Thumbnail clarity critical |
-| Pinterest | JPG | 90-95% | Balance quality and load speed |
+| Platform  | Format | Quality | Notes                              |
+| --------- | ------ | ------- | ---------------------------------- |
+| Instagram | JPG    | 90-95%  | PNG for graphics with transparency |
+| LinkedIn  | PNG    | 95-100% | Professional quality critical      |
+| Twitter   | JPG    | 85-90%  | Optimize for speed                 |
+| YouTube   | PNG    | 95-100% | Thumbnail clarity critical         |
+| Pinterest | JPG    | 90-95%  | Balance quality and load speed     |
 
 ### Videos
 
-| Platform | Format | Codec | Bitrate |
-|----------|--------|-------|---------|
-| Instagram Reels | MP4 | H.264 | 5-10 Mbps |
-| TikTok | MP4 | H.264 | 5-8 Mbps |
-| YouTube | MP4 | H.264/H.265 | 8-15 Mbps |
-| Twitter | MP4 | H.264 | 5-8 Mbps |
+| Platform        | Format | Codec       | Bitrate   |
+| --------------- | ------ | ----------- | --------- |
+| Instagram Reels | MP4    | H.264       | 5-10 Mbps |
+| TikTok          | MP4    | H.264       | 5-8 Mbps  |
+| YouTube         | MP4    | H.264/H.265 | 8-15 Mbps |
+| Twitter         | MP4    | H.264       | 5-8 Mbps  |
 
 ---
 
 ## Design System Patterns
 
 ### Instagram Design System
+
 - **Grid:** May use rule of thirds or centered
 - **White Space:** Breathing room around subject
 - **Colors:** Consistent brand palette OR aesthetic theme
 - **Style:** Cohesive feed aesthetic (all posts harmonize)
 
 ### LinkedIn Design System
+
 - **Grid:** Professional layouts, aligned elements
 - **White Space:** Generous (25-30% minimum)
 - **Colors:** Corporate palette, 2-3 colors maximum
 - **Style:** Clean, minimal, data-focused
 
 ### YouTube Design System
+
 - **Grid:** Centered subject, bold text placement
 - **White Space:** Minimal (maximize impact in small preview)
 - **Colors:** High saturation, complementary pairs

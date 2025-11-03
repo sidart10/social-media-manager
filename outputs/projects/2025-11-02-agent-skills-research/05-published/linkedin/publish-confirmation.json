@@ -1,0 +1,21 @@
+{
+  "published_via": "Postiz",
+  "platform": "LinkedIn",
+  "post_type": "long-form with carousel",
+  "word_count": 547,
+  "images_count": 5,
+  "scheduled_for": "2025-11-03T14:00:00Z",
+  "postiz_id": "cmhiiva6p0023nw7wo9ov9ezr",
+  "postiz_dashboard_url": "http://localhost:5001/p/cmhiiva6p0023nw7wo9ov9ezr",
+  "cloudinary_urls": [
+    "https://res.cloudinary.com/dnezawwer/image/upload/v1762134169/social-media-postiz/agent-skills-thread/tweet-5-comparison-table.png",
+    "https://res.cloudinary.com/dnezawwer/image/upload/v1762134168/social-media-postiz/agent-skills-thread/tweet-4-token-comparison.png",
+    "https://res.cloudinary.com/dnezawwer/image/upload/v1762134171/social-media-postiz/agent-skills-thread/tweet-6-skills-mcp.png",
+    "https://res.cloudinary.com/dnezawwer/image/upload/v1762134174/social-media-postiz/agent-skills-thread/tweet-8-production-stats.png",
+    "https://res.cloudinary.com/dnezawwer/image/upload/v1762134175/social-media-postiz/agent-skills-thread/tweet-11-evolution-timeline.png"
+  ],
+  "status": "scheduled",
+  "agent": "zoro",
+  "content_source": "03-drafts/linkedin/post-agent-skills-comparison.md",
+  "note": "Updated to 5-image carousel for better engagement"
+}

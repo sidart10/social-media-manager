@@ -26,6 +26,7 @@ After hours of debugging, THIS is our answer!
 ## 🎯 Why fal-video is THE Solution
 
 **Proven Track Record:**
+
 - ✅ "High-performance MCP server"
 - ✅ "Automatic downloads to local machine"
 - ✅ Used in production by multiple users
@@ -33,11 +34,13 @@ After hours of debugging, THIS is our answer!
 - ✅ Simple, stable API
 
 **Multi-Model Support:**
+
 - Supports Veo 3 (via fal.ai)
 - Supports other video models
 - Flexible fallback options
 
 **vs Buggy Alternatives:**
+
 - mcp-veo3: 3 bugs, SDK mismatches
 - sora2-mcp: Base64 size issues
 - veotools: Installation problems
@@ -47,6 +50,7 @@ After hours of debugging, THIS is our answer!
 ## 🔧 Configuration
 
 **Installed:**
+
 ```
 claude mcp add fal-video \
   -e FAL_API_KEY=2470b2e9-655d-4acb-b5f0-54e04996884d:21549e7d164ebbb5aa1899ead6166076 \
@@ -62,6 +66,7 @@ claude mcp add fal-video \
 ## 🎬 After Restart - Test Commands
 
 ### Test Image-to-Video with Frame 1:
+
 ```
 Tool: mcp__fal_video__<tool_name>  # Exact name TBD after restart
 Parameters: {
@@ -73,6 +78,7 @@ Parameters: {
 ```
 
 **Expected Result:**
+
 - ✅ 8-second video with REAL MOTION
 - ✅ No base64 size issues (fal handles upload)
 - ✅ No SDK format bugs
@@ -83,6 +89,7 @@ Parameters: {
 ## 💰 Cost
 
 **fal.ai Pricing:**
+
 - Has FREE tier for testing
 - Paid tiers for production
 - More affordable than direct OpenAI Sora
@@ -106,6 +113,7 @@ Parameters: {
 **RESTART CLAUDE CODE NOW!**
 
 **After restart:**
+
 ```
 /ai-video-agent
 
@@ -113,6 +121,7 @@ Parameters: {
 ```
 
 **I'll:**
+
 1. ✅ Call fal-video image-to-video tool
 2. ✅ Upload your Frame 1
 3. ✅ Generate 8s video with REAL MOTION

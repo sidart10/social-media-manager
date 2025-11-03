@@ -169,12 +169,15 @@
 ## Issues Found During Edit
 
 ### Critical Issues (Must Fix)
+
 <!-- List any blocking issues -->
 
 ### Warnings (Should Address)
+
 <!-- List any concerns -->
 
 ### Change Impact Analysis
+
 <!-- Document scope of changes -->
 
 ---

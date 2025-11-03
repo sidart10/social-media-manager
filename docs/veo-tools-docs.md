@@ -254,11 +254,11 @@ Returns:
         - veotools (str|None): veotools package version
         - dependencies (dict): Versions of key Python packages:
             - google-genai: Google GenerativeAI library version
-            - opencv-python: OpenCV library version  
+            - opencv-python: OpenCV library version
             - requests: HTTP requests library version
             - python-dotenv: Environment file loader version
         - ffmpeg (str|None): FFmpeg version string if available
-    
+
 Examples:
     >>> versions = version()
     >>> print(f"veotools: {versions['veotools']}")
@@ -267,7 +267,7 @@ Examples:
     ...     print(f"FFmpeg: {versions['ffmpeg']}")
     >>> else:
     ...     print("FFmpeg not available")
-  
+
 Note:
     Returns None for any package that cannot be found or queried.
     This is expected behavior and not an error condition.
@@ -279,7 +279,7 @@ Create a new job record with initial values.
 Args:
     kind: Type of generation job (text|image|video).
     params: Generation parameters dictionary.
-  
+
 Returns:
     JobRecord: New job record with unique ID and initial status.
 
@@ -289,7 +289,7 @@ Validate generation parameters for consistency and file existence.
 
 Args:
     params: Generation parameters to validate.
-  
+
 Raises:
     ValueError: If prompt is missing/invalid or multiple input types specified.
     FileNotFoundError: If specified input files don't exist.
@@ -459,7 +459,7 @@ error handling. Updates job state throughout the process.
 
 Args:
     job_id: The unique job identifier to process.
-  
+
 Note:
     This is an internal function called by the background thread system.
     It should not be called directly.
@@ -470,7 +470,7 @@ Ensure result dictionary is JSON-serializable with proper types.
 
 Args:
     result: Result dictionary to sanitize.
-  
+
 Returns:
     dict: Sanitized result with Path objects converted to strings.
 

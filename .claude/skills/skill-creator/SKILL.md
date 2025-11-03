@@ -10,12 +10,14 @@ Create high-quality Claude Code skills following Anthropic official best practic
 ## 🚀 New: Automation Scripts Available
 
 **Progressive Discovery Workflow:**
+
 1. **init_skill.py** - Auto-scaffolds skill directory in 2 seconds
 2. **quick_validate.py** - Validates YAML and naming conventions
 3. **package_skill.py** - Creates distributable ZIP files
 4. **enhance_skill.py** - Adds research findings to existing skills
 
 **Benefits:**
+
 - ⚡ Create skills in 1-3 minutes (vs 5-10 minutes manual)
 - ✅ Consistent structure every time
 - 📦 Distribution-ready packaging
@@ -24,6 +26,7 @@ Create high-quality Claude Code skills following Anthropic official best practic
 ## When to Use This Skill
 
 This skill auto-loads when:
+
 - Creating a new Claude Code skill
 - Need to build custom capabilities
 - Want skill templates
@@ -49,6 +52,7 @@ This skill auto-loads when:
 **Best for:** Content creation, marketing, specialized domains
 
 **Research capabilities:**
+
 - Exa neural search for methodologies
 - Firecrawl for scraping best practices
 - Finds real-world examples
@@ -64,6 +68,7 @@ When user requests skill creation, guide them through:
 ### Step 1: Understand Requirements
 
 **Ask:**
+
 ```
 I'll help you create a skill following Anthropic best practices.
 
@@ -84,18 +89,21 @@ Examples:
 **Evaluate complexity:**
 
 **Simple domains (use template):**
+
 - File operations (read, write, format)
 - Data transformations
 - Basic formatting tasks
 - Generic utilities
 
 **Complex domains (research first!):**
+
 - Content creation (posts, scripts, captions)
 - Marketing methodologies
 - Creative processes
 - Domain-specific expertise
 
 **Ask if complex:**
+
 ```
 This is a {domain} skill. I can:
 
@@ -112,6 +120,7 @@ Which approach? [1 = quick / 2 = research]
 **Execute research:**
 
 **3a. Exa Neural Search**
+
 ```
 Using Exa to find {domain} best practices...
 
@@ -120,6 +129,7 @@ Results: 10 sources
 ```
 
 **3b. Firecrawl Top Results**
+
 ```
 Scraping top 3 sources with Firecrawl...
 - {source_1}: {key_finding}
@@ -128,6 +138,7 @@ Scraping top 3 sources with Firecrawl...
 ```
 
 **3c. Synthesize Findings**
+
 ```
 Research complete! Found:
 - {methodology_1} (from {source})
@@ -140,6 +151,7 @@ Will incorporate into skill instructions.
 ```
 
 **Tools used:**
+
 - `mcp__exa__search(query, numResults=10)`
 - `mcp__firecrawl__firecrawl_scrape(url)` for top 3
 - Synthesis into skill structure
@@ -151,12 +163,14 @@ Will incorporate into skill instructions.
 **Apply Anthropic naming rules:**
 
 **Rules:**
+
 - Lowercase letters, numbers, hyphens only
 - Max 64 characters
 - Use gerund form (verb+ing) for action skills
 - Be specific, not generic
 
 **Generate from purpose:**
+
 ```
 Purpose: "Analyze Instagram engagement"
 Generated name: analyzing-instagram-engagement
@@ -169,6 +183,7 @@ Generated name: generating-commit-messages
 ```
 
 **Show to user:**
+
 ```
 Suggested name: {generated-name}
 Follows Anthropic conventions ✓
@@ -181,6 +196,7 @@ Accept? [yes / suggest alternative]
 ### Step 5: Craft Description (CRITICAL!)
 
 **Anthropic requirements:**
+
 - Max 1024 characters
 - Include WHAT it does
 - Include WHEN to use it
@@ -190,27 +206,32 @@ Accept? [yes / suggest alternative]
 **Generate description:**
 
 **Template:**
+
 ```
 {what-it-does}. Use when {trigger-context-1}, {trigger-context-2}, or {trigger-context-3}. {key-capabilities-or-methods}.
 ```
 
 **For researched skills, include methodologies found:**
+
 ```
 {what-it-does} using {methodology-from-research}. Use when {triggers}. Includes {frameworks-found} and {patterns-found}.
 ```
 
 **Example (researched):**
+
 ```yaml
 description: Create engaging Instagram captions with hooks, storytelling, and CTAs using proven engagement patterns. Use when writing Instagram posts, captions, or social media content for Instagram. Includes hook formulas from viral content analysis, optimal caption length (600-1200 chars), and hashtag strategies (5-10 tags).
 ```
 
 **Validation:**
+
 - Length check (max 1024)
 - Has "use when" ✓
 - Has trigger keywords ✓
 - Specific examples ✓
 
 **Show to user:**
+
 ```
 Description (optimized for discovery):
 "{generated-description}"
@@ -228,12 +249,14 @@ Good? [yes / edit]
 **Based on complexity and research:**
 
 **Simple (no research):**
+
 ```
 skill-name/
 └── SKILL.md
 ```
 
 **Medium (some research):**
+
 ```
 skill-name/
 ├── SKILL.md
@@ -244,6 +267,7 @@ skill-name/
 ```
 
 **Complex (deep research):**
+
 ```
 skill-name/
 ├── SKILL.md
@@ -260,6 +284,7 @@ skill-name/
 ```
 
 **Ask:**
+
 ```
 Recommended structure: {structure-type}
 
@@ -282,6 +307,7 @@ python3 scripts/init_skill.py {skill-name} --path {target-directory}
 ```
 
 **This creates in 2 seconds:**
+
 - ✅ Skill directory
 - ✅ SKILL.md with template + TODOs
 - ✅ scripts/ directory with example.py
@@ -295,18 +321,21 @@ python3 scripts/init_skill.py {skill-name} --path {target-directory}
 **Build SKILL.md content manually:**
 
 **Header (YAML):**
+
 ```yaml
 ---
-name: {generated-name}
-description: {optimized-description}
+name: { generated-name }
+description: { optimized-description }
 ---
 ```
 
 **Body sections:**
 
 **When to Use This Skill:**
+
 ```markdown
 Use this skill when:
+
 - {trigger scenario 1}
 - {trigger scenario 2}
 - {trigger scenario 3}
@@ -315,6 +344,7 @@ Use this skill when:
 **Instructions:**
 
 **If template-based:**
+
 ```markdown
 ## Instructions
 
@@ -326,24 +356,29 @@ When {task-type}:
 ```
 
 **If research-enhanced:**
+
 ```markdown
 ## Instructions
 
 Based on research of {domain} best practices:
 
 ### {Methodology 1 Name} (from {source})
+
 {methodology explanation}
 
 ### {Methodology 2 Name} (from {source})
+
 {methodology explanation}
 
 ### Application Process
+
 1. {step using methodology 1}
 2. {step using methodology 2}
 3. {synthesis step}
 ```
 
 **Examples:**
+
 ```markdown
 ## Examples
 
@@ -355,6 +390,7 @@ Based on research of {domain} best practices:
 ```
 
 **Reference Files (if researched):**
+
 ```markdown
 ## Reference Files
 
@@ -369,20 +405,25 @@ Based on research of {domain} best practices:
 **If research-enhanced:**
 
 **reference/methodology.md:**
+
 ```markdown
 # {Domain} Methodologies
 
 ## {Framework 1} (Source: {url})
+
 {detailed explanation from research}
 
 ## {Framework 2} (Source: {url})
+
 {detailed explanation from research}
 
 ## Best Practices
+
 {synthesized from all sources}
 ```
 
 **reference/sources.md:**
+
 ```markdown
 # Research Sources
 
@@ -398,15 +439,18 @@ Based on research of {domain} best practices:
 ```
 
 **prompts/templates.md:**
+
 ```markdown
 # Generation Templates
 
 Based on researched patterns:
 
 ## Template 1: {Pattern Name}
+
 {template based on research}
 
 ## Template 2: {Pattern Name}
+
 {template based on research}
 ```
 
@@ -421,12 +465,14 @@ python3 scripts/quick_validate.py {skill-directory}
 ```
 
 **Auto-checks:**
+
 - ✅ YAML frontmatter valid
 - ✅ name field exists + hyphen-case format
 - ✅ description field exists + no angle brackets
 - ✅ SKILL.md structure correct
 
 **Example output:**
+
 ```
 ✅ Skill is valid!
 ```
@@ -442,6 +488,7 @@ OR
 **If you prefer manual validation or automation unavailable:**
 
 **YAML validation:**
+
 ```python
 # Check YAML frontmatter
 - Opening --- on line 1 ✓
@@ -454,6 +501,7 @@ OR
 ```
 
 **Description quality:**
+
 ```python
 - Includes "use when" ✓
 - Has trigger keywords ✓
@@ -462,6 +510,7 @@ OR
 ```
 
 **File structure:**
+
 ```python
 - SKILL.md exists ✓
 - Referenced files exist ✓
@@ -470,6 +519,7 @@ OR
 ```
 
 **Report validation:**
+
 ```
 Validation Results:
 ✅ YAML frontmatter valid
@@ -485,6 +535,7 @@ Validation Results:
 ### Step 10: Save to Location
 
 **Ask:**
+
 ```
 Where to save this skill?
 
@@ -508,6 +559,7 @@ Select: [1/2/3/4]
 ```
 
 **Create files:**
+
 ```bash
 mkdir -p {selected-path}
 # Create SKILL.md
@@ -528,17 +580,20 @@ python3 scripts/package_skill.py {skill-directory} ./output
 ```
 
 **This creates:**
+
 - ✅ Validates skill structure
 - ✅ Checks for TODO items (warns if found)
 - ✅ Creates {skill-name}.zip with all files
 - ✅ Ready for sharing or uploading
 
 **Use --force to skip TODO warnings:**
+
 ```bash
 python3 scripts/package_skill.py {skill-directory} ./output --force
 ```
 
 **Output:**
+
 ```
 📦 Packaging skill to: ./output/my-skill.zip
 
@@ -552,6 +607,7 @@ python3 scripts/package_skill.py {skill-directory} ./output --force
 ---
 
 **Display skill creation results:**
+
 ```
 ✅ Skill Created: {skill-name}
 
@@ -598,12 +654,14 @@ python3 scripts/package_skill.py {skill-directory} ./output --force
 **Auto-decide based on domain:**
 
 **Skip research (use template):**
+
 - File operations
 - Data formatting
 - Simple transformations
 - Well-understood tasks
 
 **Research first:**
+
 - Content creation (posts, scripts, captions)
 - Marketing methodologies
 - Creative processes
@@ -611,6 +669,7 @@ python3 scripts/package_skill.py {skill-directory} ./output --force
 - User explicitly requests research
 
 **Ask user if unclear:**
+
 ```
 This seems like a {domain} skill. Research first?
 
@@ -628,18 +687,21 @@ Template mode is faster but more generic.
 
 **Purpose:** "Create Instagram captions"
 **Research queries:**
+
 1. Exa: "Instagram caption best practices engagement strategies"
 2. Exa: "viral Instagram caption formulas hooks"
 3. Firecrawl: Top 3 results from Exa
 
 **Purpose:** "Analyze Twitter threads"
 **Research queries:**
+
 1. Exa: "Twitter thread structure viral patterns"
 2. Exa: "thread engagement tactics proven formulas"
 3. Firecrawl: Top 3 results
 
 **Purpose:** "Write product descriptions"
 **Research queries:**
+
 1. Exa: "product description copywriting frameworks"
 2. Exa: "ecommerce product copy best practices"
 3. Firecrawl: Top 3 results
@@ -651,21 +713,25 @@ Template mode is faster but more generic.
 **Extract from research:**
 
 **Methodologies:**
+
 - Named frameworks (AIDA, PAS, etc.)
 - Step-by-step processes
 - Proven patterns
 
 **Best practices:**
+
 - Do's and don'ts
 - Common mistakes
 - Success factors
 
 **Examples:**
+
 - Real-world samples
 - Before/after comparisons
 - Case studies
 
 **Data:**
+
 - Statistics (engagement rates, lengths, etc.)
 - Benchmarks
 - Optimal parameters
@@ -677,6 +743,7 @@ Template mode is faster but more generic.
 ## Validation Script
 
 **scripts/validate-skill.py:**
+
 ```python
 #!/usr/bin/env python3
 """
@@ -805,6 +872,7 @@ if __name__ == "__main__":
 **Generate test query that should trigger skill:**
 
 **Based on description triggers:**
+
 ```
 Skill ready! Test with this query:
 
@@ -824,6 +892,7 @@ If not, description may need more specific triggers.
 ### Anthropic Best Practices
 
 **reference/anthropic-best-practices.md** - Complete Anthropic guidelines:
+
 - Naming conventions (gerund form, lowercase, hyphens)
 - Description optimization (what + when + triggers)
 - Progressive disclosure patterns
@@ -833,6 +902,7 @@ If not, description may need more specific triggers.
 ### Description Optimization
 
 **reference/description-optimization.md** - How to write discoverable descriptions:
+
 - Formula: what + when + triggers
 - Good vs bad examples
 - Keyword selection
@@ -842,6 +912,7 @@ If not, description may need more specific triggers.
 ### Research Integration
 
 **prompts/research-query-generator.md** - How to research for skills:
+
 - Query formulation from skill purpose
 - Exa search strategies
 - Firecrawl target selection
@@ -855,6 +926,7 @@ If not, description may need more specific triggers.
 **User:** "Create a skill for formatting JSON"
 
 **skill-creator:**
+
 ```
 Using skill-creator skill in template mode...
 
@@ -880,6 +952,7 @@ Test with: "Format this JSON: {...}"
 **User:** "Create a skill for writing LinkedIn posts, research best practices first"
 
 **skill-creator:**
+
 ```
 Using skill-creator skill in research mode...
 
@@ -928,21 +1001,25 @@ Test with: "Write a LinkedIn post about AI automation"
 
 ### Works With:
 
-**Exa (mcp__exa__search):**
+**Exa (mcp**exa**search):**
+
 - Neural search for methodologies
 - Find proven frameworks
 - Discover real-world examples
 
-**Firecrawl (mcp__firecrawl__firecrawl_scrape):**
+**Firecrawl (mcp**firecrawl**firecrawl_scrape):**
+
 - Scrape top results from Exa
 - Extract detailed best practices
 - Clean markdown output
 
 **skill-seeker:**
+
 - Could enhance by referencing skill-seeker scraped docs
 - "For React best practices, see skill-seeker output/react/"
 
 **deep-web-research skill:**
+
 - Could invoke for comprehensive research
 - Leverages existing research orchestration
 
@@ -951,6 +1028,7 @@ Test with: "Write a LinkedIn post about AI automation"
 ## Quality Standards
 
 Every skill created will have:
+
 - ✅ Valid YAML frontmatter
 - ✅ Anthropic naming conventions
 - ✅ Optimized description (discovery-friendly)
@@ -1018,23 +1096,27 @@ skill-creator: Research mode (5 min)
 **skill-creator itself uses progressive disclosure:**
 
 **Level 1 (always loaded):**
+
 ```yaml
 name: skill-creator
 description: Create well-formed Claude Code skills... [triggers]
 ```
+
 **Token cost:** ~50 tokens
 
 **Level 2 (loaded when creating skill):**
+
 - Full SKILL.md instructions
 - Creation process
 - Validation logic
-**Token cost:** ~3000 tokens
+  **Token cost:** ~3000 tokens
 
 **Level 3 (loaded on-demand):**
+
 - reference/anthropic-best-practices.md (when user asks)
 - prompts/research-query-generator.md (when researching)
 - examples/researched-skill-example.md (when user asks)
-**Token cost:** ~5000 tokens per file (only if needed)
+  **Token cost:** ~5000 tokens per file (only if needed)
 
 **Efficient!**
 
@@ -1058,6 +1140,7 @@ description: Create well-formed Claude Code skills... [triggers]
 ```
 
 **Problems:**
+
 - Must remember /skill-creator command
 - More complex (workflow.yaml + instructions.md)
 - Slower to invoke (slash command → menu → select)
@@ -1077,6 +1160,7 @@ User: "Create a skill for {purpose}"
 ```
 
 **Benefits:**
+
 - Zero friction (auto-loads)
 - Simpler (one SKILL.md)
 - Faster (no menu navigation)
@@ -1090,6 +1174,7 @@ User: "Create a skill for {purpose}"
 Creating complete skill-creator skill with research capabilities!
 
 **Structure:**
+
 ```
 .claude/skills/jarvis/skill-creator/
 ├── SKILL.md (above - complete implementation)
@@ -1120,6 +1205,7 @@ Creating complete skill-creator skill with research capabilities!
 **The Master's Answer:** **SKILL!**
 
 **Why:**
+
 1. ✅ Anthropic uses skill (proven pattern)
 2. ✅ Model-invoked (auto-loads)
 3. ✅ CAN interact (asks questions within task)
@@ -1132,4 +1218,4 @@ Creating complete skill-creator skill with research capabilities!
 
 ---
 
-*Creating all files with research integration... standby...*
+_Creating all files with research integration... standby..._

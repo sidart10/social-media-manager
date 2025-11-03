@@ -27,8 +27,8 @@ The system is already partially operational with 24+ skills, 20+ workflows, and 
 
 ## Change Log
 
-| Date | Version | Description | Author |
-|------|---------|-------------|---------|
-| 2025-10-31 | 1.0 | Initial PRD draft created from Project Brief | PM Agent |
+| Date       | Version | Description                                  | Author   |
+| ---------- | ------- | -------------------------------------------- | -------- |
+| 2025-10-31 | 1.0     | Initial PRD draft created from Project Brief | PM Agent |
 
 ---

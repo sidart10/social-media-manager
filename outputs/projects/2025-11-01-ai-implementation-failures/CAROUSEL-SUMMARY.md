@@ -13,6 +13,7 @@
 **Behavioral Goal:** SAVES + SHARES (LinkedIn's top algorithm signals)
 
 **Emotional Journey:**
+
 1. Slide 1: Shock ("Oh shit, I might be in the 67%")
 2. Slide 2: Recognition ("We're making these exact mistakes")
 3. Slide 3: Authority ("This has data - BCG €20M stat")
@@ -24,30 +25,35 @@
 ## 📊 Slides Generated
 
 ### Slide 1: Pattern Interrupt
+
 **File:** `slide-01-pattern-interrupt.png` (931KB)
 **URL:** https://res.cloudinary.com/dnezawwer/image/upload/v1762025948/social-media-carousels/social-media/carousels/ai-failures/slide-01.png
 **Visual:** Giant "67%" in muted amber on dark navy
 **Message:** Stop scroll with shocking stat
 
 ### Slide 2: Mistake Matrix
+
 **File:** `slide-02-mistake-matrix.png` (949KB)
 **URL:** https://res.cloudinary.com/dnezawwer/image/upload/v1762025949/social-media-carousels/social-media/carousels/ai-failures/slide-02.png
 **Visual:** 3-row matrix (mistake → consequence → cost)
 **Message:** "We're making these mistakes"
 
 ### Slide 3: Reality Check
+
 **File:** `slide-03-reality-check.png` (920KB)
 **URL:** https://res.cloudinary.com/dnezawwer/image/upload/v1762025950/social-media-carousels/social-media/carousels/ai-failures/slide-03.png
 **Visual:** €20M BCG stat + demo vs production bars
 **Message:** Authority with receipts
 
 ### Slide 4: Winner's Framework
+
 **File:** `slide-04-winners-framework.png` (922KB)
 **URL:** https://res.cloudinary.com/dnezawwer/image/upload/v1762025952/social-media-carousels/social-media/carousels/ai-failures/slide-04.png
 **Visual:** 2x2 matrix with winners quadrant highlighted
 **Message:** Clear pattern for the 33%
 
 ### Slide 5: CTA
+
 **File:** `slide-05-cta.png` (910KB)
 **URL:** https://res.cloudinary.com/dnezawwer/image/upload/v1762025953/social-media-carousels/social-media/carousels/ai-failures/slide-05.png
 **Visual:** "What's your AI product strategy?" centered
@@ -58,6 +64,7 @@
 ## 🎨 Design System
 
 **Aesthetic:** Sophisticated muted tech (H-1B inspired)
+
 - **Background:** Deep navy (#0A1929) → black gradient
 - **Mistakes/Risks:** Muted terra cotta (#B88B7E)
 - **Solutions/Wins:** Muted teal (#7FA99B)
@@ -95,6 +102,7 @@
 ## ✅ Ready for LinkedIn!
 
 All slides are:
+
 - ✅ Uploaded to Cloudinary (public URLs)
 - ✅ Muted color palette (sophisticated)
 - ✅ Branded with "Sid Dani"
@@ -103,6 +111,7 @@ All slides are:
 - ✅ Strategic emotional journey
 
 **Next Steps:**
+
 1. Review slides visually
 2. Post to LinkedIn with original text
 3. Monitor engagement (saves + shares)

@@ -12,12 +12,14 @@ The AI-Powered Social Media Agent Team is a modular, extensible system for AI-dr
 - **Organic Growth Model:** New agents/workflows/skills addable without modifying existing components
 
 **System Scale:**
+
 - 3 Core Agents (Jarvis, Zoe, Zoro)
 - 20+ Workflows (research, content generation, visual production, publishing)
 - 24+ Skills (autonomous expertise modules)
 - 20+ MCP Integrations (Notion, Postiz, Apify, Exa, image/video generation)
 
 **Target Performance:**
+
 - Content creation time: 75-135 min → 10-15 min (85-90% reduction)
 - Content output: 2-3 posts/week → 8-10 posts/week (3-4x increase)
 - Voice consistency: ≥8/10 confidence via Enhanced Voice Profile v2.0

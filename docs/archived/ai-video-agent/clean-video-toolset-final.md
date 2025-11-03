@@ -8,11 +8,13 @@
 ## 🗑️ REMOVED (Buggy & Redundant)
 
 **Cleaned up:**
+
 - ❌ veo3-fixed (dayongd1/mcp-veo3) - 3+ bugs, unfixable
 - ❌ sora2-real (nanameru/sora2-mcp) - Base64 issues, redundant
 - ❌ sora-pro (Doriandarko) - Connection failures
 
 **Why removed:**
+
 - Too many bugs
 - Unfixable SDK/API mismatches
 - Redundant (fal-video covers everything)
@@ -30,6 +32,7 @@
 **Status:** ✓ Connected
 
 **Capabilities:**
+
 - ✅ Image-to-video with Veo 3
 - ✅ Text-to-video
 - ✅ Video stitching (FFmpeg)
@@ -38,12 +41,14 @@
 - ✅ Audio-preserving merging
 
 **Configuration:**
+
 ```bash
 Env: GEMINI_API_KEY=AIzaSyCHgri7MU_iHJ7Q5ixovfdsJ0_1KWLN3u4
      VEO_OUTPUT_DIR=./outputs/veotools
 ```
 
 **Use For:**
+
 - Primary image-to-video
 - FREE production work
 - Multi-scene videos
@@ -59,6 +64,7 @@ Env: GEMINI_API_KEY=AIzaSyCHgri7MU_iHJ7Q5ixovfdsJ0_1KWLN3u4
 **Status:** ✓ Connected
 
 **Capabilities:**
+
 - ✅ **Veo 3.1** image-to-video
 - ✅ **Sora 2** image-to-video
 - ✅ **Sora 2 Pro** premium quality
@@ -68,11 +74,13 @@ Env: GEMINI_API_KEY=AIzaSyCHgri7MU_iHJ7Q5ixovfdsJ0_1KWLN3u4
 - ✅ 10+ other models!
 
 **Configuration:**
+
 ```bash
 Env: FAL_KEY=2470b2e9-655d-4acb-b5f0-54e04996884d:21549e7d164ebbb5aa1899ead6166076
 ```
 
 **Use For:**
+
 - Premium productions (Sora 2 Pro)
 - Model comparison testing
 - When veotools has issues
@@ -96,6 +104,7 @@ Your AI Video Agent
 ```
 
 **Benefits:**
+
 - ✅ Clean, minimal setup
 - ✅ No buggy servers
 - ✅ Maximum model access
@@ -107,12 +116,14 @@ Your AI Video Agent
 ## 📋 What Each Server Does
 
 **veotools:**
+
 - Direct Google Veo 3 access
 - FREE Gemini API
 - Production-quality tools
 - Scene orchestration
 
 **fal-video:**
+
 - Gateway to ALL major models
 - ONE API key = access everything
 - Handles upload/size issues
@@ -141,8 +152,7 @@ Video Generation Servers:
     status: ✓ Connected
     primary_use: Multi-model access (Veo 3.1, Sora 2, Kling, etc.)
 
-Removed:
-  ❌ veo3-fixed (too buggy)
+Removed: ❌ veo3-fixed (too buggy)
   ❌ sora2-real (redundant + buggy)
   ❌ sora-pro (connection issues)
 ```
@@ -154,6 +164,7 @@ Removed:
 **For your AI Video Agent:**
 
 **Image-to-Video Routing:**
+
 ```
 1. Try veotools first (FREE Veo 3)
    ↓ If fails or user wants premium
@@ -165,10 +176,12 @@ Removed:
 ```
 
 **Text-to-Video:**
+
 - veotools (FREE)
 - fal-video multi-model options
 
 **Video Stitching:**
+
 - veotools (FFmpeg built-in)
 - fal-video options
 
@@ -177,12 +190,14 @@ Removed:
 ## ✅ Benefits of Clean Setup
 
 **Before Cleanup:**
+
 - 5-6 buggy video servers
 - Multiple failures
 - Redundant functionality
 - Maintenance nightmare
 
 **After Cleanup:**
+
 - 2 working servers
 - Clear responsibilities
 - Maximum model access

@@ -9,6 +9,7 @@
 **Premium Required:** No
 
 **Payload:**
+
 ```json
 {
   "text": "Your tweet text here"
@@ -26,6 +27,7 @@
 **Premium Required:** YES (Premium or Premium Plus)
 
 **Payload:**
+
 ```json
 {
   "text": "Your long-form content here... [up to 25k chars]"
@@ -33,6 +35,7 @@
 ```
 
 **Important:**
+
 - API does NOT support formatting (bold, italic) - web UI only
 - Truncated to 280 for non-Premium accounts
 - No special escaping needed
@@ -46,6 +49,7 @@
 **API Endpoint:** `POST /2/tweets`
 
 **Payload:**
+
 ```json
 {
   "text": "Your tweet text",
@@ -56,6 +60,7 @@
 ```
 
 **Media Upload:**
+
 - First: Upload via `POST /1.1/media/upload`
 - Returns: media_id
 - Then: Include in tweet payload
@@ -68,12 +73,14 @@
 **API Endpoint:** `POST /2/tweets` (multiple calls)
 
 **Process:**
+
 1. Post first tweet
 2. Get tweet_id
 3. Post reply with `in_reply_to_tweet_id`
 4. Repeat
 
 **Payload (2nd+ tweets):**
+
 ```json
 {
   "text": "Second tweet text",
