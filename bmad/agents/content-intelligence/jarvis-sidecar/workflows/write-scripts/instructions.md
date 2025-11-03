@@ -5,10 +5,10 @@
 
 <workflow>
 <critical>Load {project-root}/bmad/core/tasks/workflow.xml engine first</critical>
-<critical>Triggers skills: video-script-writer, youtube-thumbnail-mastery, voice-matcher</critical>
+<critical>Triggers content-writer skill (handles YouTube scripts with voice application internally)</critical>
 
 <step n="1" goal="Load voice profile and gather requirements">
-  <action>Display:
+  <action>Display in {communication_language}:
     🎬 Write Scripts - Voice-Matched Video Content
 
     Generates production-ready scripts with:
@@ -40,10 +40,10 @@
 <action>Store as {{reference_file}}</action>
 </step>
 
-<step n="2" goal="Generate script (triggers video-script-writer skill)">
-  <action>**Create context for video-script-writer skill:**
+<step n="2" goal="Generate script (triggers content-writer skill)">
+  <action>**Create context for content-writer skill:**
 
-    "Generate {format} video script for {duration} minute video about {topic}.
+    "Generate {format} YouTube script for {duration} minute video about {topic}.
 
     Format: {format}
     Duration: {duration} minutes
@@ -61,11 +61,11 @@
     - Chapter markers for YouTube: 00:00 Intro, 02:15 Feature 1, etc.
     - Retention tactics: Pattern interrupts, questions, payoffs
 
-    Match voice profile for narration."
+    Match Sid's authentic voice from memories for narration (DEFAULT behavior)."
 
-    **Claude discovers video-script-writer skill**
+    **Claude discovers content-writer skill** (description includes "YouTube scripts")
 
-    **Skill returns:** Full script with timestamps + scenes
+    **Skill returns:** Full script with timestamps + scenes + Sid's voice applied
 
     Store as {{generated_script}}
 
@@ -74,8 +74,12 @@
 <action>Display script preview (first 500 chars + structure)</action>
 </step>
 
-<step n="3" goal="Generate thumbnail concepts (triggers youtube-thumbnail-mastery skill)">
-  <action>**Create context for youtube-thumbnail-mastery skill:**
+<step n="3" goal="Generate thumbnail concepts (hand off to Zoe)">
+  <action>**Note: Thumbnail generation is now handled by Zoe's youtube-thumbnail-design skill**
+
+    Display: "💡 For thumbnail creation, invoke /zoe and use youtube-thumbnail-design skill"
+
+    **Optional: Create thumbnail concept notes:**
 
     "Generate 3 CTR-optimized thumbnail concepts for video: {topic}
 
@@ -91,17 +95,13 @@
     - Text overlay (6-8 words max, large font)
     - Color palette (hex codes, vibrant/saturated)
     - Composition notes (face placement, text placement)
-    - CTR psychology (what creates curiosity gap)"
+    - CTR psychology (what creates curiosity gap)
 
-    **Claude discovers youtube-thumbnail-mastery skill**
-
-    **Skill returns:** 3 thumbnail concepts with full design specs
-
-    Store as {{thumbnail_concepts}}
+    Store as {{thumbnail_brief}} for handoff to Zoe
 
   </action>
 
-<action>Display all 3 concepts for selection</action>
+<action>Display thumbnail brief for Zoe handoff</action>
 </step>
 
 <step n="4" goal="Generate YouTube metadata">

@@ -5,10 +5,10 @@
 
 <workflow>
 <critical>Load {project-root}/bmad/core/tasks/workflow.xml engine first</critical>
-<critical>This workflow triggers 3 skills via context creation: post-writer, voice-matcher, platform-formatter</critical>
+<critical>This workflow triggers content-writer skill via context creation (handles all writing, voice application, and formatting internally)</critical>
 
 <step n="1" goal="Load voice profile and gather requirements">
-  <action>Display:
+  <action>Display in {communication_language}:
     ✍️ Write Posts - Voice-Matched Content Generation
 
     This workflow generates platform-optimized posts that sound authentically like you.
@@ -16,18 +16,25 @@
 
   </action>
 
-<action>**Load voice profile:** - Read: {agent-folder}/jarvis-sidecar/memories.md - Extract: Enhanced Voice Profile v2.0 section - Check confidence: Should be ≥8/10 for best results
+<action>Load voice profile:
+  - Read: {agent-folder}/jarvis-sidecar/memories.md
+  - Extract: Enhanced Voice Profile v2.0 section
+  - Check confidence: Should be ≥8/10 for best results
+</action>
 
-    if voice_profile not found:
-      display("⚠️ No voice profile found!")
-      display("ℹ️ Run *learn-voice first to analyze 50+ your posts")
-      <ask>Continue without voice profile? (generic AI voice) [y/n]</ask>
-      if no: <exit>Workflow cancelled - run *learn-voice first</exit>
-    else:
-      display(f"✅ Voice Profile v2.0 loaded (confidence: {confidence}/10)")
-      display(f"   Voice modes available: {list_voice_modes}")
+<check if="voice_profile not found">
+  <action>Display: "⚠️ No voice profile found!"</action>
+  <action>Display: "ℹ️ Run *learn-voice first to analyze 50+ your posts"</action>
+  <ask>Continue without voice profile? (generic AI voice) [y/n]</ask>
+  <check if="user says no">
+    <action>Exit: "Workflow cancelled - run *learn-voice first"</action>
+  </check>
+</check>
 
-  </action>
+<check if="voice_profile found">
+  <action>Display: "✅ Voice Profile v2.0 loaded (confidence: {confidence}/10)"</action>
+  <action>Display: "   Voice modes available: {list_voice_modes}"</action>
+</check>
 
 <ask>What's the topic or idea?
 
@@ -107,10 +114,10 @@
   </action>
 </step>
 
-<step n="3" goal="Generate post content (triggers post-writer skill)">
-  <action>**Create rich context for post-writer skill discovery:**
+<step n="3" goal="Generate post content (triggers content-writer skill)">
+  <action>**Create rich context for content-writer skill discovery:**
 
-    Context for Claude (triggers post-writer skill via description matching):
+    Context for Claude (triggers content-writer skill via description matching):
 
     "Generate {platform} post about {topic} using {voice_mode} voice mode.
 
@@ -135,114 +142,26 @@
 
     Match user's rhetorical DNA exactly."
 
-    **Claude will autonomously discover post-writer skill** (description contains "LinkedIn posts", "Twitter threads", "social media", "voice-matched")
+    **Claude will autonomously discover content-writer skill** (description contains "LinkedIn", "Twitter", "YouTube", "content", "voice styles")
 
-    **Skill will execute and return:** Platform-optimized post matching voice profile
+    **Skill will execute and return:** Platform-optimized post with Sid's authentic voice applied (DEFAULT behavior - no need to specify voice modifier)
 
     Store result as {{generated_post}}
 
   </action>
 
 <action>Display generated post to user for review</action>
-</step>
 
-<step n="4" goal="Validate voice consistency (triggers voice-matcher skill)">
-  <action>**Create context for voice-matcher skill:**
-
-    "Validate the following {platform} post against Enhanced Voice Profile v2.0.
-
-    Post: {generated_post}
-
-    Voice Profile: {voice_profile}
-
-    Analyze across 10 rhetorical dimensions:
-    1. Argument Architecture match
-    2. Voice mode consistency ({voice_mode} selected)
-    3. Structural framework usage
-    4. Proof style match (specificity, personal experience, data density)
-    5. Humor mechanics (if Satirist mode)
-    6. Emotional range alignment
-    7. Closing pattern match
-    8. Parenthetical usage
-    9. Cultural voice consistency
-    10. Comparative lens usage
-
-    Calculate overall confidence score (0-10).
-    Identify any mismatches or areas that don't sound like user."
-
-    **Claude will discover voice-matcher skill** (description: "voice consistency", "rhetorical DNA")
-
-    **Skill returns:** Confidence score + mismatch analysis
-
-    Store as {{voice_validation}}
-
-  </action>
-
-<action>Display validation results:
-Voice Confidence: {{voice_validation.score}}/10
-
-    if score >= 9:
-      display("🎉 EXCEPTIONAL voice match! Sounds exactly like you!")
-
-    elif score >= 8:
-      display("✅ STRONG voice match - authentic and on-brand")
-
-    elif score >= 7:
-      display("✅ GOOD voice match - acceptable for publication")
-
-    else:
-      display("⚠️ Voice match below threshold (7.0)")
-      display("Mismatches found:")
-      display({{voice_validation.mismatches}})
-
-      <ask>Regenerate with voice corrections? [y/n]</ask>
-      if yes:
-        <ask>What specifically should I adjust?</ask>
-        <goto step="3">Regenerate with adjustments</goto>
-      end if
-
-  </action>
-</step>
-
-<step n="5" goal="Apply platform formatting (triggers platform-formatter skill)">
-  <action>**Create context for platform-formatter skill:**
-
-    "Format the following post for {platform} specifications:
-
-    Post: {generated_post}
-
-    Platform: {platform}
-
-    Apply formatting rules:
-    - LinkedIn: Line breaks for readability, hashtag placement at end, call-out formatting if needed
-    - Twitter Thread: Number tweets (1/7, 2/7...), character count per tweet, ensure each <25k
-    - Twitter Single: Character count, @mention formatting, hashtag optimization
-    - Substack: H2 headers for sections, pull quotes, email-friendly formatting
-
-    Validate:
-    - Character limits (LinkedIn 3000, Twitter 280/25k, Substack unlimited)
-    - Hashtag counts (LinkedIn ≤3 optimal)
-    - Link formatting
-    - Readability"
-
-    **Claude discovers platform-formatter skill** (description: "platform specifications", "formatting rules")
-
-    **Skill returns:** Formatted post ready for platform
-
-    Store as {{formatted_post}}
-
-  </action>
-
-<action>Display formatted version with stats:
+<action>Display post stats:
 Platform: {{platform}}
 Character Count: {{char_count}}
 Word Count: {{word_count}}
-Hashtags: {{hashtag_count}}
-Voice Confidence: {{voice_validation.score}}/10
+Format: {{format}}
+Voice: Sid's authentic voice (from memories)
 </action>
 </step>
 
-<step n="6" goal="Save post to outputs with platform structure">
+<step n="4" goal="Save post to outputs with platform structure">
   <action>**Determine project slug and create folder structure:**
 
     Load or create project metadata:
@@ -272,11 +191,10 @@ Voice Confidence: {{voice_validation.score}}/10
         "platform": "{{platform}}",
         "formula": "{{formula}}",
         "voice_mode": "{{voice_mode}}",
-        "voice_confidence": {{voice_validation.score}},
         "word_count": {{word_count}},
         "character_count": {{char_count}},
         "timestamp": "ISO-8601",
-        "skills_used": ["post-writer", "voice-matcher", "platform-formatter"]
+        "skills_used": ["content-writer"]
       }
 
     Display: f"✅ Saved: 03-drafts/{platform.lower()}/post-v{version_num}.md"
@@ -284,9 +202,9 @@ Voice Confidence: {{voice_validation.score}}/10
   </action>
 </step>
 
-<step n="7" goal="Update Notion Status and Content (Epic 2 Integration)">
-  <action>Load {project-root}/.bmad-core/modules/notion-updates.md</action>
-  <action>Load {project-root}/.bmad-core/modules/notion-relational-helpers.md</action>
+<step n="5" goal="Update Notion Status and Content (Epic 2 Integration)">
+  <action>Load {project-root}/bmad/core/modules/notion-updates.md</action>
+  <action>Load {project-root}/bmad/core/modules/notion-relational-helpers.md</action>
 
 <action>**Update Notion Content Tracker:**
 
@@ -334,7 +252,7 @@ Voice Confidence: {{voice_validation.score}}/10
   </action>
 </step>
 
-<step n="8" goal="Present final post and suggest next steps">
+<step n="6" goal="Present final post and suggest next steps">
   <action>Display completion summary:
 
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -346,9 +264,9 @@ Voice Confidence: {{voice_validation.score}}/10
     **Formula:** {{formula}}
 
     **Quality:**
-    - Voice Confidence: {{voice_validation.score}}/10
     - Word Count: {{word_count}}
     - Character Count: {{char_count}}
+    - Voice: Sid's authentic (applied automatically)
 
     **File:** 03-drafts/{{platform}}/post-v{{version_num}}.md
 
