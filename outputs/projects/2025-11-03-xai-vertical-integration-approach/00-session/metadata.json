@@ -1,0 +1,10 @@
+{
+  "project_id": "2025-11-03-xai-vertical-integration-approach",
+  "topic": "xAI vertical integration approach from day 1 - datacenter, infrastructure, and multi-domain power",
+  "depth": "exhaustive",
+  "created_at": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
+  "agent": "jarvis",
+  "workflow": "research-topic",
+  "focus_areas": ["trends", "data", "examples", "quotes", "competitors"],
+  "domains": ["datacenter", "hardware", "software", "data", "products", "business_model", "talent"]
+}
