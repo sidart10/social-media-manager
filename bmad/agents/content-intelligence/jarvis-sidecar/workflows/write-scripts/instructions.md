@@ -40,10 +40,12 @@
 <action>Store as {{reference_file}}</action>
 </step>
 
-<step n="2" goal="Generate script (triggers content-writer skill)">
-  <action>**Create context for content-writer skill:**
+<step n="2" goal="Generate script using content-writer skill">
+  <action>Load and follow {skills_folder}/content-writer/SKILL.md</action>
 
-    "Generate {format} YouTube script for {duration} minute video about {topic}.
+  <action>Generate {format} YouTube script per SKILL.md instructions with parameters:
+
+    Topic: {topic}
 
     Format: {format}
     Duration: {duration} minutes
@@ -61,15 +63,11 @@
     - Chapter markers for YouTube: 00:00 Intro, 02:15 Feature 1, etc.
     - Retention tactics: Pattern interrupts, questions, payoffs
 
-    Match Sid's authentic voice from memories for narration (DEFAULT behavior)."
-
-    **Claude discovers content-writer skill** (description includes "YouTube scripts")
-
-    **Skill returns:** Full script with timestamps + scenes + Sid's voice applied
-
-    Store as {{generated_script}}
+    Voice: Sid's authentic (DEFAULT from memories)
 
   </action>
+
+  <action>Store result as {{generated_script}}</action>
 
 <action>Display script preview (first 500 chars + structure)</action>
 </step>

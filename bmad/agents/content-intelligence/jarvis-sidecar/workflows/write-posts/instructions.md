@@ -114,12 +114,14 @@
   </action>
 </step>
 
-<step n="3" goal="Generate post content (triggers content-writer skill)">
-  <action>**Create rich context for content-writer skill discovery:**
+<step n="3" goal="Generate post content using content-writer skill">
+  <action>Load and follow {skills_folder}/content-writer/SKILL.md</action>
 
-    Context for Claude (triggers content-writer skill via description matching):
+  <action>Generate {platform} post per SKILL.md instructions with parameters:
 
-    "Generate {platform} post about {topic} using {voice_mode} voice mode.
+    Topic: {topic}
+    Platform: {platform}
+    Voice mode: {voice_mode}
 
     Platform: {platform}
     Formula: {formula}
@@ -140,15 +142,13 @@
     - Twitter Thread: Greg Isenberg questions, numbered insights, specificity obsession
     - Substack: Paul Graham conversational, personal anecdotes, specific examples
 
-    Match user's rhetorical DNA exactly."
+    Reference material: {reference_file content if provided}
 
-    **Claude will autonomously discover content-writer skill** (description contains "LinkedIn", "Twitter", "YouTube", "content", "voice styles")
-
-    **Skill will execute and return:** Platform-optimized post with Sid's authentic voice applied (DEFAULT behavior - no need to specify voice modifier)
-
-    Store result as {{generated_post}}
+    Apply Sid's authentic voice (DEFAULT from memories) with {voice_mode} variation.
 
   </action>
+
+  <action>Store result as {{generated_post}}</action>
 
 <action>Display generated post to user for review</action>
 

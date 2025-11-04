@@ -66,20 +66,19 @@ EOF
 <template-output>session_initialized</template-output>
 </step>
 
-<step n="2" goal="Gather intelligence (if no research file)">
+<step n="2" goal="Gather intelligence using research skills">
   <check if="research_loaded == false">
-    <action>Perform quick research on {seed_topic} to gather key findings and examples.</action>
 
     <check if="use_trends == true">
-      <action>Get trending topics and hashtags related to {seed_topic} for timeliness and relevance.</action>
-      <!-- Claude invokes social-media-research Skill automatically -->
+      <action>Load and follow {skills_folder}/social-media-research/SKILL.md</action>
+      <action>Get trending topics and hashtags related to {seed_topic} per SKILL.md instructions</action>
     </check>
 
-    <action>Conduct quick web search for key insights, statistics, and recent examples about {seed_topic}.</action>
-    <!-- Claude invokes deep-web-research Skill automatically -->
+    <action>Load and follow {skills_folder}/deep-web-research/SKILL.md</action>
+    <action>Execute quick research on {seed_topic} per SKILL.md instructions with depth=quick</action>
 
-    <action>Track evidence with sources for idea backing.</action>
-    <!-- Claude invokes evidence-tracker Skill automatically -->
+    <action>Load and follow {skills_folder}/evidence-tracker/SKILL.md</action>
+    <action>Track all sources per SKILL.md instructions</action>
 
   </check>
 
@@ -87,7 +86,7 @@ EOF
     <action>Skip - using research file findings</action>
   </check>
 
-<template-output>intelligence_gathered</template-output>
+  <template-output>intelligence_gathered</template-output>
 </step>
 
 <step n="3" goal="Analyze competitors (if URLs provided)">
@@ -111,10 +110,12 @@ EOF
 <template-output>competitor_analysis_complete</template-output>
 </step>
 
-<step n="4" goal="Generate Idea Cards">
-  <action>Based on research + trends + gaps, generate {idea_count} Idea Cards</action>
+<step n="4" goal="Generate Idea Cards using research-synthesizer skill">
+  <action>Load and follow {skills_folder}/research-synthesizer/SKILL.md</action>
 
-<action>For each idea, create structured card:</action>
+  <action>Synthesize research into {idea_count} Idea Cards per SKILL.md instructions</action>
+
+  <action>For each idea, create structured card:</action>
 
 <action>**1. Title & Hook** - Compelling title (specific, not generic) - Hook line (scroll-stopping opening) - Hook type: question|number|story|reveal|imperative
 </action>
@@ -231,8 +232,8 @@ Include:
 </step>
 
 <step n="7.5" goal="Create Notion Pages with Full Relational Linking (Epic 2 Story 5.3)">
-  <action>Load {project-root}/.bmad-core/modules/notion-updates.md</action>
-  <action>Load {project-root}/.bmad-core/modules/notion-relational-helpers.md</action>
+  <action>Load {project-root}/bmad/core/modules/notion-updates.md</action>
+  <action>Load {project-root}/bmad/core/modules/notion-relational-helpers.md</action>
 
 <action>**Create Notion page for each Idea Card:**
 

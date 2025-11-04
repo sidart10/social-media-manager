@@ -107,8 +107,8 @@ Include:
 </step>
 
 <step n="3.5" goal="Create Notion Child Content Page (Epic 2 Story 5.2)">
-  <action>Load {project-root}/.bmad-core/modules/notion-updates.md</action>
-  <action>Load {project-root}/.bmad-core/modules/notion-relational-helpers.md</action>
+  <action>Load {project-root}/bmad/core/modules/notion-updates.md</action>
+  <action>Load {project-root}/bmad/core/modules/notion-relational-helpers.md</action>
 
 <action>**Optional: Create child content page for profile analysis in Notion**
 

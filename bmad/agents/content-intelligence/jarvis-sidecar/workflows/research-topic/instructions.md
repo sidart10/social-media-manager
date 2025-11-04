@@ -62,7 +62,7 @@ EOF
 </step>
 
 <step n="3" goal="Deep web research using deep-web-research skill">
-  <action>Load and follow {project-root}/.claude/skills/jarvis/deep-web-research/SKILL.md</action>
+  <action>Load and follow {skills_folder}/deep-web-research/SKILL.md</action>
 
 <action>**Execute research per skill instructions:**
 
@@ -123,7 +123,7 @@ This workflow provides parameters; skill determines execution strategy.
 </step>
 
 <step n="5" goal="Synthesize findings using research-synthesizer skill">
-  <action>Load and follow {project-root}/.claude/skills/jarvis/research-synthesizer/SKILL.md</action>
+  <action>Load and follow {skills_folder}/research-synthesizer/SKILL.md</action>
 
 <action>**Synthesize research per skill instructions:**
 
@@ -225,7 +225,7 @@ Include:
 </step>
 
 <step n="8.5" goal="Update Notion Status (Epic 2 Story 5.2)">
-  <action>Load {project-root}/.bmad-core/modules/notion-updates.md</action>
+  <action>Load {project-root}/bmad/core/modules/notion-updates.md</action>
 
 <action>**Update Notion Content Tracker status:**
 

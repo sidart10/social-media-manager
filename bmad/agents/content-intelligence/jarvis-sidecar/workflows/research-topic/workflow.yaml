@@ -11,6 +11,7 @@ date: system-generated
 
 # Workflow location
 installed_path: "{agent-folder}/workflows/research-topic"
+skills_folder: "{project-root}/.claude/skills/jarvis"
 
 # MCP Tools (Tier 1 & 2 only - all free or low-cost)
 # Note: Research is now handled by Claude Code Skills (autonomous invocation)
