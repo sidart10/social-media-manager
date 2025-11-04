@@ -1,0 +1,22 @@
+# Schedule Post Workflow (PRIMARY Publishing via Postiz)
+# Epic 4 Story 4.1 - Unified Multi-Platform Scheduling
+# Created: 2025-11-05
+# Status: NEW DEVELOPMENT
+
+name: schedule-post
+description: "PRIMARY publishing workflow - Schedule posts to multiple platforms (Twitter, LinkedIn, Instagram, Facebook, TikTok, YouTube) via Postiz MCP with Cloudinary media hosting"
+author: "Zoro (Social Posting Agent)"
+version: "1.0.0"
+
+# Standard Config
+config_source: "{project-root}/bmad/agents/zoro/config.yaml"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+output_folder: "{config_source}:output_folder"
+
+# This is an action workflow
+template: false
+instructions: "{installed_path}/instructions.md"
+
+# Default output
+default_output_file: "{output_folder}/scheduled-post-{date}.md"

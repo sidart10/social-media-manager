@@ -1,0 +1,35 @@
+# Zoe Agent Configuration
+# Visual Production Specialist (Images + Videos Merged)
+# Created: 2025-11-05
+# Epic: Epic 5 - Visual Content Production
+
+user_name: sid
+communication_language: english
+output_folder: "{project-root}/outputs"
+
+# Agent-specific paths
+agent_folder: "{project-root}/bmad/agents/zoe"
+sidecar_folder: "{agent_folder}/zoe-sidecar"
+workflows_folder: "{sidecar_folder}/workflows"
+skills_folder: "{project-root}/.claude/skills/zoe"
+
+# Output management (Epic 1 Story 7.6)
+outputs_base: "{project-root}/outputs/projects"
+media_folder: "04-media"
+images_subfolder: "images"
+videos_subfolder: "videos"
+
+# Quality thresholds
+min_image_quality_7_pillar: 7.0
+min_video_quality: 7.5
+require_cloudinary_for_publishing: true
+
+# Tool preferences (from tool-registry.yaml)
+image_tool_default: nanobanana  # $0.039, fast
+image_tool_professional: gpt-image-1  # $0.04-0.08, quality
+video_tool_primary: fal-video  # execute_custom_model
+video_tool_avatars: heygen  # Specialized for talking heads
+
+# Cost tracking
+monthly_budget: 50.00
+current_month_spend: 0.00

@@ -1,0 +1,66 @@
+# Blend Images Workflow
+# Purpose: Composite 2-3 images with blend modes and opacity control
+# Status: NEW - BMAD v6 Compliant
+
+name: "blend-images"
+description: "Composite 2-3 images with blend modes and opacity control"
+author: "Zoe (Visual Production Specialist)"
+version: "1.0.0"
+
+# Standard BMAD v6 Config Block
+config_source: "{project-root}/bmad/agents/zoe/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Epic 1 Story 7.6: Centralized Output Management
+outputs_base: "{config_source}:outputs_base"
+current_date: system-generated
+project_slug: runtime-input
+outputs_project: "{outputs_base}/{current_date}-{project_slug}/04-media/images"
+
+# Module path and component files
+installed_path: "{project-root}/bmad/agents/zoe/zoe-sidecar/workflows/blend-images"
+template: false
+instructions: "{installed_path}/instructions.md"
+
+# Provider: Nanobanana (Gemini) - BEST for multi-image blending
+provider: "nanobanana"
+tool: "mcp__nanobanana__generate_image"
+
+# Invocation control
+standalone: true
+
+# Validation
+validation:
+  required_outputs:
+    - "Blended image PNG file"
+    - "Metadata JSON file"
+
+  quality_checks:
+    - "All input images preserved in composition"
+    - "Natural blending (no harsh edges)"
+    - "Subject positioning correct"
+    - "Lighting consistency across elements"
+
+  technical_checks:
+    - "File format: PNG"
+    - "File saved successfully"
+    - "Metadata complete with all input paths"
+
+# Notes
+notes: |
+  This workflow uses Nanobanana's multi-image input mode (input_image_path_1, input_image_path_2, input_image_path_3).
+
+  Common use cases:
+  - Product photo compositing (multiple angles → one scene)
+  - Personal branding (face + branded background)
+  - Creative mashups (multiple concepts → unified visual)
+  - Before/after comparisons (side-by-side)
+  - Collage generation (multiple images → grid layout)
+
+  Nanobanana excels at natural blending with conversational instructions like:
+  - "Put me from image 1 on the beach from image 2"
+  - "Combine these product shots into one professional scene"
+  - "Place the logo from image 1 in the top-right of image 2"

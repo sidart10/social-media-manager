@@ -1,0 +1,61 @@
+# Professional Video Editing Workflow Configuration
+name: "video-editing"
+description: "Professional AI-powered video editing using SubMagic - handles raw footage, HeyGen videos, B-rolls, captions, and platform optimization. The most comprehensive video editing workflow in Zoe's arsenal."
+author: "sid"
+version: "1.0.0"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/agents/zoe/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Centralized output management (BMAD v6 standard)
+outputs_base: "{config_source}:outputs_base"
+current_date: system-generated
+project_slug: runtime-input
+outputs_project: "{outputs_base}/{current_date}-{project_slug}/04-media/videos"
+
+# Module path and component files
+installed_path: "{project-root}/bmad/agents/zoe/zoe-sidecar/workflows/video-editing"
+template: false
+instructions: "{installed_path}/instructions.md"
+
+# Required reference documentation
+submagic_editing_guide: "{installed_path}/submagic-editing-reference.md"
+platform_specs: "{project-root}/bmad/agents/zoe/zoe-sidecar/platform-specs.yaml"
+
+# Optional inputs (user-provided at runtime)
+recommended_inputs:
+  - raw_video_url: "Cloudinary URL of raw footage to edit"
+  - heygen_video_url: "Cloudinary URL of HeyGen avatar video"
+  - broll_image_urls: "Array of Cloudinary image URLs for B-roll insertion"
+  - youtube_url: "YouTube URL for magic clips generation"
+
+# Output files
+default_output_file: "{outputs_project}/edited-video-{date}.mp4"
+metadata_file: "{outputs_project}/editing-metadata-{date}.json"
+
+# Tool Requirements
+required_tools:
+  - "mcp__submagic__submagic_list_languages":
+      description: "Get supported caption languages"
+  - "mcp__submagic__submagic_list_templates":
+      description: "Get available style templates"
+  - "mcp__submagic__submagic_create_project":
+      description: "Create video editing project"
+  - "mcp__submagic__submagic_get_project":
+      description: "Monitor processing status"
+  - "mcp__submagic__submagic_update_project":
+      description: "Fine-tune editing after initial processing"
+  - "mcp__submagic__submagic_export_project":
+      description: "Export final video"
+  - "mcp__submagic__submagic_create_magic_clips":
+      description: "Generate viral clips from YouTube"
+  - "mcp__cloudinary-asset-mgmt__upload-asset":
+      description: "Upload videos/images to get public URLs"
+      note: "SubMagic requires publicly accessible HTTPS URLs"
+
+# Invocation control
+standalone: true

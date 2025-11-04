@@ -1,0 +1,138 @@
+# Edit Image Workflow
+# Purpose: Transform, enhance, and edit existing images
+# Status: PRODUCTION READY v2.0 - BMAD v6 Compliant
+
+name: "edit-image"
+description: "Edit existing images using edit-image skill (pixel-perfect editing with nanobanana) and blend-images skill (multi-image composition) - blur backgrounds, remove objects, enhance quality, blend photos"
+author: "Zoe (Visual Production Specialist)"
+version: "2.0.0"
+
+# Standard BMAD v6 Config Block
+config_source: "{project-root}/bmad/agents/zoe/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated"
+
+# Epic 1 Story 7.6: Centralized Output Management
+outputs_base: "{config_source}:outputs_base"
+current_date: system-generated
+project_slug: runtime-input
+outputs_project: "{outputs_base}/{current_date}-{project_slug}/04-media/images"
+
+# Module path and component files
+installed_path: "{project-root}/bmad/agents/zoe/zoe-sidecar/workflows/edit-image"
+template: false
+instructions: "{installed_path}/instructions.md"
+
+# Provider: Nanobanana (Gemini) - BEST for editing
+provider: "nanobanana"
+tool: "mcp__nanobanana__generate_image"
+
+# Common Editing Presets
+editing_presets:
+  blur_background:
+    prompt: "Blur the background significantly while keeping the subject in sharp focus, professional depth of field effect"
+    best_for: "Product photos, portraits, professional headshots"
+
+  remove_background:
+    prompt: "Remove the background completely, make it transparent or solid color, keep subject with clean edges"
+    best_for: "Product shots, profile pictures, design elements"
+
+  dark_tech_style:
+    prompt: "Transform to dark monochrome tech aesthetic - black background #0B0B0B, high contrast, minimal, professional design language"
+    best_for: "Converting casual images to LinkedIn professional style"
+
+  enhance_quality:
+    prompt: "Enhance overall image quality - improve sharpness, correct colors, reduce noise, professional-grade enhancement"
+    best_for: "Old photos, low-quality screenshots, compressed images"
+
+  remove_object:
+    prompt: "Remove {object_description} from the image, fill the area naturally to match surrounding context"
+    best_for: "Removing unwanted elements, people, watermarks"
+
+  style_transfer:
+    prompt: "Transform image style to {target_style} while preserving subject and composition"
+    best_for: "Photo to illustration, realistic to minimalist, etc."
+
+  color_correction:
+    prompt: "Adjust colors for professional appearance - correct white balance, enhance vibrancy, ensure color accuracy"
+    best_for: "Photos with poor lighting, color casts"
+
+  upscale_enhance:
+    prompt: "Upscale resolution and enhance details, improve sharpness and clarity, professional quality upgrade"
+    best_for: "Small images, pixelated screenshots"
+
+# Invocation control
+standalone: true
+
+# Validation
+validation:
+  required_outputs:
+    - "Edited image PNG file"
+    - "Metadata JSON file"
+
+  quality_checks:
+    - "Edit applied correctly"
+    - "Subject preserved (if applicable)"
+    - "No quality degradation"
+    - "Clean edges/transitions"
+    - "Natural blending"
+
+  technical_checks:
+    - "File format: PNG"
+    - "File saved successfully"
+    - "Metadata complete"
+
+# Editing Best Practices
+editing_guidelines: |
+  1. Input Quality Matters:
+     - Start with highest quality original
+     - Minimum 512x512px recommended
+     - No heavy compression
+     - Clear subject if editing specific elements
+
+  2. Prompt Specificity:
+     - Be precise about what to change
+     - Specify what to preserve
+     - Use natural language (Nanobanana excels at this)
+     - Examples: "Blur background while keeping subject sharp"
+
+  3. Iterative Refinement:
+     - Start with broad edit
+     - Refine in steps (don't try to fix everything at once)
+     - Use multi-turn mode for gradual improvements
+     - Each iteration builds on previous
+
+  4. Blending Multiple Images:
+     - Choose related images (similar lighting, style)
+     - Describe desired composition clearly
+     - Nanobanana handles blending naturally
+     - Example: "Place me from image 1 in the scene from image 2"
+
+  5. Quality Preservation:
+     - Nanobanana maintains quality well
+     - Use "enhance quality" if starting with low-res
+     - PNG format avoids compression artifacts
+     - Check edges and transitions
+
+  6. Common Use Cases:
+     - Product photos: Remove background, enhance quality
+     - Portraits: Blur background, color correction
+     - Screenshots: Enhance quality, crop/resize
+     - Designs: Style transfer to brand aesthetic
+     - Social posts: Transform to platform style (dark tech for LinkedIn)
+
+# Notes
+notes: |
+  This workflow leverages Nanobanana's BEST features:
+  - Pixel-perfect editing (edits specific elements without affecting rest)
+  - Multi-turn refinement (conversational editing)
+  - Photo blending (combine multiple images)
+  - Natural language instructions (just describe what you want)
+
+  Nanobanana is BETTER at editing than OpenAI:
+  - True pixel-perfect (doesn't recreate entire image)
+  - Multi-turn iterations (keeps refining)
+  - Photo blending (unique feature)
+  - Faster and cheaper

@@ -1,0 +1,143 @@
+# Platform-Specific Video Specifications
+# Used by video editing workflows to optimize output per platform
+# Created: 2025-11-01
+
+# TikTok - Vertical short-form content
+tiktok:
+  platform_name: "TikTok"
+  aspect_ratio: "9:16"
+  width: 1080
+  height: 1920
+  recommended_duration: "15-30s"
+  min_duration: 15
+  max_duration: 60
+  editing_style: "aggressive"
+  pacing: "fast"
+  recommended_template: "Beast"
+  min_clip_length: 15
+  max_clip_length: 30
+  notes: "High energy, attention-grabbing, fast cuts preferred"
+
+# Instagram Reels - Vertical engaging content
+instagram:
+  platform_name: "Instagram Reels"
+  aspect_ratio: "9:16"
+  width: 1080
+  height: 1920
+  recommended_duration: "30-60s"
+  min_duration: 15
+  max_duration: 90
+  editing_style: "balanced"
+  pacing: "medium-fast"
+  recommended_template: "Sara"
+  min_clip_length: 30
+  max_clip_length: 60
+  notes: "Engaging, aesthetic, balanced pacing"
+
+# YouTube Shorts - Vertical storytelling
+youtube-shorts:
+  platform_name: "YouTube Shorts"
+  aspect_ratio: "9:16"
+  width: 1080
+  height: 1920
+  recommended_duration: "60-180s"
+  min_duration: 15
+  max_duration: 180
+  editing_style: "balanced"
+  pacing: "medium"
+  recommended_template: "Sara"
+  min_clip_length: 45
+  max_clip_length: 60
+  notes: "Storytelling focus, can be longer than TikTok/Reels"
+
+# YouTube - Horizontal long-form
+youtube:
+  platform_name: "YouTube"
+  aspect_ratio: "16:9"
+  width: 1920
+  height: 1080
+  recommended_duration: "60-600s"
+  min_duration: 30
+  max_duration: 3600
+  editing_style: "balanced"
+  pacing: "natural"
+  recommended_template: "Daniel"
+  min_clip_length: 60
+  max_clip_length: 180
+  notes: "Educational/entertainment, longer form, natural pacing"
+
+# LinkedIn - Professional vertical or horizontal
+linkedin:
+  platform_name: "LinkedIn"
+  aspect_ratio: "9:16"
+  width: 1080
+  height: 1920
+  recommended_duration: "60-90s"
+  min_duration: 30
+  max_duration: 180
+  editing_style: "conservative"
+  pacing: "natural"
+  recommended_template: "Hormozi 2"
+  min_clip_length: 60
+  max_clip_length: 90
+  notes: "Professional tone, clear messaging, thoughtful pacing"
+  alternative_aspect_ratio: "16:9"
+  alternative_width: 1280
+  alternative_height: 720
+
+# Twitter/X - Horizontal concise content
+twitter:
+  platform_name: "Twitter/X"
+  aspect_ratio: "16:9"
+  width: 1280
+  height: 720
+  recommended_duration: "30-120s"
+  min_duration: 15
+  max_duration: 140
+  editing_style: "balanced"
+  pacing: "medium-fast"
+  recommended_template: "Sara"
+  min_clip_length: 30
+  max_clip_length: 60
+  notes: "Concise, punchy, gets to the point quickly"
+
+# Facebook - Mixed formats
+facebook:
+  platform_name: "Facebook"
+  aspect_ratio: "1:1"
+  width: 1080
+  height: 1080
+  recommended_duration: "60-180s"
+  min_duration: 30
+  max_duration: 240
+  editing_style: "balanced"
+  pacing: "medium"
+  recommended_template: "Sara"
+  min_clip_length: 60
+  max_clip_length: 120
+  notes: "Square format works best in feed, slightly longer pacing"
+
+# Pinterest - Vertical inspiration
+pinterest:
+  platform_name: "Pinterest"
+  aspect_ratio: "2:3"
+  width: 1080
+  height: 1920
+  recommended_duration: "15-60s"
+  min_duration: 6
+  max_duration: 60
+  editing_style: "balanced"
+  pacing: "medium"
+  recommended_template: "Maya"
+  min_clip_length: 15
+  max_clip_length: 30
+  notes: "Inspirational, aesthetic, DIY/tutorial focus"
+
+# Global defaults
+defaults:
+  fps: 30
+  export_format: "mp4"
+  codec: "h264"
+  audio_codec: "aac"
+  bitrate_quality: "high"
+  caption_language: "en"

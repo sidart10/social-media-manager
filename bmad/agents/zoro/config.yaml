@@ -1,0 +1,54 @@
+# Social Posting Agent Module Configuration
+# BMAD v6 Standard Config Block
+# Date: 2025-10-28
+
+# Standard BMAD Configuration Values (REQUIRED)
+user_name: sid
+communication_language: english
+document_output_language: english
+output_folder: "{project-root}/docs/social-posting-agent"
+
+# Module Metadata
+module_name: social-posting-agent
+module_type: agent
+module_version: "1.0.0"
+
+# Module-Specific Paths
+sidecar_folder: "{project-root}/bmad/agents/social-posting-agent/social-posting-agent-sidecar"
+sidecar_config: "{project-root}/bmad/agents/social-posting-agent/social-posting-agent-sidecar/config.yaml"
+workflows_folder: "{project-root}/bmad/agents/social-posting-agent/workflows"
+
+# API Module Paths
+twitter_module: "{project-root}/bmad/modules/twitter-api-client"
+linkedin_module: "{project-root}/bmad/modules/linkedin-api-client"
+
+# 🚨 NEW: Centralized Output Management (MANDATORY as of 2025-10-28)
+outputs_base: "{project-root}/outputs"
+outputs_date_format: "MM-DD-YYYY"
+outputs_naming: "lowercase-kebab-case"
+# Runtime variables (set by agent at execution):
+# current_date: "{MM-DD-YYYY}" - Generated using: date +"%m-%d-%Y"
+# session_name: "{platform}-{action}-{topic}" - Generated from workflow context
+# outputs_session: "{outputs_base}/{current_date}/{session-name}"
+
+# MCP Tool Configuration
+mcp_tools:
+  youtube_uploader:
+    enabled: true
+    tool_prefix: "mcp__youtube-uploader-mcp__"
+    channel_id: "UCeNChkI6YhgS4zFrjOICcLw"
+  twitter_mcp:
+    enabled: true
+    tool_prefix: "mcp__mcp_twitter__"
+  postiz:
+    enabled: true
+    tool_prefix: "mcp__postiz__"
+    description: "Cross-platform social media scheduling and posting"
+    platforms: ["twitter", "linkedin", "instagram", "facebook", "tiktok", "youtube", "pinterest", "reddit"]
+    rate_limit: "30 requests per hour"
+
+# Note: API keys, OAuth tokens, and rate limit data are stored in:
+# - .env (project root) - API keys
+# - sidecar_config - Advanced settings
+# - Module-specific files - Tokens and state
+# This separation keeps sensitive data isolated and module config clean

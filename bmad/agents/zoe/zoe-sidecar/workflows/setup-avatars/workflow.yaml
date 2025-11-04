@@ -1,0 +1,23 @@
+# Setup Avatars Workflow
+# Purpose: Configure HeyGen avatars and voices for talking head videos
+# Status: PRODUCTION READY - BMAD v6 Compliant
+
+name: "setup-avatars"
+description: "Configure HeyGen avatars and voices for talking head videos"
+author: "Zoe (Visual Production Specialist)"
+version: "1.0.0"
+
+# Standard BMAD v6 Config Block
+config_source: "{project-root}/bmad/agents/zoe/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Module path and component files
+installed_path: "{project-root}/bmad/agents/zoe/zoe-sidecar/workflows/setup-avatars"
+template: false
+instructions: "{installed_path}/instructions.md"
+
+# Invocation control
+standalone: true

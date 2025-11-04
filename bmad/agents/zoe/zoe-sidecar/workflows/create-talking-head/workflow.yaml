@@ -1,0 +1,34 @@
+# Generate Talking Head Video Workflow
+# Purpose: Create avatar video with HeyGen - your face and voice on camera
+# Status: PRODUCTION READY - BMAD v6 Compliant
+
+name: "create-talking-head"
+description: "Create avatar video with HeyGen - your face and voice on camera"
+author: "Zoe (Visual Production Specialist)"
+version: "1.0.0"
+
+# Standard BMAD v6 Config Block
+config_source: "{project-root}/bmad/agents/zoe/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Epic 1 Story 7.6: Centralized Output Management
+outputs_base: "{config_source}:outputs_base"
+current_date: system-generated
+project_slug: runtime-input
+outputs_project: "{outputs_base}/{current_date}-{project_slug}/04-media/videos"
+
+# Module path and component files
+installed_path: "{project-root}/bmad/agents/zoe/zoe-sidecar/workflows/create-talking-head"
+platform_specs: "{project-root}/bmad/agents/zoe/zoe-sidecar/platform-specs.yaml"
+template: false
+instructions: "{installed_path}/instructions.md"
+
+# Output
+default_output_file: "{outputs_project}/talking-head_{date}.mp4"
+metadata_file: "{outputs_project}/talking-head_{date}.json"
+
+# Invocation control
+standalone: true
