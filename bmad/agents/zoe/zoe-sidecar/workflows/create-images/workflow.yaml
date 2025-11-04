@@ -1,0 +1,81 @@
+# Generate Single Image Workflow
+# Purpose: Create one optimized image for social media
+# Status: PRODUCTION READY v2.0 - BMAD v6 Compliant
+
+name: "create-images"
+description: "Generate 1 or multiple images using universal-image-generation skill with Emily's JSON methodology, 27 style guides, intelligent tool selection, and 7-pillar quality framework. Auto-routes to single or carousel mode. Includes Cloudinary upload, Notion tracking, Zoro handoff."
+author: "Zoe (Visual Production Specialist)"
+version: "3.0.0"
+
+# Standard BMAD v6 Config Block
+config_source: "{project-root}/bmad/agents/zoe/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Module-Specific Paths
+skills_folder: "{config_source}:skills_folder"
+
+# Epic 1 Story 7.6: Centralized Output Management
+outputs_base: "{config_source}:outputs_base"
+current_date: system-generated
+project_slug: runtime-input
+outputs_project: "{outputs_base}/{current_date}-{project_slug}/04-media/images"
+
+# Module path and component files
+installed_path: "{project-root}/bmad/agents/zoe/zoe-sidecar/workflows/create-images"
+template: false
+instructions: "{installed_path}/instructions.md"
+
+# Invocation control
+standalone: true
+
+# Execution modes
+modes:
+  single:
+    description: "Generate 1 image"
+    image_count: 1
+  carousel:
+    description: "Generate 2-10 images"
+    image_count: 2-10
+    template_support: true
+    loop_generation: true
+
+# Validation
+validation:
+  required_outputs:
+    - "Image PNG file(s) - varies by mode"
+    - "Metadata JSON file(s)"
+    - "CAROUSEL_SUMMARY.md (carousel mode only)"
+
+  quality_checks:
+    - "All files saved successfully"
+    - "Metadata complete"
+    - "Correct size and format"
+
+# Notes
+notes: |
+  Unified workflow (v3.0) - combines single + carousel generation.
+
+  Intelligent mode routing:
+  - Asks user for image count (1 or 2-10)
+  - Auto-routes to single or carousel execution
+  - Shares common logic (platform, style, integrations)
+  - Diverges only for generation loop and templates
+
+  Full integration stack:
+  - Cloudinary upload (Epic 2 Story 5.2)
+  - Notion tracking (Epic 2 Story 5.2)
+  - Zoro handoff (Epic 5)
+  - Quality evaluation (7-pillar framework)
+
+  Skills context:
+  - universal-image-generation provides Emily's JSON methodology + 27 style guides (social-media, youtube, personalization, data-visualization)
+  - Intelligent style routing: linkedin-dark-monochrome, youtube/thumbnail-ctr-optimized, instagram-vibrant-minimal, data-viz styles, etc.
+  - mcp-tool-selection skill provides intelligent tool routing logic (gpt-image-1, nanobanana, fal)
+
+  Backward compatibility:
+  - *create-image trigger → auto-select single mode
+  - *create-carousel trigger → auto-select carousel mode
+  - *create-images trigger → ask for count
