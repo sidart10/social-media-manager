@@ -7,6 +7,7 @@ Bright, clean aesthetic optimized for Instagram feed posts. Combines vibrant col
 ## When to Use
 
 **Best for:**
+
 - Instagram feed posts (square 1:1)
 - Carousel posts (multi-slide stories)
 - Product showcases
@@ -16,6 +17,7 @@ Bright, clean aesthetic optimized for Instagram feed posts. Combines vibrant col
 - Engagement-focused content
 
 **Avoid for:**
+
 - LinkedIn (too casual)
 - Professional B2B (use LinkedIn style)
 - Technical documentation
@@ -28,11 +30,13 @@ Bright, clean aesthetic optimized for Instagram feed posts. Combines vibrant col
 **Vibrant yet harmonious:**
 
 **Background options:**
+
 - White (#FFFFFF) - clean, versatile
 - Soft pastels (#FFF7ED peach, #FEF3C7 cream, #DBEAFE light blue)
 - Light gradients (subtle, 2-color max)
 
 **Accent colors (pick 1-2 per post):**
+
 - Coral/Pink: #FF6B9D, #EC4899
 - Blue: #3B82F6, #0EA5E9
 - Purple: #8B5CF6, #A855F7
@@ -41,16 +45,19 @@ Bright, clean aesthetic optimized for Instagram feed posts. Combines vibrant col
 - Yellow: #FBBF24, #F59E0B
 
 **Text colors:**
+
 - Primary: #1F2937 (dark gray on light) or #FFFFFF (white on dark)
 - Secondary: #6B7280 (medium gray)
 
 **Contrast:**
+
 - All combinations WCAG AA compliant (4.5:1+)
 - Mobile-optimized readability
 
 ### Typography
 
 **Clean modern sans-serif:**
+
 - Fonts: "Inter", "Poppins", "Montserrat", "SF Pro"
 - Weights:
   - Headlines: SemiBold (600) or Bold (700)
@@ -66,6 +73,7 @@ Bright, clean aesthetic optimized for Instagram feed posts. Combines vibrant col
 ### Layout Principles
 
 **Minimal yet impactful:**
+
 - **Rule of thirds**: Position key elements at intersections
 - **Breathing room**: 30-40% whitespace
 - **Focal point**: One clear subject/message
@@ -73,6 +81,7 @@ Bright, clean aesthetic optimized for Instagram feed posts. Combines vibrant col
 - **Balance**: Asymmetric but balanced composition
 
 **Grid:**
+
 - 1080×1080px square (Instagram standard)
 - Safe zone: 100px margins on all sides
 - Central focus with space around
@@ -80,6 +89,7 @@ Bright, clean aesthetic optimized for Instagram feed posts. Combines vibrant col
 ### Mood and Aesthetic
 
 **Bright and engaging:**
+
 - Optimistic and energetic
 - Clean and modern
 - Approachable yet polished
@@ -99,6 +109,7 @@ Bright, clean aesthetic optimized for Instagram feed posts. Combines vibrant col
 ```
 
 **Technical modifiers:**
+
 ```
 "square 1080×1080", "generous whitespace", "centered composition",
 "vibrant accent color", "clean sans-serif typography", "mobile readability",
@@ -106,6 +117,7 @@ Bright, clean aesthetic optimized for Instagram feed posts. Combines vibrant col
 ```
 
 **Color and mood:**
+
 ```
 "bright [COLOR] accent", "soft pastel background", "clean white background",
 "vibrant but not overwhelming", "professional yet friendly",
@@ -115,6 +127,7 @@ Bright, clean aesthetic optimized for Instagram feed posts. Combines vibrant col
 ## JSON Template Adjustments
 
 ### scene_description
+
 ```json
 {
   "environment": "Clean white or soft pastel background, bright and airy",
@@ -124,6 +137,7 @@ Bright, clean aesthetic optimized for Instagram feed posts. Combines vibrant col
 ```
 
 ### composition_and_framing
+
 ```json
 {
   "aspect_ratio": "1:1 square",
@@ -135,6 +149,7 @@ Bright, clean aesthetic optimized for Instagram feed posts. Combines vibrant col
 ```
 
 ### color_and_grade
+
 ```json
 {
   "palette": ["#FFFFFF or pastel bg", "vibrant accent (#3B82F6, #EC4899, etc.)", "#1F2937 text"],
@@ -145,11 +160,12 @@ Bright, clean aesthetic optimized for Instagram feed posts. Combines vibrant col
 ```
 
 ### typography
+
 ```json
 {
   "font": "Inter, Poppins, or Montserrat",
-  "weights": {"headline": 600, "body": 400},
-  "sizes": {"main": "42pt", "supporting": "20pt"},
+  "weights": { "headline": 600, "body": 400 },
+  "sizes": { "main": "42pt", "supporting": "20pt" },
   "color": "#1F2937 dark gray on light bg",
   "treatment": "Clean, crisp, high readability on mobile"
 }
@@ -173,6 +189,7 @@ Bright, clean aesthetic optimized for Instagram feed posts. Combines vibrant col
 **Primary: nanobanana (Gemini 2.5 Flash)**
 
 **Why:**
+
 - Excellent at vibrant colors
 - Fast generation (perfect for social media pace)
 - Cost-effective for high-volume social content
@@ -180,15 +197,17 @@ Bright, clean aesthetic optimized for Instagram feed posts. Combines vibrant col
 - Handles centered layouts well
 
 **Parameters:**
+
 ```yaml
 mcp__nanobanana__generate_image:
-  prompt: "{instagram_vibrant_prompt}"
-  negative_prompt: "{negative_prompts_above}"
-  mode: "generate"
-  n: 2  # Generate 2 options to choose from
+  prompt: '{instagram_vibrant_prompt}'
+  negative_prompt: '{negative_prompts_above}'
+  mode: 'generate'
+  n: 2 # Generate 2 options to choose from
 ```
 
 **Alternative: gpt-image-1**
+
 - Use if text rendering critical
 - Use for quotes with long text
 - More expensive but higher precision
@@ -196,6 +215,7 @@ mcp__nanobanana__generate_image:
 ## Instagram-Specific Requirements
 
 **Technical specs:**
+
 - **Feed post**: 1080×1080px (square) - MANDATORY
 - **Carousel**: 1080×1080px per slide (square)
 - **File size**: Under 8MB (Instagram limit)
@@ -203,6 +223,7 @@ mcp__nanobanana__generate_image:
 - **Aspect ratio**: 1:1 (square) or 4:5 (portrait)
 
 **Design for mobile:**
+
 - Text readable at small sizes
 - High contrast (viewed in bright light)
 - Simple composition (thumb-stopping)
@@ -210,6 +231,7 @@ mcp__nanobanana__generate_image:
 - Test at 293×293px (grid preview size)
 
 **Instagram algorithm preferences:**
+
 - Original content (not templates/stock)
 - Face-forward (if person shown)
 - Bright and vibrant (performs better)
@@ -227,6 +249,7 @@ mcp__nanobanana__generate_image:
 6. **Educational** (explain concepts simply)
 
 **Structure:**
+
 - One clear message per post
 - Vibrant attention-grabber
 - Easy to understand in 2-3 seconds
@@ -304,12 +327,14 @@ Instagram-specific evaluation:
 ## Accessibility
 
 **WCAG compliance:**
+
 - Text contrast: 4.5:1 minimum
 - Color + label dual encoding
 - Works in grayscale
 - Large enough fonts (18pt+ body)
 
 **Instagram-specific:**
+
 - Alt text supported (include description)
 - Captions provide text alternative
 - Visual should work without reading text
@@ -317,6 +342,7 @@ Instagram-specific evaluation:
 ## Sources
 
 **Based on:**
+
 - Instagram design best practices
 - Mobile-first design principles
 - Visual hierarchy research

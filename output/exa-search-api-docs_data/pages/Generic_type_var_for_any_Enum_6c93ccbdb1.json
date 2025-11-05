@@ -1,8 +1,0 @@
-{
-  "title": "Generic type var for any Enum",
-  "content": "EnumT = TypeVar('EnumT', bound=Enum)",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#generic-type-var-for-any-enum",
-  "links": []
-}

@@ -1,8 +1,0 @@
-{
-  "title": "Use keyword search",
-  "content": "result = exa.search_and_contents(\"hottest AI startups\", type=\"keyword\")\n```\n\nWe're confident this update will significantly improve your search experience. If you have any questions or want to chat about how this might impact your specific use case, please reach out to [hello@exa.ai](mailto:hello@exa.ai).\n\nWe can't wait for you to try out the new Auto search as default!",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#use-keyword-search",
-  "links": []
-}

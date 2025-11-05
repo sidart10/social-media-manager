@@ -1,8 +1,0 @@
-{
-  "title": "Load environment variables",
-  "content": "agentops.init(os.getenv('AGENTOPS_API_KEY'))\n\n@tool(\"Exa search and get contents\")\ndef search_and_contents(question: str) -> str:\n    \"\"\"\n    Tool using Exa's Python SDK to run semantic search and return result highlights.\n    \"\"\"\n    exa = Exa(api_key=os.getenv('EXA_API_KEY'))\n\nresponse = exa.search_and_contents(\n        query,\n        type=\"auto\",\n        num_results=3,\n        highlights=True\n    )\n\nparsedResult = ''.join([\n        f'<Title id={idx}>{eachResult.title}</Title>'\n        f'<URL id={idx}>{eachResult.url}</URL>'\n        f'<Highlight id={idx}>{\"\".join(eachResult.highlights)}</Highlight>' \n        for (idx, eachResult) in enumerate(response.results)\n    ])",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#load-environment-variables",
-  "links": []
-}

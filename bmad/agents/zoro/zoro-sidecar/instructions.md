@@ -8,29 +8,36 @@
 ## Core Responsibilities
 
 **Publishing Policy (ABSOLUTE - NO EXCEPTIONS):**
+
 - ONLY Postiz for ALL platforms (Twitter, LinkedIn, Instagram, Facebook, TikTok, YouTube)
 - ONE workflow: schedule-post (handles everything - immediate AND scheduled)
+- **PRIMARY TOOL**: mcp**postiz**mcpSchedulePostWrapper (ALWAYS USE THIS - verified working 2025-11-04)
+- **FALLBACK**: mcp**postiz**integrationSchedulePostTool (only if wrapper fails)
 - NO direct APIs (NO Twitter MCP, NO LinkedIn MCP, NO YouTube MCP)
 - NO backup workflows
 - Postiz supports both immediate posting (type: "now") AND scheduling (type: "schedule")
 - Cloudinary upload for public media URLs (images AND videos)
 - Unified queue management via Postiz dashboard
+- **Twitter threads work perfectly via posts array** (first = main tweet, rest = replies)
 
 ---
 
 ## Critical Integration Points
 
 **Cloudinary (MANDATORY for Postiz):**
+
 - Upload media from 04-media/ to get public HTTPS URLs
 - Postiz requires public URLs (not local file:// paths)
 - Pattern: Generate → Upload → Get URL → Schedule
 
 **Postiz (PRIMARY):**
+
 - Multi-platform validation (character limits, media formats)
 - Scheduling with "next-free-slot" auto-optimization
 - Unified queue management
 
 **Postiz HTML Formatting (CRITICAL):**
+
 - Use formatter: bmad/modules/postiz-formatter/format-html.mjs
 - Required format: Each paragraph in <p> tags
 - Allowed tags: h1, h2, h3, strong, ul, li, p (NO u+strong together)
@@ -39,6 +46,7 @@
 - Pattern: Plain text → formatForPostiz() → HTML → Postiz
 
 **Notion (Epic 2):**
+
 - Update Status: Editing → Posted (after scheduling)
 - Set Publish Date to scheduled time
 - Link to Channels (LinkedIn & X, YouTube, etc.)
@@ -51,6 +59,7 @@
 **ONE Workflow for EVERYTHING: schedule-post**
 
 **Posting Types:**
+
 1. **Immediate** (type: "now") - Posts within seconds
    - Use for: Urgent content, breaking news, immediate publishing
    - No delay, posts as soon as Postiz processes
@@ -59,6 +68,7 @@
    - Postiz publishes automatically at scheduled time
 
 **Platforms Supported (All via Postiz):**
+
 - Twitter/X (tweets, threads, long-form)
 - LinkedIn (posts, carousels, PDFs, videos)
 - Instagram (posts, carousels, Reels)
@@ -68,6 +78,7 @@
 - Pinterest, Reddit (if connected)
 
 **Media Support:**
+
 - Images: Upload to Cloudinary, get public URL, pass to Postiz
 - Videos: Upload to Cloudinary, get public URL, pass to Postiz (works for YouTube too!)
 - Multiple images: Carousels supported (2-20 images)
@@ -86,12 +97,12 @@ Postiz DOES support Twitter threads! This is how you post 10+ tweet threads via 
 
 ```javascript
 postsAndComments: [
-  {content: "<p>Tweet 1 (main)</p>", attachments: []},           // Index 0 = Main tweet
-  {content: "<p>Tweet 2</p>", attachments: []},                  // Index 1 = Reply (thread!)
-  {content: "<p>Tweet 3</p>", attachments: [cloudinary_url]},    // Index 2 = Reply with image
-  {content: "<p>Tweet 4</p>", attachments: []},                  // Index 3 = Reply
+  { content: '<p>Tweet 1 (main)</p>', attachments: [] }, // Index 0 = Main tweet
+  { content: '<p>Tweet 2</p>', attachments: [] }, // Index 1 = Reply (thread!)
+  { content: '<p>Tweet 3</p>', attachments: [cloudinary_url] }, // Index 2 = Reply with image
+  { content: '<p>Tweet 4</p>', attachments: [] }, // Index 3 = Reply
   // Continue for all tweets in thread (up to 50+)
-]
+];
 ```
 
 **How Postiz Threading Works:**
@@ -106,42 +117,50 @@ postsAndComments: [
 
 ```javascript
 mcp__postiz__integrationSchedulePostTool({
-  socialPost: [{
-    integrationId: twitter_integration_id,
-    isPremium: false,
-    date: current_time_utc,
-    type: "now",
-    postsAndComments: [
-      {
-        content: formatForPostiz("Anthropic shipped Agent Skills last month.\n\nMost people think they're just 'better prompts.'\n\nThey're not. Agent Skills are the missing architecture layer between raw LLMs and production agents."),
-        attachments: []
-      },
-      {
-        content: formatForPostiz("Here's what makes them different:\n\nSkills aren't prompts, RAG, or fine-tuning.\n\nThey're something else entirely."),
-        attachments: []
-      },
-      {
-        content: formatForPostiz("Progressive disclosure architecture (3 tiers):\n\n1. Metadata (when/what)\n2. Instructions (how)\n3. Additional files (examples/data)"),
-        attachments: ["https://res.cloudinary.com/.../diagram-1.png"]  // Image on tweet 3
-      },
-      {content: formatForPostiz("Tweet 4 text..."), attachments: []},
-      {content: formatForPostiz("Tweet 5 text..."), attachments: []},
-      {
-        content: formatForPostiz("Tweet 6 text..."),
-        attachments: ["https://res.cloudinary.com/.../diagram-2.png"]  // Image on tweet 6
-      },
-      {content: formatForPostiz("Tweet 7 text..."), attachments: []},
-      {
-        content: formatForPostiz("Tweet 8 text..."),
-        attachments: ["https://res.cloudinary.com/.../diagram-3.png"]  // Image on tweet 8
-      },
-      {content: formatForPostiz("Tweet 9 text..."), attachments: []},
-      {content: formatForPostiz("Tweet 10 text..."), attachments: []},
-      {content: formatForPostiz("Tweet 11 text..."), attachments: []}
-    ],
-    settings: []
-  }]
-})
+  socialPost: [
+    {
+      integrationId: twitter_integration_id,
+      isPremium: false,
+      date: current_time_utc,
+      type: 'now',
+      postsAndComments: [
+        {
+          content: formatForPostiz(
+            "Anthropic shipped Agent Skills last month.\n\nMost people think they're just 'better prompts.'\n\nThey're not. Agent Skills are the missing architecture layer between raw LLMs and production agents.",
+          ),
+          attachments: [],
+        },
+        {
+          content: formatForPostiz(
+            "Here's what makes them different:\n\nSkills aren't prompts, RAG, or fine-tuning.\n\nThey're something else entirely.",
+          ),
+          attachments: [],
+        },
+        {
+          content: formatForPostiz(
+            'Progressive disclosure architecture (3 tiers):\n\n1. Metadata (when/what)\n2. Instructions (how)\n3. Additional files (examples/data)',
+          ),
+          attachments: ['https://res.cloudinary.com/.../diagram-1.png'], // Image on tweet 3
+        },
+        { content: formatForPostiz('Tweet 4 text...'), attachments: [] },
+        { content: formatForPostiz('Tweet 5 text...'), attachments: [] },
+        {
+          content: formatForPostiz('Tweet 6 text...'),
+          attachments: ['https://res.cloudinary.com/.../diagram-2.png'], // Image on tweet 6
+        },
+        { content: formatForPostiz('Tweet 7 text...'), attachments: [] },
+        {
+          content: formatForPostiz('Tweet 8 text...'),
+          attachments: ['https://res.cloudinary.com/.../diagram-3.png'], // Image on tweet 8
+        },
+        { content: formatForPostiz('Tweet 9 text...'), attachments: [] },
+        { content: formatForPostiz('Tweet 10 text...'), attachments: [] },
+        { content: formatForPostiz('Tweet 11 text...'), attachments: [] },
+      ],
+      settings: [],
+    },
+  ],
+});
 ```
 
 **Key Points:**

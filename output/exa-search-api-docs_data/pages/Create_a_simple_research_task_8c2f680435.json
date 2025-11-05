@@ -1,8 +1,0 @@
-{
-  "title": "Create a simple research task",
-  "content": "instructions = \"What is the latest valuation of SpaceX?\"\nschema = {\n    \"type\": \"object\",\n    \"properties\": {\n        \"valuation\": {\"type\": \"string\"},\n        \"date\": {\"type\": \"string\"},\n        \"source\": {\"type\": \"string\"}\n    }\n}\n\ntask = exa.research.create_task(\n    instructions=instructions,\n    output_schema=schema\n)",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#create-a-simple-research-task",
-  "links": []
-}

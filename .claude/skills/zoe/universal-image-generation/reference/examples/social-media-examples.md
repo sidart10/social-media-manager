@@ -11,12 +11,14 @@
 **Skill Workflow:**
 
 ### Step 1: Load JSON Template
+
 ```bash
 Read: bmad/modules/json-prompt-generator/templates/video-scene.json
 Adapt for: Static image generation (remove motion sections)
 ```
 
 ### Step 2: Populate Slide 1 JSON
+
 ```json
 {
   "scene_description": {
@@ -106,6 +108,7 @@ Adapt for: Static image generation (remove motion sections)
 ```
 
 ### Step 3: Tool Selection
+
 ```
 Analysis:
 - Platform: LinkedIn (professional)
@@ -118,16 +121,18 @@ Reason: LinkedIn + text rendering + professional quality
 ```
 
 ### Step 4: Generate
+
 ```yaml
 mcp__gpt-image-1__create_image:
   prompt: "Professional LinkedIn carousel slide with dark monochrome tech aesthetic. Deep black background (#0B0B0B, solid color, no gradients). Large white heading 'AI Agent Architecture' in Inter font, weight 300, 72pt, centered in upper third. Light gray subheading 'The Complete System' in 28pt below. Minimal abstract tech icon in lower third, green accent (#4ADE80). 12-column grid layout with 96px horizontal margins. 45% negative space for clean, uncluttered look. High contrast (WCAG AAA 7:1 ratio). Professional, minimal, enterprise-grade quality. No drop shadows, no gradients, no decorative elements. Sharp, crisp rendering."
-  size: "1536x1024"
-  quality: "high"
-  output_format: "png"
+  size: '1536x1024'
+  quality: 'high'
+  output_format: 'png'
   n: 1
 ```
 
 ### Step 5: Quality Evaluation
+
 ```
 7-Pillar Scores:
 - Clarity: 9 (title instantly clear)
@@ -142,6 +147,7 @@ Overall: 9.3/10 → EXCEPTIONAL
 ```
 
 ### Step 6: Save
+
 ```bash
 File: outputs/linkedin-ai-agents/slide1.png
 Metadata: outputs/linkedin-ai-agents/slide1_metadata.json
@@ -159,6 +165,7 @@ Quality: 9.3/10 (exceptional)
 **Skill Workflow:**
 
 ### Step 1: Analyze Requirements
+
 ```
 Count: 10 images
 Platform: Instagram
@@ -168,6 +175,7 @@ Quality: Good (not enterprise-critical)
 ```
 
 ### Step 2: Tool Selection
+
 ```
 Analysis:
 - Volume: 10 images
@@ -181,6 +189,7 @@ Speed for rapid iteration
 ```
 
 ### Step 3: Populate JSON (Simplified for social)
+
 ```json
 {
   "scene_description": {
@@ -230,18 +239,20 @@ Speed for rapid iteration
 ```
 
 ### Step 4: Generate with Variation
+
 ```yaml
 # Generate Post 1
 mcp__nanobanana__generate_image:
   prompt: "Instagram square post with vibrant coral-to-peach gradient background (#FF6B6B to #FFB4A2). Bold white text 'Start Before You're Ready' in Montserrat font, 48pt, centered. Clean, modern, motivational quote aesthetic. High contrast, mobile-optimized, thumb-stopping visual, Instagram-worthy."
-  mode: "generate"
-  negative_prompt: "cluttered, low contrast, dark backgrounds, small text, professional corporate, text-heavy, cartoons, stock photos, horizontal format"
-  n: 2  # Generate 2 variations, pick best
+  mode: 'generate'
+  negative_prompt: 'cluttered, low contrast, dark backgrounds, small text, professional corporate, text-heavy, cartoons, stock photos, horizontal format'
+  n: 2 # Generate 2 variations, pick best
 ```
 
 **Repeat for posts 2-10 with different tips and color variations**
 
 ### Step 5: Quality Check (Faster for social)
+
 ```
 For social media (not client work):
 - Score ≥ 6 acceptable
@@ -250,6 +261,7 @@ For social media (not client work):
 ```
 
 ### Result
+
 ```
 10 Instagram posts generated
 Time: ~5 minutes total
@@ -268,6 +280,7 @@ Quality: 7-8/10 average (good for social)
 **Skill Workflow:**
 
 ### Step 1: Load JSON (Photorealistic)
+
 ```json
 {
   "scene_description": {
@@ -349,6 +362,7 @@ Quality: 7-8/10 average (good for social)
 ```
 
 ### Step 2: Tool Selection
+
 ```
 Analysis:
 - Use case: Product photography (photorealistic)
@@ -361,16 +375,18 @@ Reason: Best photorealism for hero product shot
 ```
 
 ### Step 3: Generate
+
 ```yaml
 mcp__gpt-image-1__create_image:
-  prompt: "Premium coffee maker product photography on minimalist kitchen counter with natural morning window light. Stainless steel coffee maker with premium design positioned on right third of frame. Coffee cup with rising steam and scattered coffee beans as supporting elements. Shot on Canon R5 with 85mm f/1.2L lens at f/2.8 for shallow depth of field (product sharp, background soft bokeh). Natural window light from camera-left creating soft diffused illumination (5500K daylight). Subtle white bounce card fill from camera-right. Clean bright white background, high-key lighting. Rich coffee brown tones and deep black coffee. Natural color grading with slight warmth boost on coffee (+10% saturation). Photorealistic, detailed textures, professional product photography quality. 40% negative space on left. Composition follows rule of thirds."
-  size: "1536x1024"
-  quality: "high"
-  output_format: "png"
-  n: 2  # Get 2 variations for client choice
+  prompt: 'Premium coffee maker product photography on minimalist kitchen counter with natural morning window light. Stainless steel coffee maker with premium design positioned on right third of frame. Coffee cup with rising steam and scattered coffee beans as supporting elements. Shot on Canon R5 with 85mm f/1.2L lens at f/2.8 for shallow depth of field (product sharp, background soft bokeh). Natural window light from camera-left creating soft diffused illumination (5500K daylight). Subtle white bounce card fill from camera-right. Clean bright white background, high-key lighting. Rich coffee brown tones and deep black coffee. Natural color grading with slight warmth boost on coffee (+10% saturation). Photorealistic, detailed textures, professional product photography quality. 40% negative space on left. Composition follows rule of thirds.'
+  size: '1536x1024'
+  quality: 'high'
+  output_format: 'png'
+  n: 2 # Get 2 variations for client choice
 ```
 
 ### Step 4: Quality Evaluation
+
 ```
 7-Pillar Scores:
 - Clarity: 9 (product instantly clear)
@@ -395,6 +411,7 @@ Overall: 9.3/10 → EXCEPTIONAL
 **Skill Workflow:**
 
 ### Step 1: Simplified JSON (Speed Mode)
+
 ```json
 {
   "scene_description": {
@@ -441,6 +458,7 @@ Overall: 9.3/10 → EXCEPTIONAL
 ```
 
 ### Step 2: Tool Selection
+
 ```
 Analysis:
 - Speed: CRITICAL (need in 2 minutes)
@@ -453,11 +471,12 @@ Reason: SPEED - generate in seconds vs 90s with OpenAI
 ```
 
 ### Step 3: Generate
+
 ```yaml
 mcp__nanobanana__generate_image:
   prompt: "Instagram story vertical design (9:16 format). Bold gradient background from neon pink (#FF006E) at top to electric blue (#00B4D8) at bottom. Large white text 'NEW VIDEO' at top (64pt, bold, all caps), 'DROPPING TOMORROW' below (64pt). Centered layout with safe zones (avoid top/bottom 250px). High contrast white text with subtle shadow for readability. Vibrant, high-energy, eye-catching, Instagram-worthy. Mobile-optimized."
-  mode: "generate"
-  negative_prompt: "boring, plain, small text, professional corporate, cluttered, low contrast, horizontal, complex"
+  mode: 'generate'
+  negative_prompt: 'boring, plain, small text, professional corporate, cluttered, low contrast, horizontal, complex'
   n: 1
 ```
 
@@ -465,6 +484,7 @@ mcp__nanobanana__generate_image:
 **Cost**: $0.039
 
 ### Step 4: Quick Quality Check
+
 ```
 Score: 7/10 (good for story, text readable, eye-catching)
 Ship it! Stories are ephemeral (24hr), speed > perfection
@@ -481,6 +501,7 @@ Ship it! Stories are ephemeral (24hr), speed > perfection
 **Skill Workflow:**
 
 ### Step 1: JSON (Data-Focused)
+
 ```json
 {
   "scene_description": {
@@ -531,6 +552,7 @@ Ship it! Stories are ephemeral (24hr), speed > perfection
 ```
 
 ### Step 2: Tool Selection
+
 ```
 Decision: gpt-image-1
 Reason: Text accuracy critical for data (45%, labels)
@@ -538,15 +560,17 @@ LinkedIn professional quality expected
 ```
 
 ### Step 3: Generate
+
 ```yaml
 mcp__gpt-image-1__create_image:
   prompt: "LinkedIn data visualization with dark background (#0B0B0B). Left side: Massive white '45%' statistic in 144pt bold font. Below: 'AI Adoption Growth in 2025' in 32pt. Right side: Simple clean line chart showing upward trend in green (#4ADE80). Bottom-right: Source citation 'Source: Gartner Research 2025' in 16pt gray (#D4D4D4). High contrast (WCAG AAA), professional data visualization, clean layout, minimal design, enterprise-grade quality."
-  size: "1536x1024"
-  quality: "high"
-  output_format: "png"
+  size: '1536x1024'
+  quality: 'high'
+  output_format: 'png'
 ```
 
 ### Result
+
 ```
 Quality: 9/10 (data clear, professional, credible)
 Engagement: High (LinkedIn loves data)
@@ -561,6 +585,7 @@ Engagement: High (LinkedIn loves data)
 **Skill Workflow:**
 
 ### Step 1: Load Emily's Exact Template
+
 ```bash
 Reference: docs/emily_prompts_QUALITY_ONLY.csv
 Example: "Glacial Couture" prompt (Prompt #1)
@@ -568,6 +593,7 @@ This is Emily's proven photorealistic methodology!
 ```
 
 ### Step 2: Use Emily's Complete JSON
+
 ```json
 {
   "scene_description": {
@@ -646,6 +672,7 @@ This is Emily's proven photorealistic methodology!
 ```
 
 ### Step 2: Tool Selection
+
 ```
 Decision: gpt-image-1
 Reason: Photorealism 9.5/10 required
@@ -654,16 +681,18 @@ Complex composition with many details
 ```
 
 ### Step 3: Generate with Full Details
+
 ```yaml
 mcp__gpt-image-1__create_image:
-  prompt: "{Full conversion of JSON above - all details preserved}"
-  size: "1024x1536"  # Vertical portrait
-  quality: "high"
-  output_format: "png"
+  prompt: '{Full conversion of JSON above - all details preserved}'
+  size: '1024x1536' # Vertical portrait
+  quality: 'high'
+  output_format: 'png'
   n: 1
 ```
 
 ### Step 4: Quality Evaluation
+
 ```
 7-Pillar Scores:
 - Clarity: 9 (subject clear, beautiful)
@@ -690,6 +719,7 @@ Overall: 9.2/10 → EXCEPTIONAL
 ### Step 1: Create 3 Style Variations in JSON
 
 **Variation A: Bold & Minimal**
+
 ```json
 {
   "color_palette": ["#000000", "#FFFFFF"],
@@ -698,6 +728,7 @@ Overall: 9.2/10 → EXCEPTIONAL
 ```
 
 **Variation B: Vibrant & Eye-Catching**
+
 ```json
 {
   "color_palette": ["#FF006E", "#00B4D8", "#FFFFFF"],
@@ -706,6 +737,7 @@ Overall: 9.2/10 → EXCEPTIONAL
 ```
 
 **Variation C: Professional Tech**
+
 ```json
 {
   "color_palette": ["#0B0B0B", "#1DA1F2", "#FFFFFF"],
@@ -714,6 +746,7 @@ Overall: 9.2/10 → EXCEPTIONAL
 ```
 
 ### Step 2: Tool Selection
+
 ```
 Decision: nanobanana
 Reason: Need 3 variations quickly for testing
@@ -722,6 +755,7 @@ Speed: Rapid iteration
 ```
 
 ### Step 3: Generate All Variations
+
 ```yaml
 # Variation A
 mcp__nanobanana__generate_image:
@@ -740,11 +774,13 @@ mcp__nanobanana__generate_image:
 ```
 
 ### Step 4: User Picks Winner
+
 ```
 User: "Variation C! The Twitter blue makes it pop"
 ```
 
 ### Step 5: Upgrade Winner (Optional)
+
 ```
 Regenerate Variation C with gpt-image-1 for final quality:
 - Higher photorealism
@@ -758,14 +794,14 @@ Regenerate Variation C with gpt-image-1 for final quality:
 
 ## Summary: Usage Patterns
 
-| Scenario | Tool | JSON Detail | Speed | Example |
-|----------|------|-------------|-------|---------|
-| **LinkedIn Professional** | gpt-image-1 | Full (10+ sections) | Standard | Example 1 |
-| **Instagram Volume** | nanobanana | Simplified | Fast | Example 2 |
-| **Photorealistic Hero** | gpt-image-1 | Emily's complete | Standard | Example 3 |
-| **Product Photography** | gpt-image-1 | Full camera sim | Standard | Example 3 |
-| **Quick Testing** | nanobanana | Minimal | Very fast | Example 5 |
-| **Multi-Variation** | nanobanana | Moderate | Fast | Example 5 |
+| Scenario                  | Tool        | JSON Detail         | Speed     | Example   |
+| ------------------------- | ----------- | ------------------- | --------- | --------- |
+| **LinkedIn Professional** | gpt-image-1 | Full (10+ sections) | Standard  | Example 1 |
+| **Instagram Volume**      | nanobanana  | Simplified          | Fast      | Example 2 |
+| **Photorealistic Hero**   | gpt-image-1 | Emily's complete    | Standard  | Example 3 |
+| **Product Photography**   | gpt-image-1 | Full camera sim     | Standard  | Example 3 |
+| **Quick Testing**         | nanobanana  | Minimal             | Very fast | Example 5 |
+| **Multi-Variation**       | nanobanana  | Moderate            | Fast      | Example 5 |
 
 ---
 

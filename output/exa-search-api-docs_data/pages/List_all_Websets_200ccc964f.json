@@ -1,8 +1,0 @@
-{
-  "title": "List all Websets",
-  "content": "Source: https://docs.exa.ai/websets/api/websets/list-all-websets\n\nget /v0/websets\nReturns a list of Websets.\n\nYou can paginate through the results using the `cursor` parameter.",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#list-all-websets",
-  "links": []
-}

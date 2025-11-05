@@ -1,8 +1,0 @@
-{
-  "title": "Parameters for our Highlights search",
-  "content": "highlights_options  = {\n    \"num_sentences\": 7, # how long our highlights should be\n    \"highlights_per_url\": 1, # just get the best highlight for each URL\n}",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#parameters-for-our-highlights-search",
-  "links": []
-}

@@ -1,8 +1,0 @@
-{
-  "title": "Get Import",
-  "content": "Source: https://docs.exa.ai/websets/api/imports/get-import\n\nget /v0/imports/{id}\nGets a specific import.",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#get-import",
-  "links": []
-}

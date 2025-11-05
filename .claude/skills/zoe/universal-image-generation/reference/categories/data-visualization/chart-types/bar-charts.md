@@ -9,6 +9,7 @@ Bar charts use length/height to represent values, making them ideal for comparin
 ## When to Use Bar Charts
 
 **Best for:**
+
 - Comparing different categories (sales by region, products by revenue)
 - Showing rankings (top 10 lists, leaderboards)
 - Displaying survey results (categorical responses)
@@ -16,11 +17,13 @@ Bar charts use length/height to represent values, making them ideal for comparin
 - Any categorical data with numerical values
 
 **Data requirements:**
+
 - At least 1 categorical variable (categories)
 - 1 quantitative variable (values to compare)
 - Works with 2-20 categories (more = harder to read)
 
 **Choose bar over column when:**
+
 - Long category labels (easier to read horizontally)
 - Many categories (vertical scrolling better than horizontal)
 - Small screen optimization (bars grow down, not right)
@@ -34,6 +37,7 @@ Bar charts use length/height to represent values, making them ideal for comparin
 **Why:** Bar length represents value. Starting at non-zero distorts perception.
 
 **Example:**
+
 ```
 ❌ WRONG: Y-axis starts at 50
    → Bar showing 75 appears 5× larger than bar showing 60
@@ -55,6 +59,7 @@ All bars should have identical width. Varying widths confuses readers about what
 ### 3. Logical Ordering
 
 Arrange bars by:
+
 - **Value** (descending = most common): Shows rankings clearly
 - **Alphabetical**: Easy lookup when many categories
 - **Chronological**: If categories represent time periods
@@ -67,6 +72,7 @@ Arrange bars by:
 ### Essential Elements
 
 **1. Axes:**
+
 - **Y-axis** (vertical): Value axis with clear units
   - Label: "Revenue (Millions $)" not just "Revenue"
   - Tick marks: Natural intervals (0, 20, 40, 60, 80, 100)
@@ -77,32 +83,38 @@ Arrange bars by:
   - If labels too long → use horizontal bars instead
 
 **2. Data Labels (highly recommended):**
+
 - Numbers ON or NEXT to bars
 - Reduces need for Y-axis reading
 - Enables precise value reading
 - Format: Add commas for thousands (1,250 not 1250)
 
 **3. Title (insight-driven):**
+
 - ❌ "Sales by Region" (descriptive)
 - ✅ "Western Region Leads Sales with $2.5M" (insight)
 
 **4. Gridlines (optional, subtle):**
+
 - Horizontal only (help read values)
 - Very light gray (#F3F4F6 or lighter)
 - Or remove entirely if using data labels
 
 **5. Legend (if multi-series):**
+
 - Place top-right or bottom
 - Or better: Direct labeling of each series
 
 ### Bar Specifications
 
 **Spacing:**
+
 - Bar width: 60-70% of available space
 - Gap between bars: 30-40% of bar width
 - Grouped bars: 10-20% gap within group, 40% between groups
 
 **Styling:**
+
 - Solid fills (no gradients)
 - Slight rounding optional (2-4px radius for modern look)
 - No 3D effects
@@ -111,6 +123,7 @@ Arrange bars by:
 ## Variations
 
 ### Horizontal Bar Charts
+
 ```
 Use when:
 - Long category labels (easier to read left-aligned text)
@@ -124,6 +137,7 @@ Benefits:
 ```
 
 ### Stacked Bar Charts
+
 ```
 Use when:
 - Showing subcategories within categories
@@ -138,6 +152,7 @@ Rules:
 ```
 
 ### Grouped Bar Charts
+
 ```
 Use when:
 - Comparing 2-3 values within each category
@@ -151,6 +166,7 @@ Rules:
 ```
 
 ### Split Bar Charts
+
 ```
 Use when:
 - Showing positive/negative values
@@ -202,6 +218,7 @@ backgrounds, artistic styling, low contrast, hand-drawn casual
 ## Accessibility Requirements (WCAG 2.1 AA)
 
 **Contrast ratios:**
+
 - Text on background: 4.5:1 minimum
   - #1F2937 on #FFFFFF = 12.63:1 ✅
 - Bars on background: 3:1 minimum
@@ -210,11 +227,13 @@ backgrounds, artistic styling, low contrast, hand-drawn casual
   - Use different colors OR patterns if needed
 
 **Dual encoding (don't rely on color alone):**
+
 - Add data labels with numbers
 - Use patterns if multiple series
 - Direct labeling preferred
 
 **Testing:**
+
 - Validate with Color Oracle (colorblind simulation)
 - Check grayscale conversion (should still be clear)
 - Test readability at 50% size
@@ -250,6 +269,7 @@ For bar chart generation, verify:
 ## Tool-Specific Guidance
 
 ### For gpt-image-1 (Recommended)
+
 ```
 Strengths:
 - Perfect for precise bar alignment
@@ -265,6 +285,7 @@ Prompt emphasis:
 ```
 
 ### For nanobanana
+
 ```
 Strengths:
 - Fast iteration
@@ -281,6 +302,7 @@ Use for: Quick drafts, simple comparisons
 ## Examples by Style
 
 ### Muted Professional + Bar Chart
+
 ```
 Corporate navy bars, white background, clean Inter typography,
 subtle gridlines, data labels above bars, formal composition.
@@ -289,6 +311,7 @@ Perfect for: Executive reports, business reviews
 ```
 
 ### tldraw + Bar Chart
+
 ```
 Hand-drawn bars with slight wobble, warm earth tones, casual
 hand-written labels, whiteboard aesthetic, organic spacing.
@@ -297,6 +320,7 @@ Perfect for: Blog posts, casual explanations
 ```
 
 ### Vibrant Presentation + Bar Chart
+
 ```
 Bold saturated colors, high energy palette, large impactful numbers,
 minimal gridlines, attention-grabbing design.
@@ -305,6 +329,7 @@ Perfect for: Sales presentations, marketing decks
 ```
 
 ### Dark Mode Analytics + Bar Chart
+
 ```
 Dark background (#0B0B0B), neon accent bars (#00F5FF, #FF006E),
 tech aesthetic, modern sans-serif, dashboard-ready.
@@ -315,16 +340,19 @@ Perfect for: Analytics dashboards, tech products
 ## Research Citations
 
 **Chart type selection:**
+
 - Datawrapper (2025): "Bar Charts Guide"
 - Tableau: "Which Chart or Graph is Right for You"
 - Hands-On Data Visualization: "Chart Design Principles"
 
 **Accessibility standards:**
+
 - WCAG 2.1: Non-Text Contrast (3:1) and Text Contrast (4.5:1)
 - Google Material Design: Data Visualization Accessibility
 - Smashing Magazine (2024): Accessibility Standards for Charts
 
 **Cognitive research:**
+
 - Cleveland & McGill (1985): "Graphical Perception" - Position along common scale easiest to compare
 - Validates bar charts as most accurate for comparisons
 

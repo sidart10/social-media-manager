@@ -57,6 +57,7 @@ SubMagic API provides two approaches to video editing:
 ### Available Font Options
 
 SubMagic supports:
+
 - **30+ Pre-designed Templates** (each with unique font/style)
 - **Custom Font Upload** (PRO plan required)
 - **3 Highlight Colors** for emphasis
@@ -73,6 +74,7 @@ SubMagic supports:
 **Step 3:** Select a base template (e.g., "Hormozi 2")
 
 **Step 4:** Click EDIT to customize:
+
 - Upload custom font (TTF/OTF files)
 - Adjust shadow effects
 - Set words per line (1-5 typical)
@@ -89,18 +91,21 @@ SubMagic supports:
 ### Font Best Practices
 
 **For Business/Sales Videos:**
+
 - Use **bold, thick fonts** (Hormozi style)
 - **High contrast** (yellow text, black shadow)
 - **2-3 words per line**
 - **Large text size** for mobile viewing
 
 **For Tutorial/Educational:**
+
 - **Clean sans-serif fonts** (Arial, Helvetica)
 - **White or light gray text**
 - **3-4 words per line**
 - **Medium size** for balance
 
 **For Entertainment/Viral:**
+
 - **Playful, animated fonts**
 - **Multiple highlight colors** (yellow, pink, blue)
 - **1-2 words per line** (fast-paced)
@@ -112,28 +117,31 @@ SubMagic supports:
 
 ### Understanding the Difference
 
-| Feature | Templates | Custom Themes |
-|---------|-----------|---------------|
-| **Access** | API directly | UI creation → API reference |
-| **Customization** | None (pre-made) | Full control |
-| **Font Upload** | No | Yes (PRO plan) |
-| **Colors** | Fixed | Custom primary + 3 highlights |
-| **Plan Required** | Any | PRO or higher |
-| **API Parameter** | `template_name` | `user_theme_id` |
+| Feature           | Templates       | Custom Themes                 |
+| ----------------- | --------------- | ----------------------------- |
+| **Access**        | API directly    | UI creation → API reference   |
+| **Customization** | None (pre-made) | Full control                  |
+| **Font Upload**   | No              | Yes (PRO plan)                |
+| **Colors**        | Fixed           | Custom primary + 3 highlights |
+| **Plan Required** | Any             | PRO or higher                 |
+| **API Parameter** | `template_name` | `user_theme_id`               |
 
 ### Available Templates (30+)
 
 **Business/Sales:**
+
 - Hormozi 1, 2, 3, 4, 5 (high-energy, bold)
 - Daniel (professional)
 - Leon (corporate)
 
 **General Social Media:**
+
 - Sara (default - most versatile)
 - Ella (friendly)
 - Maya (modern)
 
 **Entertainment:**
+
 - Beast (MrBeast-inspired)
 - Josh (playful)
 - Alex (trendy)
@@ -141,6 +149,7 @@ SubMagic supports:
 ### Creating Custom Themes
 
 **Requirements:**
+
 - SubMagic PRO plan or higher
 - Access to SubMagic web editor
 - Font files (if uploading custom fonts)
@@ -153,16 +162,16 @@ SubMagic supports:
 // STYLE → Select base template → EDIT → Customize → CREATE THEME
 
 // Step 2: Get theme UUID (appears in URL or theme settings)
-const MY_BRAND_THEME_ID = "a1b2c3d4-e5f6-7890-abcd-ef1234567890";
+const MY_BRAND_THEME_ID = 'a1b2c3d4-e5f6-7890-abcd-ef1234567890';
 
 // Step 3: Use in API calls
 const project = await submagic_create_project({
-  title: "Branded Video",
-  language: "en",
-  video_url: "https://example.com/video.mp4",
-  user_theme_id: MY_BRAND_THEME_ID,  // Your custom theme!
+  title: 'Branded Video',
+  language: 'en',
+  video_url: 'https://example.com/video.mp4',
+  user_theme_id: MY_BRAND_THEME_ID, // Your custom theme!
   magic_zooms: true,
-  magic_brolls: true
+  magic_brolls: true,
 });
 ```
 
@@ -189,35 +198,30 @@ const templates = await submagic_list_templates();
 
 // 3. Create project with editing features
 const project = await submagic_create_project({
-  title: "Product Demo - Q4 2025",
-  language: "en",
-  video_url: "https://cdn.example.com/raw-video.mp4",
+  title: 'Product Demo - Q4 2025',
+  language: 'en',
+  video_url: 'https://cdn.example.com/raw-video.mp4',
 
   // OPTION A: Use pre-made template
-  template_name: "Hormozi 2",
+  template_name: 'Hormozi 2',
 
   // OPTION B: Use custom theme (PRO plan)
   // user_theme_id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
 
   // AI Features (can only set at creation)
-  magic_zooms: true,              // AI-powered dynamic zooms
-  magic_brolls: true,             // Auto B-roll insertion
-  magic_brolls_percentage: 75,    // 75% of video covered
+  magic_zooms: true, // AI-powered dynamic zooms
+  magic_brolls: true, // Auto B-roll insertion
+  magic_brolls_percentage: 75, // 75% of video covered
 
   // Editing Features
-  remove_silence_pace: "fast",    // "natural" | "fast" | "extra-fast"
-  remove_bad_takes: true,         // Remove "um", "uh", "like"
+  remove_silence_pace: 'fast', // "natural" | "fast" | "extra-fast"
+  remove_bad_takes: true, // Remove "um", "uh", "like"
 
   // Transcription accuracy
-  dictionary: [
-    "Submagic",
-    "TikTok",
-    "AI-powered",
-    "MyBrandName"
-  ],
+  dictionary: ['Submagic', 'TikTok', 'AI-powered', 'MyBrandName'],
 
   // Webhook for async notification
-  webhook_url: "https://myapi.com/submagic-webhook"
+  webhook_url: 'https://myapi.com/submagic-webhook',
 });
 
 // Store project ID
@@ -232,14 +236,14 @@ console.log(`Project created: ${projectId}`);
 const checkStatus = async (projectId) => {
   const project = await submagic_get_project(projectId);
 
-  if (project.status === "processing") {
-    console.log("⏳ Still processing...");
+  if (project.status === 'processing') {
+    console.log('⏳ Still processing...');
     setTimeout(() => checkStatus(projectId), 30000); // Wait 30s
-  } else if (project.status === "completed") {
-    console.log("✅ Processing complete!");
+  } else if (project.status === 'completed') {
+    console.log('✅ Processing complete!');
     // Move to Phase 3
-  } else if (project.status === "failed") {
-    console.error("❌ Processing failed:", project.error);
+  } else if (project.status === 'failed') {
+    console.error('❌ Processing failed:', project.error);
   }
 };
 
@@ -254,7 +258,7 @@ const updated = await submagic_update_project({
   project_id: projectId,
 
   // Make silence removal more aggressive
-  remove_silence_pace: "extra-fast",  // Will remove more pauses
+  remove_silence_pace: 'extra-fast', // Will remove more pauses
 
   // Enable filler word removal (takes 1-2 min to process)
   remove_bad_takes: true,
@@ -262,19 +266,19 @@ const updated = await submagic_update_project({
   // Insert custom B-roll clips
   custom_broll_items: [
     {
-      startTime: 10.5,      // At 10.5 seconds
-      endTime: 15.0,        // Until 15 seconds
-      userMediaId: "uuid-from-submagic-library"
+      startTime: 10.5, // At 10.5 seconds
+      endTime: 15.0, // Until 15 seconds
+      userMediaId: 'uuid-from-submagic-library',
     },
     {
-      startTime: 30.0,      // At 30 seconds
-      endTime: 35.0,        // Until 35 seconds
-      userMediaId: "uuid-another-clip"
-    }
-  ]
+      startTime: 30.0, // At 30 seconds
+      endTime: 35.0, // Until 35 seconds
+      userMediaId: 'uuid-another-clip',
+    },
+  ],
 });
 
-console.log("🔧 Updates applied. Must re-export to see changes.");
+console.log('🔧 Updates applied. Must re-export to see changes.');
 
 // Wait for update processing (if remove_bad_takes enabled)
 await checkStatus(projectId);
@@ -286,13 +290,13 @@ await checkStatus(projectId);
 // Export with custom resolution
 const exported = await submagic_export_project({
   project_id: projectId,
-  width: 1080,      // HD width
-  height: 1920,     // Vertical (9:16 for social)
-  fps: 30,          // Frame rate
-  webhook_url: "https://myapi.com/export-webhook"
+  width: 1080, // HD width
+  height: 1920, // Vertical (9:16 for social)
+  fps: 30, // Frame rate
+  webhook_url: 'https://myapi.com/export-webhook',
 });
 
-console.log("📤 Export started...");
+console.log('📤 Export started...');
 
 // Wait for export to complete
 await checkStatus(projectId);
@@ -304,9 +308,9 @@ await checkStatus(projectId);
 // Get final project with download URLs
 const finalProject = await submagic_get_project(projectId);
 
-console.log("✅ Video ready!");
-console.log("Download URL:", finalProject.downloadUrl);
-console.log("Direct URL:", finalProject.directUrl);
+console.log('✅ Video ready!');
+console.log('Download URL:', finalProject.downloadUrl);
+console.log('Direct URL:', finalProject.directUrl);
 
 // Download the video
 const response = await fetch(finalProject.downloadUrl);
@@ -323,6 +327,7 @@ const videoBlob = await response.blob();
 **What it does:** Access the full transcript with precise timing for each word.
 
 **Use cases:**
+
 - Manual caption editing
 - Finding specific moments in video
 - Content analysis
@@ -353,6 +358,7 @@ const transcript = project.transcript;
 **What it does:** Insert your own video clips at specific timestamps.
 
 **Requirements:**
+
 - Upload media to SubMagic library first (via UI)
 - Get the `userMediaId` from SubMagic editor → B-roll tab → My videos
 
@@ -367,21 +373,21 @@ const updated = await submagic_update_project({
     {
       startTime: 5.0,
       endTime: 10.0,
-      userMediaId: "product-hero-shot-uuid"
+      userMediaId: 'product-hero-shot-uuid',
     },
     // Feature demo during explanation
     {
       startTime: 25.0,
       endTime: 35.0,
-      userMediaId: "feature-demo-uuid"
+      userMediaId: 'feature-demo-uuid',
     },
     // Customer testimonial during social proof
     {
       startTime: 50.0,
       endTime: 60.0,
-      userMediaId: "testimonial-uuid"
-    }
-  ]
+      userMediaId: 'testimonial-uuid',
+    },
+  ],
 });
 
 // MUST re-export after updating!
@@ -389,6 +395,7 @@ await submagic_export_project({ project_id: projectId });
 ```
 
 **Pro tips:**
+
 - Use B-rolls to cover jump cuts
 - Insert product shots during mentions
 - Add variety to talking head videos
@@ -400,23 +407,23 @@ await submagic_export_project({ project_id: projectId });
 
 **Three levels:**
 
-| Pace | Threshold | Best For | Energy Level |
-|------|-----------|----------|--------------|
-| `natural` | 0.6+ sec | Tutorials, explainers, storytelling | Low |
-| `fast` | 0.2-0.6 sec | Social media, product demos | Medium |
-| `extra-fast` | 0.1-0.2 sec | Viral shorts, high-energy content | High |
+| Pace         | Threshold   | Best For                            | Energy Level |
+| ------------ | ----------- | ----------------------------------- | ------------ |
+| `natural`    | 0.6+ sec    | Tutorials, explainers, storytelling | Low          |
+| `fast`       | 0.2-0.6 sec | Social media, product demos         | Medium       |
+| `extra-fast` | 0.1-0.2 sec | Viral shorts, high-energy content   | High         |
 
 **When to use:**
 
 ```javascript
 // Tutorial/educational (preserve natural pacing)
-remove_silence_pace: "natural"
+remove_silence_pace: 'natural';
 
 // Social media posts (balanced)
-remove_silence_pace: "fast"
+remove_silence_pace: 'fast';
 
 // TikTok/Reels (maximum compression)
-remove_silence_pace: "extra-fast"
+remove_silence_pace: 'extra-fast';
 ```
 
 ### 4. Filler Word Removal (AI-Powered)
@@ -426,6 +433,7 @@ remove_silence_pace: "extra-fast"
 **Processing time:** 1-2 minutes additional
 
 **Best for:**
+
 - Podcasts
 - Interviews
 - Presentations
@@ -437,13 +445,13 @@ remove_silence_pace: "extra-fast"
 // Enable during creation
 const project = await submagic_create_project({
   // ...
-  remove_bad_takes: true  // AI will clean filler words
+  remove_bad_takes: true, // AI will clean filler words
 });
 
 // OR update later
 await submagic_update_project({
   project_id: projectId,
-  remove_bad_takes: true
+  remove_bad_takes: true,
 });
 // Wait 1-2 min, then re-export
 ```
@@ -455,6 +463,7 @@ await submagic_update_project({
 **What it does:** Analyzes long video and creates multiple viral short clips.
 
 **Perfect for:**
+
 - Repurposing podcast episodes → 10-20 clips
 - Long YouTube videos → TikToks/Reels
 - Webinars → promotional snippets
@@ -464,39 +473,39 @@ await submagic_update_project({
 ```javascript
 // TikTok clips (15-30 sec, high energy)
 await submagic_create_magic_clips({
-  title: "TikTok Pack - Episode 42",
-  youtube_url: "https://youtube.com/watch?v=abc123",
-  language: "en",
+  title: 'TikTok Pack - Episode 42',
+  youtube_url: 'https://youtube.com/watch?v=abc123',
+  language: 'en',
   min_clip_length: 15,
   max_clip_length: 30,
-  user_theme_id: "tiktok-brand-theme-uuid"  // Optional
+  user_theme_id: 'tiktok-brand-theme-uuid', // Optional
 });
 
 // Instagram Reels (exactly 30 sec)
 await submagic_create_magic_clips({
-  title: "Reels Pack - Episode 42",
-  youtube_url: "https://youtube.com/watch?v=abc123",
-  language: "en",
+  title: 'Reels Pack - Episode 42',
+  youtube_url: 'https://youtube.com/watch?v=abc123',
+  language: 'en',
   min_clip_length: 30,
-  max_clip_length: 30
+  max_clip_length: 30,
 });
 
 // YouTube Shorts (45-60 sec)
 await submagic_create_magic_clips({
-  title: "Shorts Pack - Episode 42",
-  youtube_url: "https://youtube.com/watch?v=abc123",
-  language: "en",
+  title: 'Shorts Pack - Episode 42',
+  youtube_url: 'https://youtube.com/watch?v=abc123',
+  language: 'en',
   min_clip_length: 45,
-  max_clip_length: 60
+  max_clip_length: 60,
 });
 
 // Podcast snippets (2-3 min highlights)
 await submagic_create_magic_clips({
-  title: "Podcast Highlights - Episode 42",
-  youtube_url: "https://youtube.com/watch?v=abc123",
-  language: "en",
+  title: 'Podcast Highlights - Episode 42',
+  youtube_url: 'https://youtube.com/watch?v=abc123',
+  language: 'en',
   min_clip_length: 120,
-  max_clip_length: 180
+  max_clip_length: 180,
 });
 ```
 
@@ -515,22 +524,22 @@ await submagic_create_magic_clips({
 ```javascript
 // 1. Pick the right template for content type
 const templates = {
-  business: "Hormozi 2",
-  social: "Sara",
-  entertainment: "Beast",
-  tutorial: "Daniel"
+  business: 'Hormozi 2',
+  social: 'Sara',
+  entertainment: 'Beast',
+  tutorial: 'Daniel',
 };
 
 // 2. Create with aggressive editing settings
 const project = await submagic_create_project({
-  title: "Quick Post - Product Launch",
-  language: "en",
+  title: 'Quick Post - Product Launch',
+  language: 'en',
   video_url: videoUrl,
   template_name: templates.business,
   magic_zooms: true,
   magic_brolls: true,
-  remove_silence_pace: "fast",
-  remove_bad_takes: true
+  remove_silence_pace: 'fast',
+  remove_bad_takes: true,
 });
 
 // 3. Export immediately (no fine-tuning)
@@ -538,11 +547,13 @@ await submagic_export_project({ project_id: project.id });
 ```
 
 **Pros:**
+
 - ✅ Fast (no theme creation)
 - ✅ Consistent look
 - ✅ Works on any plan
 
 **Cons:**
+
 - ❌ No brand customization
 - ❌ Limited font control
 
@@ -570,24 +581,26 @@ await submagic_export_project({ project_id: project.id });
 ```javascript
 // Always use your brand theme
 const project = await submagic_create_project({
-  title: "Branded Post - Week 45",
-  language: "en",
+  title: 'Branded Post - Week 45',
+  language: 'en',
   video_url: videoUrl,
-  user_theme_id: process.env.SUBMAGIC_BRAND_THEME_ID,  // Your brand!
+  user_theme_id: process.env.SUBMAGIC_BRAND_THEME_ID, // Your brand!
   magic_zooms: true,
   magic_brolls: true,
-  remove_silence_pace: "fast",
+  remove_silence_pace: 'fast',
   remove_bad_takes: true,
-  dictionary: ["MyBrand", "ProductName", "TechTerm"]
+  dictionary: ['MyBrand', 'ProductName', 'TechTerm'],
 });
 ```
 
 **Pros:**
+
 - ✅ Perfect brand consistency
 - ✅ Custom fonts/colors
 - ✅ Professional look
 
 **Cons:**
+
 - ❌ Requires PRO plan
 - ❌ One-time UI setup needed
 
@@ -600,34 +613,34 @@ const project = await submagic_create_project({
 ```javascript
 // Define theme/template strategy per content type
 const contentStrategy = {
-  "linkedin-post": {
-    type: "custom",
+  'linkedin-post': {
+    type: 'custom',
     theme_id: process.env.SUBMAGIC_LINKEDIN_THEME_ID,
-    silence: "natural",
-    zooms: false,      // More professional
-    brolls: false
+    silence: 'natural',
+    zooms: false, // More professional
+    brolls: false,
   },
-  "tiktok-video": {
-    type: "template",
-    template_name: "Beast",
-    silence: "extra-fast",
-    zooms: true,       // High energy
-    brolls: true
+  'tiktok-video': {
+    type: 'template',
+    template_name: 'Beast',
+    silence: 'extra-fast',
+    zooms: true, // High energy
+    brolls: true,
   },
-  "youtube-short": {
-    type: "custom",
+  'youtube-short': {
+    type: 'custom',
     theme_id: process.env.SUBMAGIC_YOUTUBE_THEME_ID,
-    silence: "fast",
+    silence: 'fast',
     zooms: true,
-    brolls: true
+    brolls: true,
   },
-  "tutorial": {
-    type: "template",
-    template_name: "Daniel",
-    silence: "natural",
+  tutorial: {
+    type: 'template',
+    template_name: 'Daniel',
+    silence: 'natural',
     zooms: false,
-    brolls: false
-  }
+    brolls: false,
+  },
 };
 
 // Apply strategy
@@ -636,16 +649,16 @@ const createVideo = async (contentType, videoUrl) => {
 
   const baseConfig = {
     title: `${contentType} - ${new Date().toISOString()}`,
-    language: "en",
+    language: 'en',
     video_url: videoUrl,
     magic_zooms: strategy.zooms,
     magic_brolls: strategy.brolls,
     remove_silence_pace: strategy.silence,
-    remove_bad_takes: true
+    remove_bad_takes: true,
   };
 
   // Add theme or template
-  if (strategy.type === "custom") {
+  if (strategy.type === 'custom') {
     baseConfig.user_theme_id = strategy.theme_id;
   } else {
     baseConfig.template_name = strategy.template_name;
@@ -655,8 +668,8 @@ const createVideo = async (contentType, videoUrl) => {
 };
 
 // Usage
-await createVideo("tiktok-video", "https://...");
-await createVideo("linkedin-post", "https://...");
+await createVideo('tiktok-video', 'https://...');
+await createVideo('linkedin-post', 'https://...');
 ```
 
 ### Strategy 4: Batch Processing for Content Factories
@@ -668,29 +681,29 @@ await createVideo("linkedin-post", "https://...");
 ```javascript
 // Process multiple videos in parallel
 const videos = [
-  { url: "https://cdn.com/episode-1.mp4", title: "Episode 1" },
-  { url: "https://cdn.com/episode-2.mp4", title: "Episode 2" },
-  { url: "https://cdn.com/episode-3.mp4", title: "Episode 3" }
+  { url: 'https://cdn.com/episode-1.mp4', title: 'Episode 1' },
+  { url: 'https://cdn.com/episode-2.mp4', title: 'Episode 2' },
+  { url: 'https://cdn.com/episode-3.mp4', title: 'Episode 3' },
 ];
 
 // Create all projects (rate limit: 500/hour)
 const projects = await Promise.all(
-  videos.map(video =>
+  videos.map((video) =>
     submagic_create_project({
       title: video.title,
-      language: "en",
+      language: 'en',
       video_url: video.url,
-      template_name: "Sara",
+      template_name: 'Sara',
       magic_zooms: true,
       magic_brolls: true,
-      remove_silence_pace: "fast",
-      webhook_url: "https://myapi.com/webhook"
-    })
-  )
+      remove_silence_pace: 'fast',
+      webhook_url: 'https://myapi.com/webhook',
+    }),
+  ),
 );
 
 // Store project IDs
-const projectIds = projects.map(p => p.id);
+const projectIds = projects.map((p) => p.id);
 
 // Webhook handler will notify when each completes
 // Then auto-export and download
@@ -727,6 +740,7 @@ const projectIds = projects.map(p => p.id);
 ### 🚧 Known Limitations
 
 **API Limitations:**
+
 - Cannot edit individual captions/words via API
 - Cannot adjust caption positioning via API
 - Cannot change fonts/colors via API (must use custom themes)
@@ -734,11 +748,13 @@ const projectIds = projects.map(p => p.id);
 - Cannot access raw transcript data via MCP server (need direct API)
 
 **Plan Limitations:**
+
 - Custom themes require PRO plan
 - Custom font upload requires PRO plan
 - Export limits vary by plan tier
 
 **Processing Limitations:**
+
 - Magic clips limited to YouTube URLs only
 - Max video length varies by plan
 - Processing time 2-10 min (not instant)
@@ -746,15 +762,15 @@ const projectIds = projects.map(p => p.id);
 
 ### 🎯 Rate Limits Summary
 
-| Operation | Limit | Per |
-|-----------|-------|-----|
-| List languages | 1000 | hour |
-| List templates | 1000 | hour |
-| Create project | 500 | hour |
-| Get project | 500 | hour |
-| Update project | 100 | hour |
-| Export project | 50 | hour |
-| Magic clips | 500 | hour |
+| Operation      | Limit | Per  |
+| -------------- | ----- | ---- |
+| List languages | 1000  | hour |
+| List templates | 1000  | hour |
+| Create project | 500   | hour |
+| Get project    | 500   | hour |
+| Update project | 100   | hour |
+| Export project | 50    | hour |
+| Magic clips    | 500   | hour |
 
 **Best practice:** Use webhooks to avoid excessive polling!
 
@@ -768,7 +784,6 @@ const projectIds = projects.map(p => p.id);
 // ============================================
 
 const VideoProduction = {
-
   // Step 1: Initialize with strategy
   async init() {
     // Cache these (call once per session)
@@ -779,7 +794,7 @@ const VideoProduction = {
     this.brandThemes = {
       linkedin: process.env.SUBMAGIC_LINKEDIN_THEME_ID,
       tiktok: process.env.SUBMAGIC_TIKTOK_THEME_ID,
-      youtube: process.env.SUBMAGIC_YOUTUBE_THEME_ID
+      youtube: process.env.SUBMAGIC_YOUTUBE_THEME_ID,
     };
   },
 
@@ -788,29 +803,29 @@ const VideoProduction = {
     const platformDefaults = {
       linkedin: {
         theme: this.brandThemes.linkedin,
-        silence: "natural",
+        silence: 'natural',
         zooms: false,
-        brolls: false
+        brolls: false,
       },
       tiktok: {
         theme: this.brandThemes.tiktok,
-        silence: "extra-fast",
+        silence: 'extra-fast',
         zooms: true,
-        brolls: true
+        brolls: true,
       },
       youtube: {
         theme: this.brandThemes.youtube,
-        silence: "fast",
+        silence: 'fast',
         zooms: true,
-        brolls: true
-      }
+        brolls: true,
+      },
     };
 
     const config = platformDefaults[platform];
 
     const project = await submagic_create_project({
       title: options.title || `${platform} - ${Date.now()}`,
-      language: options.language || "en",
+      language: options.language || 'en',
       video_url: videoUrl,
       user_theme_id: config.theme,
       magic_zooms: config.zooms,
@@ -818,7 +833,7 @@ const VideoProduction = {
       remove_silence_pace: config.silence,
       remove_bad_takes: true,
       dictionary: options.dictionary || [],
-      webhook_url: `https://myapi.com/webhook/${platform}`
+      webhook_url: `https://myapi.com/webhook/${platform}`,
     });
 
     return project.id;
@@ -826,12 +841,12 @@ const VideoProduction = {
 
   // Step 3: Monitor via webhook (recommended)
   async handleWebhook(payload) {
-    if (payload.status === "completed") {
+    if (payload.status === 'completed') {
       // Auto-export with platform-specific settings
       const resolution = {
-        linkedin: { width: 1080, height: 1920 },  // 9:16
-        tiktok: { width: 1080, height: 1920 },    // 9:16
-        youtube: { width: 1080, height: 1920 }    // 9:16
+        linkedin: { width: 1080, height: 1920 }, // 9:16
+        tiktok: { width: 1080, height: 1920 }, // 9:16
+        youtube: { width: 1080, height: 1920 }, // 9:16
       };
 
       const res = resolution[payload.platform];
@@ -841,14 +856,14 @@ const VideoProduction = {
         width: res.width,
         height: res.height,
         fps: 30,
-        webhook_url: `https://myapi.com/export-webhook/${payload.platform}`
+        webhook_url: `https://myapi.com/export-webhook/${payload.platform}`,
       });
     }
   },
 
   // Step 4: Auto-download when export complete
   async handleExportWebhook(payload) {
-    if (payload.status === "completed") {
+    if (payload.status === 'completed') {
       const project = await submagic_get_project(payload.projectId);
 
       // Download video
@@ -868,30 +883,22 @@ const VideoProduction = {
   async autoPost(platform, videoPath) {
     // Your social media posting logic here
     // (Twitter API, LinkedIn API, etc.)
-  }
+  },
 };
 
 // Usage
 await VideoProduction.init();
 
 // Create LinkedIn video
-const linkedinProjectId = await VideoProduction.createVideo(
-  "linkedin",
-  "https://cdn.mysite.com/raw-video.mp4",
-  {
-    title: "Product Launch Announcement",
-    dictionary: ["ProductName", "FeatureX", "MyCompany"]
-  }
-);
+const linkedinProjectId = await VideoProduction.createVideo('linkedin', 'https://cdn.mysite.com/raw-video.mp4', {
+  title: 'Product Launch Announcement',
+  dictionary: ['ProductName', 'FeatureX', 'MyCompany'],
+});
 
 // Create TikTok video (same source, different styling!)
-const tiktokProjectId = await VideoProduction.createVideo(
-  "tiktok",
-  "https://cdn.mysite.com/raw-video.mp4",
-  {
-    title: "Behind the Scenes - Product Launch"
-  }
-);
+const tiktokProjectId = await VideoProduction.createVideo('tiktok', 'https://cdn.mysite.com/raw-video.mp4', {
+  title: 'Behind the Scenes - Product Launch',
+});
 
 // Webhooks handle the rest automatically!
 ```
@@ -901,18 +908,21 @@ const tiktokProjectId = await VideoProduction.createVideo(
 ## 📖 Summary
 
 **For Fast, Volume Editing:**
+
 - Use pre-made templates ("Hormozi 2", "Sara", "Beast")
 - Enable magic_zooms + magic_brolls
 - Use "fast" or "extra-fast" silence removal
 - Let AI do the heavy lifting
 
 **For Brand-Consistent Editing:**
+
 - Create custom themes in UI (one-time setup)
 - Reference via `user_theme_id` in API
 - Store theme IDs in environment variables
 - Maintain different themes per platform
 
 **For Maximum Control:**
+
 - Start with custom theme for fonts/colors
 - Use `custom_broll_items` for specific shots
 - Adjust `remove_silence_pace` per content type
@@ -923,6 +933,7 @@ const tiktokProjectId = await VideoProduction.createVideo(
 ---
 
 **Questions or issues?**
+
 - API Docs: https://docs.submagic.co
 - Support: support@submagic.co
 - MCP Server: `/Users/sid/Desktop/4. Coding Projects/sub-magic-mcp-server/`

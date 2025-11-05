@@ -1,0 +1,30 @@
+{
+  "videos": [
+    {
+      "filename": "h1b-debunk-talking-head-60s.mp4",
+      "type": "talking_head",
+      "platform_optimized_for": "youtube_shorts_instagram_reels_tiktok",
+      "aspect_ratio": "16:9",
+      "duration_seconds": 84.159,
+      "resolution": "1280x720",
+      "format": "mp4",
+      "file_size_mb": 14.7,
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/video/upload/v1762291612/social-media-videos/social-media/h1b-visa-misinformation/h1b-debunk-talking-head-60s.mp4",
+      "cloudinary_asset_id": "14edfcedd94f9e66539a34549dd0426b",
+      "used_in_platforms": [],
+      "quality_score": 8.0,
+      "production_details": {
+        "tool_used": "heygen",
+        "avatar_id": "0f69c804db9341f2bc56d66f766ec389",
+        "avatar_name": "Sid Dani",
+        "voice_id": "bda9561264b74a75b3f670aebfee9331",
+        "voice_type": "Indian male professional",
+        "script_word_count": 150,
+        "generation_cost": "$0.50 (HeyGen credits)"
+      },
+      "script_path": "03-drafts/youtube/60s-talking-head-script.md",
+      "note": "Base talking head video - requires post-production for text overlays and B-roll inserts per script specifications",
+      "created_at": "2025-11-04T21:26:52Z"
+    }
+  ]
+}

@@ -86,7 +86,7 @@ EOF
     <action>Skip - using research file findings</action>
   </check>
 
-  <template-output>intelligence_gathered</template-output>
+<template-output>intelligence_gathered</template-output>
 </step>
 
 <step n="3" goal="Analyze competitors (if URLs provided)">
@@ -113,9 +113,9 @@ EOF
 <step n="4" goal="Generate Idea Cards using research-synthesizer skill">
   <action>Load and follow {skills_folder}/research-synthesizer/SKILL.md</action>
 
-  <action>Synthesize research into {idea_count} Idea Cards per SKILL.md instructions</action>
+<action>Synthesize research into {idea_count} Idea Cards per SKILL.md instructions</action>
 
-  <action>For each idea, create structured card:</action>
+<action>For each idea, create structured card:</action>
 
 <action>**1. Title & Hook** - Compelling title (specific, not generic) - Hook line (scroll-stopping opening) - Hook type: question|number|story|reveal|imperative
 </action>

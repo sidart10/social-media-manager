@@ -5,6 +5,7 @@
 ## Overview
 
 Veotools excels at multi-scene video production through:
+
 1. **Scene Planning** - Gemini-powered storyboard generation
 2. **Frame Seeding** - Last frame of clip N → first frame of clip N+1
 3. **Intelligent Stitching** - Audio-preserving FFmpeg pipeline
@@ -27,6 +28,7 @@ Clip 2: Start from frame 180 → [frames 0-191 with smooth continuation]
 ### Why It Matters:
 
 **Without frame seeding:**
+
 ```
 Clip 1 ends: Character facing right ⎸ Clip 2 starts: Character facing left
                                      ↑
@@ -34,6 +36,7 @@ Clip 1 ends: Character facing right ⎸ Clip 2 starts: Character facing left
 ```
 
 **With frame seeding:**
+
 ```
 Clip 1 ends: Character facing right → Clip 2 starts: Character facing right (same pose)
                                      ↑
@@ -57,6 +60,7 @@ Why not the very last frame (8.0s)?
 ```
 
 **Recommended offsets:**
+
 - **-0.25s**: Standard (recommended for most scenes)
 - **-0.5s**: More continuity room (smoother transitions)
 - **-0.1s**: Very tight continuity (risky if last frame has motion blur)
@@ -96,6 +100,7 @@ print(f"Final video: {result.final_result.path}")
 ```
 
 **Storyboard Example:**
+
 ```json
 {
   "scenes": [
@@ -129,6 +134,7 @@ print(f"Final video: {result.final_result.path}")
 ```
 
 **Frame Seeding Flow:**
+
 ```
 Scene 1 (8s) → frame@7.75s → Scene 2 starts from this frame
 Scene 2 (8s) → frame@7.75s → Scene 3 starts from this frame
@@ -276,12 +282,14 @@ result = veo.stitch_with_transitions(
 ```
 
 **Effect:**
+
 ```
 Clip 1 [.........fade out]
                [fade in........] Clip 2
 ```
 
 **When to use:**
+
 - Dreamy/artistic aesthetic
 - Time jumps
 - Location changes
@@ -297,11 +305,13 @@ result = veo.stitch_videos(
 ```
 
 **Effect:**
+
 ```
 Clip 1 [........|] Clip 2 [........|] Clip 3
 ```
 
 **When to use:**
+
 - Fast-paced content
 - Frame seeding already creates continuity
 - Documentary style
@@ -546,16 +556,20 @@ for project in projects:
 ### Issue: Jarring Transitions Despite Frame Seeding
 
 **Symptoms:**
+
 - Clips don't flow smoothly even with `auto_seed_last_frame=True`
 - Visual discontinuity between scenes
 
 **Solutions:**
+
 1. **Adjust seed offset**: Try -0.5s instead of -0.25s
+
    ```python
    seed_frame_offset=-0.5
    ```
 
 2. **Add transition overlap**:
+
    ```python
    veo.stitch_with_transitions(clips, transition_duration=0.3)
    ```
@@ -569,11 +583,14 @@ for project in projects:
 ### Issue: Inconsistent Visual Style Across Scenes
 
 **Symptoms:**
+
 - Scene 1 looks different from Scene 2
 - Lighting/color/mood shifts unexpectedly
 
 **Solutions:**
+
 1. **Add detailed style context**:
+
    ```python
    plan = veo.generate_scene_plan(
        idea="...",
@@ -592,15 +609,19 @@ for project in projects:
 ### Issue: Audio Desync After Stitching
 
 **Symptoms:**
+
 - Audio doesn't match video in final stitched output
 
 **Solutions:**
+
 1. **Ensure preserve_audio=True**:
+
    ```python
    veo.stitch_videos(clips, preserve_audio=True)
    ```
 
 2. **Check input clips have audio**:
+
    ```python
    info = veo.get_video_info(clip.path)
    print(f"Has audio: {info.has_audio}")

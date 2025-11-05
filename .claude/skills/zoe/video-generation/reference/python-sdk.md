@@ -52,6 +52,7 @@ for scene in plan.scenes:
 ```
 
 **Parameters:**
+
 - `idea` (str, required): Story concept/description
 - `number_of_scenes` (int, default=4): Number of scenes to generate
 - `additional_context` (str, optional): Creative direction
@@ -59,6 +60,7 @@ for scene in plan.scenes:
 - `characters` (str, optional): Character descriptions for consistency
 
 **Returns:** `ScenePlan` object
+
 ```python
 class ScenePlan:
     idea: str
@@ -133,6 +135,7 @@ if result.final_result:
 ```
 
 **Parameters:**
+
 - `plan` (ScenePlan, required): Storyboard to execute
 - `model` (str, default="veo-3.0-generate-001"): Veo model
 - `auto_seed_last_frame` (bool, default=False): Enable frame seeding
@@ -142,6 +145,7 @@ if result.final_result:
 - `scene_indices` (List[int], optional): Render specific scenes only
 
 **Returns:** `PlanExecutionResult` object
+
 ```python
 class PlanExecutionResult:
     clip_results: List[ClipResult]
@@ -177,6 +181,7 @@ print(f"Resolution: {result.width}x{result.height}")
 ```
 
 **Parameters:**
+
 - `prompt` (str, required): Scene/motion description
 - `model` (str, default="veo-3.0-generate-001"): Veo model
 - `aspect_ratio` (str, default="16:9"): 16:9 or 9:16
@@ -201,6 +206,7 @@ result = veo.generate_from_image(
 ```
 
 **Parameters:**
+
 - `prompt` (str, required): Motion/animation description
 - `image_path` (str, required): Path to input image
 - `model` (str, default="veo-3.0-generate-001"): Veo model
@@ -222,6 +228,7 @@ result = veo.generate_from_video(
 ```
 
 **Parameters:**
+
 - `prompt` (str, required): Continuation description
 - `video_path` (str, required): Path to input video
 - `model` (str, default="veo-3.0-generate-001"): Veo model
@@ -274,6 +281,7 @@ print(f"Frame count: {info.frame_count}")
 ```
 
 **Returns:** `VideoInfo` object
+
 ```python
 class VideoInfo:
     duration: float
@@ -305,6 +313,7 @@ print(f"Total duration: {result.duration}s")
 ```
 
 **Parameters:**
+
 - `video_paths` (List[str], required): Clips to concatenate (in order)
 - `output_path` (str, optional): Custom save location
 - `preserve_audio` (bool, default=True): Maintain audio tracks
@@ -324,6 +333,7 @@ result = veo.stitch_with_transitions(
 ```
 
 **Parameters:**
+
 - `transition_duration` (float, default=0.5): Transition length in seconds
 - `transition_type` (str, default="crossfade"): crossfade | fade | wipe
 
@@ -364,6 +374,7 @@ print(f"Final video: {story.final_result.path}")
 ```
 
 **Bridge Methods:**
+
 - `.idea(text)` - Set story concept
 - `.scenes(count)` - Number of scenes
 - `.style(text)` - Visual style
@@ -375,6 +386,7 @@ print(f"Final video: {story.final_result.path}")
 - `.execute()` - Run complete pipeline
 
 **Example with custom scenes:**
+
 ```python
 story = (Bridge()
     .add_scene("Opening shot of futuristic city", duration=8)

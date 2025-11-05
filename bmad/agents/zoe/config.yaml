@@ -25,10 +25,10 @@ min_video_quality: 7.5
 require_cloudinary_for_publishing: true
 
 # Tool preferences (from tool-registry.yaml)
-image_tool_default: nanobanana  # $0.039, fast
-image_tool_professional: gpt-image-1  # $0.04-0.08, quality
-video_tool_primary: fal-video  # execute_custom_model
-video_tool_avatars: heygen  # Specialized for talking heads
+image_tool_default: nanobanana # $0.039, fast
+image_tool_professional: gpt-image-1 # $0.04-0.08, quality
+video_tool_primary: fal-video # execute_custom_model
+video_tool_avatars: heygen # Specialized for talking heads
 
 # Cost tracking
 monthly_budget: 50.00

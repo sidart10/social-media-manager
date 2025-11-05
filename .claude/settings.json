@@ -32,8 +32,6 @@
       "WebSearch"
     ],
     "deny": [
-      "Read(./.env)",
-      "Read(./.env.*)",
       "Read(./secrets/**)",
       "Read(./**/*.key)",
       "Read(./**/*.pem)",
@@ -55,8 +53,8 @@
       "Write(./.env)",
       "Write(./secrets/**)",
       "Write(./.git/**)",
-      "Bash(curl *secrets*:*)",
-      "Bash(wget *secrets*:*)",
+      "Bash(curl:*secrets*)",
+      "Bash(wget:*secrets*)",
       "Bash(rm -rf /:*)",
       "Bash(rm -rf ~:*)",
       "WebFetch(domain:*.ru)",

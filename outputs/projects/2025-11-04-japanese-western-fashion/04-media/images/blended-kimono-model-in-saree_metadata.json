@@ -1,0 +1,32 @@
+{
+  "operation": "blend",
+  "blend_prompt": "Take the model from the first image (woman in pink kimono dress) and dress her in the beautiful teal saree with gold embroidery from the second image. Keep the model's pose, face, and overall composition from image 1, but replace the pink kimono with the teal saree outfit including the ornate blouse, draping, and jewelry from image 2. Ensure natural lighting, seamless blending, and maintain the elegant studio photography aesthetic.",
+  "input_images": [
+    {
+      "path": "/Users/sid/Desktop/4. Coding Projects/social-media-manager/outputs/projects/2025-11-04-japanese-western-fashion/04-media/images/fusion-kimono-dress-coral.png",
+      "size": "1.2M",
+      "description": "Model in pink/coral kimono dress"
+    },
+    {
+      "path": "/Users/sid/Desktop/4. Coding Projects/social-media-manager/outputs/projects/2025-11-04-japanese-western-fashion/04-media/images/Saree.jpeg",
+      "size": "430K",
+      "description": "Model in teal saree with gold embroidery"
+    }
+  ],
+  "output_image": {
+    "path": "blended-kimono-model-in-saree.png",
+    "size": "1.1M",
+    "dimensions": "864x1184"
+  },
+  "provider": "nanobanana",
+  "model": "gemini-2.5-flash-image",
+  "tool": "mcp__nanobanana__generate_image",
+  "mode": "generate",
+  "multi_image_composition": true,
+  "timestamp": "2025-11-04T10:29:25Z",
+  "generation_time_seconds": 3.2,
+  "files_api_id": "files/m2px6zq2ry2j",
+  "nano_output_path": "/Users/sid/nanobanana-images/gen_20251104_102925_1_1_b1869866.png",
+  "cost_usd": 0.039,
+  "quality_notes": "Multi-image blend combining kimono model pose with saree outfit styling"
+}

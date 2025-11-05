@@ -11,6 +11,7 @@
 ### 1. JSON-First Approach
 
 **Why JSON?**
+
 - **Zero ambiguity**: Every detail explicitly specified
 - **Reproducibility**: Same JSON = same result
 - **Quality control**: Forces comprehensive thinking
@@ -22,6 +23,7 @@
 ### 2. Technical Precision
 
 **Never use vague terms:**
+
 - ❌ "blue background" → ✅ "#0B0B0B background"
 - ❌ "large text" → ✅ "56pt Inter font, weight 300"
 - ❌ "good lighting" → ✅ "Chiaroscuro lighting from single source at 2700K, hard quality, 45-degree angle"
@@ -29,6 +31,7 @@
 ### 3. Negative Prompts are Mandatory
 
 **Minimum 10 items per prompt**
+
 - Prevents common AI failures
 - Content-type-specific
 - Platform-specific
@@ -39,6 +42,7 @@
 ### 4. 7-Pillar Quality Framework
 
 **Every generated image scored 1-10 on:**
+
 1. Clarity
 2. Technical Quality
 3. Composition
@@ -50,6 +54,7 @@
 **Overall = Average of 7 pillars**
 
 **Quality Gates:**
+
 - < 7: Regenerate
 - 7-8: Good
 - 9+: Exceptional
@@ -262,12 +267,14 @@
 ## Reference Documentation
 
 **Core Module:**
+
 - `bmad/modules/json-prompt-generator/` - Emily's proven methodology
 - `emily-quality-standards.md` - 7-pillar framework
 - `negative-prompts-library.md` - Comprehensive negatives
 - `conversion-rules.md` - JSON to text conversion
 
 **This Skill:**
+
 - `emily-json-methodology.md` - This file (overview)
 - `json-templates.md` - Adapted templates for images
 - `tool-selection.md` - Intelligent provider choice
@@ -278,6 +285,7 @@
 - `negative-prompts.md` - Categorized negative library
 
 **Related Skills:**
+
 - `../platform-specs/` - Platform requirements
 - `../mcp-tool-selection/` - Tool comparison
 - `../edit-image/` - For refinements

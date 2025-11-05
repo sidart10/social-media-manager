@@ -31,6 +31,7 @@ export VEO_OUTPUT_DIR="/custom/path/to/outputs"
 ```
 
 **Providers:**
+
 - `VEO_PROVIDER="google"` (default) - Direct Google GenAI SDK
 - `VEO_PROVIDER="daydreams"` - Proxy through Daydreams Router
 
@@ -54,6 +55,7 @@ veo plan-run \
 ```
 
 **Flags:**
+
 - `--idea TEXT` - Story concept/description (REQUIRED)
 - `--scenes INT` - Number of scenes to generate (default: 4)
 - `--save-plan PATH` - Save storyboard JSON for reuse
@@ -65,6 +67,7 @@ veo plan-run \
 - `--no-stitch` - Skip final video stitching (output individual clips only)
 
 **Output:**
+
 ```
 output-plans/x402.json           # Gemini storyboard (if --save-plan)
 output/videos/video_abc123.mp4   # Individual scene clips
@@ -72,6 +75,7 @@ output/videos/stitched_xyz789.mp4 # Final stitched video
 ```
 
 **Example:**
+
 ```bash
 # Instagram Reels story (vertical format)
 veo plan-run \
@@ -98,6 +102,7 @@ veo plan \
 ```
 
 **Flags:**
+
 - `--idea TEXT` - Story concept (REQUIRED)
 - `--scenes INT` - Number of scenes (default: 4)
 - `--save PATH` - Output JSON path
@@ -107,6 +112,7 @@ veo plan \
 - `--characters TEXT` - Character descriptions for consistency
 
 **Output Structure:**
+
 ```json
 {
   "idea": "Retro travel vlog through cyber-Tokyo",
@@ -126,6 +132,7 @@ veo plan \
 ```
 
 **Use Case:**
+
 - Review/edit storyboard before rendering
 - Iterate on creative direction
 - Share plans with collaborators
@@ -147,6 +154,7 @@ veo plan-execute \
 ```
 
 **Flags:**
+
 - `--plan PATH` - JSON storyboard to execute (REQUIRED)
 - `--model MODEL` - Veo model for rendering
 - `--seed-last-frame` - Enable frame seeding
@@ -157,6 +165,7 @@ veo plan-execute \
 - `--stitch-only` - Only stitch (assumes clips already rendered)
 
 **Examples:**
+
 ```bash
 # Render only scenes 2-4
 veo plan-execute --plan story.json --scenes 2-4
@@ -198,6 +207,7 @@ veo generate \
 ```
 
 **Flags:**
+
 - `--prompt TEXT` - Motion/scene description (REQUIRED)
 - `--model MODEL` - Veo model to use
 - `--image PATH` - Input image for image-to-video
@@ -208,6 +218,7 @@ veo generate \
 - `--negative-prompt TEXT` - What to avoid in generation
 
 **Person Generation Policies:**
+
 - `allow_all` - Default for text-to-video
 - `allow_adult` - Default for image/video-seeded clips
 - `disallow` - No people in generation
@@ -227,6 +238,7 @@ veo continue \
 ```
 
 **Use Case:**
+
 - Extend a clip that ended too soon
 - Create variations of the same starting point
 - Build sequences without full storyboard
@@ -249,6 +261,7 @@ veo list-models --json
 ```
 
 **Output:**
+
 ```
 Available Veo Models:
 ├─ veo-3.0-generate-001 (Veo 3.0 Standard)
@@ -276,6 +289,7 @@ veo preflight
 ```
 
 **Checks:**
+
 - ✓ GEMINI_API_KEY is set and valid
 - ✓ VEO_PROVIDER configuration
 - ✓ Output directory writable
@@ -284,6 +298,7 @@ veo preflight
 - ✓ Model access permissions
 
 **Output:**
+
 ```
 Veotools Preflight Check
 ========================
@@ -398,6 +413,7 @@ output/
 ## Common Patterns
 
 ### YouTube Explainer Video
+
 ```bash
 veo plan-run \
   --idea "Explaining how quantum computing works" \
@@ -409,6 +425,7 @@ veo plan-run \
 ```
 
 ### Instagram Reels Story
+
 ```bash
 veo plan-run \
   --idea "Morning routine of a productivity expert" \
@@ -420,6 +437,7 @@ veo plan-run \
 ```
 
 ### Product Demo
+
 ```bash
 veo plan-run \
   --idea "New smartphone features showcase" \
@@ -435,18 +453,21 @@ veo plan-run \
 ## Tips & Best Practices
 
 ### Performance Optimization:
+
 1. **Use fast models for iterations**: `veo-3.0-fast-generate-001`
 2. **Test with fewer scenes**: Start with 3-4 scenes
 3. **Enable frame seeding**: Smoother transitions = better final video
 4. **Set seed offset wisely**: -0.25s to -0.5s works best
 
 ### Quality Improvement:
+
 1. **Detailed prompts**: More description = better results
 2. **Consistent style**: Mention style in --context for scene planning
 3. **Review storyboard**: Edit plan before executing
 4. **Iterate on key scenes**: Re-generate important scenes at higher quality
 
 ### Cost Management:
+
 1. **Fast models for testing**: ~50% faster generation
 2. **Batch similar content**: Amortize planning overhead
 3. **Reuse storyboards**: Tweak and re-execute instead of re-planning
@@ -457,6 +478,7 @@ veo plan-run \
 ## Troubleshooting
 
 ### "API key not found"
+
 ```bash
 # Verify key is set
 echo $GEMINI_API_KEY
@@ -469,6 +491,7 @@ veo preflight
 ```
 
 ### "FFmpeg not found"
+
 ```bash
 # Install FFmpeg (macOS)
 brew install ffmpeg
@@ -481,6 +504,7 @@ ffmpeg -version
 ```
 
 ### "Model not accessible"
+
 ```bash
 # List available models
 veo list-models --include-remote
@@ -490,6 +514,7 @@ veo generate --model veo-3.0-fast-generate-001 ...
 ```
 
 ### "Generation failed"
+
 - Check prompt complexity (simplify if too complex)
 - Verify image/video paths exist
 - Try different model
@@ -500,6 +525,7 @@ veo generate --model veo-3.0-fast-generate-001 ...
 ## Related Commands
 
 ### External Tools:
+
 ```bash
 # Extract specific frame from video
 ffmpeg -i video.mp4 -ss 00:00:05 -vframes 1 frame.png
@@ -512,6 +538,7 @@ ffmpeg -f concat -i filelist.txt -c copy output.mp4
 ```
 
 ### Python SDK Equivalent:
+
 ```bash
 # CLI
 veo generate --prompt "..." --output clip.mp4

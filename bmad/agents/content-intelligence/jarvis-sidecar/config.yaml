@@ -12,9 +12,7 @@ skills_execution_model: "load_and_follow"  # Skills are knowledge packages, not 
 # Available Agent-Specific Skills
 skills_available:
   content_generation:
-    - post-writer        # LinkedIn, Twitter, Substack post generation
-    - video-script-writer  # YouTube and short-form video scripts
-    - platform-formatter   # Platform-specific formatting (includes Python scripts)
+    - content-writer  # Universal content generation (ALL platforms: LinkedIn, Twitter, YouTube, Instagram, Substack; ALL formats: posts, scripts, captions; Voice: Sid default + 6 optional creator styles)
 
   research_intelligence:
     - deep-web-research     # Multi-tool research orchestrator
@@ -25,16 +23,14 @@ skills_available:
   analysis:
     - profile-analysis  # Social profile analysis across platforms
     - evidence-tracker  # Source tracking and citations
-    - voice-matcher     # Apply user's authentic voice profile
 
   strategy:
-    - youtube-growth-mastery      # YouTube growth strategies
-    - youtube-thumbnail-mastery   # Thumbnail design strategies
+    - youtube-growth-mastery  # YouTube growth strategies
+    # Note: youtube-thumbnail-design is now a Zoe skill (visual production specialist)
 
 # Skills with Executable Scripts (Deterministic Operations)
 skills_with_scripts:
-  - platform-formatter  # Python scripts for validation and formatting
-  # Future: profile-analysis, research-synthesizer, evidence-tracker
+  # Future: profile-analysis, research-synthesizer, evidence-tracker may add Python scripts
 
 # Skill Loading Guidance
 skill_loading_rules:
@@ -91,8 +87,8 @@ mcp_tools_overview:
     social-media-research:
       - social-media-mcp (get_trending_topics, research_topic)
 
-    platform-formatter:
-      - None (uses local Python scripts for deterministic formatting)
+    content-writer:
+      - None (uses Claude's native capabilities with structured prompts and reference files)
 
   cost_optimization:
     tier_1_free:

@@ -1,0 +1,77 @@
+{
+  "handoff_id": "jarvis-to-zoe-2025-11-04-00-45",
+  "source_agent": "jarvis",
+  "target_agent": "zoe",
+  "content_type": "video_request",
+  "suggested_command": "/zoe → *create-talking-head",
+  "requirements": {
+    "type": "video",
+    "format": "talking_head",
+    "platform": "youtube_shorts_instagram_reels_tiktok",
+    "duration": "60_seconds",
+    "aspect_ratio": "9:16",
+    "description": "60-second talking head video debunking H-1B visa misinformation. Direct-to-camera delivery with text overlays and B-roll inserts.",
+    "script_path": "outputs/projects/2025-11-03-h1b-visa-misinformation/03-drafts/youtube/60s-talking-head-script.md",
+    "style_guidance": "Authoritative but approachable. Confident delivery. High energy. Professional. Data-driven. Direct eye contact with camera. Hand gestures for emphasis on key numbers.",
+    "visual_requirements": {
+      "main_footage": "Talking head - direct to camera, 9:16 vertical",
+      "text_overlays": [
+        "800,000 H-1Bs? (0:03, RED, center)",
+        "868,000 applications (0:06)",
+        "85,000 cap = 10x? (0:12)",
+        "LCA ≠ VISA (0:18, YELLOW, large)",
+        "400k total approvals (0:23)",
+        "65% renewals (0:26)",
+        "141k new visas (0:29)",
+        "2.5 LCAs : 1 visa (0:35)",
+        "140-year wait (0:42, RED, dramatic)",
+        "IT: $80-100k | Tech: $150-350k (0:49-0:52, split)"
+      ],
+      "b_roll_inserts": [
+        "Robert Sterling tweet screenshot (0:05-0:07)",
+        "Funnel graphic LCA→visa (0:29-0:32)",
+        "Salary comparison split-screen (0:52-0:55)"
+      ],
+      "cuts": "12-15 cuts total (every 4-5 seconds)",
+      "music": "Upbeat informational, medium tempo, 60-70% volume"
+    },
+    "avatar_requirements": {
+      "subject": "sid",
+      "image_reference": "User's selfie if available, or generate realistic professional Indian male, mid-30s, tech professional look, confident expression",
+      "voice": "Professional male voice, Indian accent, confident and authoritative tone, fast-paced delivery (170 WPM)",
+      "expression": "Serious but approachable, frustrated at misinformation, emphasis on key data points"
+    },
+    "technical_specs": {
+      "resolution": "1080x1920",
+      "frame_rate": "30fps",
+      "format": "MP4",
+      "orientation": "vertical_9_16"
+    }
+  },
+  "context": {
+    "research_brief_path": "outputs/projects/2025-11-03-h1b-visa-misinformation/01-research/H1B-COMPREHENSIVE-RESEARCH-BRIEF.md",
+    "key_message": "LCA applications ≠ actual H-1B visa approvals. Viral misinformation debunked with USCIS data.",
+    "target_platforms": ["youtube_shorts", "instagram_reels", "tiktok"],
+    "content_strategy": "Data correction video, high shareability for tech workers and international students"
+  },
+  "from_jarvis": {
+    "script_generated": "2025-11-04",
+    "voice_profile_applied": true,
+    "platform_validated": true,
+    "script_word_count": 150,
+    "estimated_speaking_time": "60_seconds_at_150_wpm"
+  },
+  "tools_for_zoe": {
+    "primary_tool": "mcp__heygen__generate_avatar_video",
+    "avatar_selection": "Select realistic Indian male professional avatar from HeyGen",
+    "voice_id": "Professional male voice with Indian accent (select from HeyGen voices)",
+    "script_input": "See 03-drafts/youtube/60s-talking-head-script.md for complete 150-word script",
+    "post_production": "Add text overlays manually after HeyGen render OR use fal-video for complete production if HeyGen doesn't support overlays"
+  },
+  "delivery_expectation": {
+    "file_format": "MP4 (9:16 vertical)",
+    "upload_to": "Cloudinary for public URL",
+    "save_local_copy": "outputs/projects/2025-11-03-h1b-visa-misinformation/04-media/videos/h1b-debunk-60s-v1.mp4",
+    "metadata_tracking": "Create metadata.json with Cloudinary URL, platform specs, and usage tracking"
+  }
+}

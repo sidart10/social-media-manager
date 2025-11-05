@@ -1,0 +1,52 @@
+{
+  "project_id": "2025-11-03-h1b-visa-misinformation",
+  "created_date": "2025-10-29",
+  "migrated_date": "2025-11-03",
+  "project_name": "H1B Visa Misinformation Correction",
+  "agent": "jarvis",
+  "user": "sid",
+
+  "project_summary": {
+    "topic": "Exposing H-1B visa data misinformation in viral thread",
+    "platforms": ["twitter", "linkedin"],
+    "status": "ready_to_publish",
+    "urgency": "time-sensitive (DeSantis announcement Oct 29, 2025)"
+  },
+
+  "content_inventory": {
+    "research": ["01-research/H1B-COMPREHENSIVE-RESEARCH-BRIEF.md (22,000 words)"],
+    "drafts": {
+      "twitter": ["03-drafts/twitter/thread-complete.md (32 tweets)"],
+      "linkedin": ["03-drafts/linkedin/carousel-post.md (2,947 chars, 7 slides)"]
+    },
+    "media": {
+      "charts": 9,
+      "slides": 7,
+      "total_images": 16
+    }
+  },
+
+  "handoffs": {
+    "to_zoro": {
+      "twitter_thread": "handoffs/jarvis-to-zoro-twitter-thread.json",
+      "linkedin_carousel": "handoffs/jarvis-to-zoro-linkedin-carousel.json"
+    }
+  },
+
+  "project_stats": {
+    "research_sources": 45,
+    "data_points": "100+",
+    "words_written": "30,000+",
+    "charts_generated": 9,
+    "total_cost": "$0.61",
+    "time_invested": "2 hours",
+    "expected_reach": "55k-275k combined impressions"
+  },
+
+  "migration_notes": {
+    "original_location": "outputs/archive/legacy-10-29-2025/h1b-visa-research/",
+    "new_structure": "outputs/projects/2025-11-03-h1b-visa-misinformation/",
+    "v2_compliant": true,
+    "all_files_migrated": true
+  }
+}

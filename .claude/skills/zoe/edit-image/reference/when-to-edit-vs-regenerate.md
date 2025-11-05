@@ -31,6 +31,7 @@ Is it 3+ major changes?
 ## ✅ EDIT When:
 
 ### 1. Minor Adjustments
+
 - Blur background
 - Color correction
 - Brightness/contrast tweak
@@ -40,6 +41,7 @@ Is it 3+ major changes?
 **Example**: "Blur background" → Edit in 20 seconds
 
 ### 2. Targeted Transformations
+
 - One specific change
 - Rest of image perfect
 - Precise modification needed
@@ -47,6 +49,7 @@ Is it 3+ major changes?
 **Example**: "Remove coffee cup from corner" → Edit preserves everything else
 
 ### 3. Good Base, Needs Polish
+
 - 80% perfect, 20% needs improvement
 - Composition good
 - Just needs refinement
@@ -54,6 +57,7 @@ Is it 3+ major changes?
 **Example**: "Image good but too bright" → Edit brightness only
 
 ### 4. Iterative Refinement
+
 - Building quality gradually
 - Multiple small improvements
 - Testing variations
@@ -61,6 +65,7 @@ Is it 3+ major changes?
 **Example**: Multi-turn editing (blur → color → sharpen)
 
 ### 5. Pixel-Perfect Precision Required
+
 - Must not affect other elements
 - Surgical precision needed
 - Nanobanana's specialty
@@ -72,6 +77,7 @@ Is it 3+ major changes?
 ## ❌ REGENERATE When:
 
 ### 1. Major Composition Change
+
 - Wrong framing
 - Subject positioned poorly
 - Need different layout
@@ -79,6 +85,7 @@ Is it 3+ major changes?
 **Example**: "Subject should be on left not right" → Regenerate with new composition
 
 ### 2. Multiple Significant Changes
+
 - 3+ major changes needed
 - Editing would be complex/risky
 - Cleaner to start fresh
@@ -86,6 +93,7 @@ Is it 3+ major changes?
 **Example**: "Change background, adjust colors, reposition text, add logo" → Too many changes, regenerate
 
 ### 3. Wrong Subject/Content
+
 - Fundamental content mismatch
 - Different subject needed
 - Wrong elements present
@@ -93,6 +101,7 @@ Is it 3+ major changes?
 **Example**: "This shows a cat but I need a dog" → Regenerate completely
 
 ### 4. Complete Style Overhaul
+
 - Dark to vibrant
 - Professional to casual
 - Different aesthetic entirely
@@ -100,6 +109,7 @@ Is it 3+ major changes?
 **Example**: "Change from dark tech to bright colorful" → Regenerate is cleaner
 
 ### 5. Text Rendering Issues
+
 - Text illegible or wrong
 - Complex text changes
 - GPT-image-1 better for text
@@ -107,6 +117,7 @@ Is it 3+ major changes?
 **Example**: "Text is blurry, need crisp rendering" → Regenerate with gpt-image-1
 
 ### 6. Quality Below 5/10
+
 - Fundamental quality issues
 - Artifacts, poor composition
 - Not salvageable with edits
@@ -118,6 +129,7 @@ Is it 3+ major changes?
 ## Cost & Time Comparison
 
 ### Edit Approach
+
 ```
 Time: ~20-60 seconds (per edit)
 Cost: $0.039 per edit
@@ -126,6 +138,7 @@ Result: Refined version of original
 ```
 
 ### Regenerate Approach
+
 ```
 Time: ~75-90 seconds (gpt-image-1)
 Cost: Higher (variable pricing)
@@ -135,48 +148,54 @@ Result: Completely new image
 
 ### Decision Factors:
 
-| Factor | Favors Edit | Favors Regenerate |
-|--------|------------|-------------------|
-| **Time** | ✅ Faster (20s) | Slower (90s) |
-| **Cost** | ✅ Cheaper ($0.039) | More expensive |
-| **Risk** | ✅ Low (preserves good) | Medium (might change) |
-| **Scope** | Minor changes | Major overhaul |
-| **Quality** | Refining good base | Starting from scratch |
+| Factor      | Favors Edit             | Favors Regenerate     |
+| ----------- | ----------------------- | --------------------- |
+| **Time**    | ✅ Faster (20s)         | Slower (90s)          |
+| **Cost**    | ✅ Cheaper ($0.039)     | More expensive        |
+| **Risk**    | ✅ Low (preserves good) | Medium (might change) |
+| **Scope**   | Minor changes           | Major overhaul        |
+| **Quality** | Refining good base      | Starting from scratch |
 
 ---
 
 ## Real-World Scenarios
 
 ### Scenario 1: Background Distraction
+
 **Issue**: Background too busy
 **Edit**: ✅ Blur background (nanobanana)
 **Time**: 20 seconds
 **Result**: Perfect focus on subject
 
 ### Scenario 2: Wrong Text
+
 **Issue**: Typo "Comming Soon" should be "Coming Soon"
 **Edit**: ✅ Fix typo (nanobanana)
 **Time**: 20 seconds
 **Alternative**: Regenerate with gpt-image-1 for perfect text
 
 ### Scenario 3: Wrong Color Scheme
+
 **Issue**: Vibrant colors but need dark monochrome
 **Regenerate**: ✅ Complete style change
 **Reason**: Editing would be complex, regenerate cleaner
 
 ### Scenario 4: Subject Positioned Wrong
+
 **Issue**: Subject on right, needs to be on left
 **Regenerate**: ✅ Composition fundamental change
 **Reason**: Editing can't reposition subjects well
 
 ### Scenario 5: Multiple Touch-Ups
+
 **Issue**: Blur background + color correct + sharpen
 **Edit**: ✅ Multi-turn editing (3 turns)
 **Workflow**:
+
 - Turn 1: Blur background
 - Turn 2: Color correct
 - Turn 3: Sharpen subject
-**Total**: ~1 minute, $0.117
+  **Total**: ~1 minute, $0.117
 
 ---
 
@@ -187,24 +206,27 @@ Result: Completely new image
 **Best Results Often Come From Combining:**
 
 **Step 1**: Generate high-quality base (gpt-image-1)
+
 ```yaml
 mcp__gpt-image-1__create_image:
-  prompt: "Professional LinkedIn post..."
-  size: "1536x1024"
-  quality: "high"
+  prompt: 'Professional LinkedIn post...'
+  size: '1536x1024'
+  quality: 'high'
 # Result: Professional base image
 ```
 
 **Step 2**: Pixel-perfect refinements (nanobanana)
+
 ```yaml
 mcp__nanobanana__generate_image:
-  prompt: "Blur background, add subtle vignette"
-  mode: "edit"
-  input_image_path_1: "step1-result.png"
+  prompt: 'Blur background, add subtle vignette'
+  mode: 'edit'
+  input_image_path_1: 'step1-result.png'
 # Result: Polished final image
 ```
 
 **Why Hybrid**:
+
 - OpenAI: Best photorealistic base
 - Gemini: Best targeted refinements
 - Combines strengths
@@ -217,22 +239,27 @@ mcp__nanobanana__generate_image:
 ### Ask These Questions:
 
 **1. How many changes needed?**
+
 - 1-2 minor → EDIT
 - 3+ major → REGENERATE
 
 **2. Is composition correct?**
+
 - YES → EDIT (preserve layout)
 - NO → REGENERATE
 
 **3. Is current quality ≥ 6/10?**
+
 - YES → EDIT (build on good base)
 - NO → REGENERATE (start fresh)
 
 **4. Do you like most of it?**
+
 - YES → EDIT (keep what works)
 - NO → REGENERATE
 
 **5. Is it a targeted change?**
+
 - YES → EDIT (nanobanana's strength)
 - NO → REGENERATE
 
@@ -241,6 +268,7 @@ mcp__nanobanana__generate_image:
 ## When in Doubt
 
 **Default Strategy**:
+
 1. Try editing first (fast, cheap, low-risk)
 2. If result unsatisfactory → Regenerate
 3. Worst case: Lost 20 seconds and $0.039
@@ -252,6 +280,7 @@ mcp__nanobanana__generate_image:
 ## Examples: Clear Winners
 
 ### Clear EDIT Winners:
+
 - "Blur background" ← 100% edit
 - "Remove watermark" ← 100% edit
 - "Adjust brightness" ← 100% edit
@@ -259,6 +288,7 @@ mcp__nanobanana__generate_image:
 - "Enhance sharpness" ← 100% edit
 
 ### Clear REGENERATE Winners:
+
 - "Change subject from cat to dog" ← 100% regenerate
 - "Flip from vertical to horizontal" ← 100% regenerate
 - "Change entire aesthetic" ← 100% regenerate
@@ -266,6 +296,7 @@ mcp__nanobanana__generate_image:
 - "Start with different idea" ← 100% regenerate
 
 ### Judgment Calls:
+
 - "Change text content" ← Edit for simple, regenerate for complex
 - "Adjust multiple colors" ← Edit if minor, regenerate if major
 - "Add new element" ← Edit for small addition, regenerate for major
@@ -275,18 +306,18 @@ mcp__nanobanana__generate_image:
 
 ## Summary Table
 
-| Situation | Edit | Regenerate | Hybrid |
-|-----------|------|-----------|---------|
-| Background blur | ✅ | | |
-| Color correct | ✅ | | |
-| Remove object | ✅ | | |
-| Wrong composition | | ✅ | |
-| Complete style change | | ✅ | |
-| Multiple tweaks | ✅ (multi-turn) | | |
-| Quality polish | ✅ | | |
-| Professional upgrade | | | ✅ (Generate + Edit) |
-| Wrong subject | | ✅ | |
-| Text typo | ✅ | ✅ | Either works |
+| Situation             | Edit            | Regenerate | Hybrid               |
+| --------------------- | --------------- | ---------- | -------------------- |
+| Background blur       | ✅              |            |                      |
+| Color correct         | ✅              |            |                      |
+| Remove object         | ✅              |            |                      |
+| Wrong composition     |                 | ✅         |                      |
+| Complete style change |                 | ✅         |                      |
+| Multiple tweaks       | ✅ (multi-turn) |            |                      |
+| Quality polish        | ✅              |            |                      |
+| Professional upgrade  |                 |            | ✅ (Generate + Edit) |
+| Wrong subject         |                 | ✅         |                      |
+| Text typo             | ✅              | ✅         | Either works         |
 
 ---
 

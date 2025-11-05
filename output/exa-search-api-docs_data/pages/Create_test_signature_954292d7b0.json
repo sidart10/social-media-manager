@@ -1,8 +1,0 @@
-{
-  "title": "Create test signature",
-  "content": "import hmac\nimport hashlib\n\nsigned_payload = f\"{test_timestamp}.{test_payload}\"\ntest_signature = hmac.new(\n    test_secret.encode('utf-8'),\n    signed_payload.encode('utf-8'),\n    hashlib.sha256\n).hexdigest()\n\ntest_header = f\"t={test_timestamp},v1={test_signature}\"",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#create-test-signature",
-  "links": []
-}

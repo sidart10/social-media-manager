@@ -1,0 +1,96 @@
+{
+  "handoff_id": "zoe-to-zoro-2025-11-04-21-27",
+  "source_agent": "zoe",
+  "target_agent": "zoro",
+  "content_type": "video_assets",
+  "suggested_command": "/zoro → *schedule-post OR *edit-video-first",
+  "assets": [
+    {
+      "type": "video",
+      "category": "main_talking_head",
+      "local_path": "outputs/projects/2025-11-03-h1b-visa-misinformation/04-media/videos/h1b-debunk-talking-head-60s.mp4",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/video/upload/v1762291612/social-media-videos/social-media/h1b-visa-misinformation/h1b-debunk-talking-head-60s.mp4",
+      "platform_optimized_for": "youtube_shorts_instagram_reels_tiktok",
+      "aspect_ratio": "16:9",
+      "duration": 84.159,
+      "resolution": "1280x720",
+      "quality_score": "8.0/10",
+      "metadata_file": "04-media/videos/metadata.json",
+      "note": "Base talking head - needs SubMagic editing for text overlays + B-roll inserts to match script"
+    },
+    {
+      "type": "image",
+      "category": "b_roll_footage",
+      "local_path": "outputs/projects/2025-11-03-h1b-visa-misinformation/04-media/images/broll-sterling-tweet.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762291615/social-media-images/social-media/h1b-visa-misinformation/broll-sterling-tweet.png",
+      "usage_timestamp": "0:05-0:07",
+      "quality_score": "8.5/10"
+    },
+    {
+      "type": "image",
+      "category": "b_roll_footage",
+      "local_path": "outputs/projects/2025-11-03-h1b-visa-misinformation/04-media/images/broll-funnel-graphic.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762291616/social-media-images/social-media/h1b-visa-misinformation/broll-funnel-graphic.png",
+      "usage_timestamp": "0:29-0:32",
+      "quality_score": "9.0/10"
+    },
+    {
+      "type": "image",
+      "category": "b_roll_footage",
+      "local_path": "outputs/projects/2025-11-03-h1b-visa-misinformation/04-media/images/broll-salary-comparison.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762291617/social-media-images/social-media/h1b-visa-misinformation/broll-salary-comparison.png",
+      "usage_timestamp": "0:52-0:55",
+      "quality_score": "9.2/10"
+    }
+  ],
+  "from_zoe": {
+    "tool_used_video": "heygen",
+    "avatar_id": "0f69c804db9341f2bc56d66f766ec389",
+    "voice_id": "bda9561264b74a75b3f670aebfee9331",
+    "tool_used_broll": "gpt-image-1",
+    "quality_validated": true,
+    "cloudinary_uploaded": true,
+    "total_cost": "$0.74 (HeyGen $0.50 + gpt-image-1 $0.24)"
+  },
+  "post_production_requirements": {
+    "status": "requires_editing",
+    "recommended_tool": "SubMagic",
+    "requirements": [
+      "Convert 16:9 to 9:16 vertical (crop/reframe for Shorts/Reels)",
+      "Add 10 text overlays per script timestamps",
+      "Insert 3 B-roll images at specified timestamps",
+      "Add cuts every 4-5 seconds (12-15 total cuts)",
+      "Add upbeat informational music (60-70% volume)",
+      "Platform optimization (captions, pacing)"
+    ],
+    "script_reference": "03-drafts/youtube/60s-talking-head-script.md",
+    "text_overlays_needed": [
+      "0:03: 800,000 H-1Bs? (RED, center)",
+      "0:06: 868,000 applications",
+      "0:12: 85,000 cap = 10x?",
+      "0:18: LCA ≠ VISA (YELLOW, large)",
+      "0:23: 400k total approvals",
+      "0:26: 65% renewals",
+      "0:29: 141k new visas",
+      "0:35: 2.5 LCAs : 1 visa",
+      "0:42: 140-year wait (RED, dramatic)",
+      "0:49-0:52: IT vs Tech split"
+    ]
+  },
+  "delivery_options": {
+    "option_1": {
+      "name": "Use Raw HeyGen Video As-Is",
+      "pros": "Ready now, clean talking head, no editing needed",
+      "cons": "Missing text overlays, missing B-roll inserts, 16:9 not optimized for vertical platforms",
+      "best_for": "Quick LinkedIn/Twitter post with horizontal video"
+    },
+    "option_2": {
+      "name": "Edit with SubMagic (RECOMMENDED)",
+      "pros": "Professional polish, text overlays auto-added, B-roll inserts, vertical optimization, platform-ready",
+      "cons": "Additional 5-10 min wait + $0.20 cost",
+      "best_for": "YouTube Shorts, Instagram Reels, TikTok (vertical optimized)"
+    }
+  },
+  "suggested_action": "Use /zoro *edit-video workflow to add text overlays + B-roll via SubMagic, then publish to all platforms",
+  "priority": "normal"
+}

@@ -56,9 +56,6 @@ tools/template-test-generator/test-scenarios/
 # Bundler temporary files
 .bundler-temp/
 
-# Test Install Output
-
-z*/
 
 # Temporary files and credentials
 temp/
@@ -84,12 +81,8 @@ CLEANUP-ORGANIZATION-PLAN.md
 *.jpeg
 *.gif
 *.webp
-bmad/agents/*/outputs/videos/*
-bmad/agents/*/outputs/frames/*
 output/videos/*
 output/frames/*
-bmad/agents/ai-video-agent/ai-video-agent-sidecar/outputs/veotools/videos/*
-bmad/agents/ai-image-generator/ai-image-generator-sidecar/outputs/*
 
 # But keep .gitkeep and metadata
 !*.json

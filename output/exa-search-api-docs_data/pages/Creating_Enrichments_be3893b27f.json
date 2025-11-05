@@ -1,8 +1,0 @@
-{
-  "title": "Creating Enrichments",
-  "content": "Source: https://docs.exa.ai/websets/dashboard/walkthroughs/Creating-enrichments\n\nHere's how to create enrichments (also known as Adding Columns).\n\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/5Zgb0qcRRsg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen referrerpolicy=\"strict-origin-when-cross-origin\" />\n\n**Open the enrichment modal**\n\n<Tip>\n  Use the chat: you can add enrichments by prompting directly in the Chat! Or click on \"Add Enrichment\" in the top-right corner.\n</Tip>\n\n**Fill in your prompt:** Prompt the AI generator to have our agent fill in the fields for you, or fill in the enrichment type, title and prompt directly.\n\n**Enrichment types:** text, contact information (email & phone number), date, number, options (think of these as tags!)\n\n<Tip>\n  Cool examples of enrichments:&#x20;\n\n* \"Find me this candidate's contact information\" - Contact\n\n* \"Do a sentiment analysis on each article\" - Text or Options\n\n* \"Categorize these companies by B2B or B2C\" - Options\n\n* \"Create a custom email based on this company's main product\"- Text\n\n* \"Give me this candidate's years of experience\" - Number\n\n* \"Find any public data on this company's revenue or valuation\" - Text\n\n* \"What is the most powerful data point mentioned in each research paper?\" - Text\n</Tip>",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#creating-enrichments",
-  "links": []
-}

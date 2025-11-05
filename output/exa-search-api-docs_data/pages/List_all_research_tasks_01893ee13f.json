@@ -1,8 +1,0 @@
-{
-  "title": "List all research tasks",
-  "content": "response = exa.research.list_tasks()\nprint(f\"Found {len(response['data'])} tasks\")",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#list-all-research-tasks",
-  "links": []
-}

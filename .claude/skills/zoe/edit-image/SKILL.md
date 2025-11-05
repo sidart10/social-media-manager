@@ -12,6 +12,7 @@ Refine, correct, or transform existing images using nanobanana's best-in-class p
 ## When to Use This Skill
 
 Use this skill when:
+
 - Editing existing images
 - Refining generated visuals
 - Correcting colors or lighting
@@ -24,6 +25,7 @@ Use this skill when:
 Triggers: edit image, refine image, correct image, fix image, enhance photo, blur background, remove object, color correct, adjust lighting
 
 **Don't use for:**
+
 - Creating new images from scratch (use create-image skill)
 - Blending multiple images (use blend-images skill)
 
@@ -55,11 +57,12 @@ When editing an existing image:
    **For editing techniques, see:** `reference/editing-techniques.md`
 
 4. **Use nanobanana in edit mode**:
+
    ```yaml
    mcp__nanobanana__generate_image:
-     prompt: "{specific edit instructions}"
-     mode: "edit"
-     input_image_path_1: "/path/to/image.png"
+     prompt: '{specific edit instructions}'
+     mode: 'edit'
+     input_image_path_1: '/path/to/image.png'
      n: 1
    ```
 
@@ -97,6 +100,7 @@ This skill includes comprehensive editing knowledge:
 - **`reference/mcp-tools-reference.md`** - Complete nanobanana edit mode parameters
 
 **External References:**
+
 - Nanobanana Tool Selection: `../mcp-tool-selection/SKILL.md`
 - Quality Standards: `bmad/modules/json-prompt-generator/sidecar/emily-quality-standards.md`
 
@@ -111,11 +115,12 @@ This skill includes comprehensive editing knowledge:
 2. **Tool**: nanobanana (ALWAYS for editing - best-in-class)
 
 3. **Invoke**:
+
    ```yaml
    mcp__nanobanana__generate_image:
-     prompt: "Blur background significantly using strong gaussian blur effect, equivalent to f/1.4 depth of field, while keeping the main subject completely sharp and in perfect focus. Create strong separation between subject and background."
-     mode: "edit"
-     input_image_path_1: "/path/to/linkedin-post-original.png"
+     prompt: 'Blur background significantly using strong gaussian blur effect, equivalent to f/1.4 depth of field, while keeping the main subject completely sharp and in perfect focus. Create strong separation between subject and background.'
+     mode: 'edit'
+     input_image_path_1: '/path/to/linkedin-post-original.png'
      n: 1
    ```
 

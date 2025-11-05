@@ -1,0 +1,72 @@
+{
+  "handoff_id": "jarvis-to-zoro-2025-11-03-14-32",
+  "source_agent": "jarvis",
+  "target_agent": "zoro",
+  "content_type": "ready_to_publish",
+  "suggested_command": "/zoro → *schedule-post",
+
+  "content": {
+    "platform": "linkedin",
+    "format": "carousel",
+    "slide_count": 7,
+    "post_path": "03-drafts/linkedin/carousel-post.md",
+    "media_paths": [
+      "04-media/images/slide-1-title.png",
+      "04-media/images/slide-2-lca-funnel.png",
+      "04-media/images/slide-3-new-vs-renewals.png",
+      "04-media/images/slide-4-it-staffing-firms.png",
+      "04-media/images/slide-5-tech-companies.png",
+      "04-media/images/slide-6-india-backlog.png",
+      "04-media/images/slide-7-reforms-cta.png"
+    ]
+  },
+
+  "from_jarvis": {
+    "project_folder": "outputs/projects/2025-11-03-h1b-visa-misinformation/",
+    "voice_profile_applied": true,
+    "platform_validated": true,
+    "character_count": 2947,
+    "hashtags": "#H1BVisa #Immigration #DataDriven #PolicyAnalysis #TechPolicy"
+  },
+
+  "posting_strategy": {
+    "timing": "24-48 hours AFTER Twitter thread goes live",
+    "best_days": ["Tuesday", "Wednesday", "Thursday"],
+    "best_time": "7-9 AM ET",
+    "rationale": "Let Twitter gain traction first, then amplify on LinkedIn",
+    "engagement_plan": [
+      "Reply to EVERY comment within first hour",
+      "Ask follow-up questions to quality comments",
+      "Share additional data points from research",
+      "Link to specific charts when explaining",
+      "Engage immigration practitioners"
+    ],
+    "expected_performance": {
+      "views": "5,000-25,000",
+      "engagement": "200-1,000",
+      "rate": "4-8%"
+    }
+  },
+
+  "content_summary": {
+    "topic": "H-1B misinformation leading to DeSantis policy",
+    "hook": "Florida banned H-1B hiring today, traced back to viral thread with wrong data",
+    "key_message": "LCA data ≠ actual H-1B approvals. Shows accurate funnels and reform proposals.",
+    "design_style": "tldraw aesthetic - clean minimalist with soft pastels",
+    "carousel_arc": "Hook → Problem → Data → Two-Tier System → Backlog Crisis → Solutions"
+  },
+
+  "technical_notes": {
+    "image_format": "PNG",
+    "image_size": "1024x1024",
+    "total_file_size": "~10 MB",
+    "upload_order": "Sequential slide-1 through slide-7",
+    "design_consistency": "Verified throughout"
+  },
+
+  "cross_platform_strategy": {
+    "twitter_first": "Post Twitter thread first (32 tweets)",
+    "linkedin_timing": "24-48 hours after Twitter",
+    "rationale": "Build momentum on Twitter, amplify with LinkedIn professionals"
+  }
+}

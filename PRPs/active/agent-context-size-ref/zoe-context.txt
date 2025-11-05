@@ -1,0 +1,209 @@
+  I'm Zoe, your Visual Production Specialist for all formats - images and videos.
+
+  I've successfully loaded my configuration and I'm ready to create publication-ready visuals using:
+  - Emily's JSON methodology for images (27 style guides with 7-pillar quality evaluation)
+  - fal-video for videos (22+ models: Veo 3, Luma Ray 2, Kling, Pixverse, etc.)
+  - HeyGen for talking head avatars
+  - Cloudinary integration for hosting
+  - Notion tracking for team coordination
+
+  Here's what I can help you with:
+
+  Image Creation & Editing:
+  1. create-images - Generate 1 or multiple images with 27 styles (LinkedIn, YouTube, Instagram, Sid images, data viz)
+  2. edit-image - Edit existing images (blur, remove objects, color correction, style transfer)
+  3. blend-images - Composite 2-3 images with blend modes
+
+  Video Production:
+  4. edit-video - Professional AI-powered video editing using SubMagic (captions, silence removal, platform optimization)
+  5. create-scene - Generate b-roll scenes or animate diagrams (8-second clips)
+  6. create-talking-head - Generate talking head videos with HeyGen avatars
+  7. setup-avatars - Configure HeyGen avatars and voices
+
+  8. help - Show this menu again
+  9. exit - Exit with confirmation
+
+  What would you like to create today? (Enter a number or command)
+
+> /context 
+  ⎿  
+      Context Usage
+     ⛀ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁   claude-sonnet-4-5-20250929[1m] · 167k/1000k tokens (17%)
+     ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛀ ⛁ ⛁ ⛶ ⛶ ⛶ ⛶ ⛶ 
+     ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ System prompt: 2.4k tokens (0.2%)
+     ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ System tools: 15.3k tokens (1.5%)
+     ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ MCP tools: 139.1k tokens (13.9%)
+     ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ Custom agents: 336 tokens (0.0%)
+     ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ Memory files: 4.6k tokens (0.5%)
+     ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ Messages: 5.0k tokens (0.5%)
+     ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛶ Free space: 833k (83.3%)
+     ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ 
+
+     MCP tools · /mcp
+     └ mcp__chrome-devtools__click (chrome-devtools): 636 tokens
+     └ mcp__chrome-devtools__close_page (chrome-devtools): 624 tokens
+     └ mcp__chrome-devtools__drag (chrome-devtools): 638 tokens
+     └ mcp__chrome-devtools__emulate (chrome-devtools): 716 tokens
+     └ mcp__chrome-devtools__evaluate_script (chrome-devtools): 780 tokens
+     └ mcp__chrome-devtools__fill (chrome-devtools): 644 tokens
+     └ mcp__chrome-devtools__fill_form (chrome-devtools): 676 tokens
+     └ mcp__chrome-devtools__get_console_message (chrome-devtools): 631 tokens
+     └ mcp__chrome-devtools__get_network_request (chrome-devtools): 635 tokens
+     └ mcp__chrome-devtools__handle_dialog (chrome-devtools): 645 tokens
+     └ mcp__chrome-devtools__hover (chrome-devtools): 609 tokens
+     └ mcp__chrome-devtools__list_console_messages (chrome-devtools): 820 tokens
+     └ mcp__chrome-devtools__list_network_requests (chrome-devtools): 829 tokens
+     └ mcp__chrome-devtools__list_pages (chrome-devtools): 582 tokens
+     └ mcp__chrome-devtools__navigate_page (chrome-devtools): 704 tokens
+     └ mcp__chrome-devtools__new_page (chrome-devtools): 637 tokens
+     └ mcp__chrome-devtools__performance_analyze_insight (chrome-devtools)697 tokens
+
+     └ mcp__chrome-devtools__performance_start_trace (chrome-devtools): 689 tokens
+     └ mcp__chrome-devtools__performance_stop_trace (chrome-devtools): 586 tokens
+     └ mcp__chrome-devtools__press_key (chrome-devtools): 673 tokens
+     └ mcp__chrome-devtools__resize_page (chrome-devtools): 629 tokens
+     └ mcp__chrome-devtools__select_page (chrome-devtools): 619 tokens
+     └ mcp__chrome-devtools__take_screenshot (chrome-devtools): 803 tokens
+     └ mcp__chrome-devtools__take_snapshot (chrome-devtools): 713 tokens
+     └ mcp__chrome-devtools__upload_file (chrome-devtools): 651 tokens
+     └ mcp__chrome-devtools__wait_for (chrome-devtools): 643 tokens
+     └ mcp__gpt-image-1__create_image (gpt-image-1): 778 tokens
+     └ mcp__gpt-image-1__create_image_edit (gpt-image-1): 929 tokens
+     └ mcp__nanobanana__generate_image (nanobanana): 1.2k tokens
+     └ mcp__nanobanana__upload_file (nanobanana): 677 tokens
+     └ mcp__nanobanana__show_output_stats (nanobanana): 558 tokens
+     └ mcp__nanobanana__maintenance (nanobanana): 855 tokens
+     └ mcp__submagic__submagic_list_languages (submagic): 667 tokens
+     └ mcp__submagic__submagic_list_templates (submagic): 756 tokens
+     └ mcp__submagic__submagic_create_project (submagic): 1.4k tokens
+     └ mcp__submagic__submagic_get_project (submagic): 806 tokens
+     └ mcp__submagic__submagic_update_project (submagic): 1.7k tokens
+     └ mcp__submagic__submagic_export_project (submagic): 1.0k tokens
+     └ mcp__submagic__submagic_create_magic_clips (submagic): 1.6k tokens
+     └ mcp__plainly__list_renderable_items (plainly): 913 tokens
+     └ mcp__plainly__get_renderable_items_details (plainly): 920 tokens
+     └ mcp__plainly__render_item (plainly): 1.1k tokens
+     └ mcp__plainly__check_render_status (plainly): 929 tokens
+     └ mcp__exa__search (exa): 721 tokens
+     └ mcp__apify__fetch-actor-details (apify): 817 tokens
+     └ mcp__apify__search-actors (apify): 1.0k tokens
+     └ mcp__apify__call-actor (apify): 1.4k tokens
+     └ mcp__apify__search-apify-docs (apify): 1.0k tokens
+     └ mcp__apify__fetch-apify-docs (apify): 749 tokens
+     └ mcp__apify__apify-slash-instagram-scraper (apify): 1.7k tokens
+     └ mcp__apify__clockworks-slash-tiktok-scraper (apify): 4.1k tokens
+     └ mcp__apify__apidojo-slash-twitter-scraper-lite (apify): 1.4k tokens
+     └ mcp__apify__get-actor-output (apify): 1.1k tokens
+     └ mcp__firecrawl__firecrawl_scrape (firecrawl): 1.6k tokens
+     └ mcp__firecrawl__firecrawl_map (firecrawl): 852 tokens
+     └ mcp__firecrawl__firecrawl_search (firecrawl): 2.3k tokens
+     └ mcp__firecrawl__firecrawl_crawl (firecrawl): 1.9k tokens
+     └ mcp__firecrawl__firecrawl_check_crawl_status (firecrawl): 707 tokens
+     └ mcp__firecrawl__firecrawl_extract (firecrawl): 1.1k tokens
+     └ mcp__heygen__get_remaining_credits (heygen): 569 tokens
+     └ mcp__heygen__get_voices (heygen): 588 tokens
+     └ mcp__heygen__get_avatar_groups (heygen): 629 tokens
+     └ mcp__heygen__get_avatars_in_avatar_group (heygen): 609 tokens
+     └ mcp__heygen__generate_avatar_video (heygen): 663 tokens
+     └ mcp__heygen__get_avatar_video_status (heygen): 644 tokens
+     └ mcp__veotools__preflight (veotools): 599 tokens
+     └ mcp__veotools__version (veotools): 587 tokens
+     └ mcp__veotools__list_models (veotools): 633 tokens
+     └ mcp__veotools__cache_create_from_files (veotools): 676 tokens
+     └ mcp__veotools__cache_get (veotools): 581 tokens
+     └ mcp__veotools__cache_list (veotools): 560 tokens
+     └ mcp__veotools__cache_update (veotools): 668 tokens
+     └ mcp__veotools__cache_delete (veotools): 582 tokens
+     └ mcp__veotools__plan_scenes (veotools): 875 tokens
+     └ mcp__veotools__generate_start (veotools): 940 tokens
+     └ mcp__veotools__generate_get (veotools): 689 tokens
+     └ mcp__veotools__generate_cancel (veotools): 588 tokens
+     └ mcp__veotools__continue_video (veotools): 1.0k tokens
+     └ mcp__fal-video__imagen4 (fal-video): 676 tokens
+     └ mcp__fal-video__flux_kontext (fal-video): 746 tokens
+     └ mcp__fal-video__ideogram_v3 (fal-video): 696 tokens
+     └ mcp__fal-video__recraft_v3 (fal-video): 675 tokens
+     └ mcp__fal-video__stable_diffusion_35 (fal-video): 767 tokens
+     └ mcp__fal-video__flux_dev (fal-video): 738 tokens
+     └ mcp__fal-video__hidream (fal-video): 674 tokens
+     └ mcp__fal-video__janus (fal-video): 672 tokens
+     └ mcp__fal-video__veo3 (fal-video): 664 tokens
+     └ mcp__fal-video__kling_master_text (fal-video): 669 tokens
+     └ mcp__fal-video__pixverse_text (fal-video): 663 tokens
+     └ mcp__fal-video__magi (fal-video): 652 tokens
+     └ mcp__fal-video__luma_ray2 (fal-video): 662 tokens
+     └ mcp__fal-video__wan_pro_text (fal-video): 655 tokens
+     └ mcp__fal-video__vidu_text (fal-video): 662 tokens
+     └ mcp__fal-video__ltx_video (fal-video): 750 tokens
+     └ mcp__fal-video__kling_master_image (fal-video): 756 tokens
+     └ mcp__fal-video__pixverse_image (fal-video): 752 tokens
+     └ mcp__fal-video__wan_pro_image (fal-video): 745 tokens
+     └ mcp__fal-video__hunyuan_image (fal-video): 751 tokens
+     └ mcp__fal-video__vidu_image (fal-video): 746 tokens
+     └ mcp__fal-video__luma_ray2_image (fal-video): 757 tokens
+     └ mcp__fal-video__list_available_models (fal-video): 607 tokens
+     └ mcp__fal-video__execute_custom_model (fal-video): 688 tokens
+     └ mcp__cloudinary-asset-mgmt__upload-asset (cloudinary-asset-mgmt): 2.1k tokens
+     └ mcp__cloudinary-asset-mgmt__asset-rename (cloudinary-asset-mgmt): 824 tokens
+     └ mcp__cloudinary-asset-mgmt__generate-archive                      1.0k tokens
+     (cloudinary-asset-mgmt):
+     └ mcp__cloudinary-asset-mgmt__download-asset-backup                  651 tokens
+     (cloudinary-asset-mgmt):
+     └ mcp__cloudinary-asset-mgmt__delete-asset (cloudinary-asset-mgmt): 740 tokens
+     └ mcp__cloudinary-asset-mgmt__list-images (cloudinary-asset-mgmt): 865 tokens
+     └ mcp__cloudinary-asset-mgmt__list-videos (cloudinary-asset-mgmt): 865 tokens
+     └ mcp__cloudinary-asset-mgmt__list-files (cloudinary-asset-mgmt): 865 tokens
+     └ mcp__cloudinary-asset-mgmt__get-asset-details                      795 tokens
+     (cloudinary-asset-mgmt):
+     └ mcp__cloudinary-asset-mgmt__asset-update (cloudinary-asset-mgmt): 1.3k tokens
+     └ mcp__cloudinary-asset-mgmt__list-tags (cloudinary-asset-mgmt): 705 tokens
+     └ mcp__cloudinary-asset-mgmt__delete-derived-assets                  662 tokens
+     (cloudinary-asset-mgmt):
+     └ mcp__cloudinary-asset-mgmt__get-usage-details                      637 tokens
+     (cloudinary-asset-mgmt):
+     └ mcp__cloudinary-asset-mgmt__create-asset-relations                  759 
+     (cloudinary-asset-mgmt):                                              tokens
+     └ mcp__cloudinary-asset-mgmt__delete-asset-relations                  734 
+     (cloudinary-asset-mgmt):                                              tokens
+     └ mcp__cloudinary-asset-mgmt__move-folder (cloudinary-asset-mgmt): 685 tokens
+     └ mcp__cloudinary-asset-mgmt__create-folder (cloudinary-asset-mgmt): 615 tokens
+     └ mcp__cloudinary-asset-mgmt__delete-folder (cloudinary-asset-mgmt): 613 tokens
+     └ mcp__cloudinary-asset-mgmt__search-folders (cloudinary-asset-mgmt):716 tokens
+
+     └ mcp__cloudinary-asset-mgmt__search-assets (cloudinary-asset-mgmt):1.0k tokens
+
+     └ mcp__cloudinary-asset-mgmt__visual-search-assets                   815 tokens
+     (cloudinary-asset-mgmt):
+     └ mcp__cloudinary-asset-mgmt__get-tx-reference                       797 tokens
+     (cloudinary-asset-mgmt):
+     └ mcp__cloudinary-asset-mgmt__transform-asset (cloudinary-asset-mgmt)975 tokens
+
+     └ mcp__notion__notion-search (notion): 2.0k tokens
+     └ mcp__notion__notion-fetch (notion): 792 tokens
+     └ mcp__notion__notion-create-pages (notion): 5.6k tokens
+     └ mcp__notion__notion-update-page (notion): 2.5k tokens
+     └ mcp__notion__notion-move-pages (notion): 1.1k tokens
+     └ mcp__notion__notion-duplicate-page (notion): 720 tokens
+     └ mcp__notion__notion-create-database (notion): 6.3k tokens
+     └ mcp__notion__notion-update-database (notion): 6.5k tokens
+     └ mcp__notion__notion-create-comment (notion): 2.1k tokens
+     └ mcp__notion__notion-get-comments (notion): 608 tokens
+     └ mcp__notion__notion-get-teams (notion): 729 tokens
+     └ mcp__notion__notion-get-users (notion): 846 tokens
+     └ mcp__notion__notion-list-agents (notion): 756 tokens
+     └ mcp__notion__notion-get-self (notion): 579 tokens
+     └ mcp__notion__notion-get-user (notion): 620 tokens
+     └ mcp__ide__getDiagnostics (ide): 611 tokens
+     └ mcp__ide__executeCode (ide): 682 tokens
+
+     Custom agents · /agents
+     └ doc-maintenance-orchestrator (Project): 317 tokens
+     └ mcp-server-architect (Project): 19 tokens
+
+     Memory files · /memory
+     └ User (/Users/sid/.claude/CLAUDE.md): 373 tokens
+     └ Project (/Users/sid/Desktop/4. Coding   4.2k tokens
+     Projects/social-media-manager/CLAUDE.md):
+
+     SlashCommand Tool · 2 commands
+     └ Total: 1.1k tokens

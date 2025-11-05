@@ -12,6 +12,7 @@ Compose multiple images (2-3) into a single unified scene using nanobanana's mul
 ## When to Use This Skill
 
 Use this skill when:
+
 - Combining multiple images into one
 - Blending photos together
 - Merging 2-3 pictures
@@ -24,6 +25,7 @@ Use this skill when:
 Triggers: blend images, combine images, merge photos, photo mashup, composite images, fuse images, mix images, multi-image composition
 
 **Don't use for:**
+
 - Creating single image from text (use create-image skill)
 - Editing single image (use edit-image skill)
 
@@ -52,13 +54,14 @@ When blending multiple images:
    **For blending techniques, see:** `reference/blending-techniques.md`
 
 4. **Use nanobanana with multi-image input**:
+
    ```yaml
    mcp__nanobanana__generate_image:
-     prompt: "{how to blend the images}"
-     mode: "generate"  # Yes, "generate" for blending!
-     input_image_path_1: "/path/to/first.jpg"
-     input_image_path_2: "/path/to/second.jpg"
-     input_image_path_3: "/path/to/third.jpg"  # Optional
+     prompt: '{how to blend the images}'
+     mode: 'generate' # Yes, "generate" for blending!
+     input_image_path_1: '/path/to/first.jpg'
+     input_image_path_2: '/path/to/second.jpg'
+     input_image_path_3: '/path/to/third.jpg' # Optional
      n: 1
    ```
 
@@ -87,6 +90,7 @@ This skill includes blending and composition knowledge:
 - **`reference/mcp-tools-reference.md`** - Complete multi-input parameters
 
 **Related Skills:**
+
 - Edit after blending: `../edit-image/SKILL.md`
 - Create from scratch: `../create-image/SKILL.md`
 
@@ -101,13 +105,14 @@ This skill includes blending and composition knowledge:
    - Image 2: Office background (office.jpg)
 
 2. **Blend**:
+
    ```yaml
    mcp__nanobanana__generate_image:
-     prompt: "Composite person from first image into the office environment from second image. Natural integration with consistent lighting. Person positioned at desk in foreground, office background behind. Match lighting direction and color temperature. Photorealistic, seamless composition."
-     mode: "generate"
-     input_image_path_1: "/photos/person.jpg"
-     input_image_path_2: "/photos/office.jpg"
-     negative_prompt: "cut-out appearance, pasted look, mismatched lighting, color inconsistency, artificial composition, visible edges"
+     prompt: 'Composite person from first image into the office environment from second image. Natural integration with consistent lighting. Person positioned at desk in foreground, office background behind. Match lighting direction and color temperature. Photorealistic, seamless composition.'
+     mode: 'generate'
+     input_image_path_1: '/photos/person.jpg'
+     input_image_path_2: '/photos/office.jpg'
+     negative_prompt: 'cut-out appearance, pasted look, mismatched lighting, color inconsistency, artificial composition, visible edges'
      n: 1
    ```
 

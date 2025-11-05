@@ -1,8 +1,0 @@
-{
-  "title": "Create a task",
-  "content": "Source: https://docs.exa.ai/reference/research/create-a-task\n\npost /research/v1\nCreate an asynchronous research task that explores the web, gathers sources, synthesizes findings, and returns results with citations. Can be used to generate:\n1. Structured JSON matching an `outputSchema` you provide.\n2. A detailed markdown report when no schema is provided.\n\nThe API responds immediately with a `researchId` for polling completion status. For more details, see [Exa Research](/reference/exa-research).\n\nAlternatively, you can use the OpenAI compatible [chat completions interface](/reference/chat-completions#research).\n\n<Card title=\"Get your Exa API key\" icon=\"key\" horizontal href=\"https://dashboard.exa.ai/api-keys\" />",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#create-a-task",
-  "links": []
-}

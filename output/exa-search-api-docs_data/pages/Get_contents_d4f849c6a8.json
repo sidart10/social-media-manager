@@ -1,8 +1,0 @@
-{
-  "title": "Get contents",
-  "content": "Source: https://docs.exa.ai/reference/get-contents\n\npost /contents\nGet the full page contents, summaries, and metadata for a list of URLs.\n\nReturns instant results from our cache, with automatic live crawling as fallback for uncached pages.\n\n<Card title=\"Get your Exa API key\" icon=\"key\" horizontal href=\"https://dashboard.exa.ai/api-keys\" />",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#get-contents",
-  "links": []
-}

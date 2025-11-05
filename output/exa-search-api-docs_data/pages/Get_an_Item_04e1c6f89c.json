@@ -1,8 +1,0 @@
-{
-  "title": "Get an Item",
-  "content": "Source: https://docs.exa.ai/websets/api/websets/items/get-an-item\n\nget /v0/websets/{webset}/items/{id}\nReturns a Webset Item.",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#get-an-item",
-  "links": []
-}

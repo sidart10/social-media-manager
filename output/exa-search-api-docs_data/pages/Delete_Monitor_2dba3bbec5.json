@@ -1,8 +1,0 @@
-{
-  "title": "Delete Monitor",
-  "content": "Source: https://docs.exa.ai/websets/api/monitors/delete-monitor\n\ndelete /v0/monitors/{id}\nDeletes a monitor.",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#delete-monitor",
-  "links": []
-}

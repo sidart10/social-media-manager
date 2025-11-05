@@ -1,8 +1,0 @@
-{
-  "title": "Get an Enrichment",
-  "content": "Source: https://docs.exa.ai/websets/api/websets/enrichments/get-an-enrichment\n\nget /v0/websets/{webset}/enrichments/{id}",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#get-an-enrichment",
-  "links": []
-}

@@ -1,8 +1,0 @@
-{
-  "title": "Generate multiple insights",
-  "content": "num_insights = 5\ninsights = []\nfor _ in range(num_insights):\n    insight = client.chat.completions.create(\n        model=\"gpt-3.5-turbo\",\n        response_model=AIEthicsInsight,\n        messages=[\n            {\n                \"role\": \"user\",\n                \"content\": f\"Provide an insight on AI ethics based on the following research:\\n\\n{combined_results}\",\n            }\n        ],\n    )\n    insights.append(insight)",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#generate-multiple-insights",
-  "links": []
-}

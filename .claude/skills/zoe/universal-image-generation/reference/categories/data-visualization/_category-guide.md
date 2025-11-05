@@ -5,6 +5,7 @@
 Data visualization transforms raw numbers into visual stories that drive understanding and decision-making. This category provides comprehensive guidance for generating charts, graphs, infographics, and dashboards using AI image generation tools.
 
 **Based on research from:**
+
 - DataTeams AI (2025 Best Practices)
 - Datawrapper (40 Chart Types Guide)
 - Hands-On Data Visualization
@@ -14,6 +15,7 @@ Data visualization transforms raw numbers into visual stories that drive underst
 ## When to Use Data Visualization
 
 Use this category when:
+
 - Presenting numerical data, statistics, metrics
 - Comparing categories or values
 - Showing trends over time
@@ -27,10 +29,12 @@ Use this category when:
 
 Data visualization requires selecting BOTH:
 
-###  1. **Aesthetic Style** (How it looks)
+### 1. **Aesthetic Style** (How it looks)
+
 Located in: `styles/`
 
 Choose based on context and audience:
+
 - **tldraw-style**: Hand-drawn, casual, approachable
 - **muted-professional**: Corporate, subtle, clean
 - **vibrant-presentation**: Bold, energetic, attention-grabbing
@@ -39,9 +43,11 @@ Choose based on context and audience:
 - **infographic-editorial**: Magazine-quality, editorial design
 
 ### 2. **Chart Type** (What it shows)
+
 Located in: `chart-types/`
 
 Choose based on data structure and message:
+
 - **bar-charts**: Comparing categories
 - **line-graphs**: Trends over time
 - **pie-charts**: Parts of whole (use sparingly!)
@@ -56,6 +62,7 @@ Choose based on data structure and message:
 ### 1. Choose the Right Chart Type
 
 **Match chart to message:**
+
 - Comparison → Bar/column charts
 - Trend → Line charts
 - Relationship → Scatter plots
@@ -68,6 +75,7 @@ Choose based on data structure and message:
 ### 2. Minimize Chart Junk
 
 **Remove non-essential elements:**
+
 - No 3D effects (unless plotting 3D data)
 - No shadows or heavy borders
 - Light gridlines (or remove entirely)
@@ -79,11 +87,13 @@ Choose based on data structure and message:
 ### 3. Use Color Strategically
 
 **Color palette types:**
+
 - **Sequential**: Light-to-dark for ordered data (revenue growth)
 - **Diverging**: Two colors from neutral midpoint (profit/loss)
 - **Qualitative**: Distinct colors for categories (max 5-7 colors)
 
 **Accessibility requirements:**
+
 - **WCAG 2.1 Level AA**: 4.5:1 contrast for text, 3:1 for graphics
 - **Color blindness**: Don't rely on color alone (use patterns, labels)
 - **Test tools**: Color Oracle, contrast-ratio.com
@@ -93,6 +103,7 @@ Choose based on data structure and message:
 ### 4. Create Clear Visual Hierarchy
 
 **Guide viewer's eye:**
+
 - Largest/brightest = most important
 - Top-left placement for key insights
 - Use "squint test" - blur eyes, focal point should stand out
@@ -103,6 +114,7 @@ Choose based on data structure and message:
 ### 5. Provide Context and Scale
 
 **Essential reference points:**
+
 - **Zero baseline** for bar/column charts (MANDATORY)
 - Reference lines for targets, averages, benchmarks
 - Time-series context (show historical data)
@@ -113,6 +125,7 @@ Choose based on data structure and message:
 ### 6. Write Effective Titles and Labels
 
 **Insight-driven text:**
+
 - Title: Communicate finding, not description
   - ❌ "Sales by Quarter"
   - ✅ "Q4 Sales Surge Drives Record Annual Performance"
@@ -124,6 +137,7 @@ Choose based on data structure and message:
 ### 7. Design for Your Audience
 
 **Tailor complexity:**
+
 - Executives: High-level KPIs, simple charts, clear takeaways
 - Analysts: Detailed data, interactive filters, granular views
 - Public: Simple comparisons, familiar chart types, minimal jargon
@@ -133,6 +147,7 @@ Choose based on data structure and message:
 ### 8. Ensure Accessibility and Inclusivity
 
 **Universal design:**
+
 - Color-blind safe palettes (avoid red/green combos)
 - Dual encoding (color + pattern/label)
 - Alt text descriptions for screen readers
@@ -157,6 +172,7 @@ Choose based on data structure and message:
 ## Tool Selection for Data Viz
 
 **gpt-image-1 (DALL-E 3) - Preferred for:**
+
 - Professional corporate dashboards
 - Precise text rendering (numbers, labels)
 - Charts with multiple data labels
@@ -164,6 +180,7 @@ Choose based on data structure and message:
 - Minimalist-modern or muted-professional styles
 
 **nanobanana (Gemini) - Preferred for:**
+
 - tldraw hand-drawn style
 - Vibrant presentations
 - Quick iterations
@@ -171,6 +188,7 @@ Choose based on data structure and message:
 - Social media infographics
 
 **fal-video (experimental):**
+
 - flux-kontext for creative interpretations
 - Not recommended for data accuracy
 
@@ -190,6 +208,7 @@ When workflows invoke data visualization:
 ## Examples
 
 **Example 1: Bar chart in tldraw style**
+
 - Style guide: tldraw-style.md (hand-drawn aesthetic)
 - Chart guide: bar-charts.md (structure requirements)
 - Merge: Hand-drawn bars with casual annotations
@@ -197,6 +216,7 @@ When workflows invoke data visualization:
 - Result: Approachable, informal data presentation
 
 **Example 2: Dashboard in muted-professional**
+
 - Style guide: muted-professional.md (corporate aesthetic)
 - Chart guide: dashboards.md (multi-metric layout)
 - Merge: Clean corporate dashboard with multiple charts

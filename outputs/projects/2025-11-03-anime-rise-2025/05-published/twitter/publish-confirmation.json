@@ -1,0 +1,36 @@
+{
+  "post_id": "cmhk3fcou002pnw7w82feuxnd",
+  "platform": "twitter",
+  "post_type": "thread",
+  "status": "published",
+  "published_at": "2025-11-04T04:53:07.000Z",
+  "published_by": "zoro",
+  "source_draft": "03-drafts/twitter/thread-anime-cultural-shift-deedy.md",
+  "postiz_dashboard_url": "http://localhost:5001/p/cmhk3fcou002pnw7w82feuxnd",
+  "content_summary": {
+    "topic": "Anime box office dominance 2025",
+    "format": "10-tweet thread",
+    "voice": "deedydas (professional, data-driven)",
+    "hook": "Demon Slayer $20M vs F1 $250M budget/ROI comparison",
+    "core_argument": "Hollywood became sanitized, anime stayed wild and meaningful",
+    "tweet_count": 10,
+    "images_attached": 2
+  },
+  "media_used": [
+    {
+      "filename": "comparison-budget-roi.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762227738/social-media-images/anime-rise-2025/comparison-budget-roi.png",
+      "attached_to": "tweet_4",
+      "quality_score": 9.3
+    },
+    {
+      "filename": "gen-z-anime-stats.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762228072/social-media-images/anime-rise-2025/gen-z-anime-stats.png",
+      "attached_to": "tweet_9",
+      "quality_score": 9.7
+    }
+  ],
+  "method": "mcp__postiz__mcpSchedulePostWrapper",
+  "integration_id": "cmhdt90720001pf7wia9l0qo2",
+  "twitter_handle": "@siddaniagi"
+}

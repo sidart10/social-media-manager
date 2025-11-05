@@ -1,0 +1,64 @@
+{
+  "images": [
+    {
+      "filename": "slide-1-title.png",
+      "quality_score": 8.5,
+      "platform_optimized_for": "LinkedIn",
+      "description": "Title slide - Florida H-1B ban hook"
+    },
+    {
+      "filename": "slide-2-lca-funnel.png",
+      "quality_score": 9.0,
+      "platform_optimized_for": "LinkedIn",
+      "description": "LCA Funnel (900k → 400k → 141k) - KEY VISUAL"
+    },
+    {
+      "filename": "slide-3-new-vs-renewals.png",
+      "quality_score": 8.8,
+      "platform_optimized_for": "LinkedIn",
+      "description": "New vs Renewals pie chart (35% vs 65%)"
+    },
+    {
+      "filename": "slide-4-it-staffing-firms.png",
+      "quality_score": 8.6,
+      "platform_optimized_for": "LinkedIn",
+      "description": "IT Staffing Firms - Cognizant $80k, Infosys $87k, TCS $80k, 95% Indian"
+    },
+    {
+      "filename": "slide-5-tech-companies.png",
+      "quality_score": 8.9,
+      "platform_optimized_for": "LinkedIn",
+      "description": "Tech Companies - Amazon $300k, Google $350k, Meta $380k"
+    },
+    {
+      "filename": "slide-6-india-backlog.png",
+      "quality_score": 9.2,
+      "platform_optimized_for": "LinkedIn",
+      "description": "India Backlog Simple - 140 YEARS wait time"
+    },
+    {
+      "filename": "slide-7-india-backlog-eb-comparison.png",
+      "quality_score": 9.5,
+      "platform_optimized_for": "LinkedIn",
+      "description": "India Backlog EB Comparison - EB-1 Manageable (2.7 yrs) vs EB-2/EB-3 Critical (140 yrs) - BEST SLIDE"
+    },
+    {
+      "filename": "slide-8-reforms-cta.png",
+      "quality_score": 8.7,
+      "platform_optimized_for": "LinkedIn",
+      "description": "Bottom Line CTA - LCA data ≠ H-1B visas, 3 reforms"
+    }
+  ],
+  "project_summary": {
+    "project_name": "H1B Visa Misinformation Correction",
+    "total_images": 8,
+    "average_quality": 8.9,
+    "total_cost": 0.624,
+    "style": "tldraw hand-drawn casual aesthetic",
+    "platform": "LinkedIn carousel (8 slides)",
+    "aspect_ratio": "1:1 (1024x1024)",
+    "carousel_ready": true,
+    "note": "Cloudinary upload pending - MCP tool unavailable",
+    "revisions": "Multiple iterations to perfect data accuracy and visual clarity"
+  }
+}

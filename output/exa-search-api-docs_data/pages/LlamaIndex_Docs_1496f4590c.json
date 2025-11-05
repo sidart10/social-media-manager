@@ -1,8 +1,0 @@
-{
-  "title": "LlamaIndex Docs",
-  "content": "Source: https://docs.exa.ai/integrations/llamaIndex-docs\n\nLearn how to use Exa's search API with LlamaIndex. LlamaIndex has a dedicated Exa tool. This enables AI agents to perform web search.\n\nFor detailed instructions on using Exa with LlamaIndex, visit the [LlamaIndex documentation](https://docs.llamaindex.ai/en/stable/api_reference/tools/exa/).",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#llamaindex-docs",
-  "links": []
-}

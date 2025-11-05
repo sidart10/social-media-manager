@@ -1,0 +1,113 @@
+{
+  "handoff_id": "zoe-to-zoro-2025-11-03-23-27",
+  "source_agent": "zoe",
+  "target_agent": "zoro",
+  "content_type": "image_assets",
+  "suggested_command": "/zoro → *schedule-post",
+
+  "assets": [
+    {
+      "type": "image",
+      "local_path": "04-media/images/slide-1-title.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762241223/social-media-images/social-media/h1b-misinformation/slide-1-title.png",
+      "platform_optimized_for": "linkedin",
+      "aspect_ratio": "1:1",
+      "quality_score": "8.5/10",
+      "metadata_file": "04-media/images/metadata.json",
+      "description": "Title slide with hook about Florida H-1B ban"
+    },
+    {
+      "type": "image",
+      "local_path": "04-media/images/slide-2-lca-funnel.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762241676/social-media-images/social-media/h1b-misinformation/slide-2-lca-funnel.png",
+      "platform_optimized_for": "linkedin",
+      "aspect_ratio": "1:1",
+      "quality_score": "9.0/10",
+      "metadata_file": "04-media/images/metadata.json",
+      "description": "LCA funnel visualization (900k → 400k → 141k) - FIXED"
+    },
+    {
+      "type": "image",
+      "local_path": "04-media/images/slide-3-new-vs-renewals.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762241677/social-media-images/social-media/h1b-misinformation/slide-3-new-vs-renewals.png",
+      "platform_optimized_for": "linkedin",
+      "aspect_ratio": "1:1",
+      "quality_score": "8.8/10",
+      "metadata_file": "04-media/images/metadata.json",
+      "description": "New vs Renewals pie chart (35% vs 65%) - FIXED"
+    },
+    {
+      "type": "image",
+      "local_path": "04-media/images/slide-4-it-staffing-firms.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762242258/social-media-images/social-media/h1b-misinformation/slide-4-it-staffing-firms.png",
+      "platform_optimized_for": "linkedin",
+      "aspect_ratio": "1:1",
+      "quality_score": "8.6/10",
+      "metadata_file": "04-media/images/metadata.json",
+      "description": "IT Staffing Firms low-wage tier bar chart - FIXED"
+    },
+    {
+      "type": "image",
+      "local_path": "04-media/images/slide-5-tech-companies.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762241679/social-media-images/social-media/h1b-misinformation/slide-5-tech-companies.png",
+      "platform_optimized_for": "linkedin",
+      "aspect_ratio": "1:1",
+      "quality_score": "8.9/10",
+      "metadata_file": "04-media/images/metadata.json",
+      "description": "Tech Companies high-wage tier bar chart - FIXED"
+    },
+    {
+      "type": "image",
+      "local_path": "04-media/images/slide-6-india-backlog.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762241681/social-media-images/social-media/h1b-misinformation/slide-6-india-backlog.png",
+      "platform_optimized_for": "linkedin",
+      "aspect_ratio": "1:1",
+      "quality_score": "9.2/10",
+      "metadata_file": "04-media/images/metadata.json",
+      "description": "India Backlog Crisis infographic (140-year wait) - FIXED"
+    },
+    {
+      "type": "image",
+      "local_path": "04-media/images/slide-7-reforms-cta.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762241231/social-media-images/social-media/h1b-misinformation/slide-7-reforms-cta.png",
+      "platform_optimized_for": "linkedin",
+      "aspect_ratio": "1:1",
+      "quality_score": "8.5/10",
+      "metadata_file": "04-media/images/metadata.json",
+      "description": "Evidence-Based Reforms and CTA slide"
+    }
+  ],
+
+  "from_zoe": {
+    "skill_used": "universal-image-generation",
+    "style_applied": "tldraw-hand-drawn",
+    "quality_validated": true,
+    "mcp_tool_used": "nanobanana",
+    "average_quality_score": "8.7/10",
+    "total_cost": "$0.468",
+    "carousel_complete": true,
+    "all_slides_uploaded": true,
+    "revisions": "5 slides regenerated - removed artifacts, fixed spelling, corrected data"
+  },
+
+  "content_details": {
+    "topic": "H-1B misinformation correction",
+    "format": "LinkedIn carousel",
+    "slide_count": 7,
+    "style": "tldraw aesthetic - clean minimalist with soft pastels",
+    "post_text_path": "03-drafts/linkedin/carousel-post.md"
+  },
+
+  "publishing_notes": {
+    "platform": "LinkedIn",
+    "timing": "24-48 hours AFTER Twitter thread goes live",
+    "best_days": ["Tuesday", "Wednesday", "Thursday"],
+    "best_time": "7-9 AM ET",
+    "engagement_strategy": "Reply to EVERY comment within first hour, share additional data points",
+    "cross_promotion": "Link to Twitter thread in post"
+  },
+
+  "suggested_action": "schedule-post",
+  "priority": "high",
+  "notes": "Complete 7-slide LinkedIn carousel with tldraw aesthetic. All Cloudinary URLs confirmed working. Ready for Postiz scheduling. Average quality score: 8.5/10 (publication-ready). Post text available at 03-drafts/linkedin/carousel-post.md (2,947 characters, optimized for LinkedIn)."
+}

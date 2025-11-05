@@ -1,8 +1,0 @@
-{
-  "title": "Compile the workflow into a runnable",
-  "content": "app = workflow.compile(checkpointer=checkpointer)\n\nfinal_state = app.invoke(\n    {\n        \"messages\": [\n            HumanMessage(content=\"Latest research papers on climate technology\")\n        ]\n    },\n    config={\"configurable\": {\"thread_id\": 44}},\n)\nprint(final_state[\"messages\"][-1].content)\n```\n\nFull code in Google Colab [here](https://docs.exa.ai/reference/getting-started-with-rag-in-langgraph)",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#compile-the-workflow-into-a-runnable",
-  "links": []
-}

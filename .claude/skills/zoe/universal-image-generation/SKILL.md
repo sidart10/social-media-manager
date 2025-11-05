@@ -14,22 +14,26 @@ Comprehensive image generation system that handles ALL image creation needs thro
 Use this skill for ANY image generation task, including:
 
 **Social Media Content:**
+
 - Instagram posts (square, story, carousel)
 - LinkedIn graphics (dark monochrome, professional)
 - Twitter images (thread cards, engagement posts)
 - Facebook visuals (engagement-optimized)
 
 **YouTube Platform:**
+
 - Video thumbnails (CTR-optimized)
 - Community post images
 - Channel art and branding
 
 **Personalized Content:**
+
 - Sid professional headshots
 - Sid lifestyle/scenario images
 - Custom character integration (FAL LoRA)
 
 **Data Visualization:**
+
 - Charts: bar, line, pie, scatter, heatmap
 - Graphs: network, flow, area, bubble
 - Infographics: editorial style, presentation-ready
@@ -39,6 +43,7 @@ Use this skill for ANY image generation task, including:
 **Triggers:** create image, generate image, make image, design graphic, create visual, YouTube thumbnail, video cover, Sid image, Sid headshot, personalized image, data viz, chart, graph, infographic, bar chart, line graph, pie chart, scatter plot, heatmap, dashboard, network diagram, flow chart, Instagram post, LinkedIn image, Twitter graphic, social media content, tldraw style, hand-drawn chart, professional design, corporate visualization
 
 **Don't use for:**
+
 - Video generation (use video-generation skill)
 - Blending/compositing multiple images (though we support image-to-image)
 - Photo editing (use edit-image skill)
@@ -48,6 +53,7 @@ Use this skill for ANY image generation task, including:
 ### Step 1: Analyze Request and Detect Category
 
 Parse the user's request to identify:
+
 - **Content type**: What kind of image?
 - **Platform**: Where will it be used?
 - **Style preference**: Any explicit style mentioned?
@@ -75,6 +81,7 @@ ELSE
 ### Step 2: Load Style Guide Registry
 
 Read the style guide registry to see all available styles:
+
 - File: `reference/style-guide.md`
 - Purpose: Central index of all style options
 - Contains: Category listings, style descriptions, use-when guidance
@@ -84,6 +91,7 @@ Read the style guide registry to see all available styles:
 Based on detected category and user request, load relevant style guides:
 
 **For Social Media:**
+
 ```
 Platform: Instagram → Load: categories/social-media/instagram-vibrant-minimal.md
 Platform: LinkedIn → Load: categories/social-media/linkedin-dark-monochrome.md
@@ -91,6 +99,7 @@ Platform: Twitter → Load: categories/social-media/twitter-thread-carousel.md
 ```
 
 **For YouTube:**
+
 ```
 General thumbnails → Load: categories/youtube/thumbnail-ctr-optimized.md
 Educational content → Load: categories/youtube/thumbnail-educational.md
@@ -98,12 +107,14 @@ Tech reviews → Load: categories/youtube/thumbnail-tech-review.md
 ```
 
 **For Personalization:**
+
 ```
 Professional context → Load: categories/personalization/sid-professional-headshot.md
 Casual context → Load: categories/personalization/sid-casual-lifestyle.md
 ```
 
 **For Data Visualization:**
+
 ```
 Step 1: Determine aesthetic style
   If "tldraw" OR "hand-drawn" OR "casual" → Load: styles/tldraw-style.md
@@ -215,6 +226,7 @@ Negative: perfect geometry, computer-generated, sharp edges, gradient fills,
 Based on merged requirements, choose best tool:
 
 **Decision tree:**
+
 ```
 IF (category == "personalization" AND subject == "Sid")
   → fal-video with flux-lora endpoint + Sid's LoRA model
@@ -242,50 +254,51 @@ DEFAULT
 Call selected MCP tool with optimized parameters:
 
 **For gpt-image-1:**
+
 ```yaml
 mcp__gpt-image-1__create_image:
-  prompt: "{merged_text_prompt}"
-  size: "1536x1024"  # or "1024x1024" or "1024x1536"
-  quality: "high"
-  output_format: "png"
+  prompt: '{merged_text_prompt}'
+  size: '1536x1024' # or "1024x1024" or "1024x1536"
+  quality: 'high'
+  output_format: 'png'
 ```
 
 **For nanobanana:**
+
 ```yaml
 mcp__nanobanana__generate_image:
-  prompt: "{merged_text_prompt}"
-  negative_prompt: "{negative_prompts_min_10_items}"
-  mode: "generate"  # or "edit" for image-to-image
+  prompt: '{merged_text_prompt}'
+  negative_prompt: '{negative_prompts_min_10_items}'
+  mode: 'generate' # or "edit" for image-to-image
   n: 1
-  input_image_path_1: "{path_if_compositing}"  # optional
+  input_image_path_1: '{path_if_compositing}' # optional
 ```
 
 **For fal-video (Sid personalization):**
+
 ```yaml
 mcp__fal-video__execute_custom_model:
-  endpoint: "fal-ai/flux-lora"
-  category_hint: "image"
+  endpoint: 'fal-ai/flux-lora'
+  category_hint: 'image'
   input_params:
-    prompt: "Photo of SIDAI {scenario_description}"
-    loras: [{
-      "path": "https://v3b.fal.media/files/b/zebra/Jujtmkl_X-v5x0KxjM3gm_pytorch_lora_weights.safetensors",
-      "scale": 1
-    }]
+    prompt: 'Photo of SIDAI {scenario_description}'
+    loras: [{ 'path': 'https://v3b.fal.media/files/b/zebra/Jujtmkl_X-v5x0KxjM3gm_pytorch_lora_weights.safetensors', 'scale': 1 }]
     num_images: 1
     guidance_scale: 3.5
     num_inference_steps: 28
-    image_size: "{aspect_ratio}"
+    image_size: '{aspect_ratio}'
 ```
 
 **For fal-video (creative image models):**
+
 ```yaml
 mcp__fal-video__execute_custom_model:
-  endpoint: "fal-ai/flux/kontext"  # or "fal-ai/aura-flow", "fal-ai/recraft-v3"
-  category_hint: "image"
+  endpoint: 'fal-ai/flux/kontext' # or "fal-ai/aura-flow", "fal-ai/recraft-v3"
+  category_hint: 'image'
   input_params:
-    prompt: "{merged_prompt}"
+    prompt: '{merged_prompt}'
     num_images: 1
-    image_size: "landscape_4_3"
+    image_size: 'landscape_4_3'
 ```
 
 ### Step 8: Run 7-Pillar Quality Evaluation (MANDATORY)
@@ -303,6 +316,7 @@ Evaluate generated image against framework:
 **Overall Score = Average of 7 pillars**
 
 **Category-specific criteria:**
+
 - **Data viz**: Add Accessibility (WCAG 2.1 contrast), Readability at small sizes
 - **YouTube**: Add CTR potential, Emotion clarity
 - **Personalization**: Add Likeness accuracy, Scenario match
@@ -359,6 +373,7 @@ metadata:
 This skill includes comprehensive image generation knowledge organized as an extensible library:
 
 ### Core Foundation (Always Used)
+
 - **`reference/core/emily-json-methodology.md`** - Emily's proven JSON prompting structure
 - **`reference/core/visual-prompt-mastery.md`** - 30 validated pattern examples
 - **`reference/core/quality-framework.md`** - 7-pillar evaluation system
@@ -368,11 +383,13 @@ This skill includes comprehensive image generation knowledge organized as an ext
 ### Style Library (Modular, Extensible)
 
 **Central Registry:**
+
 - **`reference/style-guide.md`** - Complete index of all available styles, when to use, how to add new styles
 
 **Category Guides:**
 
 #### Social Media (`categories/social-media/`)
+
 - `instagram-vibrant-minimal.md` - Bright, clean IG posts
 - `instagram-story-vertical.md` - 9:16 story format
 - `linkedin-dark-monochrome.md` - Professional B2B content
@@ -380,6 +397,7 @@ This skill includes comprehensive image generation knowledge organized as an ext
 - `facebook-engagement-posts.md` - High-engagement FB graphics
 
 #### YouTube (`categories/youtube/`)
+
 - `thumbnail-ctr-optimized.md` - Maximum clickthrough rate
 - `thumbnail-educational.md` - Tutorial/how-to style
 - `thumbnail-tech-review.md` - Tech review aesthetic
@@ -387,6 +405,7 @@ This skill includes comprehensive image generation knowledge organized as an ext
 - `community-post-design.md` - YouTube community visuals
 
 #### Personalization (`categories/personalization/`)
+
 - `sid-professional-headshot.md` - Business profiles, LinkedIn
 - `sid-casual-lifestyle.md` - Relatable, approachable content
 - `sid-speaking-engagement.md` - Conference, presentation images
@@ -395,6 +414,7 @@ This skill includes comprehensive image generation knowledge organized as an ext
 #### Data Visualization (`categories/data-visualization/`)
 
 **Aesthetic Styles** (`styles/`):
+
 - `tldraw-style.md` - Hand-drawn, casual, approachable (whiteboard aesthetic)
 - `muted-professional.md` - Corporate, subtle colors, clean (business reports)
 - `vibrant-presentation.md` - Bold colors, high energy (marketing/sales)
@@ -403,6 +423,7 @@ This skill includes comprehensive image generation knowledge organized as an ext
 - `infographic-editorial.md` - Magazine-style, editorial (articles, blogs)
 
 **Chart Types** (`chart-types/`):
+
 - `bar-charts.md` - Comparing categories
 - `line-graphs.md` - Trends over time
 - `pie-charts.md` - Parts of whole
@@ -414,18 +435,21 @@ This skill includes comprehensive image generation knowledge organized as an ext
 - `_category-guide.md` - Data viz overview, WCAG 2.1 standards
 
 ### MCP Tool References (`reference/tools/`)
+
 - `gpt-image-1-reference.md` - DALL-E 3 complete parameters
 - `nanobanana-reference.md` - Gemini 2.5 Flash complete parameters
 - `fal-image-models.md` - imagen-4, flux-kontext, flux-lora, recraft-v3
 - `tool-comparison-matrix.md` - Side-by-side feature comparison
 
 ### Real-World Examples (`reference/examples/`)
+
 - `social-media-examples.md` - 5 complete social scenarios
 - `youtube-thumbnail-examples.md` - 3 high-CTR examples with prompts
 - `personalization-examples.md` - Sid image scenarios
 - `data-viz-examples.md` - 8 chart type demonstrations
 
 ### JSON Templates (`templates/`)
+
 - `json-base-template.json` - Emily's foundation structure
 - `social-media-template.json` - Social platform adaptations
 - `thumbnail-template.json` - YouTube-specific template
@@ -439,6 +463,7 @@ This skill includes comprehensive image generation knowledge organized as an ext
 **User request:** "Create a LinkedIn post about AI agent cost reality"
 
 **Execution:**
+
 1. **Category detection**: social-media (LinkedIn mentioned)
 2. **Load guides**:
    - `categories/social-media/linkedin-dark-monochrome.md`
@@ -458,6 +483,7 @@ This skill includes comprehensive image generation knowledge organized as an ext
 **User request:** "Create YouTube thumbnail for tech tutorial with my face"
 
 **Execution:**
+
 1. **Category detection**: youtube (thumbnail mentioned)
 2. **Load guides**:
    - `categories/youtube/thumbnail-educational.md`
@@ -472,6 +498,7 @@ This skill includes comprehensive image generation knowledge organized as an ext
 **User request:** "Create professional Sid headshot for LinkedIn"
 
 **Execution:**
+
 1. **Category detection**: personalization (Sid mentioned)
 2. **Load guides**:
    - `categories/personalization/sid-professional-headshot.md`
@@ -485,6 +512,7 @@ This skill includes comprehensive image generation knowledge organized as an ext
 **User request:** "Create a bar chart showing AI adoption rates in a casual hand-drawn style"
 
 **Execution:**
+
 1. **Category detection**: data-visualization (chart mentioned)
 2. **Style detection**: tldraw (hand-drawn mentioned)
 3. **Chart type**: bar chart (comparing categories)
@@ -507,6 +535,7 @@ This skill includes comprehensive image generation knowledge organized as an ext
 **User request:** "Create a business metrics dashboard with KPIs in corporate style"
 
 **Execution:**
+
 1. **Category detection**: data-visualization (dashboard, metrics)
 2. **Style detection**: muted-professional (corporate mentioned)
 3. **Chart type**: dashboards (multi-metric)
@@ -547,6 +576,7 @@ Every output from this skill must meet:
 5. DONE - no code changes needed
 
 **Categories grow independently:**
+
 - Social media can add TikTok, Pinterest, Reddit styles
 - YouTube can add gaming, vlog, shorts variations
 - Data viz can add sankey, treemap, 3D visualizations
@@ -557,17 +587,20 @@ This architecture ensures infinite scalability without touching core orchestrati
 ## Integration Notes
 
 **For workflows invoking this skill:**
+
 - Skill auto-detects category from request context
 - Workflow can pass explicit `category` and `style` parameters if known
 - Returns structured metadata for downstream processing
 - Compatible with all existing image generation workflows
 
 **For agents using this skill:**
+
 - Jarvis: Content generation with platform-specific imagery
 - Zoe: Primary visual production skill (replaces 3 old skills)
 - Any agent: Universal image capability
 
 **Module integration:**
+
 - json-prompt-generator: Provides base templates
 - platform-specs: Cross-referenced for requirements
 - postiz-formatter: Uses generated images in published posts

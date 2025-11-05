@@ -7,11 +7,13 @@
 Veotools is a FULL VIDEO PRODUCTION SYSTEM that goes far beyond simple video generation:
 
 ### Three Interfaces:
+
 1. **MCP Server** - Claude Code integration (what we use in AI Video Agent)
 2. **CLI** - Command-line tools for workflows (`veo plan-run`, `veo generate`, etc.)
 3. **Python SDK** - Full programmatic access for advanced automation
 
 ### Capabilities:
+
 - **Single Clip Generation** - Text-to-video, image-to-video, video-to-video
 - **Multi-Scene Stories** - Idea → Storyboard → Render → Stitch (complete pipeline)
 - **Scene Planning** - Gemini-powered cinemat storyboards
@@ -44,6 +46,7 @@ veotools-mastery/
 ## When to Use This Skill
 
 Claude will load this skill when you:
+
 - Mention "veotools"
 - Ask to "animate a diagram"
 - Request "multi-scene video"

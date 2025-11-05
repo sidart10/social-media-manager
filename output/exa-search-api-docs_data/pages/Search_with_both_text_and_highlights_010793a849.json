@@ -1,8 +1,0 @@
-{
-  "title": "Search with both text and highlights",
-  "content": "result_with_text_and_highlights = exa.search_and_contents(\n    \"AI in healthcare\",\n    text=True,\n    highlights=True,\n    num_results=2\n)",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#search-with-both-text-and-highlights",
-  "links": []
-}

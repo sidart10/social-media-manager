@@ -7,6 +7,7 @@ Clean, corporate aesthetic for professional business data visualizations. Subtle
 ## When to Use
 
 **Best for:**
+
 - Business reports and decks
 - Executive presentations (C-suite)
 - Financial statements and analysis
@@ -17,6 +18,7 @@ Clean, corporate aesthetic for professional business data visualizations. Subtle
 - Professional publications
 
 **Avoid for:**
+
 - Creative marketing materials
 - Social media infographics
 - Casual blog posts
@@ -30,6 +32,7 @@ Clean, corporate aesthetic for professional business data visualizations. Subtle
 **Subtle corporate colors** (professional, trustworthy, understated):
 
 **Primary palette:**
+
 - Background: #FFFFFF (pure white) or #F8F9FA (light gray)
 - Primary data: #1E3A8A (navy blue)
 - Secondary data: #6B7280 (slate gray)
@@ -38,6 +41,7 @@ Clean, corporate aesthetic for professional business data visualizations. Subtle
 - Accent 3: #DC2626 (muted red - negative/alert)
 
 **Extended palette (for multi-series):**
+
 - #0EA5E9 (sky blue)
 - #8B5CF6 (muted purple)
 - #F59E0B (amber)
@@ -45,6 +49,7 @@ Clean, corporate aesthetic for professional business data visualizations. Subtle
 - #6366F1 (indigo)
 
 **Contrast validation:**
+
 - All colors achieve WCAG 2.1 AA (4.5:1 on white background)
 - Tested with Color Oracle for color blindness
 - Suitable for black & white printing
@@ -52,6 +57,7 @@ Clean, corporate aesthetic for professional business data visualizations. Subtle
 ### Typography
 
 **Professional sans-serif fonts:**
+
 - Primary: Inter, Roboto, "Open Sans", "Helvetica Neue", Arial
 - Weight distribution:
   - Title: SemiBold (600) or Bold (700)
@@ -70,6 +76,7 @@ Clean, corporate aesthetic for professional business data visualizations. Subtle
 ### Line Quality
 
 **Precise and clean:**
+
 - Perfect straight lines (no wobble)
 - Consistent stroke weights
 - Thin gridlines: 0.5-1px in #E5E7EB (very light gray)
@@ -80,6 +87,7 @@ Clean, corporate aesthetic for professional business data visualizations. Subtle
 ### Layout and Spacing
 
 **Structured grid system:**
+
 - 8px or 12px grid alignment
 - Generous margins (40-60px)
 - Consistent padding between elements
@@ -90,6 +98,7 @@ Clean, corporate aesthetic for professional business data visualizations. Subtle
 ### Mood and Aesthetic
 
 **Corporate professional:**
+
 - Clean and understated
 - Trustworthy and reliable
 - Formal without being stuffy
@@ -112,6 +121,7 @@ Clean, corporate aesthetic for professional business data visualizations. Subtle
 ```
 
 **Technical precision modifiers:**
+
 ```
 "precise alignment", "clean typography", "subtle color palette",
 "professional sans-serif fonts", "structured grid layout",
@@ -120,6 +130,7 @@ Clean, corporate aesthetic for professional business data visualizations. Subtle
 ```
 
 **Quality and polish:**
+
 ```
 "high-resolution professional", "enterprise quality",
 "polished business design", "corporate brand standard",
@@ -131,6 +142,7 @@ Clean, corporate aesthetic for professional business data visualizations. Subtle
 Emphasize these sections for muted-professional:
 
 ### scene_description
+
 ```json
 {
   "environment": "Clean white or light gray background, professional corporate setting",
@@ -140,6 +152,7 @@ Emphasize these sections for muted-professional:
 ```
 
 ### composition_and_framing
+
 ```json
 {
   "layout": "Structured 12-column grid, precise alignment",
@@ -150,6 +163,7 @@ Emphasize these sections for muted-professional:
 ```
 
 ### color_and_grade
+
 ```json
 {
   "palette": ["#FFFFFF", "#1E3A8A", "#6B7280", "#2563EB", "#059669"],
@@ -161,11 +175,12 @@ Emphasize these sections for muted-professional:
 ```
 
 ### typography
+
 ```json
 {
   "font": "Inter or Roboto, professional sans-serif",
-  "weights": {"title": 600, "labels": 400, "data": 500},
-  "sizes": {"title": "24pt", "axis": "12pt", "data": "11pt"},
+  "weights": { "title": 600, "labels": 400, "data": 500 },
+  "sizes": { "title": "24pt", "axis": "12pt", "data": "11pt" },
   "color": "#1F2937 dark gray for all text",
   "alignment": "Left-aligned titles, centered labels",
   "spacing": "Tight letter spacing, professional kerning"
@@ -173,6 +188,7 @@ Emphasize these sections for muted-professional:
 ```
 
 ### lighting_design (if showing 3D elements)
+
 ```json
 {
   "style": "Flat design preferred (2D), soft ambient if 3D needed",
@@ -201,6 +217,7 @@ Emphasize these sections for muted-professional:
 **Primary: gpt-image-1 (DALL-E 3)**
 
 **Why:**
+
 - Superior text rendering (critical for data labels)
 - Precise geometric shapes and alignment
 - Better at clean, professional aesthetics
@@ -209,15 +226,17 @@ Emphasize these sections for muted-professional:
 - Excel at minimal design
 
 **Parameters:**
+
 ```yaml
 mcp__gpt-image-1__create_image:
-  prompt: "{professional_corporate_prompt}"
-  size: "1536x1024"  # Professional aspect ratio
-  quality: "high"  # Maximum quality for business use
-  output_format: "png"  # Lossless for charts
+  prompt: '{professional_corporate_prompt}'
+  size: '1536x1024' # Professional aspect ratio
+  quality: 'high' # Maximum quality for business use
+  output_format: 'png' # Lossless for charts
 ```
 
 **Alternative: nanobanana**
+
 - Use for quick iterations only
 - May struggle with perfect alignment
 - Acceptable for internal drafts
@@ -227,6 +246,7 @@ mcp__gpt-image-1__create_image:
 This style applies to ALL chart types with professional treatment:
 
 **Examples:**
+
 ```
 muted-professional + bar-charts = Clean corporate bar graph
 muted-professional + dashboards = Enterprise BI dashboard
@@ -265,6 +285,7 @@ Evaluate against:
   - Direct labeling preferred over legends
 
 **Color blindness testing:**
+
 - Test with Color Oracle or Coblis
 - Ensure deuteranopia, protanopia, tritanopia all work
 - Navy/gray/green palette is colorblind-friendly
@@ -272,18 +293,21 @@ Evaluate against:
 ## Real-World Applications
 
 **McKinsey-style reports:**
+
 - Clean bar charts with direct labeling
 - Muted blue/gray palette
 - Minimal gridlines
 - Bold insight-driven titles
 
 **Financial dashboards:**
+
 - Multi-chart layouts
 - Subtle color coding (green=profit, red=loss)
 - Precise number rendering
 - Professional typography
 
 **Board presentations:**
+
 - High-level KPI cards
 - Trend lines with context
 - Benchmark comparisons
@@ -303,6 +327,7 @@ Evaluate against:
 ## Sources
 
 Based on corporate design standards research:
+
 - McKinsey & Company reporting style
 - Google Material Design (enterprise guidelines)
 - UXPin Dashboard Design Principles (2025)

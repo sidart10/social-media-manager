@@ -1,8 +1,0 @@
-{
-  "title": "Enable only web search",
-  "content": "npx exa-mcp-server --tools=web_search_exa",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#enable-only-web-search",
-  "links": []
-}

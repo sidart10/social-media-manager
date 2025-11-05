@@ -1,8 +1,0 @@
-{
-  "title": "Define the workflow graph",
-  "content": "workflow = StateGraph(MessagesState)\nworkflow.add_node(\"agent\", call_model)\nworkflow.add_node(\"tools\", ToolNode([retrieve_web_content]))\nworkflow.set_entry_point(\"agent\")\nworkflow.add_conditional_edges(\"agent\", should_continue)\nworkflow.add_edge(\"tools\", \"agent\")",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#define-the-workflow-graph",
-  "links": []
-}

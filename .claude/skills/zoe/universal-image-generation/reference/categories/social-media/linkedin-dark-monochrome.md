@@ -9,6 +9,7 @@ Professional dark monochrome tech design system optimized for LinkedIn B2B conte
 ## When to Use
 
 **Best for:**
+
 - LinkedIn posts and carousels
 - B2B professional content
 - Technical/business topics
@@ -17,11 +18,13 @@ Professional dark monochrome tech design system optimized for LinkedIn B2B conte
 - Professional social media
 
 **Platforms:**
+
 - LinkedIn (primary)
 - Twitter/X (professional content)
 - Medium articles
 
 **Avoid for:**
+
 - Instagram (too dark, needs vibrant)
 - Facebook (too minimal for casual)
 - Consumer-facing brands
@@ -31,6 +34,7 @@ Professional dark monochrome tech design system optimized for LinkedIn B2B conte
 ### Color Palette
 
 **Dark monochrome + green accent:**
+
 - Background: #0B0B0B (near-black) - MANDATORY
 - Primary text: #FFFFFF (pure white)
 - Accent: #4ADE80 (green 400) - for highlights, CTAs
@@ -38,6 +42,7 @@ Professional dark monochrome tech design system optimized for LinkedIn B2B conte
 - Borders/dividers: #1F2937 (gray 800) - subtle separation
 
 **WCAG Validation:**
+
 - #FFFFFF on #0B0B0B = 19.56:1 (AAA) ✅
 - #4ADE80 on #0B0B0B = 12.14:1 (AAA) ✅
 - #9CA3AF on #0B0B0B = 6.78:1 (AA) ✅
@@ -45,6 +50,7 @@ Professional dark monochrome tech design system optimized for LinkedIn B2B conte
 ### Typography
 
 **Professional sans-serif, high readability:**
+
 - Font: Inter (primary), "SF Pro", Helvetica Neue, Arial
 - Weights:
   - Headline: Light (300) - counterintuitive but works on dark
@@ -62,12 +68,14 @@ Professional dark monochrome tech design system optimized for LinkedIn B2B conte
 ### Layout Rules
 
 **12-column grid system:**
+
 - Margins: 60-80px (generous)
 - Gutters: 24-32px
 - Content max-width: 1200px centered
 - Vertical rhythm: 8px baseline grid
 
 **Composition:**
+
 - Generous whitespace (40-50% of canvas)
 - Asymmetric layouts preferred
 - Left-aligned text (never centered)
@@ -77,6 +85,7 @@ Professional dark monochrome tech design system optimized for LinkedIn B2B conte
 ### Design Elements
 
 **Minimalist approach:**
+
 - No decorative elements
 - No gradients or shadows
 - No textures or patterns
@@ -85,6 +94,7 @@ Professional dark monochrome tech design system optimized for LinkedIn B2B conte
 - Clean lines only
 
 **Allowed accents:**
+
 - Single horizontal line divider (1px #1F2937)
 - Subtle geometric shapes (circles, rectangles) as frame elements
 - Green accent color for key information
@@ -104,6 +114,7 @@ Professional dark monochrome tech design system optimized for LinkedIn B2B conte
 ```
 
 **Typography emphasis:**
+
 ```
 "Inter font", "light weight headline (300)", "high contrast white text",
 "generous line spacing", "professional sans-serif", "crisp text rendering",
@@ -111,6 +122,7 @@ Professional dark monochrome tech design system optimized for LinkedIn B2B conte
 ```
 
 **Layout modifiers:**
+
 ```
 "12-column grid", "generous whitespace", "asymmetric layout",
 "left-aligned text", "minimal composition", "breathing room",
@@ -120,6 +132,7 @@ Professional dark monochrome tech design system optimized for LinkedIn B2B conte
 ## JSON Template Adjustments
 
 ### scene_description
+
 ```json
 {
   "environment": "Professional dark background, near-black (#0B0B0B)",
@@ -129,6 +142,7 @@ Professional dark monochrome tech design system optimized for LinkedIn B2B conte
 ```
 
 ### composition_and_framing
+
 ```json
 {
   "aspect_ratio": "16:9 for carousel, 1:1 for single post",
@@ -140,6 +154,7 @@ Professional dark monochrome tech design system optimized for LinkedIn B2B conte
 ```
 
 ### color_and_grade
+
 ```json
 {
   "palette": ["#0B0B0B", "#FFFFFF", "#4ADE80", "#9CA3AF"],
@@ -151,10 +166,11 @@ Professional dark monochrome tech design system optimized for LinkedIn B2B conte
 ```
 
 ### typography
+
 ```json
 {
   "font": "Inter, weight 300 for headlines",
-  "sizes": {"headline": "56pt", "body": "20pt", "caption": "14pt"},
+  "sizes": { "headline": "56pt", "body": "20pt", "caption": "14pt" },
   "color": "#FFFFFF for all primary text",
   "line_height": 1.5,
   "letter_spacing": "+0.5px for light weights",
@@ -163,6 +179,7 @@ Professional dark monochrome tech design system optimized for LinkedIn B2B conte
 ```
 
 ### style_guidance
+
 ```json
 {
   "visual_style": "Minimal dark monochrome, professional tech",
@@ -192,6 +209,7 @@ Professional dark monochrome tech design system optimized for LinkedIn B2B conte
 **Primary: gpt-image-1 (DALL-E 3)**
 
 **Why:**
+
 - Superior text rendering on dark backgrounds
 - Handles high-contrast scenarios well
 - Precise typography control
@@ -199,12 +217,13 @@ Professional dark monochrome tech design system optimized for LinkedIn B2B conte
 - Suitable for LinkedIn quality standards
 
 **Parameters:**
+
 ```yaml
 mcp__gpt-image-1__create_image:
-  prompt: "{linkedin_dark_monochrome_prompt}"
-  size: "1536x1024"  # LinkedIn carousel standard
-  quality: "high"
-  output_format: "png"
+  prompt: '{linkedin_dark_monochrome_prompt}'
+  size: '1536x1024' # LinkedIn carousel standard
+  quality: 'high'
+  output_format: 'png'
 ```
 
 **Cost:** ~$0.10/image
@@ -216,6 +235,7 @@ mcp__gpt-image-1__create_image:
 ### Example 1: Thought Leadership Post
 
 **Prompt:**
+
 ```
 Professional LinkedIn post on dark background (#0B0B0B). Large headline in white
 Inter Light (300 weight, 56pt) reading "67% of AI implementations fail". Green
@@ -237,6 +257,7 @@ centered text, casual, hand-drawn, low contrast, busy, multiple colors, textures
 ### Example 2: Technical Announcement
 
 **Prompt:**
+
 ```
 LinkedIn technical announcement post, dark monochrome. Black background (#0B0B0B).
 Main headline white Inter Light "Launching AI Agent Platform" (300 weight, 64pt),
@@ -258,6 +279,7 @@ cluttered, centered layout, casual fonts, low contrast, multiple colors, pattern
 ### Example 3: Data Insight Carousel
 
 **Prompt:**
+
 ```
 LinkedIn carousel slide showing data insight. Dark background (#0B0B0B). Large
 statistic "3.2× ROI" in white Inter Light (300 weight, 72pt) positioned left-third.
@@ -278,6 +300,7 @@ busy chart, chart junk, centered, casual, hand-drawn, low contrast, multiple col
 ## Content Types That Perform
 
 **On LinkedIn, this style works for:**
+
 1. **Thought leadership** (contrarian insights, industry commentary)
 2. **Data-driven posts** (statistics, research findings)
 3. **Technical announcements** (product launches, features)
@@ -285,6 +308,7 @@ busy chart, chart junk, centered, casual, hand-drawn, low contrast, multiple col
 5. **Lessons/insights** (what I learned, key takeaways)
 
 **Content structure:**
+
 - Bold claim or statistic (headline)
 - Supporting points (3-5 bullets)
 - Call-to-action or source attribution
@@ -295,16 +319,19 @@ busy chart, chart junk, centered, casual, hand-drawn, low contrast, multiple col
 **Special considerations:**
 
 **Higher contrast needed:**
+
 - Pure white (#FFFFFF) required for primary text
 - Never use grays darker than #9CA3AF
 - Test readability at all sizes
 
 **Font weight adjustments:**
+
 - Light weights (300) work better on dark than light backgrounds
 - Avoid thin (100-200) - too hard to read
 - Medium (500) for emphasis instead of bold (700)
 
 **Validation:**
+
 - Test with inverted colors (should also work)
 - Verify in bright daylight (screens washed out)
 - Check mobile readability (smaller screens)
@@ -327,6 +354,7 @@ LinkedIn dark monochrome specific:
 ## Sources
 
 **Design system developed through:**
+
 - Sid's successful LinkedIn content (proven engagement)
 - Minimalist design principles
 - WCAG AAA accessibility standards

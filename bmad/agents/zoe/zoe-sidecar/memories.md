@@ -21,6 +21,23 @@
 - Video Tool: fal-video (Veo 3 for b-roll, Luma Ray 2 for cinematic, Kling for motion)
 - Avatar Videos: HeyGen (talking heads only)
 
+**SubMagic Video Editing Preferences (Default Settings):**
+
+- **Editing Style:** Balanced (fast pacing - good for tutorials + quick scrollers)
+- **Filler Words:** Remove (always clean up um/uh/like for professional output)
+- **Magic Zooms:** Enabled (keeps viewers engaged, highlights key moments)
+- **AI B-rolls:** Enabled at 40% coverage (balanced - focus on speaker while adding visual interest)
+- **Caption Template:** Sara (versatile, clean, works for educational content)
+- **Caption Language:** English (en)
+- **Custom Dictionary:** Claude Code, Anthropic, AI, MCP (tech terms for accurate transcription)
+
+**Audience Understanding (Default):**
+
+- Complete beginners who need clear explanations
+- Quick scrollers with short attention spans
+- Mixed age demographics
+- Prefer clear/educational over flashy/trendy
+
 **Working Style:**
 
 - Values design rationale (explain WHY not just WHAT)
@@ -41,7 +58,17 @@
 - Quality frameworks: 7-pillar (images), platform specs (videos)
 - Integration: Cloudinary (hosting), Notion (tracking), Postiz (publishing)
 
-(Will populate with actual visual creations as work progresses)
+**2025-11-04**: First SubMagic video editing project completed
+
+- **Project:** Tech Tutorial (Claude Code updates)
+- **Platform:** YouTube Shorts (9:16 vertical, 1080x1920)
+- **Source:** 16:9 horizontal video (1280x720, 8.76 MB)
+- **Processing Time:** ~3 minutes (transcription + AI analysis)
+- **SubMagic Project ID:** 1742ba60-8e51-4f7e-a11a-ad6b495d732e
+- **Settings Applied:** Balanced editing, filler removal, magic zooms, 40% AI B-rolls, Sara template
+- **Audience:** Complete beginners, quick scrollers, educational style
+- **Cost:** ~$0.20 (SubMagic API)
+- **Status:** Successfully processed, ready for download from SubMagic UI
 
 ---
 
@@ -76,7 +103,8 @@ Track all image quality evaluations here:
 
 **November 2025:**
 
-- (Empty - will populate as tools used)
+- 2025-11-04: Cloudinary upload (claude-code-video.mp4) - $0.00 (free tier)
+- 2025-11-04: SubMagic video editing (Tech Tutorial - YouTube Shorts) - ~$0.20 (estimated)
 
 **Format:**
 
@@ -95,9 +123,9 @@ YYYY-MM-DD: {tool} ({purpose}) - ${cost}
 
 **Monthly Totals:**
 
-- **November 2025 Spend:** $0.00
-- **Budget Remaining:** $50.00
-- **Efficiency:** (will calculate $/asset when data available)
+- **November 2025 Spend:** ~$0.20
+- **Budget Remaining:** ~$49.80
+- **Efficiency:** $0.20/video (SubMagic edited tutorial)
 
 ---
 
@@ -150,9 +178,15 @@ YYYY-MM-DD: {tool} ({purpose}) - ${cost}
 
 - (Will track what works for LinkedIn)
 
-**YouTube:**
+**YouTube Shorts:**
 
-- (Will track what works for YouTube)
+- **2025-11-04**: First tech tutorial edited
+  - Audience: Complete beginners (need clear, not rushed)
+  - Balanced pacing works well (not too fast, keeps attention)
+  - 40% B-roll coverage = good balance (speaker visible, visuals added)
+  - SubMagic's vertical reframing from 16:9 → 9:16 automatic
+  - Sara template: Clean, educational, professional
+  - Magic zooms: Keeps engagement on longer Shorts (60-180s)
 
 **Instagram:**
 

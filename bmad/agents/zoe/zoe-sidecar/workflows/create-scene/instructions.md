@@ -228,50 +228,52 @@
 
 <action>**Add video URL to Notion:**
 
-  **Step 1: Upload to Cloudinary**
-  - Ask: "Upload video to Cloudinary for public URL? (needed for Postiz) [y/n]"
+**Step 1: Upload to Cloudinary**
 
-  if yes:
-    - Tool: mcp__cloudinary-asset-mgmt__upload-asset
-    - Parameters:
-        resourceType: "video"
-        uploadRequest:
-          file: "{video_output_path}"
-          public_id: "social-media/videos/{video_filename}"
-          folder: "social-media-videos"
+- Ask: "Upload video to Cloudinary for public URL? (needed for Postiz) [y/n]"
+
+if yes: - Tool: mcp**cloudinary-asset-mgmt**upload-asset - Parameters:
+resourceType: "video"
+uploadRequest:
+file: "{video_output_path}"
+public_id: "social-media/videos/{video_filename}"
+folder: "social-media-videos"
 
     - cloudinary_url = result.secure_url
     - display(f"✅ Uploaded to Cloudinary: {cloudinary_url}")
 
-  **Step 2: Update Notion**
-  - metadata = read_json("00-session/metadata.json")
-  - if metadata.notion.page_url exists:
+**Step 2: Update Notion**
 
-    if cloudinary_url:
-      update_content_property(
-        metadata.notion.page_url,
-        {"Description": f"Video URL: {cloudinary_url}"},
-        "Zoe"
-      )
-      display("✅ Notion updated with video URL")
-    else:
-      update_content_property(
-        metadata.notion.page_url,
-        {"Description": "Local: 04-media/videos/{video_filename}.mp4"},
-        "Zoe"
-      )
+- metadata = read_json("00-session/metadata.json")
+- if metadata.notion.page_url exists:
 
-    # Keep Status=Editing
-    display("ℹ️ Status='Editing' (video ready for publishing)")
-
-    # Log
-    append_to_file("00-session/session-log.md",
-      f"{timestamp} - Zoe: Added video to Notion\n"
-    )
-
+  if cloudinary_url:
+  update_content_property(
+  metadata.notion.page_url,
+  {"Description": f"Video URL: {cloudinary_url}"},
+  "Zoe"
+  )
+  display("✅ Notion updated with video URL")
   else:
-    display("ℹ️ No Notion page linked")
-  end if
+  update_content_property(
+  metadata.notion.page_url,
+  {"Description": "Local: 04-media/videos/{video_filename}.mp4"},
+  "Zoe"
+  )
+
+  # Keep Status=Editing
+
+  display("ℹ️ Status='Editing' (video ready for publishing)")
+
+  # Log
+
+  append_to_file("00-session/session-log.md",
+  f"{timestamp} - Zoe: Added video to Notion\n"
+  )
+
+else:
+display("ℹ️ No Notion page linked")
+end if
 </action>
 </step>
 
@@ -304,21 +306,22 @@
     "suggested_action": "schedule-video-post",
     "priority": "normal",
     "notes": "{{scene_prompt}}"
-  }
-  </action>
 
-  <action>Save handoff JSON to:
-    {{outputs_project}}/../../handoffs/zoe-to-zoro-video-{{timestamp}}.json
-  </action>
+}
+</action>
 
-  <action>Display: "✅ Handoff created for Zoro"</action>
-  <action>Display: "💡 To publish: Run /zoro and select 'Process Handoff'"</action>
+<action>Save handoff JSON to:
+{{outputs_project}}/../../handoffs/zoe-to-zoro-video-{{timestamp}}.json
+</action>
 
-  <action>Log to session:
-    append_to_file("00-session/session-log.md",
-      "{timestamp} - Zoe: Created handoff for Zoro (video scene)\n"
-    )
-  </action>
+<action>Display: "✅ Handoff created for Zoro"</action>
+<action>Display: "💡 To publish: Run /zoro and select 'Process Handoff'"</action>
+
+<action>Log to session:
+append_to_file("00-session/session-log.md",
+"{timestamp} - Zoe: Created handoff for Zoro (video scene)\n"
+)
+</action>
 </check>
 
 <check if="no">

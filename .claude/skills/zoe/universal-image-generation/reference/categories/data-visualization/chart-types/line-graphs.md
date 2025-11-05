@@ -9,6 +9,7 @@ Line charts connect data points to show continuous change over time. Essential f
 ## When to Use Line Graphs
 
 **Best for:**
+
 - Trends over time (stock prices, website traffic, temperature)
 - Continuous data showing evolution
 - Time-series analysis
@@ -17,11 +18,13 @@ Line charts connect data points to show continuous change over time. Essential f
 - Forecasting and predictions
 
 **Data requirements:**
+
 - 1 continuous variable for X-axis (usually time/date)
 - 1+ quantitative variables for Y-axis (metrics to track)
 - Sequential data points (chronological order)
 
 **Choose line over bar when:**
+
 - Showing continuous progression (not discrete points)
 - Emphasizing shape and trajectory of change
 - Many data points (50+ points work on line, not bar)
@@ -32,10 +35,12 @@ Line charts connect data points to show continuous change over time. Essential f
 ### Line charts represent VALUE through POSITION and ANGLE
 
 **Critical difference from bar charts:**
+
 - Bar charts: Use LENGTH/HEIGHT (must start at zero)
 - Line charts: Use POSITION/SLOPE (zero baseline optional)
 
 **This means:**
+
 - Starting above zero is ACCEPTABLE for line charts
 - Adjusting Y-axis to match data range often BETTER
 - Focus on shape/trend, not distance from baseline
@@ -47,35 +52,41 @@ Line charts connect data points to show continuous change over time. Essential f
 ### Essential Elements
 
 **1. X-Axis (Time Dimension):**
+
 - Always represents time or sequential progression
 - Labels: Clear date format (Jan 2024, Q1 2024, Week 1)
 - Tick marks: Logical intervals (every month, every quarter)
 - Grid lines: Vertical optional (usually omitted)
 
 **2. Y-Axis (Value Dimension):**
+
 - Label with units: "Revenue ($M)", "Users (thousands)"
 - Scale: Match data range (don't force zero if hides changes)
 - Tick marks: Round numbers (0, 25, 50, 75, 100)
 - Grid lines: Horizontal useful (light gray, subtle)
 
 **3. Line Treatment:**
+
 - Thickness: 2-3px for single line, 1.5-2px for multiple
 - Style: Solid for actual data, dashed for projections/goals
 - Color: High contrast with background
 - Smooth curves OR straight segments (depends on data)
 
 **4. Data Points (optional):**
+
 - Dots/circles at each value
 - Helpful for sparse data (few points)
 - Skip for dense data (50+ points = cluttered)
 - Size: 4-6px radius
 
 **5. Title:**
+
 - Insight-driven statement of trend
 - ❌ "Website Traffic Over Time"
 - ✅ "Website Traffic Doubled After Campaign Launch"
 
 **6. Annotations (powerful):**
+
 - Mark key events ("Campaign launch", "Product release")
 - Vertical lines or text callouts
 - Explain spikes, drops, inflection points
@@ -83,11 +94,13 @@ Line charts connect data points to show continuous change over time. Essential f
 ### Line Specifications
 
 **For single-line charts:**
+
 - Thickness: 2-3px
 - Color: Bold, high contrast (#2563EB, #1E3A8A)
 - Emphasize through color and thickness
 
 **For multi-line charts:**
+
 - Thickness: 1.5-2px each
 - Colors: Distinct but harmonious
 - Max 5 lines (more = "spaghetti chart")
@@ -96,6 +109,7 @@ Line charts connect data points to show continuous change over time. Essential f
 ## Variations
 
 ### Multiple Line Charts
+
 ```
 Use when:
 - Comparing 2-5 trends simultaneously
@@ -110,6 +124,7 @@ Rules:
 ```
 
 ### Small Multiples (Panel Charts)
+
 ```
 Use when:
 - 5+ categories to compare
@@ -124,6 +139,7 @@ Structure:
 ```
 
 ### Area Charts
+
 ```
 Use when:
 - Emphasizing magnitude AND trend
@@ -137,6 +153,7 @@ Rules:
 ```
 
 ### Slope Charts
+
 ```
 Use when:
 - Only start and end points matter
@@ -156,6 +173,7 @@ Structure:
 **Example scenarios:**
 
 **Temperature over time:**
+
 ```
 Data range: 15°C to 25°C
 Zero-baseline chart: Line appears flat at top (useless)
@@ -165,6 +183,7 @@ Adjusted baseline (10-30°C): Shows variation clearly (better)
 ```
 
 **Stock price:**
+
 ```
 Data range: $145 to $165
 Zero-baseline: Minimal visible change
@@ -174,6 +193,7 @@ Adjusted (140-170): Clear trend visible
 ```
 
 **When to use zero baseline on line charts:**
+
 ```
 - If showing growth from zero (startup users 0 → 1000)
 - If magnitude from zero matters (total sales accumulation)
@@ -241,16 +261,19 @@ chart junk, 3D effects, gradients, decorative elements, low readability
 **WCAG 2.1 Level AA:**
 
 **Color contrast:**
+
 - Lines against background: 3:1 minimum
 - Multiple lines from each other: 3:1 minimum
 - Text labels: 4.5:1 minimum
 
 **Dual encoding (for multiple lines):**
+
 - Different colors + Direct labels at line ends
 - OR Different colors + Line styles (solid, dashed, dotted)
 - Never rely on color alone
 
 **Testing:**
+
 - Simulate protanopia, deuteranopia, tritanopia
 - Verify lines distinguishable in grayscale
 - Check small size readability (mobile view)
@@ -258,6 +281,7 @@ chart junk, 3D effects, gradients, decorative elements, low readability
 ## Combining with Styles
 
 ### Muted Professional + Line Graph
+
 ```
 Clean corporate line, subtle colors, precise rendering,
 professional typography, minimal gridlines.
@@ -267,6 +291,7 @@ Best for: Business reports, executive dashboards
 ```
 
 ### tldraw + Line Graph
+
 ```
 Hand-drawn sketchy line, imperfect organic curve, warm
 earth tones, casual hand-written labels, whiteboard style.
@@ -276,6 +301,7 @@ Best for: Casual explanations, blog posts
 ```
 
 ### Dark Mode Analytics + Line Graph
+
 ```
 Dark background, neon accent lines, tech aesthetic,
 modern sans-serif, dashboard ready.
@@ -285,6 +311,7 @@ Best for: Product analytics, tech dashboards
 ```
 
 ### Vibrant Presentation + Line Graph
+
 ```
 Bold saturated line colors, high energy, large numbers,
 attention-grabbing, sales presentation style.
@@ -296,6 +323,7 @@ Best for: Marketing presentations, pitch decks
 ## Advanced Patterns
 
 ### Sparklines
+
 ```
 Tiny line charts without axes, labels, or gridlines
 - Show trend only (no specific values)
@@ -307,6 +335,7 @@ Use: Dashboard KPI cards, table columns
 ```
 
 ### Confidence Intervals
+
 ```
 Show uncertainty in data:
 - Main line for central estimate
@@ -318,6 +347,7 @@ Use: Statistical data, predictions, forecasts
 ```
 
 ### Dual-Axis Charts (Use Sparingly)
+
 ```
 Two Y-axes for different units/scales
 - Left axis: Primary metric
@@ -345,18 +375,21 @@ Specific criteria for line graphs:
 ## Common Use Cases
 
 **Business metrics:**
+
 - Revenue over quarters
 - User growth month-over-month
 - Conversion rate trends
 - Market share evolution
 
 **Scientific data:**
+
 - Temperature changes
 - Population growth
 - Experimental results over time
 - Climate data
 
 **Analytics:**
+
 - Website traffic
 - App engagement metrics
 - Performance monitoring
@@ -365,21 +398,25 @@ Specific criteria for line graphs:
 ## Research-Backed Guidelines
 
 **From Datawrapper (2025):**
+
 - Line charts most intuitive for time-series
 - Use multiple lines with caution (max 5)
 - Consider small multiples for many categories
 
 **From Hands-On Data Visualization:**
+
 - Position and angle encode value (not height)
 - Zero baseline flexible (unlike bars)
 - Annotations add crucial context
 
 **From UXPin Dashboard Design:**
+
 - Real-time data suits line charts
 - Interactive filtering enhances usability
 - Clear hierarchy essential for multi-line
 
 **From WCAG 2.1:**
+
 - 3:1 contrast minimum for lines
 - Dual encoding required (color + labels)
 - Alt text must describe trend

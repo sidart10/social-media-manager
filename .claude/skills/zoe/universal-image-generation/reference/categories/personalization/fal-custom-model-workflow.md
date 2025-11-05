@@ -1,6 +1,6 @@
 # FAL Custom Model Workflow
 
-**How to use mcp__fal-video__execute_custom_model for personalized image generation**
+**How to use mcp**fal-video**execute_custom_model for personalized image generation**
 
 ---
 
@@ -10,11 +10,12 @@ The `execute_custom_model` tool allows you to run any FAL model by specifying th
 
 ---
 
-## Tool: mcp__fal-video__execute_custom_model
+## Tool: mcp**fal-video**execute_custom_model
 
 ### Purpose
 
 Execute custom FAL models that aren't in the standard registry. Ideal for:
+
 - Custom-trained LoRA models (use `fal-ai/flux-lora` endpoint)
 - Fine-tuned models
 - Personal model endpoints
@@ -81,24 +82,28 @@ Execute custom FAL models that aren't in the standard registry. Ideal for:
 ### Core Parameters
 
 **prompt** (required)
+
 - Main text description
 - **Critical**: Must include trigger word from training
 - Example: "Photo of SIDAI in business attire"
 - Max length: Usually 512-1024 tokens (model dependent)
 
 **negative_prompt** (optional but recommended)
+
 - Things to avoid in generation
 - Comma-separated list
 - Example: "blurry, low quality, amateur, artifacts"
 - Minimum 10 items recommended
 
 **num_images** (optional, default: 1)
+
 - Number of images to generate
 - Range: 1-4 (model dependent)
 - Higher n = more variations
 - Cost increases linearly
 
 **guidance_scale** (optional, default: 7.5)
+
 - How closely to follow the prompt
 - Range: 1-20
 - Lower (3-5): More creative, less literal
@@ -106,6 +111,7 @@ Execute custom FAL models that aren't in the standard registry. Ideal for:
 - Higher (12-20): Very literal, may over-saturate
 
 **num_inference_steps** (optional, default: 30)
+
 - Quality vs speed tradeoff
 - Range: 20-50
 - Lower (20-25): Faster, less refined
@@ -113,6 +119,7 @@ Execute custom FAL models that aren't in the standard registry. Ideal for:
 - Higher (40-50): Slower, more refined
 
 **image_size** (optional, default varies)
+
 - Output dimensions
 - Common options:
   - "square_hd": 1024×1024
@@ -123,6 +130,7 @@ Execute custom FAL models that aren't in the standard registry. Ideal for:
 - Check model documentation for supported sizes
 
 **seed** (optional)
+
 - Random seed for reproducibility
 - Use same seed + prompt = same image
 - Omit for random results
@@ -135,15 +143,15 @@ Execute custom FAL models that aren't in the standard registry. Ideal for:
 
 ```yaml
 mcp__fal-video__execute_custom_model:
-  endpoint: "fal-ai/sidchaudhuri/sid-custom-model"
-  category_hint: "image"
+  endpoint: 'fal-ai/sidchaudhuri/sid-custom-model'
+  category_hint: 'image'
   input_params:
-    prompt: "Photo of SIDAI, professional LinkedIn headshot, navy blue blazer, white shirt, neutral gray background, soft studio lighting from camera left, shallow depth of field, Canon 85mm f/1.8, photorealistic, high detail, corporate professional"
-    negative_prompt: "amateur lighting, harsh shadows, overexposed, blurry, low resolution, casual clothing, distracting background, unnatural pose, heavy filters, artifacts, cartoon, watermarks"
+    prompt: 'Photo of SIDAI, professional LinkedIn headshot, navy blue blazer, white shirt, neutral gray background, soft studio lighting from camera left, shallow depth of field, Canon 85mm f/1.8, photorealistic, high detail, corporate professional'
+    negative_prompt: 'amateur lighting, harsh shadows, overexposed, blurry, low resolution, casual clothing, distracting background, unnatural pose, heavy filters, artifacts, cartoon, watermarks'
     num_images: 1
     guidance_scale: 7.5
     num_inference_steps: 30
-    image_size: "landscape_4_3"
+    image_size: 'landscape_4_3'
     seed: 42
 ```
 
@@ -155,15 +163,15 @@ mcp__fal-video__execute_custom_model:
 
 ```yaml
 mcp__fal-video__execute_custom_model:
-  endpoint: "fal-ai/sidchaudhuri/sid-custom-model"
-  category_hint: "image"
+  endpoint: 'fal-ai/sidchaudhuri/sid-custom-model'
+  category_hint: 'image'
   input_params:
-    prompt: "Photo of SIDAI, casual outdoor portrait, wearing denim jacket and white t-shirt, urban coffee shop background, natural daylight, shallow depth of field, candid relaxed expression, Instagram aesthetic, warm tones"
-    negative_prompt: "formal clothing, studio lighting, stiff pose, over-processed, filters, low quality, blurry, artificial, corporate"
+    prompt: 'Photo of SIDAI, casual outdoor portrait, wearing denim jacket and white t-shirt, urban coffee shop background, natural daylight, shallow depth of field, candid relaxed expression, Instagram aesthetic, warm tones'
+    negative_prompt: 'formal clothing, studio lighting, stiff pose, over-processed, filters, low quality, blurry, artificial, corporate'
     num_images: 2
     guidance_scale: 6.5
     num_inference_steps: 30
-    image_size: "square_hd"
+    image_size: 'square_hd'
 ```
 
 **Expected result**: 2 casual Instagram-worthy portraits
@@ -174,15 +182,15 @@ mcp__fal-video__execute_custom_model:
 
 ```yaml
 mcp__fal-video__execute_custom_model:
-  endpoint: "fal-ai/sidchaudhuri/sid-custom-model"
-  category_hint: "image"
+  endpoint: 'fal-ai/sidchaudhuri/sid-custom-model'
+  category_hint: 'image'
   input_params:
-    prompt: "Photo of SIDAI, energetic YouTube thumbnail portrait, pointing at camera, excited expression, wearing bright colored hoodie, clean white background, high contrast lighting, sharp focus, dynamic pose, enthusiastic vibe"
-    negative_prompt: "boring expression, dark lighting, blurry, low energy, formal attire, dull colors, soft lighting, amateur"
+    prompt: 'Photo of SIDAI, energetic YouTube thumbnail portrait, pointing at camera, excited expression, wearing bright colored hoodie, clean white background, high contrast lighting, sharp focus, dynamic pose, enthusiastic vibe'
+    negative_prompt: 'boring expression, dark lighting, blurry, low energy, formal attire, dull colors, soft lighting, amateur'
     num_images: 3
     guidance_scale: 8.0
     num_inference_steps: 35
-    image_size: "landscape_16_9"
+    image_size: 'landscape_16_9'
 ```
 
 **Expected result**: 3 high-energy thumbnail options
@@ -193,15 +201,15 @@ mcp__fal-video__execute_custom_model:
 
 ```yaml
 mcp__fal-video__execute_custom_model:
-  endpoint: "fal-ai/sidchaudhuri/sid-custom-model"
-  category_hint: "image"
+  endpoint: 'fal-ai/sidchaudhuri/sid-custom-model'
+  category_hint: 'image'
   input_params:
-    prompt: "Photo of SIDAI, working at modern tech workspace, coding on laptop, dual monitors with code visible, wearing casual hoodie, focused expression, warm desk lamp lighting, tech startup office aesthetic, shallow depth of field, professional photography"
-    negative_prompt: "messy desk, poor lighting, outdated tech, corporate office, suit and tie, cluttered background, unnatural pose, stock photo"
+    prompt: 'Photo of SIDAI, working at modern tech workspace, coding on laptop, dual monitors with code visible, wearing casual hoodie, focused expression, warm desk lamp lighting, tech startup office aesthetic, shallow depth of field, professional photography'
+    negative_prompt: 'messy desk, poor lighting, outdated tech, corporate office, suit and tie, cluttered background, unnatural pose, stock photo'
     num_images: 1
     guidance_scale: 7.0
     num_inference_steps: 30
-    image_size: "landscape_4_3"
+    image_size: 'landscape_4_3'
 ```
 
 **Expected result**: Authentic tech workspace portrait
@@ -215,8 +223,8 @@ mcp__fal-video__execute_custom_model:
 ```yaml
 guidance_scale: 7.5-8.5
 num_inference_steps: 30-35
-prompt_focus: "professional, high-quality, sharp, detailed"
-negative_prompt_focus: "amateur, casual, artifacts, low quality"
+prompt_focus: 'professional, high-quality, sharp, detailed'
+negative_prompt_focus: 'amateur, casual, artifacts, low quality'
 ```
 
 ### For Social Media Content
@@ -224,8 +232,8 @@ negative_prompt_focus: "amateur, casual, artifacts, low quality"
 ```yaml
 guidance_scale: 6.0-7.5
 num_inference_steps: 25-30
-prompt_focus: "natural, authentic, candid, lifestyle"
-negative_prompt_focus: "stiff, formal, over-processed, filters"
+prompt_focus: 'natural, authentic, candid, lifestyle'
+negative_prompt_focus: 'stiff, formal, over-processed, filters'
 ```
 
 ### For Creative/Artistic Content
@@ -233,8 +241,8 @@ negative_prompt_focus: "stiff, formal, over-processed, filters"
 ```yaml
 guidance_scale: 5.0-7.0
 num_inference_steps: 30-40
-prompt_focus: "creative, artistic, unique, expressive"
-negative_prompt_focus: "boring, generic, stock photo, conventional"
+prompt_focus: 'creative, artistic, unique, expressive'
+negative_prompt_focus: 'boring, generic, stock photo, conventional'
 ```
 
 ### For High-Energy/Dynamic Content (Thumbnails)
@@ -242,8 +250,8 @@ negative_prompt_focus: "boring, generic, stock photo, conventional"
 ```yaml
 guidance_scale: 7.5-9.0
 num_inference_steps: 30-35
-prompt_focus: "dynamic, energetic, high contrast, eye-catching"
-negative_prompt_focus: "boring, low energy, dull, subtle"
+prompt_focus: 'dynamic, energetic, high contrast, eye-catching'
+negative_prompt_focus: 'boring, low energy, dull, subtle'
 ```
 
 ---
@@ -268,6 +276,7 @@ Or use `num_images: 3` in a single call.
 ### Prompt Weighting (if supported)
 
 Some models support emphasis:
+
 ```
 (SIDAI:1.2), professional headshot, (sharp focus:1.1)
 ```
@@ -275,8 +284,9 @@ Some models support emphasis:
 ### Resolution Upscaling
 
 For print quality, generate at highest supported resolution:
+
 ```yaml
-image_size: "square_hd"  # 1024×1024
+image_size: 'square_hd' # 1024×1024
 # Then upscale externally if needed
 ```
 
@@ -287,18 +297,22 @@ image_size: "square_hd"  # 1024×1024
 ### Common Errors
 
 **"Model not found"**
+
 - Cause: Endpoint doesn't exist or isn't public
 - Fix: Verify endpoint name, check model is deployed
 
 **"Invalid parameters"**
+
 - Cause: Input params don't match model schema
 - Fix: Check model documentation for required params
 
 **"Generation failed"**
+
 - Cause: Prompt may trigger safety filters or be invalid
 - Fix: Adjust prompt, remove problematic content
 
 **"Timeout"**
+
 - Cause: High inference steps or server load
 - Fix: Reduce num_inference_steps, try again
 
@@ -322,6 +336,7 @@ image_size: "square_hd"  # 1024×1024
 ### From JSON to FAL Call
 
 **JSON Template:**
+
 ```json
 {
   "scene_description": {...},
@@ -336,14 +351,15 @@ image_size: "square_hd"  # 1024×1024
 ```
 
 **Convert to FAL:**
+
 ```yaml
 mcp__fal-video__execute_custom_model:
-  endpoint: "fal-ai/sidchaudhuri/sid-custom-model"
-  category_hint: "image"
+  endpoint: 'fal-ai/sidchaudhuri/sid-custom-model'
+  category_hint: 'image'
   input_params:
-    prompt: "Photo of SIDAI, {converted_from_json}"
-    negative_prompt: "{joined_array}"
-    image_size: "{size_from_aspect_ratio}"
+    prompt: 'Photo of SIDAI, {converted_from_json}'
+    negative_prompt: '{joined_array}'
+    image_size: '{size_from_aspect_ratio}'
     guidance_scale: 7.5
     num_inference_steps: 30
 ```
@@ -353,16 +369,19 @@ mcp__fal-video__execute_custom_model:
 ## Performance Characteristics
 
 **Typical Generation Times:**
+
 - Low steps (20-25): 2-3 seconds
 - Medium steps (30-35): 3-5 seconds
 - High steps (40-50): 5-8 seconds
 
 **Cost:**
+
 - Model-specific, check FAL pricing
 - Typically $0.01-0.05 per image
 - Batch generation may offer discounts
 
 **Quality:**
+
 - Depends on training data quality
 - Fine-tuned models: 8-9/10 likeness
 - Proper prompting: 9-10/10 scenario accuracy

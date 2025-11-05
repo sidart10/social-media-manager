@@ -47,19 +47,20 @@
 <ask>Describe how you want to blend these images:
 
 Examples:
+
 - "Put me from image 1 on the beach from image 2"
 - "Combine these product shots into one scene with image 1 center, image 2 left, image 3 right"
 - "Place the logo from image 1 in the top-right corner of image 2"
 - "Create a side-by-side comparison of image 1 and image 2"
 - "Merge these into a grid layout (2x2 or 1x3)"
-</ask>
+  </ask>
 
 <action>Store user description as {{blend_prompt}}</action>
 
 <action>Analyze blend_prompt for clarity:</action>
 <check if="prompt doesn't specify positions">
-  <action>Suggest: "Specify where each image should appear (center, left, right, top-right, etc.)"</action>
-  <ask>Want to refine your blending description? [y/n]</ask>
+<action>Suggest: "Specify where each image should appear (center, left, right, top-right, etc.)"</action>
+<ask>Want to refine your blending description? [y/n]</ask>
 </check>
 
 </step>
@@ -93,11 +94,12 @@ Image Blending Plan
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Input Images: {{blend_count}}
+
 1. {{filename_1}} ({{size_1}})
 2. {{filename_2}} ({{size_2}})
-{{if blend_count == 3}}
+   {{if blend_count == 3}}
 3. {{filename_3}} ({{size_3}})
-{{endif}}
+   {{endif}}
 
 Composition: {{blend_prompt}}
 
@@ -147,7 +149,7 @@ result = mcp__nanobanana__generate_image({
 <step n="6" goal="Save blended image and metadata">
 
 <action>Create filename:</action>
-<action>blended_{{timestamp}}.png</action>
+<action>blended\_{{timestamp}}.png</action>
 <action>Store as {{blended_filename}}</action>
 
 <action>Copy from Nanobanana location to agent outputs:</action>
@@ -159,31 +161,31 @@ result = mcp__nanobanana__generate_image({
 
 <action>Create metadata JSON:</action>
 <action>
-Write: {{outputs_project}}/{{blended_filename}}_metadata.json
+Write: {{outputs_project}}/{{blended_filename}}\_metadata.json
 
 Content:
 {
-  "operation": "blend",
-  "blend_prompt": "{{blend_prompt}}",
-  "input_images": [
-    {"path": "{{input_image_path_1}}", "size": "{{size_1}}"},
-    {"path": "{{input_image_path_2}}", "size": "{{size_2}}"}
-    {{if blend_count == 3}},
-    {"path": "{{input_image_path_3}}", "size": "{{size_3}}"}
-    {{endif}}
-  ],
-  "output_image": {
-    "path": "{{blended_filename}}",
-    "size": "{{final_size}}"
-  },
-  "provider": "nanobanana",
-  "model": "gemini-2.5-flash-image",
-  "tool": "mcp__nanobanana__generate_image",
-  "mode": "edit",
-  "timestamp": "{{ISO-8601}}",
-  "generation_time_seconds": {{generation_time}},
-  "files_api_id": "{{files_api_id}}",
-  "nano_output_path": "{{nano_output_path}}"
+"operation": "blend",
+"blend_prompt": "{{blend_prompt}}",
+"input_images": [
+{"path": "{{input_image_path_1}}", "size": "{{size_1}}"},
+{"path": "{{input_image_path_2}}", "size": "{{size_2}}"}
+{{if blend_count == 3}},
+{"path": "{{input_image_path_3}}", "size": "{{size_3}}"}
+{{endif}}
+],
+"output_image": {
+"path": "{{blended_filename}}",
+"size": "{{final_size}}"
+},
+"provider": "nanobanana",
+"model": "gemini-2.5-flash-image",
+"tool": "mcp**nanobanana**generate_image",
+"mode": "edit",
+"timestamp": "{{ISO-8601}}",
+"generation_time_seconds": {{generation_time}},
+"files_api_id": "{{files_api_id}}",
+"nano_output_path": "{{nano_output_path}}"
 }
 </action>
 
@@ -207,11 +209,12 @@ Location: {{outputs_project}}/
 <step n="7" goal="Review and refine">
 
 <ask>What would you like to do?
+
 1. Refine blending (adjust composition)
 2. Blend different images
 3. Apply same blend to new images
 4. Save and done
-</ask>
+   </ask>
 
 <action>Store as {{next_action}}</action>
 
@@ -223,21 +226,21 @@ Location: {{outputs_project}}/
   - "Adjust the positioning of image 2"
   </ask>
 
-  <action>Store as {{refinement_prompt}}</action>
+<action>Store as {{refinement_prompt}}</action>
 
-  <action>Call Nanobanana again with refinement:</action>
-  <action>
-  result = mcp__nanobanana__generate_image({
-    prompt: {{refinement_prompt}},
-    file_id: {{files_api_id}},
-    mode: "edit",
-    n: 1
-  })
-  </action>
+<action>Call Nanobanana again with refinement:</action>
+<action>
+result = mcp**nanobanana**generate_image({
+prompt: {{refinement_prompt}},
+file_id: {{files_api_id}},
+mode: "edit",
+n: 1
+})
+</action>
 
-  <action>Save as {{blended_filename}}_v2.png</action>
-  <action>Update metadata</action>
-  <goto step="7">Return to options</goto>
+<action>Save as {{blended_filename}}\_v2.png</action>
+<action>Update metadata</action>
+<goto step="7">Return to options</goto>
 </check>
 
 <check if="next_action == 2">
@@ -276,9 +279,9 @@ Location: {{outputs_project}}/
       folder: "social-media-images"
   </action>
 
-  <action>Store result: {{cloudinary_result}}</action>
-  <action>Extract URL: {{cloudinary_url}} = cloudinary_result.secure_url</action>
-  <action>Display: "✅ Uploaded to Cloudinary: {cloudinary_url}"</action>
+<action>Store result: {{cloudinary_result}}</action>
+<action>Extract URL: {{cloudinary_url}} = cloudinary_result.secure_url</action>
+<action>Display: "✅ Uploaded to Cloudinary: {cloudinary_url}"</action>
 
   <check if="upload fails">
     <action>Log error: "⚠️ Cloudinary upload failed: {error}"</action>
@@ -317,13 +320,13 @@ Location: {{outputs_project}}/
     <action>Display: "✅ Notion updated with local path"</action>
   </check>
 
-  <action>Display: "ℹ️ Status='Editing' (blended image ready for publishing)"</action>
+<action>Display: "ℹ️ Status='Editing' (blended image ready for publishing)"</action>
 
-  <action>Log to session:
-    append_to_file("00-session/session-log.md",
-      "{timestamp} - Zoe: Added blended image to Notion ({{blended_filename}})\n"
-    )
-  </action>
+<action>Log to session:
+append_to_file("00-session/session-log.md",
+"{timestamp} - Zoe: Added blended image to Notion ({{blended_filename}})\n"
+)
+</action>
 
   <check if="notion update fails">
     <action>Log warning: "⚠️ Notion update failed: {error}"</action>
@@ -377,21 +380,22 @@ Location: {{outputs_project}}/
     "suggested_action": "schedule-post",
     "priority": "normal",
     "notes": "Blended image ({{blend_count}} sources) - {{blend_prompt}}"
-  }
-  </action>
 
-  <action>Save handoff JSON to:
-    {{outputs_project}}/../../handoffs/zoe-to-zoro-blended-{{timestamp}}.json
-  </action>
+}
+</action>
 
-  <action>Display: "✅ Handoff created for Zoro"</action>
-  <action>Display: "💡 To publish: Run /zoro and select 'Process Handoff'"</action>
+<action>Save handoff JSON to:
+{{outputs_project}}/../../handoffs/zoe-to-zoro-blended-{{timestamp}}.json
+</action>
 
-  <action>Log to session:
-    append_to_file("00-session/session-log.md",
-      "{timestamp} - Zoe: Created handoff for Zoro (blended image)\n"
-    )
-  </action>
+<action>Display: "✅ Handoff created for Zoro"</action>
+<action>Display: "💡 To publish: Run /zoro and select 'Process Handoff'"</action>
+
+<action>Log to session:
+append_to_file("00-session/session-log.md",
+"{timestamp} - Zoe: Created handoff for Zoro (blended image)\n"
+)
+</action>
 </check>
 
 <check if="no">

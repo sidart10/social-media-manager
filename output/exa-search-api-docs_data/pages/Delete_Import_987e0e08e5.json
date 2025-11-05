@@ -1,8 +1,0 @@
-{
-  "title": "Delete Import",
-  "content": "Source: https://docs.exa.ai/websets/api/imports/delete-import\n\ndelete /v0/imports/{id}\nDeletes a import.",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#delete-import",
-  "links": []
-}

@@ -11,15 +11,16 @@
 ## Status Query Logic
 
 **Zoe monitors:**
+
 - **Status = "Editing"** with no media → Content ready for visuals
 
 **Workflow Suggestions:**
 
-| Content State | Suggested Workflows | Reasoning |
-|---------------|---------------------|-----------|
-| Editing, no images | `*create-single-image` or `*create-carousel` | Post drafted, needs thumbnail/graphics |
-| Editing, has images, no video | `*create-scene` or `*create-talking-head` | Images exist, might need video |
-| Editing, needs carousel | `*create-carousel` | Content marked for multi-slide visual |
+| Content State                 | Suggested Workflows                          | Reasoning                              |
+| ----------------------------- | -------------------------------------------- | -------------------------------------- |
+| Editing, no images            | `*create-single-image` or `*create-carousel` | Post drafted, needs thumbnail/graphics |
+| Editing, has images, no video | `*create-scene` or `*create-talking-head`    | Images exist, might need video         |
+| Editing, needs carousel       | `*create-carousel`                           | Content marked for multi-slide visual  |
 
 ---
 

@@ -1,8 +1,0 @@
-{
-  "title": "Get Monitor",
-  "content": "Source: https://docs.exa.ai/websets/api/monitors/get-monitor\n\nget /v0/monitors/{id}\nGets a specific monitor.",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#get-monitor",
-  "links": []
-}

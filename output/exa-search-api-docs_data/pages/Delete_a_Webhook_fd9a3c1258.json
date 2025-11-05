@@ -1,8 +1,0 @@
-{
-  "title": "Delete a Webhook",
-  "content": "Source: https://docs.exa.ai/websets/api/webhooks/delete-a-webhook\n\ndelete /v0/webhooks/{id}\nRemove a webhook from your account. Once deleted, the webhook stops getting notifications right away and cannot be brought back.\n\nImportant notes: - The webhook stops working as soon as you delete it - You cannot undo this - you'll need to create a new webhook if you want it back - Any notifications currently being sent may still complete",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#delete-a-webhook",
-  "links": []
-}

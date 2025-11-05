@@ -16,34 +16,37 @@
     - Updates Notion status automatically
 
     For immediate posting (urgent/breaking), use: publish-*-now workflows
+
   </action>
 
-  <ask>Platforms to schedule? (select multiple, space-separated numbers)
-  1. Twitter
-  2. LinkedIn
-  3. Instagram
-  4. Facebook
-  5. TikTok
-  6. YouTube
-  7. All above
-  </ask>
+<ask>Platforms to schedule? (select multiple, space-separated numbers)
 
-  <action>Store as {{selected_platforms}}</action>
+1. Twitter
+2. LinkedIn
+3. Instagram
+4. Facebook
+5. TikTok
+6. YouTube
+7. All above
+   </ask>
 
-  <ask>Post content (text):
-  (Note: Will be validated against each platform's character limits)
-  </ask>
+<action>Store as {{selected_platforms}}</action>
 
-  <action>Store as {{post_content}}</action>
+<ask>Post content (text):
+(Note: Will be validated against each platform's character limits)
+</ask>
 
-  <ask>Media files? (optional for most platforms, REQUIRED for YouTube)
-  - Images: 04-media/images/thumbnail-main.png
-  - Videos: 04-media/videos/my-video.mp4
+<action>Store as {{post_content}}</action>
+
+<ask>Media files? (optional for most platforms, REQUIRED for YouTube)
+
+- Images: 04-media/images/thumbnail-main.png
+- Videos: 04-media/videos/my-video.mp4
   Multiple files: separate with commas
   Or: none
   </ask>
 
-  <action>Store as {{media_paths}}</action>
+<action>Store as {{media_paths}}</action>
 
   <check if="'YouTube' in selected_platforms">
     <action>**YouTube requires additional metadata:**</action>
@@ -69,15 +72,17 @@
       - Title: 2-100 chars required
       - If no video: Display error, remove YouTube from platforms
     </action>
+
   </check>
 
-  <ask>Schedule date/time:
-  - Future timestamp (ISO format: 2025-11-06T09:00:00Z)
-  - Or: "next-free-slot" (Postiz auto-determines optimal time)
-  - Or: "now" (immediate posting)
+<ask>Schedule date/time:
+
+- Future timestamp (ISO format: 2025-11-06T09:00:00Z)
+- Or: "next-free-slot" (Postiz auto-determines optimal time)
+- Or: "now" (immediate posting)
   </ask>
 
-  <action>Store as {{schedule_date}}</action>
+<action>Store as {{schedule_date}}</action>
 </step>
 
 <step n="1.5" goal="Format content as Postiz HTML">
@@ -98,6 +103,7 @@
     - Headers (##) → <h2>, (###) → <h3>
 
     Display: "✅ Content formatted for Postiz (HTML compliant)"
+
   </action>
 </step>
 
@@ -138,6 +144,7 @@
       - Store: {{cloudinary_media_urls}} = cloudinary_urls
       - Display: f"✅ {len(cloudinary_urls)} media files uploaded to Cloudinary"
     </action>
+
   </check>
 
   <check if="media_paths == 'none'">
@@ -149,8 +156,8 @@
 <step n="3" goal="Get Postiz connected platforms">
   <action>Display: "🔍 Checking connected Postiz accounts..."</action>
 
-  <action>**Query Postiz for connected platforms:**
-    integrations = mcp__postiz__integrationList()
+<action>**Query Postiz for connected platforms:**
+integrations = mcp**postiz**integrationList()
 
     display("📱 Connected accounts:")
     for integration in integrations:
@@ -168,13 +175,14 @@
         else:
           # Remove platform from selected_platforms
     </action>
+
 </step>
 
 <step n="4" goal="Validate content per platform">
   <action>Display: "✅ Validating content for each platform..."</action>
 
-  <action>**Get platform schemas and validate:**
-    validation_results = []
+<action>**Get platform schemas and validate:**
+validation_results = []
 
     for platform in {{selected_platforms}}:
       # Get platform requirements
@@ -221,17 +229,16 @@
       # Handle user choice (edit text, deselect platforms, or cancel)
     else:
       display("✅ All platforms validated successfully!")
+
   </action>
 </step>
 
 <step n="5" goal="Post/Schedule via Postiz and Extract Platform URLs">
   <action>Display: "📅 Posting via Postiz..."</action>
 
-  <action>**Determine post type:**
-    <ask>Post immediately or schedule for later?
-    1. Now (immediate posting)
-    2. Schedule (future date/time)
-    </ask>
+<action>**Determine post type:**
+<ask>Post immediately or schedule for later? 1. Now (immediate posting) 2. Schedule (future date/time)
+</ask>
 
     if option == "1":
       post_type = "now"
@@ -239,10 +246,11 @@
     else:
       post_type = "schedule"
       post_date = {{schedule_date}}  # From step 1
+
   </action>
 
-  <action>**Post/Schedule to all platforms:**
-    platform_results = []
+<action>**Post/Schedule to all platforms:**
+platform_results = []
 
     for platform in {{selected_platforms}}:
       integration_id = get_integration_id(platform)
@@ -318,6 +326,7 @@
         for pr in platform_results:
           if pr.platform_url:
             display(f"   {pr.platform}: {pr.platform_url}")
+
   </action>
 </step>
 
@@ -358,6 +367,7 @@
       })
 
       display(f"✅ Saved to 05-published/{platform.lower()}/")
+
   </action>
 </step>
 
@@ -365,7 +375,7 @@
   <action>Load {project-root}/.bmad-core/modules/notion-updates.md</action>
   <action>Load {project-root}/.bmad-core/modules/notion-relational-helpers.md</action>
 
-  <action>**Update Notion Content Tracker:**
+<action>**Update Notion Content Tracker:**
 
     metadata = read_json("00-session/metadata.json")
 
@@ -408,6 +418,7 @@
 
     **Error Handling:**
     - Notion update fails: Log warning, scheduling still successful
+
   </action>
 </step>
 
@@ -435,9 +446,10 @@
     4. Track analytics in Notion (Views, Likes, Comments)
 
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
   </action>
 
-  <template-output>workflow_complete</template-output>
+<template-output>workflow_complete</template-output>
 </step>
 
 <step n="9" goal="Post-Publication Analytics Tracking (Epic 2 Story 5.3)">
@@ -461,6 +473,7 @@
        - Update Notion with metrics
 
     **Would you like to track analytics now (for previously published content)?** [y/n]
+
   </action>
 
   <check if="yes">
@@ -530,13 +543,14 @@
         display("ℹ️ No Notion page linked - save analytics locally only")
       end if
     </action>
+
   </check>
 
   <check if="no or skip">
     <action>Display: "ℹ️ Analytics tracking skipped - you can add metrics to Notion manually later"</action>
   </check>
 
-  <template-output>analytics_tracked</template-output>
+<template-output>analytics_tracked</template-output>
 </step>
 
 </workflow>

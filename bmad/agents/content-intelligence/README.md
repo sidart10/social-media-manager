@@ -46,11 +46,15 @@ content-intelligence/
 
 ## Skills Integration
 
-**Jarvis uses 8 Claude Code Skills** (in `.claude/skills/jarvis/`):
+**Jarvis uses 6 Claude Code Skills** (in `.claude/skills/jarvis/`):
 
-**Research Skills:** social-media-research, youtube-research, profile-analysis, deep-web-research, research-synthesizer
+**Content Generation:** content-writer (universal - all platforms, voice styles, formats)
 
-**Processing Skills:** voice-matcher, platform-formatter, evidence-tracker
+**Research & Intelligence:** deep-web-research, research-synthesizer, youtube-research
+
+**Analysis:** profile-analysis, evidence-tracker
+
+**Strategy:** youtube-growth-mastery
 
 Skills autonomously invoke when workflows execute.
 

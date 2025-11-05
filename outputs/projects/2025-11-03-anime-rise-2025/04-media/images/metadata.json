@@ -1,0 +1,58 @@
+{
+  "images": [
+    {
+      "filename": "comparison-budget-roi.png",
+      "description": "Demon Slayer vs F1 budget and ROI comparison chart",
+      "quality_score": 9.3,
+      "quality_breakdown": {
+        "clarity": 9,
+        "technical_quality": 10,
+        "composition": 9,
+        "color_accuracy": 10,
+        "typography": 9,
+        "professionalism": 9,
+        "prompt_accuracy": 9
+      },
+      "platform_optimized_for": "Twitter",
+      "used_in_platforms": ["twitter"],
+      "aspect_ratio": "16:9",
+      "dimensions": "1536x1024",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762227738/social-media-images/anime-rise-2025/comparison-budget-roi.png",
+      "local_path": "04-media/images/comparison-budget-roi.png",
+      "mcp_tool_used": "gpt-image-1",
+      "cost": 0.08,
+      "skill_used": "manual (via Zoe)",
+      "style_applied": "data-visualization-dark",
+      "created_at": "2025-11-04T03:42:18Z",
+      "created_by": "zoe",
+      "usage_notes": "Attach to tweet 4 in thread (after economics data). Cyan ROI (33.5x) vs gray ROI (2.5x) makes winner obvious. Reusable for LinkedIn/Facebook posts on same topic."
+    },
+    {
+      "filename": "gen-z-anime-stats.png",
+      "description": "Gen Z anime viewing statistics - 50% weekly viewership, 59% identify as fans, 75% use for stress relief",
+      "quality_score": 9.7,
+      "quality_breakdown": {
+        "clarity": 10,
+        "technical_quality": 10,
+        "composition": 9,
+        "color_accuracy": 10,
+        "typography": 10,
+        "professionalism": 9,
+        "prompt_accuracy": 10
+      },
+      "platform_optimized_for": "Twitter",
+      "used_in_platforms": ["twitter"],
+      "aspect_ratio": "1:1",
+      "dimensions": "1024x1024",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762228072/social-media-images/anime-rise-2025/gen-z-anime-stats.png",
+      "local_path": "04-media/images/gen-z-anime-stats.png",
+      "mcp_tool_used": "gpt-image-1",
+      "cost": 0.08,
+      "skill_used": "manual (via Zoe)",
+      "style_applied": "data-visualization-dark",
+      "created_at": "2025-11-04T03:47:52Z",
+      "created_by": "zoe",
+      "usage_notes": "Attach to tweet 9 (Gen Z data). Shows 50% vs 25% NFL comparison, Beyoncé/LeBron cultural influence comparison, emotional connection stat. Source citation included for credibility. Square format works for Twitter image card."
+    }
+  ]
+}

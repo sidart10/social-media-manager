@@ -7,6 +7,7 @@ Modern tech aesthetic with dark backgrounds and neon accent colors. Perfect for 
 ## When to Use
 
 **Best for:**
+
 - Product analytics dashboards
 - Developer tools and technical interfaces
 - Real-time monitoring displays
@@ -17,6 +18,7 @@ Modern tech aesthetic with dark backgrounds and neon accent colors. Perfect for 
 - Gaming/esports analytics
 
 **Avoid for:**
+
 - Traditional corporate reports (too modern)
 - Print materials (dark backgrounds expensive)
 - Accessibility-sensitive contexts (requires careful contrast)
@@ -29,11 +31,13 @@ Modern tech aesthetic with dark backgrounds and neon accent colors. Perfect for 
 **Dark foundation + neon accents:**
 
 **Background:**
+
 - Primary: #0B0B0B (near-black) or #111827 (dark gray)
 - Secondary: #1F2937 (slightly lighter panels)
 - Tertiary: #374151 (card backgrounds)
 
 **Data colors (neon accents):**
+
 - Primary data: #00F5FF (cyan/aqua) - high visibility
 - Secondary: #FF006E (hot pink/magenta)
 - Tertiary: #00FF9F (mint green)
@@ -43,12 +47,14 @@ Modern tech aesthetic with dark backgrounds and neon accent colors. Perfect for 
 - Negative: #EF4444 (red)
 
 **Text colors:**
+
 - Primary: #F9FAFB (off-white)
 - Secondary: #D1D5DB (light gray)
 - Tertiary: #9CA3AF (medium gray)
 - Muted: #6B7280 (dark gray for less important)
 
 **WCAG Validation:**
+
 - All neon colors achieve 3:1+ against #0B0B0B
 - Text colors achieve 4.5:1+ against dark backgrounds
 - Tested for accessibility compliance
@@ -56,6 +62,7 @@ Modern tech aesthetic with dark backgrounds and neon accent colors. Perfect for 
 ### Typography
 
 **Modern sans-serif, tech aesthetic:**
+
 - Fonts: "SF Pro", "Inter", "Roboto Mono" (for numbers), "JetBrains Mono"
 - Weights:
   - Title: Medium (500) or SemiBold (600)
@@ -72,6 +79,7 @@ Modern tech aesthetic with dark backgrounds and neon accent colors. Perfect for 
 ### Line Quality
 
 **Clean, technical precision:**
+
 - Crisp straight lines
 - Thin gridlines: 0.5-1px in #374151 (subtle, low contrast)
 - Glowing effect optional (1-2px outer glow on data lines)
@@ -81,6 +89,7 @@ Modern tech aesthetic with dark backgrounds and neon accent colors. Perfect for 
 ### Layout and Spacing
 
 **Modern dashboard grid:**
+
 - 8px or 12px grid system
 - Card-based layouts (rounded 8-12px)
 - Generous padding (24-32px)
@@ -90,6 +99,7 @@ Modern tech aesthetic with dark backgrounds and neon accent colors. Perfect for 
 ### Mood and Aesthetic
 
 **Tech-forward, modern:**
+
 - Sleek and sophisticated
 - High-tech, data-driven
 - Dashboard-ready
@@ -110,6 +120,7 @@ Modern tech aesthetic with dark backgrounds and neon accent colors. Perfect for 
 ```
 
 **Technical modifiers:**
+
 ```
 "dark background (#0B0B0B)", "neon cyan accents", "hot pink highlights",
 "modern sans-serif typography", "clean grid system", "card-based layout",
@@ -117,6 +128,7 @@ Modern tech aesthetic with dark backgrounds and neon accent colors. Perfect for 
 ```
 
 **Quality indicators:**
+
 ```
 "high contrast on dark", "modern tech aesthetic", "professional dashboard quality",
 "SaaS product standard", "clean dark UI", "readable on dark background"
@@ -125,6 +137,7 @@ Modern tech aesthetic with dark backgrounds and neon accent colors. Perfect for 
 ## JSON Template Adjustments
 
 ### scene_description
+
 ```json
 {
   "environment": "Dark mode interface, near-black background (#0B0B0B)",
@@ -134,6 +147,7 @@ Modern tech aesthetic with dark backgrounds and neon accent colors. Perfect for 
 ```
 
 ### composition_and_framing
+
 ```json
 {
   "layout": "Card-based dashboard grid, 12-column system",
@@ -144,6 +158,7 @@ Modern tech aesthetic with dark backgrounds and neon accent colors. Perfect for 
 ```
 
 ### color_and_grade
+
 ```json
 {
   "palette": ["#0B0B0B", "#00F5FF", "#FF006E", "#00FF9F", "#F9FAFB"],
@@ -155,16 +170,18 @@ Modern tech aesthetic with dark backgrounds and neon accent colors. Perfect for 
 ```
 
 ### typography
+
 ```json
 {
   "font": "Inter or SF Pro for text, Roboto Mono for numbers",
   "color": "#F9FAFB for primary, #D1D5DB for secondary",
-  "weights": {"title": 500, "metrics": 600, "labels": 300},
+  "weights": { "title": 500, "metrics": 600, "labels": 300 },
   "rendering": "Sharp, crisp, high contrast against dark"
 }
 ```
 
 ### lighting_design
+
 ```json
 {
   "style": "Flat 2D preferred, subtle depth through layering",
@@ -193,6 +210,7 @@ Modern tech aesthetic with dark backgrounds and neon accent colors. Perfect for 
 **Primary: gpt-image-1 (DALL-E 3)**
 
 **Why:**
+
 - Excellent at high-contrast dark mode
 - Superior text rendering on dark backgrounds
 - Handles neon colors well
@@ -200,15 +218,17 @@ Modern tech aesthetic with dark backgrounds and neon accent colors. Perfect for 
 - Sharp, crisp rendering
 
 **Parameters:**
+
 ```yaml
 mcp__gpt-image-1__create_image:
-  prompt: "{dark_mode_prompt}"
-  size: "1536x1024"  # Dashboard aspect ratio
-  quality: "high"
-  output_format: "png"
+  prompt: '{dark_mode_prompt}'
+  size: '1536x1024' # Dashboard aspect ratio
+  quality: 'high'
+  output_format: 'png'
 ```
 
 **Alternative: nanobanana**
+
 - Acceptable for less text-heavy charts
 - Good for experimental iterations
 - May struggle with extreme contrast
@@ -216,12 +236,14 @@ mcp__gpt-image-1__create_image:
 ## Combining with Chart Types
 
 Works exceptionally well with:
+
 - **Heatmaps** (natural fit for intensity patterns)
 - **Dashboards** (multi-chart layouts look amazing)
 - **Line graphs** (neon lines pop against dark)
 - **Network graphs** (tech aesthetic matches well)
 
 Less ideal for:
+
 - Pie charts (too technical for simple parts-of-whole)
 - Hand-drawn styles (aesthetic conflict)
 
@@ -266,16 +288,19 @@ traditional business charts, print-optimized
 **WCAG 2.1 considerations:**
 
 **Higher contrast needed:**
+
 - Text on dark: White/off-white required for readability
 - Minimum: 4.5:1 (#F9FAFB on #0B0B0B = 17.27:1 ✅)
 - Neon data elements: 3:1 minimum against #0B0B0B
 
 **Dual encoding still required:**
+
 - Don't rely on neon colors alone
 - Add labels, values, annotations
 - Use different neon hues (not just brightness)
 
 **Testing:**
+
 - Dark mode specific colorblind testing
 - Ensure neons distinguishable
 - Verify text readability at all sizes
@@ -283,6 +308,7 @@ traditional business charts, print-optimized
 ## Real-World Inspiration
 
 **Based on:**
+
 - Vercel Analytics dashboard
 - Linear app interface
 - Notion dark mode

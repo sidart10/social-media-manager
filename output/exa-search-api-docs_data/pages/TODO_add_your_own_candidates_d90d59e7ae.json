@@ -1,8 +1,0 @@
-{
-  "title": "TODO: add your own candidates",
-  "content": "sample_data = {\n    \"Name\": [\n        \"Kristy Choi\", \"Jiaming Song\", \"Brice Huang\", \"Andi Peng\",\n        \"Athiya Deviyani\", \"Hao Zhu\", \"Zana Bucinca\", \"Usha Bhalla\",\n        \"Kia Rahmani\", \"Jingyan Wang\", \"Jun-Kun Wang\", \"Sanmi Koyejo\",\n        \"Erik Jenner\"\n    ],\n    \"Email\": [\n        \"[[email protected]](/cdn-cgi/l/email-protection)\", \"[[email protected]](/cdn-cgi/l/email-protection)\",\n        \"[[email protected]](/cdn-cgi/l/email-protection)\", \"[[email protected]](/cdn-cgi/l/email-protection)\",\n        \"[[email protected]](/cdn-cgi/l/email-protection)\", \"[[email protected]](/cdn-cgi/l/email-protection)\",\n        \"[[email protected]](/cdn-cgi/l/email-protection)\", \"[[email protected]](/cdn-cgi/l/email-protection)\",\n        \"[[email protected]](/cdn-cgi/l/email-protection)\", \"[[email protected]](/cdn-cgi/l/email-protection)\",\n        \"[[email protected]](/cdn-cgi/l/email-protection)\", \"[[email protected]](/cdn-cgi/l/email-protection)\",\n        \"[[email protected]](/cdn-cgi/l/email-protection)\"\n    ]\n}",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#todo:-add-your-own-candidates",
-  "links": []
-}

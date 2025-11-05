@@ -1,8 +1,0 @@
-{
-  "title": "Get a Webhook",
-  "content": "Source: https://docs.exa.ai/websets/api/webhooks/get-a-webhook\n\nget /v0/webhooks/{id}\nGet information about a webhook using its ID.\nThe webhook secret is not shown here for security - you only get it when you first create the webhook.",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#get-a-webhook",
-  "links": []
-}

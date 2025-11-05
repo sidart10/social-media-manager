@@ -13,6 +13,7 @@
 This directory contains all skills for **Zoe**, the Visual Production Specialist agent. Zoe handles ALL visual content creation needs through specialized skills that leverage different technologies and methodologies.
 
 **Zoe's capabilities span three production domains:**
+
 1. **AI-Generated Imagery** - Fast, scalable content via MCP tools
 2. **Code-Generated Art** - Programmatic and algorithmic visual creation
 3. **Video Production** - Text-to-video and image-to-video generation
@@ -27,13 +28,14 @@ Skills are organized by **production method** to make selection intuitive and ar
 
 Skills that use MCP tools (nanobanana, gpt-image-1, fal) to generate images from text prompts.
 
-| Skill Name | Purpose | When to Use | Technology | Status |
-|------------|---------|-------------|------------|--------|
+| Skill Name                     | Purpose                                                            | When to Use                                                                                        | Technology                   | Status    |
+| ------------------------------ | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- | ---------------------------- | --------- |
 | **universal-image-generation** | All-in-one image creation with 27 style guides across 4 categories | ANY image generation task (replaces create-image, youtube-thumbnail-design, generating-sid-images) | nanobanana, gpt-image-1, fal | ✅ Active |
-| **edit-image** | Pixel-perfect editing and refinement | Modify existing images, corrections, enhancements | nanobanana (edit mode) | ✅ Active |
-| **blend-images** | Multi-image composition and blending | Combine 2-3 images into unified scene | nanobanana (multi-image) | ✅ Active |
+| **edit-image**                 | Pixel-perfect editing and refinement                               | Modify existing images, corrections, enhancements                                                  | nanobanana (edit mode)       | ✅ Active |
+| **blend-images**               | Multi-image composition and blending                               | Combine 2-3 images into unified scene                                                              | nanobanana (multi-image)     | ✅ Active |
 
 **Key characteristics:**
+
 - **Technology**: MCP API calls (Gemini, DALL-E, Imagen)
 - **Speed**: Fast (5-30 seconds per image)
 - **Cost**: $0.04-0.10 per image
@@ -47,12 +49,13 @@ Skills that use MCP tools (nanobanana, gpt-image-1, fal) to generate images from
 
 Skills that write and execute code to create visual artifacts programmatically.
 
-| Skill Name | Purpose | When to Use | Technology | Status |
-|------------|---------|-------------|------------|--------|
-| **canvas-design** | Programmatic visual art via design philosophy | Museum-quality posters, prints, artistic projects | Python (reportlab, PIL) + 40 fonts | ✅ Active |
-| **algorithmic-art** | Interactive generative art via algorithmic philosophy | Generative art, flow fields, particle systems, p5.js sketches | JavaScript (p5.js) | ✅ Active |
+| Skill Name          | Purpose                                               | When to Use                                                   | Technology                         | Status    |
+| ------------------- | ----------------------------------------------------- | ------------------------------------------------------------- | ---------------------------------- | --------- |
+| **canvas-design**   | Programmatic visual art via design philosophy         | Museum-quality posters, prints, artistic projects             | Python (reportlab, PIL) + 40 fonts | ✅ Active |
+| **algorithmic-art** | Interactive generative art via algorithmic philosophy | Generative art, flow fields, particle systems, p5.js sketches | JavaScript (p5.js)                 | ✅ Active |
 
 **Key characteristics:**
+
 - **Technology**: Code execution (Python/JavaScript)
 - **Speed**: Slower (code rendering)
 - **Cost**: Free (local execution)
@@ -66,11 +69,12 @@ Skills that write and execute code to create visual artifacts programmatically.
 
 Skills for generating video content from text or images.
 
-| Skill Name | Purpose | When to Use | Technology | Status |
-|------------|---------|-------------|------------|--------|
+| Skill Name           | Purpose                  | When to Use                                              | Technology                     | Status    |
+| -------------------- | ------------------------ | -------------------------------------------------------- | ------------------------------ | --------- |
 | **video-generation** | Universal video creation | Text-to-video, image-to-video, talking heads, animations | fal-video (22+ models), HeyGen | ✅ Active |
 
 **Key characteristics:**
+
 - **Technology**: MCP video APIs (Veo 3, Luma Ray 2, Kling, HeyGen)
 - **Speed**: Moderate-Slow (30s-5min depending on model)
 - **Cost**: $0.50-3.00 per video
@@ -82,13 +86,13 @@ Skills for generating video content from text or images.
 
 Skills that provide supporting functionality, specifications, and decision frameworks.
 
-| Skill Name | Purpose | When to Use | Technology | Status |
-|------------|---------|-------------|------------|--------|
-| **platform-specs** | Platform requirements and specifications | Check dimensions, aspect ratios, platform guidelines | Reference data | ✅ Active |
-| **mcp-tool-selection** | Tool comparison and selection guidance | Decide between gpt-image-1 vs nanobanana vs fal | Decision matrix | ✅ Active |
-| **brand-guidelines** | Anthropic corporate branding | Apply Anthropic brand colors and typography | Python (styling) | ✅ Active |
-| **slack-gif-creator** | Animated GIF generation for Slack | Create Slack-optimized animated GIFs | GIF creation | ✅ Active |
-| **theme-factory** | Artifact theming system | Apply themes to slides, docs, presentations | Theming engine | ✅ Active |
+| Skill Name             | Purpose                                  | When to Use                                          | Technology       | Status    |
+| ---------------------- | ---------------------------------------- | ---------------------------------------------------- | ---------------- | --------- |
+| **platform-specs**     | Platform requirements and specifications | Check dimensions, aspect ratios, platform guidelines | Reference data   | ✅ Active |
+| **mcp-tool-selection** | Tool comparison and selection guidance   | Decide between gpt-image-1 vs nanobanana vs fal      | Decision matrix  | ✅ Active |
+| **brand-guidelines**   | Anthropic corporate branding             | Apply Anthropic brand colors and typography          | Python (styling) | ✅ Active |
+| **slack-gif-creator**  | Animated GIF generation for Slack        | Create Slack-optimized animated GIFs                 | GIF creation     | ✅ Active |
+| **theme-factory**      | Artifact theming system                  | Apply themes to slides, docs, presentations          | Theming engine   | ✅ Active |
 
 ---
 
@@ -179,6 +183,7 @@ Skills that provide supporting functionality, specifications, and decision frame
 ### MCP Tools (AI Image Generation)
 
 **Primary image generators:**
+
 - **gpt-image-1** (OpenAI DALL-E 3)
   - Best for: Text rendering, professional content, photorealism
   - Cost: ~$0.10/image
@@ -195,6 +200,7 @@ Skills that provide supporting functionality, specifications, and decision frame
   - Cost: ~$0.05-0.15/image
 
 **Video generators:**
+
 - **fal-video**: Veo 3, Luma Ray 2, Kling Master, Pixverse, LTX, etc. (22+ models)
 - **HeyGen**: Talking head avatars
 
@@ -203,12 +209,14 @@ Skills that provide supporting functionality, specifications, and decision frame
 ### Code Libraries (Programmatic Creation)
 
 **Python (canvas-design):**
+
 - reportlab (PDF generation)
 - PIL/Pillow (Image manipulation)
 - matplotlib (Charts, if needed)
 - 40 custom font files (.ttf)
 
 **JavaScript (algorithmic-art):**
+
 - p5.js (Generative art framework)
 - HTML5 Canvas
 - Mathematical/noise functions
@@ -216,16 +224,19 @@ Skills that provide supporting functionality, specifications, and decision frame
 ### Core Methodologies
 
 **Emily's JSON Methodology:**
+
 - Source: `bmad/modules/json-prompt-generator/`
 - 10-section comprehensive prompt structure
 - Used by: universal-image-generation, video-generation
 
 **7-Pillar Quality Framework:**
+
 - Clarity, Technical Quality, Composition, Color Accuracy, Typography, Professionalism, Prompt Accuracy
 - Minimum score: 7.0/10
 - Target score: 8.0+
 
 **WCAG 2.1 Accessibility:**
+
 - Applied to all data visualizations
 - Level AA compliance (4.5:1 text, 3:1 graphics)
 - Dual encoding, colorblind-safe palettes
@@ -237,6 +248,7 @@ Skills that provide supporting functionality, specifications, and decision frame
 ### 1. Separation by Production Method
 
 Skills organized by HOW they create, not WHAT they create:
+
 - **AI-generated**: Prompt-based, API calls, stochastic
 - **Code-generated**: Programmatic, deterministic, exact control
 - **Utility**: Support and reference functions
@@ -246,12 +258,14 @@ Skills organized by HOW they create, not WHAT they create:
 ### 2. Extensible Library System
 
 **universal-image-generation uses style guide library:**
+
 - Add new styles = Add 1 markdown file
 - No code changes needed
 - No SKILL.md updates required
 - Just update `reference/style-guide.md` registry
 
 **Current coverage:**
+
 - 27 style guides
 - 4 categories (social-media, youtube, personalization, data-visualization)
 - Infinite growth potential
@@ -261,6 +275,7 @@ Skills organized by HOW they create, not WHAT they create:
 ### 3. Single Responsibility
 
 Each skill has ONE clear purpose:
+
 - universal-image-generation: Create new images (any style)
 - edit-image: Modify existing images
 - blend-images: Composite multiple images
@@ -273,6 +288,7 @@ Each skill has ONE clear purpose:
 ### 4. Shared Foundations
 
 Common resources referenced by multiple skills:
+
 - `bmad/modules/json-prompt-generator/` - Template system
 - `reference/core/` in universal - Shared methodology
 - `platform-specs` - Cross-referenced by all image skills
@@ -311,6 +327,7 @@ Common resources referenced by multiple skills:
 ### Style Guide Library (27 guides)
 
 **File structure:**
+
 ```
 reference/
 ├── style-guide.md (central registry - update here when adding styles)
@@ -328,6 +345,7 @@ reference/
 ```
 
 **Adding new styles:**
+
 1. Create markdown file in appropriate category
 2. Follow template structure (see any existing guide)
 3. Add entry to `reference/style-guide.md` registry
@@ -380,6 +398,7 @@ mcp-tool-selection
 ### v3.0.0 (November 3, 2025) - Universal Unification
 
 **Major changes:**
+
 - ✅ Created `universal-image-generation` skill (29 files)
 - ✅ Merged 3 skills: create-image, youtube-thumbnail-design, generating-sid-images
 - ✅ Added data visualization category (research-backed, 30+ sources)
@@ -388,12 +407,14 @@ mcp-tool-selection
 - ✅ Removed redundant skills from manifest
 
 **New capabilities:**
+
 - Data visualization (40+ chart types, 6 aesthetic styles)
 - Style guide library system (infinitely extensible)
 - Intelligent category detection and routing
 - Research-validated data viz best practices
 
 **Files impacted:**
+
 - Added: 29 files in universal-image-generation/
 - Removed: create-image/, youtube-thumbnail-design/, generating-sid-images/
 - Updated: skill-manifest.csv
@@ -401,6 +422,7 @@ mcp-tool-selection
 ### v2.0 (October 27, 2025) - Skills Integration
 
 **Major changes:**
+
 - Migrated from workflow-embedded MCP calls to skill-based architecture
 - Integrated Emily's JSON methodology
 - Added 7-pillar quality framework
@@ -420,12 +442,14 @@ mcp-tool-selection
 ### When to Create a New Skill
 
 **Create NEW skill when:**
+
 - ✅ Different production method (new technology)
 - ✅ Completely different domain (3D rendering, SVG generation, etc.)
 - ✅ Specialized workflow that doesn't fit existing skills
 - ✅ New MCP tool with unique capabilities
 
 **Extend EXISTING skill when:**
+
 - ✅ New style variation (add to universal-image-generation library)
 - ✅ New platform (add to social-media/ category)
 - ✅ New chart type (add to data-visualization/chart-types/)
@@ -478,6 +502,7 @@ For new technologies or production methods:
 **Format:** `{action}-{object}` or `{purpose}-{domain}`
 
 **Examples:**
+
 - ✅ `universal-image-generation` (purpose-domain)
 - ✅ `edit-image` (action-object)
 - ✅ `blend-images` (action-object)
@@ -485,6 +510,7 @@ For new technologies or production methods:
 - ✅ `video-generation` (object-action)
 
 **Rules:**
+
 - Lowercase only
 - Hyphens for spaces
 - Max 64 characters
@@ -496,12 +522,14 @@ For new technologies or production methods:
 ## Skill File Structure Standards
 
 ### Minimal Skill (Simple Utility)
+
 ```
 {skill-name}/
 └── SKILL.md
 ```
 
 ### Standard Skill (Most Common)
+
 ```
 {skill-name}/
 ├── SKILL.md
@@ -513,6 +541,7 @@ For new technologies or production methods:
 ```
 
 ### Complex Skill (Deep Domain Knowledge)
+
 ```
 {skill-name}/
 ├── SKILL.md
@@ -539,6 +568,7 @@ For new technologies or production methods:
 **Workflows**: `bmad/agents/zoe/zoe-sidecar/workflows/`
 
 **Pattern:**
+
 ```yaml
 # In workflow instructions:
 
@@ -551,6 +581,7 @@ Step 3: Generate image using universal-image-generation skill
 ```
 
 **Skills are invoked BY NAME** in workflow instructions:
+
 - Claude auto-loads skill when mentioned
 - Skill provides methodology and execution
 - Workflow coordinates multi-step processes
@@ -558,6 +589,7 @@ Step 3: Generate image using universal-image-generation skill
 ### Workflow Integration Examples
 
 **generate-social-post.yaml:**
+
 ```
 Uses: universal-image-generation
 Automatically routes to appropriate platform style
@@ -566,6 +598,7 @@ Returns: Optimized social media image
 ```
 
 **create-artistic-poster.yaml:**
+
 ```
 Uses: canvas-design
 Creates design philosophy first
@@ -574,6 +607,7 @@ Returns: Museum-quality PDF/PNG
 ```
 
 **generate-data-visualization.yaml:**
+
 ```
 Uses: universal-image-generation (data-viz category)
 Loads aesthetic style + chart type
@@ -588,6 +622,7 @@ Returns: Professional chart/dashboard
 **All Zoe outputs must meet:**
 
 ### For AI-Generated Images (universal, edit, blend)
+
 - ✅ **7-pillar score**: Minimum 7.0/10 (target 8.0+)
 - ✅ **Negative prompts**: Minimum 10 items
 - ✅ **Platform compliance**: Correct dimensions, formats
@@ -595,6 +630,7 @@ Returns: Professional chart/dashboard
 - ✅ **Metadata complete**: Generation details documented
 
 ### For Code-Generated Art (canvas, algorithmic)
+
 - ✅ **Master craftsmanship**: Appears painstakingly crafted
 - ✅ **No overlaps**: All elements properly contained
 - ✅ **Professional execution**: Museum/gallery quality
@@ -602,6 +638,7 @@ Returns: Professional chart/dashboard
 - ✅ **Technical precision**: Clean code, optimized rendering
 
 ### For Data Visualizations (Specific to charts/graphs)
+
 - ✅ **WCAG 2.1 AA**: Contrast ratios validated
 - ✅ **Dual encoding**: Never color alone
 - ✅ **Accessibility tested**: Colorblind simulation
@@ -609,6 +646,7 @@ Returns: Professional chart/dashboard
 - ✅ **Research-backed**: Follows proven methodologies
 
 ### For Videos
+
 - ✅ **Tool appropriate**: Right model for use case
 - ✅ **Prompt optimized**: Platform-specific formatting
 - ✅ **Quality validated**: Visual and audio quality checked
@@ -620,6 +658,7 @@ Returns: Professional chart/dashboard
 ### When Updating This README
 
 **Always update when:**
+
 - ✅ New skill added to zoe/ directory
 - ✅ Skill removed or deprecated
 - ✅ Major version change (architecture shift)
@@ -627,6 +666,7 @@ Returns: Professional chart/dashboard
 - ✅ Skill purpose or scope changes
 
 **Update these sections:**
+
 1. **Skill Categories tables** - Add/remove rows
 2. **Quick Selection Guide** - Add new use cases
 3. **Technology Stack** - If new tools added
@@ -646,6 +686,7 @@ Returns: Professional chart/dashboard
 ### Skill Status Indicators
 
 Use in tables:
+
 - ✅ **Active**: Production-ready, fully functional
 - ⚠️ **Beta**: Testing phase, may have issues
 - 🔄 **Updating**: Being revised or enhanced
@@ -657,12 +698,15 @@ Use in tables:
 ## Research & Methodology Sources
 
 ### Image Generation
+
 - Emily's 30 validated prompt examples
 - Visual Prompt Mastery patterns
 - Platform-specific best practices
 
 ### Data Visualization (NEW in v3.0)
+
 **30+ authoritative sources:**
+
 - DataTeams AI: 8 Best Practices (2025)
 - Datawrapper: 40 Chart Types Guide (2025)
 - Hands-On Data Visualization (Dougherty & Ilyankou)
@@ -675,11 +719,13 @@ Use in tables:
 - Edward Tufte: Visual Display of Quantitative Information
 
 ### Video Production
+
 - fal-video documentation (22+ models)
 - HeyGen API reference
 - Emily's JSON methodology adapted for video
 
 ### Artistic/Code-Based
+
 - Anthropic official skills (canvas-design, algorithmic-art)
 - p5.js documentation
 - Generative art best practices
@@ -714,20 +760,24 @@ Total: 200+ files supporting Zoe's visual production capabilities
 ## Related Documentation
 
 **Agent-level:**
+
 - **Zoe Agent Definition**: `bmad/agents/zoe/zoe.md`
 - **Zoe Configuration**: `bmad/agents/zoe/zoe-sidecar/config.yaml`
 - **Zoe Workflows**: `bmad/agents/zoe/zoe-sidecar/workflows/`
 
 **Module-level:**
+
 - **JSON Prompt Generator**: `bmad/modules/json-prompt-generator/`
 - **Platform Specs Module**: `bmad/modules/platform-specs/` (if exists)
 
 **System-level:**
+
 - **MCP Configuration**: `.mcp.json` (tool setup)
 - **Skill Manifest**: `bmad/_cfg/skill-manifest.csv` (all skills registry)
 - **Files Manifest**: `bmad/_cfg/files-manifest.csv` (file tracking)
 
 **Project Documentation:**
+
 - **Main README**: `README.md` (project overview)
 - **CLAUDE.md**: `CLAUDE.md` (Claude Code instructions)
 
@@ -738,12 +788,14 @@ Total: 200+ files supporting Zoe's visual production capabilities
 ### Planned Additions (Easy to add)
 
 **Social Media Platforms:**
+
 - TikTok vertical design (9:16 format)
 - Pinterest pin design
 - Reddit image posts
 - Medium article headers
 
 **Data Visualization Styles:**
+
 - vibrant-presentation.md
 - minimalist-modern.md
 - infographic-editorial.md
@@ -751,6 +803,7 @@ Total: 200+ files supporting Zoe's visual production capabilities
 - futuristic-holographic.md
 
 **Data Visualization Chart Types:**
+
 - pie-charts.md
 - scatter-plots.md
 - heatmaps.md
@@ -761,12 +814,14 @@ Total: 200+ files supporting Zoe's visual production capabilities
 - violin-plots.md
 
 **YouTube Variations:**
+
 - thumbnail-vlog-style.md
 - thumbnail-documentary.md
 - thumbnail-comedy.md
 - shorts-vertical-thumbnails.md
 
 **Personalization:**
+
 - Additional team member LoRA models
 - Brand character LoRA models
 - Mascot/avatar generation
@@ -789,6 +844,7 @@ Total: 200+ files supporting Zoe's visual production capabilities
 
 **Problem:** Claude doesn't mention skill in response
 **Solutions:**
+
 1. Restart Claude Code (skills load at session start)
 2. Check skill-manifest.csv (skill registered?)
 3. Verify SKILL.md has valid YAML frontmatter
@@ -798,6 +854,7 @@ Total: 200+ files supporting Zoe's visual production capabilities
 
 **Problem:** Different skill than expected loads
 **Solutions:**
+
 1. Check description triggers (may overlap)
 2. Make triggers more specific
 3. User can explicitly request: "Using {skill-name} skill, do X"
@@ -806,6 +863,7 @@ Total: 200+ files supporting Zoe's visual production capabilities
 
 **Problem:** Generated images score < 7.0
 **Solutions:**
+
 1. Review style guide requirements
 2. Check negative prompts applied (min 10)
 3. Verify tool selection appropriate
@@ -816,6 +874,7 @@ Total: 200+ files supporting Zoe's visual production capabilities
 
 **Problem:** Skill references missing file
 **Solutions:**
+
 1. Check file path in SKILL.md (relative paths)
 2. Verify file exists in reference/ directory
 3. Check spelling and case-sensitivity
@@ -851,16 +910,19 @@ Total: 200+ files supporting Zoe's visual production capabilities
 ## Support & Resources
 
 **For skill development:**
+
 - BMad Builder: `/bmad:bmb:workflows:create-skill`
 - Edit skill: `/bmad:bmb:workflows:edit-skill`
 - Anthropic best practices: `bmad/bmb/workflows/create-skill/anthropic-best-practices.md`
 
 **For visual production:**
+
 - Emily's methodology: `universal-image-generation/reference/core/emily-json-methodology.md`
 - Quality framework: `universal-image-generation/reference/core/quality-framework.md`
 - Style registry: `universal-image-generation/reference/style-guide.md`
 
 **For data visualization:**
+
 - Category guide: `universal-image-generation/reference/categories/data-visualization/_category-guide.md`
 - Research sources: 30+ cited in style guides
 - WCAG 2.1: https://www.w3.org/TR/WCAG21/
@@ -870,12 +932,14 @@ Total: 200+ files supporting Zoe's visual production capabilities
 ## License & Attribution
 
 **Anthropic Official Skills:**
+
 - algorithmic-art (Anthropic, see LICENSE.txt)
 - brand-guidelines (Anthropic, see LICENSE.txt)
 - canvas-design (Anthropic, see LICENSE.txt)
 - slack-gif-creator (Anthropic, see LICENSE.txt)
 
 **Custom Skills:**
+
 - universal-image-generation (BMad Builder, research-enhanced)
 - edit-image, blend-images (Custom)
 - video-generation (Custom)
@@ -883,6 +947,7 @@ Total: 200+ files supporting Zoe's visual production capabilities
 - theme-factory (Custom)
 
 **Methodologies:**
+
 - Emily's JSON: Developed from 30 validated examples
 - 7-Pillar Framework: Original quality system
 - Data Viz Research: Synthesized from 30+ authoritative sources
@@ -891,6 +956,6 @@ Total: 200+ files supporting Zoe's visual production capabilities
 
 **This README is the authoritative guide to Zoe's visual production capabilities. Keep it updated as skills evolve and expand.**
 
-*Last updated: November 3, 2025 by BMad Builder*
-*Version: 3.0.0*
-*Skills: 13 active*
+_Last updated: November 3, 2025 by BMad Builder_
+_Version: 3.0.0_
+_Skills: 13 active_

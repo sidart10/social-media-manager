@@ -33,32 +33,33 @@ High volume (5+ images)?
 
 ## Platform Defaults
 
-| Platform | Default Tool | Why |
-|----------|-------------|-----|
-| **LinkedIn** | gpt-image-1 | Professional + text rendering |
-| **Instagram** | nanobanana | Speed + cost for volume |
-| **Twitter** | gpt-image-1 | Text accuracy matters |
-| **Client work** | gpt-image-1 | Quality critical |
-| **Testing** | nanobanana | Fast iteration |
+| Platform        | Default Tool | Why                           |
+| --------------- | ------------ | ----------------------------- |
+| **LinkedIn**    | gpt-image-1  | Professional + text rendering |
+| **Instagram**   | nanobanana   | Speed + cost for volume       |
+| **Twitter**     | gpt-image-1  | Text accuracy matters         |
+| **Client work** | gpt-image-1  | Quality critical              |
+| **Testing**     | nanobanana   | Fast iteration                |
 
 ---
 
 ## Use-Case Matrix
 
-| Scenario | Tool | Reasoning |
-|----------|------|-----------|
+| Scenario                        | Tool        | Reasoning               |
+| ------------------------------- | ----------- | ----------------------- |
 | Professional carousel with text | gpt-image-1 | LinkedIn quality + text |
-| 10 Instagram posts this week | nanobanana | Volume savings |
-| Hero product shot | gpt-image-1 | Photorealism 9.5/10 |
-| Quick prototype to test idea | nanobanana | Speed for iteration |
-| Data visualization | gpt-image-1 | Text/numbers accuracy |
-| Lifestyle creative | nanobanana | Style over photorealism |
+| 10 Instagram posts this week    | nanobanana  | Volume savings          |
+| Hero product shot               | gpt-image-1 | Photorealism 9.5/10     |
+| Quick prototype to test idea    | nanobanana  | Speed for iteration     |
+| Data visualization              | gpt-image-1 | Text/numbers accuracy   |
+| Lifestyle creative              | nanobanana  | Style over photorealism |
 
 ---
 
 ## Selection Criteria
 
 ### Choose gpt-image-1 when:
+
 ✅ Text rendering critical (infographics, quotes, labels)
 ✅ Photorealism 9.5/10 needed
 ✅ Professional/commercial content
@@ -68,6 +69,7 @@ High volume (5+ images)?
 ✅ Not sure (safer default)
 
 ### Choose nanobanana when:
+
 ✅ Volume posting (5+ images)
 ✅ Speed priority (rapid iteration)
 ✅ Budget-conscious
@@ -80,19 +82,20 @@ High volume (5+ images)?
 
 ## Cost & Speed Comparison
 
-| Factor | gpt-image-1 | nanobanana | Winner |
-|--------|-------------|-----------|---------|
-| **Speed** | 60-90s | Faster | Gemini |
-| **Cost/image** | Higher | $0.039 | Gemini |
-| **Photorealism** | 9.5/10 | 8.5/10 | OpenAI |
-| **Text rendering** | 9.5/10 | 7/10 | OpenAI |
-| **Professional** | Best | Excellent | OpenAI |
+| Factor             | gpt-image-1 | nanobanana | Winner |
+| ------------------ | ----------- | ---------- | ------ |
+| **Speed**          | 60-90s      | Faster     | Gemini |
+| **Cost/image**     | Higher      | $0.039     | Gemini |
+| **Photorealism**   | 9.5/10      | 8.5/10     | OpenAI |
+| **Text rendering** | 9.5/10      | 7/10       | OpenAI |
+| **Professional**   | Best        | Excellent  | OpenAI |
 
 ---
 
 ## Example Selections
 
 **Scenario 1**: "LinkedIn post with statistics"
+
 ```
 Has text: YES
 Platform: LinkedIn
@@ -101,6 +104,7 @@ Quality: Professional
 ```
 
 **Scenario 2**: "10 Instagram motivational quotes"
+
 ```
 Volume: 10 images
 Platform: Instagram
@@ -109,6 +113,7 @@ Budget: Matters
 ```
 
 **Scenario 3**: "Not sure which style works"
+
 ```
 Testing: YES
 Speed: Matters

@@ -1,8 +1,0 @@
-{
-  "title": "Find similar with highlights",
-  "content": "similar_with_highlights = exa.find_similar_and_contents(\n    \"https://example.com/article\",\n    highlights=True,\n    num_results=2\n)",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#find-similar-with-highlights",
-  "links": []
-}

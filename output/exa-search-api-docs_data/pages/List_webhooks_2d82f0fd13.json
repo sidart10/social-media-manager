@@ -1,8 +1,0 @@
-{
-  "title": "List webhooks",
-  "content": "Source: https://docs.exa.ai/websets/api/webhooks/list-webhooks\n\nget /v0/webhooks\nGet a list of all webhooks in your account.\nThe results come in pages. Use `limit` to set how many webhooks to get per page (up to 200). Use `cursor` to get the next page of results.",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#list-webhooks",
-  "links": []
-}

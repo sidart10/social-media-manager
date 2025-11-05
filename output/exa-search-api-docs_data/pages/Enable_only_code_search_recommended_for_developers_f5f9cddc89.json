@@ -1,8 +1,0 @@
-{
-  "title": "Enable only code search (recommended for developers)",
-  "content": "npx exa-mcp-server --tools=get_code_context_exa",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#enable-only-code-search-(recommended-for-developers)",
-  "links": []
-}

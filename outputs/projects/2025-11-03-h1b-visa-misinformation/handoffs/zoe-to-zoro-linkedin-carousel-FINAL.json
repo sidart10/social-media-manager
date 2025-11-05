@@ -1,0 +1,100 @@
+{
+  "handoff_id": "zoe-to-zoro-2025-11-03-23-55",
+  "source_agent": "zoe",
+  "target_agent": "zoro",
+  "content_type": "image_assets",
+  "suggested_command": "/zoro → *schedule-post",
+
+  "assets": [
+    {
+      "type": "image",
+      "local_path": "04-media/images/slide-1-title.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762241223/social-media-images/social-media/h1b-misinformation/slide-1-title.png",
+      "quality_score": "8.5/10",
+      "description": "Title - Florida H-1B ban hook"
+    },
+    {
+      "type": "image",
+      "local_path": "04-media/images/slide-2-lca-funnel.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762241676/social-media-images/social-media/h1b-misinformation/slide-2-lca-funnel.png",
+      "quality_score": "9.0/10",
+      "description": "LCA Funnel - KEY DATA (900k → 400k → 141k)"
+    },
+    {
+      "type": "image",
+      "local_path": "04-media/images/slide-3-new-vs-renewals.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762241677/social-media-images/social-media/h1b-misinformation/slide-3-new-vs-renewals.png",
+      "quality_score": "8.8/10",
+      "description": "New vs Renewals (35% vs 65%)"
+    },
+    {
+      "type": "image",
+      "local_path": "04-media/images/slide-4-it-staffing-firms.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762242258/social-media-images/social-media/h1b-misinformation/slide-4-it-staffing-firms.png",
+      "quality_score": "8.6/10",
+      "description": "IT Staffing low-wage tier"
+    },
+    {
+      "type": "image",
+      "local_path": "04-media/images/slide-5-tech-companies.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762242948/social-media-images/social-media/h1b-misinformation/slide-5-tech-companies.png",
+      "quality_score": "8.9/10",
+      "description": "Tech Companies high-wage tier"
+    },
+    {
+      "type": "image",
+      "local_path": "04-media/images/slide-6-india-backlog.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762241681/social-media-images/social-media/h1b-misinformation/slide-6-india-backlog.png",
+      "quality_score": "9.2/10",
+      "description": "India Backlog Simple - 140 YEARS"
+    },
+    {
+      "type": "image",
+      "local_path": "04-media/images/slide-7-india-backlog-eb-comparison.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762242950/social-media-images/social-media/h1b-misinformation/slide-7-eb-comparison.png",
+      "quality_score": "9.5/10",
+      "description": "India Backlog EB-1/EB-2/EB-3 Comparison - BEST SLIDE (Manageable vs Critical)"
+    },
+    {
+      "type": "image",
+      "local_path": "04-media/images/slide-8-reforms-cta.png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762242952/social-media-images/social-media/h1b-misinformation/slide-8-reforms-cta.png",
+      "quality_score": "8.7/10",
+      "description": "Bottom Line CTA - 3 reforms + use right data"
+    }
+  ],
+
+  "from_zoe": {
+    "skill_used": "universal-image-generation",
+    "style_applied": "tldraw-hand-drawn",
+    "quality_validated": true,
+    "mcp_tool_used": "nanobanana",
+    "average_quality_score": "8.9/10",
+    "total_cost": "$0.624",
+    "carousel_complete": true,
+    "all_slides_uploaded": true,
+    "slide_count": 8,
+    "best_slide": "slide-7-india-backlog-eb-comparison.png (9.5/10)"
+  },
+
+  "content_details": {
+    "topic": "H-1B misinformation correction",
+    "format": "LinkedIn carousel",
+    "slide_count": 8,
+    "style": "tldraw aesthetic - clean minimalist with soft pastels",
+    "post_text_path": "03-drafts/linkedin/carousel-post.md"
+  },
+
+  "publishing_notes": {
+    "platform": "LinkedIn",
+    "timing": "24-48 hours AFTER Twitter thread goes live",
+    "best_days": ["Tuesday", "Wednesday", "Thursday"],
+    "best_time": "7-9 AM ET",
+    "engagement_strategy": "Reply to EVERY comment within first hour",
+    "cross_promotion": "Link to Twitter thread in post"
+  },
+
+  "suggested_action": "schedule-post",
+  "priority": "high",
+  "notes": "Complete 8-slide LinkedIn carousel with tldraw aesthetic. All Cloudinary URLs confirmed. Average quality 8.9/10. Slide 7 (EB comparison) is the standout at 9.5/10 - captures the generational crisis perfectly. Ready for Postiz scheduling via /zoro."
+}

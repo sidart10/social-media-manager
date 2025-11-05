@@ -1,8 +1,0 @@
-{
-  "title": "CrewAI Docs",
-  "content": "Source: https://docs.exa.ai/integrations/crew-ai-docs\n\nLearn how to use Exa's search API with CrewAI. CrewAI have a dedicated Exa tool. This enables AI agents to perform web search.\n\nFor detailed instructions on using Exa with CrewAI, visit the [CrewAI documentation](https://docs.crewai.com/tools/exasearchtool).",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#crewai-docs",
-  "links": []
-}

@@ -7,11 +7,13 @@ A comprehensive skill for the AI Video Agent that transforms veotools from a sim
 ### Scope of Capabilities Documented:
 
 #### 1. Three Interfaces
+
 - **MCP Server** - Claude Code integration (what ai-video-agent uses)
 - **CLI** - Command-line production tools
 - **Python SDK** - Full programmatic access
 
 #### 2. Production Features
+
 - Single clip generation (text/image/video-to-video)
 - Multi-scene story production (idea → storyboard → render → stitch)
 - Frame seeding (smooth transitions between clips)
@@ -91,6 +93,7 @@ A comprehensive skill for the AI Video Agent that transforms veotools from a sim
 ### Coverage Breakdown:
 
 **Veo Models**: 5 models documented
+
 - veo-3.1-generate-preview (newest, highest quality)
 - veo-3.1-fast-generate-preview (newest, fast)
 - veo-3.0-generate-preview (standard, proven)
@@ -98,6 +101,7 @@ A comprehensive skill for the AI Video Agent that transforms veotools from a sim
 - veo-2.0-generate-001 (legacy, custom duration/fps)
 
 **Use Cases Documented**:
+
 1. Image-to-video animation (diagrams, workflows, infographics)
 2. Text-to-video generation (scenes, b-roll)
 3. Video-to-video continuation
@@ -106,6 +110,7 @@ A comprehensive skill for the AI Video Agent that transforms veotools from a sim
 6. Intelligent stitching (FFmpeg-based)
 
 **Integration Points**:
+
 - MCP server usage in ai-video-agent
 - CLI workflows for batch processing
 - Python SDK for advanced automation
@@ -113,6 +118,7 @@ A comprehensive skill for the AI Video Agent that transforms veotools from a sim
 - Metadata tracking
 
 **Production Workflows**:
+
 - Single clip generation
 - Multi-scene story production
 - Iterative refinement
@@ -126,6 +132,7 @@ A comprehensive skill for the AI Video Agent that transforms veotools from a sim
 ## How Claude Will Use This Skill
 
 ### Trigger Phrases:
+
 When the user mentions any of these, Claude will load this skill:
 
 - "veotools"
@@ -140,19 +147,22 @@ When the user mentions any of these, Claude will load this skill:
 ### Progressive Disclosure:
 
 **Level 1**: Skill description (loaded into system prompt at startup)
+
 ```yaml
 name: veotools-mastery
 description: Master Google AI's Veo video generation via veotools MCP server.
-             Use when animating static images (diagrams, workflows, infographics)
-             or generating videos from text prompts...
+  Use when animating static images (diagrams, workflows, infographics)
+  or generating videos from text prompts...
 ```
 
 **Level 2**: Main SKILL.md (loaded when skill is triggered)
+
 - Quick decision trees: Which model? Which aspect ratio? Which workflow?
 - Core patterns: Image-to-video, text-to-video, multi-scene
 - Integration guide: How veotools fits in ai-video-agent
 
 **Level 3**: Reference docs (loaded as needed)
+
 - CLI commands reference (when user wants command-line workflows)
 - Python SDK (when user wants programmatic access)
 - Multi-scene workflows (when user wants complex productions)
@@ -211,6 +221,7 @@ Workflow:
 ### Decision Tree Update:
 
 **BEFORE this skill:**
+
 ```
 AI Video Agent:
 ├─ Talking head? → HeyGen
@@ -219,6 +230,7 @@ AI Video Agent:
 ```
 
 **AFTER this skill:**
+
 ```
 AI Video Agent:
 ├─ Talking head? → HeyGen
@@ -239,18 +251,26 @@ AI Video Agent:
 ### When AI Video Agent Should Route to Veotools:
 
 **Trigger Detection:**
+
 ```javascript
 const triggers = [
-  "animate", "animation",
-  "diagram", "workflow", "infographic",
-  "multi-scene", "story video",
-  "scene plan", "storyboard",
-  "frame seed", "transition",
-  "veo", "veotools"
+  'animate',
+  'animation',
+  'diagram',
+  'workflow',
+  'infographic',
+  'multi-scene',
+  'story video',
+  'scene plan',
+  'storyboard',
+  'frame seed',
+  'transition',
+  'veo',
+  'veotools',
 ];
 
 if (userMessage.includes(any(triggers))) {
-  loadSkill("veotools-mastery");
+  loadSkill('veotools-mastery');
 }
 ```
 
@@ -259,17 +279,20 @@ if (userMessage.includes(any(triggers))) {
 ## Key Differentiators from Other Tools
 
 ### vs HeyGen:
+
 - **HeyGen**: Talking heads with avatars and voices
 - **Veotools**: Scene generation, diagram animation, multi-scene stories
 - **When to use veotools**: Any non-talking-head video content
 
 ### vs Sora 2:
+
 - **Sora 2**: Cinematic quality, narrative storytelling, longer clips
 - **Veotools**: Technical animations, diagrams, educational content, 8s clips
 - **When to use veotools**: Technical content, faster generation, multi-scene coordination
 
-### vs Other Veo Tools (mcp__veo3__):
-- **mcp__veo3__**: Simple Veo API wrapper
+### vs Other Veo Tools (mcp**veo3**):
+
+- **mcp**veo3****: Simple Veo API wrapper
 - **Veotools**: Complete production system with:
   - Gemini-powered scene planning
   - Frame seeding & transitions
@@ -282,11 +305,13 @@ if (userMessage.includes(any(triggers))) {
 ## Production Value Delivered
 
 ### Before This Skill:
+
 - User: "Animate this diagram"
 - Agent: Uses basic Veo API, no context on prompting
 - Result: Random motion, no transition planning
 
 ### After This Skill:
+
 - User: "Animate this diagram"
 - Agent: Loads veotools-mastery skill
   - Knows image-to-video is optimal
@@ -296,11 +321,13 @@ if (userMessage.includes(any(triggers))) {
 - Result: Professional diagram animation with sequential reveals
 
 ### Before (Multi-Scene):
+
 - User: "Create 5-scene explainer"
 - Agent: Generates 5 disconnected clips
 - Result: Jarring transitions, no continuity
 
 ### After (Multi-Scene):
+
 - User: "Create 5-scene explainer"
 - Agent: Loads multi-scene workflows
   - Generates Gemini storyboard
@@ -314,16 +341,19 @@ if (userMessage.includes(any(triggers))) {
 ## Maintenance & Updates
 
 ### To Add New Veo Models:
+
 1. Update `SKILL.md` model list
 2. Add to decision tree in "Model Selection Guide"
 3. Update examples if new capabilities
 
 ### To Add New Patterns:
+
 1. Document in appropriate reference file
 2. Add example to `examples/` directory
 3. Update pattern index in `SKILL.md`
 
 ### To Report Issues:
+
 - GitHub: https://github.com/frontboat/veotools
 - Document edge cases in troubleshooting sections
 
@@ -347,11 +377,13 @@ This skill enables AI Video Agent to:
 ## Next Steps for Skill Enhancement
 
 ### Immediate (Optional):
+
 1. Add working code examples to `examples/`
 2. Create story templates in `templates/`
 3. Add MCP integration guide to `reference/`
 
 ### Future (As Needed):
+
 1. Add video format comparison guide (MP4 vs WebM, etc.)
 2. Document audio handling patterns
 3. Add cost optimization strategies

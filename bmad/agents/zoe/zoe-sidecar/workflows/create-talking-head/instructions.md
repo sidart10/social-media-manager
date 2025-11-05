@@ -210,28 +210,29 @@
 <action>Load {project-root}/.bmad-core/modules/notion-updates.md</action>
 
 <action>**Upload video and update Notion:**
-  - Ask: "Upload talking head video to Cloudinary? [y/n]"
 
-  if yes:
-    cloudinary_result = upload_asset(
-      resourceType: "video",
-      uploadRequest: {
-        file: "{video_path}",
-        public_id: "social-media/talking-heads/{filename}",
-        folder: "social-media-videos"
-      }
-    )
-    cloudinary_url = cloudinary_result.secure_url
-    display(f"✅ Cloudinary: {cloudinary_url}")
+- Ask: "Upload talking head video to Cloudinary? [y/n]"
 
-  metadata = read_json("00-session/metadata.json")
-  if metadata.notion.page_url:
-    update_content_property(
-      metadata.notion.page_url,
-      {"Description": f"Video: {cloudinary_url or 'local'}"},
-      "Zoe"
-    )
-    display("✅ Notion updated")
+if yes:
+cloudinary_result = upload_asset(
+resourceType: "video",
+uploadRequest: {
+file: "{video_path}",
+public_id: "social-media/talking-heads/{filename}",
+folder: "social-media-videos"
+}
+)
+cloudinary_url = cloudinary_result.secure_url
+display(f"✅ Cloudinary: {cloudinary_url}")
+
+metadata = read_json("00-session/metadata.json")
+if metadata.notion.page_url:
+update_content_property(
+metadata.notion.page_url,
+{"Description": f"Video: {cloudinary_url or 'local'}"},
+"Zoe"
+)
+display("✅ Notion updated")
 </action>
 </step>
 
@@ -267,21 +268,22 @@
     "suggested_action": "schedule-video-post",
     "priority": "normal",
     "notes": "HeyGen talking head - {{video_script}}"
-  }
-  </action>
 
-  <action>Save handoff JSON to:
-    {{outputs_project}}/../../handoffs/zoe-to-zoro-talking-head-{{timestamp}}.json
-  </action>
+}
+</action>
 
-  <action>Display: "✅ Handoff created for Zoro"</action>
-  <action>Display: "💡 To publish: Run /zoro and select 'Process Handoff'"</action>
+<action>Save handoff JSON to:
+{{outputs_project}}/../../handoffs/zoe-to-zoro-talking-head-{{timestamp}}.json
+</action>
 
-  <action>Log to session:
-    append_to_file("00-session/session-log.md",
-      "{timestamp} - Zoe: Created handoff for Zoro (talking head video)\n"
-    )
-  </action>
+<action>Display: "✅ Handoff created for Zoro"</action>
+<action>Display: "💡 To publish: Run /zoro and select 'Process Handoff'"</action>
+
+<action>Log to session:
+append_to_file("00-session/session-log.md",
+"{timestamp} - Zoe: Created handoff for Zoro (talking head video)\n"
+)
+</action>
 </check>
 
 <check if="no">

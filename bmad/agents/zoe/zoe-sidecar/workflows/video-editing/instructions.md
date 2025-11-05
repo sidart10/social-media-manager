@@ -15,6 +15,7 @@ Welcome {user_name} to the professional video editing suite!
 I'm going to ask you questions like a professional video editor would to understand your project completely.
 
 First, let's understand the big picture:
+
 - What is the PURPOSE of this video? (brand awareness, product demo, tutorial, entertainment, announcement, etc.)
 - What is the KEY MESSAGE you want viewers to take away?
 - What ACTION do you want viewers to take after watching? (visit site, buy product, learn something, share, etc.)
@@ -24,11 +25,12 @@ If they're unsure, help them think through it with examples.
 </action>
 
 <action>Store the following as variables:
+
 - {{video_purpose}}
 - {{key_message}}
 - {{desired_action}}
-</action>
-</step>
+  </action>
+  </step>
 
 <step n="2" goal="Identify target platform and audience">
 <ask>Where will this video be published?
@@ -48,6 +50,7 @@ Enter number (1-7):</ask>
 <action>Now understand the audience:
 
 Who is watching this video?
+
 - What's their age range and demographics?
 - What's their attention span? (quick scrollers vs engaged viewers)
 - What's their familiarity with the topic? (beginners vs experts)
@@ -81,9 +84,10 @@ Ask for the Cloudinary URL of the video:
 If you have a local file, I can help you upload it to Cloudinary first.
 
 Do you have:
+
 - The Cloudinary URL? (paste it)
 - A local file path? (I'll upload it for you)
-</action>
+  </action>
 
 <action if="user has local file">
 Use mcp__cloudinary-asset-mgmt__upload-asset to upload the video and get the public URL.
@@ -108,6 +112,7 @@ Store as {{youtube_source_url}}.
 Explain that merging multiple clips requires a different workflow.
 
 For now, ask them to:
+
 1. Use a video editing tool to merge clips first, OR
 2. Use this workflow separately for each clip
 
@@ -120,16 +125,19 @@ Store note that this is a multi-clip scenario for future enhancement.
 Ask for B-roll assets:
 
 Please provide Cloudinary URLs for your B-roll content:
+
 - Each B-roll should be a Cloudinary URL
 - Tell me WHEN in the video each should appear (timestamp in seconds)
 
 Example format:
+
 - Image 1: https://res.cloudinary.com/.../product-shot.jpg at 10 seconds
 - Video 1: https://res.cloudinary.com/.../demo.mp4 from 25-30 seconds
 
 I'll help you organize this for SubMagic's custom B-roll insertion.
 
 Collect each B-roll with:
+
 - Cloudinary URL
 - Start time (seconds)
 - End time (seconds, optional for images)
@@ -175,6 +183,7 @@ Based on your platform ({{target_platform}}) and purpose ({{video_purpose}}), I 
 Enter number (1-3):</ask>
 
 <action>Store {{editing_style}} and map to SubMagic parameter:
+
 - Conservative → remove_silence_pace: "natural"
 - Balanced → remove_silence_pace: "fast"
 - Aggressive → remove_silence_pace: "extra-fast"
@@ -203,6 +212,7 @@ SubMagic can add AI-powered visual enhancements to make your video more engaging
 **Magic B-rolls** - AI automatically adds relevant stock footage over your video (requires AI to find clips)
 
 These work best for:
+
 - Talking head videos (zooms keep it dynamic)
 - Educational content (B-rolls illustrate concepts)
 - Product demos (emphasis on key features)
@@ -271,19 +281,14 @@ Present template options from the list:
 Choose a caption style template:
 
 **Business/Sales:**
+
 1. Hormozi 2 - High-energy, bold, business-focused (yellow text, thick fonts)
 2. Hormozi 3 - Similar to Hormozi 2 with variation
 3. Daniel - Professional, corporate-friendly
 
-**Social Media:**
-4. Sara ⭐ DEFAULT - Versatile, clean, works for everything
-5. Ella - Friendly, casual tone
-6. Maya - Modern, trendy
+**Social Media:** 4. Sara ⭐ DEFAULT - Versatile, clean, works for everything 5. Ella - Friendly, casual tone 6. Maya - Modern, trendy
 
-**Entertainment:**
-7. Beast - MrBeast-inspired, attention-grabbing
-8. Josh - Playful, energetic
-9. Alex - Trendy, Gen-Z optimized
+**Entertainment:** 7. Beast - MrBeast-inspired, attention-grabbing 8. Josh - Playful, energetic 9. Alex - Trendy, Gen-Z optimized
 
 Based on your purpose ({{video_purpose}}) and platform ({{target_platform}}),
 I recommend: [make intelligent recommendation]
@@ -294,11 +299,12 @@ Store as {{template_name}}.
 Set {{use_custom_theme}} to false.
 </action>
 
-<action>Call mcp__submagic__submagic_list_languages to get supported languages</action>
+<action>Call mcp**submagic**submagic_list_languages to get supported languages</action>
 
 <ask>Caption language?
 
 Common options:
+
 - en (English)
 - es (Spanish)
 - fr (French)
@@ -312,6 +318,7 @@ Enter language code (default: en):</ask>
 <ask>Any custom words for the transcription dictionary?
 
 This improves accuracy for:
+
 - Brand names (e.g., "SubMagic", "MyCompany")
 - Product names (e.g., "ProductX", "FeatureY")
 - Technical terms (e.g., "AI-powered", "SaaS")
@@ -396,17 +403,20 @@ Review the editing plan with {{user_name}}:
 **Source:** {{source_type}}
 
 **Editing Style:** {{editing_style}}
+
 - Silence removal: {{silence_removal_pace}}
 - Filler word removal: {{remove_filler_words}}
 - Magic zooms: {{magic_zooms_enabled}}
 - AI B-rolls: {{magic_brolls_enabled}}
 
 **Captions:**
+
 - Style: {{custom_theme_id if use_custom_theme else template_name}}
 - Language: {{caption_language}}
 - Custom words: {{custom_dictionary}}
 
 **Output:**
+
 - Resolution: {{export_width}}x{{export_height}}
 - Duration: {{target_duration if target_duration else "Original length"}}
 
@@ -458,14 +468,16 @@ project_params = {
   dictionary: {custom_dictionary}
 }
 ```
+
 </action>
 
-<action>Call mcp__submagic__submagic_create_project with the prepared parameters</action>
+<action>Call mcp**submagic**submagic_create_project with the prepared parameters</action>
 
 <action>Store the returned project:
+
 - {{submagic_project_id}}
 - {{submagic_project_status}}
-</action>
+  </action>
 
 <action>Inform user:
 
@@ -475,6 +487,7 @@ project_params = {
 **Status:** {{submagic_project_status}}
 
 Now processing your video with AI:
+
 - Transcribing audio and generating captions
 - Analyzing content for optimal zooms and B-rolls
 - Removing silence and filler words
@@ -488,18 +501,21 @@ I'll check status every 30 seconds and update you...
 <step n="9" goal="Monitor processing and provide updates">
 <action>Poll SubMagic project status every 30 seconds:
 
-Use mcp__submagic__submagic_get_project with {{submagic_project_id}}.
+Use mcp**submagic**submagic_get_project with {{submagic_project_id}}.
 
 While status is "processing":
+
 - Wait 30 seconds
 - Check again
 - Show occasional updates to user (every 2 minutes):
   "⏳ Still processing... ({{elapsed_time}} elapsed)"
 
 When status becomes "completed":
+
 - Continue to next step
 
 If status becomes "failed":
+
 - Show error message
 - Ask if they want to retry or troubleshoot
 - Offer to adjust settings and retry
@@ -512,6 +528,7 @@ Max wait time: 15 minutes (SubMagic should complete by then)
 ✅ **Processing complete!**
 
 Your video has been:
+
 - ✓ Transcribed with captions
 - ✓ Edited for pacing ({{silence_removal_pace}})
 - ✓ Enhanced with {{magic_zooms_enabled ? "magic zooms" : "no zooms"}}
@@ -526,6 +543,7 @@ Your video has been:
 <ask>Do you want to make any adjustments before exporting?
 
 Available fine-tuning options:
+
 1. **Change silence removal** - Make it faster or slower
 2. **Add/update custom B-rolls** - Insert specific clips at timestamps
 3. **Toggle filler word removal** - Turn on/off
@@ -537,6 +555,7 @@ Enter number (1-4):</ask>
 Ask for new silence removal preference:
 
 Change silence removal to:
+
 1. Natural (less aggressive)
 2. Fast (balanced)
 3. Extra-fast (maximum compression)
@@ -545,7 +564,8 @@ Enter number:
 
 Store as new {{silence_removal_pace}}.
 
-Call mcp__submagic__submagic_update_project with:
+Call mcp**submagic**submagic_update_project with:
+
 - project_id: {{submagic_project_id}}
 - remove_silence_pace: new value
 
@@ -565,17 +585,18 @@ Type 'done' when finished adding B-rolls.
 
 Collect into {{custom_broll_items}} array with format:
 [
-  {
-    "startTime": 10.5,
-    "endTime": 15.0,
-    "userMediaId": "cloudinary-asset-id"
-  }
+{
+"startTime": 10.5,
+"endTime": 15.0,
+"userMediaId": "cloudinary-asset-id"
+}
 ]
 
 **IMPORTANT:** userMediaId should be the Cloudinary public_id or asset_id.
 You may need to extract this from the Cloudinary URL or upload to SubMagic library first.
 
-Call mcp__submagic__submagic_update_project with:
+Call mcp**submagic**submagic_update_project with:
+
 - project_id: {{submagic_project_id}}
 - items: {{custom_broll_items}}
 
@@ -585,7 +606,7 @@ Note: The parameter is called 'items', not 'custom_broll_items'.
 <action if="option 3">
 Ask: Enable or disable filler word removal? (enable/disable)
 
-Call mcp__submagic__submagic_update_project with remove_bad_takes.
+Call mcp**submagic**submagic_update_project with remove_bad_takes.
 
 Explain: "This will re-process (1-2 minutes)."
 </action>
@@ -597,7 +618,7 @@ Skip fine-tuning, proceed to export.
 <action if="any changes made">
 Wait for re-processing:
 
-Poll mcp__submagic__submagic_get_project until status is "completed" again.
+Poll mcp**submagic**submagic_get_project until status is "completed" again.
 
 Show updates every 30 seconds.
 </action>
@@ -618,16 +639,17 @@ Now exporting your final video with these specs:
 Exporting typically takes 2-5 minutes...
 </action>
 
-<action>Call mcp__submagic__submagic_export_project with:
+<action>Call mcp**submagic**submagic_export_project with:
+
 - project_id: {{submagic_project_id}}
 - width: {{export_width}}
 - height: {{export_height}}
 - fps: 30
-</action>
+  </action>
 
 <action>Poll for export completion:
 
-Use mcp__submagic__submagic_get_project to check status.
+Use mcp**submagic**submagic_get_project to check status.
 
 Wait for export to complete (status includes export info).
 
@@ -635,11 +657,12 @@ Show updates every 15 seconds:
 "📤 Exporting... ({{export_elapsed_time}} elapsed)"
 
 When export completes, extract:
+
 - {{download_url}} (temporary download link)
 - {{video_duration}} (final duration)
 - {{file_size}} (file size in MB)
-</action>
-</step>
+  </action>
+  </step>
 
 <step n="12" goal="Download and save final video">
 <action>Download the video from SubMagic:
@@ -732,6 +755,7 @@ Save to: {{outputs_project}}/edited-{target_platform}-{date}-metadata.json
 **File size:** {{file_size}} MB
 
 **Editing applied:**
+
 - ✓ Captions: {{caption_language}} ({{template_name or "custom theme"}})
 - ✓ Pacing: {{editing_style}} ({{silence_removal_pace}})
 - ✓ Filler words: {{remove_filler_words ? "Removed" : "Kept"}}
@@ -747,6 +771,7 @@ Save to: {{outputs_project}}/edited-{target_platform}-{date}-metadata.json
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 **Next steps:**
+
 1. Review the video at: {{final_video_path}}
 2. If you want changes, I can re-edit with different settings
 3. Ready to publish? Use `/zoro` to schedule posts across platforms!
@@ -783,6 +808,7 @@ To publish this video, use the **Zoro** agent:
 Run: `/zoro`
 
 Then select a publishing workflow and provide:
+
 - Video path: {{final_video_path}}
 - Platform: {{target_platform}}
 - Message/caption: Based on {{key_message}}
@@ -817,9 +843,9 @@ May your content go viral, {user_name}! 🎬
       folder: "social-media-videos"
   </action>
 
-  <action>Store result: {{cloudinary_result}}</action>
-  <action>Extract URL: {{cloudinary_url}} = cloudinary_result.secure_url</action>
-  <action>Display: "✅ Uploaded to Cloudinary: {cloudinary_url}"</action>
+<action>Store result: {{cloudinary_result}}</action>
+<action>Extract URL: {{cloudinary_url}} = cloudinary_result.secure_url</action>
+<action>Display: "✅ Uploaded to Cloudinary: {cloudinary_url}"</action>
 
   <check if="upload fails">
     <action>Log error: "⚠️ Cloudinary upload failed: {error}"</action>
@@ -858,13 +884,13 @@ May your content go viral, {user_name}! 🎬
     <action>Display: "✅ Notion updated with local path"</action>
   </check>
 
-  <action>Display: "ℹ️ Status='Editing' (edited video ready for publishing)"</action>
+<action>Display: "ℹ️ Status='Editing' (edited video ready for publishing)"</action>
 
-  <action>Log to session:
-    append_to_file("00-session/session-log.md",
-      "{timestamp} - Zoe: Added edited video to Notion (SubMagic)\n"
-    )
-  </action>
+<action>Log to session:
+append_to_file("00-session/session-log.md",
+"{timestamp} - Zoe: Added edited video to Notion (SubMagic)\n"
+)
+</action>
 
   <check if="notion update fails">
     <action>Log warning: "⚠️ Notion update failed: {error}"</action>
@@ -915,21 +941,22 @@ May your content go viral, {user_name}! 🎬
     "suggested_action": "schedule-video-post",
     "priority": "normal",
     "notes": "SubMagic edited video - {{project_title}}"
-  }
-  </action>
 
-  <action>Save handoff JSON to:
-    {{outputs_project}}/../../handoffs/zoe-to-zoro-video-edited-{{timestamp}}.json
-  </action>
+}
+</action>
 
-  <action>Display: "✅ Handoff created for Zoro"</action>
-  <action>Display: "💡 To publish: Run /zoro and select 'Process Handoff'"</action>
+<action>Save handoff JSON to:
+{{outputs_project}}/../../handoffs/zoe-to-zoro-video-edited-{{timestamp}}.json
+</action>
 
-  <action>Log to session:
-    append_to_file("00-session/session-log.md",
-      "{timestamp} - Zoe: Created handoff for Zoro (SubMagic edited video)\n"
-    )
-  </action>
+<action>Display: "✅ Handoff created for Zoro"</action>
+<action>Display: "💡 To publish: Run /zoro and select 'Process Handoff'"</action>
+
+<action>Log to session:
+append_to_file("00-session/session-log.md",
+"{timestamp} - Zoe: Created handoff for Zoro (SubMagic edited video)\n"
+)
+</action>
 </check>
 
 <check if="no">
@@ -953,15 +980,17 @@ This scenario uses a completely different SubMagic feature - Magic Clips generat
 You've provided a YouTube URL. SubMagic can analyze the entire video and automatically extract 10-20 viral-worthy clips!
 
 This is perfect for:
+
 - Repurposing podcast episodes
 - Creating shorts from long videos
 - Generating content calendar from one source
 
 Each clip will be:
+
 - Optimized for {{target_platform}}
 - Captioned automatically
 - Duration: {{platform.recommended_duration}}
-</action>
+  </action>
 
 <ask>Configure clip generation:
 
@@ -969,20 +998,22 @@ Minimum clip length (seconds): [15-300, default based on platform]
 Maximum clip length (seconds): [15-300, default based on platform]
 
 For {{target_platform}}, I recommend:
+
 - Min: {{platform.min_clip_length}}
 - Max: {{platform.max_clip_length}}
 
 Use recommended settings? (yes/custom):
 </ask>
 
-<action>Call mcp__submagic__submagic_create_magic_clips with:
+<action>Call mcp**submagic**submagic_create_magic_clips with:
+
 - title: "Viral Clips - {video_purpose} - {date}"
 - youtube_url: {youtube_source_url}
 - language: {caption_language}
 - min_clip_length: {min_length}
 - max_clip_length: {max_length}
 - user_theme_id: {custom_theme_id} (if applicable)
-</action>
+  </action>
 
 <action>Poll for completion (this takes 10-20 minutes):
 
@@ -990,10 +1021,11 @@ Show progress updates every minute:
 "⏳ Analyzing video and generating clips... ({elapsed} elapsed)"
 
 When complete:
+
 - Get all generated clips
 - Download each clip to {{outputs_project}}/clip-{n}-{date}.mp4
 - Create metadata for each clip
-</action>
+  </action>
 
 <action>Present results:
 
@@ -1002,6 +1034,7 @@ When complete:
 Clips saved to: {{outputs_project}}/
 
 Each clip is:
+
 - {{min_length}}-{{max_length}} seconds
 - Optimized for {{target_platform}}
 - Ready to schedule!

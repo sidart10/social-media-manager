@@ -1,0 +1,54 @@
+{
+  "mcpServers": {
+    "postiz": {
+      "command": "node",
+      "args": ["/path/to/postiz-mcp-server.js"],
+      "env": {
+        "POSTIZ_API_KEY": "your_postiz_api_key_here"
+      }
+    },
+    "plainly": {
+      "command": "npx",
+      "args": ["-y", "@plainly-videos/mcp-server@latest"],
+      "env": {
+        "PLAINLY_API_KEY": "your_plainly_api_key_here",
+        "PLAINLY_ORGANIZATION_ID": "your_organization_id_here"
+      }
+    },
+    "submagic": {
+      "command": "/path/to/sub-magic-mcp-server/venv/bin/python",
+      "args": ["/path/to/sub-magic-mcp-server/submagic_mcp.py"],
+      "env": {
+        "SUBMAGIC_API_KEY": "your_submagic_api_key_here"
+      }
+    },
+    "exa": {
+      "command": "npx",
+      "args": ["-y", "exa-mcp-server"],
+      "env": {
+        "EXA_API_KEY": "your_exa_api_key_here"
+      }
+    },
+    "firecrawl": {
+      "command": "npx",
+      "args": ["-y", "firecrawl-mcp"],
+      "env": {
+        "FIRECRAWL_API_KEY": "your_firecrawl_api_key_here"
+      }
+    },
+    "apify": {
+      "command": "npx",
+      "args": ["-y", "@apify/actors-mcp-server@latest"],
+      "env": {
+        "APIFY_API_TOKEN": "your_apify_api_token_here"
+      }
+    },
+    "heygen": {
+      "command": "uvx",
+      "args": ["heygen-mcp"],
+      "env": {
+        "HEYGEN_API_KEY": "your_heygen_api_key_here"
+      }
+    }
+  }
+}

@@ -9,6 +9,7 @@ Dashboards consolidate multiple data visualizations and key performance indicato
 ## When to Use Dashboards
 
 **Best for:**
+
 - Executive summaries (C-suite KPIs)
 - Real-time monitoring (operations, DevOps)
 - Business intelligence overview
@@ -18,6 +19,7 @@ Dashboards consolidate multiple data visualizations and key performance indicato
 - Strategic planning displays
 
 **Data requirements:**
+
 - 4-12 related metrics
 - Multiple visualization types (mix charts)
 - Clear organizational hierarchy
@@ -26,6 +28,7 @@ Dashboards consolidate multiple data visualizations and key performance indicato
 ## Dashboard Types (from research)
 
 ### 1. Strategic Dashboards (Executive)
+
 ```
 Audience: C-suite, executives
 Focus: Long-term KPIs, high-level overview
@@ -35,6 +38,7 @@ Example metrics: Revenue growth, market share, customer satisfaction
 ```
 
 ### 2. Operational Dashboards (Real-time)
+
 ```
 Audience: Managers, operations teams
 Focus: Day-to-day monitoring
@@ -44,6 +48,7 @@ Example metrics: Open tickets, response time, system health
 ```
 
 ### 3. Analytical Dashboards (Deep Analysis)
+
 ```
 Audience: Analysts, data teams
 Focus: Patterns, trends, insights
@@ -53,6 +58,7 @@ Example metrics: Sales drivers, cohort analysis, correlations
 ```
 
 ### 4. Tactical Dashboards (Mid-level)
+
 ```
 Audience: Department managers
 Focus: Short-term goals, implementation
@@ -68,6 +74,7 @@ Example metrics: Ad spend, conversion rates, task completion
 ### Layout Principles
 
 **1. Visual Hierarchy (CRITICAL):**
+
 ```
 Priority 1: Top-left corner
   - Most important KPI
@@ -89,6 +96,7 @@ Source: F-pattern and Z-pattern eye tracking
 ```
 
 **2. Grid System:**
+
 ```
 12-column grid (standard)
 - Large KPI cards: 6-12 columns wide
@@ -98,6 +106,7 @@ Source: F-pattern and Z-pattern eye tracking
 ```
 
 **3. Card-Based Layout:**
+
 ```
 Each metric/chart in distinct card:
 - Rounded corners (8-12px)
@@ -110,6 +119,7 @@ Each metric/chart in distinct card:
 ### Essential Dashboard Elements
 
 **1. KPI Cards (Numeric Metrics):**
+
 ```
 Large number display:
 - Value: 48-72pt
@@ -120,6 +130,7 @@ Large number display:
 ```
 
 **2. Chart Variety:**
+
 ```
 Mix chart types appropriately:
 - Line graphs: Trends over time
@@ -132,6 +143,7 @@ Avoid: All same chart type (boring, less insight)
 ```
 
 **3. Consistent Header:**
+
 ```
 Each card/chart section:
 - Title: Insight-driven or metric name
@@ -140,6 +152,7 @@ Each card/chart section:
 ```
 
 **4. Color Coding:**
+
 ```
 Consistent semantic colors:
 - Green: Positive, up, good
@@ -153,23 +166,27 @@ Never red/green only (colorblind issue!)
 ## Mandatory Requirements
 
 ### 1. Clear Visual Hierarchy
+
 - Most important metric dominates (size, position, color)
 - Progressive disclosure (summary → detail)
 - Logical grouping of related metrics
 
 ### 2. Consistent Design System
+
 - Same fonts throughout
 - Unified color palette (max 5-7 colors)
 - Consistent chart styles
 - Aligned elements on grid
 
 ### 3. Minimize Cognitive Load
+
 - Remove non-essential elements
 - Max 8-12 metrics visible (more = overwhelming)
 - Use whitespace generously
 - Direct labeling > legends
 
 ### 4. Accessibility (WCAG 2.1 AA)
+
 - 4.5:1 contrast for text
 - 3:1 contrast for graphics
 - Don't use color alone (add labels, icons)
@@ -180,6 +197,7 @@ Never red/green only (colorblind issue!)
 ## Dashboard Layout Patterns
 
 ### Executive Summary (2×2 Grid)
+
 ```
 ┌─────────────┬─────────────┐
 │  Primary    │  Secondary  │
@@ -195,6 +213,7 @@ Charts: 1-2 KPI cards + 2 supporting charts
 ```
 
 ### Operational Monitor (3-column)
+
 ```
 ┌────┬──────────┬──────────┐
 │KPI │ KPI      │ KPI      │
@@ -212,6 +231,7 @@ Charts: 3 KPIs + 1 trend + 2 detail views
 ```
 
 ### Analytical Deep Dive (Complex)
+
 ```
 ┌─────────────────────────────┐
 │  Primary Insight (headline) │
@@ -316,9 +336,11 @@ hand-drawn, casual, 3D effects, chart junk, traditional business, hard to read
 ## Design Patterns (Research-Based)
 
 ### The 5-Second Rule
+
 Dashboard must communicate key insights in 5 seconds or less.
 
 **Achieve through:**
+
 - Clear visual hierarchy
 - Large primary metrics
 - Minimal clutter
@@ -328,9 +350,11 @@ Dashboard must communicate key insights in 5 seconds or less.
 **Source:** UXPin Dashboard Design Principles
 
 ### Progressive Disclosure
+
 Don't show everything at once.
 
 **Levels:**
+
 1. Headline KPIs (always visible)
 2. Supporting trends (primary view)
 3. Detailed breakdown (expandable/filterable)
@@ -339,6 +363,7 @@ Don't show everything at once.
 **Source:** Nielsen Norman Group, UX principles
 
 ### F-Pattern Layout
+
 Users scan in F-pattern (especially Western audiences):
 
 ```
@@ -356,24 +381,28 @@ Place most important metrics in F-pattern hotspots.
 **WCAG 2.1 Level AA for dashboards:**
 
 **Visual:**
+
 - All text: 4.5:1 contrast minimum
 - Chart elements: 3:1 contrast
 - Color-blind safe palette
 - Dual encoding (color + label)
 
 **Structure:**
+
 - Logical reading order
 - Clear section headers
 - Consistent navigation
 - Alt text for each chart
 
 **Cognitive:**
+
 - Limit to 8-12 visible metrics
 - Clear grouping of related data
 - Minimal chart junk
 - Progressive disclosure
 
 **Testing:**
+
 - Colorblind simulation
 - Grayscale conversion
 - Small screen view (mobile)
@@ -410,6 +439,7 @@ Dashboard-specific evaluation:
 ## Tool-Specific Guidance
 
 ### For gpt-image-1 (Recommended)
+
 ```
 Strengths:
 - Handles multiple text labels (many charts = many labels)
@@ -421,6 +451,7 @@ Use for: Executive dashboards, analytical dashboards, professional contexts
 ```
 
 ### For nanobanana
+
 ```
 Strengths:
 - Quick iterations for layout testing
@@ -436,6 +467,7 @@ Use for: Draft dashboards, simpler operational views
 ## Combining with Styles
 
 ### Muted Professional + Dashboard
+
 ```
 Clean corporate multi-chart layout, white background, navy/gray palette,
 precise typography, business intelligence quality.
@@ -445,6 +477,7 @@ Tool: gpt-image-1
 ```
 
 ### Dark Mode Analytics + Dashboard
+
 ```
 Dark background, neon accent charts, modern tech UI, SaaS product style,
 card-based layout with subtle elevation.
@@ -454,6 +487,7 @@ Tool: gpt-image-1
 ```
 
 ### Minimalist Modern + Dashboard
+
 ```
 Elegant spacious layout, monochrome + single accent, generous whitespace,
 sophisticated typography, high-end design.
@@ -465,6 +499,7 @@ Tool: gpt-image-1
 ## Example Dashboard Prompts
 
 ### Executive Summary Dashboard
+
 ```
 Professional executive dashboard, 2×2 grid layout on white background (#FFFFFF).
 Light gray cards (#F8F9FA, 8px rounded corners) with subtle borders (#E5E7EB).
@@ -490,6 +525,7 @@ low contrast, decorative elements, inconsistent fonts, overwhelming, hard to sca
 ```
 
 ### Tech Analytics Dashboard (Dark Mode)
+
 ```
 Dark mode product analytics dashboard on near-black background (#0B0B0B). Three
 cards in dark gray (#1F2937) with 12px rounded corners, 1px #374151 borders.
@@ -516,6 +552,7 @@ casual, traditional charts, 3D effects, chart junk, illegible text, overwhelming
 ## Research-Backed Best Practices
 
 **From UXPin (2025):**
+
 1. Define purpose before designing
 2. Know your audience (exec vs analyst vs operator)
 3. Establish clear visual hierarchy
@@ -526,11 +563,13 @@ casual, traditional charts, 3D effects, chart junk, illegible text, overwhelming
 8. Iterate based on user testing
 
 **From Dashboard Design Principles:**
+
 - **Clarity**: Users interpret data quickly
 - **Flexibility**: Customization and filters
 - **Responsiveness**: Adapts to different screens
 
 **From Material Design:**
+
 - Group related metrics
 - Use color purposefully
 - Provide context (time periods, targets)
@@ -556,6 +595,7 @@ Dashboard-specific criteria:
 ## Integration with Other Chart Types
 
 Dashboards typically combine:
+
 - **KPI cards** (large numbers)
 - **Bar charts** (comparisons)
 - **Line graphs** (trends)
@@ -566,6 +606,7 @@ Dashboards typically combine:
 **Each component follows its chart-type guide** but uses unified dashboard aesthetic.
 
 **Example:**
+
 ```
 Dashboard using muted-professional style:
   - KPI cards use navy (#1E3A8A)
@@ -579,16 +620,19 @@ Dashboard using muted-professional style:
 ## Sources and Research
 
 **Design principles:**
+
 - UXPin: "Effective Dashboard Design Principles for 2025"
 - Material Design: Dashboard Guidelines
 - Nielsen Norman Group: Dashboard Usability
 
 **Accessibility:**
+
 - WCAG 2.1: Level AA requirements for dashboards
 - Google: Data Visualization Accessibility
 - WebAIM: Dashboard A11y Standards
 
 **Industry examples:**
+
 - Tableau Desktop layouts
 - Grafana dashboards
 - Google Analytics interface

@@ -1,8 +1,0 @@
-{
-  "title": "create the exa client",
-  "content": "exa = Exa(api_key=os.getenv(\"EXA_API_KEY\"))",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#create-the-exa-client",
-  "links": []
-}

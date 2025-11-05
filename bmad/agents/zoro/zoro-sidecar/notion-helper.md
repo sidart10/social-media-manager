@@ -11,15 +11,16 @@
 ## Status Query Logic
 
 **Zoro monitors:**
+
 - **Status = "Editing"** with media ready → Content complete, ready to publish/schedule
 
 **Workflow Suggestions:**
 
-| Content State | Suggested Workflows | Reasoning |
-|---------------|---------------------|-----------|
-| Editing, has media | `*schedule-post` (PRIMARY) | Content + visuals ready, schedule via Postiz |
-| Editing, text-only | `*schedule-post` or `*publish-linkedin-now` | Text-only post, can publish immediately |
-| Editing, has future Publish Date | `*schedule-post` | Already scheduled, can modify or confirm |
+| Content State                    | Suggested Workflows                         | Reasoning                                    |
+| -------------------------------- | ------------------------------------------- | -------------------------------------------- |
+| Editing, has media               | `*schedule-post` (PRIMARY)                  | Content + visuals ready, schedule via Postiz |
+| Editing, text-only               | `*schedule-post` or `*publish-linkedin-now` | Text-only post, can publish immediately      |
+| Editing, has future Publish Date | `*schedule-post`                            | Already scheduled, can modify or confirm     |
 
 ---
 
@@ -98,6 +99,7 @@ display_standard_menu()
 **Primary Tool:** `notion-search`
 
 **Query:**
+
 ```json
 {
   "data_source_url": "collection://956447a76e7b4b2eafb1e4c9adfcbcf3",
@@ -109,12 +111,13 @@ display_standard_menu()
 ```
 
 **Advanced:** Can also check for future Publish Dates:
+
 ```json
 {
   "filters": {
     "Status": ["Editing"],
     "Graveyard": "__NO__",
-    "Publish Date": {"after": "now()"}
+    "Publish Date": { "after": "now()" }
   }
 }
 ```
@@ -153,17 +156,20 @@ What's your command?
 ## Media Detection Heuristics
 
 **Check for images:**
+
 - Content Text contains: `.png`, `.jpg`, `.jpeg`, `.webp`
 - Content Text contains: `cloudinary.com`, `res.cloudinary.com`
 - Custom property: "Image URL" (if added to Notion schema)
 
 **Check for videos:**
+
 - Content Text contains: `.mp4`, `.mov`, `.mp4`
 - Content Text contains: `youtube.com/watch`, `youtu.be/`
 - Custom property: "Video URL" (if added to Notion schema)
 
 **Future Enhancement:**
 Add custom Notion properties:
+
 - "Image URLs" (url or text property)
 - "Video URLs" (url or text property)
 - "Media Ready" (checkbox property)

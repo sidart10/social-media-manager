@@ -22,6 +22,7 @@ This file references Emily's comprehensive negative prompts library for preventi
 ## Quick Selection Guide
 
 ### For LinkedIn Professional Content
+
 ```
 Use categories: Professional + Universal
 
@@ -39,6 +40,7 @@ Example negatives (10+):
 ```
 
 ### For Instagram Creative Content
+
 ```
 Use categories: Universal + Custom
 
@@ -56,6 +58,7 @@ Example negatives (10+):
 ```
 
 ### For Photorealistic Images
+
 ```
 Use categories: Photorealistic + Universal
 
@@ -77,6 +80,7 @@ Example negatives (10+):
 ## Category Breakdown
 
 ### 1. Photorealistic Content (10 items)
+
 ```
 - wrong ethnicity, race drift from specification
 - deformed anatomy, extra fingers, missing limbs
@@ -91,6 +95,7 @@ Example negatives (10+):
 ```
 
 ### 2. Professional Content (12 items)
+
 ```
 - cluttered, overcrowded, busy layout
 - low contrast, washed out, faded
@@ -107,6 +112,7 @@ Example negatives (10+):
 ```
 
 ### 3. Universal Quality (8 items)
+
 ```
 - AI artifacts, generation glitches, obvious AI tells
 - warped objects, melted features, morphed elements
@@ -139,6 +145,7 @@ Example negatives (10+):
 ## Platform-Specific Additions
 
 ### Add for LinkedIn:
+
 ```
 - casual aesthetic, unprofessional tone
 - memes, humor (usually inappropriate)
@@ -146,6 +153,7 @@ Example negatives (10+):
 ```
 
 ### Add for Instagram:
+
 ```
 - boring, plain, low energy
 - professional corporate (too stiff)
@@ -154,6 +162,7 @@ Example negatives (10+):
 ```
 
 ### Add for Twitter:
+
 ```
 - complex, hard to comprehend quickly
 - subtle, nuanced (need bold/clear)

@@ -1,8 +1,0 @@
-{
-  "title": "OpenAPI Specification",
-  "content": "Source: https://docs.exa.ai/reference/openapi-spec\n\nYou can view up-to-date versions of our OpenAPI specs here:\n\n* [Search API Spec](https://raw.githubusercontent.com/exa-labs/openapi-spec/refs/heads/master/exa-openapi-spec.yaml)\n* [Websets API Spec](https://raw.githubusercontent.com/exa-labs/openapi-spec/refs/heads/master/exa-websets-spec.yaml)",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#openapi-specification",
-  "links": []
-}

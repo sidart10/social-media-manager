@@ -1,8 +1,0 @@
-{
-  "title": "create the openai client",
-  "content": "openai = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#create-the-openai-client",
-  "links": []
-}

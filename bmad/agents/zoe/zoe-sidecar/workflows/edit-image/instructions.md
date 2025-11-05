@@ -11,10 +11,11 @@
 <action>Welcome: "Let's edit your image using Nanobanana's pixel-perfect AI editing."</action>
 
 <ask>Do you want to:
+
 1. Edit a single image (transform, enhance, remove elements)
 2. Blend multiple images together (photo composition)
 3. Multi-turn editing (iterative refinement)
-</ask>
+   </ask>
 
 <action>Store as {{edit_mode}}</action>
 
@@ -33,10 +34,10 @@
   <ask>How many images to blend? (2-3 recommended)</ask>
   <action>Store as {{blend_count}}</action>
 
-  <for-each>N in 1 to blend_count</for-each>
-  <ask>Path to image {{N}}:</ask>
-  <action>Store as {{input_image_path_N}}</action>
-  <action>Validate file exists</action>
+<for-each>N in 1 to blend_count</for-each>
+<ask>Path to image {{N}}:</ask>
+<action>Store as {{input_image_path_N}}</action>
+<action>Validate file exists</action>
 </check>
 
 <check if="edit_mode == 3">
@@ -50,10 +51,11 @@
 <step n="2" goal="Choose editing approach">
 
 <ask>How would you like to edit?
+
 1. Quick Preset (common edits)
 2. Describe Custom Edit (natural language)
 3. Let me suggest based on image
-</ask>
+   </ask>
 
 <action>Store as {{edit_approach}}</action>
 
@@ -62,18 +64,18 @@
   <action>
   Common Editing Presets:
 
-  1. Blur Background - Professional depth effect
-  2. Remove Background - Transparent or solid color
-  3. Dark Tech Style - Convert to LinkedIn aesthetic (#0B0B0B, minimal)
-  4. Enhance Quality - Sharpen, color correct, denoise
-  5. Remove Object - Delete unwanted elements
-  6. Style Transfer - Change artistic style
-  7. Color Correction - Fix lighting and colors
-  8. Upscale & Enhance - Increase resolution and quality
-  </action>
+1. Blur Background - Professional depth effect
+2. Remove Background - Transparent or solid color
+3. Dark Tech Style - Convert to LinkedIn aesthetic (#0B0B0B, minimal)
+4. Enhance Quality - Sharpen, color correct, denoise
+5. Remove Object - Delete unwanted elements
+6. Style Transfer - Change artistic style
+7. Color Correction - Fix lighting and colors
+8. Upscale & Enhance - Increase resolution and quality
+   </action>
 
-  <ask>Which preset? (1-8 or describe custom)</ask>
-  <action>Store as {{preset_choice}}</action>
+<ask>Which preset? (1-8 or describe custom)</ask>
+<action>Store as {{preset_choice}}</action>
 
   <check if="preset_choice in 1-8">
     <action>Load preset prompt from editing_presets</action>
@@ -88,6 +90,7 @@
       Ask: "Target style? (e.g., 'minimalist illustration', 'oil painting', 'wireframe diagram')"
       Insert into preset prompt
     </action>
+
   </check>
 </check>
 
@@ -101,7 +104,7 @@
   - "Transform to dark tech aesthetic like my LinkedIn posts"
   </ask>
 
-  <action>Store user description as {{edit_prompt}}</action>
+<action>Store user description as {{edit_prompt}}</action>
 </check>
 
 <check if="edit_approach == 3">
@@ -140,7 +143,7 @@ Provider: Gemini Nanobanana (pixel-perfect editing)
 Mode: {{edit_mode_name}}
 Est. Time: 3-5 seconds
 
-Output: {{outputs_project}}/{{filename}}_edited.png
+Output: {{outputs_project}}/{{filename}}\_edited.png
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 </action>
@@ -230,39 +233,39 @@ Output: {{outputs_project}}/{{filename}}_edited.png
 
 <action>Create metadata JSON using Write tool:</action>
 <action>
-File: {{outputs_project}}/{{edited_filename}}_metadata.json
+File: {{outputs_project}}/{{edited_filename}}\_metadata.json
 
 Content:
 {
-  "edit_type": "{{preset_name OR 'custom'}}",
-  "edit_prompt": "{{edit_prompt OR blend_prompt}}",
-  "input_images": [
-    {
-      "path": "{{input_image_path}}",
-      "size": "{{original_size}}"
-    }
-    {{if blending, add more images}}
-  ],
-  "output_image": {
-    "path": "{{edited_filename}}",
-    "size": "{{final_size}}"
-  },
-  "provider": "nanobanana",
-  "model": "gemini-2.5-flash-image",
-  "tool": "mcp__nanobanana__generate_image",
-  "mode": "edit",
-  "timestamp": "{{ISO-8601}}",
-  "generation_time_seconds": {{generation_time}},
-  "files_api_id": "{{files_api_id}}",
-  "nano_output_path": "{{nano_output_path}}",
-  "comparison": {
-    "original_size": "{{original_size}}",
-    "edited_size": "{{final_size}}",
-    "size_change": "{{calculate difference}}"
-  },
-  "multi_turn_session": {{multi_turn_mode}},
-  "iteration": 1,
-  "quality_notes": ""
+"edit_type": "{{preset_name OR 'custom'}}",
+"edit_prompt": "{{edit_prompt OR blend_prompt}}",
+"input_images": [
+{
+"path": "{{input_image_path}}",
+"size": "{{original_size}}"
+}
+{{if blending, add more images}}
+],
+"output_image": {
+"path": "{{edited_filename}}",
+"size": "{{final_size}}"
+},
+"provider": "nanobanana",
+"model": "gemini-2.5-flash-image",
+"tool": "mcp**nanobanana**generate_image",
+"mode": "edit",
+"timestamp": "{{ISO-8601}}",
+"generation_time_seconds": {{generation_time}},
+"files_api_id": "{{files_api_id}}",
+"nano_output_path": "{{nano_output_path}}",
+"comparison": {
+"original_size": "{{original_size}}",
+"edited_size": "{{final_size}}",
+"size_change": "{{calculate difference}}"
+},
+"multi_turn_session": {{multi_turn_mode}},
+"iteration": 1,
+"quality_notes": ""
 }
 </action>
 
@@ -288,12 +291,13 @@ Location: {{outputs_project}}/
 <action>Show before/after comparison info</action>
 
 <ask>What would you like to do?
+
 1. View side-by-side comparison
 2. Refine edit (make changes to this result)
 3. Try different edit (start over with same image)
 4. Apply same edit to another image
 5. Save and done
-</ask>
+   </ask>
 
 <action>Store as {{next_action}}</action>
 
@@ -315,25 +319,25 @@ Location: {{outputs_project}}/
   - "Make it even darker"
   </ask>
 
-  <action>Store as {{refinement_prompt}}</action>
+<action>Store as {{refinement_prompt}}</action>
 
-  <action>Update iteration counter</action>
+<action>Update iteration counter</action>
 
-  <action>Call Nanobanana again (multi-turn):</action>
-  <action>
-  result = mcp__nanobanana__generate_image({
-    prompt: {{refinement_prompt}},
-    file_id: {{files_api_id}},
-    mode: "edit",
-    n: 1
-  })
-  </action>
+<action>Call Nanobanana again (multi-turn):</action>
+<action>
+result = mcp**nanobanana**generate_image({
+prompt: {{refinement_prompt}},
+file_id: {{files_api_id}},
+mode: "edit",
+n: 1
+})
+</action>
 
-  <action>Save as {{edited_filename}}_v{{iteration}}.png</action>
-  <action>Update metadata with new iteration</action>
-  <action>Show: "Refinement complete!"</action>
+<action>Save as {{edited_filename}}\_v{{iteration}}.png</action>
+<action>Update metadata with new iteration</action>
+<action>Show: "Refinement complete!"</action>
 
-  <goto step="8">Return to options (can iterate further)</goto>
+<goto step="8">Return to options (can iterate further)</goto>
 </check>
 
 <check if="next_action == 3">
@@ -372,9 +376,9 @@ Location: {{outputs_project}}/
       folder: "social-media-images"
   </action>
 
-  <action>Store result: {{cloudinary_result}}</action>
-  <action>Extract URL: {{cloudinary_url}} = cloudinary_result.secure_url</action>
-  <action>Display: "✅ Uploaded to Cloudinary: {cloudinary_url}"</action>
+<action>Store result: {{cloudinary_result}}</action>
+<action>Extract URL: {{cloudinary_url}} = cloudinary_result.secure_url</action>
+<action>Display: "✅ Uploaded to Cloudinary: {cloudinary_url}"</action>
 
   <check if="upload fails">
     <action>Log error: "⚠️ Cloudinary upload failed: {error}"</action>
@@ -413,13 +417,13 @@ Location: {{outputs_project}}/
     <action>Display: "✅ Notion updated with local path"</action>
   </check>
 
-  <action>Display: "ℹ️ Status='Editing' (edited image ready for publishing)"</action>
+<action>Display: "ℹ️ Status='Editing' (edited image ready for publishing)"</action>
 
-  <action>Log to session:
-    append_to_file("00-session/session-log.md",
-      "{timestamp} - Zoe: Added edited image to Notion ({{edited_filename}})\n"
-    )
-  </action>
+<action>Log to session:
+append_to_file("00-session/session-log.md",
+"{timestamp} - Zoe: Added edited image to Notion ({{edited_filename}})\n"
+)
+</action>
 
   <check if="notion update fails">
     <action>Log warning: "⚠️ Notion update failed: {error}"</action>
@@ -446,6 +450,7 @@ Location: {{outputs_project}}/
 Write: {{outputs_project}}/EDITING_SESSION_{{timestamp}}.md
 
 Content:
+
 # Image Editing Session Summary
 
 **Date:** {{timestamp}}
@@ -454,6 +459,7 @@ Content:
 ## Images Edited
 
 {{For each edited image:}}
+
 ### {{N}}. {{original_filename}} → {{edited_filename}}
 
 **Edit:** {{edit_prompt}}
@@ -513,21 +519,22 @@ All edited images saved to: {{outputs_project}}/
     "suggested_action": "schedule-post",
     "priority": "normal",
     "notes": "Edited image - {{edit_prompt}}"
-  }
-  </action>
 
-  <action>Save handoff JSON to:
-    {{outputs_project}}/../../handoffs/zoe-to-zoro-edited-{{timestamp}}.json
-  </action>
+}
+</action>
 
-  <action>Display: "✅ Handoff created for Zoro"</action>
-  <action>Display: "💡 To publish: Run /zoro and select 'Process Handoff'"</action>
+<action>Save handoff JSON to:
+{{outputs_project}}/../../handoffs/zoe-to-zoro-edited-{{timestamp}}.json
+</action>
 
-  <action>Log to session:
-    append_to_file("00-session/session-log.md",
-      "{timestamp} - Zoe: Created handoff for Zoro (edited image)\n"
-    )
-  </action>
+<action>Display: "✅ Handoff created for Zoro"</action>
+<action>Display: "💡 To publish: Run /zoro and select 'Process Handoff'"</action>
+
+<action>Log to session:
+append_to_file("00-session/session-log.md",
+"{timestamp} - Zoe: Created handoff for Zoro (edited image)\n"
+)
+</action>
 </check>
 
 <check if="no">

@@ -43,7 +43,7 @@
 <step n="2" goal="Generate script using content-writer skill">
   <action>Load and follow {skills_folder}/content-writer/SKILL.md</action>
 
-  <action>Generate {format} YouTube script per SKILL.md instructions with parameters:
+<action>Generate {format} YouTube script per SKILL.md instructions with parameters:
 
     Topic: {topic}
 
@@ -67,7 +67,7 @@
 
   </action>
 
-  <action>Store result as {{generated_script}}</action>
+<action>Store result as {{generated_script}}</action>
 
 <action>Display script preview (first 500 chars + structure)</action>
 </step>

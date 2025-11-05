@@ -7,6 +7,7 @@ Hand-drawn, casual aesthetic for data visualizations that feel approachable and 
 ## When to Use
 
 **Best for:**
+
 - Explainer content and educational materials
 - Casual presentations to non-technical audiences
 - Social media infographics (Instagram, Twitter)
@@ -15,6 +16,7 @@ Hand-drawn, casual aesthetic for data visualizations that feel approachable and 
 - Startup pitch decks (informal, creative vibe)
 
 **Avoid for:**
+
 - Formal business reports
 - Financial statements
 - Scientific publications
@@ -26,6 +28,7 @@ Hand-drawn, casual aesthetic for data visualizations that feel approachable and 
 ### Color Palette
 
 **Muted earth tones** (warm, organic, non-threatening):
+
 - Background: #F5F5DC (beige/cream), #FAFAF8 (off-white)
 - Primary data: #8B7355 (muted brown), #6B8E23 (olive green)
 - Secondary: #D2691E (burnt orange), #4682B4 (steel blue)
@@ -33,6 +36,7 @@ Hand-drawn, casual aesthetic for data visualizations that feel approachable and 
 - Accent: #BC8F8F (rosy brown)
 
 **Contrast considerations:**
+
 - Against cream background: All colors achieve 4.5:1+ (WCAG AA)
 - Subtle, not jarring
 - Warm temperature overall
@@ -40,6 +44,7 @@ Hand-drawn, casual aesthetic for data visualizations that feel approachable and 
 ### Typography
 
 **Hand-written casual style:**
+
 - Font families: "Caveat", "Kalam", "Architects Daughter", "Comic Sans MS"
 - Weight: Regular (400) to Medium (500)
 - Sizes:
@@ -53,6 +58,7 @@ Hand-drawn, casual aesthetic for data visualizations that feel approachable and 
 ### Line Quality
 
 **Imperfect, organic:**
+
 - Hand-drawn appearance
 - Slight wobble and irregularity
 - Varying line weights
@@ -63,6 +69,7 @@ Hand-drawn, casual aesthetic for data visualizations that feel approachable and 
 ### Layout and Spacing
 
 **Loose, organic composition:**
+
 - Generous padding (20-30px margins)
 - Uneven spacing (intentional imperfection)
 - Casual grid alignment (not pixel-perfect)
@@ -72,6 +79,7 @@ Hand-drawn, casual aesthetic for data visualizations that feel approachable and 
 ### Mood and Aesthetic
 
 **Approachable and friendly:**
+
 - Casual, non-intimidating
 - Warm and inviting
 - Playful but professional
@@ -93,6 +101,7 @@ Hand-drawn, casual aesthetic for data visualizations that feel approachable and 
 ```
 
 **Technical modifiers:**
+
 ```
 "slightly imperfect geometry", "varying line weights",
 "rounded ends", "warm earth tones", "muted color palette",
@@ -100,6 +109,7 @@ Hand-drawn, casual aesthetic for data visualizations that feel approachable and 
 ```
 
 **Texture and medium:**
+
 ```
 "marker on whiteboard", "pen on paper texture", "sketch paper background",
 "subtle paper grain", "whiteboard surface", "natural media feel"
@@ -110,6 +120,7 @@ Hand-drawn, casual aesthetic for data visualizations that feel approachable and 
 When using Emily's JSON methodology, emphasize these sections:
 
 ### scene_description
+
 ```json
 {
   "environment": "Whiteboard or sketch paper background, cream/beige tone",
@@ -119,6 +130,7 @@ When using Emily's JSON methodology, emphasize these sections:
 ```
 
 ### composition_and_framing
+
 ```json
 {
   "layout": "Loose grid alignment, generous whitespace",
@@ -128,6 +140,7 @@ When using Emily's JSON methodology, emphasize these sections:
 ```
 
 ### color_and_grade
+
 ```json
 {
   "palette": ["#F5F5DC", "#8B7355", "#6B8E23", "#D2691E"],
@@ -138,6 +151,7 @@ When using Emily's JSON methodology, emphasize these sections:
 ```
 
 ### typography
+
 ```json
 {
   "font": "Hand-written casual style, Caveat or Comic Sans MS",
@@ -147,6 +161,7 @@ When using Emily's JSON methodology, emphasize these sections:
 ```
 
 ### style_guidance
+
 ```json
 {
   "visual_style": "Hand-drawn sketch, marker illustration",
@@ -174,6 +189,7 @@ When using Emily's JSON methodology, emphasize these sections:
 **Primary: nanobanana (Gemini 2.5 Flash)**
 
 **Why:**
+
 - Excellent at casual, hand-drawn aesthetics
 - Better at organic, imperfect rendering
 - Fast iteration for getting "feel" right
@@ -181,11 +197,13 @@ When using Emily's JSON methodology, emphasize these sections:
 - Handles textured backgrounds well
 
 **Alternative: gpt-image-1**
+
 - Use if data labels MUST be pixel-perfect
 - Better text rendering precision
 - More expensive ($0.10+ per image)
 
 **Avoid: fal-video**
+
 - flux-kontext too polished for casual aesthetic
 - Not optimized for data accuracy
 
@@ -208,6 +226,7 @@ Evaluate against these standards:
 ### Example 1: Bar Chart - Startup Metrics
 
 **Prompt:**
+
 ```
 Hand-drawn bar chart sketch showing startup growth metrics in marker style.
 Casual whiteboard illustration with slightly imperfect lines. Muted earth
@@ -229,6 +248,7 @@ neon colors, glossy finish
 ### Example 2: Line Graph - Trend Casual Explanation
 
 **Prompt:**
+
 ```
 Hand-sketched line graph on paper showing website traffic trends. Casual
 pen drawing style with organic imperfect lines. Warm beige paper texture
@@ -249,6 +269,7 @@ sharp edges, 3D rendering, gradient fills, photorealistic, technical drawing
 ### Example 3: Pie Chart - Simple Breakdown
 
 **Prompt:**
+
 ```
 Hand-drawn pie chart sketch on cream whiteboard (#FAFAF8) showing budget
 allocation. Marker style with slightly wobbly slices, muted earth tones:
@@ -294,6 +315,7 @@ The style provides the visual treatment, the chart-type provides the data struct
 ## Sources and Research
 
 Based on comprehensive research:
+
 - Visual metaphors from tldraw.com design system
 - Accessibility standards from WCAG 2.1
 - Hand-drawn aesthetics from design research

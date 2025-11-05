@@ -7,12 +7,13 @@ description: Universal video generation using fal-video execute_custom_model (PR
 
 > Expert guide for using fal-video execute_custom_model to access 22+ video and image generation models, plus HeyGen for specialized talking head avatars.
 
-**PRIMARY TOOL:** fal-video MCP (mcp__fal-video__execute_custom_model)
+**PRIMARY TOOL:** fal-video MCP (mcp**fal-video**execute_custom_model)
 **SPECIALIZED TOOL:** HeyGen MCP (for avatars only)
 
 ## When to Use Veotools
 
 ### Primary Use Cases:
+
 1. **Image-to-Video Animation** (MOST COMMON)
    - Animate static diagrams for YouTube explanations
    - Bring technical architecture diagrams to life
@@ -33,6 +34,7 @@ description: Universal video generation using fal-video execute_custom_model (PR
    - Data flow visualizations
 
 ### When NOT to Use Veotools:
+
 - Talking head videos → Use HeyGen instead
 - Cinematic storytelling → Use Sora 2 instead
 - Long-form videos (>10s) → Veo is optimized for 5-8s clips
@@ -43,9 +45,11 @@ description: Universal video generation using fal-video execute_custom_model (PR
 ## Available Veo Models
 
 ### Veo 3.1 (Newest - 2025)
+
 ```
 veo-3.1-generate-preview
 ```
+
 - **Best for**: Highest quality, newest capabilities
 - **Generation time**: ~120 seconds
 - **Default duration**: 8 seconds
@@ -55,15 +59,18 @@ veo-3.1-generate-preview
 ```
 veo-3.1-fast-generate-preview
 ```
+
 - **Best for**: Quick iterations, testing prompts
 - **Generation time**: ~60 seconds
 - **Default duration**: 8 seconds
 - **Supports**: Audio, same quality as standard but faster
 
 ### Veo 3.0 (Current Generation)
+
 ```
 veo-3.0-generate-preview
 ```
+
 - **Best for**: Balanced quality and speed
 - **Generation time**: ~120 seconds
 - **Default duration**: 8 seconds
@@ -73,6 +80,7 @@ veo-3.0-generate-preview
 ```
 veo-3.0-fast-generate-preview
 ```
+
 - **Best for**: Rapid prototyping
 - **Generation time**: ~60 seconds
 - **Default duration**: 8 seconds
@@ -80,9 +88,11 @@ veo-3.0-fast-generate-preview
 - **When to use**: Testing multiple variations quickly
 
 ### Veo 2.0 (Legacy)
+
 ```
 veo-2.0-generate-001
 ```
+
 - **Best for**: Specific feature requirements
 - **Generation time**: ~180 seconds (slower)
 - **Default duration**: 5 seconds
@@ -97,6 +107,7 @@ veo-2.0-generate-001
 ## Model Selection Guide
 
 ### Decision Tree:
+
 ```
 Need custom duration/fps?
 ├─ YES → Use veo-2.0-generate-001
@@ -116,6 +127,7 @@ Need custom duration/fps?
 ```
 
 ### Recommendations by Use Case:
+
 - **YouTube diagram animations**: veo-3.0-generate-preview (16:9)
 - **Social media clips**: veo-3.1-fast-generate-preview (9:16)
 - **Rapid testing**: veo-3.1-fast-generate-preview
@@ -131,6 +143,7 @@ Need custom duration/fps?
 **80% of veotools usage is image-to-video animation**
 
 ### Workflow:
+
 1. Create static image (diagram, infographic, workflow)
 2. Write detailed motion prompt describing desired animation
 3. Specify aspect ratio matching image
@@ -139,6 +152,7 @@ Need custom duration/fps?
 ### Prompt Engineering for Image Animation:
 
 #### Structure:
+
 ```
 [Motion Description] | [Style & Aesthetics] | [Technical Specs]
 ```
@@ -146,6 +160,7 @@ Need custom duration/fps?
 #### Examples from Production:
 
 **Example 1: Architecture Diagram**
+
 ```
 Image: mcp_architecture_diagram.png
 Prompt:
@@ -161,6 +176,7 @@ style, maintaining all text clarity and professional presentation quality
 ```
 
 **Example 2: Workflow Visualization**
+
 ```
 Image: skill_execution_flow.png
 Prompt:
@@ -175,6 +191,7 @@ between stages, maintaining all text clarity and numbered sequence visibility
 ```
 
 **Example 3: Checklist Animation**
+
 ```
 Image: build_checklist.png
 Prompt:
@@ -189,6 +206,7 @@ YouTube video sidebar, maintaining readability at smaller overlay size
 ### Prompt Best Practices:
 
 #### DO:
+
 - **Be specific about motion sequence**: "first X, then Y, finally Z"
 - **Mention colors by hex code**: "#C15F3C" for brand consistency
 - **Specify text preservation**: "maintaining all text clarity"
@@ -198,6 +216,7 @@ YouTube video sidebar, maintaining readability at smaller overlay size
 - **Use temporal words**: "first", "then", "finally", "simultaneously"
 
 #### DON'T:
+
 - **Avoid vague motion**: ❌ "make it move" → ✅ "pulse gently then expand"
 - **Skip text concerns**: Always mention text/readability
 - **Forget brand colors**: Use specific hex codes
@@ -208,30 +227,35 @@ YouTube video sidebar, maintaining readability at smaller overlay size
 ### Animation Types:
 
 #### 1. Sequential Reveals
+
 ```
 "Elements appear one by one from left to right"
 "Stages light up in numbered sequence 1→2→3→4"
 ```
 
 #### 2. Connection Animations
+
 ```
 "Lines extend from center node to outer nodes"
 "Data flows through pipeline from input to output"
 ```
 
 #### 3. Pulsing/Highlighting
+
 ```
 "Header gently pulses with orange glow"
 "Active section highlights with subtle color shift"
 ```
 
 #### 4. Parallel Activations
+
 ```
 "All skill boxes illuminate simultaneously"
 "Multiple branches activate in parallel"
 ```
 
 #### 5. Progressive Builds
+
 ```
 "Diagram assembles from components sequentially"
 "Architecture builds layer by layer"
@@ -244,12 +268,15 @@ YouTube video sidebar, maintaining readability at smaller overlay size
 ### Supported Formats:
 
 #### 16:9 (Landscape - 1280x720)
+
 ```json
 {
   "aspect_ratio": "16:9"
 }
 ```
+
 **Best for:**
+
 - YouTube videos
 - YouTube Shorts (landscape mode)
 - Desktop presentations
@@ -260,12 +287,15 @@ YouTube video sidebar, maintaining readability at smaller overlay size
 **Output:** 1280px × 720px, 24fps, 8s
 
 #### 9:16 (Portrait - 720x1280)
+
 ```json
 {
   "aspect_ratio": "9:16"
 }
 ```
+
 **Best for:**
+
 - Instagram Reels
 - TikTok
 - YouTube Shorts (vertical mode)
@@ -276,14 +306,14 @@ YouTube video sidebar, maintaining readability at smaller overlay size
 
 ### Platform Decision Matrix:
 
-| Platform | Format | Model | Duration | Notes |
-|----------|--------|-------|----------|-------|
-| YouTube (main) | 16:9 | veo-3.0-generate-preview | 8s | Standard video player |
-| YouTube Shorts | 9:16 | veo-3.1-fast-generate-preview | 8s | Vertical mobile |
-| Instagram Reels | 9:16 | veo-3.1-fast-generate-preview | 8s | Auto-looping |
-| TikTok | 9:16 | veo-3.1-fast-generate-preview | 8s | Short attention span |
-| LinkedIn | 16:9 | veo-3.0-generate-preview | 8s | Professional aesthetic |
-| Twitter/X | 9:16 | veo-3.1-fast-generate-preview | 8s | Mobile-first |
+| Platform        | Format | Model                         | Duration | Notes                  |
+| --------------- | ------ | ----------------------------- | -------- | ---------------------- |
+| YouTube (main)  | 16:9   | veo-3.0-generate-preview      | 8s       | Standard video player  |
+| YouTube Shorts  | 9:16   | veo-3.1-fast-generate-preview | 8s       | Vertical mobile        |
+| Instagram Reels | 9:16   | veo-3.1-fast-generate-preview | 8s       | Auto-looping           |
+| TikTok          | 9:16   | veo-3.1-fast-generate-preview | 8s       | Short attention span   |
+| LinkedIn        | 16:9   | veo-3.0-generate-preview      | 8s       | Professional aesthetic |
+| Twitter/X       | 9:16   | veo-3.1-fast-generate-preview | 8s       | Mobile-first           |
 
 ---
 
@@ -292,6 +322,7 @@ YouTube video sidebar, maintaining readability at smaller overlay size
 ### Veotools Async Pattern:
 
 #### Step 1: Start Generation
+
 ```javascript
 {
   "kind": "image",  // or "text"
@@ -307,6 +338,7 @@ YouTube video sidebar, maintaining readability at smaller overlay size
 ```
 
 **Returns:**
+
 ```json
 {
   "job_id": "267c8942-0126-47c8-83bc-09c2ea27da96",
@@ -316,6 +348,7 @@ YouTube video sidebar, maintaining readability at smaller overlay size
 ```
 
 #### Step 2: Poll Status
+
 ```javascript
 // Check job status every 5-10 seconds
 {
@@ -324,6 +357,7 @@ YouTube video sidebar, maintaining readability at smaller overlay size
 ```
 
 **Response during processing:**
+
 ```json
 {
   "job_id": "267c8942-0126-47c8-83bc-09c2ea27da96",
@@ -336,6 +370,7 @@ YouTube video sidebar, maintaining readability at smaller overlay size
 ```
 
 **Response when complete:**
+
 ```json
 {
   "job_id": "267c8942-0126-47c8-83bc-09c2ea27da96",
@@ -358,6 +393,7 @@ YouTube video sidebar, maintaining readability at smaller overlay size
 ```
 
 ### Status Flow:
+
 ```
 pending → processing → complete
                      → failed
@@ -366,20 +402,20 @@ pending → processing → complete
 ### Managing Multiple Jobs:
 
 **Track multiple generations simultaneously:**
+
 ```javascript
 const jobs = [
-  { id: "job-1", prompt: "Diagram 1 animation", status: "processing" },
-  { id: "job-2", prompt: "Diagram 2 animation", status: "pending" },
-  { id: "job-3", prompt: "Diagram 3 animation", status: "complete" }
+  { id: 'job-1', prompt: 'Diagram 1 animation', status: 'processing' },
+  { id: 'job-2', prompt: 'Diagram 2 animation', status: 'pending' },
+  { id: 'job-3', prompt: 'Diagram 3 animation', status: 'complete' },
 ];
 
 // Poll all pending/processing jobs
-jobs
-  .filter(j => j.status !== 'complete')
-  .forEach(j => checkJobStatus(j.id));
+jobs.filter((j) => j.status !== 'complete').forEach((j) => checkJobStatus(j.id));
 ```
 
 **Best practices:**
+
 - Poll every 5-10 seconds (not faster, to avoid rate limits)
 - Show progress to user: "Generating... 45%"
 - Handle failures gracefully
@@ -393,6 +429,7 @@ jobs
 ### File Locations:
 
 **Default output structure:**
+
 ```
 bmad/agents/ai-video-agent/ai-video-agent-sidecar/outputs/veotools/
 ├── videos/
@@ -409,6 +446,7 @@ bmad/agents/ai-video-agent/ai-video-agent-sidecar/outputs/veotools/
 ```
 
 **NEW REQUIREMENT (as of 2025-10-28):**
+
 ```
 MANDATORY OUTPUT LOCATION:
 {project-root}/outputs/{MM-DD-YYYY}/{session-name}/
@@ -428,6 +466,7 @@ outputs/10-28-2025/youtube-mac-setup-research/
 ### Metadata Preservation:
 
 **Always save metadata JSON:**
+
 ```json
 {
   "video_id": "755c5c67-69f9-4133-a6a3-41a70cc59adc",
@@ -452,13 +491,15 @@ outputs/10-28-2025/youtube-mac-setup-research/
 ## Cost & Performance
 
 ### Estimated Costs:
+
 - **Veo 3.1**: ~$0.30-0.50 per 8-second clip
 - **Veo 3.0**: ~$0.20-0.40 per 8-second clip
 - **Veo 2.0**: ~$0.15-0.30 per 5-second clip
 
-*(Actual costs depend on Google AI pricing - verify current rates)*
+_(Actual costs depend on Google AI pricing - verify current rates)_
 
 ### Generation Times:
+
 - **veo-3.1-fast**: ~60 seconds
 - **veo-3.0-fast**: ~60 seconds
 - **veo-3.1-standard**: ~120 seconds
@@ -466,6 +507,7 @@ outputs/10-28-2025/youtube-mac-setup-research/
 - **veo-2.0**: ~180 seconds
 
 ### Optimization Tips:
+
 1. **Use fast models for iterations**: Test prompts with -fast variants
 2. **Batch similar jobs**: Generate all diagrams in one session
 3. **Reuse successful prompts**: Save working patterns
@@ -490,6 +532,7 @@ AI Video Agent Decision Tree:
 ### When AI Video Agent Should Route to Veotools:
 
 **Trigger phrases:**
+
 - "animate this diagram"
 - "bring this workflow to life"
 - "add motion to this image"
@@ -499,6 +542,7 @@ AI Video Agent Decision Tree:
 - "process flow animation"
 
 **NOT veotools:**
+
 - "talking head video" → HeyGen
 - "cinematic b-roll" → Sora 2
 - "avatar presentation" → HeyGen
@@ -509,6 +553,7 @@ AI Video Agent Decision Tree:
 ## Common Patterns & Templates
 
 ### Pattern 1: Sequential Node Activation
+
 ```
 [Central element] pulses/glows, then [connections/lines] extend to
 [surrounding elements], each [element] lights up as connections reach
@@ -516,6 +561,7 @@ them | [Style description] | [Aspect ratio] for [platform]
 ```
 
 ### Pattern 2: Top-to-Bottom Flow
+
 ```
 [Starting element] activates first, then [flow/progression] moves
 downward through [intermediate stages], finally [end result] appears |
@@ -523,6 +569,7 @@ downward through [intermediate stages], finally [end result] appears |
 ```
 
 ### Pattern 3: Parallel Reveals
+
 ```
 [Multiple elements] illuminate simultaneously, each with [unique
 characteristic], creating [overall effect] | [Aesthetic guidance] |
@@ -530,6 +577,7 @@ characteristic], creating [overall effect] | [Aesthetic guidance] |
 ```
 
 ### Pattern 4: Checklist Progression
+
 ```
 [Header/title] pulses gently, [list items] highlight in sequence from
 [start] to [end], suggesting [completion/progress] | [Motion intensity] |
@@ -543,29 +591,37 @@ characteristic], creating [overall effect] | [Aesthetic guidance] |
 ### Common Issues:
 
 #### Text Becoming Unreadable:
+
 **Problem**: Animation blurs or distorts text
 **Solution**: Add "maintaining all text clarity" or "keeping text perfectly crisp" to prompt
 
 #### Wrong Aspect Ratio:
+
 **Problem**: Video is squashed or stretched
 **Solution**: Always specify `"aspect_ratio": "16:9"` or `"9:16"` in options
 
 #### Motion Too Subtle/Strong:
+
 **Problem**: Animation barely visible or too distracting
 **Solution**: Adjust motion descriptors:
+
 - Too subtle → "pronounced", "clear", "obvious"
 - Too strong → "subtle", "gentle", "minimal"
 
 #### Job Stuck in Processing:
+
 **Problem**: Status stays "processing" for >5 minutes
 **Solution**:
+
 1. Check remote_operation_id in job metadata
 2. Wait up to 10 minutes for complex animations
 3. If stuck >10min, cancel and retry with simpler prompt
 
 #### Generation Failed:
+
 **Problem**: Status becomes "failed"
 **Solution**:
+
 1. Check error_message in job metadata
 2. Common fixes:
    - Image too large → Resize to <2MB
@@ -578,6 +634,7 @@ characteristic], creating [overall effect] | [Aesthetic guidance] |
 ## Best Practices Summary
 
 ### ✅ DO:
+
 1. **Write detailed motion prompts** with temporal sequence
 2. **Specify hex colors** for brand consistency
 3. **Mention text preservation** explicitly
@@ -588,6 +645,7 @@ characteristic], creating [overall effect] | [Aesthetic guidance] |
 8. **Track job IDs** for multi-generation sessions
 
 ### ❌ DON'T:
+
 1. **Skip aspect ratio** specification
 2. **Use vague motion terms** like "make it cool"
 3. **Forget about text clarity** in animations
@@ -601,18 +659,21 @@ characteristic], creating [overall effect] | [Aesthetic guidance] |
 ## Quick Reference
 
 ### Model Quick Pick:
+
 - **Fast iteration** → veo-3.1-fast-generate-preview
 - **Production quality** → veo-3.1-generate-preview
 - **Custom duration** → veo-2.0-generate-001
 - **Proven reliable** → veo-3.0-generate-preview
 
 ### Aspect Ratio Quick Pick:
+
 - **YouTube main** → 16:9
 - **Instagram/TikTok** → 9:16
 - **LinkedIn** → 16:9
 - **Twitter/X** → 9:16
 
 ### Prompt Template:
+
 ```
 [Sequential motion description with temporal markers] |
 [Style/aesthetic/professional requirements] |
@@ -620,6 +681,7 @@ characteristic], creating [overall effect] | [Aesthetic guidance] |
 ```
 
 ### Job Status Check:
+
 ```javascript
 Poll every 5-10 seconds
 Expected time: 60-180s depending on model
@@ -631,16 +693,19 @@ Status: pending → processing → complete
 ## Related Skills & Tools
 
 ### Complementary Skills:
+
 - **ai-image-generator** skills - Create static diagrams BEFORE animating
 - **youtube-thumbnail-mastery** - Thumbnail psychology for video covers
 - **platform-specs** - Video format requirements per platform
 
 ### Complementary MCP Tools:
-- **mcp__heygen__** - For talking head videos
-- **mcp__sora2__** - For cinematic b-roll
-- **mcp__veo3__** - Alternative Veo implementation (if available)
+
+- **mcp**heygen**** - For talking head videos
+- **mcp**sora2**** - For cinematic b-roll
+- **mcp**veo3**** - Alternative Veo implementation (if available)
 
 ### When to Combine:
+
 1. Generate diagram with ai-image-generator
 2. Animate with veotools
 3. Combine with HeyGen talking head for explainer video
@@ -651,21 +716,26 @@ Status: pending → processing → complete
 ## References
 
 ### Example Operations:
+
 See `bmad/agents/ai-video-agent/ai-video-agent-sidecar/outputs/veotools/ops/` for real production examples:
+
 - Architecture diagram animations
 - Workflow visualizations
 - Checklist progressions
 - Technical diagram reveals
 
 ### Model Capabilities:
+
 See `outputs/veotools/ops/models.json` for complete model list and capability matrix
 
 ### Output Examples:
+
 See `outputs/veotools/videos/` for generated video examples
 
 ---
 
 ## Version History
+
 - **v1.0** (2025-10-28): Initial comprehensive veotools mastery skill
   - Complete model guide (Veo 2.0/3.0/3.1)
   - Image-to-video animation patterns

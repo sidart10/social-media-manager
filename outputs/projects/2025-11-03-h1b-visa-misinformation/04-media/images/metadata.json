@@ -1,0 +1,161 @@
+{
+  "images": [
+    {
+      "filename": "slide-1-title.png",
+      "quality_score": 8.5,
+      "platform_optimized_for": "LinkedIn",
+      "used_in_platforms": ["linkedin"],
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762241223/social-media-images/social-media/h1b-misinformation/slide-1-title.png",
+      "cost": 0.039,
+      "skill_used": "universal-image-generation",
+      "style_applied": "tldraw-hand-drawn",
+      "mcp_tool": "nanobanana",
+      "created_at": "2025-11-03T23:23:09Z",
+      "description": "Title slide with hook about Florida H-1B ban"
+    },
+    {
+      "filename": "slide-2-lca-funnel.png",
+      "quality_score": 9.0,
+      "platform_optimized_for": "LinkedIn",
+      "used_in_platforms": ["linkedin"],
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762241676/social-media-images/social-media/h1b-misinformation/slide-2-lca-funnel.png",
+      "cost": 0.039,
+      "skill_used": "universal-image-generation",
+      "style_applied": "tldraw-hand-drawn",
+      "mcp_tool": "nanobanana",
+      "created_at": "2025-11-03T23:32:20Z",
+      "description": "LCA funnel visualization (900k → 400k → 141k) - FIXED: removed color code artifact, improved clarity"
+    },
+    {
+      "filename": "slide-3-new-vs-renewals.png",
+      "quality_score": 8.8,
+      "platform_optimized_for": "LinkedIn",
+      "used_in_platforms": ["linkedin"],
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762241677/social-media-images/social-media/h1b-misinformation/slide-3-new-vs-renewals.png",
+      "cost": 0.039,
+      "skill_used": "universal-image-generation",
+      "style_applied": "tldraw-hand-drawn",
+      "mcp_tool": "nanobanana",
+      "created_at": "2025-11-03T23:33:32Z",
+      "description": "New vs Renewals pie chart (35% vs 65%) - FIXED: removed color code artifact"
+    },
+    {
+      "filename": "slide-4-it-staffing-firms.png",
+      "quality_score": 8.6,
+      "platform_optimized_for": "LinkedIn",
+      "used_in_platforms": ["linkedin"],
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762242258/social-media-images/social-media/h1b-misinformation/slide-4-it-staffing-firms.png",
+      "cost": 0.039,
+      "skill_used": "universal-image-generation",
+      "style_applied": "tldraw-hand-drawn",
+      "mcp_tool": "nanobanana",
+      "created_at": "2025-11-03T23:43:06Z",
+      "description": "IT Staffing Firms low-wage tier bar chart - FIXED: Cognizant spelling, TCS $80k, 95% Indian nationals"
+    },
+    {
+      "filename": "slide-5-tech-companies.png",
+      "quality_score": 8.9,
+      "platform_optimized_for": "LinkedIn",
+      "used_in_platforms": ["linkedin"],
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762241679/social-media-images/social-media/h1b-misinformation/slide-5-tech-companies.png",
+      "cost": 0.039,
+      "skill_used": "universal-image-generation",
+      "style_applied": "tldraw-hand-drawn",
+      "mcp_tool": "nanobanana",
+      "created_at": "2025-11-03T23:33:44Z",
+      "description": "Tech Companies high-wage tier bar chart - FIXED: removed color code artifact"
+    },
+    {
+      "filename": "slide-6-india-backlog.png",
+      "quality_score": 9.2,
+      "platform_optimized_for": "LinkedIn",
+      "used_in_platforms": ["linkedin"],
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762241681/social-media-images/social-media/h1b-misinformation/slide-6-india-backlog.png",
+      "cost": 0.039,
+      "skill_used": "universal-image-generation",
+      "style_applied": "tldraw-hand-drawn",
+      "mcp_tool": "nanobanana",
+      "created_at": "2025-11-03T23:33:56Z",
+      "description": "India Backlog Crisis infographic (140-year wait) - FIXED: removed text artifacts"
+    },
+    {
+      "filename": "slide-7-reforms-cta.png",
+      "quality_score": 8.5,
+      "platform_optimized_for": "LinkedIn",
+      "used_in_platforms": ["linkedin"],
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762241231/social-media-images/social-media/h1b-misinformation/slide-7-reforms-cta.png",
+      "cost": 0.039,
+      "skill_used": "universal-image-generation",
+      "style_applied": "tldraw-hand-drawn",
+      "mcp_tool": "nanobanana",
+      "created_at": "2025-11-03T23:26:36Z",
+      "description": "Evidence-Based Reforms and CTA slide"
+    }
+  ],
+    {
+      "filename": "broll-sterling-tweet.png",
+      "type": "b_roll",
+      "purpose": "Tweet screenshot for video B-roll insert (0:05-0:07)",
+      "resolution": "1024x1024",
+      "format": "png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762291615/social-media-images/social-media/h1b-visa-misinformation/broll-sterling-tweet.png",
+      "cloudinary_asset_id": "27908fe797980f3bb8b7f1346533193c",
+      "used_in_platforms": [],
+      "quality_score": 8.5,
+      "production_details": {
+        "tool_used": "gpt-image-1",
+        "style": "twitter_screenshot_realistic",
+        "cost": "$0.08"
+      },
+      "created_at": "2025-11-04T21:24:17Z"
+    },
+    {
+      "filename": "broll-funnel-graphic.png",
+      "type": "b_roll",
+      "purpose": "LCA to USCIS funnel diagram for video B-roll (0:29-0:32)",
+      "resolution": "1024x1024",
+      "format": "png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762291616/social-media-images/social-media/h1b-visa-misinformation/broll-funnel-graphic.png",
+      "cloudinary_asset_id": "ad450ec34a980f550c8e66231d27c6dc",
+      "used_in_platforms": [],
+      "quality_score": 9.0,
+      "production_details": {
+        "tool_used": "gpt-image-1",
+        "style": "professional_infographic",
+        "cost": "$0.08"
+      },
+      "created_at": "2025-11-04T21:24:57Z"
+    },
+    {
+      "filename": "broll-salary-comparison.png",
+      "type": "b_roll",
+      "purpose": "IT staffing vs Tech giants split-screen (0:52-0:55)",
+      "resolution": "1024x1024",
+      "format": "png",
+      "cloudinary_url": "https://res.cloudinary.com/dnezawwer/image/upload/v1762291617/social-media-images/social-media/h1b-visa-misinformation/broll-salary-comparison.png",
+      "cloudinary_asset_id": "4c958a9e7a471ca742510cf4243461e1",
+      "used_in_platforms": [],
+      "quality_score": 9.2,
+      "production_details": {
+        "tool_used": "gpt-image-1",
+        "style": "split_screen_comparison_vertical",
+        "cost": "$0.08"
+      },
+      "created_at": "2025-11-04T21:25:43Z"
+    }
+  ],
+  "project_summary": {
+    "project_name": "H1B Visa Misinformation Correction",
+    "total_images": 10,
+    "carousel_images": 7,
+    "broll_images": 3,
+    "average_quality": 8.8,
+    "total_cost": 0.708,
+    "carousel_cost": 0.468,
+    "broll_cost": 0.24,
+    "carousel_style": "tldraw hand-drawn casual aesthetic",
+    "broll_style": "professional infographic",
+    "platforms": "LinkedIn carousel + YouTube Shorts/Reels/TikTok B-roll",
+    "cloudinary_uploaded": true
+  }
+}

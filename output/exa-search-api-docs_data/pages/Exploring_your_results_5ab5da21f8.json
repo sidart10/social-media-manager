@@ -1,8 +1,0 @@
-{
-  "title": "Exploring your results",
-  "content": "Source: https://docs.exa.ai/websets/dashboard/walkthroughs/Exploring-your-results\n\nExplore your Websets matched results, view summaries, criteria justification\n\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/lFgIdWKgJQc\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen referrerpolicy=\"strict-origin-when-cross-origin\" />\n\n<Info>\n  Matched Result: matched results are results that match all of your criteria.\n</Info>\n\n<Info>\n  Evaluated Results: evaluated results are all the possible results that were analyzed by Websets - some were deemed matches, some were deemed that they did not comply with your criteria.\n</Info>",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#exploring-your-results",
-  "links": []
-}

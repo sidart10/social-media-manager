@@ -53,12 +53,12 @@ agent:
 
   skills:
     content_generation:
-      - name: "post-writer"
-        purpose: "Generate platform-specific social media posts (LinkedIn, Twitter, Substack) using proven creator formulas"
-        replaces: "Broken autogen in write-posts workflow"
-      - name: "video-script-writer"
-        purpose: "Create YouTube and short-form video scripts with retention tactics"
-        replaces: "Broken autogen-script-generator in write-scripts workflow"
+      - name: "content-writer"
+        purpose: "Universal content generator for ALL platforms (LinkedIn, Twitter, YouTube, Instagram, Substack) with optional voice styles or Sid's authentic voice default"
+        platforms: "LinkedIn, Twitter, YouTube, Instagram, Substack"
+        formats: "Posts, threads, long-form, scripts, captions, newsletters"
+        voice_system: "DEFAULT: Sid's voice (memories) | OPTIONAL: greg_isenberg, deedydas, justin_welsh, paul_graham, mrbeast, ali_abdaal"
+        absorbed: "Replaced post-writer, video-script-writer, voice-matcher, platform-formatter"
 
     research_intelligence:
       - name: "deep-web-research"
@@ -76,20 +76,11 @@ agent:
         purpose: "Analyze social media profiles across platforms for patterns and insights"
       - name: "evidence-tracker"
         purpose: "Track sources, citations, and evidence for transparency"
-      - name: "voice-matcher"
-        purpose: "Apply and maintain user's authentic voice profile"
-        reference: "Voice v2.0 in memories.md (8/10 confidence, 77 posts analyzed)"
-
-    formatting_optimization:
-      - name: "platform-formatter"
-        purpose: "Format and validate content for specific platforms with Python automation"
-        automation: "python3 scripts/format_platform.py"
 
     strategy_growth:
       - name: "youtube-growth-mastery"
         purpose: "YouTube growth strategies and optimization"
-      - name: "youtube-thumbnail-mastery"
-        purpose: "Thumbnail design strategies for high CTR"
+      # Note: youtube-thumbnail-design is now handled by Zoe (visual production specialist)
 
   menu:
     - trigger: research-topic
@@ -114,11 +105,11 @@ agent:
 
     - trigger: write-posts
       workflow: "bmad/agents/content-intelligence/jarvis-sidecar/workflows/write-posts/workflow.yaml"
-      description: "Write platform-specific posts in your voice (LinkedIn, Twitter, Instagram)"
+      description: "Write platform-specific posts in your voice (uses content-writer skill - LinkedIn, Twitter, Instagram, Substack)"
 
     - trigger: write-scripts
       workflow: "bmad/agents/content-intelligence/jarvis-sidecar/workflows/write-scripts/workflow.yaml"
-      description: "Write video scripts with timing and visual direction (YouTube, Reels, TikTok)"
+      description: "Write video scripts with timing and visual direction (uses content-writer skill - YouTube, Reels, TikTok)"
 
     - trigger: discover-capabilities
       action: "Browse 5000+ Apify scrapers and recommend new data sources for your workflows"

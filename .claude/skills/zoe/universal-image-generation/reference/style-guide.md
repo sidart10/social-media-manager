@@ -1,4 +1,5 @@
 # Style Guide Registry
+
 ## Universal Image Generation - Complete Style Library
 
 > **Purpose:** Central index of ALL available style guides across all categories
@@ -13,12 +14,14 @@
 This registry organizes styles by **category** (what type of content) and within data visualization, by **aesthetic style** and **chart type**.
 
 **Selection process:**
+
 1. Identify your category (social-media, youtube, personalization, data-visualization)
 2. Within category, select specific style or chart type
 3. Load appropriate guide(s)
 4. Generate image using guide specifications
 
 **For data visualization:** You'll typically load TWO guides:
+
 - One from `styles/` (aesthetic treatment)
 - One from `chart-types/` (data structure)
 
@@ -28,15 +31,16 @@ This registry organizes styles by **category** (what type of content) and within
 
 Professional content for social platforms with platform-specific design systems.
 
-| Style Name | File | Platform | Use When | Primary Tool | Resolution |
-|------------|------|----------|----------|--------------|------------|
-| **Instagram Vibrant Minimal** | `social-media/instagram-vibrant-minimal.md` | Instagram | Bright, clean IG feed posts | nanobanana | 1080×1080 |
-| **Instagram Story Vertical** | `social-media/instagram-story-vertical.md` | Instagram | Full-screen vertical stories | nanobanana | 1080×1920 |
-| **LinkedIn Dark Monochrome** | `social-media/linkedin-dark-monochrome.md` | LinkedIn | Professional B2B content, carousels | gpt-image-1 | 1536×1024 |
-| **Twitter Thread Carousel** | `social-media/twitter-thread-carousel.md` | Twitter/X | Multi-slide thread posts | gpt-image-1 | 1600×900 |
-| **Facebook Engagement Posts** | `social-media/facebook-engagement-posts.md` | Facebook | High-engagement FB graphics | nanobanana | 1200×630 |
+| Style Name                    | File                                        | Platform  | Use When                            | Primary Tool | Resolution |
+| ----------------------------- | ------------------------------------------- | --------- | ----------------------------------- | ------------ | ---------- |
+| **Instagram Vibrant Minimal** | `social-media/instagram-vibrant-minimal.md` | Instagram | Bright, clean IG feed posts         | nanobanana   | 1080×1080  |
+| **Instagram Story Vertical**  | `social-media/instagram-story-vertical.md`  | Instagram | Full-screen vertical stories        | nanobanana   | 1080×1920  |
+| **LinkedIn Dark Monochrome**  | `social-media/linkedin-dark-monochrome.md`  | LinkedIn  | Professional B2B content, carousels | gpt-image-1  | 1536×1024  |
+| **Twitter Thread Carousel**   | `social-media/twitter-thread-carousel.md`   | Twitter/X | Multi-slide thread posts            | gpt-image-1  | 1600×900   |
+| **Facebook Engagement Posts** | `social-media/facebook-engagement-posts.md` | Facebook  | High-engagement FB graphics         | nanobanana   | 1200×630   |
 
 **Key characteristics:**
+
 - Platform-optimized dimensions
 - Brand-safe color palettes
 - Mobile-first readability
@@ -51,15 +55,16 @@ Professional content for social platforms with platform-specific design systems.
 
 Video platform content optimized for click-through rate and platform specifications.
 
-| Style Name | File | Video Type | Use When | Key Features | Tool |
-|------------|------|------------|----------|--------------|------|
-| **Thumbnail CTR Optimized** | `youtube/thumbnail-ctr-optimized.md` | Any | Maximize clicks, general purpose | Bold text, emotion, contrast | gpt-image-1 |
-| **Thumbnail Educational** | `youtube/thumbnail-educational.md` | Tutorials, How-to | Teaching content, step-by-step | Clean, clear, informative | gpt-image-1 |
-| **Thumbnail Tech Review** | `youtube/thumbnail-tech-review.md` | Tech, Reviews | Product reviews, comparisons | Product focus, specs visible | gpt-image-1 |
-| **Thumbnail Gaming** | `youtube/thumbnail-gaming.md` | Gaming, Entertainment | Gaming content, streaming | Dramatic, action-packed | nanobanana |
-| **Community Post Design** | `youtube/community-post-design.md` | Community | YouTube community tab posts | Square format, engaging | nanobanana |
+| Style Name                  | File                                 | Video Type            | Use When                         | Key Features                 | Tool        |
+| --------------------------- | ------------------------------------ | --------------------- | -------------------------------- | ---------------------------- | ----------- |
+| **Thumbnail CTR Optimized** | `youtube/thumbnail-ctr-optimized.md` | Any                   | Maximize clicks, general purpose | Bold text, emotion, contrast | gpt-image-1 |
+| **Thumbnail Educational**   | `youtube/thumbnail-educational.md`   | Tutorials, How-to     | Teaching content, step-by-step   | Clean, clear, informative    | gpt-image-1 |
+| **Thumbnail Tech Review**   | `youtube/thumbnail-tech-review.md`   | Tech, Reviews         | Product reviews, comparisons     | Product focus, specs visible | gpt-image-1 |
+| **Thumbnail Gaming**        | `youtube/thumbnail-gaming.md`        | Gaming, Entertainment | Gaming content, streaming        | Dramatic, action-packed      | nanobanana  |
+| **Community Post Design**   | `youtube/community-post-design.md`   | Community             | YouTube community tab posts      | Square format, engaging      | nanobanana  |
 
 **Key characteristics:**
+
 - 16:9 aspect ratio (1280×720px required)
 - Bold text (3-7 words max, large font)
 - Expressive faces (emotion drives CTR)
@@ -68,6 +73,7 @@ Video platform content optimized for click-through rate and platform specificati
 - Readable at 156×88px (mobile thumbnail size)
 
 **Supporting files:**
+
 - `youtube/youtube-specs.md` - Official YouTube requirements
 - `youtube/creation-modes.md` - With face vs without face
 - `youtube/design-best-practices.md` - What performs (research-backed)
@@ -80,13 +86,14 @@ Video platform content optimized for click-through rate and platform specificati
 
 Custom character integration using FAL LoRA models for consistent branded imagery.
 
-| Style Name | File | Context | Use When | Key Features | Tool |
-|------------|------|---------|----------|--------------|------|
+| Style Name                    | File                                           | Context  | Use When                                           | Key Features                             | Tool            |
+| ----------------------------- | ---------------------------------------------- | -------- | -------------------------------------------------- | ---------------------------------------- | --------------- |
 | **Sid Professional Headshot** | `personalization/sid-professional-headshot.md` | Business | LinkedIn, business profiles, professional contexts | Navy blazer, neutral bg, studio lighting | fal (flux-lora) |
-| **Sid Casual Lifestyle** | `personalization/sid-casual-lifestyle.md` | Casual | Relatable content, approachable imagery | Casual attire, natural settings | fal (flux-lora) |
-| **Sid Speaking Engagement** | `personalization/sid-speaking-engagement.md` | Events | Conferences, presentations, speaking | Stage/podium setting, professional | fal (flux-lora) |
+| **Sid Casual Lifestyle**      | `personalization/sid-casual-lifestyle.md`      | Casual   | Relatable content, approachable imagery            | Casual attire, natural settings          | fal (flux-lora) |
+| **Sid Speaking Engagement**   | `personalization/sid-speaking-engagement.md`   | Events   | Conferences, presentations, speaking               | Stage/podium setting, professional       | fal (flux-lora) |
 
 **Key characteristics:**
+
 - Consistent likeness (FAL LoRA model)
 - Trigger word required: "Photo of SIDAI"
 - Professional quality (7-pillar scoring)
@@ -94,12 +101,14 @@ Custom character integration using FAL LoRA models for consistent branded imager
 - Brand consistency maintained
 
 **Supporting files:**
+
 - `personalization/fal-custom-model-workflow.md` - Complete FAL flux-lora workflow
 - `personalization/model-training-guide.md` - How LoRA model was trained
 - `personalization/prompt-templates.md` - Scenario-specific prompts
 - `personalization/usage-examples.md` - Tested configurations
 
 **Model details:**
+
 - Endpoint: `fal-ai/flux-lora`
 - LoRA path: `https://v3b.fal.media/files/b/zebra/Jujtmkl_X-v5x0KxjM3gm_pytorch_lora_weights.safetensors`
 - Guidance scale: 3.5
@@ -117,31 +126,32 @@ Charts, graphs, infographics, and dashboards. **Two-dimensional selection requir
 
 Choose visual treatment based on context and audience:
 
-| Style Name | File | Description | Best For | Color Palette | Tool |
-|------------|------|-------------|----------|---------------|------|
-| **tldraw Style** | `data-visualization/styles/tldraw-style.md` | Hand-drawn, casual, approachable whiteboard aesthetic | Explainers, blogs, informal presentations | Warm earth tones (#F5F5DC, #8B7355, #6B8E23) | nanobanana |
-| **Muted Professional** | `data-visualization/styles/muted-professional.md` | Corporate, subtle colors, clean formal design | Business reports, executive decks, enterprise | Navy/gray/muted (#1E3A8A, #6B7280, #2563EB) | gpt-image-1 |
-| **Vibrant Presentation** | `data-visualization/styles/vibrant-presentation.md` | Bold colors, high energy, attention-grabbing | Marketing, sales presentations, energetic | Saturated bold (#EF4444, #8B5CF6, #F59E0B) | nanobanana |
-| **Dark Mode Analytics** | `data-visualization/styles/dark-mode-analytics.md` | Dark bg, neon accents, tech aesthetic | Dashboards, analytics products, tech UI | Dark + neon (#0B0B0B, #00F5FF, #FF006E) | gpt-image-1 |
-| **Minimalist Modern** | `data-visualization/styles/minimalist-modern.md` | Clean, spacious, elegant, sophisticated | Portfolio, showcases, high-end design | Monochrome + 1 accent (#000000, #FFFFFF, #3B82F6) | gpt-image-1 |
-| **Infographic Editorial** | `data-visualization/styles/infographic-editorial.md` | Magazine-style, editorial quality, illustrative | Articles, long-form content, publications | Curated palette, editorial treatment | gpt-image-1 |
+| Style Name                | File                                                 | Description                                           | Best For                                      | Color Palette                                     | Tool        |
+| ------------------------- | ---------------------------------------------------- | ----------------------------------------------------- | --------------------------------------------- | ------------------------------------------------- | ----------- |
+| **tldraw Style**          | `data-visualization/styles/tldraw-style.md`          | Hand-drawn, casual, approachable whiteboard aesthetic | Explainers, blogs, informal presentations     | Warm earth tones (#F5F5DC, #8B7355, #6B8E23)      | nanobanana  |
+| **Muted Professional**    | `data-visualization/styles/muted-professional.md`    | Corporate, subtle colors, clean formal design         | Business reports, executive decks, enterprise | Navy/gray/muted (#1E3A8A, #6B7280, #2563EB)       | gpt-image-1 |
+| **Vibrant Presentation**  | `data-visualization/styles/vibrant-presentation.md`  | Bold colors, high energy, attention-grabbing          | Marketing, sales presentations, energetic     | Saturated bold (#EF4444, #8B5CF6, #F59E0B)        | nanobanana  |
+| **Dark Mode Analytics**   | `data-visualization/styles/dark-mode-analytics.md`   | Dark bg, neon accents, tech aesthetic                 | Dashboards, analytics products, tech UI       | Dark + neon (#0B0B0B, #00F5FF, #FF006E)           | gpt-image-1 |
+| **Minimalist Modern**     | `data-visualization/styles/minimalist-modern.md`     | Clean, spacious, elegant, sophisticated               | Portfolio, showcases, high-end design         | Monochrome + 1 accent (#000000, #FFFFFF, #3B82F6) | gpt-image-1 |
+| **Infographic Editorial** | `data-visualization/styles/infographic-editorial.md` | Magazine-style, editorial quality, illustrative       | Articles, long-form content, publications     | Curated palette, editorial treatment              | gpt-image-1 |
 
 ### Dimension 2: Chart Type
 
 Choose data structure based on what you're showing:
 
-| Chart Type | File | Use When | Data Structure | Combines With |
-|------------|------|----------|----------------|---------------|
-| **Bar Charts** | `data-visualization/chart-types/bar-charts.md` | Comparing categories, rankings | Categorical + numerical | Any style above |
-| **Line Graphs** | `data-visualization/chart-types/line-graphs.md` | Trends over time, continuous change | Time-series, sequential | Any style above |
-| **Pie Charts** | `data-visualization/chart-types/pie-charts.md` | Parts of whole (use sparingly, max 5 slices) | Proportional data | Muted-professional, Minimalist |
-| **Scatter Plots** | `data-visualization/chart-types/scatter-plots.md` | Correlations, relationships between variables | Two numerical variables | Muted-professional, Minimalist |
-| **Heatmaps** | `data-visualization/chart-types/heatmaps.md` | Density patterns, matrices, intensity | Matrix/grid data | Dark-mode, Minimalist |
-| **Flow Diagrams** | `data-visualization/chart-types/flow-diagrams.md` | Process flows, systems, workflows | Sequential connections | tldraw, Minimalist |
-| **Network Graphs** | `data-visualization/chart-types/network-graphs.md` | Relationships, connections, networks | Node-edge relationships | Dark-mode, Vibrant |
-| **Dashboards** | `data-visualization/chart-types/dashboards.md` | Multi-metric views, KPI collections | Multiple metrics | Muted-professional, Dark-mode |
+| Chart Type         | File                                               | Use When                                      | Data Structure          | Combines With                  |
+| ------------------ | -------------------------------------------------- | --------------------------------------------- | ----------------------- | ------------------------------ |
+| **Bar Charts**     | `data-visualization/chart-types/bar-charts.md`     | Comparing categories, rankings                | Categorical + numerical | Any style above                |
+| **Line Graphs**    | `data-visualization/chart-types/line-graphs.md`    | Trends over time, continuous change           | Time-series, sequential | Any style above                |
+| **Pie Charts**     | `data-visualization/chart-types/pie-charts.md`     | Parts of whole (use sparingly, max 5 slices)  | Proportional data       | Muted-professional, Minimalist |
+| **Scatter Plots**  | `data-visualization/chart-types/scatter-plots.md`  | Correlations, relationships between variables | Two numerical variables | Muted-professional, Minimalist |
+| **Heatmaps**       | `data-visualization/chart-types/heatmaps.md`       | Density patterns, matrices, intensity         | Matrix/grid data        | Dark-mode, Minimalist          |
+| **Flow Diagrams**  | `data-visualization/chart-types/flow-diagrams.md`  | Process flows, systems, workflows             | Sequential connections  | tldraw, Minimalist             |
+| **Network Graphs** | `data-visualization/chart-types/network-graphs.md` | Relationships, connections, networks          | Node-edge relationships | Dark-mode, Vibrant             |
+| **Dashboards**     | `data-visualization/chart-types/dashboards.md`     | Multi-metric views, KPI collections           | Multiple metrics        | Muted-professional, Dark-mode  |
 
 **Supporting files:**
+
 - `data-visualization/_category-guide.md` - Overview, when to use, core principles
 - All chart types cross-reference WCAG 2.1 accessibility standards
 
@@ -168,6 +178,7 @@ dark-mode-analytics.md + heatmaps.md
 ```
 
 **Process:**
+
 1. Load aesthetic guide (colors, typography, mood)
 2. Load chart-type guide (structure, data requirements)
 3. Merge characteristics into unified prompt
@@ -180,14 +191,14 @@ dark-mode-analytics.md + heatmaps.md
 
 Universal foundations applied to every image generation:
 
-| Foundation Element | File | Purpose |
-|-------------------|------|---------|
-| **Emily's JSON Methodology** | `core/emily-json-methodology.md` | 10-section comprehensive prompt structure |
-| **Visual Prompt Mastery** | `core/visual-prompt-mastery.md` | 30 validated pattern examples, engagement rules |
-| **7-Pillar Quality Framework** | `core/quality-framework.md` | Evaluation system (Clarity, Technical, Composition, Color, Typography, Professionalism, Prompt Accuracy) |
-| **Tool Selection Matrix** | `core/tool-selection-matrix.md` | Decision tree: gpt-image-1 vs nanobanana vs fal |
-| **Negative Prompts Library** | `core/negative-prompts-library.md` | 100+ categorized negative prompts (min 10 per image) |
-| **Emily's 30 Examples** | `core/emily-30-examples.csv` | Real validated prompts with engagement data |
+| Foundation Element             | File                               | Purpose                                                                                                  |
+| ------------------------------ | ---------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| **Emily's JSON Methodology**   | `core/emily-json-methodology.md`   | 10-section comprehensive prompt structure                                                                |
+| **Visual Prompt Mastery**      | `core/visual-prompt-mastery.md`    | 30 validated pattern examples, engagement rules                                                          |
+| **7-Pillar Quality Framework** | `core/quality-framework.md`        | Evaluation system (Clarity, Technical, Composition, Color, Typography, Professionalism, Prompt Accuracy) |
+| **Tool Selection Matrix**      | `core/tool-selection-matrix.md`    | Decision tree: gpt-image-1 vs nanobanana vs fal                                                          |
+| **Negative Prompts Library**   | `core/negative-prompts-library.md` | 100+ categorized negative prompts (min 10 per image)                                                     |
+| **Emily's 30 Examples**        | `core/emily-30-examples.csv`       | Real validated prompts with engagement data                                                              |
 
 ---
 
@@ -195,13 +206,13 @@ Universal foundations applied to every image generation:
 
 Complete technical specifications for all image generation tools:
 
-| Tool Guide | File | Purpose |
-|------------|------|---------|
-| **Complete MCP Tools** | `tools/mcp-tools-complete.md` | All parameters for gpt-image-1, nanobanana, fal-video |
-| **gpt-image-1 Details** | Section in mcp-tools-complete.md | DALL-E 3 parameters, when to use |
-| **nanobanana Details** | Section in mcp-tools-complete.md | Gemini 2.5 Flash parameters, modes |
-| **FAL Image Models** | Section in mcp-tools-complete.md | imagen-4, flux-kontext, flux-lora |
-| **Tool Comparison Matrix** | `core/tool-selection-matrix.md` | Side-by-side feature comparison |
+| Tool Guide                 | File                             | Purpose                                               |
+| -------------------------- | -------------------------------- | ----------------------------------------------------- |
+| **Complete MCP Tools**     | `tools/mcp-tools-complete.md`    | All parameters for gpt-image-1, nanobanana, fal-video |
+| **gpt-image-1 Details**    | Section in mcp-tools-complete.md | DALL-E 3 parameters, when to use                      |
+| **nanobanana Details**     | Section in mcp-tools-complete.md | Gemini 2.5 Flash parameters, modes                    |
+| **FAL Image Models**       | Section in mcp-tools-complete.md | imagen-4, flux-kontext, flux-lora                     |
+| **Tool Comparison Matrix** | `core/tool-selection-matrix.md`  | Side-by-side feature comparison                       |
 
 ---
 
@@ -209,12 +220,12 @@ Complete technical specifications for all image generation tools:
 
 Real-world scenarios with complete generation flows:
 
-| Example Set | File | Covers |
-|-------------|------|--------|
-| **Social Media** | `examples/social-media-examples.md` | Instagram, LinkedIn, Twitter complete scenarios |
-| **YouTube Thumbnails** | `youtube/creation-modes.md` + examples | Both modes (scratch + with face) |
-| **Personalization** | `personalization/usage-examples.md` | Sid headshot scenarios |
-| **Data Visualization** | Each chart-type .md | Examples within each guide |
+| Example Set            | File                                   | Covers                                          |
+| ---------------------- | -------------------------------------- | ----------------------------------------------- |
+| **Social Media**       | `examples/social-media-examples.md`    | Instagram, LinkedIn, Twitter complete scenarios |
+| **YouTube Thumbnails** | `youtube/creation-modes.md` + examples | Both modes (scratch + with face)                |
+| **Personalization**    | `personalization/usage-examples.md`    | Sid headshot scenarios                          |
+| **Data Visualization** | Each chart-type .md                    | Examples within each guide                      |
 
 ---
 
@@ -222,13 +233,13 @@ Real-world scenarios with complete generation flows:
 
 Starting point templates for different image types:
 
-| Template | File | Adapted From | Use For |
-|----------|------|--------------|---------|
-| **Base Template** | `templates/json-base-template.json` | json-prompt-generator/video-scene.json | Any image (universal starting point) |
-| **Social Media** | Generated from base | Remove motion sections, add platform specs | Social posts |
-| **Thumbnail** | Generated from base | 16:9 emphasis, bold text sections | YouTube thumbnails |
-| **Personalization** | Generated from base | Add LoRA trigger, scenario context | Sid images |
-| **Data Viz** | Generated from base | Add data accuracy, accessibility sections | Charts/graphs |
+| Template            | File                                | Adapted From                               | Use For                              |
+| ------------------- | ----------------------------------- | ------------------------------------------ | ------------------------------------ |
+| **Base Template**   | `templates/json-base-template.json` | json-prompt-generator/video-scene.json     | Any image (universal starting point) |
+| **Social Media**    | Generated from base                 | Remove motion sections, add platform specs | Social posts                         |
+| **Thumbnail**       | Generated from base                 | 16:9 emphasis, bold text sections          | YouTube thumbnails                   |
+| **Personalization** | Generated from base                 | Add LoRA trigger, scenario context         | Sid images                           |
+| **Data Viz**        | Generated from base                 | Add data accuracy, accessibility sections  | Charts/graphs                        |
 
 **Note:** Templates are used as starting point, then populated with category/style-specific characteristics.
 
@@ -388,38 +399,48 @@ fal-video (image models) - Use for:
    - Follow template structure (see any existing guide)
 
 3. **Required sections** (all style guides must include):
+
    ```markdown
    # Style Name
 
    ## Overview
+
    Brief description
 
    ## When to Use
+
    - Best for scenarios
    - Avoid for scenarios
 
    ## Visual Characteristics
+
    - Color palette (with hex codes)
    - Typography (fonts, sizes, weights)
    - Layout rules
    - Mood/aesthetic
 
    ## Prompt Patterns
+
    Key phrases that achieve this style
 
    ## JSON Template Adjustments
+
    Which sections to emphasize
 
    ## Style-Specific Negative Prompts
+
    What to avoid for this style
 
    ## MCP Tool Recommendation
+
    Which tool works best and why
 
    ## Examples
+
    3-5 real examples with prompts
 
    ## Quality Criteria
+
    How to evaluate (7-10 criteria)
    ```
 
@@ -440,6 +461,7 @@ fal-video (image models) - Use for:
    - Note any quirks or special requirements
 
 **Naming conventions:**
+
 - Format: `{category}-{descriptor}.md` OR `{descriptor}-{subcategory}.md`
 - Examples:
   - `linkedin-professional-minimal.md`
@@ -481,22 +503,26 @@ Data Visualization Chart Types:
 ## 🔍 Search/Filter Helpers
 
 **By tool:**
+
 - gpt-image-1 optimized: muted-professional, minimalist-modern, infographic-editorial, linkedin-dark-monochrome, all YouTube thumbnails
 - nanobanana optimized: tldraw-style, vibrant-presentation, instagram styles, facebook-engagement
 - fal-video required: All personalization (Sid images via flux-lora)
 
 **By formality:**
+
 - Formal: muted-professional, minimalist-modern, linkedin-dark-monochrome
 - Casual: tldraw-style, instagram-vibrant-minimal
 - Balanced: dark-mode-analytics, thumbnail-ctr-optimized
 
 **By color palette:**
+
 - Muted/subtle: muted-professional, minimalist-modern
 - Vibrant/bold: vibrant-presentation, instagram-vibrant, thumbnail styles
 - Dark theme: dark-mode-analytics, linkedin-dark-monochrome
 - Earth tones: tldraw-style
 
 **By accessibility:**
+
 - WCAG 2.1 AA certified: All data-visualization styles, linkedin-dark-monochrome
 - High contrast: dark-mode-analytics, muted-professional, thumbnail-ctr-optimized
 - Colorblind-safe: muted-professional, minimalist-modern, tldraw-style
@@ -518,6 +544,7 @@ Data Visualization Chart Types:
 ✅ **Accessible** - WCAG 2.1 baked into data viz guides
 
 **Current coverage:**
+
 - 5 social media styles (5 platforms)
 - 5 YouTube styles (5 video types)
 - 3 personalization styles (3 Sid contexts)
@@ -526,6 +553,7 @@ Data Visualization Chart Types:
 - **Total: 27 distinct style guides**
 
 **Growth potential:** Unlimited
+
 - Add new platforms (TikTok, Pinterest, Reddit)
 - Add new chart types (sankey, treemap, violin plot)
 - Add new aesthetic styles (retro, futuristic, organic)
@@ -536,12 +564,14 @@ Data Visualization Chart Types:
 ## 📚 Related Documentation
 
 **Cross-references:**
+
 - `../../../bmad/modules/json-prompt-generator/` - Base JSON templates
 - `../../../bmad/modules/platform-specs/` - Platform requirements
 - `../../platform-specs/SKILL.md` - Platform specifications skill
 - `../../mcp-tool-selection/SKILL.md` - Tool selection logic skill
 
 **External resources:**
+
 - WCAG 2.1 Guidelines: https://www.w3.org/TR/WCAG21/
 - Color Oracle (colorblind simulator): https://www.colororacle.org/
 - Contrast Checker: https://contrast-ratio.com/
@@ -552,4 +582,4 @@ Data Visualization Chart Types:
 
 **This registry is the complete index for the universal-image-generation skill's extensible style library. All guides follow consistent structure and research-backed standards.**
 
-*Last updated: November 3, 2025 by BMad Builder*
+_Last updated: November 3, 2025 by BMad Builder_

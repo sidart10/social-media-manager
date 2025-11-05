@@ -2,13 +2,13 @@
 # Publishing Agent - Workflow-specific settings
 
 # API Integration Preferences
-prefer_postiz: true  # Use Postiz as PRIMARY, direct APIs as backup
-require_cloudinary_for_postiz: true  # Must upload to Cloudinary before Postiz scheduling
+prefer_postiz: true # Use Postiz as PRIMARY, direct APIs as backup
+require_cloudinary_for_postiz: true # Must upload to Cloudinary before Postiz scheduling
 
 # Rate Limit Tracking
 track_rate_limits: true
-warn_at_percent: 80  # Warn when 80% of rate limit used
-block_at_percent: 100  # Block when rate limit exhausted
+warn_at_percent: 80 # Warn when 80% of rate limit used
+block_at_percent: 100 # Block when rate limit exhausted
 
 # Output Preferences
 save_publish_confirmations: true
@@ -18,8 +18,8 @@ update_notion_after_publish: true
 # Platform Defaults
 default_twitter_privacy: "public"
 default_linkedin_privacy: "public"
-default_youtube_privacy: "private"  # YouTube uploads as Private for safety
+default_youtube_privacy: "private" # YouTube uploads as Private for safety
 
 # Postiz Settings
-postiz_auto_schedule: "next-free-slot"  # Or specific time
+postiz_auto_schedule: "next-free-slot" # Or specific time
 postiz_validate_per_platform: true

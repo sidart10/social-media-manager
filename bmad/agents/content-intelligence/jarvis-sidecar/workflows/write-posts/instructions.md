@@ -17,10 +17,11 @@
   </action>
 
 <action>Load voice profile:
-  - Read: {agent-folder}/jarvis-sidecar/memories.md
-  - Extract: Enhanced Voice Profile v2.0 section
-  - Check confidence: Should be ≥8/10 for best results
-</action>
+
+- Read: {agent-folder}/jarvis-sidecar/memories.md
+- Extract: Enhanced Voice Profile v2.0 section
+- Check confidence: Should be ≥8/10 for best results
+  </action>
 
 <check if="voice_profile not found">
   <action>Display: "⚠️ No voice profile found!"</action>
@@ -117,7 +118,7 @@
 <step n="3" goal="Generate post content using content-writer skill">
   <action>Load and follow {skills_folder}/content-writer/SKILL.md</action>
 
-  <action>Generate {platform} post per SKILL.md instructions with parameters:
+<action>Generate {platform} post per SKILL.md instructions with parameters:
 
     Topic: {topic}
     Platform: {platform}
@@ -148,7 +149,7 @@
 
   </action>
 
-  <action>Store result as {{generated_post}}</action>
+<action>Store result as {{generated_post}}</action>
 
 <action>Display generated post to user for review</action>
 

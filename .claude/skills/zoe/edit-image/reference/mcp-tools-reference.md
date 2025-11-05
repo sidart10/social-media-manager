@@ -4,9 +4,10 @@
 
 ---
 
-## Primary Tool: mcp__nanobanana__generate_image (Edit Mode)
+## Primary Tool: mcp**nanobanana**generate_image (Edit Mode)
 
 **Why nanobanana for editing?**
+
 - ⭐ **Best-in-class pixel-perfect precision**
 - Targeted transformations (change one thing, preserve everything else)
 - No full image recreation (unlike OpenAI's soft-mask)
@@ -53,41 +54,45 @@
 ## Usage Pattern
 
 ### Basic Edit
+
 ```yaml
 mcp__nanobanana__generate_image:
-  prompt: "Blur background significantly, f/1.4 depth of field effect, keep subject sharp"
-  mode: "edit"
-  input_image_path_1: "/path/to/original.png"
+  prompt: 'Blur background significantly, f/1.4 depth of field effect, keep subject sharp'
+  mode: 'edit'
+  input_image_path_1: '/path/to/original.png'
   n: 1
 ```
 
 ### Edit with Negatives
+
 ```yaml
 mcp__nanobanana__generate_image:
-  prompt: "Remove watermark from top-right corner, fill naturally"
-  mode: "edit"
-  input_image_path_1: "/path/to/watermarked.png"
-  negative_prompt: "artifacts, visible edits, color mismatch, quality degradation"
+  prompt: 'Remove watermark from top-right corner, fill naturally'
+  mode: 'edit'
+  input_image_path_1: '/path/to/watermarked.png'
+  negative_prompt: 'artifacts, visible edits, color mismatch, quality degradation'
   n: 1
 ```
 
 ### Edit with System Instruction
+
 ```yaml
 mcp__nanobanana__generate_image:
-  prompt: "Enhance colors: boost saturation by 20%, warmer tone"
-  mode: "edit"
-  input_image_path_1: "/path/to/image.png"
-  system_instruction: "Make subtle natural adjustments, maintain photorealistic quality, no over-processing"
+  prompt: 'Enhance colors: boost saturation by 20%, warmer tone'
+  mode: 'edit'
+  input_image_path_1: '/path/to/image.png'
+  system_instruction: 'Make subtle natural adjustments, maintain photorealistic quality, no over-processing'
   n: 1
 ```
 
 ### Generate Variations
+
 ```yaml
 mcp__nanobanana__generate_image:
-  prompt: "Blur background - testing different strengths"
-  mode: "edit"
-  input_image_path_1: "/path/to/image.png"
-  n: 3  # Get 3 blur strength variations
+  prompt: 'Blur background - testing different strengths'
+  mode: 'edit'
+  input_image_path_1: '/path/to/image.png'
+  n: 3 # Get 3 blur strength variations
 ```
 
 ---
@@ -97,81 +102,93 @@ mcp__nanobanana__generate_image:
 ### 1. Background Manipulation
 
 **Blur**:
+
 ```yaml
-prompt: "Blur background with gaussian blur, f/1.4 depth of field, keep subject sharp"
-mode: "edit"
+prompt: 'Blur background with gaussian blur, f/1.4 depth of field, keep subject sharp'
+mode: 'edit'
 ```
 
 **Replace**:
+
 ```yaml
-prompt: "Replace background with solid white (#FFFFFF), keep subject exactly as is, clean edge separation"
-mode: "edit"
+prompt: 'Replace background with solid white (#FFFFFF), keep subject exactly as is, clean edge separation'
+mode: 'edit'
 ```
 
 **Extend**:
+
 ```yaml
-prompt: "Extend background naturally to fill canvas, match existing background texture and lighting"
-mode: "edit"
+prompt: 'Extend background naturally to fill canvas, match existing background texture and lighting'
+mode: 'edit'
 ```
 
 ### 2. Color Adjustments
 
 **White Balance**:
+
 ```yaml
-prompt: "Correct white balance to neutral 5500K, remove yellow cast, natural colors"
-mode: "edit"
+prompt: 'Correct white balance to neutral 5500K, remove yellow cast, natural colors'
+mode: 'edit'
 ```
 
 **Saturation**:
+
 ```yaml
-prompt: "Increase color saturation by 20%, more vibrant, Instagram aesthetic"
-mode: "edit"
+prompt: 'Increase color saturation by 20%, more vibrant, Instagram aesthetic'
+mode: 'edit'
 ```
 
 **Color Grading**:
+
 ```yaml
-prompt: "Apply teal and orange color grade, cinematic look, maintain contrast"
-mode: "edit"
+prompt: 'Apply teal and orange color grade, cinematic look, maintain contrast'
+mode: 'edit'
 ```
 
 ### 3. Object Manipulation
 
 **Remove**:
+
 ```yaml
-prompt: "Remove the person from background, extend environment naturally to fill space, seamless removal"
-mode: "edit"
+prompt: 'Remove the person from background, extend environment naturally to fill space, seamless removal'
+mode: 'edit'
 ```
 
 **Add**:
+
 ```yaml
-prompt: "Add small green plant in ceramic pot on left desk corner, match scene lighting"
-mode: "edit"
+prompt: 'Add small green plant in ceramic pot on left desk corner, match scene lighting'
+mode: 'edit'
 ```
 
 **Replace**:
+
 ```yaml
-prompt: "Replace red coffee cup with white mug, same position and lighting"
-mode: "edit"
+prompt: 'Replace red coffee cup with white mug, same position and lighting'
+mode: 'edit'
 ```
 
 ### 4. Quality Enhancement
 
 **Sharpen**:
+
 ```yaml
-prompt: "Enhance sharpness on main subject, increase edge definition, professional crisp look"
-mode: "edit"
+prompt: 'Enhance sharpness on main subject, increase edge definition, professional crisp look'
+mode: 'edit'
 ```
 
 **Denoise**:
+
 ```yaml
-prompt: "Reduce noise in shadow areas, smooth dark regions, maintain detail in highlights"
-mode: "edit"
+prompt: 'Reduce noise in shadow areas, smooth dark regions, maintain detail in highlights'
+mode: 'edit'
 ```
 
 **Contrast**:
+
 ```yaml
-prompt: "Increase overall contrast by 15%, richer blacks, brighter highlights"
-mode: "edit"
+prompt: 'Increase overall contrast by 15%, richer blacks, brighter highlights'
+mode: 'edit'
 ```
 
 ---
@@ -207,6 +224,7 @@ Save as: final.png
 ```
 
 **Benefits**:
+
 - Each edit focused and controlled
 - Easy rollback to any version
 - Gradual quality building
@@ -219,11 +237,13 @@ Save as: final.png
 ### Be Explicit About Preservation
 
 ❌ **Vague**:
+
 ```
 "Blur the background"
 ```
 
 ✅ **Specific**:
+
 ```
 "Blur background with strong gaussian blur, f/1.4 depth of field, while keeping the main subject completely sharp and in perfect focus, preserve all subject details"
 ```
@@ -231,11 +251,13 @@ Save as: final.png
 ### Describe Desired Outcome
 
 ❌ **Unclear**:
+
 ```
 "Fix the colors"
 ```
 
 ✅ **Clear**:
+
 ```
 "Remove yellow color cast, adjust white balance to neutral 5500K, make colors natural and balanced, preserve skin tones"
 ```
@@ -243,6 +265,7 @@ Save as: final.png
 ### Specify What NOT to Change
 
 ✅ **Include preservation**:
+
 ```
 "Increase contrast by 15% while maintaining current color palette and preserving highlight detail"
 ```
@@ -274,21 +297,27 @@ Save as: final.png
 ## Best Practices Summary
 
 ### 1. Specificity Wins
+
 Be precise about what to change and what to preserve
 
 ### 2. One Change Per Turn
+
 For best control, edit one thing at a time (multi-turn)
 
 ### 3. Save Versions
+
 Keep original, save each edit iteration
 
 ### 4. Test Variations
+
 Use n=2 or n=3 to get options
 
 ### 5. Preserve Quality
+
 Mention "maintain quality", "preserve details" in prompts
 
 ### 6. Use Negatives
+
 Include negative_prompt to prevent degradation
 
 ---
@@ -313,6 +342,7 @@ Include negative_prompt to prevent degradation
 ```
 
 **Workflow Action**:
+
 ```bash
 cp "{result.file_path}" "outputs/edited/image_v2.png"
 ```

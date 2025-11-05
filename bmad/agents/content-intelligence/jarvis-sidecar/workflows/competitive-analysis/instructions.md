@@ -75,23 +75,17 @@ Proceed? [yes/no]
 <step n="2" goal="Analyze all profiles using profile-analysis skill">
   <action>Load and follow {skills_folder}/profile-analysis/SKILL.md</action>
 
-  <action>For each profile URL in {your_profiles}:
-    Execute profile analysis per SKILL.md instructions:
-    - Profile URL: {url}
-    - Mark as: "yours"
-    - Extract: content patterns, top performers, hooks, topics, formats, timing
-  </action>
+<action>For each profile URL in {your_profiles}:
+Execute profile analysis per SKILL.md instructions: - Profile URL: {url} - Mark as: "yours" - Extract: content patterns, top performers, hooks, topics, formats, timing
+</action>
 
-  <action>For each profile URL in {competitor_profiles}:
-    Execute profile analysis per SKILL.md instructions:
-    - Profile URL: {url}
-    - Mark as: "competitor"
-    - Extract: same data as your profiles for comparison
-  </action>
+<action>For each profile URL in {competitor_profiles}:
+Execute profile analysis per SKILL.md instructions: - Profile URL: {url} - Mark as: "competitor" - Extract: same data as your profiles for comparison
+</action>
 
-  <action>Track total cost across all analyses</action>
+<action>Track total cost across all analyses</action>
 
-  <template-output>all_profiles_analyzed</template-output>
+<template-output>all_profiles_analyzed</template-output>
 </step>
 
 <step n="3" goal="Compare and identify gaps">

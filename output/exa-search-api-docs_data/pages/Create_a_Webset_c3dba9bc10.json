@@ -1,8 +1,0 @@
-{
-  "title": "Create a Webset",
-  "content": "Source: https://docs.exa.ai/websets/api/websets/create-a-webset\n\npost /v0/websets\nCreates a new Webset with optional search, import, and enrichment configurations. The Webset will automatically begin processing once created.\n\nYou can specify an `externalId` to reference the Webset with your own identifiers for easier integration.",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#create-a-webset",
-  "links": []
-}

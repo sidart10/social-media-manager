@@ -1,8 +1,0 @@
-{
-  "title": "Cancel a running Search",
-  "content": "Source: https://docs.exa.ai/websets/api/websets/searches/cancel-a-running-search\n\npost /v0/websets/{webset}/searches/{id}/cancel\nCancels a currently running Search.\n\nYou can cancel all searches at once by using the `websets/:webset/cancel` endpoint.",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#cancel-a-running-search",
-  "links": []
-}

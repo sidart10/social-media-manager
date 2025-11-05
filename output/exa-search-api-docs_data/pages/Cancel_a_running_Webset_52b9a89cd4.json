@@ -1,8 +1,0 @@
-{
-  "title": "Cancel a running Webset",
-  "content": "Source: https://docs.exa.ai/websets/api/websets/cancel-a-running-webset\n\npost /v0/websets/{id}/cancel\nCancels all operations being performed on a Webset.\n\nAny enrichment or search will be stopped and the Webset will be marked as `idle`.",
-  "code_samples": [],
-  "headings": [],
-  "url": "llms-txt#cancel-a-running-webset",
-  "links": []
-}
